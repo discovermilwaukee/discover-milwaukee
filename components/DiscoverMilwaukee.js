@@ -3315,17 +3315,18 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <h2 style={{ color: c.cream, fontSize: isMobile ? "20px" : "24px", fontWeight: "900", textTransform: "uppercase" }}>The Reach</h2>
               </div>
               <div style={{ textAlign: "center", padding: isMobile ? "24px" : "36px", background: `linear-gradient(135deg, ${c.yellow} 0%, ${c.orange} 100%)`, borderRadius: "20px", marginBottom: "24px" }}>
-                <div style={{ fontSize: isMobile ? "36px" : "56px", fontWeight: "900", color: c.green1 }}>22.1 MILLION</div>
+                <div style={{ fontSize: isMobile ? "36px" : "56px", fontWeight: "900", color: c.green1 }}>37.1 MILLION</div>
                 <div style={{ fontSize: isMobile ? "14px" : "18px", color: c.green1, fontWeight: "700", letterSpacing: "2px" }}>VIEWS IN 2025</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "10px" : "14px" }}>
-                {[{ n: "Instagram", v: "13.4M" }, { n: "Facebook", v: "4.5M" }, { n: "TikTok", v: "4.2M" }, { n: "TOTAL", v: "22.1M" }].map(p => (
+                {[{ n: "Instagram", v: "13.4M" }, { n: "Facebook", v: "19.5M*" }, { n: "TikTok", v: "4.2M" }, { n: "TOTAL", v: "37.1M" }].map(p => (
                   <div key={p.n} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "14px", padding: isMobile ? "14px" : "20px", textAlign: "center", border: p.n === "TOTAL" ? `2px solid ${c.yellow}` : "none" }}>
                     <div style={{ color: p.n === "TOTAL" ? c.yellow : c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "900" }}>{p.v}</div>
                     <div style={{ color: c.beige, fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>{p.n}</div>
                   </div>
                 ))}
               </div>
+              <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", marginTop: "12px", opacity: 0.7 }}>*Projected based on numbers from 11/25 onward</p>
               
               {/* Quick CTA Box */}
               <div 
