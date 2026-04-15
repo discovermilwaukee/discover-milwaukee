@@ -12,11 +12,9 @@ const c = {
 };
 
 const milestones = [
-  { year: "2012", event: "Jordan & Todd meet at UW-Milwaukee" },
   { year: "2018", event: "Discover Milwaukee launches" },
   { year: "2020", event: "Reached 100K followers" },
-  { year: "2023", event: "Launched weekly newsletter" },
-  { year: "2025", event: "37M+ annual views" },
+  { year: "2025", event: "37M+ annual views, 200K+ community" },
   { year: "2026", event: "Expanded to full digital platform" },
 ];
 
@@ -349,8 +347,8 @@ export default function About() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "24px" }}>
                 {[
                   { number: "37M+", label: "Annual Views" },
+                  { number: "200K+", label: "Community Followers" },
                   { number: "7+", label: "Years Running" },
-                  { number: "100K+", label: "Newsletter Subscribers" },
                   { number: "2", label: "Founders, Still Here" },
                 ].map((stat, i) => (
                   <div key={i}>
