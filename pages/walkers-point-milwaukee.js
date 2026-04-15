@@ -66,6 +66,27 @@ const breweries = [
     known: "Farm-to-glass brewing, locally-sourced ingredients, seasonal releases",
     vibe: "Sustainable, community-minded, garden-to-glass",
   },
+  {
+    name: "Third Space Brewing",
+    address: "1505 W St Paul Ave, Milwaukee, WI 53233",
+    description: "Just north of Walker's Point proper, Third Space is close enough to include on any neighborhood crawl. Their award-winning beers are balanced, clean, and approachable—perfect counterpoint to the experimental breweries further south.",
+    known: "Happy Place Midwest Pale Ale, Unite Milwaukee Lager, Upward Spiral IPA",
+    vibe: "Award-winning, approachable, brewery-district adjacent",
+  },
+  {
+    name: "Great Lakes Distillery",
+    address: "616 W Virginia St, Milwaukee, WI 53204",
+    description: "While technically a distillery, this Walker's Point institution deserves mention. Wisconsin's first craft distillery since Prohibition produces gin, vodka, and their famous Kinnickinnic whiskey. Tours and tastings available.",
+    known: "Kinnickinnic Whiskey, Rehorst Gin, cocktail tours",
+    vibe: "Craft spirits, industrial-chic, educational tours",
+  },
+  {
+    name: "1840 Brewing Company",
+    address: "342 E Ward St, Milwaukee, WI 53207",
+    description: "Just south in Bay View but walkable from Walker's Point, 1840 focuses on farmhouse ales, sours, and wild fermentation. Their rustic approach to brewing fits perfectly with the neighborhood's artisanal spirit.",
+    known: "Farmhouse ales, sours, wild fermentation",
+    vibe: "Rustic, farmhouse style, sour specialists",
+  },
 ];
 
 // LGBTQ+ Nightlife
@@ -75,6 +96,12 @@ const nightlife = [
     address: "418 E Wells St (with Walker's Point roots)",
     description: "Milwaukee's oldest LGBTQ+ bar, operating since 1968. While the current location is on the edge of downtown, This Is It! is deeply woven into Milwaukee's queer history and remains a beloved gathering spot. Classic cocktails, no pretense, and a welcoming vibe for all.",
     vibe: "Historic, welcoming, classic cocktail bar",
+  },
+  {
+    name: "La Cage",
+    address: "801 S 2nd St, Milwaukee, WI 53204",
+    description: "The anchor of Walker's Point nightlife. La Cage is Milwaukee's largest LGBTQ+ dance club with multiple levels, legendary drag shows, and weekend dance parties that go late. A community institution for over 30 years.",
+    vibe: "Dance club, drag shows, community anchor",
   },
   {
     name: "Kruz",
@@ -88,21 +115,81 @@ const nightlife = [
     description: "Dance, drinks, and drag. D.I.X. brings high-energy nightlife to Walker's Point with themed nights, drag shows, and a dance floor that keeps going late. It's unapologetically queer and proudly over-the-top.",
     vibe: "High energy, drag shows, dance floor",
   },
+  {
+    name: "Woody's",
+    address: "1579 S 2nd St, Milwaukee, WI 53204",
+    description: "Neighborhood sports bar with a welcoming LGBTQ+ vibe. Pool tables, darts, and big screens make this the spot to watch the game with a friendly crowd. A more relaxed alternative to the dance clubs.",
+    vibe: "Sports bar, games, neighborhood hangout",
+  },
+  {
+    name: "Walker's Pint",
+    address: "818 S 2nd St, Milwaukee, WI 53204",
+    description: "Lesbian-owned neighborhood bar welcoming everyone. Pool, darts, jukebox, and genuine community. The kind of place where regulars know your name and newcomers feel instantly at home.",
+    vibe: "Lesbian bar, neighborhood gem, inclusive",
+  },
+  {
+    name: "Fluid",
+    address: "819 S 2nd St, Milwaukee, WI 53204",
+    description: "Sleek cocktail lounge bringing a more upscale vibe to Walker's Point. Craft cocktails, DJs, and a stylish space that feels like downtown but with neighborhood heart.",
+    vibe: "Upscale cocktails, DJs, stylish",
+  },
+  {
+    name: "Harbor Room",
+    address: "117 E Greenfield Ave, Milwaukee, WI 53204",
+    description: "Leather bar with a dedicated following and themed events throughout the week. A cornerstone of Milwaukee's leather community with a welcoming attitude for respectful visitors.",
+    vibe: "Leather bar, themed events, community space",
+  },
+  {
+    name: "Boom",
+    address: "625 S 2nd St, Milwaukee, WI 53204",
+    description: "Video bar and dance club with themed nights, karaoke, and a fun party atmosphere. A go-to for weekend dancing and special events. Connected to the Room, offering two vibes in one complex.",
+    vibe: "Video bar, dance club, party atmosphere",
+  },
+  {
+    name: "The Room",
+    address: "625 S 2nd St, Milwaukee, WI 53204",
+    description: "The chill counterpart to Boom, offering a more relaxed bar atmosphere. Pool, video games, and conversation. Perfect for warming up before hitting the dance floor next door.",
+    vibe: "Chill bar, games, pre-gaming spot",
+  },
+  {
+    name: "Triangle",
+    address: "135 E National Ave, Milwaukee, WI 53204",
+    description: "Neighborhood bar with a strong community focus. Regular events, friendly bartenders, and a mix of locals who've been coming for years. Unpretentious and welcoming.",
+    vibe: "Neighborhood bar, community focus, welcoming",
+  },
 ];
 
 // Street Art locations
 const streetArt = [
   {
-    title: "5th Street Murals",
-    description: "The stretch of S 5th Street between National and Virginia features some of the most Instagram-worthy murals in the city. Local and national artists have transformed warehouse walls into massive, colorful statements.",
+    title: "5th Street Mural Corridor",
+    description: "The heart of Walker's Point street art. The stretch of S 5th Street between National and Virginia features 8+ large-scale murals including the iconic Milwaukee skyline piece, abstract geometric works, and portraits by local artists. Start here for the most concentrated collection.",
+    muralCount: "8+",
   },
   {
-    title: "Black Cat Alley Adjacent Works",
-    description: "While Black Cat Alley itself is in the East Side, many of the same artists have left their mark throughout Walker's Point. Keep your eyes open for smaller-scale works on garage doors and building sides.",
+    title: "National Avenue Gallery Row",
+    description: "Gallery exteriors along National Ave feature rotating murals and permanent installations. Look for the colorful abstract mural at S 2nd and National, the vintage-style brewery advertisement, and several portrait pieces.",
+    muralCount: "5+",
   },
   {
     title: "2nd Street Gallery District",
-    description: "The galleries and creative spaces along 2nd Street often commission outdoor works that blur the line between street art and fine art. The annual Walker's Point Art Walk highlights many of these pieces.",
+    description: "The galleries and creative spaces along 2nd Street commission outdoor works that blur the line between street art and fine art. Don't miss the kinetic sculpture installations and the ever-changing wheat paste displays.",
+    muralCount: "4+",
+  },
+  {
+    title: "Virginia Street Industrial Art",
+    description: "Warehouse walls along Virginia Street showcase some of the neighborhood's most ambitious pieces. The 3-story abstract piece near 4th Street and the nature-themed mural series are particular standouts.",
+    muralCount: "3+",
+  },
+  {
+    title: "Alley Art & Hidden Gems",
+    description: "The alleys between 2nd and 5th Streets hide smaller but equally impressive works. Keep your eyes open for garage door paintings, stencil art, and unexpected installations tucked between buildings.",
+    muralCount: "6+",
+  },
+  {
+    title: "Iron Horse Hotel & Surroundings",
+    description: "The area around the Iron Horse Hotel features several commissioned pieces that complement the industrial-chic aesthetic. The motorcycle-themed mural and the historic brewery tribute are must-sees.",
+    muralCount: "3+",
   },
 ];
 
@@ -672,12 +759,37 @@ export default function WalkersPointMilwaukee() {
                     borderLeft: `4px solid ${c.orange}`,
                   }}
                 >
-                  <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "8px" }}>
-                    {art.title}
-                  </h3>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                    <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>
+                      {art.title}
+                    </h3>
+                    {art.muralCount && (
+                      <span style={{
+                        backgroundColor: c.orange,
+                        color: "white",
+                        padding: "4px 10px",
+                        borderRadius: "12px",
+                        fontSize: "12px",
+                        fontWeight: "700",
+                      }}>
+                        {art.muralCount} MURALS
+                      </span>
+                    )}
+                  </div>
                   <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>{art.description}</p>
                 </div>
               ))}
+            </div>
+            <div style={{
+              backgroundColor: c.green2,
+              padding: "16px",
+              borderRadius: "12px",
+              marginTop: "16px",
+              textAlign: "center"
+            }}>
+              <p style={{ color: c.cream, fontSize: "14px", fontWeight: "600", margin: 0 }}>
+                Total: <span style={{ color: c.yellow, fontSize: "18px" }}>29+</span> documented murals and street art installations throughout Walker's Point
+              </p>
             </div>
             <div
               style={{

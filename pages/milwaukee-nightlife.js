@@ -71,6 +71,36 @@ const cocktailBars = [
     description: 'Perched atop Milwaukee\'s historic Pfister Hotel, Blu offers stunning 23rd-floor views, elegant cocktails, and a sophisticated atmosphere perfect for special occasions.',
     vibe: 'Elegant, romantic, panoramic views',
   },
+  {
+    name: 'Goodkind',
+    address: '2457 S Wentworth Ave, Milwaukee, WI 53207',
+    description: 'Bay View\'s farm-to-table restaurant with a serious cocktail program. Seasonal, locally-sourced ingredients extend to their inventive drink menu with house-made syrups and bitters.',
+    vibe: 'Farm-to-glass, refined, Bay View',
+  },
+  {
+    name: 'The Rumpus Room',
+    address: '1030 N Water St, Milwaukee, WI 53202',
+    description: 'A quirky downtown speakeasy hidden behind an unmarked door. Craft cocktails in a whimsical setting with vintage games, unique décor, and surprise entertainment.',
+    vibe: 'Speakeasy, whimsical, hidden gem',
+  },
+  {
+    name: 'Dock18 Cocktail Lab',
+    address: '318 S Water St, Milwaukee, WI 53204',
+    description: 'Walker\'s Point cocktail laboratory using molecular mixology techniques. Expect smoking drinks, unusual presentations, and flavors you\'ve never experienced in a cocktail.',
+    vibe: 'Experimental, innovative, theatrical',
+  },
+  {
+    name: 'The Diplomat',
+    address: '815 E Brady St, Milwaukee, WI 53202',
+    description: 'Brady Street\'s upscale cocktail destination with craft drinks, small plates, and a sophisticated yet welcoming atmosphere. Great for date nights.',
+    vibe: 'Upscale casual, date night, Brady Street',
+  },
+  {
+    name: 'Foundation Tiki Bar',
+    address: '2718 N Bremen St, Milwaukee, WI 53212',
+    description: 'Riverwest\'s tropical escape with authentic tiki cocktails, island décor, and a devoted following. Potent rum drinks and pu-pu platters transport you to Polynesia.',
+    vibe: 'Tiki, tropical, escapist',
+  },
 ];
 
 const diveBars = [
@@ -91,6 +121,48 @@ const diveBars = [
     address: '1947 N Farwell Ave, Milwaukee, WI 53202',
     description: 'Part diner, part dive bar, all Milwaukee. Famous for vegan comfort food, stiff drinks, and a punk rock attitude. Late-night crowds love the bacon-wrapped everything.',
     vibe: 'Punk rock, comfort food, late-night',
+  },
+  {
+    name: 'Burnhearts',
+    address: '2599 S Logan Ave, Milwaukee, WI 53207',
+    description: 'Bay View\'s beloved neighborhood tavern with a stellar beer selection, whiskey flights, and famous fish fry. Their Mitten Fest winter party is legendary.',
+    vibe: 'Neighborhood classic, craft beer, Bay View',
+  },
+  {
+    name: 'The Gig',
+    address: '1132 E Wright St, Milwaukee, WI 53212',
+    description: 'Riverwest dive with cheap drinks, pool tables, and a jukebox full of punk and metal. Cash only, no pretense, just good times with locals.',
+    vibe: 'Cash only, punk rock, Riverwest',
+  },
+  {
+    name: 'Tonic Tavern',
+    address: '2335 S Kinnickinnic Ave, Milwaukee, WI 53207',
+    description: 'Bay View corner bar with strong pours, friendly bartenders, and a mix of regulars and newcomers. Great jukebox and unpretentious vibe.',
+    vibe: 'Corner bar, friendly, no frills',
+  },
+  {
+    name: 'The Uptowner',
+    address: '1032 E Center St, Milwaukee, WI 53212',
+    description: 'Riverwest institution open since 1884. One of Milwaukee\'s oldest bars with cheap drinks, a pool table, and generations of neighborhood character.',
+    vibe: 'Historic, cheap drinks, neighborhood',
+  },
+  {
+    name: "Frank's Power Plant",
+    address: '2800 S Kinnickinnic Ave, Milwaukee, WI 53207',
+    description: 'Bay View dive bar with shuffleboard, darts, and some of the cheapest drinks on KK. A true locals\' spot with friendly regulars.',
+    vibe: 'Cheap drinks, games, local hangout',
+  },
+  {
+    name: 'Circle A',
+    address: '932 E Chambers St, Milwaukee, WI 53212',
+    description: 'Riverwest punk bar with anarchist vibes, vegan food, and live music. DIY spirit, activist community, and no corporate beer.',
+    vibe: 'DIY, punk, vegan-friendly',
+  },
+  {
+    name: 'Y-Not II',
+    address: '324 E Wisconsin Ave, Milwaukee, WI 53202',
+    description: 'Downtown dive that\'s been serving workers and night owls since 1970. Cash only, cheap beer, and zero pretension in the heart of the business district.',
+    vibe: 'Downtown dive, cash only, old school',
   },
 ];
 
@@ -124,6 +196,109 @@ const liveMusic = [
     address: '2496 S Wentworth Ave, Milwaukee, WI 53207',
     description: 'Bay View\'s beloved dive bar and music venue. Punk, metal, indie, and experimental acts play this cramped, sweaty, perfect room.',
     capacity: '150',
+  },
+  {
+    name: 'Riverside Theater',
+    address: '116 W Wisconsin Ave, Milwaukee, WI 53203',
+    description: 'Art Deco masterpiece from 1928 hosting major touring acts in a beautiful seated venue. Perfect acoustics and stunning architecture.',
+    capacity: '2,450',
+  },
+  {
+    name: 'The Back Room @ Colectivo',
+    address: '2211 N Prospect Ave, Milwaukee, WI 53202',
+    description: 'Intimate venue inside the gorgeous Prospect Mall Colectivo location. Singer-songwriters, jazz, and acoustic acts in a listening room setting.',
+    capacity: '175',
+  },
+  {
+    name: 'X-Ray Arcade',
+    address: '5036 S Packard Ave, Cudahy, WI 53110',
+    description: 'All-ages venue with pinball machines and punk/metal shows. DIY spirit with national touring acts and local bands alike.',
+    capacity: '200',
+  },
+  {
+    name: 'Bremen Cafe',
+    address: '901 E Clarke St, Milwaukee, WI 53212',
+    description: 'Riverwest cafe and bar with live jazz, folk, and experimental music. Cozy listening room atmosphere with local and touring artists.',
+    capacity: '100',
+  },
+  {
+    name: 'Jazz Estate',
+    address: '2423 N Murray Ave, Milwaukee, WI 53211',
+    description: 'Milwaukee\'s premier jazz club since 1977. Intimate setting showcasing local and national jazz talent in East Side setting.',
+    capacity: '80',
+  },
+  {
+    name: 'Linneman\'s Riverwest Inn',
+    address: '1001 E Locust St, Milwaukee, WI 53212',
+    description: 'Neighborhood bar doubling as one of Milwaukee\'s best small music venues. Eclectic booking from folk to punk to experimental.',
+    capacity: '100',
+  },
+  {
+    name: 'Fiserv Forum',
+    address: '1111 Vel R. Phillips Ave, Milwaukee, WI 53203',
+    description: 'Milwaukee\'s state-of-the-art arena hosting the biggest touring acts alongside Bucks games. Major concert destination for arena shows.',
+    capacity: '17,500',
+  },
+];
+
+const danceClubs = [
+  {
+    name: 'Mad Planet',
+    address: '533 E Center St, Milwaukee, WI 53212',
+    description: 'Riverwest\'s beloved dance club hosting themed nights from \'80s new wave to disco to industrial. The weekend dance parties are legendary, with a devoted local crowd and visiting DJs.',
+  },
+  {
+    name: 'Wherehouse / Site 1A',
+    address: '818 S Water St, Milwaukee, WI 53204',
+    description: 'Walker\'s Point warehouse venue hosting EDM nights, special events, and touring electronic acts. Raw industrial space with serious sound systems.',
+  },
+  {
+    name: 'Decibel',
+    address: '1905 E North Ave, Milwaukee, WI 53202',
+    description: 'East Side club with resident and guest DJs spinning house, techno, and dance music. Great rooftop patio when weather permits.',
+  },
+  {
+    name: 'The Mothership',
+    address: '720 E Burleigh St, Milwaukee, WI 53212',
+    description: 'Riverwest performance space and event venue hosting dance parties, live music, and community events. Eclectic programming and inclusive vibes.',
+  },
+  {
+    name: 'Hotel Foster',
+    address: '2028 E North Ave, Milwaukee, WI 53202',
+    description: 'East Side bar with a dedicated dance floor and DJ nights. Mix of hip-hop, house, and eclectic programming throughout the week.',
+  },
+];
+
+const sportsBars = [
+  {
+    name: "Major Goolsby's",
+    address: '340 W Kilbourn Ave, Milwaukee, WI 53203',
+    description: 'Milwaukee\'s legendary sports bar since 1972. Walking distance to Fiserv Forum, packed on game days with memorabilia covering every wall.',
+    specialty: 'Classic Milwaukee sports bar',
+  },
+  {
+    name: "Kelly's Bleachers",
+    address: '5218 W Blue Mound Rd, Milwaukee, WI 53208',
+    description: 'Brewers fans\' favorite bar near Miller Park. Bus shuttles to games and a party atmosphere that starts hours before first pitch.',
+    specialty: 'Brewers HQ',
+  },
+  {
+    name: 'Who\'s On Third',
+    address: '1007 N Old World 3rd St, Milwaukee, WI 53203',
+    description: 'Three-story sports bar in the heart of downtown. Rooftop patio, dozens of screens, and a prime location near Deer District.',
+    specialty: 'Downtown sports destination',
+  },
+  {
+    name: 'The Loaded Slate',
+    address: '1137 N Old World 3rd St, Milwaukee, WI 53203',
+    description: 'Craft beer-focused sports bar with elevated bar food and plenty of screens. Part of the Old World Third Street bar district.',
+    specialty: 'Craft beer sports bar',
+  },
+  {
+    name: "Jack's American Pub",
+    address: '1323 E Brady St, Milwaukee, WI 53202',
+    description: 'Brady Street sports bar with neighborhood charm. Great for watching games without the downtown crowds, plus solid pub food.',
+    specialty: 'Neighborhood sports pub',
   },
 ];
 
@@ -360,7 +535,7 @@ export default function MilwaukeeNightlife() {
               flexWrap: 'wrap',
             }}
           >
-            {['Cocktail Bars', 'Dive Bars', 'Dance Clubs', 'LGBTQ+', 'Live Music', 'Bar Crawls'].map(
+            {['Cocktail Bars', 'Dive Bars', 'Dance Clubs', 'LGBTQ+', 'Live Music', 'Sports Bars', 'Bar Crawls'].map(
               (item) => (
                 <a
                   key={item}
@@ -622,7 +797,7 @@ export default function MilwaukeeNightlife() {
             padding: '60px 20px',
           }}
         >
-          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2
               style={{
                 fontSize: '2.5rem',
@@ -639,72 +814,43 @@ export default function MilwaukeeNightlife() {
                 fontSize: '1.1rem',
                 color: colors.green2,
                 marginBottom: '40px',
+                maxWidth: '700px',
+                margin: '0 auto 40px',
               }}
             >
-              When you want to dance until close and beyond, these spots keep the energy high.
+              When you want to dance until close and beyond, these {danceClubs.length} spots keep the energy high.
             </p>
 
-            <div style={{ display: 'grid', gap: '25px' }}>
-              <div
-                style={{
-                  backgroundColor: colors.cream,
-                  padding: '25px',
-                  borderRadius: '12px',
-                  borderLeft: `4px solid ${colors.orange}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginBottom: '10px' }}>Mad Planet</h3>
-                <p style={{ fontSize: '0.9rem', color: colors.green2, marginBottom: '10px' }}>
-                  533 E Center St, Milwaukee, WI 53212
-                </p>
-                <p style={{ lineHeight: '1.7' }}>
-                  Riverwest's beloved dance club hosting themed nights from '80s new wave to disco
-                  to industrial. The weekend dance parties are legendary, with a devoted local crowd
-                  and visiting DJs.
-                </p>
-              </div>
-
-              <div
-                style={{
-                  backgroundColor: colors.cream,
-                  padding: '25px',
-                  borderRadius: '12px',
-                  borderLeft: `4px solid ${colors.yellow}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginBottom: '10px' }}>
-                  Wherehouse / Site 1A
-                </h3>
-                <p style={{ fontSize: '0.9rem', color: colors.green2, marginBottom: '10px' }}>
-                  818 S Water St, Milwaukee, WI 53204
-                </p>
-                <p style={{ lineHeight: '1.7' }}>
-                  Walker's Point warehouse venue hosting EDM nights, special events, and touring
-                  electronic acts. Raw industrial space with serious sound systems.
-                </p>
-              </div>
-
-              <div
-                style={{
-                  backgroundColor: colors.cream,
-                  padding: '25px',
-                  borderRadius: '12px',
-                  borderLeft: `4px solid ${colors.green2}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginBottom: '10px' }}>Decibel</h3>
-                <p style={{ fontSize: '0.9rem', color: colors.green2, marginBottom: '10px' }}>
-                  1905 E North Ave, Milwaukee, WI 53202
-                </p>
-                <p style={{ lineHeight: '1.7' }}>
-                  East Side club with resident and guest DJs spinning house, techno, and dance
-                  music. Great rooftop patio when weather permits. See our{' '}
-                  <Link href="/east-side-milwaukee" style={{ color: colors.orange }}>
-                    East Side neighborhood guide
-                  </Link>{' '}
-                  for more spots.
-                </p>
-              </div>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '25px',
+              }}
+            >
+              {danceClubs.map((club, index) => {
+                const borderColors = [colors.orange, colors.yellow, colors.green2, colors.green1, colors.orange];
+                return (
+                  <div
+                    key={club.name}
+                    style={{
+                      backgroundColor: colors.cream,
+                      padding: '25px',
+                      borderRadius: '12px',
+                      borderLeft: `4px solid ${borderColors[index % 5]}`,
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.06)',
+                    }}
+                  >
+                    <h3 style={{ color: colors.green1, marginBottom: '10px' }}>{club.name}</h3>
+                    <p style={{ fontSize: '0.9rem', color: colors.green2, marginBottom: '10px' }}>
+                      {club.address}
+                    </p>
+                    <p style={{ lineHeight: '1.7', color: colors.green1 }}>
+                      {club.description}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -934,11 +1080,108 @@ export default function MilwaukeeNightlife() {
           </div>
         </section>
 
+        {/* Sports Bars Section */}
+        <section
+          id="sports-bars"
+          style={{
+            backgroundColor: colors.beige,
+            padding: '60px 20px',
+          }}
+        >
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <h2
+              style={{
+                fontSize: '2.5rem',
+                color: colors.green1,
+                marginBottom: '15px',
+                textAlign: 'center',
+              }}
+            >
+              Sports Bars
+            </h2>
+            <p
+              style={{
+                textAlign: 'center',
+                fontSize: '1.1rem',
+                color: colors.green2,
+                marginBottom: '40px',
+                maxWidth: '700px',
+                margin: '0 auto 40px',
+              }}
+            >
+              Milwaukee is a sports town through and through. These {sportsBars.length} bars are perfect for catching the Bucks, Brewers, or Packers.
+            </p>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: '25px',
+              }}
+            >
+              {sportsBars.map((bar) => (
+                <article
+                  key={bar.name}
+                  style={{
+                    backgroundColor: colors.cream,
+                    borderRadius: '12px',
+                    padding: '25px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.06)',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: '1.3rem',
+                      color: colors.green1,
+                      marginBottom: '8px',
+                    }}
+                  >
+                    {bar.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: '0.9rem',
+                      color: colors.green2,
+                      marginBottom: '12px',
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    {bar.address}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: '1rem',
+                      lineHeight: '1.7',
+                      color: colors.green1,
+                      marginBottom: '12px',
+                    }}
+                  >
+                    {bar.description}
+                  </p>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      backgroundColor: colors.green1,
+                      color: colors.cream,
+                      padding: '5px 12px',
+                      borderRadius: '15px',
+                      fontSize: '0.8rem',
+                      fontWeight: '600',
+                    }}
+                  >
+                    {bar.specialty}
+                  </span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Bar Crawls Section */}
         <section
           id="bar-crawls"
           style={{
-            backgroundColor: colors.beige,
+            backgroundColor: colors.cream,
             padding: '60px 20px',
           }}
         >

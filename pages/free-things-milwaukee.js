@@ -81,6 +81,265 @@ const faqSchema = {
   })),
 };
 
+// Free activities data organized by category
+const freeMuseums = [
+  {
+    name: 'Milwaukee Art Museum',
+    highlight: 'First Thursday of Every Month',
+    description: 'The iconic Calatrava-designed museum with its stunning Burke Brise Soleil wings offers free admission on the first Thursday of every month from 10am-8pm. Over 30,000 works spanning antiquity to present day.',
+    featured: true,
+  },
+  {
+    name: 'Milwaukee Public Museum',
+    highlight: 'Select Free Days for WI Residents',
+    description: 'One of the nation\'s largest natural history museums offers free admission days throughout the year for Wisconsin residents. Walk through the Streets of Old Milwaukee.',
+  },
+  {
+    name: 'Discovery World',
+    highlight: 'Community Free Days & Library Passes',
+    description: 'This lakefront science and technology museum offers free community days and partners with Milwaukee Public Library for free museum passes.',
+  },
+  {
+    name: 'Grohmann Museum',
+    highlight: 'Free Admission Always',
+    description: 'Located at MSOE, features the world\'s most comprehensive collection of art depicting the evolution of human work. Completely free admission.',
+  },
+  {
+    name: 'Haggerty Museum of Art',
+    highlight: 'Free Admission Always',
+    description: 'Marquette University\'s art museum with over 4,500 works including old masters, contemporary art, and rotating exhibitions. Always free.',
+  },
+  {
+    name: 'UWM Art Collection',
+    highlight: 'Free Admission Always',
+    description: 'University galleries featuring contemporary art, student exhibitions, and visiting artist shows throughout the academic year.',
+  },
+  {
+    name: 'Charles Allis Art Museum',
+    highlight: 'First Sunday Free',
+    description: 'Tudor-style mansion with impressive collection of decorative arts, paintings, and antiques. Free admission on the first Sunday of each month.',
+  },
+  {
+    name: 'Villa Terrace Decorative Arts Museum',
+    highlight: 'First Sunday Free',
+    description: 'Italian Renaissance-style villa with decorative arts and stunning gardens overlooking Lake Michigan. Free first Sundays.',
+  },
+];
+
+const freeParks = [
+  {
+    name: 'Oak Leaf Lakefront Trail',
+    description: '3-mile paved trail along Lake Michigan with stunning skyline views. Connects to the larger 125-mile Oak Leaf Trail system.',
+    highlight: 'Best for: Running, biking, sunset walks',
+  },
+  {
+    name: 'Lake Park',
+    description: 'Designed by Frederick Law Olmsted, this 138-acre park features ravines, a historic lighthouse, and the famous Lion Bridges.',
+    highlight: 'Don\'t miss: North Point Lighthouse',
+  },
+  {
+    name: 'South Shore Park & Beach',
+    description: 'Bay View destination with free public beach, pavilion, and stunning Lake Michigan sunsets.',
+    highlight: 'Best for: Summer beach days',
+  },
+  {
+    name: 'Lakeshore State Park',
+    description: 'Wisconsin\'s only urban state park - 22 acres downtown with no vehicle sticker required.',
+    highlight: 'Unique: Only urban state park in WI',
+  },
+  {
+    name: 'Veterans Park',
+    description: 'Sprawling lakefront park perfect for kite flying, picnics, and the famous Milwaukee Kite Festival.',
+    highlight: 'Best for: Kite flying, festivals',
+  },
+  {
+    name: 'Grant Park',
+    description: '138 acres with Seven Bridges Trail, beach access, and beautiful ravine hiking.',
+    highlight: 'Don\'t miss: Seven Bridges Trail',
+  },
+  {
+    name: 'Juneau Park',
+    description: 'Historic downtown park with stunning views, the Leif Erikson statue, and connection to the lakefront.',
+    highlight: 'Best for: Downtown walks',
+  },
+  {
+    name: 'Humboldt Park',
+    description: 'Beautiful park with lagoon, bandshell for free concerts, and great sledding hill in winter.',
+    highlight: 'Best for: Concerts, winter sledding',
+  },
+  {
+    name: 'Whitnall Park',
+    description: 'Largest park in Milwaukee County with botanical gardens, nature center, and miles of trails.',
+    highlight: 'Best for: Nature walks, gardens',
+  },
+  {
+    name: 'Estabrook Park',
+    description: 'Scenic riverside park with trails, picnic areas, and Milwaukee\'s first modern beer garden.',
+    highlight: 'Best for: River views, beer garden',
+  },
+  {
+    name: 'McKinley Marina',
+    description: 'Free to walk the marina and enjoy views of hundreds of boats and the Milwaukee skyline.',
+    highlight: 'Best for: Boat watching, photos',
+  },
+  {
+    name: 'Kern Park',
+    description: 'Hidden gem on the Milwaukee River with disc golf course, trails, and peaceful nature.',
+    highlight: 'Best for: Disc golf, solitude',
+  },
+];
+
+const freeEvents = [
+  {
+    name: 'Jazz in the Park',
+    location: 'Cathedral Square',
+    timing: 'Thursdays, June-August, 5-9pm',
+    description: 'Milwaukee\'s favorite free concert series draws thousands with live jazz, food vendors, and community atmosphere.',
+  },
+  {
+    name: 'Gallery Night MKE',
+    location: 'Various Neighborhoods',
+    timing: 'Third Friday of each month',
+    description: 'Galleries throughout Milwaukee open their doors with free art walks, opening receptions, and complimentary refreshments.',
+  },
+  {
+    name: 'Chill on the Hill',
+    location: 'Humboldt Park',
+    timing: 'Tuesdays, July-August',
+    description: 'Free outdoor concert series in Bay View\'s Humboldt Park with local and touring bands.',
+  },
+  {
+    name: 'River Rhythms',
+    location: 'Pere Marquette Park',
+    timing: 'Wednesdays, June-August',
+    description: 'Free downtown concert series along the Milwaukee River featuring diverse musical acts.',
+  },
+  {
+    name: 'Bastille Days',
+    location: 'Cathedral Square',
+    timing: 'July (4 days)',
+    description: 'The largest free French-themed festival in the country with live music, street performers, and family activities.',
+  },
+  {
+    name: 'Locust Street Festival',
+    location: 'Riverwest',
+    timing: 'June',
+    description: 'Free neighborhood street festival with multiple music stages, local vendors, and community spirit.',
+  },
+  {
+    name: 'Brady Street Festival',
+    location: 'Brady Street',
+    timing: 'July',
+    description: 'Historic Brady Street closes to traffic for free live music, food, and Italian heritage celebration.',
+  },
+  {
+    name: 'Doors Open Milwaukee',
+    location: 'Citywide',
+    timing: 'September',
+    description: 'Annual event opening 150+ buildings for free tours including historic sites normally closed to public.',
+  },
+  {
+    name: 'Holiday Lights Festival',
+    location: 'Downtown',
+    timing: 'November-December',
+    description: 'Free holiday light displays throughout downtown including the Milwaukee City Hall light show.',
+  },
+];
+
+const beerGardens = [
+  { name: 'Estabrook Park Beer Garden', desc: 'Milwaukee\'s first modern beer garden with 800 seats along the river' },
+  { name: 'South Shore Terrace', desc: 'Stunning Lake Michigan views and Bay View vibes' },
+  { name: 'Hubbard Park Lodge', desc: 'Charming historic lodge setting on the river in Shorewood' },
+  { name: 'The Landing at Hoyt Park', desc: 'Wauwatosa gem with playground nearby for families' },
+  { name: 'Whitnall Park Beer Garden', desc: 'Beautiful setting in Milwaukee County\'s largest park' },
+  { name: 'Drexel Town Square', desc: 'Oak Creek destination with splash pad and family activities' },
+  { name: 'The Grist House', desc: 'New Berlin location with scenic grounds and fire pits' },
+];
+
+const selfGuidedTours = [
+  {
+    name: 'Milwaukee Riverwalk',
+    length: '3 Miles',
+    highlights: ['Public Art', 'Historic Markers', 'Free App Available'],
+    description: 'Winds through downtown along the Milwaukee River with art installations and restaurants.',
+  },
+  {
+    name: 'Street Art & Murals Tour',
+    length: 'Variable',
+    highlights: ['Black Cat Alley', 'Walker\'s Point', 'Third Ward'],
+    description: 'Milwaukee\'s vibrant mural scene spans neighborhoods. Download free mural map from Visit Milwaukee.',
+  },
+  {
+    name: 'Historic Architecture Walk',
+    length: '2-3 Miles',
+    highlights: ['City Hall', 'Yankee Hill', 'Art Deco'],
+    description: 'Explore Victorian mansions, Art Deco gems, and stunning churches with free guides from Central Library.',
+  },
+  {
+    name: 'Bronze Fonz & Public Art Trail',
+    length: '2 Miles',
+    highlights: ['Bronze Fonz', 'Gertie the Duck', 'River Sculptures'],
+    description: 'Visit Milwaukee\'s beloved public sculptures including the famous Bronze Fonz on the Riverwalk.',
+  },
+  {
+    name: 'Historic Third Ward Walking Tour',
+    length: '1.5 Miles',
+    highlights: ['Warehouses', 'Galleries', 'Broadway'],
+    description: 'Explore converted warehouses, boutiques, and the vibrant arts scene of this trendy neighborhood.',
+  },
+  {
+    name: 'Brewery Heritage Trail',
+    length: 'Variable',
+    highlights: ['Pabst Complex', 'Miller Valley', 'Schlitz Park'],
+    description: 'Discover Milwaukee\'s beer history through historic brewery buildings and brewing landmarks.',
+  },
+];
+
+const freeSummerActivities = [
+  'Bradford Beach volleyball and swimming',
+  'South Shore Beach relaxation',
+  'Bay View Beach quiet escapes',
+  'Atwater Beach in Shorewood',
+  'Fondy Farmers Market browsing',
+  'Riverwest Gardeners Market',
+  'Milwaukee Public Market sampling (free to browse)',
+  'Free festival areas at ethnic festivals',
+  'Locust Street Festival music',
+  'Brady Street Festival celebration',
+  'Juneteenth Day Celebration',
+  'PrideFest free stages',
+  'Free concerts throughout the city',
+  'Kayak launch at Lakeshore State Park (bring your own)',
+  'Free outdoor yoga in parks',
+  'Fishing from public piers (with license)',
+];
+
+const freeWinterActivities = [
+  'Sledding at Humboldt Park hill',
+  'Sledding at Whitnall Park',
+  'Cross-country skiing on park trails',
+  'Ice skating at Red Arrow Park (bring skates)',
+  'Winter hiking on lakefront trails',
+  'Snowshoeing at county parks',
+  'Milwaukee Public Library programs',
+  'Free museum days year-round',
+  'Gallery Night with refreshments',
+  'Holiday light displays downtown',
+  'Cathedral Square Christmas tree',
+  'Milwaukee City Hall light show',
+  'Winter farmers markets (indoor)',
+  'Free downtown ice rink viewing',
+];
+
+const historicSites = [
+  { name: 'Milwaukee City Hall', desc: 'Stunning Flemish Renaissance building with free lobby access and architecture tours during Doors Open' },
+  { name: 'Pabst Mansion Grounds', desc: 'Walk the beautiful grounds of this Gilded Age mansion for free (mansion tour has fee)' },
+  { name: 'Historic Third Ward', desc: 'Former warehouse district now arts hub - free to explore streets, galleries, and architecture' },
+  { name: 'North Point Lighthouse', desc: 'Historic 1888 lighthouse in Lake Park - free grounds access, small fee for tower' },
+  { name: 'Forest Home Cemetery', desc: 'Historic cemetery with beautiful Victorian monuments and famous Milwaukee residents' },
+  { name: 'Milwaukee Federal Building', desc: 'Beaux-Arts masterpiece downtown - free to enter lobby and admire architecture' },
+];
+
 export default function FreeThingsMilwaukee() {
   return (
     <>
@@ -332,7 +591,7 @@ export default function FreeThingsMilwaukee() {
                 Free Museum Days in Milwaukee
               </h2>
               <p style={{ color: colors.green2, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-                World-class museums without the admission price
+                {freeMuseums.length} world-class museums with free admission options
               </p>
             </div>
 
@@ -343,118 +602,51 @@ export default function FreeThingsMilwaukee() {
                 gap: '25px',
               }}
             >
-              {/* Milwaukee Art Museum */}
-              <article
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div
+              {freeMuseums.map((museum, index) => (
+                <article
+                  key={museum.name}
                   style={{
-                    backgroundColor: colors.green1,
-                    padding: '25px',
-                    color: colors.cream,
+                    backgroundColor: 'white',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
                   }}
                 >
-                  <span
+                  <div
                     style={{
-                      backgroundColor: colors.yellow,
-                      color: colors.green1,
-                      padding: '4px 12px',
-                      borderRadius: '20px',
-                      fontSize: '12px',
-                      fontWeight: '700',
+                      backgroundColor: index === 0 ? colors.green1 : index % 3 === 1 ? colors.green2 : colors.orange,
+                      padding: '25px',
+                      color: index % 3 === 2 ? colors.green1 : colors.cream,
                     }}
                   >
-                    MOST POPULAR
-                  </span>
-                  <h3 style={{ margin: '15px 0 5px', fontSize: '1.5rem' }}>Milwaukee Art Museum</h3>
-                  <p style={{ opacity: 0.9, margin: 0 }}>First Thursday of Every Month</p>
-                </div>
-                <div style={{ padding: '25px' }}>
-                  <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                    The iconic Calatrava-designed museum with its stunning Burke Brise Soleil wings
-                    offers <strong>free admission on the first Thursday</strong> of every month from 10am-8pm.
-                    Explore over 30,000 works spanning antiquity to present day, including an impressive
-                    collection of American decorative arts and the world's largest collection of
-                    Haitian art.
-                  </p>
-                  <ul style={{ color: colors.green2, lineHeight: '1.8' }}>
-                    <li>Wings open at 10am, 12pm, and close at sunset</li>
-                    <li>Don't miss the Impressionist collection</li>
-                    <li>Free parking validation available</li>
-                  </ul>
-                </div>
-              </article>
-
-              {/* Milwaukee Public Museum */}
-              <article
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div
-                  style={{
-                    backgroundColor: colors.green2,
-                    padding: '25px',
-                    color: colors.cream,
-                  }}
-                >
-                  <h3 style={{ margin: '0 0 5px', fontSize: '1.5rem' }}>Milwaukee Public Museum</h3>
-                  <p style={{ opacity: 0.9, margin: 0 }}>Select Free Days for WI Residents</p>
-                </div>
-                <div style={{ padding: '25px' }}>
-                  <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                    One of the nation's largest natural history museums offers <strong>free admission
-                    days throughout the year</strong> for Wisconsin residents. Walk through the Streets
-                    of Old Milwaukee, explore the butterfly garden, and see the famous dinosaur exhibits.
-                  </p>
-                  <ul style={{ color: colors.green2, lineHeight: '1.8' }}>
-                    <li>Check website for specific free dates</li>
-                    <li>Streets of Old Milwaukee is a must-see</li>
-                    <li>Plan for 2-3 hours minimum</li>
-                  </ul>
-                </div>
-              </article>
-
-              {/* Discovery World */}
-              <article
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div
-                  style={{
-                    backgroundColor: colors.orange,
-                    padding: '25px',
-                    color: colors.green1,
-                  }}
-                >
-                  <h3 style={{ margin: '0 0 5px', fontSize: '1.5rem' }}>Discovery World</h3>
-                  <p style={{ margin: 0 }}>Community Free Days & Library Passes</p>
-                </div>
-                <div style={{ padding: '25px' }}>
-                  <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                    This lakefront science and technology museum offers <strong>free community days</strong>
-                    and partners with Milwaukee Public Library for free museum passes. Great for
-                    families with interactive exhibits on Great Lakes ecology, technology, and more.
-                  </p>
-                  <ul style={{ color: colors.green2, lineHeight: '1.8' }}>
-                    <li>Check out library museum pass programs</li>
-                    <li>Explore the tall ship S/V Denis Sullivan</li>
-                    <li>Interactive exhibits for all ages</li>
-                  </ul>
-                </div>
-              </article>
+                    {museum.featured && (
+                      <span
+                        style={{
+                          backgroundColor: colors.yellow,
+                          color: colors.green1,
+                          padding: '4px 12px',
+                          borderRadius: '20px',
+                          fontSize: '12px',
+                          fontWeight: '700',
+                          marginBottom: '10px',
+                          display: 'inline-block',
+                        }}
+                      >
+                        MOST POPULAR
+                      </span>
+                    )}
+                    <h3 style={{ margin: museum.featured ? '15px 0 5px' : '0 0 5px', fontSize: '1.5rem' }}>
+                      {museum.name}
+                    </h3>
+                    <p style={{ opacity: 0.9, margin: 0 }}>{museum.highlight}</p>
+                  </div>
+                  <div style={{ padding: '25px' }}>
+                    <p style={{ color: colors.green2, lineHeight: '1.7', margin: 0 }}>
+                      {museum.description}
+                    </p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -473,134 +665,41 @@ export default function FreeThingsMilwaukee() {
                 Free Parks & Outdoor Activities
               </h2>
               <p style={{ color: colors.green2, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-                Milwaukee's stunning lakefront and green spaces are always free
+                {freeParks.length} stunning parks and green spaces - all free to enjoy
               </p>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
-              {/* Lakefront Trail */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  padding: '30px',
-                  borderRadius: '16px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                  borderTop: `4px solid ${colors.green1}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginTop: 0 }}>Oak Leaf Lakefront Trail</h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  This <strong>3-mile paved trail</strong> along Lake Michigan offers stunning views of the
-                  Milwaukee skyline and the Art Museum's iconic wings. Perfect for walking, running,
-                  or biking. Connects to the larger 125-mile Oak Leaf Trail system.
-                </p>
-                <div
-                  style={{
-                    backgroundColor: colors.beige,
-                    padding: '15px',
-                    borderRadius: '8px',
-                    marginTop: '15px',
-                  }}
-                >
-                  <strong style={{ color: colors.green1 }}>Pro Tip:</strong>{' '}
-                  <span style={{ color: colors.green2 }}>
-                    Catch sunrise over the lake for an unforgettable experience
-                  </span>
-                </div>
-              </div>
-
-              {/* Lake Park */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  padding: '30px',
-                  borderRadius: '16px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                  borderTop: `4px solid ${colors.green2}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginTop: 0 }}>Lake Park</h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  Designed by <strong>Frederick Law Olmsted</strong> (Central Park's creator), this 138-acre
-                  park features ravines, a historic lighthouse, and the famous Lion Bridges. Free
-                  access to beautiful gardens, picnic areas, and stunning bluff views.
-                </p>
-                <div
-                  style={{
-                    backgroundColor: colors.beige,
-                    padding: '15px',
-                    borderRadius: '8px',
-                    marginTop: '15px',
-                  }}
-                >
-                  <strong style={{ color: colors.green1 }}>Don't Miss:</strong>{' '}
-                  <span style={{ color: colors.green2 }}>
-                    The North Point Lighthouse and stunning ravine trails
-                  </span>
-                </div>
-              </div>
-
-              {/* South Shore Park */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  padding: '30px',
-                  borderRadius: '16px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                  borderTop: `4px solid ${colors.orange}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginTop: 0 }}>South Shore Park & Beach</h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  A beloved Bay View destination with a <strong>free public beach</strong>, pavilion, and the
-                  popular South Shore Terrace beer garden. Great for swimming, picnicking, and watching
-                  stunning Lake Michigan sunsets.
-                </p>
-                <div
-                  style={{
-                    backgroundColor: colors.beige,
-                    padding: '15px',
-                    borderRadius: '8px',
-                    marginTop: '15px',
-                  }}
-                >
-                  <strong style={{ color: colors.green1 }}>Best For:</strong>{' '}
-                  <span style={{ color: colors.green2 }}>
-                    Summer beach days and sunset watching
-                  </span>
-                </div>
-              </div>
-
-              {/* Lakeshore State Park */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  padding: '30px',
-                  borderRadius: '16px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                  borderTop: `4px solid ${colors.yellow}`,
-                }}
-              >
-                <h3 style={{ color: colors.green1, marginTop: 0 }}>Lakeshore State Park</h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  Wisconsin's only <strong>urban state park</strong> offers 22 acres of green space right
-                  downtown. Free admission, no vehicle sticker required. Features walking paths,
-                  fishing spots, and prime views of the city skyline and Summerfest grounds.
-                </p>
-                <div
-                  style={{
-                    backgroundColor: colors.beige,
-                    padding: '15px',
-                    borderRadius: '8px',
-                    marginTop: '15px',
-                  }}
-                >
-                  <strong style={{ color: colors.green1 }}>Unique Feature:</strong>{' '}
-                  <span style={{ color: colors.green2 }}>
-                    Only urban state park in Wisconsin - completely free!
-                  </span>
-                </div>
-              </div>
+              {freeParks.map((park, index) => {
+                const borderColors = [colors.green1, colors.green2, colors.orange, colors.yellow];
+                return (
+                  <div
+                    key={park.name}
+                    style={{
+                      backgroundColor: 'white',
+                      padding: '30px',
+                      borderRadius: '16px',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+                      borderTop: `4px solid ${borderColors[index % 4]}`,
+                    }}
+                  >
+                    <h3 style={{ color: colors.green1, marginTop: 0 }}>{park.name}</h3>
+                    <p style={{ color: colors.green2, lineHeight: '1.7' }}>
+                      {park.description}
+                    </p>
+                    <div
+                      style={{
+                        backgroundColor: colors.beige,
+                        padding: '15px',
+                        borderRadius: '8px',
+                        marginTop: '15px',
+                      }}
+                    >
+                      <span style={{ color: colors.green1, fontWeight: '600' }}>{park.highlight}</span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -619,88 +718,45 @@ export default function FreeThingsMilwaukee() {
                 Free Events & Entertainment
               </h2>
               <p style={{ color: colors.beige, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-                Milwaukee's vibrant event scene includes plenty of free options
+                {freeEvents.length} free festivals, concerts, and events throughout the year
               </p>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
-              {/* Cathedral Square Concerts */}
-              <div
-                style={{
-                  backgroundColor: colors.cream,
-                  padding: '35px',
-                  borderRadius: '16px',
-                }}
-              >
+              {freeEvents.map((event, index) => (
                 <div
+                  key={event.name}
                   style={{
-                    display: 'inline-block',
-                    backgroundColor: colors.orange,
-                    color: colors.green1,
-                    padding: '6px 14px',
-                    borderRadius: '20px',
-                    fontSize: '12px',
-                    fontWeight: '700',
-                    marginBottom: '15px',
+                    backgroundColor: colors.cream,
+                    padding: '35px',
+                    borderRadius: '16px',
                   }}
                 >
-                  SUMMER FAVORITE
+                  <div
+                    style={{
+                      display: 'inline-block',
+                      backgroundColor: index % 2 === 0 ? colors.orange : colors.yellow,
+                      color: colors.green1,
+                      padding: '6px 14px',
+                      borderRadius: '20px',
+                      fontSize: '12px',
+                      fontWeight: '700',
+                      marginBottom: '15px',
+                    }}
+                  >
+                    {event.timing.toUpperCase()}
+                  </div>
+                  <h3 style={{ color: colors.green1, marginTop: 0, fontSize: '1.4rem' }}>
+                    {event.name}
+                  </h3>
+                  <p style={{ color: colors.green2, fontSize: '0.9rem', marginBottom: '10px' }}>
+                    <strong>Location:</strong> {event.location}
+                  </p>
+                  <p style={{ color: colors.green2, lineHeight: '1.7', margin: 0 }}>
+                    {event.description}
+                  </p>
                 </div>
-                <h3 style={{ color: colors.green1, marginTop: 0, fontSize: '1.6rem' }}>
-                  Jazz in the Park - Cathedral Square
-                </h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7', fontSize: '1.05rem' }}>
-                  Every <strong>Thursday evening from June through August</strong>, Cathedral Square transforms
-                  into Milwaukee's favorite free concert venue. Jazz in the Park draws thousands with
-                  live music, food vendors, and a true community atmosphere. Bring a blanket, grab
-                  food from nearby restaurants, and enjoy world-class jazz completely free.
-                </p>
-                <ul style={{ color: colors.green2, lineHeight: '1.8' }}>
-                  <li>Thursdays, 5pm-9pm (June-August)</li>
-                  <li>Bring your own blanket or lawn chair</li>
-                  <li>Food and drinks available for purchase</li>
-                  <li>Family-friendly atmosphere</li>
-                </ul>
-              </div>
-
-              {/* Third Friday Art Walk */}
-              <div
-                style={{
-                  backgroundColor: colors.cream,
-                  padding: '35px',
-                  borderRadius: '16px',
-                }}
-              >
-                <div
-                  style={{
-                    display: 'inline-block',
-                    backgroundColor: colors.yellow,
-                    color: colors.green1,
-                    padding: '6px 14px',
-                    borderRadius: '20px',
-                    fontSize: '12px',
-                    fontWeight: '700',
-                    marginBottom: '15px',
-                  }}
-                >
-                  MONTHLY EVENT
-                </div>
-                <h3 style={{ color: colors.green1, marginTop: 0, fontSize: '1.6rem' }}>
-                  Gallery Night & Third Friday Art Walk
-                </h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7', fontSize: '1.05rem' }}>
-                  On the <strong>third Friday of each month</strong>, galleries throughout Milwaukee open
-                  their doors for free art walks. The Historic Third Ward, Walker's Point, and
-                  Bay View neighborhoods feature dozens of galleries with opening receptions,
-                  artist talks, and complimentary refreshments.
-                </p>
-                <ul style={{ color: colors.green2, lineHeight: '1.8' }}>
-                  <li>Third Friday of every month, 5pm-9pm</li>
-                  <li>Multiple neighborhoods participate</li>
-                  <li>Many galleries offer free wine and snacks</li>
-                  <li>Great way to discover local artists</li>
-                </ul>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -746,24 +802,7 @@ export default function FreeThingsMilwaukee() {
                   marginTop: '30px',
                 }}
               >
-                {[
-                  {
-                    name: 'Estabrook Park Beer Garden',
-                    desc: 'Milwaukee\'s first modern beer garden with 800 seats along the river',
-                  },
-                  {
-                    name: 'South Shore Terrace',
-                    desc: 'Stunning Lake Michigan views and Bay View vibes',
-                  },
-                  {
-                    name: 'Hubbard Park Lodge',
-                    desc: 'Charming historic lodge setting on the river',
-                  },
-                  {
-                    name: 'The Landing at Hoyt Park',
-                    desc: 'Wauwatosa gem with playground nearby',
-                  },
-                ].map((garden) => (
+                {beerGardens.map((garden) => (
                   <div
                     key={garden.name}
                     style={{
@@ -810,109 +849,46 @@ export default function FreeThingsMilwaukee() {
                 Free Self-Guided Tours
               </h2>
               <p style={{ color: colors.green2, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-                Explore Milwaukee's architecture, art, and history at your own pace
+                {selfGuidedTours.length} ways to explore Milwaukee's architecture, art, and history at your own pace
               </p>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
-              {/* Riverwalk Tour */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div style={{ backgroundColor: colors.green2, padding: '20px', color: colors.cream }}>
-                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Milwaukee Riverwalk</h3>
-                </div>
-                <div style={{ padding: '25px' }}>
-                  <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                    The <strong>3-mile Milwaukee Riverwalk</strong> winds through downtown along the
-                    Milwaukee River. Features public art installations, historic markers, restaurants,
-                    and beautiful bridges. Download the free Riverwalk app for a narrated tour
-                    covering history and architecture.
-                  </p>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '15px' }}>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      3 Miles
-                    </span>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Public Art
-                    </span>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Free App
-                    </span>
+              {selfGuidedTours.map((tour, index) => {
+                const headerColors = [colors.green2, colors.orange, colors.yellow, colors.green1];
+                const headerTextColors = [colors.cream, colors.green1, colors.green1, colors.cream];
+                return (
+                  <div
+                    key={tour.name}
+                    style={{
+                      backgroundColor: 'white',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+                    }}
+                  >
+                    <div style={{ backgroundColor: headerColors[index % 4], padding: '20px', color: headerTextColors[index % 4] }}>
+                      <h3 style={{ margin: 0, fontSize: '1.4rem' }}>{tour.name}</h3>
+                      <p style={{ margin: '5px 0 0', opacity: 0.9, fontSize: '0.9rem' }}>{tour.length}</p>
+                    </div>
+                    <div style={{ padding: '25px' }}>
+                      <p style={{ color: colors.green2, lineHeight: '1.7' }}>
+                        {tour.description}
+                      </p>
+                      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '15px' }}>
+                        {tour.highlights.map((highlight) => (
+                          <span
+                            key={highlight}
+                            style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Street Art Tour */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div style={{ backgroundColor: colors.orange, padding: '20px', color: colors.green1 }}>
-                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Street Art & Murals Tour</h3>
-                </div>
-                <div style={{ padding: '25px' }}>
-                  <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                    Milwaukee's <strong>vibrant mural scene</strong> spans neighborhoods from Walker's Point
-                    to Bay View to the Third Ward. The Black Cat Alley collection features multiple
-                    large-scale murals. Download a free mural map from Visit Milwaukee to create
-                    your own walking tour.
-                  </p>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '15px' }}>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Black Cat Alley
-                    </span>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Walker's Point
-                    </span>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Third Ward
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Historic Architecture Tour */}
-              <div
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div style={{ backgroundColor: colors.yellow, padding: '20px', color: colors.green1 }}>
-                  <h3 style={{ margin: 0, fontSize: '1.4rem' }}>Historic Architecture Walk</h3>
-                </div>
-                <div style={{ padding: '25px' }}>
-                  <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                    Explore Milwaukee's <strong>stunning architectural heritage</strong> with free walking
-                    tours. From the Victorian mansions of Yankee Hill to the Art Deco gems downtown,
-                    the City Hall clock tower, and the beautiful churches of the Historic Third Ward.
-                    Free architecture guides available at the Central Library.
-                  </p>
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '15px' }}>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      City Hall
-                    </span>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Yankee Hill
-                    </span>
-                    <span style={{ backgroundColor: colors.beige, padding: '6px 12px', borderRadius: '20px', fontSize: '13px', color: colors.green1 }}>
-                      Art Deco
-                    </span>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -931,60 +907,61 @@ export default function FreeThingsMilwaukee() {
                 Free Summer Activities
               </h2>
               <p style={{ color: colors.beige, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-                Milwaukee summers are packed with free festivals, beaches, and outdoor fun
+                {freeSummerActivities.length} free festivals, beaches, and outdoor activities
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '25px' }}>
-              {/* Festivals */}
-              <div style={{ backgroundColor: colors.cream, padding: '30px', borderRadius: '16px' }}>
-                <h3 style={{ color: colors.green1, marginTop: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ fontSize: '1.8rem' }}>*</span> Free Festivals
-                </h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  Many of Milwaukee's famous ethnic festivals offer <strong>free admission</strong> at certain
-                  times or on certain days. Watch for free entry deals at Polish Fest, German Fest,
-                  Irish Fest, and more. Neighborhood festivals like Locust Street Festival and
-                  Brady Street Festival are completely free.
-                </p>
-              </div>
+            <div
+              style={{
+                backgroundColor: colors.cream,
+                padding: '40px',
+                borderRadius: '16px',
+              }}
+            >
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+                <div>
+                  <h3 style={{ color: colors.green1, marginTop: 0, borderBottom: `3px solid ${colors.orange}`, paddingBottom: '10px' }}>
+                    Beaches & Water
+                  </h3>
+                  <ul style={{ color: colors.green2, lineHeight: '2', paddingLeft: '20px' }}>
+                    {freeSummerActivities.slice(0, 5).map((activity) => (
+                      <li key={activity}>{activity}</li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Beaches */}
-              <div style={{ backgroundColor: colors.cream, padding: '30px', borderRadius: '16px' }}>
-                <h3 style={{ color: colors.green1, marginTop: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ fontSize: '1.8rem' }}>*</span> Free Public Beaches
-                </h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  Cool off at Milwaukee's <strong>free public beaches</strong> along Lake Michigan. Bradford
-                  Beach is the most popular with volleyball courts and food vendors. South Shore Beach
-                  and Bay View Beach offer quieter alternatives. All beaches are free - just find
-                  street parking nearby.
-                </p>
-              </div>
+                <div>
+                  <h3 style={{ color: colors.green1, marginTop: 0, borderBottom: `3px solid ${colors.yellow}`, paddingBottom: '10px' }}>
+                    Markets & Food
+                  </h3>
+                  <ul style={{ color: colors.green2, lineHeight: '2', paddingLeft: '20px' }}>
+                    {freeSummerActivities.slice(5, 8).map((activity) => (
+                      <li key={activity}>{activity}</li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Farmers Markets */}
-              <div style={{ backgroundColor: colors.cream, padding: '30px', borderRadius: '16px' }}>
-                <h3 style={{ color: colors.green1, marginTop: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ fontSize: '1.8rem' }}>*</span> Farmers Markets
-                </h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  Stroll through Milwaukee's vibrant <strong>farmers markets</strong> for free entertainment,
-                  live music, and people-watching. The Fondy Farmers Market, Riverwest Gardeners Market,
-                  and various neighborhood markets offer a great free outing - just budget for
-                  irresistible local produce and treats.
-                </p>
-              </div>
+                <div>
+                  <h3 style={{ color: colors.green1, marginTop: 0, borderBottom: `3px solid ${colors.green1}`, paddingBottom: '10px' }}>
+                    Free Festivals
+                  </h3>
+                  <ul style={{ color: colors.green2, lineHeight: '2', paddingLeft: '20px' }}>
+                    {freeSummerActivities.slice(8, 13).map((activity) => (
+                      <li key={activity}>{activity}</li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Free Concerts */}
-              <div style={{ backgroundColor: colors.cream, padding: '30px', borderRadius: '16px' }}>
-                <h3 style={{ color: colors.green1, marginTop: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ fontSize: '1.8rem' }}>*</span> Outdoor Concert Series
-                </h3>
-                <p style={{ color: colors.green2, lineHeight: '1.7' }}>
-                  Beyond Jazz in the Park, Milwaukee offers <strong>Chill on the Hill</strong> in Bay View,
-                  free concerts at Pere Marquette Park, and various neighborhood concert series.
-                  Check local listings for free live music nearly every night of the week during summer.
-                </p>
+                <div>
+                  <h3 style={{ color: colors.green1, marginTop: 0, borderBottom: `3px solid ${colors.green2}`, paddingBottom: '10px' }}>
+                    Outdoor Recreation
+                  </h3>
+                  <ul style={{ color: colors.green2, lineHeight: '2', paddingLeft: '20px' }}>
+                    {freeSummerActivities.slice(13).map((activity) => (
+                      <li key={activity}>{activity}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -1004,7 +981,7 @@ export default function FreeThingsMilwaukee() {
                 Free Winter Activities
               </h2>
               <p style={{ color: colors.green2, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
-                Milwaukee embraces winter with free outdoor and indoor activities
+                {freeWinterActivities.length} ways to embrace winter in Milwaukee
               </p>
             </div>
 
@@ -1022,24 +999,20 @@ export default function FreeThingsMilwaukee() {
                     Outdoor Winter Fun
                   </h3>
                   <ul style={{ color: colors.green2, lineHeight: '2', paddingLeft: '20px' }}>
-                    <li><strong>Sledding hills</strong> at Humboldt Park, Whitnall Park</li>
-                    <li><strong>Cross-country skiing</strong> on park trails</li>
-                    <li><strong>Ice skating</strong> at Red Arrow Park (free if you bring skates)</li>
-                    <li><strong>Winter hiking</strong> along the lakefront</li>
-                    <li><strong>Snowshoeing</strong> at county parks</li>
+                    {freeWinterActivities.slice(0, 6).map((activity) => (
+                      <li key={activity}>{activity}</li>
+                    ))}
                   </ul>
                 </div>
 
                 <div>
                   <h3 style={{ color: colors.green1, marginTop: 0, borderBottom: `3px solid ${colors.yellow}`, paddingBottom: '10px' }}>
-                    Indoor Winter Activities
+                    Indoor & Holiday Activities
                   </h3>
                   <ul style={{ color: colors.green2, lineHeight: '2', paddingLeft: '20px' }}>
-                    <li><strong>Milwaukee Public Library</strong> - stunning architecture, free programs</li>
-                    <li><strong>Mitchell Park Domes</strong> - warm tropical gardens (small fee)</li>
-                    <li><strong>Free museum days</strong> continue year-round</li>
-                    <li><strong>Gallery walks</strong> with complimentary refreshments</li>
-                    <li><strong>Holiday light displays</strong> throughout the city</li>
+                    {freeWinterActivities.slice(6).map((activity) => (
+                      <li key={activity}>{activity}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -1058,6 +1031,46 @@ export default function FreeThingsMilwaukee() {
                   through winter, making it the perfect cozy escape from the cold!
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Historic Sites Section */}
+        <section style={{ padding: '80px 20px', backgroundColor: colors.green1 }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+              <h2
+                style={{
+                  color: colors.cream,
+                  fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+                  marginBottom: '15px',
+                }}
+              >
+                Free Historic Sites
+              </h2>
+              <p style={{ color: colors.beige, fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto' }}>
+                {historicSites.length} historic landmarks free to explore
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
+              {historicSites.map((site) => (
+                <div
+                  key={site.name}
+                  style={{
+                    backgroundColor: colors.cream,
+                    padding: '30px',
+                    borderRadius: '16px',
+                  }}
+                >
+                  <h3 style={{ color: colors.green1, marginTop: 0, fontSize: '1.3rem' }}>
+                    {site.name}
+                  </h3>
+                  <p style={{ color: colors.green2, lineHeight: '1.7', margin: 0 }}>
+                    {site.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
