@@ -200,6 +200,11 @@ export default function BestBrunchMilwaukee() {
         <meta property="og:description" content="Milwaukee's ultimate brunch guide. Top spots, hidden gems, and how to beat the weekend crowds." />
         <meta property="og:url" content="https://discover-milwaukee.com/best-brunch-milwaukee" />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://discover-milwaukee.com/og-best-brunch.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://discover-milwaukee.com/og-best-brunch.jpg" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
@@ -326,12 +331,27 @@ export default function BestBrunchMilwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "24px", marginTop: "16px" }}>
-            <Link href="/" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Home</Link>
-            <Link href="/explore" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Explore</Link>
-            <Link href="/events" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Events</Link>
+        <footer style={{ backgroundColor: c.green1, padding: "48px 24px 32px" }}>
+          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+            <div style={{ marginBottom: "32px" }}>
+              <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: "center" }}>Explore by Neighborhood</p>
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
+                <Link href="/third-ward-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Third Ward</Link>
+                <Link href="/bay-view-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Bay View</Link>
+                <Link href="/walkers-point-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Walker's Point</Link>
+                <Link href="/east-side-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>East Side</Link>
+              </div>
+            </div>
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", textAlign: "center" }}>
+              <p style={{ color: c.beige, fontSize: "14px", marginBottom: "12px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
+              <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
+                <Link href="/" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Home</Link>
+                <Link href="/things-to-do-milwaukee" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Things to Do</Link>
+                <Link href="/events" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Events</Link>
+                <Link href="/about" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>About</Link>
+                <Link href="/partner" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Partner</Link>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
