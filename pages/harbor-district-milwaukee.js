@@ -17,100 +17,94 @@ const restaurants = [
     cuisine: "German/Sausage",
     priceRange: "$",
     address: "200 E Lincoln Ave, Milwaukee, WI 53207",
-    description: "Located at the Klement's factory, this is where Milwaukee's famous sausage company serves up bratwurst, hot dogs, and all the fixings. A true Milwaukee experience—especially on Brewers game days.",
+    description: "Located at the Klement's factory in the heart of the Harbor District. Milwaukee's famous sausage company serves up bratwurst, hot dogs, and all the fixings in their factory retail store.",
     mustTry: "Bratwurst, Polish sausage, cheese curds",
-    bestFor: "Brewers pregame, Milwaukee tradition, quick lunch",
-    insiderTip: "Perfect stop before heading to a Brewers game.",
+    bestFor: "Lunch stop, Milwaukee tradition, factory tour",
+    insiderTip: "Great for a quick lunch while exploring the district.",
   },
   {
-    name: "Boone & Crockett",
-    cuisine: "Bar/Small Plates",
+    name: "Twisted Fisherman",
+    cuisine: "Seafood/American",
     priceRange: "$$",
-    address: "818 S Water St, Milwaukee, WI 53204",
-    description: "Craft cocktails and small plates in a stylish waterfront setting. The outdoor patio overlooking the river is one of the best in the city. A Walker's Point neighbor serving the Harbor District well.",
-    mustTry: "Craft cocktails, oysters, patio vibes",
-    bestFor: "Date nights, happy hour, waterfront drinks",
-    insiderTip: "The sunset views from the patio are unbeatable.",
+    address: "931 S 1st St, Milwaukee, WI 53204",
+    description: "Casual seafood spot on the edge of the Harbor District serving fish fry, seafood baskets, and pub fare. A neighborhood favorite with a laid-back vibe.",
+    mustTry: "Fish fry, seafood baskets, local beer",
+    bestFor: "Casual lunch, fish fry Friday, groups",
+    insiderTip: "Friday fish fry is popular—come early.",
   },
   {
-    name: "Milwaukee Brewing Company",
-    cuisine: "Brewery/Pub",
+    name: "Dock18 Cocktail Lab",
+    cuisine: "Cocktail Bar",
     priceRange: "$$",
-    address: "1128 N 9th St, Milwaukee, WI 53233",
-    description: "One of Milwaukee's craft beer pioneers, now in an expanded location. Great beer, solid food, and a tour-worthy facility. The Louie's Demise Amber is a local classic.",
-    mustTry: "Louie's Demise, brewery tours, beer flights",
-    bestFor: "Beer lovers, brewery tours, groups",
-    insiderTip: "Book a brewery tour for the full experience.",
+    address: "649 S 2nd St, Milwaukee, WI 53204",
+    description: "Creative cocktail bar near the Harbor District in Walker's Point. Inventive drinks in a modern, industrial space that fits the neighborhood's evolving character.",
+    mustTry: "Signature cocktails, seasonal creations",
+    bestFor: "Cocktail enthusiasts, date nights, after-work drinks",
+    insiderTip: "Ask the bartenders for recommendations—they love creating custom drinks.",
   },
   {
-    name: "Harbor House",
-    cuisine: "Seafood",
-    priceRange: "$$$",
-    address: "550 N Harbor Dr, Milwaukee, WI 53202",
-    description: "Milwaukee's premier waterfront seafood destination. Fresh catches, stunning harbor views, and Bartolotta quality. The patio is prime summer real estate.",
-    mustTry: "Fresh oysters, Lake Superior whitefish, lobster",
-    bestFor: "Special occasions, waterfront dining, celebrations",
-    insiderTip: "Request a window table for sunset views.",
+    name: "Enlightened Brewing Company",
+    cuisine: "Brewery",
+    priceRange: "$",
+    address: "2020 S 1st St, Milwaukee, WI 53207",
+    description: "Small-batch craft brewery in the Harbor District area focused on Belgian-inspired ales. Taproom with a rotating selection and a commitment to quality over quantity.",
+    mustTry: "Belgian-style ales, seasonal releases, taproom hangs",
+    bestFor: "Beer enthusiasts, Belgian beer lovers, local craft",
+    insiderTip: "Check their release schedule for limited batches.",
   },
 ];
 
 const attractions = [
   {
-    name: "Summerfest Grounds",
-    type: "Festival/Venue",
-    description: "Home to the world's largest music festival and year-round concerts at the American Family Insurance Amphitheater. The lakefront grounds host multiple ethnic festivals throughout summer.",
-    highlights: ["Summerfest", "Concerts", "Festivals", "Lakefront"],
-  },
-  {
-    name: "Discovery World",
-    type: "Museum",
-    description: "Science and technology museum with interactive exhibits, aquariums, and the Denis Sullivan tall ship. Great for families and anyone curious about the Great Lakes.",
-    highlights: ["Family-friendly", "Interactive", "Aquarium", "Tall ship"],
-  },
-  {
-    name: "Milwaukee Art Museum",
-    type: "Museum",
-    description: "The iconic Calatrava-designed wings open and close daily over the lakefront. World-class art collection and stunning architecture make this a must-see Milwaukee landmark.",
-    highlights: ["Architecture", "Art collection", "Lakefront", "Free Thursday evenings"],
-  },
-  {
-    name: "Lakefront Trail",
+    name: "Kinnickinnic River Trail",
     type: "Recreation",
-    description: "Miles of paved trail along Lake Michigan perfect for biking, running, or walking. Connect to Bradford Beach, the Third Ward, and downtown.",
-    highlights: ["Biking", "Running", "Lake views", "Free"],
-  },
-  {
-    name: "Harbor District Waterways",
-    type: "Recreation",
-    description: "The Kinnickinnic River and inner harbor offer kayaking, paddleboarding, and boat access. Urban water recreation at its finest.",
-    highlights: ["Kayaking", "Paddleboarding", "River access"],
+    description: "The KK River Trail runs through the Harbor District, connecting to the Hank Aaron State Trail. Great for biking, walking, and seeing the district's transformation up close.",
+    highlights: ["Biking", "Walking", "River views", "Urban nature"],
   },
   {
     name: "Reed Street Yards",
     type: "Creative District",
-    description: "Former industrial area transforming into a creative and tech hub. New developments, startups, and adaptive reuse projects are changing the landscape.",
-    highlights: ["Innovation", "Adaptive reuse", "Growing area"],
+    description: "Former industrial area transforming into a creative and tech hub. New developments, startups, and adaptive reuse projects are changing the landscape. The Rite-Hite headquarters is a major anchor.",
+    highlights: ["Innovation", "Adaptive reuse", "Growing area", "New development"],
+  },
+  {
+    name: "Harbor District Waterways",
+    type: "Recreation",
+    description: "The Kinnickinnic River and inner harbor offer kayaking, paddleboarding, and boat access. Urban Ecology Center provides equipment rentals and programming.",
+    highlights: ["Kayaking", "Paddleboarding", "River access", "Equipment rentals"],
+  },
+  {
+    name: "Klement's Factory",
+    type: "Local Business",
+    description: "See where Milwaukee's famous sausages are made. The factory includes a retail store where you can stock up on brats, hot dogs, and other Klement's products.",
+    highlights: ["Milwaukee tradition", "Local business", "Factory store"],
+  },
+  {
+    name: "Inner Harbor",
+    type: "Working Waterfront",
+    description: "Milwaukee's working harbor where industry meets urban development. Watch ships, explore the evolving landscape, and see the city's maritime heritage.",
+    highlights: ["Maritime history", "Working harbor", "Urban exploration"],
+  },
+  {
+    name: "Greenfield Avenue",
+    type: "Commercial Corridor",
+    description: "The main corridor through the Harbor District featuring local businesses, restaurants, and services. A neighborhood in transition with new investment.",
+    highlights: ["Local businesses", "Neighborhood character", "Accessible"],
   },
 ];
 
 const nightlife = [
   {
-    name: "Milwaukee Ale House",
-    type: "Brewpub",
-    description: "Craft beer brewed on-site with a beautiful riverwalk patio. Great for groups and after-work drinks.",
-    vibe: "Casual, craft beer, riverfront",
+    name: "Enlightened Brewing Taproom",
+    type: "Brewery",
+    description: "Belgian-inspired craft beer in a cozy taproom. Low-key atmosphere perfect for catching up with friends.",
+    vibe: "Casual, craft beer, local",
   },
   {
-    name: "The Jazz Estate (nearby)",
-    type: "Jazz Club",
-    description: "Milwaukee's premier jazz club featuring local and touring acts. Intimate setting, great sound, and a sophisticated vibe.",
-    vibe: "Jazz, sophisticated, intimate",
-  },
-  {
-    name: "Summer Festival Nights",
-    type: "Seasonal",
-    description: "During festival season, the Summerfest grounds come alive nearly every weekend with music and cultural celebrations.",
-    vibe: "Festive, outdoor, seasonal",
+    name: "Nearby Walker's Point",
+    type: "Adjacent District",
+    description: "The Harbor District borders Walker's Point, which offers Milwaukee's best concentration of bars, breweries, and nightlife just minutes away.",
+    vibe: "Walk to more options nearby",
   },
 ];
 
@@ -119,7 +113,7 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Harbor District Milwaukee Guide 2026",
-    "description": "Explore Milwaukee's Harbor District. Summerfest grounds, lakefront museums, waterfront dining, and the transformation of industrial Milwaukee.",
+    "description": "Explore Milwaukee's Harbor District along the Kinnickinnic River. Industrial transformation, Reed Street Yards, urban kayaking, and emerging creative hub.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
@@ -179,13 +173,13 @@ export default function HarborDistrictMilwaukee() {
   return (
     <>
       <Head>
-        <title>Harbor District Milwaukee Guide 2026 | Lakefront, Summerfest & Museums</title>
-        <meta name="description" content="Explore Milwaukee's Harbor District. Summerfest grounds, Milwaukee Art Museum, Discovery World, waterfront dining, and lakefront recreation. Complete guide." />
-        <meta name="keywords" content="Harbor District Milwaukee, Summerfest Milwaukee, Milwaukee Art Museum, Discovery World, Milwaukee lakefront, waterfront Milwaukee" />
+        <title>Harbor District Milwaukee Guide 2026 | Kinnickinnic River, Urban Revival</title>
+        <meta name="description" content="Explore Milwaukee's Harbor District along the Kinnickinnic River. Reed Street Yards creative hub, urban kayaking, Klement's factory, and industrial transformation." />
+        <meta name="keywords" content="Harbor District Milwaukee, Kinnickinnic River, Reed Street Yards, Milwaukee industrial, Milwaukee kayaking, Milwaukee redevelopment" />
         <link rel="canonical" href="https://discover-milwaukee.com/harbor-district-milwaukee" />
 
         <meta property="og:title" content="Harbor District Milwaukee Neighborhood Guide 2026" />
-        <meta property="og:description" content="Lakefront museums, Summerfest grounds, waterfront dining, and Milwaukee's transformation along the harbor." />
+        <meta property="og:description" content="Milwaukee's industrial harbor transformed. Kinnickinnic River trails, creative spaces, and urban renewal." />
         <meta property="og:url" content="https://discover-milwaukee.com/harbor-district-milwaukee" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://discover-milwaukee.com/og-harbor-district.jpg" />
@@ -213,7 +207,7 @@ export default function HarborDistrictMilwaukee() {
               Harbor District
             </h1>
             <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto" }}>
-              Where industrial Milwaukee meets lakefront recreation. Summerfest grounds, world-class museums, and a district in transformation.
+              Milwaukee's working waterfront in transformation. Industrial heritage, Kinnickinnic River access, and a creative hub emerging from the city's manufacturing past.
             </p>
           </div>
         </header>
@@ -222,17 +216,17 @@ export default function HarborDistrictMilwaukee() {
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>The District</h2>
             <p style={{ color: "#555", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
-              The Harbor District represents Milwaukee's past and future. Former industrial land along the inner harbor and Lake Michigan is being transformed into parks, creative spaces, and mixed-use development while preserving the working waterfront character.
+              The Harbor District is Milwaukee's evolving industrial corridor along the Kinnickinnic River and inner harbor. Once home to heavy manufacturing, the area is being thoughtfully redeveloped while maintaining its working waterfront character.
             </p>
             <p style={{ color: "#555", fontSize: "16px", lineHeight: 1.8 }}>
-              This is where you'll find the Summerfest grounds, the Milwaukee Art Museum's stunning Calatrava addition, Discovery World, and miles of lakefront trails. The Kinnickinnic River corridor offers urban kayaking, and new developments are bringing restaurants and housing to the area.
+              Reed Street Yards is the centerpiece of new development, attracting tech companies and creative businesses to adaptive reuse spaces. The Kinnickinnic River offers urban kayaking, and trails connect to the Hank Aaron State Trail network. Klement's Sausage factory remains a Milwaukee icon here. While still emerging, the Harbor District represents Milwaukee's ability to honor its industrial past while building something new.
             </p>
           </section>
 
           <section id="restaurants" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Where to Eat & Drink</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Waterfront dining, breweries, and Milwaukee institutions.
+              Local breweries, neighborhood spots, and nearby Walker's Point options.
             </p>
             {restaurants.map((r, i) => <VenueCard key={i} venue={r} />)}
           </section>
