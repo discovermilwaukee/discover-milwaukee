@@ -2523,15 +2523,23 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </a>
                 ))}
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)", gap: "12px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "12px" }}>
                 {[
                   { title: "Third Ward", href: "/third-ward-milwaukee" },
                   { title: "Bay View", href: "/bay-view-milwaukee" },
                   { title: "Walker's Point", href: "/walkers-point-milwaukee" },
                   { title: "East Side", href: "/east-side-milwaukee" },
+                  { title: "Downtown", href: "/downtown-milwaukee" },
+                  { title: "Riverwest", href: "/riverwest-milwaukee" },
+                  { title: "Brady Street", href: "/brady-street-milwaukee" },
+                  { title: "Bronzeville", href: "/bronzeville-milwaukee" },
+                  { title: "Sherman Park", href: "/sherman-park-milwaukee" },
+                  { title: "South Side", href: "/south-side-milwaukee" },
+                  { title: "Harbor District", href: "/harbor-district-milwaukee" },
+                  { title: "Washington Heights", href: "/washington-heights-milwaukee" },
                 ].map((hood, i) => (
                   <a key={i} href={hood.href} style={{ backgroundColor: c.green1, color: c.cream, padding: "12px 16px", borderRadius: "8px", textDecoration: "none", fontSize: "14px", fontWeight: "600", textAlign: "center", transition: "background-color 0.2s" }} onMouseOver={e => e.currentTarget.style.backgroundColor = c.green2} onMouseOut={e => e.currentTarget.style.backgroundColor = c.green1}>
-                    {hood.title} Guide →
+                    {hood.title} →
                   </a>
                 ))}
               </div>
@@ -3782,6 +3790,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <a href="/bay-view-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Bay View</a>
               <a href="/walkers-point-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Walker's Point</a>
               <a href="/east-side-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>East Side</a>
+              <a href="/downtown-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Downtown</a>
+              <a href="/riverwest-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Riverwest</a>
+              <a href="/brady-street-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Brady Street</a>
+              <a href="/bronzeville-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Bronzeville</a>
+              <a href="/sherman-park-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Sherman Park</a>
+              <a href="/south-side-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>South Side</a>
+              <a href="/harbor-district-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Harbor District</a>
+              <a href="/washington-heights-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Washington Heights</a>
             </div>
           </div>
 
