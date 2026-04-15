@@ -199,6 +199,64 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- WEEKEND & VISITOR GUIDES -->
+
+  <url>
+    <loc>https://discover-milwaukee.com/weekend-in-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/first-time-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/romantic-weekend-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/family-weekend-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/beer-lovers-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/foodie-weekend-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/arts-culture-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://discover-milwaukee.com/outdoor-weekend-milwaukee</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- UTILITY PAGES -->
 
   <url>
