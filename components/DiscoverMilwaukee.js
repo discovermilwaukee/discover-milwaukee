@@ -2685,6 +2685,32 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
           </section>
 
+          {/* Visitor & Weekend Guides Section */}
+          <section style={{ padding: isMobile ? "32px 16px" : "48px 16px", backgroundColor: c.white }}>
+            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+              <h2 style={{ fontSize: isMobile ? "24px" : "28px", fontWeight: "900", color: c.green1, marginBottom: "8px", textAlign: "center" }}>Visitor & Weekend Guides</h2>
+              <p style={{ color: c.tan, fontSize: "16px", textAlign: "center", marginBottom: "24px" }}>Planning a trip to Milwaukee? Start here.</p>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)", gap: "16px" }}>
+                {[
+                  { title: "First Time in Milwaukee", desc: "Essential guide for first-time visitors", icon: "🎯", href: "/first-time-milwaukee", color: c.green1 },
+                  { title: "Weekend in Milwaukee", desc: "Perfect 3-day itinerary", icon: "📅", href: "/weekend-in-milwaukee", color: c.blue1 },
+                  { title: "Romantic Getaway", desc: "Couples weekend guide", icon: "💕", href: "/romantic-weekend-milwaukee", color: "#c44569" },
+                  { title: "Family Weekend", desc: "Kid-friendly activities", icon: "👨‍👩‍👧‍👦", href: "/family-weekend-milwaukee", color: "#6c5ce7" },
+                  { title: "Beer Lover's Guide", desc: "Brewery tours & beer bars", icon: "🍺", href: "/beer-lovers-milwaukee", color: "#d35400" },
+                  { title: "Foodie Weekend", desc: "Culinary exploration", icon: "🍽️", href: "/foodie-weekend-milwaukee", color: "#e17055" },
+                  { title: "Arts & Culture", desc: "Museums, theater & music", icon: "🎭", href: "/arts-culture-milwaukee", color: "#0984e3" },
+                  { title: "Outdoor Adventure", desc: "Parks, trails & lake activities", icon: "🚴", href: "/outdoor-weekend-milwaukee", color: "#00b894" }
+                ].map(guide => (
+                  <a key={guide.href} href={guide.href} style={{ backgroundColor: guide.color, borderRadius: "16px", padding: "20px", textDecoration: "none", display: "block", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)"; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
+                    <span style={{ fontSize: "32px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
+                    <h3 style={{ color: c.white, fontSize: "15px", fontWeight: "800", marginBottom: "4px" }}>{guide.title}</h3>
+                    <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "12px" }}>{guide.desc}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Search and Filter */}
           <section style={{ padding: "24px 16px", backgroundColor: c.white, borderTop: `1px solid ${c.beige}`, borderBottom: `1px solid ${c.beige}` }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -3773,6 +3799,21 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <a href="/privacy" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Privacy Policy</a>
                 <a href="/terms" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Terms of Service</a>
               </div>
+            </div>
+          </div>
+
+          {/* Visitor Guides - SEO Internal Links */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", marginBottom: "24px" }}>
+            <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Visitor Guides</h4>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "12px" : "24px", justifyContent: isMobile ? "center" : "flex-start" }}>
+              <a href="/first-time-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>First Time Visitor</a>
+              <a href="/weekend-in-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Weekend Itinerary</a>
+              <a href="/romantic-weekend-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Romantic Getaway</a>
+              <a href="/family-weekend-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Family Weekend</a>
+              <a href="/beer-lovers-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Beer Lover's Guide</a>
+              <a href="/foodie-weekend-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Foodie Weekend</a>
+              <a href="/arts-culture-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Arts & Culture</a>
+              <a href="/outdoor-weekend-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Outdoor Adventure</a>
             </div>
           </div>
 
