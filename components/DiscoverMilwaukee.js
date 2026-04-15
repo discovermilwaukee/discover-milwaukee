@@ -218,12 +218,65 @@ const getStructuredData = (page, events = [], articles = []) => {
     }
   }));
 
+  // FAQ schema for homepage - targets featured snippets
+  const homeFAQSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is there to do in Milwaukee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Milwaukee offers world-class attractions including the Milwaukee Art Museum, Harley-Davidson Museum, 100+ annual festivals (including Summerfest), professional sports (Bucks, Brewers), historic breweries like Lakefront Brewery, vibrant neighborhoods (Third Ward, Bay View, Walker's Point), excellent restaurants, craft breweries, and beautiful Lake Michigan lakefront access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Milwaukee known for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Milwaukee is known as America's historic brewing capital (home to Pabst, Schlitz, Miller), Harley-Davidson motorcycles, the Milwaukee Bucks (2021 NBA Champions), cheese curds and Friday fish fry tradition, Summerfest (world's largest music festival), the Milwaukee Art Museum's Calatrava-designed wings, and its German heritage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Milwaukee worth visiting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Milwaukee is absolutely worth visiting. It offers big-city attractions at Midwest prices, a genuinely friendly atmosphere, an incredible food and craft beer scene, and a lakefront rivaling Chicago's. Most visitors are surprised by how much there is to do and how welcoming the city feels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the best neighborhoods in Milwaukee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Milwaukee's best neighborhoods include the Historic Third Ward (upscale shopping, dining, galleries), Bay View (hip, artsy, great restaurants), Walker's Point (craft breweries, LGBTQ+ nightlife, street art), East Side/Brady Street (eclectic bars, shops, lakefront access), and Downtown (museums, sports, theater district)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best time to visit Milwaukee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best time to visit Milwaukee is late May through September when festival season is in full swing, patios are open, and the lakefront is buzzing. June-July features Summerfest and ethnic festivals. Fall offers beautiful foliage and fewer crowds. Winter is great for cozy bars, Bucks games, and holiday markets."
+        }
+      }
+    ]
+  };
+
   const schemas = [baseOrganization, localBusiness, website, breadcrumbs];
-  
+
+  // Add FAQ schema for homepage
+  if (page === "home") {
+    schemas.push(homeFAQSchema);
+  }
+
   if (page === "events" && events.length > 0) {
     schemas.push(...eventSchema);
   }
-  
+
   if (page === "explore" && articles.length > 0) {
     schemas.push(...articleSchema);
   }
@@ -2435,6 +2488,47 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <button onClick={() => navigateTo("events")} style={{ padding: "14px 32px", backgroundColor: c.green1, color: c.cream, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "700", fontSize: "14px", textTransform: "uppercase" }}>
                   View All Events →
                 </button>
+              </div>
+            </div>
+          </section>
+
+          {/* POPULAR GUIDES - Internal Linking for SEO */}
+          <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
+            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+              <div style={{ textAlign: "center", marginBottom: "32px" }}>
+                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>Local Guides</p>
+                <h2 style={{ fontSize: isMobile ? "24px" : "32px", fontWeight: "900", color: c.green1, textTransform: "uppercase", marginBottom: "8px" }}>Explore Milwaukee</h2>
+                <p style={{ color: c.tan, fontSize: "16px" }}>In-depth guides written by locals</p>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "16px", marginBottom: "24px" }}>
+                {[
+                  { title: "Things to Do", desc: "Complete activity guide", href: "/things-to-do-milwaukee", icon: "🎯" },
+                  { title: "Best Restaurants", desc: "Top dining spots", href: "/best-restaurants-milwaukee", icon: "🍽️" },
+                  { title: "New Restaurants", desc: "Latest openings", href: "/new-restaurants-milwaukee", icon: "✨" },
+                  { title: "Best Brunch", desc: "Weekend favorites", href: "/best-brunch-milwaukee", icon: "🥞" },
+                  { title: "Best Patios", desc: "Outdoor dining & drinks", href: "/best-patios-milwaukee", icon: "☀️" },
+                  { title: "Breweries", desc: "Craft beer guide", href: "/milwaukee-breweries", icon: "🍺" },
+                  { title: "Nightlife", desc: "Bars & late night", href: "/milwaukee-nightlife", icon: "🌙" },
+                  { title: "This Weekend", desc: "What's happening now", href: "/this-weekend-milwaukee", icon: "📅" },
+                ].map((guide, i) => (
+                  <a key={i} href={guide.href} style={{ backgroundColor: c.white, borderRadius: "12px", padding: "20px", textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", transition: "transform 0.2s, box-shadow 0.2s", display: "block", border: `2px solid transparent` }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = c.yellow; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)"; e.currentTarget.style.borderColor = "transparent"; }}>
+                    <span style={{ fontSize: "28px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
+                    <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px" }}>{guide.title}</h3>
+                    <p style={{ color: c.tan, fontSize: "13px", margin: 0 }}>{guide.desc}</p>
+                  </a>
+                ))}
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)", gap: "12px" }}>
+                {[
+                  { title: "Third Ward", href: "/third-ward-milwaukee" },
+                  { title: "Bay View", href: "/bay-view-milwaukee" },
+                  { title: "Walker's Point", href: "/walkers-point-milwaukee" },
+                  { title: "East Side", href: "/east-side-milwaukee" },
+                ].map((hood, i) => (
+                  <a key={i} href={hood.href} style={{ backgroundColor: c.green1, color: c.cream, padding: "12px 16px", borderRadius: "8px", textDecoration: "none", fontSize: "14px", fontWeight: "600", textAlign: "center", transition: "background-color 0.2s" }} onMouseOver={e => e.currentTarget.style.backgroundColor = c.green2} onMouseOut={e => e.currentTarget.style.backgroundColor = c.green1}>
+                    {hood.title} Guide →
+                  </a>
+                ))}
               </div>
             </div>
           </section>
