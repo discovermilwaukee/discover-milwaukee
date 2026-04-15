@@ -1898,6 +1898,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   };
 
   const navigateTo = (p) => {
+    // Handle About page as external link (separate page)
+    if (p.toLowerCase() === "about") {
+      window.location.href = "/about";
+      return;
+    }
     setPage(p.toLowerCase());
     setSelectedEvent(null);
     setSelectedPost(null);
@@ -2228,7 +2233,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Desktop Nav */}
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-              {["Home", "Explore", "Events", "Newsletter"].map(item => (
+              {["Home", "Explore", "Events", "Newsletter", "About"].map(item => (
                 <span key={item} onClick={() => navigateTo(item)} style={{ color: page === item.toLowerCase() ? c.yellow : (darkMode ? colors.navText : c.green1), fontSize: "14px", fontWeight: "600", cursor: "pointer", textTransform: "uppercase", borderBottom: page === item.toLowerCase() ? `2px solid ${c.yellow}` : "2px solid transparent", padding: "6px 0" }}>
                   {item}
                 </span>
@@ -2339,7 +2344,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         {/* Mobile Menu Dropdown */}
         {isMobile && mobileMenuOpen && (
           <div style={{ backgroundColor: c.cream, borderTop: `1px solid ${c.beige}`, padding: "16px" }}>
-            {["Home", "Explore", "Events", "Newsletter"].map(item => (
+            {["Home", "Explore", "Events", "Newsletter", "About"].map(item => (
               <div 
                 key={item} 
                 onClick={() => { navigateTo(item); setMobileMenuOpen(false); }} 
