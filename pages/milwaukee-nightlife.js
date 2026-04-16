@@ -328,9 +328,9 @@ const barCrawls = [
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Milwaukee Nightlife Guide 2024: Best Bars, Clubs & Live Music',
+  headline: 'Milwaukee Nightlife Guide 2026: Best Bars, Clubs & Live Music',
   description: 'Comprehensive guide to Milwaukee nightlife including the best cocktail bars, dive bars, dance clubs, LGBTQ+ venues, and live music spots.',
-  image: 'https://discovermilwaukee.com/images/milwaukee-nightlife-hero.jpg',
+  image: 'https://discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg',
   author: {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
@@ -340,14 +340,14 @@ const articleSchema = {
     name: 'Discover Milwaukee',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://discovermilwaukee.com/logo.png',
+      url: 'https://discover-milwaukee.com/logo.png',
     },
   },
-  datePublished: '2024-01-15',
-  dateModified: '2024-01-15',
+  datePublished: '2026-01-15',
+  dateModified: '2026-01-15',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discovermilwaukee.com/milwaukee-nightlife',
+    '@id': 'https://discover-milwaukee.com/milwaukee-nightlife',
   },
 };
 
@@ -369,10 +369,10 @@ export default function MilwaukeeNightlife() {
     <>
       <Head>
         {/* Primary Meta Tags */}
-        <title>Milwaukee Nightlife Guide 2024 | Best Bars, Clubs & Live Music</title>
+        <title>Milwaukee Nightlife Guide 2026 | Best Bars, Clubs & Live Music</title>
         <meta
           name="title"
-          content="Milwaukee Nightlife Guide 2024 | Best Bars, Clubs & Live Music"
+          content="Milwaukee Nightlife Guide 2026 | Best Bars, Clubs & Live Music"
         />
         <meta
           name="description"
@@ -388,10 +388,10 @@ export default function MilwaukeeNightlife() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://discovermilwaukee.com/milwaukee-nightlife" />
+        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-nightlife" />
         <meta
           property="og:title"
-          content="Milwaukee Nightlife Guide 2024 | Best Bars, Clubs & Live Music"
+          content="Milwaukee Nightlife Guide 2026 | Best Bars, Clubs & Live Music"
         />
         <meta
           property="og:description"
@@ -399,15 +399,15 @@ export default function MilwaukeeNightlife() {
         />
         <meta
           property="og:image"
-          content="https://discovermilwaukee.com/images/milwaukee-nightlife-hero.jpg"
+          content="https://discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg"
         />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://discovermilwaukee.com/milwaukee-nightlife" />
+        <meta property="twitter:url" content="https://discover-milwaukee.com/milwaukee-nightlife" />
         <meta
           property="twitter:title"
-          content="Milwaukee Nightlife Guide 2024 | Best Bars, Clubs & Live Music"
+          content="Milwaukee Nightlife Guide 2026 | Best Bars, Clubs & Live Music"
         />
         <meta
           property="twitter:description"
@@ -415,11 +415,11 @@ export default function MilwaukeeNightlife() {
         />
         <meta
           property="twitter:image"
-          content="https://discovermilwaukee.com/images/milwaukee-nightlife-hero.jpg"
+          content="https://discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg"
         />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://discovermilwaukee.com/milwaukee-nightlife" />
+        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-nightlife" />
 
         {/* Schema.org JSON-LD */}
         <script
@@ -508,7 +508,7 @@ export default function MilwaukeeNightlife() {
                   fontWeight: '600',
                 }}
               >
-                Updated 2024
+                Updated 2026
               </span>
             </div>
           </div>

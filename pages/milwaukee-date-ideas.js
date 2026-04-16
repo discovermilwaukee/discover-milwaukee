@@ -15,10 +15,10 @@ const colors = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: '50+ Best Date Ideas in Milwaukee for Every Couple | 2024 Guide',
+  headline: '50+ Best Date Ideas in Milwaukee for Every Couple | 2026 Guide',
   description:
     'Discover the most romantic date ideas in Milwaukee, from upscale dining at Sanford to kayaking on the Milwaukee River. Perfect for first dates, anniversaries, and everything in between.',
-  image: 'https://discovermilwaukee.com/images/milwaukee-date-ideas.jpg',
+  image: 'https://discover-milwaukee.com/images/milwaukee-date-ideas.jpg',
   author: {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
@@ -28,14 +28,14 @@ const articleSchema = {
     name: 'Discover Milwaukee',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://discovermilwaukee.com/logo.png',
+      url: 'https://discover-milwaukee.com/logo.png',
     },
   },
-  datePublished: '2024-01-15',
-  dateModified: '2024-03-01',
+  datePublished: '2026-01-15',
+  dateModified: '2026-03-01',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discovermilwaukee.com/milwaukee-date-ideas',
+    '@id': 'https://discover-milwaukee.com/milwaukee-date-ideas',
   },
 };
 
@@ -99,7 +99,7 @@ export default function MilwaukeeDateIdeas() {
     <>
       <Head>
         {/* Primary SEO Meta Tags */}
-        <title>50+ Best Date Ideas in Milwaukee WI | Romantic Things to Do 2024</title>
+        <title>50+ Best Date Ideas in Milwaukee WI | Romantic Things to Do 2026</title>
         <meta
           name="description"
           content="Discover the best date ideas in Milwaukee for every couple. From romantic dinners at Sanford to kayaking the river, find perfect date night ideas for first dates, anniversaries & more."
@@ -121,9 +121,9 @@ export default function MilwaukeeDateIdeas() {
         />
         <meta
           property="og:image"
-          content="https://discovermilwaukee.com/images/milwaukee-date-ideas.jpg"
+          content="https://discover-milwaukee.com/images/milwaukee-date-ideas.jpg"
         />
-        <meta property="og:url" content="https://discovermilwaukee.com/milwaukee-date-ideas" />
+        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-date-ideas" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -137,12 +137,12 @@ export default function MilwaukeeDateIdeas() {
         />
         <meta
           name="twitter:image"
-          content="https://discovermilwaukee.com/images/milwaukee-date-ideas.jpg"
+          content="https://discover-milwaukee.com/images/milwaukee-date-ideas.jpg"
         />
 
         {/* Additional SEO */}
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://discovermilwaukee.com/milwaukee-date-ideas" />
+        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-date-ideas" />
         <meta name="author" content="Discover Milwaukee" />
         <meta name="geo.region" content="US-WI" />
         <meta name="geo.placename" content="Milwaukee" />
@@ -1991,7 +1991,7 @@ export default function MilwaukeeDateIdeas() {
           }}
         >
           <p style={{ opacity: 0.8, fontSize: '0.9rem' }}>
-            Last updated: March 2024 | Discover Milwaukee
+            Last updated: March 2026 | Discover Milwaukee
           </p>
           <p style={{ opacity: 0.6, fontSize: '0.85rem', marginTop: '10px' }}>
             Have a date idea we missed? We'd love to hear from you.

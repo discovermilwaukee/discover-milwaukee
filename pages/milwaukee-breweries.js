@@ -345,12 +345,12 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
   },
-  datePublished: '2024-01-15',
-  dateModified: '2024-01-15',
-  image: 'https://discovermilwaukee.com/images/milwaukee-breweries-guide.jpg',
+  datePublished: '2026-01-15',
+  dateModified: '2026-01-15',
+  image: 'https://discover-milwaukee.com/images/milwaukee-breweries-guide.jpg',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discovermilwaukee.com/milwaukee-breweries',
+    '@id': 'https://discover-milwaukee.com/milwaukee-breweries',
   },
 };
 
@@ -395,7 +395,7 @@ export default function MilwaukeeBreweries() {
     <>
       <Head>
         {/* Primary SEO Meta Tags */}
-        <title>Milwaukee Breweries Guide 2024 | Best Craft Beer & Brewery Tours</title>
+        <title>Milwaukee Breweries Guide 2026 | Best Craft Beer & Brewery Tours</title>
         <meta
           name="description"
           content="Explore 30+ Milwaukee breweries from historic Lakefront Brewery to innovative craft producers. Discover brewery tours, beer gardens, and why Milwaukee remains America's beer capital."
@@ -404,7 +404,7 @@ export default function MilwaukeeBreweries() {
           name="keywords"
           content="milwaukee breweries, craft beer milwaukee, brewery tour milwaukee, milwaukee beer, lakefront brewery, milwaukee brewing company, best breweries milwaukee, milwaukee craft breweries, beer gardens milwaukee, walker's point breweries"
         />
-        <link rel="canonical" href="https://discovermilwaukee.com/milwaukee-breweries" />
+        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-breweries" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Milwaukee Breweries Guide | Craft Beer & Brewery Tours" />
@@ -413,8 +413,8 @@ export default function MilwaukeeBreweries() {
           content="Your complete guide to Milwaukee's brewery scene. From iconic Lakefront Brewery to cutting-edge craft producers, discover the best beer in America's brewing capital."
         />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://discovermilwaukee.com/milwaukee-breweries" />
-        <meta property="og:image" content="https://discovermilwaukee.com/images/milwaukee-breweries-guide.jpg" />
+        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-breweries" />
+        <meta property="og:image" content="https://discover-milwaukee.com/images/milwaukee-breweries-guide.jpg" />
         <meta property="og:site_name" content="Discover Milwaukee" />
 
         {/* Twitter Card */}
@@ -424,7 +424,7 @@ export default function MilwaukeeBreweries() {
           name="twitter:description"
           content="Explore Milwaukee's best breweries, tours, and beer gardens in America's historic brewing capital."
         />
-        <meta name="twitter:image" content="https://discovermilwaukee.com/images/milwaukee-breweries-guide.jpg" />
+        <meta name="twitter:image" content="https://discover-milwaukee.com/images/milwaukee-breweries-guide.jpg" />
 
         {/* Schema.org Structured Data */}
         <script

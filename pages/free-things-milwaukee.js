@@ -43,27 +43,27 @@ const faqs = [
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Free Things to Do in Milwaukee: Ultimate Budget-Friendly Guide 2024',
+  headline: 'Free Things to Do in Milwaukee: Ultimate Budget-Friendly Guide 2026',
   description: 'Discover 50+ free things to do in Milwaukee including free museum days, outdoor activities, concerts, beer gardens, self-guided tours, and seasonal events. Milwaukee is one of the most affordable cities in the Midwest!',
-  image: 'https://discovermilwaukee.com/images/milwaukee-lakefront-free.jpg',
+  image: 'https://discover-milwaukee.com/images/milwaukee-lakefront-free.jpg',
   author: {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
-    url: 'https://discovermilwaukee.com',
+    url: 'https://discover-milwaukee.com',
   },
   publisher: {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://discovermilwaukee.com/logo.png',
+      url: 'https://discover-milwaukee.com/logo.png',
     },
   },
-  datePublished: '2024-01-15',
-  dateModified: '2024-03-20',
+  datePublished: '2026-01-15',
+  dateModified: '2026-03-20',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discovermilwaukee.com/free-things-milwaukee',
+    '@id': 'https://discover-milwaukee.com/free-things-milwaukee',
   },
 };
 
@@ -361,11 +361,11 @@ export default function FreeThingsMilwaukee() {
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
         <meta name="author" content="Discover Milwaukee" />
-        <link rel="canonical" href="https://discovermilwaukee.com/free-things-milwaukee" />
+        <link rel="canonical" href="https://discover-milwaukee.com/free-things-milwaukee" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://discovermilwaukee.com/free-things-milwaukee" />
+        <meta property="og:url" content="https://discover-milwaukee.com/free-things-milwaukee" />
         <meta
           property="og:title"
           content="Free Things to Do in Milwaukee | 50+ Budget-Friendly Activities"
@@ -376,7 +376,7 @@ export default function FreeThingsMilwaukee() {
         />
         <meta
           property="og:image"
-          content="https://discovermilwaukee.com/images/milwaukee-lakefront-free.jpg"
+          content="https://discover-milwaukee.com/images/milwaukee-lakefront-free.jpg"
         />
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Discover Milwaukee" />
@@ -385,7 +385,7 @@ export default function FreeThingsMilwaukee() {
         <meta property="twitter:card" content="summary_large_image" />
         <meta
           property="twitter:url"
-          content="https://discovermilwaukee.com/free-things-milwaukee"
+          content="https://discover-milwaukee.com/free-things-milwaukee"
         />
         <meta
           property="twitter:title"
@@ -397,7 +397,7 @@ export default function FreeThingsMilwaukee() {
         />
         <meta
           property="twitter:image"
-          content="https://discovermilwaukee.com/images/milwaukee-lakefront-free.jpg"
+          content="https://discover-milwaukee.com/images/milwaukee-lakefront-free.jpg"
         />
 
         {/* Schema.org structured data */}
@@ -1163,7 +1163,7 @@ export default function FreeThingsMilwaukee() {
         <section style={{ padding: '40px 20px', backgroundColor: colors.cream, textAlign: 'center' }}>
           <p style={{ color: colors.green2, maxWidth: '700px', margin: '0 auto', lineHeight: '1.7' }}>
             <em>
-              Last updated: March 2024. Always check individual venues for current hours and any
+              Last updated: March 2026. Always check individual venues for current hours and any
               policy changes. Some activities may be seasonal or weather-dependent.
             </em>
           </p>
