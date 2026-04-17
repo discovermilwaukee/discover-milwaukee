@@ -3864,7 +3864,6 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         <select value={partnerForm.preferredContact} onChange={(e) => handlePartnerFormChange("preferredContact", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
                           <option value="">Select preference</option>
                           <option value="Email">Email</option>
-                          <option value="Text">Text</option>
                           <option value="Phone">Phone</option>
                         </select>
                       </div>
