@@ -2614,7 +2614,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <div style={{ textAlign: "center", marginBottom: "32px" }}>
                 <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>Don't Miss Out</p>
                 <h2 style={{ fontSize: isMobile ? "24px" : "32px", fontWeight: "900", color: c.green1, textTransform: "uppercase", marginBottom: "8px" }}>This Week in Milwaukee</h2>
-                <p style={{ color: c.tan, fontSize: "16px" }}>Handpicked events worth your time</p>
+                <p style={{ color: c.tan, fontSize: "16px", marginBottom: "16px" }}>Handpicked events worth your time</p>
+                {/* Sponsor */}
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", backgroundColor: c.cream, padding: "10px 20px", borderRadius: "50px", border: `1px solid ${c.beige}` }}>
+                  <span style={{ color: c.tan, fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Presented by</span>
+                  <a href="https://nicoletlaw.com" target="_blank" rel="noopener noreferrer sponsored" style={{ display: "flex", alignItems: "center" }}>
+                    <img src="/images/nicolet-law-logo.png" alt="Nicolet Law - Accident & Injury Lawyers" style={{ height: "28px", width: "auto" }} />
+                  </a>
+                </div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "20px" }}>
                 {events.filter(e => e.featured).slice(0, 4).map((event, i) => {
@@ -3074,7 +3081,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>WHAT'S HAPPENING</p>
               <h1 style={{ fontSize: "44px", fontWeight: "900", color: c.green1, marginBottom: "12px", textTransform: "uppercase" }}>Milwaukee Events</h1>
               <p style={{ fontSize: "18px", color: c.green1, fontWeight: "600", marginBottom: "16px" }}>Your Social Calendar, Handled.</p>
-              <p style={{ color: c.green1, fontSize: "16px", lineHeight: 1.6, opacity: 0.85 }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
+              <p style={{ color: c.green1, fontSize: "16px", lineHeight: 1.6, opacity: 0.85, marginBottom: "24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
+              {/* Sponsor */}
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", backgroundColor: "rgba(255,255,255,0.95)", padding: "12px 24px", borderRadius: "50px", boxShadow: "0 4px 16px rgba(0,0,0,0.1)" }}>
+                <span style={{ color: "#666", fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Presented by</span>
+                <a href="https://nicoletlaw.com" target="_blank" rel="noopener noreferrer sponsored" style={{ display: "flex", alignItems: "center" }}>
+                  <img src="/images/nicolet-law-logo.png" alt="Nicolet Law - Accident & Injury Lawyers" style={{ height: "32px", width: "auto" }} />
+                </a>
+              </div>
             </div>
           </section>
           <section style={{ padding: "24px 16px", backgroundColor: c.cream, borderBottom: `1px solid ${c.beige}` }}>
