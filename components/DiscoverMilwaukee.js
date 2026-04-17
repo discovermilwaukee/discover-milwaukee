@@ -2050,6 +2050,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       window.location.href = "/about";
       return;
     }
+    // Handle Festivals page as external link (separate page)
+    if (p.toLowerCase() === "festivals") {
+      window.location.href = "/milwaukee-festivals";
+      return;
+    }
     setPage(p.toLowerCase());
     setSelectedEvent(null);
     setSelectedPost(null);
@@ -2380,7 +2385,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Desktop Nav */}
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-              {["Home", "Explore", "Events", "Newsletter", "About"].map(item => (
+              {["Home", "Explore", "Events", "Festivals", "Newsletter", "About"].map(item => (
                 <span key={item} onClick={() => navigateTo(item)} style={{ color: page === item.toLowerCase() ? c.yellow : (darkMode ? colors.navText : c.green1), fontSize: "14px", fontWeight: "600", cursor: "pointer", textTransform: "uppercase", borderBottom: page === item.toLowerCase() ? `2px solid ${c.yellow}` : "2px solid transparent", padding: "6px 0" }}>
                   {item}
                 </span>
@@ -2491,16 +2496,16 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         {/* Mobile Menu Dropdown */}
         {isMobile && mobileMenuOpen && (
           <div style={{ backgroundColor: c.cream, borderTop: `1px solid ${c.beige}`, padding: "16px" }}>
-            {["Home", "Explore", "Events", "Newsletter", "About"].map(item => (
-              <div 
-                key={item} 
-                onClick={() => { navigateTo(item); setMobileMenuOpen(false); }} 
-                style={{ 
-                  padding: "14px 16px", 
-                  color: page === item.toLowerCase() ? c.yellow : c.green1, 
-                  fontSize: "16px", 
-                  fontWeight: "600", 
-                  cursor: "pointer", 
+            {["Home", "Explore", "Events", "Festivals", "Newsletter", "About"].map(item => (
+              <div
+                key={item}
+                onClick={() => { navigateTo(item); setMobileMenuOpen(false); }}
+                style={{
+                  padding: "14px 16px",
+                  color: page === item.toLowerCase() ? c.yellow : c.green1,
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  cursor: "pointer",
                   textTransform: "uppercase",
                   borderBottom: `1px solid ${c.beige}`,
                   backgroundColor: page === item.toLowerCase() ? c.green1 : "transparent"
