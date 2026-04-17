@@ -658,36 +658,50 @@ const isWithinWeek = (eventDate, monday) => {
   return e >= m && e <= s;
 };
 
-// FALLBACK EVENTS DATA - Used when Google Sheets is not configured or fails to load
-// Updated: April 16-19, 2026
-const FALLBACK_EVENTS = [
-  // FEATURED EVENTS
-  { id: "1", title: "Milwaukee Film Festival", slug: "milwaukee-film-festival", startDateTime: "2026-04-16T10:00:00", endDateTime: "2026-04-19T23:00:00", allDay: false, venueName: "Various Locations", neighborhood: "Citywide", category: "Arts", tags: ["film", "festival"], costType: "paid", costDetails: "$15+", shortDescription: "Wisconsin's largest film festival returns with 200+ films from 50 countries. Opening night features world premieres.", featured: true },
-  { id: "2", title: "Spring Gallery Night", slug: "spring-gallery-night", startDateTime: "2026-04-17T17:00:00", endDateTime: "2026-04-18T21:00:00", allDay: false, venueName: "Historic Third Ward & Citywide", neighborhood: "Third Ward", category: "Arts", tags: ["free", "date night"], costType: "free", costDetails: "Free", shortDescription: "Milwaukee's biggest gallery crawl of spring. 50+ galleries, free admission, and artist meet-and-greets.", featured: true },
-  { id: "3", title: "Art in Bloom", slug: "art-in-bloom", startDateTime: "2026-04-16T10:00:00", endDateTime: "2026-04-19T17:00:00", allDay: false, venueName: "Milwaukee Art Museum", neighborhood: "Downtown", category: "Arts", tags: ["flowers", "art"], costType: "paid", costDetails: "$22", shortDescription: "Stunning floral installations interpreting masterworks. 50+ arrangements by local florists throughout the museum.", featured: true },
-  { id: "4", title: "Brew City Marathon, Half Marathon & 5K", slug: "brew-city-marathon", startDateTime: "2026-04-18T07:00:00", endDateTime: "2026-04-18T14:00:00", allDay: false, venueName: "McKinley Marina", neighborhood: "Downtown", category: "Sports", tags: ["outdoor", "fitness"], costType: "paid", costDetails: "$65-$130", shortDescription: "Scenic lakefront course through Milwaukee's best neighborhoods. Post-race beer garden at the finish.", featured: true },
-  { id: "5", title: "We Them Ones Comedy Tour", slug: "we-them-ones-comedy", startDateTime: "2026-04-18T20:00:00", endDateTime: "2026-04-18T23:00:00", allDay: false, venueName: "Fiserv Forum", neighborhood: "Downtown", category: "Comedy", tags: ["21+", "date night"], costType: "paid", costDetails: "$49+", shortDescription: "Bert Kreischer & Friends bring the laughs to Milwaukee. One of the biggest comedy tours of 2026.", featured: true },
-  // WEDNESDAY APRIL 16
-  { id: "6", title: "Community Access Day", slug: "community-access-day", startDateTime: "2026-04-16T09:00:00", endDateTime: "2026-04-16T17:00:00", allDay: false, venueName: "Betty Brinn Children's Museum", neighborhood: "Downtown", category: "Family", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Free admission for all families. Interactive exhibits, maker spaces, and hands-on learning.", featured: false },
-  { id: "7", title: "Spelling Bee Showdown", slug: "spelling-bee-showdown", startDateTime: "2026-04-16T18:30:00", endDateTime: "2026-04-16T21:00:00", allDay: false, venueName: "Lakefront Brewery", neighborhood: "Riverwest", category: "Nightlife", tags: ["21+", "free"], costType: "free", costDetails: "Free", shortDescription: "Adults-only spelling bee with beer. Teams compete for brewery prizes and bragging rights.", featured: false },
-  { id: "8", title: "Concerts in the Courtyard", slug: "concerts-courtyard", startDateTime: "2026-04-16T17:30:00", endDateTime: "2026-04-16T20:00:00", allDay: false, venueName: "Boerner Botanical Gardens", neighborhood: "Hales Corners", category: "Live Music", tags: ["outdoor", "free"], costType: "free", costDetails: "Free", shortDescription: "Live music surrounded by spring blooms. Food trucks and craft beverages available.", featured: false },
-  // THURSDAY APRIL 17
-  { id: "9", title: "Food Truck Pilot Program", slug: "food-truck-pilot", startDateTime: "2026-04-17T11:00:00", endDateTime: "2026-04-17T14:00:00", allDay: false, venueName: "Milwaukee County Parks", neighborhood: "Citywide", category: "Food & Drink", tags: ["outdoor", "kid-friendly"], costType: "paid", costDetails: "Varies", shortDescription: "Sample 15+ food trucks at rotating park locations. Check locations day-of.", featured: false },
-  { id: "10", title: "Kite Society: Spring Session", slug: "kite-society-spring", startDateTime: "2026-04-17T16:00:00", endDateTime: "2026-04-17T19:00:00", allDay: false, venueName: "Veterans Park", neighborhood: "East Side", category: "Outdoors", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Community kite flying along the lakefront. Bring your own or borrow from organizers.", featured: false },
-  // FRIDAY APRIL 17
-  { id: "11", title: "Friday Fish Fry Crawl", slug: "fish-fry-crawl", startDateTime: "2026-04-17T16:00:00", endDateTime: "2026-04-17T22:00:00", allDay: false, venueName: "Various Bars & Restaurants", neighborhood: "Bay View", category: "Food & Drink", tags: ["21+"], costType: "paid", costDetails: "$15-25 per stop", shortDescription: "Sample Milwaukee's best fish fry at 4 iconic spots. Self-guided with discount card.", featured: false },
-  { id: "12", title: "MAM After Dark: Spring Edition", slug: "mam-after-dark", startDateTime: "2026-04-17T18:00:00", endDateTime: "2026-04-17T22:00:00", allDay: false, venueName: "Milwaukee Art Museum", neighborhood: "Downtown", category: "Arts", tags: ["21+", "date night"], costType: "paid", costDetails: "$25", shortDescription: "Explore the museum after hours with cocktails, DJs, and interactive art experiences.", featured: false },
-  // SATURDAY APRIL 18
-  { id: "13", title: "Maker Faire Milwaukee", slug: "maker-faire", startDateTime: "2026-04-18T10:00:00", endDateTime: "2026-04-18T17:00:00", allDay: false, venueName: "Wisconsin State Fair Park", neighborhood: "West Allis", category: "Family", tags: ["kid-friendly"], costType: "paid", costDetails: "$15/$8", shortDescription: "DIY festival featuring 100+ makers, inventors, and crafters. Hands-on workshops all day.", featured: false },
-  { id: "14", title: "South Shore Farmers Market", slug: "south-shore-farmers", startDateTime: "2026-04-18T08:00:00", endDateTime: "2026-04-18T12:00:00", allDay: false, venueName: "South Shore Park", neighborhood: "Bay View", category: "Shopping", tags: ["free", "outdoor", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Season opener! 60+ vendors with local produce, baked goods, and artisan crafts.", featured: false },
-  { id: "15", title: "Pabst Mansion Spring Tour", slug: "pabst-mansion-spring", startDateTime: "2026-04-18T10:00:00", endDateTime: "2026-04-18T16:00:00", allDay: false, venueName: "Pabst Mansion", neighborhood: "Near West Side", category: "Tours", tags: ["indoor"], costType: "paid", costDetails: "$18", shortDescription: "Tour the Gilded Age mansion decorated with fresh spring florals.", featured: false },
-  { id: "16", title: "Lakefront Running Series", slug: "lakefront-running", startDateTime: "2026-04-18T08:00:00", endDateTime: "2026-04-18T11:00:00", allDay: false, venueName: "Bradford Beach", neighborhood: "East Side", category: "Sports", tags: ["outdoor", "fitness"], costType: "paid", costDetails: "$25", shortDescription: "5K and 10K along the lakefront. Post-race breakfast and beer included.", featured: false },
-  // SUNDAY APRIL 19
-  { id: "17", title: "Urban Ecology Center Guided Hike", slug: "uec-guided-hike", startDateTime: "2026-04-19T09:00:00", endDateTime: "2026-04-19T11:00:00", allDay: false, venueName: "Urban Ecology Center - Riverside Park", neighborhood: "East Side", category: "Outdoors", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Naturalist-led spring wildflower hike. Learn about native plants and urban wildlife.", featured: false },
-  { id: "18", title: "Sunday Funday at The Cooperage", slug: "sunday-funday-cooperage", startDateTime: "2026-04-19T12:00:00", endDateTime: "2026-04-19T17:00:00", allDay: false, venueName: "The Cooperage", neighborhood: "Walker's Point", category: "Live Music", tags: ["21+", "free"], costType: "free", costDetails: "Free", shortDescription: "Day drinking with live local bands. Food trucks and family-friendly until 5pm.", featured: false },
-  { id: "19", title: "Discovery World Free Admission Day", slug: "discovery-world-free", startDateTime: "2026-04-19T10:00:00", endDateTime: "2026-04-19T17:00:00", allDay: false, venueName: "Discovery World", neighborhood: "Downtown", category: "Family", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Free admission all day. Science exhibits, aquarium, and lakefront views.", featured: false },
-  { id: "20", title: "Milwaukee Bucks Playoff Watch Party", slug: "bucks-watch-party", startDateTime: "2026-04-19T14:00:00", endDateTime: "2026-04-19T18:00:00", allDay: false, venueName: "Deer District", neighborhood: "Downtown", category: "Sports", tags: ["free", "outdoor"], costType: "free", costDetails: "Free", shortDescription: "Giant screens, live DJs, and 10,000 fans cheering on the Bucks. Deer District energy!", featured: false },
-];
+// Helper to get a date relative to this week (0=Monday, 1=Tuesday, ..., 6=Sunday)
+const getThisWeekDate = (dayOfWeek, hour = 10, minute = 0) => {
+  const mon = getMonday(new Date());
+  const d = new Date(mon);
+  d.setDate(mon.getDate() + dayOfWeek);
+  d.setHours(hour, minute, 0, 0);
+  return d.toISOString();
+};
+
+// FALLBACK EVENTS DATA - Dynamic dates based on current week
+// Events are generated relative to "this week" so they always show up
+const generateFallbackEvents = () => {
+  // Days: 0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun
+  return [
+    // FEATURED EVENTS (Wed-Sun)
+    { id: "1", title: "Milwaukee Film Festival", slug: "milwaukee-film-festival", startDateTime: getThisWeekDate(2, 10), endDateTime: getThisWeekDate(6, 23), allDay: false, venueName: "Various Locations", neighborhood: "Citywide", category: "Arts", tags: ["film", "festival"], costType: "paid", costDetails: "$15+", shortDescription: "Wisconsin's largest film festival returns with 200+ films from 50 countries. Opening night features world premieres.", featured: true },
+    { id: "2", title: "Spring Gallery Night", slug: "spring-gallery-night", startDateTime: getThisWeekDate(4, 17), endDateTime: getThisWeekDate(5, 21), allDay: false, venueName: "Historic Third Ward & Citywide", neighborhood: "Third Ward", category: "Arts", tags: ["free", "date night"], costType: "free", costDetails: "Free", shortDescription: "Milwaukee's biggest gallery crawl of spring. 50+ galleries, free admission, and artist meet-and-greets.", featured: true },
+    { id: "3", title: "Art in Bloom", slug: "art-in-bloom", startDateTime: getThisWeekDate(2, 10), endDateTime: getThisWeekDate(6, 17), allDay: false, venueName: "Milwaukee Art Museum", neighborhood: "Downtown", category: "Arts", tags: ["flowers", "art"], costType: "paid", costDetails: "$22", shortDescription: "Stunning floral installations interpreting masterworks. 50+ arrangements by local florists throughout the museum.", featured: true },
+    { id: "4", title: "Brew City Marathon, Half Marathon & 5K", slug: "brew-city-marathon", startDateTime: getThisWeekDate(5, 7), endDateTime: getThisWeekDate(5, 14), allDay: false, venueName: "McKinley Marina", neighborhood: "Downtown", category: "Sports", tags: ["outdoor", "fitness"], costType: "paid", costDetails: "$65-$130", shortDescription: "Scenic lakefront course through Milwaukee's best neighborhoods. Post-race beer garden at the finish.", featured: true },
+    { id: "5", title: "We Them Ones Comedy Tour", slug: "we-them-ones-comedy", startDateTime: getThisWeekDate(5, 20), endDateTime: getThisWeekDate(5, 23), allDay: false, venueName: "Fiserv Forum", neighborhood: "Downtown", category: "Comedy", tags: ["21+", "date night"], costType: "paid", costDetails: "$49+", shortDescription: "Bert Kreischer & Friends bring the laughs to Milwaukee. One of the biggest comedy tours of 2026.", featured: true },
+    // WEDNESDAY
+    { id: "6", title: "Community Access Day", slug: "community-access-day", startDateTime: getThisWeekDate(2, 9), endDateTime: getThisWeekDate(2, 17), allDay: false, venueName: "Betty Brinn Children's Museum", neighborhood: "Downtown", category: "Family", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Free admission for all families. Interactive exhibits, maker spaces, and hands-on learning.", featured: false },
+    { id: "7", title: "Spelling Bee Showdown", slug: "spelling-bee-showdown", startDateTime: getThisWeekDate(2, 18, 30), endDateTime: getThisWeekDate(2, 21), allDay: false, venueName: "Lakefront Brewery", neighborhood: "Riverwest", category: "Nightlife", tags: ["21+", "free"], costType: "free", costDetails: "Free", shortDescription: "Adults-only spelling bee with beer. Teams compete for brewery prizes and bragging rights.", featured: false },
+    { id: "8", title: "Concerts in the Courtyard", slug: "concerts-courtyard", startDateTime: getThisWeekDate(2, 17, 30), endDateTime: getThisWeekDate(2, 20), allDay: false, venueName: "Boerner Botanical Gardens", neighborhood: "Hales Corners", category: "Live Music", tags: ["outdoor", "free"], costType: "free", costDetails: "Free", shortDescription: "Live music surrounded by spring blooms. Food trucks and craft beverages available.", featured: false },
+    // THURSDAY
+    { id: "9", title: "Food Truck Pilot Program", slug: "food-truck-pilot", startDateTime: getThisWeekDate(3, 11), endDateTime: getThisWeekDate(3, 14), allDay: false, venueName: "Milwaukee County Parks", neighborhood: "Citywide", category: "Food & Drink", tags: ["outdoor", "kid-friendly"], costType: "paid", costDetails: "Varies", shortDescription: "Sample 15+ food trucks at rotating park locations. Check locations day-of.", featured: false },
+    { id: "10", title: "Kite Society: Spring Session", slug: "kite-society-spring", startDateTime: getThisWeekDate(3, 16), endDateTime: getThisWeekDate(3, 19), allDay: false, venueName: "Veterans Park", neighborhood: "East Side", category: "Outdoors", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Community kite flying along the lakefront. Bring your own or borrow from organizers.", featured: false },
+    // FRIDAY
+    { id: "11", title: "Friday Fish Fry Crawl", slug: "fish-fry-crawl", startDateTime: getThisWeekDate(4, 16), endDateTime: getThisWeekDate(4, 22), allDay: false, venueName: "Various Bars & Restaurants", neighborhood: "Bay View", category: "Food & Drink", tags: ["21+"], costType: "paid", costDetails: "$15-25 per stop", shortDescription: "Sample Milwaukee's best fish fry at 4 iconic spots. Self-guided with discount card.", featured: false },
+    { id: "12", title: "MAM After Dark: Spring Edition", slug: "mam-after-dark", startDateTime: getThisWeekDate(4, 18), endDateTime: getThisWeekDate(4, 22), allDay: false, venueName: "Milwaukee Art Museum", neighborhood: "Downtown", category: "Arts", tags: ["21+", "date night"], costType: "paid", costDetails: "$25", shortDescription: "Explore the museum after hours with cocktails, DJs, and interactive art experiences.", featured: false },
+    // SATURDAY
+    { id: "13", title: "Maker Faire Milwaukee", slug: "maker-faire", startDateTime: getThisWeekDate(5, 10), endDateTime: getThisWeekDate(5, 17), allDay: false, venueName: "Wisconsin State Fair Park", neighborhood: "West Allis", category: "Family", tags: ["kid-friendly"], costType: "paid", costDetails: "$15/$8", shortDescription: "DIY festival featuring 100+ makers, inventors, and crafters. Hands-on workshops all day.", featured: false },
+    { id: "14", title: "South Shore Farmers Market", slug: "south-shore-farmers", startDateTime: getThisWeekDate(5, 8), endDateTime: getThisWeekDate(5, 12), allDay: false, venueName: "South Shore Park", neighborhood: "Bay View", category: "Shopping", tags: ["free", "outdoor", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Season opener! 60+ vendors with local produce, baked goods, and artisan crafts.", featured: false },
+    { id: "15", title: "Pabst Mansion Spring Tour", slug: "pabst-mansion-spring", startDateTime: getThisWeekDate(5, 10), endDateTime: getThisWeekDate(5, 16), allDay: false, venueName: "Pabst Mansion", neighborhood: "Near West Side", category: "Tours", tags: ["indoor"], costType: "paid", costDetails: "$18", shortDescription: "Tour the Gilded Age mansion decorated with fresh spring florals.", featured: false },
+    { id: "16", title: "Lakefront Running Series", slug: "lakefront-running", startDateTime: getThisWeekDate(5, 8), endDateTime: getThisWeekDate(5, 11), allDay: false, venueName: "Bradford Beach", neighborhood: "East Side", category: "Sports", tags: ["outdoor", "fitness"], costType: "paid", costDetails: "$25", shortDescription: "5K and 10K along the lakefront. Post-race breakfast and beer included.", featured: false },
+    // SUNDAY
+    { id: "17", title: "Urban Ecology Center Guided Hike", slug: "uec-guided-hike", startDateTime: getThisWeekDate(6, 9), endDateTime: getThisWeekDate(6, 11), allDay: false, venueName: "Urban Ecology Center - Riverside Park", neighborhood: "East Side", category: "Outdoors", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Naturalist-led spring wildflower hike. Learn about native plants and urban wildlife.", featured: false },
+    { id: "18", title: "Sunday Funday at The Cooperage", slug: "sunday-funday-cooperage", startDateTime: getThisWeekDate(6, 12), endDateTime: getThisWeekDate(6, 17), allDay: false, venueName: "The Cooperage", neighborhood: "Walker's Point", category: "Live Music", tags: ["21+", "free"], costType: "free", costDetails: "Free", shortDescription: "Day drinking with live local bands. Food trucks and family-friendly until 5pm.", featured: false },
+    { id: "19", title: "Discovery World Free Admission Day", slug: "discovery-world-free", startDateTime: getThisWeekDate(6, 10), endDateTime: getThisWeekDate(6, 17), allDay: false, venueName: "Discovery World", neighborhood: "Downtown", category: "Family", tags: ["free", "kid-friendly"], costType: "free", costDetails: "Free", shortDescription: "Free admission all day. Science exhibits, aquarium, and lakefront views.", featured: false },
+    { id: "20", title: "Milwaukee Bucks Playoff Watch Party", slug: "bucks-watch-party", startDateTime: getThisWeekDate(6, 14), endDateTime: getThisWeekDate(6, 18), allDay: false, venueName: "Deer District", neighborhood: "Downtown", category: "Sports", tags: ["free", "outdoor"], costType: "free", costDetails: "Free", shortDescription: "Giant screens, live DJs, and 10,000 fans cheering on the Bucks. Deer District energy!", featured: false },
+  ];
+};
+
+const FALLBACK_EVENTS = generateFallbackEvents();
 
 // FALLBACK EXPLORE DATA - Used when Google Sheets is not configured
 // SEO-Optimized Pillar Content
@@ -1549,7 +1563,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   const [showSearchModal, setShowSearchModal] = useState(false);
   
   // Events state - with Google Sheets integration
-  const [events, setEvents] = useState(FALLBACK_EVENTS);
+  const [events, setEvents] = useState(() => generateFallbackEvents());
   const [eventsLoading, setEventsLoading] = useState(false);
   const [eventsError, setEventsError] = useState(null);
   const [eventsView, setEventsView] = useState("week");
@@ -1566,11 +1580,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   const [exploreType, setExploreType] = useState("All");
   const [selectedPost, setSelectedPost] = useState(null);
   
-  // Fetch events from Google Sheets
+  // Fetch events from Google Sheets (or regenerate fallback with current dates on mount)
   useEffect(() => {
     const fetchEvents = async () => {
       if (!GOOGLE_SHEETS_CONFIG.EVENTS.ENABLED) {
-        console.log("Events Google Sheets integration disabled. Using fallback data.");
+        console.log("Events Google Sheets integration disabled. Regenerating with current dates.");
+        setEvents(generateFallbackEvents());
         return;
       }
       
@@ -1587,12 +1602,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           console.log(`Loaded ${parsedEvents.length} events from Google Sheets`);
         } else {
           console.warn("No events found in Google Sheet, using fallback");
-          setEvents(FALLBACK_EVENTS);
+          setEvents(generateFallbackEvents());
         }
       } catch (error) {
         console.error("Failed to fetch events from Google Sheets:", error);
         setEventsError("Failed to load events. Showing cached data.");
-        setEvents(FALLBACK_EVENTS);
+        setEvents(generateFallbackEvents());
       } finally {
         setEventsLoading(false);
       }
