@@ -335,7 +335,7 @@ const GOOGLE_SHEETS_CONFIG = {
   EVENTS: {
     SHEET_ID: MASTER_SHEET_ID,
     SHEET_NAME: "Events",
-    ENABLED: true,
+    ENABLED: false, // Disabled - using fallback events with dynamic dates
     REFRESH_INTERVAL: 5 * 60 * 1000, // 5 minutes
   },
   
