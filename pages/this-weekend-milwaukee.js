@@ -7,11 +7,12 @@ import { useState } from 'react';
 // =============================================================================
 const WEEKEND_DATA = {
   // Update these dates each week
-  weekendOf: 'April 17-19, 2026',
+  weekendOf: 'April 16-19, 2026',
+  wednesdayDate: 'April 16, 2026',
   fridayDate: 'April 17, 2026',
   saturdayDate: 'April 18, 2026',
   sundayDate: 'April 19, 2026',
-  lastUpdated: '2026-04-15T09:00:00-05:00',
+  lastUpdated: '2026-04-16T09:00:00-05:00',
 
   // Weather for this weekend
   weather: {
@@ -20,69 +21,111 @@ const WEEKEND_DATA = {
     sunday: { high: 55, low: 40, condition: 'Light Rain', icon: '🌧️' },
   },
 
-  // Featured Events - Update weekly (3-4 major events)
+  // Featured Events - Update weekly (top picks)
   featuredEvents: [
     {
-      name: 'Milwaukee Brewers vs. Chicago Cubs',
-      venue: 'American Family Field',
-      date: 'April 18, 2026',
-      time: '6:10 PM',
-      description: 'Division rivalry game with fireworks after the game. Opening month baseball at its finest.',
-      price: 'From $25',
-      category: 'Sports',
-      url: '/events/brewers-cubs-april-18',
+      name: 'Milwaukee Film Festival',
+      venue: 'Various Locations',
+      date: 'April 16-19, 2026',
+      time: 'Various Times',
+      description: 'Milwaukee Film Festival kicks off with screenings across the city featuring independent films, documentaries, and special presentations.',
+      price: 'Varies',
+      category: 'Film',
+      url: '/events/milwaukee-film-festival',
     },
     {
       name: 'Spring Gallery Night',
-      venue: 'Historic Third Ward',
-      date: 'April 17, 2026',
+      venue: 'Historic Third Ward & Citywide',
+      date: 'April 17-18, 2026',
       time: '5:00 PM - 9:00 PM',
-      description: 'Explore over 25 galleries and studios during this quarterly art walk. Free admission to participating venues.',
+      description: 'Explore over 25 galleries and studios during this quarterly art walk. Free admission to participating venues across multiple neighborhoods.',
       price: 'Free',
       category: 'Arts & Culture',
       url: '/events/spring-gallery-night',
     },
     {
-      name: 'Milwaukee Food & Wine Experience',
-      venue: 'Discovery World',
-      date: 'April 17-18, 2026',
-      time: 'Various Times',
-      description: 'Sample dishes from 40+ local restaurants and sip wines from around the world.',
-      price: '$75-$150',
-      category: 'Food & Drink',
-      url: '/events/food-wine-experience',
+      name: 'Art in Bloom',
+      venue: 'Milwaukee Art Museum',
+      date: 'April 16-19, 2026',
+      time: '10:00 AM - 5:00 PM',
+      description: 'Annual event pairing stunning floral arrangements with masterpieces from the museum collection. Florists interpret artwork through flowers.',
+      price: 'Museum Admission',
+      category: 'Arts & Culture',
+      url: '/events/art-in-bloom',
     },
     {
-      name: 'Earth Day Milwaukee Festival',
-      venue: 'Veterans Park',
-      date: 'April 19, 2026',
-      time: '10:00 AM - 5:00 PM',
-      description: 'Family-friendly environmental festival with live music, eco vendors, and educational activities.',
-      price: 'Free',
-      category: 'Festival',
-      url: '/events/earth-day-milwaukee',
+      name: 'Brew City Marathon, Half Marathon & 5K',
+      venue: 'McKinley Marina',
+      date: 'April 18, 2026',
+      time: '7:00 AM',
+      description: 'Scenic lakefront race with courses for all levels. Start and finish at McKinley Marina with beautiful views of Lake Michigan.',
+      price: 'Registration Required',
+      category: 'Sports',
+      url: '/events/brew-city-marathon',
     },
+    {
+      name: 'We Them Ones Comedy Tour',
+      venue: 'Fiserv Forum',
+      date: 'April 18, 2026',
+      time: '7:00 PM',
+      description: 'Major comedy tour stop at Fiserv Forum featuring top comedians. Get ready to laugh all night!',
+      price: 'From $45',
+      category: 'Comedy',
+      url: '/events/we-them-ones-comedy',
+    },
+  ],
+
+  // All Events This Weekend
+  allEvents: [
+    // Wednesday April 16
+    { name: 'Community Access Day', venue: 'Betty Brinn Children\'s Museum', date: 'April 16', time: 'All Day', category: 'Family', price: 'Free' },
+    { name: 'Spelling Bee Showdown', venue: 'Lakefront Brewery', date: 'April 16', time: '6:30 PM', category: 'Entertainment', price: 'Varies' },
+    { name: 'Milwaukee Film Festival Begins', venue: 'Various Locations', date: 'April 16', time: 'Various', category: 'Film', price: 'Varies' },
+    { name: 'Art in Bloom', venue: 'Milwaukee Art Museum', date: 'April 16-19', time: '10 AM - 5 PM', category: 'Arts', price: 'Museum Admission' },
+
+    // Friday April 17
+    { name: 'Gallery Night Pop-Up Art Market', venue: 'Milwaukee Public Market', date: 'April 17', time: '4:00 PM - 8:00 PM', category: 'Arts', price: 'Free' },
+    { name: 'Spring Gallery Night', venue: 'Citywide', date: 'April 17-18', time: '5:00 PM - 9:00 PM', category: 'Arts', price: 'Free' },
+
+    // Saturday April 18
+    { name: 'Brew City Marathon, Half & 5K', venue: 'McKinley Marina', date: 'April 18', time: '7:00 AM', category: 'Sports', price: 'Registration' },
+    { name: 'Tory Lowe Community Clean Up', venue: 'Evolve MKE / Pitts Mortuary / MLK Elementary', date: 'April 18', time: '8:00 AM - 12:00 PM', category: 'Community', price: 'Free' },
+    { name: 'Oak Creek Winter Farmers Market', venue: 'Oak Creek Community Center', date: 'April 18', time: '9:00 AM - 1:00 PM', category: 'Market', price: 'Free' },
+    { name: 'Future Builders Start Here', venue: 'American Family Field', date: 'April 18', time: '9:00 AM - 12:00 PM', category: 'Family', price: 'Free' },
+    { name: 'Milwaukee Zine Fest', venue: 'Milwaukee Central Library', date: 'April 18', time: '10:30 AM', category: 'Arts', price: 'Free' },
+    { name: 'Community Spring Clean Swap Party & Market', venue: 'Brown Deer Beer Garden', date: 'April 18', time: '11:00 AM - 3:00 PM', category: 'Market', price: 'Free' },
+    { name: '3rd St Vintage Market by All Goods', venue: '3rd St Market Hall', date: 'April 18-19', time: '11:00 AM - 6:00 PM', category: 'Market', price: 'Free' },
+    { name: 'Red Magic Spring Makers Market', venue: 'Black Husky Brewing', date: 'April 18', time: '12:00 PM - 4:00 PM', category: 'Market', price: 'Free' },
+    { name: 'Cryptids and Conspiracies Market', venue: 'MKeULTRA', date: 'April 18', time: '12:00 PM - 4:00 PM', category: 'Market', price: 'Free' },
+    { name: 're:Craft & Relic Market', venue: 'Milwaukee Co Sports Expo', date: 'April 18-19', time: 'Various', category: 'Market', price: 'Varies' },
+    { name: 'We Them Ones Comedy Tour', venue: 'Fiserv Forum', date: 'April 18', time: '7:00 PM', category: 'Comedy', price: 'From $45' },
+
+    // Sunday April 19
+    { name: 'North Ave Clean Up', venue: 'Meet at The Little Village Play Cafe', date: 'April 19', time: '9:00 AM', category: 'Community', price: 'Free' },
+    { name: 'Free Book Swap', venue: 'Dead Bird Brewing', date: 'April 19', time: '12:00 PM - 3:00 PM', category: 'Community', price: 'Free' },
+    { name: 'Where is the Love? Conscious Community Sale', venue: 'Low Rain An Artist Collective', date: 'April 19', time: '2:00 PM - 6:00 PM', category: 'Market', price: 'Free' },
+    { name: 'Keg Stand Up Comedy', venue: 'Lakefront Brewery', date: 'April 19', time: '7:00 PM', category: 'Comedy', price: 'Varies' },
   ],
 
   // By Day Recommendations
   byDay: {
     friday: {
-      dayPart: 'Friday Night',
+      dayPart: 'Friday',
       highlights: [
         {
-          title: 'Start at Spring Gallery Night',
-          description: 'Free art walk through the Third Ward with complimentary refreshments at many stops.',
+          title: 'Gallery Night Pop-Up Art Market',
+          description: 'Start your weekend at the Milwaukee Public Market with local artists showcasing their work.',
+          time: '4:00 PM - 8:00 PM',
+        },
+        {
+          title: 'Spring Gallery Night',
+          description: 'Free art walk through the Third Ward, Walker\'s Point, and beyond. Complimentary refreshments at many galleries.',
           time: '5:00 PM - 9:00 PM',
         },
         {
-          title: 'Dinner at Odd Duck',
-          description: 'Small plates and craft cocktails — make reservations now.',
-          time: '8:00 PM',
-        },
-        {
-          title: 'Late Night at Bryant\'s Cocktail Lounge',
-          description: 'Milwaukee\'s oldest cocktail lounge for a nightcap.',
-          time: '10:00 PM',
+          title: 'Milwaukee Film Festival Screenings',
+          description: 'Catch opening night films at various venues across the city.',
+          time: 'Various',
         },
       ],
     },
@@ -90,19 +133,24 @@ const WEEKEND_DATA = {
       dayPart: 'Saturday',
       highlights: [
         {
-          title: 'Morning at Milwaukee Public Market',
-          description: 'Coffee and breakfast from local vendors. Try the new St. Paul Fish Company oyster bar.',
-          time: '9:00 AM',
+          title: 'Brew City Marathon',
+          description: 'Cheer on runners or participate in the marathon, half, or 5K along the beautiful lakefront.',
+          time: '7:00 AM Start',
         },
         {
-          title: 'Afternoon at Lakefront Brewery',
-          description: 'Take the famous Friday fish fry... on Saturday! Tours run every 30 minutes.',
-          time: '1:00 PM',
+          title: 'Milwaukee Zine Fest',
+          description: 'Celebrate independent publishing at Milwaukee Central Library with zine makers from across the region.',
+          time: '10:30 AM',
         },
         {
-          title: 'Brewers Game',
-          description: 'Catch the Cubs rivalry game with post-game fireworks.',
-          time: '6:10 PM',
+          title: 'Makers Markets Crawl',
+          description: 'Hit Red Magic at Black Husky Brewing and Cryptids & Conspiracies at MKeULTRA for unique local goods.',
+          time: '12:00 PM - 4:00 PM',
+        },
+        {
+          title: 'We Them Ones Comedy Tour',
+          description: 'Major comedy show at Fiserv Forum to end the night with laughs.',
+          time: '7:00 PM',
         },
       ],
     },
@@ -110,19 +158,24 @@ const WEEKEND_DATA = {
       dayPart: 'Sunday',
       highlights: [
         {
-          title: 'Brunch at Cafe Benelux',
-          description: 'Rooftop brunch if weather permits, otherwise cozy indoor Belgian fare.',
-          time: '10:00 AM',
+          title: 'North Ave Clean Up',
+          description: 'Give back to the community! Meet at The Little Village Play Cafe for neighborhood beautification.',
+          time: '9:00 AM',
         },
         {
-          title: 'Earth Day Festival',
-          description: 'Family-friendly activities and live music at Veterans Park.',
-          time: '11:00 AM - 4:00 PM',
+          title: 'Free Book Swap',
+          description: 'Bring books, take books at Dead Bird Brewing. Perfect for book lovers.',
+          time: '12:00 PM - 3:00 PM',
         },
         {
-          title: 'Rainy Day Backup: Milwaukee Art Museum',
-          description: 'Explore the galleries and watch the Burke Brise Soleil wings close at 5 PM.',
-          time: '2:00 PM',
+          title: 'Art in Bloom (Final Day)',
+          description: 'Last chance to see stunning floral interpretations of masterpieces at the Milwaukee Art Museum.',
+          time: '10:00 AM - 5:00 PM',
+        },
+        {
+          title: 'Keg Stand Up Comedy',
+          description: 'Sunday laughs at Lakefront Brewery — great way to end the weekend.',
+          time: '7:00 PM',
         },
       ],
     },
@@ -130,9 +183,9 @@ const WEEKEND_DATA = {
 
   // Can't Miss This Weekend
   cantMiss: {
-    title: 'Spring Gallery Night',
-    reason: 'Only happens 4 times a year and this spring edition features 10 new galleries. The weather looks perfect for walking between venues.',
-    tip: 'Start at the Marshall Building and work your way toward the Milwaukee River.',
+    title: 'Art in Bloom at Milwaukee Art Museum',
+    reason: 'This annual event only runs 4 days and pairs stunning floral arrangements with masterpieces from the museum collection. Perfect intersection of art and nature.',
+    tip: 'Go on Saturday morning to avoid crowds, then head to Gallery Night in the evening for a full day of art.',
   },
 
   // New Restaurant to Try This Week
@@ -150,14 +203,14 @@ const WEEKEND_DATA = {
   // Weather-Appropriate Suggestions
   weatherSuggestions: {
     sunny: [
-      'Walk the Milwaukee RiverWalk from the Third Ward to Brady Street',
-      'Bike the Oak Leaf Trail — rentals available at Wheel & Sprocket',
-      'Explore the outdoor sculpture garden at Lynden Sculpture Garden',
+      'Cheer on Brew City Marathon runners along the lakefront',
+      'Walk between Gallery Night venues in the Third Ward',
+      'Explore outdoor makers markets at Black Husky and Brown Deer Beer Garden',
     ],
     rainy: [
-      'Milwaukee Art Museum — free admission Wisconsin residents on first Thursday',
-      'Third Coast Comedy Club for a Saturday night show',
-      'Explore the Milwaukee Public Market and connected shops',
+      'Milwaukee Art Museum for Art in Bloom (all weekend)',
+      'Milwaukee Film Festival screenings at indoor venues',
+      'Milwaukee Zine Fest at the Central Library',
     ],
   },
 };
