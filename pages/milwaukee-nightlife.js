@@ -330,7 +330,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Milwaukee Nightlife Guide 2026: Best Bars, Clubs & Live Music',
   description: 'Comprehensive guide to Milwaukee nightlife including the best cocktail bars, dive bars, dance clubs, LGBTQ+ venues, and live music spots.',
-  image: 'https://discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg',
+  image: 'https://www.discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg',
   author: {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
@@ -340,14 +340,14 @@ const articleSchema = {
     name: 'Discover Milwaukee',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://discover-milwaukee.com/logo.png',
+      url: 'https://www.discover-milwaukee.com/logo.png',
     },
   },
   datePublished: '2026-01-15',
   dateModified: '2026-01-15',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discover-milwaukee.com/milwaukee-nightlife',
+    '@id': 'https://www.discover-milwaukee.com/milwaukee-nightlife',
   },
 };
 
@@ -388,7 +388,7 @@ export default function MilwaukeeNightlife() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-nightlife" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-nightlife" />
         <meta
           property="og:title"
           content="Milwaukee Nightlife Guide 2026 | Best Bars, Clubs & Live Music"
@@ -399,12 +399,12 @@ export default function MilwaukeeNightlife() {
         />
         <meta
           property="og:image"
-          content="https://discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg"
+          content="https://www.discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg"
         />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://discover-milwaukee.com/milwaukee-nightlife" />
+        <meta property="twitter:url" content="https://www.discover-milwaukee.com/milwaukee-nightlife" />
         <meta
           property="twitter:title"
           content="Milwaukee Nightlife Guide 2026 | Best Bars, Clubs & Live Music"
@@ -415,11 +415,11 @@ export default function MilwaukeeNightlife() {
         />
         <meta
           property="twitter:image"
-          content="https://discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg"
+          content="https://www.discover-milwaukee.com/images/milwaukee-nightlife-hero.jpg"
         />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-nightlife" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-nightlife" />
 
         {/* Schema.org JSON-LD */}
         <script

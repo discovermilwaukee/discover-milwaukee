@@ -57,7 +57,7 @@ const structuredData = {
     "headline": "Arts & Culture Weekend in Milwaukee: Museums, Music & More",
     "description": "Plan an arts and culture weekend in Milwaukee. Museums, theaters, live music venues, galleries, and street art guide.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -65,9 +65,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Arts & Culture", "item": "https://discover-milwaukee.com/arts-culture-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Arts & Culture", "item": "https://www.discover-milwaukee.com/arts-culture-milwaukee" },
     ],
   },
 };
@@ -79,13 +79,13 @@ export default function ArtsCultureMilwaukee() {
         <title>Arts & Culture Weekend in Milwaukee: Museums, Music & More</title>
         <meta name="description" content="Plan an arts and culture weekend in Milwaukee. Guide to museums, theaters, live music venues, galleries, and street art." />
         <meta name="keywords" content="Milwaukee museums, Milwaukee Art Museum, Milwaukee theater, Milwaukee live music, Milwaukee galleries, arts Milwaukee, Pabst Theater" />
-        <link rel="canonical" href="https://discover-milwaukee.com/arts-culture-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/arts-culture-milwaukee" />
 
         <meta property="og:title" content="Arts & Culture Weekend in Milwaukee: Museums, Music & More" />
         <meta property="og:description" content="Plan an arts and culture weekend in Milwaukee with our guide to museums, theaters, and live music." />
-        <meta property="og:url" content="https://discover-milwaukee.com/arts-culture-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/arts-culture-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-arts.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-arts.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

@@ -303,18 +303,18 @@ const structuredData = {
     "author": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://discover-milwaukee.com/milwaukee-coffee-shops"
+      "@id": "https://www.discover-milwaukee.com/milwaukee-coffee-shops"
     },
     "keywords": "coffee shops milwaukee, best coffee milwaukee, cafes milwaukee, colectivo coffee, stone creek coffee, anodyne coffee, milwaukee roasters, coffee near me milwaukee"
   },
@@ -338,13 +338,13 @@ const structuredData = {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://discover-milwaukee.com"
+        "item": "https://www.discover-milwaukee.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Coffee Shops in Milwaukee",
-        "item": "https://discover-milwaukee.com/milwaukee-coffee-shops"
+        "item": "https://www.discover-milwaukee.com/milwaukee-coffee-shops"
       }
     ]
   }
@@ -548,13 +548,13 @@ export default function MilwaukeeCoffeeShops() {
         <title>Best Coffee Shops in Milwaukee 2026 | Local Roasters & Cafes Guide</title>
         <meta name="description" content="Discover Milwaukee's best coffee shops. From Colectivo and Stone Creek to hidden gems like Pilcrow and Interval. Local roasters, best WiFi cafes, and neighborhood guides." />
         <meta name="keywords" content="coffee shops milwaukee, best coffee milwaukee, cafes milwaukee, colectivo coffee, stone creek coffee, anodyne coffee, milwaukee coffee roasters, coffee near me milwaukee, best wifi cafe milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-coffee-shops" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-coffee-shops" />
 
         <meta property="og:title" content="Best Coffee Shops in Milwaukee 2026 | Local Roasters Guide" />
         <meta property="og:description" content="Milwaukee's complete coffee guide. Local roasters like Colectivo, Stone Creek, and Anodyne. Best WiFi cafes, neighborhood picks, and hidden gems." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-coffee-shops" />
-        <meta property="og:image" content="https://discover-milwaukee.com/images/milwaukee-coffee-shops.jpg" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-coffee-shops" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/milwaukee-coffee-shops.jpg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Coffee Shops in Milwaukee 2026" />

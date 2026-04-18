@@ -7,7 +7,7 @@ const nextConfig = {
   
   // Optimize images
   images: {
-    domains: ['i.imgur.com', 'discover-milwaukee.com'],
+    domains: ['i.imgur.com', 'discover-milwaukee.com', 'www.discover-milwaukee.com'],
     formats: ['image/avif', 'image/webp'],
   },
   

@@ -137,7 +137,7 @@ const structuredData = {
     "headline": "Family Weekend in Milwaukee: Best Things to Do with Kids (2026)",
     "description": "Plan the perfect family weekend in Milwaukee. Top kid-friendly attractions, restaurants, outdoor activities, and hotels for families.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -145,9 +145,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Family Weekend", "item": "https://discover-milwaukee.com/family-weekend-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Family Weekend", "item": "https://www.discover-milwaukee.com/family-weekend-milwaukee" },
     ],
   },
 };
@@ -159,13 +159,13 @@ export default function FamilyWeekendMilwaukee() {
         <title>Family Weekend in Milwaukee: Best Things to Do with Kids (2026)</title>
         <meta name="description" content="Plan the perfect family weekend in Milwaukee. Discover kid-friendly attractions, restaurants, outdoor activities, and hotels. The ultimate Milwaukee with kids guide." />
         <meta name="keywords" content="Milwaukee with kids, family weekend Milwaukee, kid friendly Milwaukee, things to do Milwaukee kids, Milwaukee zoo, Discovery World" />
-        <link rel="canonical" href="https://discover-milwaukee.com/family-weekend-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/family-weekend-milwaukee" />
 
         <meta property="og:title" content="Family Weekend in Milwaukee: Best Things to Do with Kids" />
         <meta property="og:description" content="Plan the perfect family weekend in Milwaukee with our guide to kid-friendly attractions, restaurants, and activities." />
-        <meta property="og:url" content="https://discover-milwaukee.com/family-weekend-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/family-weekend-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-family.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-family.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

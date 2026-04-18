@@ -154,7 +154,7 @@ const structuredData = {
     "headline": "Romantic Weekend in Milwaukee: Couples Guide to the Best Date Spots",
     "description": "Plan the perfect romantic getaway in Milwaukee. Discover the best restaurants, activities, cocktail bars, and hotels for couples.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -162,9 +162,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Romantic Weekend", "item": "https://discover-milwaukee.com/romantic-weekend-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Romantic Weekend", "item": "https://www.discover-milwaukee.com/romantic-weekend-milwaukee" },
     ],
   },
 };
@@ -176,13 +176,13 @@ export default function RomanticWeekendMilwaukee() {
         <title>Romantic Weekend in Milwaukee: Couples Guide to the Best Date Spots</title>
         <meta name="description" content="Plan the perfect romantic getaway in Milwaukee. Discover the best restaurants, activities, cocktail bars, and hotels for couples visiting Milwaukee." />
         <meta name="keywords" content="romantic weekend Milwaukee, Milwaukee couples getaway, Milwaukee date ideas, romantic restaurants Milwaukee, romantic hotels Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/romantic-weekend-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/romantic-weekend-milwaukee" />
 
         <meta property="og:title" content="Romantic Weekend in Milwaukee: Couples Guide" />
         <meta property="og:description" content="Plan the perfect romantic getaway in Milwaukee with our couples guide to restaurants, activities, and hotels." />
-        <meta property="og:url" content="https://discover-milwaukee.com/romantic-weekend-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/romantic-weekend-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-romantic.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-romantic.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

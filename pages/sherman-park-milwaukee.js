@@ -103,7 +103,7 @@ const structuredData = {
     "headline": "Sherman Park Milwaukee Neighborhood Guide 2026",
     "description": "Explore Sherman Park, a historic Milwaukee neighborhood with beautiful homes, excellent soul food, and strong community spirit.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -111,9 +111,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Sherman Park", "item": "https://discover-milwaukee.com/sherman-park-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Sherman Park", "item": "https://www.discover-milwaukee.com/sherman-park-milwaukee" },
     ],
   },
 };
@@ -164,13 +164,13 @@ export default function ShermanParkMilwaukee() {
         <title>Sherman Park Milwaukee Guide 2026 | Historic Homes, Soul Food & Community</title>
         <meta name="description" content="Explore Sherman Park, Milwaukee's historic neighborhood with beautiful early 20th century homes, excellent soul food, and strong community spirit." />
         <meta name="keywords" content="Sherman Park Milwaukee, Milwaukee soul food, Sherman Park restaurants, historic Milwaukee neighborhoods, Washington Park Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/sherman-park-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/sherman-park-milwaukee" />
 
         <meta property="og:title" content="Sherman Park Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Historic homes, excellent soul food, and strong community spirit define Sherman Park." />
-        <meta property="og:url" content="https://discover-milwaukee.com/sherman-park-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/sherman-park-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-sherman-park.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-sherman-park.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

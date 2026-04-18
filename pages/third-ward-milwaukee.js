@@ -196,20 +196,20 @@ const structuredData = {
     "author": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com",
+      "url": "https://www.discover-milwaukee.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://discover-milwaukee.com/logo.png"
+        "url": "https://www.discover-milwaukee.com/logo.png"
       }
     },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/third-ward-milwaukee",
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/third-ward-milwaukee",
     "about": {
       "@type": "Place",
       "name": "Historic Third Ward",
@@ -256,9 +256,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/neighborhoods" },
-      { "@type": "ListItem", "position": 3, "name": "Third Ward Milwaukee", "item": "https://discover-milwaukee.com/third-ward-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/neighborhoods" },
+      { "@type": "ListItem", "position": 3, "name": "Third Ward Milwaukee", "item": "https://www.discover-milwaukee.com/third-ward-milwaukee" }
     ]
   }
 };
@@ -321,12 +321,12 @@ export default function ThirdWardMilwaukee() {
         <title>Third Ward Milwaukee Guide 2026 | Restaurants, Shopping & Things to Do</title>
         <meta name="description" content="Explore Milwaukee's Historic Third Ward. Best restaurants (Café Benelux, Harbor House), Broadway shopping, Milwaukee Public Market, art galleries, nightlife spots, and insider parking tips. Complete 2026 guide." />
         <meta name="keywords" content="third ward milwaukee, historic third ward, milwaukee public market, third ward restaurants, broadway milwaukee, third ward shopping, cafe benelux, harbor house milwaukee, milwaukee neighborhoods, things to do third ward" />
-        <link rel="canonical" href="https://discover-milwaukee.com/third-ward-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/third-ward-milwaukee" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Third Ward Milwaukee: Complete Neighborhood Guide 2026" />
         <meta property="og:description" content="Your insider's guide to Milwaukee's trendiest neighborhood. Best restaurants, boutique shopping, Public Market, galleries, and nightlife in the Historic Third Ward." />
-        <meta property="og:url" content="https://discover-milwaukee.com/third-ward-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/third-ward-milwaukee" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="article:published_time" content="2026-01-15" />

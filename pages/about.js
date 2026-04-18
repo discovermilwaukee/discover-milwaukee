@@ -47,8 +47,8 @@ const structuredData = {
     "@type": "Organization",
     "name": "Discover Milwaukee",
     "alternateName": "Discover MKE",
-    "url": "https://discover-milwaukee.com",
-    "logo": "https://discover-milwaukee.com/logo.png",
+    "url": "https://www.discover-milwaukee.com",
+    "logo": "https://www.discover-milwaukee.com/logo.png",
     "description": "Milwaukee's independent local guide for events, restaurants, and things to do. Founded in 2018 by Jordan and Todd, two UW-Milwaukee graduates who fell in love with the city.",
     "foundingDate": "2018",
     "founders": [
@@ -83,7 +83,7 @@ const structuredData = {
     "@type": "AboutPage",
     "name": "About Discover Milwaukee",
     "description": "Learn about Discover Milwaukee - founded by two UW-Milwaukee graduates who wanted to give Milwaukee the storytelling it deserves.",
-    "url": "https://discover-milwaukee.com/about",
+    "url": "https://www.discover-milwaukee.com/about",
     "mainEntity": {
       "@type": "Organization",
       "name": "Discover Milwaukee"
@@ -93,8 +93,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://discover-milwaukee.com/about" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.discover-milwaukee.com/about" }
     ]
   }
 };
@@ -106,11 +106,11 @@ export default function About() {
         <title>About Discover Milwaukee | Our Story</title>
         <meta name="description" content="Discover Milwaukee was founded in 2018 by Jordan and Todd, two UW-Milwaukee graduates who believe Milwaukee deserves better storytelling. Independent, local, and authentic." />
         <meta name="keywords" content="about discover milwaukee, discover milwaukee founders, milwaukee local guide, milwaukee blog, who runs discover milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/about" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/about" />
 
         <meta property="og:title" content="About Discover Milwaukee | Our Story" />
         <meta property="og:description" content="Founded by two people who genuinely love this city. Learn the story behind Milwaukee's favorite local guide." />
-        <meta property="og:url" content="https://discover-milwaukee.com/about" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/about" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />

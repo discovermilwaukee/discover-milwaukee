@@ -250,20 +250,20 @@ const structuredData = {
     "author": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com",
+      "url": "https://www.discover-milwaukee.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://discover-milwaukee.com/logo.png"
+        "url": "https://www.discover-milwaukee.com/logo.png"
       }
     },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/east-side-milwaukee",
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/east-side-milwaukee",
     "about": {
       "@type": "Place",
       "name": "East Side Milwaukee",
@@ -292,9 +292,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "East Side Milwaukee", "item": "https://discover-milwaukee.com/east-side-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "East Side Milwaukee", "item": "https://www.discover-milwaukee.com/east-side-milwaukee" }
     ]
   },
   localBusiness: {
@@ -418,12 +418,12 @@ export default function EastSideMilwaukee() {
         <title>East Side Milwaukee Neighborhood Guide 2026 | Brady Street, Bars & Restaurants</title>
         <meta name="description" content="Explore Milwaukee's East Side: Brady Street bars and restaurants, the Oriental Theatre, Sanford fine dining, Glorioso's deli, Wolski's Tavern, Lake Park, and local tips. Complete 2026 guide." />
         <meta name="keywords" content="east side milwaukee, brady street milwaukee, brady street bars, wolski's tavern, oriental theatre milwaukee, sanford restaurant milwaukee, glorioso's milwaukee, lake park milwaukee, milwaukee nightlife, best bars brady street, milwaukee neighborhoods" />
-        <link rel="canonical" href="https://discover-milwaukee.com/east-side-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/east-side-milwaukee" />
 
         {/* Open Graph */}
         <meta property="og:title" content="East Side Milwaukee Neighborhood Guide 2026 | Brady Street, Bars & Things to Do" />
         <meta property="og:description" content="Your insider guide to Milwaukee's East Side. Brady Street bars, the best restaurants, Oriental Theatre, Lake Park, and why locals love this neighborhood." />
-        <meta property="og:url" content="https://discover-milwaukee.com/east-side-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/east-side-milwaukee" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="article:published_time" content="2026-01-15" />

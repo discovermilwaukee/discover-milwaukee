@@ -198,7 +198,7 @@ const structuredData = {
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/best-patios-milwaukee"
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/best-patios-milwaukee"
   },
   faqPage: {
     "@context": "https://schema.org",
@@ -213,8 +213,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Best Patios in Milwaukee", "item": "https://discover-milwaukee.com/best-patios-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Best Patios in Milwaukee", "item": "https://www.discover-milwaukee.com/best-patios-milwaukee" }
     ]
   }
 };
@@ -268,17 +268,17 @@ export default function BestPatiosMilwaukee() {
         <title>Best Patios in Milwaukee 2026 | Rooftops, Waterfront & Beer Gardens</title>
         <meta name="description" content="Find Milwaukee's best patios for summer 2026. Rooftop bars, waterfront drinking spots, neighborhood patios, and beer gardens. Complete guide with addresses and tips." />
         <meta name="keywords" content="best patios Milwaukee, Milwaukee rooftop bars, outdoor dining Milwaukee, Milwaukee beer gardens, waterfront bars Milwaukee, where to drink outside Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/best-patios-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/best-patios-milwaukee" />
 
         <meta property="og:title" content="Best Patios in Milwaukee 2026 | Complete Outdoor Guide" />
         <meta property="og:description" content="Milwaukee's ultimate patio guide. Rooftops, waterfront spots, beer gardens, and neighborhood favorites." />
-        <meta property="og:url" content="https://discover-milwaukee.com/best-patios-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-patios-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-best-patios.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-best-patios.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://discover-milwaukee.com/og-best-patios.jpg" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/og-best-patios.jpg" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />

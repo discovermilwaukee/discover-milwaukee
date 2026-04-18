@@ -11,6 +11,73 @@ import { useRouter } from 'next/router';
 // =============================================================================
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
+// =============================================================================
+// GLOBAL SEO STRUCTURED DATA
+// Organization and WebSite schemas for Google Knowledge Panel & Sitelinks
+// =============================================================================
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Discover Milwaukee",
+  "alternateName": "DiscoverMKE",
+  "url": "https://www.discover-milwaukee.com",
+  "logo": "https://www.discover-milwaukee.com/favicon.png",
+  "description": "Your insider's guide to Milwaukee, Wisconsin. Events, restaurants, breweries, neighborhoods, and things to do in MKE.",
+  "foundingDate": "2024",
+  "areaServed": {
+    "@type": "City",
+    "name": "Milwaukee",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Wisconsin"
+    }
+  },
+  "sameAs": []
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Discover Milwaukee",
+  "alternateName": "DiscoverMKE",
+  "url": "https://www.discover-milwaukee.com",
+  "description": "Milwaukee events, restaurants, breweries, and local guides",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.discover-milwaukee.com/?s={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Discover Milwaukee",
+  "@id": "https://www.discover-milwaukee.com",
+  "url": "https://www.discover-milwaukee.com",
+  "image": "https://www.discover-milwaukee.com/favicon.png",
+  "description": "Milwaukee's local guide to events, restaurants, breweries, and things to do.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Milwaukee",
+    "addressRegion": "WI",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.0389,
+    "longitude": -87.9065
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Milwaukee"
+  },
+  "priceRange": "Free"
+};
+
 // Track page views for Google Analytics
 const usePageTracking = () => {
   const router = useRouter();
@@ -41,14 +108,41 @@ export default function App({ Component, pageProps }) {
       <Head>
         {/* Default SEO - Can be overridden by individual pages */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#2C5235" />
+        <meta name="theme-color" content="#1a3d34" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+
+        {/* Geographic targeting for local SEO */}
+        <meta name="geo.region" content="US-WI" />
+        <meta name="geo.placename" content="Milwaukee" />
+        <meta name="geo.position" content="43.0389;-87.9065" />
+        <meta name="ICBM" content="43.0389, -87.9065" />
 
         {/* Default Open Graph */}
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card defaults */}
+        <meta name="twitter:card" content="summary_large_image" />
 
         {/* Favicon defaults */}
         <link rel="icon" href="/favicon.ico" />
+
+        {/* Global Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </Head>
 
       {/* Google Analytics 4 */}

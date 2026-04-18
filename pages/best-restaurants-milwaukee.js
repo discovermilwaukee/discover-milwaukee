@@ -170,20 +170,20 @@ const structuredData = {
     "author": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com",
+      "url": "https://www.discover-milwaukee.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://discover-milwaukee.com/logo.png"
+        "url": "https://www.discover-milwaukee.com/logo.png"
       }
     },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/best-restaurants-milwaukee"
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/best-restaurants-milwaukee"
   },
   faqPage: {
     "@context": "https://schema.org",
@@ -221,8 +221,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Best Restaurants in Milwaukee", "item": "https://discover-milwaukee.com/best-restaurants-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Best Restaurants in Milwaukee", "item": "https://www.discover-milwaukee.com/best-restaurants-milwaukee" }
     ]
   }
 };
@@ -267,15 +267,15 @@ export default function BestRestaurantsMilwaukee() {
         <title>Best Restaurants in Milwaukee 2026 | Top MKE Dining Guide</title>
         <meta name="description" content="Discover Milwaukee's best restaurants for 2026. From Michelin-quality fine dining at Sanford to trendy new spots like Cassis and Nakama. Complete guide with neighborhoods, prices, and what to order." />
         <meta name="keywords" content="best restaurants Milwaukee, Milwaukee restaurants, fine dining Milwaukee, where to eat Milwaukee, Milwaukee food guide, best restaurants MKE, Milwaukee dining 2026" />
-        <link rel="canonical" href="https://discover-milwaukee.com/best-restaurants-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/best-restaurants-milwaukee" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Best Restaurants in Milwaukee 2026 | Complete Dining Guide" />
         <meta property="og:description" content="Milwaukee's definitive restaurant guide. Michelin-quality fine dining, new openings, and local favorites across every neighborhood." />
-        <meta property="og:url" content="https://discover-milwaukee.com/best-restaurants-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-restaurants-milwaukee" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Discover Milwaukee" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-best-restaurants.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-best-restaurants.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Best Restaurants in Milwaukee - Fine dining and local favorites" />
@@ -286,7 +286,7 @@ export default function BestRestaurantsMilwaukee() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Best Restaurants in Milwaukee 2026" />
         <meta name="twitter:description" content="Milwaukee's definitive restaurant guide for 2026." />
-        <meta name="twitter:image" content="https://discover-milwaukee.com/og-best-restaurants.jpg" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/og-best-restaurants.jpg" />
 
         {/* Structured Data */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

@@ -147,7 +147,7 @@ const structuredData = {
     "headline": "Brady Street Milwaukee Neighborhood Guide 2026",
     "description": "Explore Brady Street, Milwaukee's historic Italian neighborhood turned vibrant dining and nightlife destination. Glorioso's, Hi-Hat Lounge, and more.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -155,9 +155,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Brady Street", "item": "https://discover-milwaukee.com/brady-street-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Brady Street", "item": "https://www.discover-milwaukee.com/brady-street-milwaukee" },
     ],
   },
 };
@@ -208,13 +208,13 @@ export default function BradyStreetMilwaukee() {
         <title>Brady Street Milwaukee Guide 2026 | Italian Heritage, Bars & Restaurants</title>
         <meta name="description" content="Explore Brady Street, Milwaukee's historic Italian neighborhood. Glorioso's Market, Hi-Hat cocktails, Cempazuchi, nightlife, and walkable charm. Complete Brady Street guide." />
         <meta name="keywords" content="Brady Street Milwaukee, Glorioso's, Milwaukee Italian neighborhood, Brady Street restaurants, Hi-Hat Lounge, Milwaukee nightlife, things to do Brady Street" />
-        <link rel="canonical" href="https://discover-milwaukee.com/brady-street-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/brady-street-milwaukee" />
 
         <meta property="og:title" content="Brady Street Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Milwaukee's historic Italian neighborhood. Glorioso's, craft cocktails, great restaurants, and vibrant nightlife." />
-        <meta property="og:url" content="https://discover-milwaukee.com/brady-street-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/brady-street-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-brady-street.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-brady-street.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

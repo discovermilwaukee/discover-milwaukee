@@ -115,7 +115,7 @@ const structuredData = {
     "headline": "Harbor District Milwaukee Guide 2026",
     "description": "Explore Milwaukee's Harbor District along the Kinnickinnic River. Industrial transformation, Reed Street Yards, urban kayaking, and emerging creative hub.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -123,9 +123,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Harbor District", "item": "https://discover-milwaukee.com/harbor-district-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Harbor District", "item": "https://www.discover-milwaukee.com/harbor-district-milwaukee" },
     ],
   },
 };
@@ -176,13 +176,13 @@ export default function HarborDistrictMilwaukee() {
         <title>Harbor District Milwaukee Guide 2026 | Kinnickinnic River, Urban Revival</title>
         <meta name="description" content="Explore Milwaukee's Harbor District along the Kinnickinnic River. Reed Street Yards creative hub, urban kayaking, Klement's factory, and industrial transformation." />
         <meta name="keywords" content="Harbor District Milwaukee, Kinnickinnic River, Reed Street Yards, Milwaukee industrial, Milwaukee kayaking, Milwaukee redevelopment" />
-        <link rel="canonical" href="https://discover-milwaukee.com/harbor-district-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/harbor-district-milwaukee" />
 
         <meta property="og:title" content="Harbor District Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Milwaukee's industrial harbor transformed. Kinnickinnic River trails, creative spaces, and urban renewal." />
-        <meta property="og:url" content="https://discover-milwaukee.com/harbor-district-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/harbor-district-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-harbor-district.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-harbor-district.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

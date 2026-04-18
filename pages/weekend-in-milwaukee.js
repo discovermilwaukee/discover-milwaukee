@@ -118,7 +118,7 @@ const structuredData = {
     "headline": "Weekend in Milwaukee: The Perfect 3-Day Itinerary (2026 Guide)",
     "description": "Plan your perfect Milwaukee weekend with our day-by-day itinerary covering the best restaurants, attractions, neighborhoods, and hotels.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -126,9 +126,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Weekend in Milwaukee", "item": "https://discover-milwaukee.com/weekend-in-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Weekend in Milwaukee", "item": "https://www.discover-milwaukee.com/weekend-in-milwaukee" },
     ],
   },
 };
@@ -155,13 +155,13 @@ export default function WeekendInMilwaukee() {
         <title>Weekend in Milwaukee: The Perfect 3-Day Itinerary (2026 Guide)</title>
         <meta name="description" content="Plan your perfect Milwaukee weekend with our day-by-day itinerary. Best restaurants, attractions, neighborhoods, and hotels for your Milwaukee trip." />
         <meta name="keywords" content="weekend in Milwaukee, Milwaukee weekend trip, Milwaukee itinerary, things to do Milwaukee weekend, Milwaukee travel guide, visiting Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/weekend-in-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/weekend-in-milwaukee" />
 
         <meta property="og:title" content="Weekend in Milwaukee: The Perfect 3-Day Itinerary" />
         <meta property="og:description" content="Plan your perfect Milwaukee weekend with our day-by-day itinerary covering restaurants, attractions, and neighborhoods." />
-        <meta property="og:url" content="https://discover-milwaukee.com/weekend-in-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/weekend-in-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-weekend.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-weekend.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

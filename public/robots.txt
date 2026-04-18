@@ -1,11 +1,11 @@
 # robots.txt for Discover Milwaukee
-# https://discover-milwaukee.com
+# https://www.discover-milwaukee.com
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://discover-milwaukee.com/sitemap.xml
+Sitemap: https://www.discover-milwaukee.com/sitemap.xml
 
 # Crawl-delay (optional, be nice to servers)
 Crawl-delay: 1

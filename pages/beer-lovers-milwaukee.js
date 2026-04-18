@@ -142,7 +142,7 @@ const structuredData = {
     "headline": "Beer Lover's Weekend in Milwaukee: Ultimate Brewery Tour Guide",
     "description": "Plan the ultimate Milwaukee brewery tour. Historic breweries, craft beer scene, best beer bars, and a self-guided tour itinerary.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -150,9 +150,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Beer Lovers Milwaukee", "item": "https://discover-milwaukee.com/beer-lovers-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Beer Lovers Milwaukee", "item": "https://www.discover-milwaukee.com/beer-lovers-milwaukee" },
     ],
   },
 };
@@ -164,13 +164,13 @@ export default function BeerLoversMilwaukee() {
         <title>Beer Lover's Weekend in Milwaukee: Ultimate Brewery Tour Guide</title>
         <meta name="description" content="Plan the ultimate Milwaukee brewery tour. Historic Miller and Pabst tours, the best craft breweries, top beer bars, and a self-guided brewery crawl itinerary." />
         <meta name="keywords" content="Milwaukee breweries, Milwaukee beer tour, Milwaukee craft beer, Lakefront Brewery, Miller tour, Pabst Milwaukee, best breweries Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/beer-lovers-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/beer-lovers-milwaukee" />
 
         <meta property="og:title" content="Beer Lover's Weekend in Milwaukee: Ultimate Brewery Tour Guide" />
         <meta property="og:description" content="Plan the ultimate Milwaukee brewery tour with our guide to historic and craft breweries, beer bars, and a self-guided tour." />
-        <meta property="og:url" content="https://discover-milwaukee.com/beer-lovers-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/beer-lovers-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-beer.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-beer.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

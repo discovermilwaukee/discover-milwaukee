@@ -99,7 +99,7 @@ const structuredData = {
     "headline": "Bronzeville Milwaukee Neighborhood Guide 2026",
     "description": "Explore Bronzeville, Milwaukee's historic African American neighborhood. America's Black Holocaust Museum, Juneteenth, King Drive, and cultural renaissance.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -107,9 +107,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Bronzeville", "item": "https://discover-milwaukee.com/bronzeville-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Bronzeville", "item": "https://www.discover-milwaukee.com/bronzeville-milwaukee" },
     ],
   },
 };
@@ -160,13 +160,13 @@ export default function BronzevilleMilwaukee() {
         <title>Bronzeville Milwaukee Guide 2026 | Black History, Culture & Heritage</title>
         <meta name="description" content="Explore Bronzeville, Milwaukee's historic African American neighborhood. America's Black Holocaust Museum, Juneteenth festival, King Drive, and cultural renaissance." />
         <meta name="keywords" content="Bronzeville Milwaukee, Black Holocaust Museum, Milwaukee Black history, King Drive Milwaukee, Juneteenth Milwaukee, African American Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/bronzeville-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/bronzeville-milwaukee" />
 
         <meta property="og:title" content="Bronzeville Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Milwaukee's historic African American neighborhood. Rich history, cultural institutions, and community renaissance." />
-        <meta property="og:url" content="https://discover-milwaukee.com/bronzeville-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/bronzeville-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-bronzeville.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-bronzeville.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

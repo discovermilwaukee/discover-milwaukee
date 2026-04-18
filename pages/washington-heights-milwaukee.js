@@ -109,7 +109,7 @@ const structuredData = {
     "headline": "Washington Heights Milwaukee Neighborhood Guide 2026",
     "description": "Explore Washington Heights, a family-friendly Milwaukee neighborhood with beautiful historic homes, Washington Park, and the Milwaukee County Zoo.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -117,9 +117,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Washington Heights", "item": "https://discover-milwaukee.com/washington-heights-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Washington Heights", "item": "https://www.discover-milwaukee.com/washington-heights-milwaukee" },
     ],
   },
 };
@@ -170,13 +170,13 @@ export default function WashingtonHeightsMilwaukee() {
         <title>Washington Heights Milwaukee Guide 2026 | Zoo, Parks & Family-Friendly</title>
         <meta name="description" content="Explore Washington Heights, Milwaukee's family-friendly neighborhood with the Milwaukee County Zoo, beautiful Washington Park, historic homes, and local restaurants." />
         <meta name="keywords" content="Washington Heights Milwaukee, Milwaukee County Zoo, Washington Park, Milwaukee family neighborhood, Story Hill Milwaukee, Milwaukee historic homes" />
-        <link rel="canonical" href="https://discover-milwaukee.com/washington-heights-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/washington-heights-milwaukee" />
 
         <meta property="og:title" content="Washington Heights Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Family-friendly neighborhood with the Milwaukee County Zoo, beautiful parks, and historic homes." />
-        <meta property="og:url" content="https://discover-milwaukee.com/washington-heights-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/washington-heights-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-washington-heights.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-washington-heights.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

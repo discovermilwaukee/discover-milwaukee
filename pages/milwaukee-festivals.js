@@ -284,11 +284,11 @@ const structuredData = {
     "@type": "Article",
     "headline": "Milwaukee Festivals 2026: Complete Guide to Summerfest, Ethnic Fests & More",
     "description": "Complete guide to Milwaukee's famous festival season. Summerfest, Polish Fest, German Fest, Irish Fest, State Fair, and 20+ annual celebrations. Dates, prices, and insider tips.",
-    "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://discover-milwaukee.com" },
+    "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-16",
-    "mainEntityOfPage": "https://discover-milwaukee.com/milwaukee-festivals"
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/milwaukee-festivals"
   },
   faqPage: {
     "@context": "https://schema.org",
@@ -320,8 +320,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Milwaukee Festivals Guide", "item": "https://discover-milwaukee.com/milwaukee-festivals" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Milwaukee Festivals Guide", "item": "https://www.discover-milwaukee.com/milwaukee-festivals" }
     ]
   }
 };
@@ -476,11 +476,11 @@ export default function MilwaukeeFestivals() {
         <title>Milwaukee Festivals 2026: Summerfest, German Fest, Irish Fest & More | Complete Guide</title>
         <meta name="description" content="Complete guide to Milwaukee festivals 2026. Summerfest dates, Polish Fest, German Fest, Irish Fest, State Fair, and 20+ annual celebrations. The City of Festivals awaits!" />
         <meta name="keywords" content="milwaukee festivals 2026, summerfest 2026, german fest milwaukee, irish fest milwaukee, polish fest, festa italiana, wisconsin state fair, milwaukee events" />
-        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-festivals" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-festivals" />
 
         <meta property="og:title" content="Milwaukee Festivals 2026 | Complete Guide to the City of Festivals" />
         <meta property="og:description" content="Your guide to 20+ Milwaukee festivals including Summerfest, ethnic fests, and the State Fair. Dates, prices, and insider tips." />
-        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-festivals" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-festivals" />
         <meta property="og:type" content="article" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

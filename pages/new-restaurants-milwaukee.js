@@ -129,7 +129,7 @@ const structuredData = {
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/new-restaurants-milwaukee"
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/new-restaurants-milwaukee"
   },
   faqPage: {
     "@context": "https://schema.org",
@@ -144,8 +144,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "New Restaurants in Milwaukee", "item": "https://discover-milwaukee.com/new-restaurants-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "New Restaurants in Milwaukee", "item": "https://www.discover-milwaukee.com/new-restaurants-milwaukee" }
     ]
   }
 };
@@ -196,17 +196,17 @@ export default function NewRestaurantsMilwaukee() {
         <title>New Restaurants in Milwaukee 2026 | Latest Openings & Coming Soon</title>
         <meta name="description" content="Discover Milwaukee's newest restaurants for 2026. Cassis, Nakama, Aya, and more recent openings plus coming-soon spots. Updated weekly with the latest MKE food news." />
         <meta name="keywords" content="new restaurants Milwaukee, Milwaukee restaurant openings 2026, new Milwaukee restaurants, recently opened Milwaukee, where to eat Milwaukee new" />
-        <link rel="canonical" href="https://discover-milwaukee.com/new-restaurants-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/new-restaurants-milwaukee" />
 
         <meta property="og:title" content="New Restaurants in Milwaukee 2026 | Latest Openings" />
         <meta property="og:description" content="Stay ahead of Milwaukee's food scene. Complete guide to new restaurant openings, updated weekly." />
-        <meta property="og:url" content="https://discover-milwaukee.com/new-restaurants-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/new-restaurants-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-new-restaurants.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-new-restaurants.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://discover-milwaukee.com/og-new-restaurants.jpg" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/og-new-restaurants.jpg" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />

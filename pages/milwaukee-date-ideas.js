@@ -18,7 +18,7 @@ const articleSchema = {
   headline: '50+ Best Date Ideas in Milwaukee for Every Couple | 2026 Guide',
   description:
     'Discover the most romantic date ideas in Milwaukee, from upscale dining at Sanford to kayaking on the Milwaukee River. Perfect for first dates, anniversaries, and everything in between.',
-  image: 'https://discover-milwaukee.com/images/milwaukee-date-ideas.jpg',
+  image: 'https://www.discover-milwaukee.com/images/milwaukee-date-ideas.jpg',
   author: {
     '@type': 'Organization',
     name: 'Discover Milwaukee',
@@ -28,14 +28,14 @@ const articleSchema = {
     name: 'Discover Milwaukee',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://discover-milwaukee.com/logo.png',
+      url: 'https://www.discover-milwaukee.com/logo.png',
     },
   },
   datePublished: '2026-01-15',
   dateModified: '2026-03-01',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discover-milwaukee.com/milwaukee-date-ideas',
+    '@id': 'https://www.discover-milwaukee.com/milwaukee-date-ideas',
   },
 };
 
@@ -121,9 +121,9 @@ export default function MilwaukeeDateIdeas() {
         />
         <meta
           property="og:image"
-          content="https://discover-milwaukee.com/images/milwaukee-date-ideas.jpg"
+          content="https://www.discover-milwaukee.com/images/milwaukee-date-ideas.jpg"
         />
-        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-date-ideas" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-date-ideas" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -137,12 +137,12 @@ export default function MilwaukeeDateIdeas() {
         />
         <meta
           name="twitter:image"
-          content="https://discover-milwaukee.com/images/milwaukee-date-ideas.jpg"
+          content="https://www.discover-milwaukee.com/images/milwaukee-date-ideas.jpg"
         />
 
         {/* Additional SEO */}
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-date-ideas" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-date-ideas" />
         <meta name="author" content="Discover Milwaukee" />
         <meta name="geo.region" content="US-WI" />
         <meta name="geo.placename" content="Milwaukee" />

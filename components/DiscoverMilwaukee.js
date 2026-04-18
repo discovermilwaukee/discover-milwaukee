@@ -82,8 +82,8 @@ const getStructuredData = (page, events = [], articles = []) => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Discover Milwaukee",
-    "url": "https://discover-milwaukee.com",
-    "logo": "https://discover-milwaukee.com/logo.png",
+    "url": "https://www.discover-milwaukee.com",
+    "logo": "https://www.discover-milwaukee.com/logo.png",
     "description": "Milwaukee's #1 local guide for events, restaurants, and things to do",
     "address": {
       "@type": "PostalAddress",
@@ -103,7 +103,7 @@ const getStructuredData = (page, events = [], articles = []) => {
     "@type": "LocalBusiness",
     "name": "Discover Milwaukee",
     "description": "Milwaukee's premier local guide for events, restaurants, nightlife, and things to do",
-    "url": "https://discover-milwaukee.com",
+    "url": "https://www.discover-milwaukee.com",
     "telephone": "",
     "address": {
       "@type": "PostalAddress",
@@ -128,7 +128,7 @@ const getStructuredData = (page, events = [], articles = []) => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Discover Milwaukee",
-    "url": "https://discover-milwaukee.com",
+    "url": "https://www.discover-milwaukee.com",
     "description": "Your insider's guide to Milwaukee events, restaurants, and things to do",
     "publisher": {
       "@type": "Organization",
@@ -136,7 +136,7 @@ const getStructuredData = (page, events = [], articles = []) => {
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://discover-milwaukee.com/events?search={search_term_string}",
+      "target": "https://www.discover-milwaukee.com/events?search={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
@@ -149,13 +149,13 @@ const getStructuredData = (page, events = [], articles = []) => {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://discover-milwaukee.com"
+        "item": "https://www.discover-milwaukee.com"
       },
       page !== "home" && {
         "@type": "ListItem",
         "position": 2,
         "name": page.charAt(0).toUpperCase() + page.slice(1),
-        "item": `https://discover-milwaukee.com/${page}`
+        "item": `https://www.discover-milwaukee.com/${page}`
       }
     ].filter(Boolean)
   };
@@ -181,7 +181,7 @@ const getStructuredData = (page, events = [], articles = []) => {
     "organizer": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -209,12 +209,12 @@ const getStructuredData = (page, events = [], articles = []) => {
       "name": "Discover Milwaukee",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://discover-milwaukee.com/logo.png"
+        "url": "https://www.discover-milwaukee.com/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://discover-milwaukee.com/explore/${article.slug}`
+      "@id": `https://www.discover-milwaukee.com/explore/${article.slug}`
     }
   }));
 
@@ -2299,7 +2299,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         <meta name="bingbot" content="index, follow" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://discover-milwaukee.com${currentSeo.canonical}`} />
+        <link rel="canonical" href={`https://www.discover-milwaukee.com${currentSeo.canonical}`} />
         
         {/* Favicon & Icons */}
         <link rel="icon" href="/favicon.ico" />
@@ -2328,12 +2328,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         
         {/* Open Graph / Facebook - Complete */}
         <meta property="og:type" content={currentSeo.ogType} />
-        <meta property="og:url" content={`https://discover-milwaukee.com${currentSeo.canonical}`} />
+        <meta property="og:url" content={`https://www.discover-milwaukee.com${currentSeo.canonical}`} />
         <meta property="og:title" content={currentSeo.title} />
         <meta property="og:description" content={currentSeo.description} />
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-image.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Discover Milwaukee - Your Guide to Milwaukee Events & Things to Do" />
@@ -2344,7 +2344,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         <meta name="twitter:creator" content="@discovermke" />
         <meta name="twitter:title" content={currentSeo.title} />
         <meta name="twitter:description" content={currentSeo.description} />
-        <meta name="twitter:image" content="https://discover-milwaukee.com/twitter-image.jpg" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/twitter-image.jpg" />
         <meta name="twitter:image:alt" content="Discover Milwaukee - Your Guide to Milwaukee Events & Things to Do" />
         
         {/* Additional SEO Tags */}

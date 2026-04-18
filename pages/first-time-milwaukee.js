@@ -74,7 +74,7 @@ const structuredData = {
     "headline": "First Time in Milwaukee? Essential Visitor's Guide (2026)",
     "description": "Everything you need to know for your first visit to Milwaukee. Must-see attractions, neighborhoods, getting around, and local tips.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -82,9 +82,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "First Time Visitor", "item": "https://discover-milwaukee.com/first-time-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "First Time Visitor", "item": "https://www.discover-milwaukee.com/first-time-milwaukee" },
     ],
   },
 };
@@ -96,13 +96,13 @@ export default function FirstTimeMilwaukee() {
         <title>First Time in Milwaukee? Essential Visitor's Guide (2026)</title>
         <meta name="description" content="Everything you need to know for your first visit to Milwaukee. Must-see attractions, neighborhood guide, getting around, and local tips." />
         <meta name="keywords" content="visiting Milwaukee, Milwaukee travel guide, first time Milwaukee, Milwaukee visitor guide, Milwaukee tourism, things to do Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/first-time-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/first-time-milwaukee" />
 
         <meta property="og:title" content="First Time in Milwaukee? Essential Visitor's Guide" />
         <meta property="og:description" content="Everything you need to know for your first visit to Milwaukee. Must-see spots, getting around, and local tips." />
-        <meta property="og:url" content="https://discover-milwaukee.com/first-time-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/first-time-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-first-time.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-first-time.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

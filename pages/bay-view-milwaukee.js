@@ -147,20 +147,20 @@ const structuredData = {
     "author": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com"
+      "url": "https://www.discover-milwaukee.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com",
+      "url": "https://www.discover-milwaukee.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://discover-milwaukee.com/logo.png"
+        "url": "https://www.discover-milwaukee.com/logo.png"
       }
     },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/bay-view-milwaukee",
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/bay-view-milwaukee",
     "about": {
       "@type": "Place",
       "name": "Bay View",
@@ -209,9 +209,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/neighborhoods" },
-      { "@type": "ListItem", "position": 3, "name": "Bay View Milwaukee", "item": "https://discover-milwaukee.com/bay-view-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/neighborhoods" },
+      { "@type": "ListItem", "position": 3, "name": "Bay View Milwaukee", "item": "https://www.discover-milwaukee.com/bay-view-milwaukee" }
     ]
   }
 };
@@ -280,12 +280,12 @@ export default function BayViewMilwaukee() {
         <title>Bay View Milwaukee Neighborhood Guide 2026 | Restaurants, Bars & Things to Do</title>
         <meta name="description" content="Explore Bay View, Milwaukee's hip artsy neighborhood. Best restaurants (Odd Duck, Honeypie, Birch), craft beer at Sugar Maple, vintage shopping on KK Ave, South Shore Park, and street art. Complete local guide." />
         <meta name="keywords" content="bay view milwaukee, bay view neighborhood, kinnickinnic avenue, KK ave milwaukee, bay view restaurants, odd duck milwaukee, sugar maple milwaukee, south shore park, milwaukee neighborhoods, bay view bars, bay view coffee shops" />
-        <link rel="canonical" href="https://discover-milwaukee.com/bay-view-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/bay-view-milwaukee" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Bay View Milwaukee Neighborhood Guide 2026 | The Complete Local Guide" />
         <meta property="og:description" content="Discover Bay View, Milwaukee's hip artsy neighborhood. Best restaurants, craft beer bars, vintage shopping, South Shore Park, and street art. Written by locals." />
-        <meta property="og:url" content="https://discover-milwaukee.com/bay-view-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/bay-view-milwaukee" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="article:published_time" content="2026-01-15" />

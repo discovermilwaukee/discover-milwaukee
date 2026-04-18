@@ -141,7 +141,7 @@ const structuredData = {
     "headline": "Downtown Milwaukee Neighborhood Guide 2026",
     "description": "Your complete guide to Downtown Milwaukee. Fiserv Forum, theater district, German heritage on Old World Third Street, and the best restaurants, bars, and attractions.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -149,9 +149,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Downtown Milwaukee", "item": "https://discover-milwaukee.com/downtown-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Downtown Milwaukee", "item": "https://www.discover-milwaukee.com/downtown-milwaukee" },
     ],
   },
 };
@@ -202,13 +202,13 @@ export default function DowntownMilwaukee() {
         <title>Downtown Milwaukee Guide 2026 | Fiserv Forum, Restaurants & Nightlife</title>
         <meta name="description" content="Explore Downtown Milwaukee: Fiserv Forum, theater district, German heritage on Old World Third Street, best restaurants, bars, and attractions. Your complete guide to Milwaukee's center." />
         <meta name="keywords" content="downtown Milwaukee, Fiserv Forum, Deer District, Milwaukee restaurants, Old World Third Street, Milwaukee nightlife, things to do downtown Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/downtown-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/downtown-milwaukee" />
 
         <meta property="og:title" content="Downtown Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Your complete guide to Downtown Milwaukee. Sports, entertainment, German heritage, and the best places to eat and drink." />
-        <meta property="og:url" content="https://discover-milwaukee.com/downtown-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/downtown-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-downtown.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-downtown.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

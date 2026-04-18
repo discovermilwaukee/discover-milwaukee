@@ -147,7 +147,7 @@ const structuredData = {
     "headline": "Riverwest Milwaukee Neighborhood Guide 2026",
     "description": "Explore Milwaukee's most bohemian neighborhood. Riverwest guide featuring Fuel Cafe, local art, live music, and authentic community vibes.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -155,9 +155,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Riverwest", "item": "https://discover-milwaukee.com/riverwest-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Neighborhoods", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Riverwest", "item": "https://www.discover-milwaukee.com/riverwest-milwaukee" },
     ],
   },
 };
@@ -208,13 +208,13 @@ export default function RiverwestMilwaukee() {
         <title>Riverwest Milwaukee Guide 2026 | Bohemian, Artsy & Authentic</title>
         <meta name="description" content="Discover Riverwest, Milwaukee's most bohemian neighborhood. Fuel Cafe, live music at Linneman's, local art, dive bars, and authentic community. Complete guide to Riverwest." />
         <meta name="keywords" content="Riverwest Milwaukee, Fuel Cafe, Riverwest restaurants, Milwaukee bohemian neighborhood, Linneman's, Riverwest bars, things to do Riverwest" />
-        <link rel="canonical" href="https://discover-milwaukee.com/riverwest-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/riverwest-milwaukee" />
 
         <meta property="og:title" content="Riverwest Milwaukee Neighborhood Guide 2026" />
         <meta property="og:description" content="Milwaukee's most bohemian neighborhood. Artists, activists, great food, live music, and authentic community vibes." />
-        <meta property="og:url" content="https://discover-milwaukee.com/riverwest-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/riverwest-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-riverwest.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-riverwest.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

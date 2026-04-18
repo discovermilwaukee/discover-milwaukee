@@ -54,7 +54,7 @@ const structuredData = {
     "headline": "Outdoor Weekend in Milwaukee: Parks, Trails & Lake Activities",
     "description": "Plan an active outdoor weekend in Milwaukee. Parks, lakefront trails, water activities, biking routes, and seasonal outdoor activities.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://discover-milwaukee.com/logo.png" } },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
   },
@@ -62,9 +62,9 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://discover-milwaukee.com/explore" },
-      { "@type": "ListItem", "position": 3, "name": "Outdoor Weekend", "item": "https://discover-milwaukee.com/outdoor-weekend-milwaukee" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", "position": 3, "name": "Outdoor Weekend", "item": "https://www.discover-milwaukee.com/outdoor-weekend-milwaukee" },
     ],
   },
 };
@@ -76,13 +76,13 @@ export default function OutdoorWeekendMilwaukee() {
         <title>Outdoor Weekend in Milwaukee: Parks, Trails & Lake Activities</title>
         <meta name="description" content="Plan an active outdoor weekend in Milwaukee. Guide to parks, lakefront trails, kayaking, paddleboarding, biking, and seasonal outdoor activities." />
         <meta name="keywords" content="outdoor activities Milwaukee, Milwaukee parks, Lake Michigan Milwaukee, Milwaukee trails, kayaking Milwaukee, Milwaukee biking, Oak Leaf Trail" />
-        <link rel="canonical" href="https://discover-milwaukee.com/outdoor-weekend-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/outdoor-weekend-milwaukee" />
 
         <meta property="og:title" content="Outdoor Weekend in Milwaukee: Parks, Trails & Lake Activities" />
         <meta property="og:description" content="Plan an active outdoor weekend in Milwaukee with our guide to parks, trails, and water activities." />
-        <meta property="og:url" content="https://discover-milwaukee.com/outdoor-weekend-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/outdoor-weekend-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-outdoor.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-outdoor.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

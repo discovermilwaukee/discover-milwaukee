@@ -126,11 +126,11 @@ const structuredData = {
     "@type": "Article",
     "headline": "Things to Do in Milwaukee 2026: Complete Local Guide to MKE Attractions",
     "description": "Comprehensive guide to the best things to do in Milwaukee, Wisconsin. Museums, breweries, restaurants, neighborhoods, free activities, and seasonal events.",
-    "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://discover-milwaukee.com" },
+    "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/things-to-do-milwaukee"
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/things-to-do-milwaukee"
   },
   faqPage: {
     "@context": "https://schema.org",
@@ -161,8 +161,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Things to Do in Milwaukee", "item": "https://discover-milwaukee.com/things-to-do-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Things to Do in Milwaukee", "item": "https://www.discover-milwaukee.com/things-to-do-milwaukee" }
     ]
   }
 };
@@ -204,11 +204,11 @@ export default function ThingsToDoMilwaukee() {
         <title>Things to Do in Milwaukee 2026 | Complete Guide to MKE Attractions</title>
         <meta name="description" content="Discover the best things to do in Milwaukee, WI. Museums, breweries, restaurants, free activities, and neighborhood guides. Updated for 2026 with insider tips from locals." />
         <meta name="keywords" content="things to do in milwaukee, milwaukee attractions, what to do in milwaukee, milwaukee activities, visit milwaukee, milwaukee tourism, milwaukee guide 2026" />
-        <link rel="canonical" href="https://discover-milwaukee.com/things-to-do-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/things-to-do-milwaukee" />
 
         <meta property="og:title" content="Things to Do in Milwaukee 2026 | Complete Local Guide" />
         <meta property="og:description" content="The definitive guide to Milwaukee attractions, activities, and experiences. Written by locals, updated weekly." />
-        <meta property="og:url" content="https://discover-milwaukee.com/things-to-do-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/things-to-do-milwaukee" />
         <meta property="og:type" content="article" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />

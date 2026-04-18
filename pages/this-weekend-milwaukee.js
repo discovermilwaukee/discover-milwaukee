@@ -271,19 +271,19 @@ function generateSchemaData() {
     author: {
       '@type': 'Organization',
       name: 'Discover Milwaukee',
-      url: 'https://discover-milwaukee.com',
+      url: 'https://www.discover-milwaukee.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Discover Milwaukee',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://discover-milwaukee.com/logo.png',
+        url: 'https://www.discover-milwaukee.com/logo.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://discover-milwaukee.com/this-weekend-milwaukee',
+      '@id': 'https://www.discover-milwaukee.com/this-weekend-milwaukee',
     },
     about: {
       '@type': 'City',
@@ -776,7 +776,7 @@ export default function ThisWeekendMilwaukee() {
         />
 
         {/* Canonical URL */}
-        <link rel="canonical" href="https://discover-milwaukee.com/this-weekend-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/this-weekend-milwaukee" />
 
         {/* Open Graph / Social Media */}
         <meta property="og:type" content="article" />
@@ -785,7 +785,7 @@ export default function ThisWeekendMilwaukee() {
           property="og:description"
           content={`${WEEKEND_DATA.featuredEvents.length} featured events, new restaurant picks, and your complete weekend guide to Milwaukee.`}
         />
-        <meta property="og:url" content="https://discover-milwaukee.com/this-weekend-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/this-weekend-milwaukee" />
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="og:locale" content="en_US" />
         <meta property="article:modified_time" content={WEEKEND_DATA.lastUpdated} />

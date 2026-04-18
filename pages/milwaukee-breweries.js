@@ -347,10 +347,10 @@ const articleSchema = {
   },
   datePublished: '2026-01-15',
   dateModified: '2026-01-15',
-  image: 'https://discover-milwaukee.com/images/milwaukee-breweries-guide.jpg',
+  image: 'https://www.discover-milwaukee.com/images/milwaukee-breweries-guide.jpg',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://discover-milwaukee.com/milwaukee-breweries',
+    '@id': 'https://www.discover-milwaukee.com/milwaukee-breweries',
   },
 };
 
@@ -404,7 +404,7 @@ export default function MilwaukeeBreweries() {
           name="keywords"
           content="milwaukee breweries, craft beer milwaukee, brewery tour milwaukee, milwaukee beer, lakefront brewery, milwaukee brewing company, best breweries milwaukee, milwaukee craft breweries, beer gardens milwaukee, walker's point breweries"
         />
-        <link rel="canonical" href="https://discover-milwaukee.com/milwaukee-breweries" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-breweries" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Milwaukee Breweries Guide | Craft Beer & Brewery Tours" />
@@ -413,8 +413,8 @@ export default function MilwaukeeBreweries() {
           content="Your complete guide to Milwaukee's brewery scene. From iconic Lakefront Brewery to cutting-edge craft producers, discover the best beer in America's brewing capital."
         />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://discover-milwaukee.com/milwaukee-breweries" />
-        <meta property="og:image" content="https://discover-milwaukee.com/images/milwaukee-breweries-guide.jpg" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-breweries" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/milwaukee-breweries-guide.jpg" />
         <meta property="og:site_name" content="Discover Milwaukee" />
 
         {/* Twitter Card */}
@@ -424,7 +424,7 @@ export default function MilwaukeeBreweries() {
           name="twitter:description"
           content="Explore Milwaukee's best breweries, tours, and beer gardens in America's historic brewing capital."
         />
-        <meta name="twitter:image" content="https://discover-milwaukee.com/images/milwaukee-breweries-guide.jpg" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/milwaukee-breweries-guide.jpg" />
 
         {/* Schema.org Structured Data */}
         <script

@@ -129,7 +129,7 @@ const structuredData = {
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/best-brunch-milwaukee"
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/best-brunch-milwaukee"
   },
   faqPage: {
     "@context": "https://schema.org",
@@ -144,8 +144,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Best Brunch in Milwaukee", "item": "https://discover-milwaukee.com/best-brunch-milwaukee" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", "position": 2, "name": "Best Brunch in Milwaukee", "item": "https://www.discover-milwaukee.com/best-brunch-milwaukee" }
     ]
   }
 };
@@ -194,17 +194,17 @@ export default function BestBrunchMilwaukee() {
         <title>Best Brunch in Milwaukee 2026 | Top Spots & Hidden Gems</title>
         <meta name="description" content="Find Milwaukee's best brunch spots for 2026. Blue's Egg, Story Hill BKC, Café Benelux and hidden gems. Plus tips on avoiding waits and the best Bloody Marys." />
         <meta name="keywords" content="best brunch Milwaukee, Milwaukee brunch spots, breakfast Milwaukee, Sunday brunch MKE, Blue's Egg, where to eat brunch Milwaukee" />
-        <link rel="canonical" href="https://discover-milwaukee.com/best-brunch-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/best-brunch-milwaukee" />
 
         <meta property="og:title" content="Best Brunch in Milwaukee 2026 | Complete Guide" />
         <meta property="og:description" content="Milwaukee's ultimate brunch guide. Top spots, hidden gems, and how to beat the weekend crowds." />
-        <meta property="og:url" content="https://discover-milwaukee.com/best-brunch-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-brunch-milwaukee" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://discover-milwaukee.com/og-best-brunch.jpg" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/og-best-brunch.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://discover-milwaukee.com/og-best-brunch.jpg" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/og-best-brunch.jpg" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />

@@ -231,20 +231,20 @@ const structuredData = {
     "author": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com",
+      "url": "https://www.discover-milwaukee.com",
     },
     "publisher": {
       "@type": "Organization",
       "name": "Discover Milwaukee",
-      "url": "https://discover-milwaukee.com",
+      "url": "https://www.discover-milwaukee.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://discover-milwaukee.com/logo.png",
+        "url": "https://www.discover-milwaukee.com/logo.png",
       },
     },
     "datePublished": "2026-01-20",
     "dateModified": "2026-04-15",
-    "mainEntityOfPage": "https://discover-milwaukee.com/walkers-point-milwaukee",
+    "mainEntityOfPage": "https://www.discover-milwaukee.com/walkers-point-milwaukee",
     "keywords": "walkers point milwaukee, walker's point, milwaukee breweries, milwaukee lgbtq nightlife, milwaukee street art, milwaukee neighborhoods",
   },
   faqPage: {
@@ -284,19 +284,19 @@ const structuredData = {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://discover-milwaukee.com",
+        "item": "https://www.discover-milwaukee.com",
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Neighborhoods",
-        "item": "https://discover-milwaukee.com/neighborhoods",
+        "item": "https://www.discover-milwaukee.com/neighborhoods",
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Walker's Point",
-        "item": "https://discover-milwaukee.com/walkers-point-milwaukee",
+        "item": "https://www.discover-milwaukee.com/walkers-point-milwaukee",
       },
     ],
   },
@@ -434,7 +434,7 @@ export default function WalkersPointMilwaukee() {
           name="keywords"
           content="walkers point milwaukee, walker's point, milwaukee breweries, milwaukee craft beer, milwaukee lgbtq nightlife, milwaukee gay bars, walker's point restaurants, milwaukee street art, 2nd street milwaukee, mobcraft beer, la merenda milwaukee, morel milwaukee"
         />
-        <link rel="canonical" href="https://discover-milwaukee.com/walkers-point-milwaukee" />
+        <link rel="canonical" href="https://www.discover-milwaukee.com/walkers-point-milwaukee" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Walker's Point Milwaukee: Complete Neighborhood Guide 2026" />
@@ -442,7 +442,7 @@ export default function WalkersPointMilwaukee() {
           property="og:description"
           content="Milwaukee's most diverse and edgy neighborhood. Craft breweries, LGBTQ+ nightlife, street art, and the best restaurants on 2nd Street."
         />
-        <meta property="og:url" content="https://discover-milwaukee.com/walkers-point-milwaukee" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/walkers-point-milwaukee" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Discover Milwaukee" />
         <meta property="article:published_time" content="2026-01-20" />
