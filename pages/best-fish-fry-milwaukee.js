@@ -104,18 +104,6 @@ const fishFrySpots = {
   ],
   neighborhood: [
     {
-      name: "Klinger's East",
-      neighborhood: "Bay View",
-      priceRange: "$$",
-      address: "920 E Locust St, Milwaukee, WI 53212",
-      description: "A beloved neighborhood spot with a loyal following. The fish fry is classic and consistent, the atmosphere is welcoming, and the regulars make you feel like family.",
-      fishOptions: "Beer-battered cod, perch",
-      sides: "Traditional sides",
-      insiderTip: "The burgers are also excellent if someone in your group isn't in a fish fry mood.",
-      bestFor: "Neighborhood dining, casual Friday night",
-      allYouCanEat: false,
-    },
-    {
       name: "Barnacle Bud's",
       neighborhood: "Bay View",
       priceRange: "$$",

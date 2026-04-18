@@ -89,18 +89,6 @@ const bakerySpots = {
       bestFor: "Quality bread, European styles, consistent availability",
       verified: "Open 2026",
     },
-    {
-      name: "Boulangerie Du Monde",
-      neighborhood: "Bay View",
-      style: "World Breads",
-      priceRange: "$$",
-      address: "2253 S Kinnickinnic Ave, Milwaukee, WI 53207",
-      description: "Bringing bread traditions from around the world to Bay View. Boulangerie Du Monde crafts loaves inspired by various global traditions alongside classic French breads.",
-      mustTry: "Baguettes, specialty loaves, global bread varieties",
-      insiderTip: "The variety goes beyond French—explore breads from different traditions.",
-      bestFor: "Bread enthusiasts, Bay View, global styles",
-      verified: "Open 2026",
-    },
   ],
   specialty: [
     {
@@ -125,18 +113,6 @@ const bakerySpots = {
       mustTry: "Custom cakes, daily pastries, celebration treats",
       insiderTip: "Order custom cakes well in advance for special occasions.",
       bestFor: "Celebration cakes, custom orders, special events",
-      verified: "Open 2026",
-    },
-    {
-      name: "Canfora Bakery",
-      neighborhood: "Bay View",
-      style: "Italian-American",
-      priceRange: "$",
-      address: "2625 S Kinnickinnic Ave, Milwaukee, WI 53207",
-      description: "Bay View's neighborhood bakery serving Italian-American classics. Canfora keeps it simple with quality ingredients and traditional recipes.",
-      mustTry: "Italian bread, cookies, traditional pastries",
-      insiderTip: "A true neighborhood spot. Great for everyday bread and treats.",
-      bestFor: "Neighborhood bakery, Italian classics, Bay View",
       verified: "Open 2026",
     },
     {

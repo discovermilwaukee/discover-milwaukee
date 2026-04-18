@@ -46,22 +46,10 @@ const packersBars = {
       priceRange: "$$-$$$",
       address: "1134 N Vel R Phillips Ave, Milwaukee, WI 53203",
       description: "Steps from Fiserv Forum, Tom's Watch Bar brings the modern sports bar experience with massive 360° screens and an electric atmosphere. The technology and energy make every game feel like you're at the stadium.",
-      highlights: "360° screens, Deer District location, 38-foot centerpiece screen",
+      highlights: "360° screens, Deer District location, impressive screen technology",
       gameDay: "The screens are overwhelming in the best way. Great for big games and playoffs.",
       insiderTip: "Combine with Deer District energy before/after Bucks games.",
       bestFor: "Modern experience, great screens, Deer District pre-gaming",
-    },
-    {
-      name: "The Mecca Sports Bar and Grill",
-      neighborhood: "Deer District",
-      vibe: "Massive Sports Complex",
-      priceRange: "$$",
-      address: "1134 N Vel R Phillips Ave, Milwaukee, WI 53203",
-      description: "A massive sports bar with two floors, two full-service bars, plenty of seating, and the crown jewel—a 38-foot centerpiece screen. The size means you can usually find a spot even on busy game days.",
-      highlights: "38-foot screen, two floors, ample seating, full menu",
-      gameDay: "The size works in your favor—less stressful to find seating than smaller spots.",
-      insiderTip: "Upper level offers good views with less crowd pressure.",
-      bestFor: "Groups, guaranteed seating, impressive screens",
     },
   ],
   neighborhood: [
@@ -147,7 +135,7 @@ const gameInfo = {
 const faqs = [
   {
     question: "What's the best Packers bar in Milwaukee?",
-    answer: "Steny's Tavern in Walker's Point is considered the ultimate Packers watching experience with its massive outdoor setup. For downtown, Tom's Watch Bar and The Mecca offer impressive screens. Major Goolsby's has 50+ years of sports bar history.",
+    answer: "Steny's Tavern in Walker's Point is considered the ultimate Packers watching experience with its massive outdoor setup. For downtown, Tom's Watch Bar offers impressive 360° screens. Major Goolsby's has 50+ years of sports bar history.",
   },
   {
     question: "Do I need to wear Packers gear?",
@@ -155,7 +143,7 @@ const faqs = [
   },
   {
     question: "Where should I watch Packers games with kids?",
-    answer: "Milwaukee Brat House and Brewski's locations are family-friendly options. The Mecca's size makes it easier to manage with families. For outdoor spaces, Steny's works until it gets too rowdy later in the day.",
+    answer: "Milwaukee Brat House and Brewski's locations are family-friendly options. Tom's Watch Bar's size makes it easier to manage with families. For outdoor spaces, Steny's works until it gets too rowdy later in the day.",
   },
   {
     question: "What's the deal with the brandy Old Fashioned?",

@@ -116,18 +116,6 @@ const iceCreamSpots = {
   ],
   specialty: [
     {
-      name: "Whisk Creamery",
-      neighborhood: "Brookfield",
-      style: "Modern Creamery",
-      priceRange: "$$",
-      address: "19005 W Capitol Dr, Brookfield, WI 53045",
-      description: "A modern take on the creamery concept with creative flavors and quality presentation. Whisk brings contemporary ice cream trends to the Milwaukee suburbs.",
-      mustTry: "Specialty flavors, seasonal creations",
-      insiderTip: "Good option for those seeking something beyond traditional custard.",
-      bestFor: "Modern flavors, quality presentation, suburban treat",
-      verified: "Open 2026",
-    },
-    {
       name: "Northpoint Custard",
       neighborhood: "Lakefront",
       style: "Lakefront Stand",

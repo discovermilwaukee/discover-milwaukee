@@ -78,18 +78,6 @@ const burgerSpots = {
   ],
   upscale: [
     {
-      name: "Bavette",
-      neighborhood: "Third Ward",
-      style: "French Steakhouse Burger",
-      priceRange: "$$$",
-      address: "330 E Menomonee St, Milwaukee, WI 53202",
-      description: "Bavette's burger features thick grass-fed beef with raclette cheese, oyster mushrooms, pickled shallots, smoky bacon, and arugula on a hearty, dense bun. This is a special occasion burger.",
-      mustTry: "The Burger, truffle fries",
-      insiderTip: "Lunch is more accessible price-wise. The burger is the same quality.",
-      bestFor: "Date nights, special occasions, elevated dining",
-      verified: "Open 2026",
-    },
-    {
       name: "Saint Bibiana",
       neighborhood: "Downtown",
       style: "Italian-American Steakhouse",
@@ -140,14 +128,14 @@ const burgerSpots = {
       verified: "Open 2026",
     },
     {
-      name: "Draft & Co",
+      name: "Draft & Vessel",
       neighborhood: "Wauwatosa",
-      style: "Modern Burger Bar",
+      style: "Modern Craft Bar",
       priceRange: "$$",
       address: "7479 Harwood Ave, Wauwatosa, WI 53213",
-      description: "Draft & Co brings a modern approach to the burger bar concept with quality beef, creative toppings, and an impressive tap list to match.",
-      mustTry: "Signature Burger, local craft beer",
-      insiderTip: "The tap list rotates frequently. Ask what's new.",
+      description: "Draft & Vessel pairs quality burgers with an impressive rotating tap list. The modern craft beer bar atmosphere and creative menu make it a Wauwatosa favorite.",
+      mustTry: "Burger, local craft beer on tap",
+      insiderTip: "The tap list rotates frequently. Check what's new and pair with your burger.",
       bestFor: "Craft beer lovers, Wauwatosa dining, groups",
       verified: "Open 2026",
     },
@@ -185,7 +173,7 @@ const faqs = [
   },
   {
     question: "Best burger for a date night?",
-    answer: "Bavette offers an upscale burger experience in a beautiful setting. Saint Bibiana and Wild Roots are also excellent choices for impressive but not stuffy dining.",
+    answer: "Saint Bibiana offers an upscale burger experience in a refined setting. Wild Roots in Bay View is another excellent choice for an impressive but not stuffy dining experience.",
   },
 ];
 

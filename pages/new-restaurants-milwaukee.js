@@ -18,84 +18,36 @@ const newRestaurants = {
       neighborhood: "Third Ward",
       cuisine: "French-European Bistro",
       priceRange: "$$$",
-      opened: "Winter 2025",
-      address: "Historic Third Ward, Milwaukee, WI",
-      description: "The Third Ward's newest culinary destination brings French Riviera energy to Milwaukee. Cassis has quickly become one of the most talked-about restaurants in the city, with a bistro-style menu featuring perfectly executed classics alongside creative seasonal dishes. The space itself transports you—think warm lighting, marble bar tops, and that unmistakable European café atmosphere.",
+      opened: "January 2026",
+      address: "333 N Water St, Milwaukee, WI 53202",
+      description: "The Third Ward's newest culinary destination brings French Riviera energy to Milwaukee. From James Beard-nominated chef Kyle Knall (of Birch), Cassis has quickly become one of the most talked-about restaurants in the city. Named by Bon Appetit as one of nine must-visit restaurants for 2025, it features a bistro-style menu with perfectly executed classics alongside creative seasonal dishes.",
       mustTry: "Steak Frites, Moules Marinières, French Onion Soup",
       vibe: "Chic but accessible, date night perfect, sidewalk seating in summer",
       buzz: "High - reservations recommended, especially weekends",
     },
     {
       name: "Nakama",
-      neighborhood: "Downtown",
+      neighborhood: "Lower East Side",
       cuisine: "High-End Japanese & Omakase",
       priceRange: "$$$$",
       opened: "Late 2025",
-      address: "Downtown Milwaukee, WI",
-      description: "Milwaukee's new standard for sushi and Japanese cuisine. Nakama brings an omakase experience previously unavailable in the city, with pristine fish flown in regularly and a chef's counter experience that rivals coastal cities. This is destination dining for serious sushi enthusiasts.",
-      mustTry: "Omakase tasting menu, Specialty nigiri selection, Wagyu preparations",
+      address: "1600 N Jackson St, Milwaukee, WI 53202",
+      description: "Milwaukee's new standard for sushi and Japanese cuisine. Featuring Chef Jason Morimoto (winner of Morimoto's Sushi Master Season 2) and co-owned by Cristian Vega of Screaming Tuna, Nakama brings an omakase experience previously unavailable in the city. Pristine fish flown in regularly creates a chef's counter experience that rivals coastal cities.",
+      mustTry: "Omakase tasting menu, Specialty nigiri selection, Hand rolls",
       vibe: "Intimate, focused, celebratory",
       buzz: "Very high - omakase spots limited, book ahead",
     },
     {
       name: "Aya",
-      neighborhood: "Walker's Point",
-      cuisine: "Modern Middle Eastern",
-      priceRange: "$$",
-      opened: "Early 2026",
-      address: "Walker's Point, Milwaukee, WI",
-      description: "A fresh voice in Milwaukee's dining scene, Aya brings modern Middle Eastern flavors to Walker's Point. The mezze-style menu encourages sharing, with vibrant dishes that showcase both traditional techniques and contemporary creativity. Vegetarian and vegan options are abundant and genuinely exciting.",
+      neighborhood: "Downtown",
+      cuisine: "Modern Mediterranean & Middle Eastern",
+      priceRange: "$$-$$$",
+      opened: "February 2026",
+      address: "700 E Kilbourn Ave, Milwaukee, WI 53202",
+      description: "Located in the stunning Ascent building downtown, Aya brings modern Mediterranean and Middle Eastern flavors from Fatima and Hanish Kumar (owners of Saffron). The mezze-style menu encourages sharing, with vibrant dishes that showcase both traditional techniques and contemporary creativity. Vegetarian and vegan options are abundant and genuinely exciting.",
       mustTry: "House-made hummus trio, Lamb kofta, Wood-fired pita, Falafel",
       vibe: "Lively, colorful, shareable plates, great for groups",
       buzz: "Building fast - early adopters are spreading the word",
-    },
-  ],
-  recentOpenings: [
-    {
-      name: "Marrow",
-      neighborhood: "Bay View",
-      cuisine: "Modern American",
-      priceRange: "$$$",
-      opened: "Spring 2026",
-      description: "Chef-driven neighborhood restaurant focusing on whole-animal butchery and house-made charcuterie. Marrow brings serious culinary technique to Bay View's thriving dining scene.",
-      mustTry: "Bone marrow, House-cured meats, Daily specials",
-      vibe: "Cozy, intimate, food-forward",
-    },
-    {
-      name: "Second Story",
-      neighborhood: "East Side",
-      cuisine: "Wine Bar & Small Plates",
-      priceRange: "$$",
-      opened: "Winter 2025",
-      description: "An intimate wine bar above an East Side retail space, Second Story offers a curated wine list and elegant small plates. Perfect for pre-dinner drinks or a full evening of grazing.",
-      mustTry: "Rotating cheese selection, Seasonal small plates",
-      vibe: "Sophisticated, conversation-friendly, hidden gem feel",
-    },
-    {
-      name: "Masa",
-      neighborhood: "Walker's Point",
-      cuisine: "Mexican",
-      priceRange: "$$",
-      opened: "Fall 2025",
-      description: "Authentic Mexican cuisine with a focus on house-made masa and regional specialties. Masa fills a gap in Milwaukee's dining scene with genuine, flavorful dishes that go beyond typical Tex-Mex.",
-      mustTry: "Fresh tortillas, Mole dishes, Carnitas",
-      vibe: "Casual, vibrant, family-friendly",
-    },
-  ],
-  comingSoon: [
-    {
-      name: "The Elm",
-      neighborhood: "Third Ward",
-      cuisine: "Seasonal American",
-      expected: "Summer 2026",
-      description: "A highly anticipated opening from a James Beard-nominated chef, focusing on hyper-local Wisconsin ingredients and a rotating seasonal menu.",
-    },
-    {
-      name: "Nori",
-      neighborhood: "East Side",
-      cuisine: "Japanese Izakaya",
-      expected: "Fall 2026",
-      description: "A casual Japanese izakaya concept bringing late-night dining and Japanese bar food to the East Side.",
     },
   ],
 };
@@ -103,11 +55,11 @@ const newRestaurants = {
 const faqs = [
   {
     question: "What are the newest restaurants in Milwaukee?",
-    answer: "The newest restaurant openings in Milwaukee for 2026 include Cassis (French-European bistro in Third Ward), Nakama (high-end sushi downtown), Aya (modern Middle Eastern in Walker's Point), and Marrow (modern American in Bay View). The Elm and Nori are expected later in 2026."
+    answer: "The hottest restaurant openings in Milwaukee for 2026 include Cassis (French-European bistro in Third Ward from the team behind Birch), Nakama (high-end omakase on the Lower East Side), and Aya (modern Mediterranean downtown in the Ascent building)."
   },
   {
     question: "What Milwaukee restaurants opened in 2025?",
-    answer: "Notable 2025 openings include Nakama (late 2025), Second Story wine bar, Masa Mexican, and Cassis (winter 2025). These restaurants have quickly established themselves as must-visit destinations."
+    answer: "Notable late 2025 openings include Nakama (omakase and hand rolls on the Lower East Side) and Cassis (January 2026). Both have quickly established themselves as must-visit destinations."
   },
   {
     question: "Where do I find new restaurant openings in Milwaukee?",
@@ -115,7 +67,7 @@ const faqs = [
   },
   {
     question: "What neighborhood has the most new restaurants?",
-    answer: "Walker's Point and Third Ward continue to lead new restaurant development in Milwaukee, followed by Bay View and the East Side. Downtown has seen several notable high-end openings as well."
+    answer: "Third Ward and Downtown continue to lead new restaurant development in Milwaukee, followed by Walker's Point and the East Side. The Lower East Side has also seen notable high-end openings."
   },
 ];
 
@@ -242,10 +194,6 @@ export default function NewRestaurantsMilwaukee() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href="#hottest" style={{ color: c.green2, fontSize: "14px" }}>Hottest Openings</a>
               <span style={{ color: c.beige }}>|</span>
-              <a href="#recent" style={{ color: c.green2, fontSize: "14px" }}>Recent Openings</a>
-              <span style={{ color: c.beige }}>|</span>
-              <a href="#coming-soon" style={{ color: c.green2, fontSize: "14px" }}>Coming Soon</a>
-              <span style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
             </div>
           </div>
@@ -259,22 +207,6 @@ export default function NewRestaurantsMilwaukee() {
               The restaurants everyone's talking about right now. These are generating real buzz and filling up fast.
             </p>
             {newRestaurants.hottest.map((r, i) => <RestaurantCard key={i} restaurant={r} />)}
-          </section>
-
-          <section id="recent" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>More Recent Openings</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Other notable restaurants that have opened in the past year and are worth your attention.
-            </p>
-            {newRestaurants.recentOpenings.map((r, i) => <RestaurantCard key={i} restaurant={r} />)}
-          </section>
-
-          <section id="coming-soon" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Coming Soon</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              On our radar: anticipated openings to watch for later this year.
-            </p>
-            {newRestaurants.comingSoon.map((r, i) => <RestaurantCard key={i} restaurant={r} showOpened={false} />)}
           </section>
 
           <section style={{ marginBottom: "48px" }}>

@@ -21,13 +21,6 @@ const iconicBreweries = [
     vibe: 'Iconic Milwaukee experience with entertaining tours, polka music, and fish fry Fridays along the Milwaukee River',
   },
   {
-    name: 'Milwaukee Brewing Company',
-    neighborhood: 'Walker\'s Point',
-    beerStyle: 'Bold American ales and experimental brews',
-    mustTry: 'Louie\'s Demise Amber Ale',
-    vibe: 'Historic former railway building with exposed brick, spacious taproom, and rotating food trucks',
-  },
-  {
     name: 'Sprecher Brewing Company',
     neighborhood: 'Glendale',
     beerStyle: 'Bavarian-inspired craft beers and legendary root beer',
@@ -192,13 +185,6 @@ const craftBreweries = [
     vibe: 'Port Washington gem with creative beers, excellent food, and Lake Michigan proximity',
   },
   {
-    name: 'Titletown Brewing Company',
-    neighborhood: 'Downtown',
-    beerStyle: 'American ales and lagers',
-    mustTry: '400 Honey Ale',
-    vibe: 'Historic downtown brewpub in a renovated train depot with riverside dining',
-  },
-  {
     name: 'Fermentorium Brewery & Tasting Room',
     neighborhood: 'Cedarburg',
     beerStyle: 'Belgian-inspired and barrel-aged',
@@ -247,12 +233,6 @@ const breweryTours = [
     description: 'Family-friendly tour showcasing Bavarian brewing traditions and craft soda production',
     price: '$10-15',
     duration: '1 hour',
-  },
-  {
-    name: 'Milwaukee Brewing Company Tour',
-    description: 'Behind-the-scenes look at craft brewing in a historic Walker\'s Point building',
-    price: '$12-15',
-    duration: '45 minutes',
   },
   {
     name: 'Brewery Walking Tours',
@@ -315,7 +295,7 @@ const faqs = [
   },
   {
     question: 'Which Milwaukee neighborhood has the most breweries?',
-    answer: 'Walker\'s Point has the highest concentration of breweries including MobCraft, Indeed, Milwaukee Brewing Company, 1840, Urban Harvest, and Broken Bat—all within walking distance of each other, making it perfect for a self-guided brewery crawl.',
+    answer: 'Walker\'s Point has the highest concentration of breweries including MobCraft, Indeed, 1840, Urban Harvest, Broken Bat, and Vennture—all within walking distance of each other, making it perfect for a self-guided brewery crawl.',
   },
   {
     question: 'Are Milwaukee breweries family-friendly?',
@@ -946,7 +926,7 @@ export default function MilwaukeeBreweries() {
               >
                 <h3 style={{ color: colors.orange, marginBottom: '12px' }}>Walker's Point</h3>
                 <p style={{ color: colors.green2, fontSize: '0.95rem', lineHeight: '1.6' }}>
-                  MobCraft, Indeed, Milwaukee Brewing Co., 1840, Urban Harvest, Broken Bat
+                  MobCraft, Indeed, 1840, Urban Harvest, Broken Bat, Vennture
                 </p>
                 <Link
                   href="/walkers-point-milwaukee"

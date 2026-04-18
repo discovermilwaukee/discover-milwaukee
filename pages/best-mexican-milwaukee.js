@@ -128,18 +128,6 @@ const mexicanSpots = {
   ],
   upscale: [
     {
-      name: "Quiote",
-      neighborhood: "West Side",
-      style: "Upscale Mexican",
-      priceRange: "$$$",
-      address: "W Bluemound Rd, Milwaukee",
-      description: "Known for exceptional fish tacos featuring whitefish seasoned with ancho chile and grilled with creamy chipotle aioli. Quiote elevates Mexican cuisine while respecting traditional flavors and techniques.",
-      mustTry: "Fish tacos, seasonal specials, premium tequila selection",
-      insiderTip: "The fish tacos are the signature dish for a reason. The tequila list rewards exploration.",
-      bestFor: "Special occasions, seafood lovers, tequila enthusiasts",
-      verified: "Open 2026",
-    },
-    {
       name: "Jalisco's Cantina",
       neighborhood: "Multiple Locations",
       style: "Contemporary Mexican",
@@ -165,7 +153,7 @@ const faqs = [
   },
   {
     question: "Where should I go for a Mexican food date night?",
-    answer: "Paloma in the Third Ward or Washington Heights offers upscale ambiance with quality food. Quiote on the West Side is excellent for special occasions. Both have impressive tequila selections.",
+    answer: "Paloma in the Third Ward or Washington Heights offers upscale ambiance with quality food. Jalisco's Cantina provides a festive atmosphere for special occasions. Both have impressive tequila selections.",
   },
   {
     question: "What's the best Mexican restaurant for families?",
@@ -173,7 +161,7 @@ const faqs = [
   },
   {
     question: "Where can I find good Mexican seafood in Milwaukee?",
-    answer: "Quiote's fish tacos are exceptional. Los Tuxtla brings Veracruz coastal flavors. For more casual seafood, check the South Side taquerias for ceviche and shrimp preparations.",
+    answer: "Los Tuxtla brings Veracruz coastal flavors to Milwaukee. For more casual seafood, check the South Side taquerias for ceviche and shrimp preparations. Paloma also serves excellent fish tacos.",
   },
 ];
 

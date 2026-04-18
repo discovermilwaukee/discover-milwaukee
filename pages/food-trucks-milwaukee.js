@@ -62,12 +62,12 @@ const foodTrucks = {
     },
     {
       name: "Roll MKE",
-      style: "Gourmet Egg Rolls",
+      style: "Gourmet Sandwiches & Wraps",
       priceRange: "$",
-      description: "Taking the humble egg roll to new heights with creative fillings and flavors. Roll MKE has become a Milwaukee favorite for the unexpected combinations and satisfying hand-held format.",
-      mustTry: "Signature rolls, daily specials",
-      insiderTip: "Get one of each flavor. They're meant to be shared and compared.",
-      bestFor: "Unique flavors, easy eating, adventure seekers",
+      description: "Creative sandwiches and wraps with global influences. Roll MKE has become a Milwaukee favorite for their inventive flavor combinations and satisfying hand-held format.",
+      mustTry: "Signature sandwiches, daily specials",
+      insiderTip: "Try a different flavor each visit. The variety is what makes them great.",
+      bestFor: "Unique flavors, easy eating, lunch on-the-go",
     },
   ],
   comfort: [
