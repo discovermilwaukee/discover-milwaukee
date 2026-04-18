@@ -822,6 +822,109 @@ const BREWERS_HOME_GAMES_2026 = [
 // Combine user's April 2026 events with full Brewers 2026 schedule
 const FALLBACK_EVENTS = [...APRIL_2026_EVENTS, ...MILWAUKEE_FESTIVALS_2026, ...BREWERS_HOME_GAMES_2026];
 
+// ============================================================================
+// GUIDE CATEGORIES - Category-based navigation for Explore page
+// ============================================================================
+const GUIDE_CATEGORIES = [
+  {
+    id: "food-dining",
+    title: "Food & Dining",
+    icon: "🍽️",
+    color: "#e17055",
+    description: "Restaurant guides, cuisine roundups & foodie favorites",
+    guides: [
+      { title: "Best Restaurants", href: "/best-restaurants-milwaukee", icon: "⭐", desc: "Top dining spots" },
+      { title: "New Restaurants", href: "/new-restaurants-milwaukee", icon: "✨", desc: "Latest openings" },
+      { title: "Best Tacos", href: "/best-tacos-milwaukee", icon: "🌮", desc: "Taco spots ranked" },
+      { title: "Best Pizza", href: "/best-pizza-milwaukee", icon: "🍕", desc: "Pizza guide" },
+      { title: "Best Burgers", href: "/best-burgers-milwaukee", icon: "🍔", desc: "Burger joints" },
+      { title: "Best Sushi", href: "/best-sushi-milwaukee", icon: "🍣", desc: "Sushi & Japanese" },
+      { title: "Best Mexican", href: "/best-mexican-milwaukee", icon: "🇲🇽", desc: "Mexican restaurants" },
+      { title: "Best Thai", href: "/best-thai-milwaukee", icon: "🍜", desc: "Thai cuisine" },
+      { title: "Best Fish Fry", href: "/best-fish-fry-milwaukee", icon: "🐟", desc: "Friday tradition" },
+      { title: "Best Brunch", href: "/best-brunch-milwaukee", icon: "🥞", desc: "Weekend brunch" },
+      { title: "Best Bakeries", href: "/best-bakeries-milwaukee", icon: "🥐", desc: "Bakeries & pastries" },
+      { title: "Best Ice Cream", href: "/best-ice-cream-milwaukee", icon: "🍦", desc: "Frozen treats" },
+      { title: "Food Trucks", href: "/food-trucks-milwaukee", icon: "🚚", desc: "Mobile eats" },
+      { title: "Best Happy Hour", href: "/best-happy-hour-milwaukee", icon: "🍻", desc: "Deals & specials" },
+    ]
+  },
+  {
+    id: "bars-nightlife",
+    title: "Bars & Nightlife",
+    icon: "🍸",
+    color: "#6c5ce7",
+    description: "Cocktail bars, dive bars, live music & late night",
+    guides: [
+      { title: "Milwaukee Nightlife", href: "/milwaukee-nightlife", icon: "🌙", desc: "Night out guide" },
+      { title: "Best Dive Bars", href: "/best-dive-bars-milwaukee", icon: "🍺", desc: "Classic dives" },
+      { title: "Best Cocktail Bars", href: "/best-cocktail-bars-milwaukee", icon: "🍹", desc: "Craft cocktails" },
+      { title: "Rooftop Bars", href: "/rooftop-bars-milwaukee", icon: "🏙️", desc: "Views & drinks" },
+      { title: "Live Music Venues", href: "/live-music-milwaukee", icon: "🎵", desc: "Where to see shows" },
+      { title: "Milwaukee Breweries", href: "/milwaukee-breweries", icon: "🍺", desc: "Craft beer guide" },
+      { title: "Packers Bars", href: "/packers-bars-milwaukee", icon: "🏈", desc: "Game day spots" },
+    ]
+  },
+  {
+    id: "activities",
+    title: "Activities & Experiences",
+    icon: "🎯",
+    color: "#00b894",
+    description: "Things to do, hidden gems & local experiences",
+    guides: [
+      { title: "Things to Do", href: "/things-to-do-milwaukee", icon: "🎯", desc: "Complete guide" },
+      { title: "Hidden Gems", href: "/hidden-gems-milwaukee", icon: "💎", desc: "Secret spots" },
+      { title: "Rainy Day Activities", href: "/rainy-day-milwaukee", icon: "🌧️", desc: "Indoor fun" },
+      { title: "Dog Friendly", href: "/dog-friendly-milwaukee", icon: "🐕", desc: "Pet-friendly spots" },
+      { title: "Day Trips", href: "/day-trips-milwaukee", icon: "🚗", desc: "Nearby escapes" },
+      { title: "Date Ideas", href: "/milwaukee-date-ideas", icon: "💕", desc: "Romantic spots" },
+      { title: "Free Things to Do", href: "/free-things-milwaukee", icon: "🆓", desc: "Budget-friendly" },
+      { title: "Best Patios", href: "/best-patios-milwaukee", icon: "☀️", desc: "Outdoor spots" },
+      { title: "Coffee Shops", href: "/milwaukee-coffee-shops", icon: "☕", desc: "Best cafes" },
+    ]
+  },
+  {
+    id: "neighborhoods",
+    title: "Neighborhoods",
+    icon: "🏘️",
+    color: "#0984e3",
+    description: "Explore Milwaukee's distinct neighborhoods",
+    guides: [
+      { title: "Third Ward", href: "/third-ward-milwaukee", icon: "🎨", desc: "Arts & dining hub" },
+      { title: "Bay View", href: "/bay-view-milwaukee", icon: "🌊", desc: "Hip & artsy" },
+      { title: "Walker's Point", href: "/walkers-point-milwaukee", icon: "🌈", desc: "Breweries & nightlife" },
+      { title: "East Side", href: "/east-side-milwaukee", icon: "🎸", desc: "College vibe" },
+      { title: "Downtown", href: "/downtown-milwaukee", icon: "🏢", desc: "Urban core" },
+      { title: "Riverwest", href: "/riverwest-milwaukee", icon: "🎪", desc: "Eclectic & creative" },
+      { title: "Brady Street", href: "/brady-street-milwaukee", icon: "🍝", desc: "Historic strip" },
+      { title: "Bronzeville", href: "/bronzeville-milwaukee", icon: "🎺", desc: "Cultural district" },
+      { title: "Sherman Park", href: "/sherman-park-milwaukee", icon: "🌳", desc: "Historic homes" },
+      { title: "South Side", href: "/south-side-milwaukee", icon: "🇲🇽", desc: "Authentic eats" },
+      { title: "Harbor District", href: "/harbor-district-milwaukee", icon: "⚓", desc: "Waterfront revival" },
+      { title: "Washington Heights", href: "/washington-heights-milwaukee", icon: "🏠", desc: "Classic Milwaukee" },
+    ]
+  },
+  {
+    id: "weekend-guides",
+    title: "Weekend & Visitor Guides",
+    icon: "📅",
+    color: "#d35400",
+    description: "Plan your Milwaukee trip or weekend adventure",
+    guides: [
+      { title: "First Time in Milwaukee", href: "/first-time-milwaukee", icon: "🎯", desc: "Essential guide" },
+      { title: "Weekend in Milwaukee", href: "/weekend-in-milwaukee", icon: "📅", desc: "3-day itinerary" },
+      { title: "This Weekend", href: "/this-weekend-milwaukee", icon: "🗓️", desc: "What's happening" },
+      { title: "Romantic Getaway", href: "/romantic-weekend-milwaukee", icon: "💕", desc: "Couples weekend" },
+      { title: "Family Weekend", href: "/family-weekend-milwaukee", icon: "👨‍👩‍👧‍👦", desc: "Kid-friendly" },
+      { title: "Beer Lover's Guide", href: "/beer-lovers-milwaukee", icon: "🍺", desc: "Brewery tours" },
+      { title: "Foodie Weekend", href: "/foodie-weekend-milwaukee", icon: "🍽️", desc: "Culinary tour" },
+      { title: "Arts & Culture", href: "/arts-culture-milwaukee", icon: "🎭", desc: "Museums & theater" },
+      { title: "Outdoor Adventure", href: "/outdoor-weekend-milwaukee", icon: "🚴", desc: "Parks & trails" },
+      { title: "Milwaukee Festivals", href: "/milwaukee-festivals", icon: "🎉", desc: "Festival calendar" },
+    ]
+  }
+];
+
 // FALLBACK EXPLORE DATA - Used when Google Sheets is not configured
 // SEO-Optimized Pillar Content
 const FALLBACK_EXPLORE = [
@@ -1698,7 +1801,16 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   const [exploreSearch, setExploreSearch] = useState("");
   const [exploreType, setExploreType] = useState("All");
   const [selectedPost, setSelectedPost] = useState(null);
-  
+  const [expandedCategories, setExpandedCategories] = useState({});
+
+  // Toggle category expansion
+  const toggleCategory = (categoryId) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [categoryId]: !prev[categoryId]
+    }));
+  };
+
   // Fetch events from Google Sheets (or regenerate fallback with current dates on mount)
   useEffect(() => {
     const fetchEvents = async () => {
@@ -2660,20 +2772,64 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "32px" }}>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>Local Guides</p>
+                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>50+ Local Guides</p>
                 <h2 style={{ fontSize: isMobile ? "24px" : "32px", fontWeight: "900", color: c.green1, textTransform: "uppercase", marginBottom: "8px" }}>Explore Milwaukee</h2>
-                <p style={{ color: c.tan, fontSize: "16px" }}>In-depth guides written by locals</p>
+                <p style={{ color: c.tan, fontSize: "16px" }}>In-depth guides written by locals, updated for 2026</p>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "16px", marginBottom: "24px" }}>
+
+              {/* Category Quick Links */}
+              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px", marginBottom: "32px" }}>
+                {[
+                  { title: "Food & Dining", icon: "🍽️", color: "#e17055" },
+                  { title: "Bars & Nightlife", icon: "🍸", color: "#6c5ce7" },
+                  { title: "Activities", icon: "🎯", color: "#00b894" },
+                  { title: "Neighborhoods", icon: "🏘️", color: "#0984e3" },
+                  { title: "Weekend Guides", icon: "📅", color: "#d35400" },
+                ].map((cat, i) => (
+                  <button
+                    key={i}
+                    onClick={() => navigateTo("explore")}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "10px 18px",
+                      backgroundColor: c.white,
+                      border: `2px solid ${cat.color}`,
+                      borderRadius: "50px",
+                      cursor: "pointer",
+                      transition: "all 0.2s"
+                    }}
+                    onMouseOver={e => {
+                      e.currentTarget.style.backgroundColor = cat.color;
+                      e.currentTarget.style.color = c.white;
+                    }}
+                    onMouseOut={e => {
+                      e.currentTarget.style.backgroundColor = c.white;
+                      e.currentTarget.style.color = c.green1;
+                    }}
+                  >
+                    <span style={{ fontSize: "18px" }}>{cat.icon}</span>
+                    <span style={{ fontSize: "14px", fontWeight: "700", color: "inherit" }}>{cat.title}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Featured Guides Grid - Now with 12 guides including new ones */}
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : isTablet ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: "16px", marginBottom: "24px" }}>
                 {[
                   { title: "Things to Do", desc: "Complete activity guide", href: "/things-to-do-milwaukee", icon: "🎯" },
                   { title: "Best Restaurants", desc: "Top dining spots", href: "/best-restaurants-milwaukee", icon: "🍽️" },
-                  { title: "New Restaurants", desc: "Latest openings", href: "/new-restaurants-milwaukee", icon: "✨" },
-                  { title: "Best Brunch", desc: "Weekend favorites", href: "/best-brunch-milwaukee", icon: "🥞" },
-                  { title: "Best Patios", desc: "Outdoor dining & drinks", href: "/best-patios-milwaukee", icon: "☀️" },
-                  { title: "Breweries", desc: "Craft beer guide", href: "/milwaukee-breweries", icon: "🍺" },
-                  { title: "Nightlife", desc: "Bars & late night", href: "/milwaukee-nightlife", icon: "🌙" },
-                  { title: "This Weekend", desc: "What's happening now", href: "/this-weekend-milwaukee", icon: "📅" },
+                  { title: "Best Tacos", desc: "Taco spots ranked", href: "/best-tacos-milwaukee", icon: "🌮" },
+                  { title: "Best Pizza", desc: "Pizza guide", href: "/best-pizza-milwaukee", icon: "🍕" },
+                  { title: "Best Dive Bars", desc: "Classic dives", href: "/best-dive-bars-milwaukee", icon: "🍺" },
+                  { title: "Cocktail Bars", desc: "Craft cocktails", href: "/best-cocktail-bars-milwaukee", icon: "🍹" },
+                  { title: "Live Music", desc: "Where to see shows", href: "/live-music-milwaukee", icon: "🎵" },
+                  { title: "Hidden Gems", desc: "Secret local spots", href: "/hidden-gems-milwaukee", icon: "💎" },
+                  { title: "Day Trips", desc: "Nearby escapes", href: "/day-trips-milwaukee", icon: "🚗" },
+                  { title: "Rainy Day", desc: "Indoor activities", href: "/rainy-day-milwaukee", icon: "🌧️" },
+                  { title: "Dog Friendly", desc: "Pet-friendly spots", href: "/dog-friendly-milwaukee", icon: "🐕" },
+                  { title: "This Weekend", desc: "What's happening", href: "/this-weekend-milwaukee", icon: "📅" },
                 ].map((guide, i) => (
                   <a key={i} href={guide.href} style={{ backgroundColor: c.white, borderRadius: "12px", padding: "20px", textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", transition: "transform 0.2s, box-shadow 0.2s", display: "block", border: `2px solid transparent` }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = c.yellow; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)"; e.currentTarget.style.borderColor = "transparent"; }}>
                     <span style={{ fontSize: "28px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
@@ -2682,25 +2838,46 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </a>
                 ))}
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "12px" }}>
-                {[
-                  { title: "Third Ward", href: "/third-ward-milwaukee" },
-                  { title: "Bay View", href: "/bay-view-milwaukee" },
-                  { title: "Walker's Point", href: "/walkers-point-milwaukee" },
-                  { title: "East Side", href: "/east-side-milwaukee" },
-                  { title: "Downtown", href: "/downtown-milwaukee" },
-                  { title: "Riverwest", href: "/riverwest-milwaukee" },
-                  { title: "Brady Street", href: "/brady-street-milwaukee" },
-                  { title: "Bronzeville", href: "/bronzeville-milwaukee" },
-                  { title: "Sherman Park", href: "/sherman-park-milwaukee" },
-                  { title: "South Side", href: "/south-side-milwaukee" },
-                  { title: "Harbor District", href: "/harbor-district-milwaukee" },
-                  { title: "Washington Heights", href: "/washington-heights-milwaukee" },
-                ].map((hood, i) => (
-                  <a key={i} href={hood.href} style={{ backgroundColor: c.green1, color: c.cream, padding: "12px 16px", borderRadius: "8px", textDecoration: "none", fontSize: "14px", fontWeight: "600", textAlign: "center", transition: "background-color 0.2s" }} onMouseOver={e => e.currentTarget.style.backgroundColor = c.green2} onMouseOut={e => e.currentTarget.style.backgroundColor = c.green1}>
-                    {hood.title} →
-                  </a>
-                ))}
+
+              {/* Browse All Guides Button */}
+              <div style={{ textAlign: "center", marginBottom: "32px" }}>
+                <button
+                  onClick={() => navigateTo("explore")}
+                  style={{
+                    padding: "14px 32px",
+                    backgroundColor: c.green1,
+                    color: c.cream,
+                    borderRadius: "50px",
+                    border: "none",
+                    cursor: "pointer",
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    textTransform: "uppercase"
+                  }}
+                >
+                  Browse All 50+ Guides →
+                </button>
+              </div>
+
+              {/* Neighborhood Links */}
+              <div style={{ borderTop: `1px solid ${c.beige}`, paddingTop: "24px" }}>
+                <p style={{ textAlign: "center", color: c.tan, fontSize: "13px", fontWeight: "600", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "1px" }}>Explore by Neighborhood</p>
+                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "12px" }}>
+                  {[
+                    { title: "Third Ward", href: "/third-ward-milwaukee" },
+                    { title: "Bay View", href: "/bay-view-milwaukee" },
+                    { title: "Walker's Point", href: "/walkers-point-milwaukee" },
+                    { title: "East Side", href: "/east-side-milwaukee" },
+                    { title: "Downtown", href: "/downtown-milwaukee" },
+                    { title: "Riverwest", href: "/riverwest-milwaukee" },
+                    { title: "Brady Street", href: "/brady-street-milwaukee" },
+                    { title: "South Side", href: "/south-side-milwaukee" },
+                  ].map((hood, i) => (
+                    <a key={i} href={hood.href} style={{ backgroundColor: c.green1, color: c.cream, padding: "12px 16px", borderRadius: "8px", textDecoration: "none", fontSize: "14px", fontWeight: "600", textAlign: "center", transition: "background-color 0.2s" }} onMouseOver={e => e.currentTarget.style.backgroundColor = c.green2} onMouseOut={e => e.currentTarget.style.backgroundColor = c.green1}>
+                      {hood.title} →
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -2844,71 +3021,261 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
           </section>
 
-          {/* Visitor & Weekend Guides Section */}
-          <section style={{ padding: isMobile ? "32px 16px" : "48px 16px", backgroundColor: c.white }}>
-            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: isMobile ? "24px" : "28px", fontWeight: "900", color: c.green1, marginBottom: "8px", textAlign: "center" }}>Visitor & Weekend Guides</h2>
-              <p style={{ color: c.tan, fontSize: "16px", textAlign: "center", marginBottom: "24px" }}>Planning a trip to Milwaukee? Start here.</p>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)", gap: "16px" }}>
-                {[
-                  { title: "First Time in Milwaukee", desc: "Essential guide for first-time visitors", icon: "🎯", href: "/first-time-milwaukee", color: c.green1 },
-                  { title: "Weekend in Milwaukee", desc: "Perfect 3-day itinerary", icon: "📅", href: "/weekend-in-milwaukee", color: c.blue1 },
-                  { title: "Romantic Getaway", desc: "Couples weekend guide", icon: "💕", href: "/romantic-weekend-milwaukee", color: "#c44569" },
-                  { title: "Family Weekend", desc: "Kid-friendly activities", icon: "👨‍👩‍👧‍👦", href: "/family-weekend-milwaukee", color: "#6c5ce7" },
-                  { title: "Beer Lover's Guide", desc: "Brewery tours & beer bars", icon: "🍺", href: "/beer-lovers-milwaukee", color: "#d35400" },
-                  { title: "Foodie Weekend", desc: "Culinary exploration", icon: "🍽️", href: "/foodie-weekend-milwaukee", color: "#e17055" },
-                  { title: "Arts & Culture", desc: "Museums, theater & music", icon: "🎭", href: "/arts-culture-milwaukee", color: "#0984e3" },
-                  { title: "Outdoor Adventure", desc: "Parks, trails & lake activities", icon: "🚴", href: "/outdoor-weekend-milwaukee", color: "#00b894" }
-                ].map(guide => (
-                  <a key={guide.href} href={guide.href} style={{ backgroundColor: guide.color, borderRadius: "16px", padding: "20px", textDecoration: "none", display: "block", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)"; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-                    <span style={{ fontSize: "32px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
-                    <h3 style={{ color: c.white, fontSize: "15px", fontWeight: "800", marginBottom: "4px" }}>{guide.title}</h3>
-                    <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "12px" }}>{guide.desc}</p>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
+          {/* CATEGORY-BASED GUIDE SECTIONS */}
+          {GUIDE_CATEGORIES.map((category, catIndex) => {
+            const isExpanded = expandedCategories[category.id];
+            const visibleGuides = isExpanded ? category.guides : category.guides.slice(0, isMobile ? 4 : 6);
+            const hasMore = category.guides.length > (isMobile ? 4 : 6);
 
-          {/* Search and Filter */}
-          <section style={{ padding: "24px 16px", backgroundColor: c.white, borderTop: `1px solid ${c.beige}`, borderBottom: `1px solid ${c.beige}` }}>
-            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              <div style={{ display: "flex", gap: "12px", marginBottom: "16px", flexWrap: "wrap", alignItems: "center" }}>
-                <div style={{ flex: 1, maxWidth: "360px", position: "relative" }}>
-                  <span style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: c.tan }}><Icons.Search /></span>
-                  <input type="text" placeholder="Search all guides and articles..." value={exploreSearch} onChange={e => setExploreSearch(e.target.value)} style={{ width: "100%", padding: "12px 16px 12px 44px", borderRadius: "50px", border: `2px solid ${c.beige}`, fontSize: "14px", backgroundColor: c.cream }} />
-                </div>
-                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                  {["All", "Pillar", "Guide", "List", "Neighborhood"].map(t => (
-                    <button key={t} onClick={() => setExploreType(t)} style={{ padding: "8px 16px", borderRadius: "50px", border: "none", backgroundColor: exploreType === t ? c.green1 : c.cream, color: exploreType === t ? c.cream : c.green1, fontWeight: "600", fontSize: "13px", cursor: "pointer" }}>{t}</button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* All Posts Grid */}
-          <section style={{ padding: "40px 16px 80px", backgroundColor: c.cream }}>
-            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
-                <h2 style={{ fontSize: "22px", fontWeight: "900", color: c.green1 }}>{exploreSearch || exploreType !== "All" ? "Search Results" : "All Guides & Articles"}</h2>
-                <span style={{ color: c.tan, fontSize: "14px" }}>{filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"}</span>
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
-                {filteredPosts.map(p => (
-                  <div key={p.id} onClick={() => setSelectedPost(p)} style={{ backgroundColor: c.white, borderRadius: "16px", overflow: "hidden", cursor: "pointer", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.12)"; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; }}>
-                    <div style={{ height: "100px", backgroundColor: p.color, display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-                      <span style={{ fontSize: "36px" }}>{p.icon}</span>
-                      {p.isPillar && <span style={{ position: "absolute", top: "10px", right: "10px", backgroundColor: c.yellow, color: c.green1, padding: "3px 8px", borderRadius: "50px", fontSize: "9px", fontWeight: "700" }}>PILLAR</span>}
-                    </div>
-                    <div style={{ padding: "18px" }}>
-                      <div style={{ display: "flex", gap: "8px", marginBottom: "8px", alignItems: "center" }}>
-                        <span style={{ backgroundColor: c.beige, color: c.green1, padding: "3px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "700", textTransform: "uppercase" }}>{p.type}</span>
-                        <span style={{ color: c.tan, fontSize: "11px" }}>{p.readTimeMinutes} min</span>
+            return (
+              <section
+                key={category.id}
+                style={{
+                  padding: isMobile ? "32px 16px" : "48px 16px",
+                  backgroundColor: catIndex % 2 === 0 ? c.white : c.cream
+                }}
+              >
+                <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+                  {/* Category Header */}
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <span style={{
+                        fontSize: "32px",
+                        width: "56px",
+                        height: "56px",
+                        backgroundColor: category.color,
+                        borderRadius: "14px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                      }}>
+                        {category.icon}
+                      </span>
+                      <div>
+                        <h2 style={{ fontSize: isMobile ? "22px" : "26px", fontWeight: "900", color: c.green1, marginBottom: "4px" }}>
+                          {category.title}
+                        </h2>
+                        <p style={{ color: c.tan, fontSize: "14px", margin: 0 }}>
+                          {category.description}
+                        </p>
                       </div>
-                      <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", marginBottom: "6px", lineHeight: 1.3 }}>{p.title}</h3>
-                      <p style={{ color: c.tan, fontSize: "12px", lineHeight: 1.4 }}>{p.excerpt.substring(0, 100)}...</p>
                     </div>
+                    <span style={{
+                      backgroundColor: category.color,
+                      color: c.white,
+                      padding: "6px 14px",
+                      borderRadius: "50px",
+                      fontSize: "13px",
+                      fontWeight: "700"
+                    }}>
+                      {category.guides.length} guides
+                    </span>
+                  </div>
+
+                  {/* Guide Cards Grid */}
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : isTablet ? "repeat(3, 1fr)" : "repeat(6, 1fr)",
+                    gap: "12px",
+                    marginBottom: hasMore ? "20px" : "0"
+                  }}>
+                    {visibleGuides.map((guide, idx) => (
+                      <a
+                        key={guide.href}
+                        href={guide.href}
+                        style={{
+                          backgroundColor: catIndex % 2 === 0 ? c.cream : c.white,
+                          borderRadius: "12px",
+                          padding: "16px",
+                          textDecoration: "none",
+                          display: "block",
+                          transition: "all 0.2s",
+                          border: `2px solid transparent`
+                        }}
+                        onMouseOver={e => {
+                          e.currentTarget.style.transform = "translateY(-3px)";
+                          e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)";
+                          e.currentTarget.style.borderColor = category.color;
+                        }}
+                        onMouseOut={e => {
+                          e.currentTarget.style.transform = "translateY(0)";
+                          e.currentTarget.style.boxShadow = "none";
+                          e.currentTarget.style.borderColor = "transparent";
+                        }}
+                      >
+                        <span style={{ fontSize: "24px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
+                        <h3 style={{ color: c.green1, fontSize: "14px", fontWeight: "700", marginBottom: "4px", lineHeight: 1.3 }}>
+                          {guide.title}
+                        </h3>
+                        <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{guide.desc}</p>
+                      </a>
+                    ))}
+                  </div>
+
+                  {/* See All / Show Less Button */}
+                  {hasMore && (
+                    <div style={{ textAlign: "center" }}>
+                      <button
+                        onClick={() => toggleCategory(category.id)}
+                        style={{
+                          padding: "10px 24px",
+                          backgroundColor: "transparent",
+                          color: category.color,
+                          borderRadius: "50px",
+                          border: `2px solid ${category.color}`,
+                          cursor: "pointer",
+                          fontWeight: "700",
+                          fontSize: "13px",
+                          transition: "all 0.2s"
+                        }}
+                        onMouseOver={e => {
+                          e.currentTarget.style.backgroundColor = category.color;
+                          e.currentTarget.style.color = c.white;
+                        }}
+                        onMouseOut={e => {
+                          e.currentTarget.style.backgroundColor = "transparent";
+                          e.currentTarget.style.color = category.color;
+                        }}
+                      >
+                        {isExpanded ? "Show Less" : `See All ${category.guides.length} Guides`} {isExpanded ? "↑" : "↓"}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </section>
+            );
+          })}
+
+          {/* Search Section */}
+          <section style={{ padding: "48px 16px", backgroundColor: c.green1 }}>
+            <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
+              <h2 style={{ fontSize: isMobile ? "22px" : "28px", fontWeight: "900", color: c.cream, marginBottom: "12px" }}>
+                Looking for Something Specific?
+              </h2>
+              <p style={{ color: c.beige, fontSize: "16px", marginBottom: "24px" }}>
+                Search all {GUIDE_CATEGORIES.reduce((sum, cat) => sum + cat.guides.length, 0)}+ guides
+              </p>
+              <div style={{ position: "relative", maxWidth: "500px", margin: "0 auto" }}>
+                <span style={{ position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", color: c.tan, fontSize: "18px" }}>
+                  <Icons.Search />
+                </span>
+                <input
+                  type="text"
+                  placeholder="Search guides (e.g., tacos, dive bars, Third Ward...)"
+                  value={exploreSearch}
+                  onChange={e => setExploreSearch(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "16px 20px 16px 52px",
+                    borderRadius: "50px",
+                    border: "none",
+                    fontSize: "16px",
+                    backgroundColor: c.cream,
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.15)"
+                  }}
+                />
+              </div>
+
+              {/* Search Results */}
+              {exploreSearch && (
+                <div style={{ marginTop: "24px", textAlign: "left" }}>
+                  {(() => {
+                    const searchLower = exploreSearch.toLowerCase();
+                    const matchingGuides = GUIDE_CATEGORIES.flatMap(cat =>
+                      cat.guides.filter(g =>
+                        g.title.toLowerCase().includes(searchLower) ||
+                        g.desc.toLowerCase().includes(searchLower)
+                      ).map(g => ({ ...g, category: cat.title, categoryColor: cat.color }))
+                    );
+
+                    if (matchingGuides.length === 0) {
+                      return (
+                        <p style={{ color: c.beige, textAlign: "center", padding: "20px" }}>
+                          No guides found for "{exploreSearch}". Try another search term.
+                        </p>
+                      );
+                    }
+
+                    return (
+                      <div style={{
+                        backgroundColor: c.cream,
+                        borderRadius: "16px",
+                        padding: "16px",
+                        maxHeight: "300px",
+                        overflowY: "auto"
+                      }}>
+                        <p style={{ color: c.tan, fontSize: "13px", marginBottom: "12px" }}>
+                          {matchingGuides.length} result{matchingGuides.length !== 1 ? "s" : ""} found
+                        </p>
+                        {matchingGuides.map(guide => (
+                          <a
+                            key={guide.href}
+                            href={guide.href}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                              padding: "12px",
+                              backgroundColor: c.white,
+                              borderRadius: "10px",
+                              marginBottom: "8px",
+                              textDecoration: "none",
+                              transition: "transform 0.2s"
+                            }}
+                            onMouseOver={e => e.currentTarget.style.transform = "translateX(4px)"}
+                            onMouseOut={e => e.currentTarget.style.transform = "translateX(0)"}
+                          >
+                            <span style={{ fontSize: "24px" }}>{guide.icon}</span>
+                            <div style={{ flex: 1 }}>
+                              <h4 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "2px" }}>
+                                {guide.title}
+                              </h4>
+                              <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{guide.desc}</p>
+                            </div>
+                            <span style={{
+                              backgroundColor: guide.categoryColor,
+                              color: c.white,
+                              padding: "4px 10px",
+                              borderRadius: "50px",
+                              fontSize: "10px",
+                              fontWeight: "600"
+                            }}>
+                              {guide.category}
+                            </span>
+                          </a>
+                        ))}
+                      </div>
+                    );
+                  })()}
+                </div>
+              )}
+            </div>
+          </section>
+
+          {/* Quick Stats */}
+          <section style={{ padding: "40px 16px", backgroundColor: c.cream }}>
+            <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(5, 1fr)",
+                gap: "16px",
+                textAlign: "center"
+              }}>
+                {GUIDE_CATEGORIES.map(cat => (
+                  <div
+                    key={cat.id}
+                    style={{
+                      backgroundColor: c.white,
+                      borderRadius: "12px",
+                      padding: "20px 16px",
+                      borderLeft: `4px solid ${cat.color}`
+                    }}
+                  >
+                    <span style={{ fontSize: "28px", display: "block", marginBottom: "8px" }}>{cat.icon}</span>
+                    <p style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "4px" }}>
+                      {cat.guides.length}
+                    </p>
+                    <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{cat.title}</p>
                   </div>
                 ))}
               </div>
