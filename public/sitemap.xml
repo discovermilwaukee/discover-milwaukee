@@ -6,7 +6,7 @@
 
   <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://discover-milwaukee.com/</loc>
+    <loc>https://www.discover-milwaukee.com/</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Events - High Priority, Changes Frequently -->
   <url>
-    <loc>https://discover-milwaukee.com/events</loc>
+    <loc>https://www.discover-milwaukee.com/events</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Explore/Guides Hub - High Priority -->
   <url>
-    <loc>https://discover-milwaukee.com/explore</loc>
+    <loc>https://www.discover-milwaukee.com/explore</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -32,7 +32,7 @@
 
   <!-- Things to Do - Primary Pillar Page -->
   <url>
-    <loc>https://discover-milwaukee.com/things-to-do-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/things-to-do-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
@@ -40,7 +40,7 @@
 
   <!-- This Weekend - Recurring Fresh Content -->
   <url>
-    <loc>https://discover-milwaukee.com/this-weekend-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/this-weekend-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -49,65 +49,74 @@
   <!-- RESTAURANT & FOOD GUIDES -->
 
   <url>
-    <loc>https://discover-milwaukee.com/best-restaurants-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/best-restaurants-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/new-restaurants-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/new-restaurants-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/best-brunch-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/best-brunch-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/best-patios-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/best-patios-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <!-- FESTIVALS GUIDE -->
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-festivals</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- ACTIVITY & TOPIC GUIDES -->
 
   <url>
-    <loc>https://discover-milwaukee.com/milwaukee-breweries</loc>
+    <loc>https://www.discover-milwaukee.com/milwaukee-breweries</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/milwaukee-nightlife</loc>
+    <loc>https://www.discover-milwaukee.com/milwaukee-nightlife</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/milwaukee-coffee-shops</loc>
+    <loc>https://www.discover-milwaukee.com/milwaukee-coffee-shops</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/free-things-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/free-things-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/milwaukee-date-ideas</loc>
+    <loc>https://www.discover-milwaukee.com/milwaukee-date-ideas</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -116,84 +125,84 @@
   <!-- NEIGHBORHOOD GUIDES -->
 
   <url>
-    <loc>https://discover-milwaukee.com/third-ward-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/third-ward-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/bay-view-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/bay-view-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/walkers-point-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/walkers-point-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/east-side-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/east-side-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/downtown-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/downtown-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/riverwest-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/riverwest-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/brady-street-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/brady-street-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/bronzeville-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/bronzeville-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/sherman-park-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/sherman-park-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/south-side-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/south-side-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/harbor-district-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/harbor-district-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/washington-heights-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/washington-heights-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -202,56 +211,56 @@
   <!-- WEEKEND & VISITOR GUIDES -->
 
   <url>
-    <loc>https://discover-milwaukee.com/weekend-in-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/weekend-in-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/first-time-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/first-time-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/romantic-weekend-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/romantic-weekend-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/family-weekend-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/family-weekend-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/beer-lovers-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/beer-lovers-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/foodie-weekend-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/foodie-weekend-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/arts-culture-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/arts-culture-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/outdoor-weekend-milwaukee</loc>
+    <loc>https://www.discover-milwaukee.com/outdoor-weekend-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -260,35 +269,35 @@
   <!-- UTILITY PAGES -->
 
   <url>
-    <loc>https://discover-milwaukee.com/about</loc>
+    <loc>https://www.discover-milwaukee.com/about</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/newsletter</loc>
+    <loc>https://www.discover-milwaukee.com/newsletter</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/partner</loc>
+    <loc>https://www.discover-milwaukee.com/partner</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/privacy</loc>
+    <loc>https://www.discover-milwaukee.com/privacy</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://discover-milwaukee.com/terms</loc>
+    <loc>https://www.discover-milwaukee.com/terms</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
