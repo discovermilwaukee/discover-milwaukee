@@ -126,6 +126,13 @@ export default function App({ Component, pageProps }) {
 
         {/* Twitter Card defaults */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@discovermke" />
+
+        {/* Default OG Image - Pages can override */}
+        <meta property="og:image" content="https://www.discover-milwaukee.com/android-chrome-512x512.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="Discover Milwaukee - Your Guide to MKE" />
 
         {/* Favicon defaults */}
         <link rel="icon" href="/favicon.ico" />
