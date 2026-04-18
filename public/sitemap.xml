@@ -49,6 +49,34 @@
   <!-- RESTAURANT & FOOD GUIDES -->
 
   <url>
+    <loc>https://www.discover-milwaukee.com/best-tacos-milwaukee</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/best-pizza-milwaukee</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/best-fish-fry-milwaukee</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/rooftop-bars-milwaukee</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://www.discover-milwaukee.com/best-restaurants-milwaukee</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
