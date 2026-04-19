@@ -312,6 +312,58 @@ export default function MilwaukeeBars() {
     return filtered;
   }, [searchQuery, activeFilter]);
 
+  // Get individual bar search results
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+
+    const query = searchQuery.toLowerCase();
+    const results = [];
+
+    BAR_CATEGORIES.forEach(cat => {
+      cat.featured.forEach(bar => {
+        if (
+          bar.name.toLowerCase().includes(query) ||
+          bar.neighborhood.toLowerCase().includes(query) ||
+          bar.claim.toLowerCase().includes(query) ||
+          bar.vibe.toLowerCase().includes(query)
+        ) {
+          results.push({
+            ...bar,
+            category: cat.title,
+            categoryColor: cat.color,
+            categoryLink: cat.link,
+            categoryIcon: cat.icon,
+          });
+        }
+      });
+    });
+
+    // Also search bar trails
+    BAR_TRAILS.forEach(trail => {
+      trail.bars.forEach(bar => {
+        if (bar.name.toLowerCase().includes(query)) {
+          // Avoid duplicates
+          if (!results.find(r => r.name === bar.name)) {
+            results.push({
+              name: bar.name,
+              neighborhood: trail.neighborhoods[0] || "Milwaukee",
+              claim: bar.type,
+              vibe: trail.title,
+              category: "Bar Trail",
+              categoryColor: c.orange,
+              categoryLink: "#trails",
+              categoryIcon: "MapPin",
+            });
+          }
+        }
+      });
+    });
+
+    return results;
+  }, [searchQuery]);
+
+  const isSearching = searchQuery.trim().length > 0;
+
   // Schema markup
   const articleSchema = {
     "@context": "https://schema.org",
@@ -628,18 +680,110 @@ export default function MilwaukeeBars() {
             </div>
           </section>
 
+          {/* Search Results - shown when actively searching */}
+          {isSearching && (
+            <section style={{ marginBottom: "40px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+                <h2 style={{ fontSize: "24px", fontWeight: "800", color: c.green1, margin: 0 }}>
+                  {searchResults.length > 0
+                    ? `Found ${searchResults.length} bar${searchResults.length !== 1 ? 's' : ''} for "${searchQuery}"`
+                    : `No bars found for "${searchQuery}"`
+                  }
+                </h2>
+                <button
+                  onClick={() => { setSearchQuery(""); setActiveFilter("all"); }}
+                  style={{
+                    padding: "10px 20px",
+                    backgroundColor: c.beige,
+                    color: c.green1,
+                    border: "none",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    fontWeight: "600",
+                    fontFamily: "inherit",
+                    transition: "background-color 0.2s",
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = "#ddd"}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = c.beige}
+                >
+                  Clear Search
+                </button>
+              </div>
+
+              {searchResults.length > 0 ? (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
+                  {searchResults.map((bar, i) => (
+                    <Link
+                      key={`${bar.name}-${i}`}
+                      href={bar.categoryLink}
+                      style={{
+                        backgroundColor: "#fff",
+                        borderRadius: "12px",
+                        padding: "20px",
+                        boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+                        textDecoration: "none",
+                        display: "block",
+                        cursor: "pointer",
+                        transition: "transform 0.2s, box-shadow 0.2s",
+                        borderLeft: `4px solid ${bar.categoryColor}`,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.12)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "translateY(0)";
+                        e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.08)";
+                      }}
+                    >
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                        <h3 style={{ fontSize: "17px", fontWeight: "700", color: c.green1, margin: 0 }}>{bar.name}</h3>
+                        <span style={{
+                          fontSize: "11px",
+                          backgroundColor: bar.categoryColor,
+                          color: "#fff",
+                          padding: "4px 10px",
+                          borderRadius: "20px",
+                          fontWeight: "600",
+                          whiteSpace: "nowrap",
+                        }}>
+                          {bar.category}
+                        </span>
+                      </div>
+                      <p style={{ fontSize: "14px", color: "#666", marginBottom: "8px", lineHeight: 1.5 }}>{bar.claim}</p>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <span style={{ fontSize: "13px", color: c.tan, fontWeight: "600" }}>
+                          <Icons.MapPin /> {bar.neighborhood}
+                        </span>
+                        <span style={{ fontSize: "12px", color: "#999", fontStyle: "italic" }}>{bar.vibe}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div style={{ textAlign: "center", padding: "48px 20px", backgroundColor: "#fff", borderRadius: "16px" }}>
+                  <p style={{ color: "#666", fontSize: "16px", marginBottom: "16px" }}>
+                    Try searching for a bar name, neighborhood (like "Walker's Point"), or vibe (like "dive" or "cocktail").
+                  </p>
+                </div>
+              )}
+            </section>
+          )}
+
           {/* Categories */}
           <section style={{ marginBottom: "80px" }}>
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Find Your Kind of Bar</h2>
+              <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>
+                {isSearching ? "Or Browse by Category" : "Find Your Kind of Bar"}
+              </h2>
               <p style={{ color: "#666", fontSize: "17px", maxWidth: "600px", margin: "0 auto" }}>From cash-only dive bars to craft cocktail lounges, explore Milwaukee's diverse drinking scene.</p>
             </div>
 
-            {filteredCategories.length === 0 ? (
+            {filteredCategories.length === 0 && !isSearching ? (
               <div style={{ textAlign: "center", padding: "60px 20px", backgroundColor: "#fff", borderRadius: "16px" }}>
-                <p style={{ color: "#666", fontSize: "18px" }}>No bars found matching "{searchQuery}"</p>
+                <p style={{ color: "#666", fontSize: "18px" }}>No categories match the current filter.</p>
                 <button onClick={() => { setSearchQuery(""); setActiveFilter("all"); }} style={{ marginTop: "16px", padding: "12px 24px", backgroundColor: c.orange, color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: "600", fontFamily: "inherit" }}>
-                  Clear Search
+                  Show All Categories
                 </button>
               </div>
             ) : (
