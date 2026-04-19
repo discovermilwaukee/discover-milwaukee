@@ -545,7 +545,11 @@ export default function MilwaukeeBars() {
                 type="text"
                 placeholder="Search bars, neighborhoods, or vibes..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  console.log("Input changed:", e.target.value);
+                  setSearchQuery(e.target.value);
+                }}
+                onFocus={() => console.log("Input focused")}
                 aria-label="Search bars"
                 style={{
                   width: "100%",
@@ -561,6 +565,18 @@ export default function MilwaukeeBars() {
                   boxSizing: "border-box",
                 }}
               />
+              {/* DEBUG: Remove after fixing */}
+              <div style={{
+                marginTop: "8px",
+                padding: "8px 16px",
+                backgroundColor: "rgba(255,0,0,0.8)",
+                color: "#fff",
+                borderRadius: "8px",
+                fontSize: "12px",
+                fontFamily: "monospace"
+              }}>
+                DEBUG: searchQuery = "{searchQuery}" | length = {searchQuery.length}
+              </div>
             </div>
 
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
