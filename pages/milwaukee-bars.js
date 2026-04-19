@@ -312,17 +312,28 @@ export default function MilwaukeeBars() {
     return filtered;
   }, [searchQuery, activeFilter]);
 
-  // Get individual bar search results
+  // Get individual bar search results - DEBUG VERSION
   const searchResults = useMemo(() => {
-    if (!searchQuery.trim()) return [];
+    console.log("searchResults useMemo called, query:", searchQuery);
+    if (!searchQuery.trim()) {
+      console.log("Empty query, returning []");
+      return [];
+    }
 
     const query = searchQuery.toLowerCase();
     const results = [];
 
+    console.log("BAR_CATEGORIES length:", BAR_CATEGORIES?.length);
+    console.log("First category:", BAR_CATEGORIES?.[0]?.title);
+
     BAR_CATEGORIES.forEach(cat => {
       cat.featured.forEach(bar => {
+        const nameMatch = bar.name.toLowerCase().includes(query);
+        if (nameMatch) {
+          console.log("MATCH FOUND:", bar.name);
+        }
         if (
-          bar.name.toLowerCase().includes(query) ||
+          nameMatch ||
           bar.neighborhood.toLowerCase().includes(query) ||
           bar.claim.toLowerCase().includes(query) ||
           bar.vibe.toLowerCase().includes(query)
@@ -359,6 +370,7 @@ export default function MilwaukeeBars() {
       });
     });
 
+    console.log("Final results count:", results.length);
     return results;
   }, [searchQuery]);
 
