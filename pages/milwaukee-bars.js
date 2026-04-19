@@ -230,15 +230,208 @@ const BAR_TRAILS = [
   },
 ];
 
-// Neighborhoods with bar character
+// Neighborhoods with bar listings - Milwaukee city neighborhoods only
 const NEIGHBORHOODS = [
-  { name: "Walker's Point", vibe: "Nightlife epicenter", barCount: "30+", character: "Milwaukee's most vibrant after-dark neighborhood. Cocktail lounges, LGBTQ+ bars, dive bars, and clubs." },
-  { name: "Bay View", vibe: "Hip & local", barCount: "25+", character: "Kinnickinnic Ave is lined with bars from craft cocktail to neighborhood dive. Very walkable." },
-  { name: "Third Ward", vibe: "Upscale & trendy", barCount: "15+", character: "Rooftop bars, wine bars, and upscale spots. Great for dates and special occasions." },
-  { name: "East Side", vibe: "Young & eclectic", barCount: "20+", character: "College bars, live music venues, and neighborhood classics along North Ave." },
-  { name: "Brady Street", vibe: "Historic party street", barCount: "15+", character: "Milwaukee's original entertainment strip. Mix of Italian heritage and nightlife." },
-  { name: "Riverwest", vibe: "Artsy & local", barCount: "10+", character: "Dive bars, art spaces, and genuine neighborhood joints. Cash-only vibes." },
-  { name: "Downtown/Deer District", vibe: "Game day central", barCount: "20+", character: "Sports bars, hotel bars, and the energy around Fiserv Forum." },
+  {
+    name: "Walker's Point",
+    vibe: "Nightlife epicenter",
+    character: "Milwaukee's most vibrant after-dark neighborhood. Cocktail lounges, LGBTQ+ bars, dive bars, and clubs cluster around 2nd and 5th Streets.",
+    bars: [
+      { name: "Bryant's Cocktail Lounge", type: "Cocktail", note: "Milwaukee's first cocktail lounge, famous ice cream drinks" },
+      { name: "Steny's Tavern", type: "Sports Bar", note: "Legendary Packers bar with massive outdoor setup" },
+      { name: "Koz's Mini Bowl", type: "Dive", note: "4-lane mini bowling + dive bar" },
+      { name: "Indeed Brewing", type: "Brewery", note: "Creative brews, community vibes" },
+      { name: "La Cage", type: "LGBTQ+", note: "Late night dancing, Milwaukee staple since 1984" },
+      { name: "This Is It", type: "LGBTQ+", note: "One of the oldest gay bars in the Midwest" },
+      { name: "Hamburger Mary's", type: "LGBTQ+", note: "Drag shows, karaoke, burgers" },
+      { name: "Woody's", type: "LGBTQ+", note: "Neighborhood sports bar vibe" },
+      { name: "Stella's", type: "Dive", note: "Cocktail dive with strong pours" },
+      { name: "Sabbatic", type: "Dive", note: "Heavy metal bar, pinball, cheap beer" },
+      { name: "Hi-Hat Lounge", type: "Cocktail", note: "Vintage vibes, great cocktails" },
+      { name: "Dock18 Cocktail Lab", type: "Cocktail", note: "Creative rotating menu" },
+    ],
+  },
+  {
+    name: "Bay View",
+    vibe: "Hip & local",
+    character: "Kinnickinnic Ave is lined with bars from craft cocktail to neighborhood dive. The city's most walkable bar strip.",
+    bars: [
+      { name: "At Random", type: "Cocktail", note: "70s ice cream parlor meets cocktail bar" },
+      { name: "Boone & Crockett", type: "Cocktail", note: "Hoan Bridge views, exceptional drinks" },
+      { name: "Sugar Maple", type: "Craft Beer", note: "Massive tap list, beer garden" },
+      { name: "Burnhearts", type: "Dive", note: "Neighborhood soul, famous Bloody Mary bar" },
+      { name: "Just Art's Saloon", type: "Dive", note: "Cash only, shuffleboard, cheap beer" },
+      { name: "Vanguard", type: "Bar & Grill", note: "Sausages and cocktails" },
+      { name: "Palm Tavern", type: "Neighborhood", note: "Rotating food pop-ups, great patio" },
+      { name: "Club Garibaldi", type: "Neighborhood", note: "Italian heritage, classic Milwaukee" },
+      { name: "Tonic Tavern", type: "Neighborhood", note: "Craft cocktails, tacos" },
+      { name: "Three Cellars", type: "Wine Bar", note: "Wine flights, cheese boards" },
+    ],
+  },
+  {
+    name: "Third Ward",
+    vibe: "Upscale & trendy",
+    character: "Historic warehouse district turned trendy. Rooftop bars, wine bars, and upscale spots. Great for dates and special occasions.",
+    bars: [
+      { name: "The Outsider", type: "Rooftop", note: "9 floors up at Kimpton Journeyman, 360° views" },
+      { name: "Café Benelux", type: "Rooftop", note: "Skyhaus rooftop, retractable roof, Belgian beers" },
+      { name: "Nine Below", type: "Activity", note: "Indoor mini golf bar" },
+      { name: "Merriment Social", type: "Cocktail", note: "Craft cocktails, shareable plates" },
+      { name: "The Wicked Hop", type: "Neighborhood", note: "Craft beer, pub fare" },
+      { name: "Onesto", type: "Wine Bar", note: "Italian wines, small plates" },
+      { name: "Hotel Madrid", type: "Restaurant/Bar", note: "Spanish tapas, creative cocktails" },
+    ],
+  },
+  {
+    name: "Lower East Side",
+    vibe: "Classic Milwaukee",
+    character: "Historic taverns, beloved institutions, and the famous Water Street bar scene. Mix of college energy and neighborhood classics.",
+    bars: [
+      { name: "Wolski's Tavern", type: "Dive", note: "The 'I Closed Wolski's' bumper sticker since 1908" },
+      { name: "The Diplomat", type: "Cocktail", note: "Classic cocktails, intimate speakeasy feel" },
+      { name: "Hosed on Brady", type: "Dive", note: "3 Alarm Bloody Mary, cheap shots" },
+      { name: "Von Trier", type: "German", note: "Authentic German bar, beer hall vibes" },
+      { name: "Roman's Pub", type: "Craft Beer", note: "Legendary beer selection, cozy" },
+      { name: "Hi-Fi Café", type: "Music Venue", note: "Live music, craft cocktails" },
+      { name: "Hotel Foster", type: "Cocktail", note: "Craft cocktails, upscale casual" },
+      { name: "Jo-Cat's Pub", type: "Dive", note: "Fishbowl drinks, college crowd" },
+    ],
+  },
+  {
+    name: "East Side",
+    vibe: "Young & eclectic",
+    character: "North Avenue corridor with college bars, live music venues, and neighborhood classics. UWM student energy.",
+    bars: [
+      { name: "Landmark Lanes", type: "Activity", note: "Bowling alley since 1927, three bars inside" },
+      { name: "Jamo's Bar", type: "Dive", note: "Nightly Jeopardy! viewing since 1890" },
+      { name: "BBC", type: "Bar & Grill", note: "Burgers, beer, sports" },
+      { name: "Foundation", type: "Tiki", note: "Hidden tiki bar, tropical cocktails" },
+      { name: "Axel's", type: "Neighborhood", note: "Classic corner bar" },
+      { name: "The Yield Bar", type: "Music Venue", note: "Vinyl, craft cocktails, DJs" },
+    ],
+  },
+  {
+    name: "Brady Street",
+    vibe: "Historic party street",
+    character: "Milwaukee's original entertainment strip. Italian heritage meets nightlife. Walkable strip with diverse options.",
+    bars: [
+      { name: "Nomad World Pub", type: "World", note: "Soccer bar, global beers, rooftop" },
+      { name: "The Harp", type: "Irish", note: "Irish pub, live music weekends" },
+      { name: "Regano's Roman Coin", type: "Italian", note: "Old school Italian bar, classic Milwaukee" },
+      { name: "County Clare", type: "Irish", note: "Irish pub with great fish fry" },
+      { name: "Jack's American Pub", type: "Bar & Grill", note: "Wings, beer, sports" },
+      { name: "Clover", type: "Cocktail", note: "Intimate cocktail spot" },
+    ],
+  },
+  {
+    name: "Riverwest",
+    vibe: "Artsy & local",
+    character: "Bohemian neighborhood with dive bars, art spaces, and genuine neighborhood joints. Cash-only vibes, artist crowd.",
+    bars: [
+      { name: "The Uptowner", type: "Dive", note: "Vending machine sells cigarettes & Skittles" },
+      { name: "Riverwest Public House", type: "Neighborhood", note: "Co-op bar, community owned" },
+      { name: "Falcon Bowl", type: "Dive", note: "Polish bar, bowling alley, polka nights" },
+      { name: "Linneman's Riverwest Inn", type: "Music Venue", note: "Live folk and Americana" },
+      { name: "Gee Willickers", type: "Dive", note: "Cash only, cheap drinks, jukebox" },
+      { name: "Circle A", type: "Café/Bar", note: "Coffee by day, bar by night" },
+    ],
+  },
+  {
+    name: "Downtown",
+    vibe: "Urban core",
+    character: "Office crowd happy hours, hotel bars, and pre-theater drinks. Wisconsin Ave and Old World Third St.",
+    bars: [
+      { name: "The Aviary", type: "Rooftop", note: "Central Standard's rooftop, craft cocktails" },
+      { name: "Major Goolsby's", type: "Sports Bar", note: "50+ years of sports bar history" },
+      { name: "Who's on Third", type: "Sports Bar", note: "Pre-game destination, great food" },
+      { name: "The Loaded Slate", type: "Bar & Grill", note: "Craft beer, elevated pub food" },
+      { name: "Safe House", type: "Themed", note: "Spy-themed bar, secret entrance" },
+      { name: "Trinity Three Irish Pubs", type: "Irish", note: "Three floors, three pubs" },
+      { name: "The Pub Club", type: "Cocktail", note: "Speakeasy in Pfister Hotel" },
+      { name: "Blu", type: "Lounge", note: "Pfister Hotel rooftop, upscale" },
+    ],
+  },
+  {
+    name: "Deer District",
+    vibe: "Game day central",
+    character: "The energy hub around Fiserv Forum. Sports bars, modern entertainment, and pre/post-game crowds.",
+    bars: [
+      { name: "Tom's Watch Bar", type: "Sports Bar", note: "360° screens, next to Fiserv Forum" },
+      { name: "Uncle Buck's", type: "Rooftop", note: "Fire bar, game day HQ" },
+      { name: "Punch Bowl Social", type: "Activity", note: "Bowling, karaoke, arcade, full restaurant" },
+      { name: "Good City Brewing", type: "Brewery", note: "Craft beer, downtown taproom" },
+      { name: "The MECCA Sports Bar", type: "Sports Bar", note: "At Fiserv, massive space" },
+    ],
+  },
+  {
+    name: "Bronzeville",
+    vibe: "Cultural revival",
+    character: "Historic African American neighborhood experiencing revival. Cultural bars and restaurants celebrating Black Milwaukee.",
+    bars: [
+      { name: "The Blu Lounge", type: "Lounge", note: "Live music, cocktails" },
+      { name: "Jewels Caribbean", type: "Caribbean", note: "Reggae nights, island vibes" },
+    ],
+  },
+  {
+    name: "Harambee",
+    vibe: "Neighborhood soul",
+    character: "North side neighborhood with longtime corner bars and community gathering spots.",
+    bars: [
+      { name: "The Butterfly", type: "Neighborhood", note: "Historic corner bar" },
+    ],
+  },
+  {
+    name: "Washington Heights",
+    vibe: "Neighborhood gems",
+    character: "Residential west side with hidden neighborhood bars. Vliet Street has local favorites.",
+    bars: [
+      { name: "The Brass Tap", type: "Neighborhood", note: "Corner bar, neighborhood crowd" },
+      { name: "Tusk", type: "Craft Cocktail", note: "Intimate cocktail bar" },
+    ],
+  },
+  {
+    name: "Sherman Park",
+    vibe: "Community focused",
+    character: "Historic neighborhood with longtime taverns serving the community.",
+    bars: [
+      { name: "Frank's Power Plant", type: "Dive", note: "Cash only, classic corner bar" },
+    ],
+  },
+  {
+    name: "Story Hill",
+    vibe: "Stadium adjacent",
+    character: "Near American Family Field. Game day spots and neighborhood bars.",
+    bars: [
+      { name: "Story Hill BKC", type: "Restaurant/Bar", note: "Upscale, great cocktails" },
+      { name: "Kelly's Bleachers", type: "Sports Bar", note: "Brewers pre-game spot" },
+    ],
+  },
+  {
+    name: "Menomonee Valley",
+    vibe: "Industrial craft",
+    character: "Former industrial zone now home to breweries and maker spaces.",
+    bars: [
+      { name: "Third Space Brewing", type: "Brewery", note: "Award-winning IPAs, huge taproom" },
+      { name: "Urban Harvest Brewing", type: "Brewery", note: "Farm-to-glass beers" },
+    ],
+  },
+  {
+    name: "Harbor District",
+    vibe: "Waterfront emerging",
+    character: "Developing waterfront area with new bars and restaurants.",
+    bars: [
+      { name: "Zocalo Food Park", type: "Food Park", note: "Outdoor bar, food trucks" },
+    ],
+  },
+  {
+    name: "Lincoln Village",
+    vibe: "South side pride",
+    character: "Mexican-American neighborhood with cantinas and neighborhood bars.",
+    bars: [
+      { name: "Botanas", type: "Cantina", note: "Margaritas, Mexican fare" },
+      { name: "El Rey", type: "Cantina", note: "South side institution" },
+    ],
+  },
 ];
 
 // FAQs
@@ -499,44 +692,38 @@ export default function MilwaukeeBars() {
               boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
               overflow: "hidden"
             }}>
-              {/* Simplified visual map grid */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", maxWidth: "600px", margin: "0 auto" }}>
-                {[
-                  { name: "Riverwest", position: "top-left", bars: "10+", color: "#8B4513" },
-                  { name: "East Side", position: "top-center", bars: "20+", color: "#6B5B95" },
-                  { name: "Brady Street", position: "top-right", bars: "15+", color: "#F7786B" },
-                  { name: "Downtown", position: "middle-left", bars: "20+", color: "#34A853" },
-                  { name: "Third Ward", position: "middle-center", bars: "15+", color: "#DAA520" },
-                  { name: "Walker's Point", position: "middle-right", bars: "30+", color: "#FF6B35" },
-                  { name: "Bay View", position: "bottom", bars: "25+", color: "#4A90A4" },
-                ].map((hood, i) => (
-                  <a
-                    key={hood.name}
-                    href="#neighborhoods"
-                    style={{
-                      backgroundColor: hood.color,
-                      color: "#fff",
-                      padding: "20px 16px",
-                      borderRadius: "12px",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                      transition: "transform 0.2s, box-shadow 0.2s",
-                      gridColumn: hood.name === "Bay View" ? "2" : "auto",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "scale(1.05)";
-                      e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <p style={{ fontWeight: "700", fontSize: "14px", marginBottom: "4px" }}>{hood.name}</p>
-                    <p style={{ fontSize: "12px", opacity: 0.9, margin: 0 }}>{hood.bars} bars</p>
-                  </a>
-                ))}
+              {/* Visual map grid - main nightlife districts */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "12px", maxWidth: "800px", margin: "0 auto" }}>
+                {NEIGHBORHOODS.slice(0, 9).map((hood, i) => {
+                  const colors = ["#8B4513", "#6B5B95", "#F7786B", "#34A853", "#DAA520", "#FF6B35", "#4A90A4", "#9B59B6", "#E67E22"];
+                  return (
+                    <a
+                      key={hood.name}
+                      href="#neighborhoods"
+                      style={{
+                        backgroundColor: colors[i % colors.length],
+                        color: "#fff",
+                        padding: "16px 12px",
+                        borderRadius: "12px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        cursor: "pointer",
+                        transition: "transform 0.2s, box-shadow 0.2s",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.05)";
+                        e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
+                    >
+                      <p style={{ fontWeight: "700", fontSize: "13px", marginBottom: "4px" }}>{hood.name}</p>
+                      <p style={{ fontSize: "11px", opacity: 0.9, margin: 0 }}>{hood.bars.length} bars</p>
+                    </a>
+                  );
+                })}
               </div>
               <p style={{ textAlign: "center", marginTop: "20px", fontSize: "13px", color: "#888" }}>
                 Click any district to jump to neighborhood details below
@@ -729,34 +916,79 @@ export default function MilwaukeeBars() {
               <p style={{ color: "#666", fontSize: "17px", maxWidth: "600px", margin: "0 auto" }}>Each Milwaukee neighborhood has its own bar personality. Find yours.</p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
               {NEIGHBORHOODS.map((hood) => (
                 <article
                   key={hood.name}
                   style={{
                     backgroundColor: "#fff",
-                    borderRadius: "12px",
-                    padding: "24px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-                    borderLeft: `4px solid ${c.orange}`,
-                    cursor: "pointer",
-                    transition: "transform 0.2s, box-shadow 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.1)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)";
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
                   }}
                 >
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-                    <h3 style={{ fontSize: "17px", fontWeight: "800", color: c.green1, margin: 0 }}>{hood.name}</h3>
-                    <span style={{ fontSize: "13px", color: c.orange, fontWeight: "700" }}>{hood.barCount} bars</span>
+                  {/* Neighborhood Header */}
+                  <div style={{
+                    background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`,
+                    padding: "24px",
+                    color: "#fff",
+                  }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
+                      <h3 style={{ fontSize: "22px", fontWeight: "800", margin: 0 }}>{hood.name}</h3>
+                      <span style={{
+                        fontSize: "13px",
+                        backgroundColor: c.orange,
+                        color: "#fff",
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        fontWeight: "700"
+                      }}>
+                        {hood.bars.length} bars
+                      </span>
+                    </div>
+                    <p style={{ fontSize: "14px", opacity: 0.9, marginBottom: "4px", fontWeight: "600" }}>{hood.vibe}</p>
+                    <p style={{ fontSize: "13px", opacity: 0.8, margin: 0, lineHeight: 1.5 }}>{hood.character}</p>
                   </div>
-                  <p style={{ fontSize: "13px", color: c.green2, fontWeight: "600", marginBottom: "8px" }}>{hood.vibe}</p>
-                  <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.6, margin: 0 }}>{hood.character}</p>
+
+                  {/* Bar Listings */}
+                  <div style={{ padding: "20px" }}>
+                    <div style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                      gap: "12px",
+                    }}>
+                      {hood.bars.map((bar, i) => (
+                        <div
+                          key={i}
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "12px",
+                            padding: "12px",
+                            backgroundColor: c.cream,
+                            borderRadius: "8px",
+                          }}
+                        >
+                          <span style={{
+                            fontSize: "10px",
+                            backgroundColor: c.green2,
+                            color: "#fff",
+                            padding: "3px 8px",
+                            borderRadius: "4px",
+                            fontWeight: "600",
+                            whiteSpace: "nowrap",
+                            flexShrink: 0,
+                          }}>
+                            {bar.type}
+                          </span>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <p style={{ fontWeight: "700", color: c.green1, margin: 0, fontSize: "14px" }}>{bar.name}</p>
+                            <p style={{ fontSize: "12px", color: "#666", margin: "2px 0 0 0", lineHeight: 1.4 }}>{bar.note}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>
