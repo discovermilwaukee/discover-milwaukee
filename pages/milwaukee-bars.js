@@ -12,12 +12,71 @@ const c = {
   tan: "#8b7355",
 };
 
+// SVG Icons (replacing emojis)
+const Icons = {
+  Beer: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 2 11 2s2 1.5 3 1.5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/><path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/>
+    </svg>
+  ),
+  Cocktail: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 22h8"/><path d="M12 11v11"/><path d="m19 3-7 8-7-8Z"/>
+    </svg>
+  ),
+  Building: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
+    </svg>
+  ),
+  Trophy: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+    </svg>
+  ),
+  Hop: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 22s6-7 12-7 12 7 12 7H2Z"/><path d="M8 22V10a4 4 0 1 1 8 0v12"/><path d="M12 6V2"/>
+    </svg>
+  ),
+  Target: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+    </svg>
+  ),
+  Clock: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </svg>
+  ),
+  MapPin: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+    </svg>
+  ),
+  Search: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+    </svg>
+  ),
+  ChevronRight: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  ),
+  ArrowRight: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </svg>
+  ),
+};
+
 // Bar categories with featured picks
 const BAR_CATEGORIES = [
   {
     id: "dive-bars",
     title: "Dive Bars",
-    icon: "🍺",
+    icon: "Beer",
     color: "#8B4513",
     tagline: "Cash, cheap drinks, zero pretension",
     description: "Milwaukee has more bars per capita than almost any US city, and the dive bars are where you find the real soul. These are cash-only, jukebox-playing institutions where bartenders know your name.",
@@ -33,7 +92,7 @@ const BAR_CATEGORIES = [
   {
     id: "cocktail-bars",
     title: "Cocktail Bars",
-    icon: "🍸",
+    icon: "Cocktail",
     color: "#6B5B95",
     tagline: "Craft cocktails done right",
     description: "From Milwaukee's first cocktail lounge to modern speakeasies, these bars take drinks seriously. Expect skilled bartenders, quality spirits, and cocktails worth savoring.",
@@ -49,7 +108,7 @@ const BAR_CATEGORIES = [
   {
     id: "rooftop-bars",
     title: "Rooftop Bars",
-    icon: "🌆",
+    icon: "Building",
     color: "#F7786B",
     tagline: "Skyline views & elevated drinking",
     description: "Milwaukee's skyline is underrated, and these rooftops prove it. From sophisticated hotel bars to casual game-day patios, find your perfect perch above the city.",
@@ -65,7 +124,7 @@ const BAR_CATEGORIES = [
   {
     id: "sports-bars",
     title: "Sports Bars",
-    icon: "🏈",
+    icon: "Trophy",
     color: "#34A853",
     tagline: "Game day, every day",
     description: "Bucks, Brewers, Packers—Milwaukee takes its sports seriously. These bars have the screens, the energy, and the fellow fans to make every game feel like you're at the stadium.",
@@ -81,7 +140,7 @@ const BAR_CATEGORIES = [
   {
     id: "breweries",
     title: "Breweries & Taprooms",
-    icon: "🍻",
+    icon: "Hop",
     color: "#DAA520",
     tagline: "Cream City craft beer",
     description: "The city that Miller built has embraced craft beer with open arms. From historic tours at Lakefront to experimental brews in Walker's Point, Milwaukee's brewery scene is thriving.",
@@ -97,7 +156,7 @@ const BAR_CATEGORIES = [
   {
     id: "adventure-bars",
     title: "Adventure Bars",
-    icon: "🎯",
+    icon: "Target",
     color: "#FF6B35",
     tagline: "Drinks + activities",
     description: "Why just drink when you can bowl, throw axes, play arcade games, or mini golf? These bars combine entertainment with your beverages for a memorable night out.",
@@ -215,17 +274,52 @@ const faqs = [
   },
 ];
 
-export default function MilwaukeeBars() {
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [activeNeighborhood, setActiveNeighborhood] = useState(null);
+// Filter options
+const FILTER_OPTIONS = [
+  { id: "all", label: "All Bars" },
+  { id: "dive-bars", label: "Dive Bars" },
+  { id: "cocktail-bars", label: "Cocktails" },
+  { id: "rooftop-bars", label: "Rooftops" },
+  { id: "sports-bars", label: "Sports" },
+  { id: "breweries", label: "Breweries" },
+  { id: "adventure-bars", label: "Adventure" },
+];
 
+export default function MilwaukeeBars() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  // Filter categories based on search and filter
+  const filteredCategories = useMemo(() => {
+    let filtered = BAR_CATEGORIES;
+
+    if (activeFilter !== "all") {
+      filtered = filtered.filter(cat => cat.id === activeFilter);
+    }
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(cat =>
+        cat.title.toLowerCase().includes(query) ||
+        cat.description.toLowerCase().includes(query) ||
+        cat.featured.some(bar =>
+          bar.name.toLowerCase().includes(query) ||
+          bar.neighborhood.toLowerCase().includes(query)
+        )
+      );
+    }
+
+    return filtered;
+  }, [searchQuery, activeFilter]);
+
+  // Schema markup
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Milwaukee Bars Guide: 100+ Best Bars by Category & Neighborhood [2026]",
     description: "The complete guide to Milwaukee's bar scene. Dive bars, cocktail lounges, rooftops, breweries, sports bars, and more. Find your perfect Milwaukee bar.",
-    author: { "@type": "Organization", name: "Discover Milwaukee" },
-    publisher: { "@type": "Organization", name: "Discover Milwaukee" },
+    author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },
+    publisher: { "@type": "Organization", name: "Discover Milwaukee", logo: { "@type": "ImageObject", url: "https://www.discover-milwaukee.com/logo.png" } },
     datePublished: "2026-04-18",
     dateModified: "2026-04-18",
     mainEntityOfPage: "https://www.discover-milwaukee.com/milwaukee-bars",
@@ -241,121 +335,338 @@ export default function MilwaukeeBars() {
     })),
   };
 
+  // ItemList schema for rich results
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Best Bars in Milwaukee",
+    description: "Curated list of the best bars in Milwaukee, Wisconsin",
+    numberOfItems: 24,
+    itemListElement: BAR_CATEGORIES.flatMap((cat, catIndex) =>
+      cat.featured.map((bar, barIndex) => ({
+        "@type": "ListItem",
+        position: catIndex * 4 + barIndex + 1,
+        item: {
+          "@type": "BarOrPub",
+          name: bar.name,
+          description: bar.claim,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Milwaukee",
+            addressRegion: "WI",
+            addressCountry: "US",
+          },
+        },
+      }))
+    ),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.discover-milwaukee.com" },
+      { "@type": "ListItem", position: 2, name: "Explore", item: "https://www.discover-milwaukee.com/explore" },
+      { "@type": "ListItem", position: 3, name: "Milwaukee Bars", item: "https://www.discover-milwaukee.com/milwaukee-bars" },
+    ],
+  };
+
+  const IconComponent = ({ name }) => {
+    const Icon = Icons[name];
+    return Icon ? <Icon /> : null;
+  };
+
   return (
     <>
       <Head>
         <title>Milwaukee Bars Guide: Best Dive Bars, Cocktail Lounges, Rooftops & More [2026]</title>
         <meta name="description" content="The complete guide to Milwaukee's bar scene. 100+ bars organized by category and neighborhood. Dive bars, cocktail lounges, rooftops, breweries, sports bars, and LGBTQ+ nightlife." />
-        <meta name="keywords" content="Milwaukee bars, best bars Milwaukee, Milwaukee nightlife, dive bars Milwaukee, cocktail bars Milwaukee, rooftop bars Milwaukee, Milwaukee breweries, Walker's Point bars, Bay View bars" />
+        <meta name="keywords" content="Milwaukee bars, best bars Milwaukee, Milwaukee nightlife, dive bars Milwaukee, cocktail bars Milwaukee, rooftop bars Milwaukee, Milwaukee breweries, Walker's Point bars, Bay View bars, Milwaukee drinks" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-bars" />
         <meta property="og:title" content="Milwaukee Bars Guide: 100+ Best Bars [2026]" />
         <meta property="og:description" content="The complete guide to Milwaukee bars. Dive bars, cocktails, rooftops, breweries, sports bars by category and neighborhood." />
         <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-bars" />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/milwaukee-bars-guide.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <style>{`html { scroll-behavior: smooth; }`}</style>
       </Head>
 
-      <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+      {/* Skip to content link for accessibility */}
+      <a
+        href="#main-content"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          top: "auto",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+        onFocus={(e) => {
+          e.target.style.left = "16px";
+          e.target.style.top = "16px";
+          e.target.style.width = "auto";
+          e.target.style.height = "auto";
+          e.target.style.padding = "12px 24px";
+          e.target.style.backgroundColor = c.green1;
+          e.target.style.color = "#fff";
+          e.target.style.zIndex = "9999";
+          e.target.style.borderRadius = "8px";
+        }}
+        onBlur={(e) => {
+          e.target.style.left = "-9999px";
+          e.target.style.width = "1px";
+          e.target.style.height = "1px";
+        }}
+      >
+        Skip to main content
+      </a>
+
+      <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: "'Poppins', system-ui, sans-serif" }}>
         {/* Nav */}
         <nav style={{ backgroundColor: c.green1, padding: "16px 24px", position: "sticky", top: 0, zIndex: 100 }}>
           <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Link href="/" style={{ color: c.yellow, fontSize: "20px", fontWeight: "900", textDecoration: "none" }}>DISCOVER MILWAUKEE</Link>
+            <Link href="/" style={{ color: c.yellow, fontSize: "20px", fontWeight: "900", textDecoration: "none", cursor: "pointer" }}>DISCOVER MILWAUKEE</Link>
             <div style={{ display: "flex", gap: "24px" }}>
-              <Link href="/explore" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Explore</Link>
-              <Link href="/events" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Events</Link>
+              <Link href="/explore" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>Explore</Link>
+              <Link href="/events" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>Events</Link>
             </div>
           </div>
         </nav>
 
+        {/* Breadcrumb */}
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 24px" }}>
+          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
+            <Link href="/" style={{ color: c.green2, textDecoration: "none", cursor: "pointer" }}>Home</Link>
+            <Icons.ChevronRight />
+            <Link href="/explore" style={{ color: c.green2, textDecoration: "none", cursor: "pointer" }}>Explore</Link>
+            <Icons.ChevronRight />
+            <span style={{ color: c.green1, fontWeight: "600" }}>Milwaukee Bars</span>
+          </nav>
+        </div>
+
         {/* Hero */}
-        <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #0d1f1a 100%)`, padding: "80px 24px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}></div>
+        <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #0d1f1a 100%)`, padding: "60px 24px 80px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.05, backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}></div>
           <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px" }}>THE COMPLETE GUIDE</p>
+            <p style={{ color: c.orange, fontSize: "13px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>The Complete Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "900", marginBottom: "20px", lineHeight: 1.1 }}>
               Milwaukee Bars
             </h1>
-            <p style={{ color: c.beige, fontSize: "20px", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto 24px" }}>
+            <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto 32px" }}>
               More bars per capita than almost any city in America. From century-old dive bars to craft cocktail lounges, find your perfect Milwaukee watering hole.
             </p>
+
+            {/* Search Bar */}
+            <div style={{ maxWidth: "500px", margin: "0 auto 24px", position: "relative" }}>
+              <div style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "#999" }}>
+                <Icons.Search />
+              </div>
+              <input
+                type="text"
+                placeholder="Search bars, neighborhoods, or vibes..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Search bars"
+                style={{
+                  width: "100%",
+                  padding: "16px 16px 16px 48px",
+                  fontSize: "16px",
+                  border: "none",
+                  borderRadius: "30px",
+                  outline: "none",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                  fontFamily: "inherit",
+                }}
+              />
+            </div>
+
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="#categories" style={{ backgroundColor: c.orange, color: "#fff", padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>Browse by Type</a>
-              <a href="#trails" style={{ backgroundColor: "transparent", color: c.cream, padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", border: `2px solid ${c.cream}` }}>Bar Trails</a>
-              <a href="#neighborhoods" style={{ backgroundColor: "transparent", color: c.cream, padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", border: `2px solid ${c.cream}` }}>By Neighborhood</a>
+              <a href="#categories" style={{ backgroundColor: c.orange, color: "#fff", padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseEnter={(e) => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 4px 12px rgba(244,162,97,0.4)"; }} onMouseLeave={(e) => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>Browse by Type</a>
+              <a href="#trails" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", border: `2px solid rgba(255,255,255,0.3)`, cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.2)"} onMouseLeave={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.1)"}>Bar Trails</a>
+              <a href="#neighborhoods" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", border: `2px solid rgba(255,255,255,0.3)`, cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.2)"} onMouseLeave={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.1)"}>By Neighborhood</a>
             </div>
           </div>
         </header>
 
-        <main style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px" }}>
+        <main id="main-content" style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px" }}>
 
           {/* Quick Stats */}
-          <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px", marginBottom: "60px" }}>
+          <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "16px", marginBottom: "60px" }}>
             {[
               { stat: "500+", label: "Bars in Metro MKE" },
               { stat: "2:30 AM", label: "Bar Time (Weekends)" },
               { stat: "6", label: "Bar Categories" },
               { stat: "7", label: "Neighborhoods" },
             ].map((item, i) => (
-              <div key={i} style={{ backgroundColor: "#fff", padding: "24px", borderRadius: "12px", textAlign: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
-                <p style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "4px" }}>{item.stat}</p>
-                <p style={{ fontSize: "14px", color: c.tan, fontWeight: "600" }}>{item.label}</p>
+              <div key={i} style={{ backgroundColor: "#fff", padding: "24px 16px", borderRadius: "12px", textAlign: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
+                <p style={{ fontSize: "28px", fontWeight: "900", color: c.green1, marginBottom: "4px" }}>{item.stat}</p>
+                <p style={{ fontSize: "13px", color: c.tan, fontWeight: "600" }}>{item.label}</p>
               </div>
             ))}
           </section>
 
-          {/* Categories */}
-          <section id="categories" style={{ marginBottom: "80px" }}>
-            <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "36px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Find Your Kind of Bar</h2>
-              <p style={{ color: "#666", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>From cash-only dive bars to craft cocktail lounges, explore Milwaukee's diverse drinking scene.</p>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
-              {BAR_CATEGORIES.map((cat) => (
-                <div key={cat.id} style={{ backgroundColor: "#fff", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 16px rgba(0,0,0,0.08)", transition: "transform 0.2s", cursor: "pointer" }}>
-                  <div style={{ backgroundColor: cat.color, padding: "24px", color: "#fff" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
-                      <span style={{ fontSize: "32px" }}>{cat.icon}</span>
-                      <h3 style={{ fontSize: "24px", fontWeight: "800", margin: 0 }}>{cat.title}</h3>
-                    </div>
-                    <p style={{ fontSize: "15px", opacity: 0.9, margin: 0 }}>{cat.tagline}</p>
-                  </div>
-                  <div style={{ padding: "24px" }}>
-                    <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "20px" }}>{cat.description}</p>
-                    <div style={{ marginBottom: "20px" }}>
-                      {cat.featured.map((bar, i) => (
-                        <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "12px 0", borderBottom: i < cat.featured.length - 1 ? `1px solid ${c.beige}` : "none" }}>
-                          <div>
-                            <p style={{ fontWeight: "700", color: c.green1, marginBottom: "2px", fontSize: "15px" }}>{bar.name}</p>
-                            <p style={{ fontSize: "13px", color: "#777", margin: 0 }}>{bar.claim}</p>
-                          </div>
-                          <span style={{ fontSize: "12px", backgroundColor: c.beige, padding: "4px 10px", borderRadius: "20px", color: c.green2, fontWeight: "600", whiteSpace: "nowrap" }}>{bar.neighborhood}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <Link href={cat.link} style={{ display: "block", textAlign: "center", backgroundColor: c.green1, color: "#fff", padding: "14px", borderRadius: "8px", textDecoration: "none", fontWeight: "700", fontSize: "14px" }}>
-                      {cat.linkText} →
-                    </Link>
-                  </div>
-                </div>
+          {/* Filter Pills */}
+          <section id="categories" style={{ marginBottom: "32px" }}>
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", justifyContent: "center" }}>
+              {FILTER_OPTIONS.map((option) => (
+                <button
+                  key={option.id}
+                  onClick={() => setActiveFilter(option.id)}
+                  style={{
+                    padding: "10px 20px",
+                    borderRadius: "25px",
+                    border: "none",
+                    backgroundColor: activeFilter === option.id ? c.green1 : "#fff",
+                    color: activeFilter === option.id ? "#fff" : c.green1,
+                    fontWeight: "600",
+                    fontSize: "14px",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                    fontFamily: "inherit",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeFilter !== option.id) {
+                      e.target.style.backgroundColor = c.beige;
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeFilter !== option.id) {
+                      e.target.style.backgroundColor = "#fff";
+                    }
+                  }}
+                >
+                  {option.label}
+                </button>
               ))}
             </div>
+          </section>
+
+          {/* Categories */}
+          <section style={{ marginBottom: "80px" }}>
+            <div style={{ textAlign: "center", marginBottom: "40px" }}>
+              <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Find Your Kind of Bar</h2>
+              <p style={{ color: "#666", fontSize: "17px", maxWidth: "600px", margin: "0 auto" }}>From cash-only dive bars to craft cocktail lounges, explore Milwaukee's diverse drinking scene.</p>
+            </div>
+
+            {filteredCategories.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "60px 20px", backgroundColor: "#fff", borderRadius: "16px" }}>
+                <p style={{ color: "#666", fontSize: "18px" }}>No bars found matching "{searchQuery}"</p>
+                <button onClick={() => { setSearchQuery(""); setActiveFilter("all"); }} style={{ marginTop: "16px", padding: "12px 24px", backgroundColor: c.orange, color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: "600", fontFamily: "inherit" }}>
+                  Clear Search
+                </button>
+              </div>
+            ) : (
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "24px" }}>
+                {filteredCategories.map((cat) => (
+                  <article
+                    key={cat.id}
+                    style={{
+                      backgroundColor: "#fff",
+                      borderRadius: "16px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                      transition: "transform 0.2s, box-shadow 0.2s",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)";
+                      e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.12)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)";
+                    }}
+                  >
+                    <div style={{ backgroundColor: cat.color, padding: "24px", color: "#fff" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
+                        <IconComponent name={cat.icon} />
+                        <h3 style={{ fontSize: "22px", fontWeight: "800", margin: 0 }}>{cat.title}</h3>
+                      </div>
+                      <p style={{ fontSize: "14px", opacity: 0.9, margin: 0 }}>{cat.tagline}</p>
+                    </div>
+                    <div style={{ padding: "24px" }}>
+                      <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.7, marginBottom: "20px" }}>{cat.description}</p>
+                      <div style={{ marginBottom: "20px" }}>
+                        {cat.featured.map((bar, i) => (
+                          <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "12px 0", borderBottom: i < cat.featured.length - 1 ? `1px solid ${c.beige}` : "none" }}>
+                            <div>
+                              <p style={{ fontWeight: "700", color: c.green1, marginBottom: "2px", fontSize: "14px" }}>{bar.name}</p>
+                              <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>{bar.claim}</p>
+                            </div>
+                            <span style={{ fontSize: "11px", backgroundColor: c.beige, padding: "4px 10px", borderRadius: "20px", color: c.green2, fontWeight: "600", whiteSpace: "nowrap" }}>{bar.neighborhood}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <Link
+                        href={cat.link}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          backgroundColor: c.green1,
+                          color: "#fff",
+                          padding: "14px",
+                          borderRadius: "8px",
+                          textDecoration: "none",
+                          fontWeight: "700",
+                          fontSize: "14px",
+                          cursor: "pointer",
+                          transition: "background-color 0.2s",
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = c.green2}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = c.green1}
+                      >
+                        {cat.linkText}
+                        <Icons.ArrowRight />
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* Bar Trails */}
           <section id="trails" style={{ marginBottom: "80px" }}>
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "36px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Milwaukee Bar Trails</h2>
-              <p style={{ color: "#666", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Curated crawls for the perfect night out. Follow the trail, hit every stop, experience Milwaukee.</p>
+              <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Milwaukee Bar Trails</h2>
+              <p style={{ color: "#666", fontSize: "17px", maxWidth: "600px", margin: "0 auto" }}>Curated crawls for the perfect night out. Follow the trail, hit every stop, experience Milwaukee.</p>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
               {BAR_TRAILS.map((trail) => (
-                <div key={trail.id} style={{ backgroundColor: "#fff", borderRadius: "16px", padding: "28px", boxShadow: "0 4px 16px rgba(0,0,0,0.08)" }}>
+                <article
+                  key={trail.id}
+                  style={{
+                    backgroundColor: "#fff",
+                    borderRadius: "16px",
+                    padding: "28px",
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                    transition: "transform 0.2s, box-shadow 0.2s",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.12)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)";
+                  }}
+                >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
-                    <h3 style={{ fontSize: "20px", fontWeight: "800", color: c.green1, margin: 0, lineHeight: 1.3 }}>{trail.title}</h3>
+                    <h3 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, margin: 0, lineHeight: 1.3 }}>{trail.title}</h3>
                     <span style={{ backgroundColor: c.orange, color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700", whiteSpace: "nowrap" }}>{trail.stops} stops</span>
                   </div>
                   <p style={{ color: "#666", fontSize: "14px", marginBottom: "16px" }}>{trail.description}</p>
@@ -370,11 +681,11 @@ export default function MilwaukeeBars() {
                       </div>
                     ))}
                   </div>
-                  <div style={{ display: "flex", gap: "12px", fontSize: "13px", color: "#777" }}>
-                    <span>⏱ {trail.duration}</span>
-                    <span>📍 {trail.neighborhoods.join(", ")}</span>
+                  <div style={{ display: "flex", gap: "16px", fontSize: "13px", color: "#777" }}>
+                    <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Icons.Clock /> {trail.duration}</span>
+                    <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Icons.MapPin /> {trail.neighborhoods.join(", ")}</span>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </section>
@@ -382,28 +693,47 @@ export default function MilwaukeeBars() {
           {/* Neighborhoods */}
           <section id="neighborhoods" style={{ marginBottom: "80px" }}>
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <h2 style={{ fontSize: "36px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Bars by Neighborhood</h2>
-              <p style={{ color: "#666", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Each Milwaukee neighborhood has its own bar personality. Find yours.</p>
+              <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>Bars by Neighborhood</h2>
+              <p style={{ color: "#666", fontSize: "17px", maxWidth: "600px", margin: "0 auto" }}>Each Milwaukee neighborhood has its own bar personality. Find yours.</p>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
               {NEIGHBORHOODS.map((hood) => (
-                <div key={hood.name} style={{ backgroundColor: "#fff", borderRadius: "12px", padding: "24px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", borderLeft: `4px solid ${c.orange}` }}>
+                <article
+                  key={hood.name}
+                  style={{
+                    backgroundColor: "#fff",
+                    borderRadius: "12px",
+                    padding: "24px",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                    borderLeft: `4px solid ${c.orange}`,
+                    cursor: "pointer",
+                    transition: "transform 0.2s, box-shadow 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)";
+                  }}
+                >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-                    <h3 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, margin: 0 }}>{hood.name}</h3>
+                    <h3 style={{ fontSize: "17px", fontWeight: "800", color: c.green1, margin: 0 }}>{hood.name}</h3>
                     <span style={{ fontSize: "13px", color: c.orange, fontWeight: "700" }}>{hood.barCount} bars</span>
                   </div>
-                  <p style={{ fontSize: "14px", color: c.green2, fontWeight: "600", marginBottom: "8px" }}>{hood.vibe}</p>
+                  <p style={{ fontSize: "13px", color: c.green2, fontWeight: "600", marginBottom: "8px" }}>{hood.vibe}</p>
                   <p style={{ fontSize: "14px", color: "#666", lineHeight: 1.6, margin: 0 }}>{hood.character}</p>
-                </div>
+                </article>
               ))}
             </div>
           </section>
 
           {/* Know Before You Go */}
           <section style={{ backgroundColor: c.green1, borderRadius: "20px", padding: "48px", marginBottom: "80px" }}>
-            <h2 style={{ color: c.yellow, fontSize: "28px", fontWeight: "900", marginBottom: "32px", textAlign: "center" }}>Milwaukee Bar Basics</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "24px" }}>
+            <h2 style={{ color: c.yellow, fontSize: "26px", fontWeight: "900", marginBottom: "32px", textAlign: "center" }}>Milwaukee Bar Basics</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "24px" }}>
               {[
                 { title: "Bar Time: 2:30 AM", desc: "Wisconsin bars can serve until 2:30 AM on weekends. Milwaukee takes full advantage." },
                 { title: "Cash is King", desc: "Many dive bars are cash-only. Hit the ATM before your crawl. Tipping well is expected." },
@@ -411,7 +741,7 @@ export default function MilwaukeeBars() {
                 { title: "Friday Fish Fry", desc: "A Wisconsin tradition. Many bars serve fish fry on Fridays—some are legendary." },
               ].map((item, i) => (
                 <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "12px", padding: "20px" }}>
-                  <h3 style={{ color: c.orange, fontSize: "16px", fontWeight: "700", marginBottom: "8px" }}>{item.title}</h3>
+                  <h3 style={{ color: c.orange, fontSize: "15px", fontWeight: "700", marginBottom: "8px" }}>{item.title}</h3>
                   <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
                 </div>
               ))}
@@ -420,28 +750,52 @@ export default function MilwaukeeBars() {
 
           {/* FAQ */}
           <section style={{ marginBottom: "60px" }}>
-            <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: "28px", fontWeight: "900", color: c.green1, marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
             <div style={{ maxWidth: "800px", margin: "0 auto" }}>
               {faqs.map((faq, i) => (
-                <div key={i} style={{ marginBottom: "16px", backgroundColor: "#fff", borderRadius: "12px", padding: "24px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
-                  <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "700", marginBottom: "12px" }}>{faq.question}</h3>
+                <article key={i} style={{ marginBottom: "16px", backgroundColor: "#fff", borderRadius: "12px", padding: "24px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
+                  <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "12px" }}>{faq.question}</h3>
                   <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>{faq.answer}</p>
-                </div>
+                </article>
               ))}
             </div>
           </section>
 
           {/* More Guides */}
           <section style={{ marginBottom: "60px" }}>
-            <h2 style={{ fontSize: "24px", fontWeight: "900", color: c.green1, marginBottom: "20px" }}>More Milwaukee Guides</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "900", color: c.green1, marginBottom: "20px" }}>More Milwaukee Guides</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "12px" }}>
               {[
                 { title: "Best Restaurants", href: "/best-restaurants-milwaukee", color: c.orange },
                 { title: "Coffee Shops", href: "/milwaukee-coffee-shops", color: c.green2 },
                 { title: "Date Night Ideas", href: "/milwaukee-date-ideas", color: "#9B59B6" },
                 { title: "Happy Hour Deals", href: "/best-happy-hour-milwaukee", color: "#E74C3C" },
               ].map((guide, i) => (
-                <Link key={i} href={guide.href} style={{ backgroundColor: guide.color, color: "#fff", padding: "20px", borderRadius: "12px", textDecoration: "none", fontWeight: "700", textAlign: "center", display: "block" }}>
+                <Link
+                  key={i}
+                  href={guide.href}
+                  style={{
+                    backgroundColor: guide.color,
+                    color: "#fff",
+                    padding: "20px 16px",
+                    borderRadius: "12px",
+                    textDecoration: "none",
+                    fontWeight: "700",
+                    textAlign: "center",
+                    display: "block",
+                    cursor: "pointer",
+                    transition: "transform 0.2s, box-shadow 0.2s",
+                    fontSize: "14px",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
                   {guide.title}
                 </Link>
               ))}
@@ -450,10 +804,35 @@ export default function MilwaukeeBars() {
 
           {/* Newsletter CTA */}
           <section style={{ backgroundColor: "#fff", borderRadius: "20px", padding: "48px", textAlign: "center", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "12px" }}>Get the Weekly Pour</h2>
+            <h2 style={{ color: c.green1, fontSize: "26px", fontWeight: "900", marginBottom: "12px" }}>Get the Weekly Pour</h2>
             <p style={{ color: "#666", fontSize: "16px", marginBottom: "24px", maxWidth: "500px", margin: "0 auto 24px" }}>New bar openings, drink specials, and insider tips delivered every Wednesday.</p>
-            <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.green1, color: c.yellow, padding: "16px 36px", borderRadius: "30px", fontWeight: "700", textDecoration: "none", fontSize: "16px" }}>
-              Subscribe Free →
+            <Link
+              href="/newsletter"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                backgroundColor: c.green1,
+                color: c.yellow,
+                padding: "16px 36px",
+                borderRadius: "30px",
+                fontWeight: "700",
+                textDecoration: "none",
+                fontSize: "16px",
+                cursor: "pointer",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 4px 16px rgba(26,61,52,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              Subscribe Free
+              <Icons.ArrowRight />
             </Link>
           </section>
         </main>
@@ -462,9 +841,9 @@ export default function MilwaukeeBars() {
         <footer style={{ backgroundColor: c.green1, padding: "48px 24px", textAlign: "center" }}>
           <p style={{ color: c.beige, fontSize: "14px", marginBottom: "16px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
           <div style={{ display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/about" style={{ color: c.beige, textDecoration: "none", fontSize: "14px" }}>About</Link>
-            <Link href="/newsletter" style={{ color: c.beige, textDecoration: "none", fontSize: "14px" }}>Newsletter</Link>
-            <Link href="/privacy" style={{ color: c.beige, textDecoration: "none", fontSize: "14px" }}>Privacy</Link>
+            <Link href="/about" style={{ color: c.beige, textDecoration: "none", fontSize: "14px", cursor: "pointer" }}>About</Link>
+            <Link href="/newsletter" style={{ color: c.beige, textDecoration: "none", fontSize: "14px", cursor: "pointer" }}>Newsletter</Link>
+            <Link href="/privacy" style={{ color: c.beige, textDecoration: "none", fontSize: "14px", cursor: "pointer" }}>Privacy</Link>
           </div>
         </footer>
       </div>
