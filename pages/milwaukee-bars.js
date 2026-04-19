@@ -555,6 +555,9 @@ export default function MilwaukeeBars() {
                   outline: "none",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
                   fontFamily: "inherit",
+                  backgroundColor: "#ffffff",
+                  color: "#1a3d34",
+                  boxSizing: "border-box",
                 }}
               />
             </div>
