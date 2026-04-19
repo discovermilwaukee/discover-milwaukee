@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -312,28 +312,24 @@ export default function MilwaukeeBars() {
     return filtered;
   }, [searchQuery, activeFilter]);
 
-  // Get individual bar search results - DEBUG VERSION
-  const searchResults = useMemo(() => {
-    console.log("searchResults useMemo called, query:", searchQuery);
+  // Get individual bar search results - using useState for proper re-renders
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    console.log("useEffect running, searchQuery:", searchQuery);
+
     if (!searchQuery.trim()) {
-      console.log("Empty query, returning []");
-      return [];
+      setSearchResults([]);
+      return;
     }
 
     const query = searchQuery.toLowerCase();
     const results = [];
 
-    console.log("BAR_CATEGORIES length:", BAR_CATEGORIES?.length);
-    console.log("First category:", BAR_CATEGORIES?.[0]?.title);
-
     BAR_CATEGORIES.forEach(cat => {
       cat.featured.forEach(bar => {
-        const nameMatch = bar.name.toLowerCase().includes(query);
-        if (nameMatch) {
-          console.log("MATCH FOUND:", bar.name);
-        }
         if (
-          nameMatch ||
+          bar.name.toLowerCase().includes(query) ||
           bar.neighborhood.toLowerCase().includes(query) ||
           bar.claim.toLowerCase().includes(query) ||
           bar.vibe.toLowerCase().includes(query)
@@ -353,7 +349,6 @@ export default function MilwaukeeBars() {
     BAR_TRAILS.forEach(trail => {
       trail.bars.forEach(bar => {
         if (bar.name.toLowerCase().includes(query)) {
-          // Avoid duplicates
           if (!results.find(r => r.name === bar.name)) {
             results.push({
               name: bar.name,
@@ -370,8 +365,8 @@ export default function MilwaukeeBars() {
       });
     });
 
-    console.log("Final results count:", results.length);
-    return results;
+    console.log("Setting searchResults to", results.length, "items");
+    setSearchResults(results);
   }, [searchQuery]);
 
   const isSearching = searchQuery.trim().length > 0;
