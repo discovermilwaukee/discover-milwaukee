@@ -575,7 +575,7 @@ export default function MilwaukeeBars() {
                 fontSize: "12px",
                 fontFamily: "monospace"
               }}>
-                DEBUG: searchQuery = "{searchQuery}" | length = {searchQuery.length}
+                DEBUG: query="{searchQuery}" | isSearching={isSearching ? "YES" : "NO"} | results={searchResults.length}
               </div>
             </div>
 
@@ -700,9 +700,21 @@ export default function MilwaukeeBars() {
             </div>
           </section>
 
+          {/* DEBUG: Always show search status */}
+          <div style={{
+            padding: "16px",
+            marginBottom: "20px",
+            backgroundColor: isSearching ? "#d4edda" : "#f8d7da",
+            border: isSearching ? "2px solid #28a745" : "2px solid #dc3545",
+            borderRadius: "8px",
+            fontFamily: "monospace"
+          }}>
+            SEARCH DEBUG: isSearching={isSearching ? "TRUE" : "FALSE"} | results={searchResults.length} | query="{searchQuery}"
+          </div>
+
           {/* Search Results - shown when actively searching */}
           {isSearching && (
-            <section style={{ marginBottom: "40px" }}>
+            <section style={{ marginBottom: "40px", backgroundColor: "#fffde7", padding: "20px", borderRadius: "12px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
                 <h2 style={{ fontSize: "24px", fontWeight: "800", color: c.green1, margin: 0 }}>
                   {searchResults.length > 0
