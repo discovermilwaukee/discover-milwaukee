@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -52,11 +52,6 @@ const Icons = {
   MapPin: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
-    </svg>
-  ),
-  Search: () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
     </svg>
   ),
   ChevronRight: () => (
@@ -286,90 +281,12 @@ const FILTER_OPTIONS = [
 ];
 
 export default function MilwaukeeBars() {
-  const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
-  // Filter categories based on search and filter
-  const filteredCategories = useMemo(() => {
-    let filtered = BAR_CATEGORIES;
-
-    if (activeFilter !== "all") {
-      filtered = filtered.filter(cat => cat.id === activeFilter);
-    }
-
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(cat =>
-        cat.title.toLowerCase().includes(query) ||
-        cat.description.toLowerCase().includes(query) ||
-        cat.featured.some(bar =>
-          bar.name.toLowerCase().includes(query) ||
-          bar.neighborhood.toLowerCase().includes(query)
-        )
-      );
-    }
-
-    return filtered;
-  }, [searchQuery, activeFilter]);
-
-  // Get individual bar search results - using useState for proper re-renders
-  const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    console.log("useEffect running, searchQuery:", searchQuery);
-
-    if (!searchQuery.trim()) {
-      setSearchResults([]);
-      return;
-    }
-
-    const query = searchQuery.toLowerCase();
-    const results = [];
-
-    BAR_CATEGORIES.forEach(cat => {
-      cat.featured.forEach(bar => {
-        if (
-          bar.name.toLowerCase().includes(query) ||
-          bar.neighborhood.toLowerCase().includes(query) ||
-          bar.claim.toLowerCase().includes(query) ||
-          bar.vibe.toLowerCase().includes(query)
-        ) {
-          results.push({
-            ...bar,
-            category: cat.title,
-            categoryColor: cat.color,
-            categoryLink: cat.link,
-            categoryIcon: cat.icon,
-          });
-        }
-      });
-    });
-
-    // Also search bar trails
-    BAR_TRAILS.forEach(trail => {
-      trail.bars.forEach(bar => {
-        if (bar.name.toLowerCase().includes(query)) {
-          if (!results.find(r => r.name === bar.name)) {
-            results.push({
-              name: bar.name,
-              neighborhood: trail.neighborhoods[0] || "Milwaukee",
-              claim: bar.type,
-              vibe: trail.title,
-              category: "Bar Trail",
-              categoryColor: c.orange,
-              categoryLink: "#trails",
-              categoryIcon: "MapPin",
-            });
-          }
-        }
-      });
-    });
-
-    console.log("Setting searchResults to", results.length, "items");
-    setSearchResults(results);
-  }, [searchQuery]);
-
-  const isSearching = searchQuery.trim().length > 0;
+  // Filter categories based on active filter
+  const filteredCategories = activeFilter === "all"
+    ? BAR_CATEGORIES
+    : BAR_CATEGORIES.filter(cat => cat.id === activeFilter);
 
   // Schema markup
   const articleSchema = {
@@ -539,52 +456,9 @@ export default function MilwaukeeBars() {
             <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto 32px" }}>
               More bars per capita than almost any city in America. From century-old dive bars to craft cocktail lounges, find your perfect Milwaukee watering hole.
             </p>
-            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, marginBottom: "24px" }}>
+            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, marginBottom: "32px" }}>
               Last Updated: April 2026
             </p>
-
-            {/* Search Bar */}
-            <div style={{ maxWidth: "500px", margin: "0 auto 24px", position: "relative" }}>
-              <div style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "#999" }}>
-                <Icons.Search />
-              </div>
-              <input
-                type="text"
-                placeholder="Search bars, neighborhoods, or vibes..."
-                value={searchQuery}
-                onChange={(e) => {
-                  console.log("Input changed:", e.target.value);
-                  setSearchQuery(e.target.value);
-                }}
-                onFocus={() => console.log("Input focused")}
-                aria-label="Search bars"
-                style={{
-                  width: "100%",
-                  padding: "16px 16px 16px 48px",
-                  fontSize: "16px",
-                  border: "none",
-                  borderRadius: "30px",
-                  outline: "none",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-                  fontFamily: "inherit",
-                  backgroundColor: "#ffffff",
-                  color: "#1a3d34",
-                  boxSizing: "border-box",
-                }}
-              />
-              {/* DEBUG: Remove after fixing */}
-              <div style={{
-                marginTop: "8px",
-                padding: "8px 16px",
-                backgroundColor: "rgba(255,0,0,0.8)",
-                color: "#fff",
-                borderRadius: "8px",
-                fontSize: "12px",
-                fontFamily: "monospace"
-              }}>
-                DEBUG: query="{searchQuery}" | isSearching={isSearching ? "YES" : "NO"} | results={searchResults.length}
-              </div>
-            </div>
 
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
               <a href="#categories" style={{ backgroundColor: c.orange, color: "#fff", padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseEnter={(e) => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 4px 12px rgba(244,162,97,0.4)"; }} onMouseLeave={(e) => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>Browse by Type</a>
@@ -707,121 +581,19 @@ export default function MilwaukeeBars() {
             </div>
           </section>
 
-          {/* DEBUG: Always show search status */}
-          <div style={{
-            padding: "16px",
-            marginBottom: "20px",
-            backgroundColor: isSearching ? "#d4edda" : "#f8d7da",
-            border: isSearching ? "2px solid #28a745" : "2px solid #dc3545",
-            borderRadius: "8px",
-            fontFamily: "monospace"
-          }}>
-            SEARCH DEBUG: isSearching={isSearching ? "TRUE" : "FALSE"} | results={searchResults.length} | query="{searchQuery}"
-          </div>
-
-          {/* Search Results - shown when actively searching */}
-          {isSearching && (
-            <section style={{ marginBottom: "40px", backgroundColor: "#fffde7", padding: "20px", borderRadius: "12px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
-                <h2 style={{ fontSize: "24px", fontWeight: "800", color: c.green1, margin: 0 }}>
-                  {searchResults.length > 0
-                    ? `Found ${searchResults.length} bar${searchResults.length !== 1 ? 's' : ''} for "${searchQuery}"`
-                    : `No bars found for "${searchQuery}"`
-                  }
-                </h2>
-                <button
-                  onClick={() => { setSearchQuery(""); setActiveFilter("all"); }}
-                  style={{
-                    padding: "10px 20px",
-                    backgroundColor: c.beige,
-                    color: c.green1,
-                    border: "none",
-                    borderRadius: "8px",
-                    cursor: "pointer",
-                    fontWeight: "600",
-                    fontFamily: "inherit",
-                    transition: "background-color 0.2s",
-                  }}
-                  onMouseEnter={(e) => e.target.style.backgroundColor = "#ddd"}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = c.beige}
-                >
-                  Clear Search
-                </button>
-              </div>
-
-              {searchResults.length > 0 ? (
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
-                  {searchResults.map((bar, i) => (
-                    <Link
-                      key={`${bar.name}-${i}`}
-                      href={bar.categoryLink}
-                      style={{
-                        backgroundColor: "#fff",
-                        borderRadius: "12px",
-                        padding: "20px",
-                        boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
-                        textDecoration: "none",
-                        display: "block",
-                        cursor: "pointer",
-                        transition: "transform 0.2s, box-shadow 0.2s",
-                        borderLeft: `4px solid ${bar.categoryColor}`,
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = "translateY(-2px)";
-                        e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.12)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.08)";
-                      }}
-                    >
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
-                        <h3 style={{ fontSize: "17px", fontWeight: "700", color: c.green1, margin: 0 }}>{bar.name}</h3>
-                        <span style={{
-                          fontSize: "11px",
-                          backgroundColor: bar.categoryColor,
-                          color: "#fff",
-                          padding: "4px 10px",
-                          borderRadius: "20px",
-                          fontWeight: "600",
-                          whiteSpace: "nowrap",
-                        }}>
-                          {bar.category}
-                        </span>
-                      </div>
-                      <p style={{ fontSize: "14px", color: "#666", marginBottom: "8px", lineHeight: 1.5 }}>{bar.claim}</p>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "13px", color: c.tan, fontWeight: "600" }}>
-                          <Icons.MapPin /> {bar.neighborhood}
-                        </span>
-                        <span style={{ fontSize: "12px", color: "#999", fontStyle: "italic" }}>{bar.vibe}</span>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <div style={{ textAlign: "center", padding: "48px 20px", backgroundColor: "#fff", borderRadius: "16px" }}>
-                  <p style={{ color: "#666", fontSize: "16px", marginBottom: "16px" }}>
-                    Try searching for a bar name, neighborhood (like "Walker's Point"), or vibe (like "dive" or "cocktail").
-                  </p>
-                </div>
-              )}
-            </section>
-          )}
-
           {/* Categories */}
           <section style={{ marginBottom: "80px" }}>
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
               <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>
-                {isSearching ? "Or Browse by Category" : "Find Your Kind of Bar"}
+                Find Your Kind of Bar
               </h2>
               <p style={{ color: "#666", fontSize: "17px", maxWidth: "600px", margin: "0 auto" }}>From cash-only dive bars to craft cocktail lounges, explore Milwaukee's diverse drinking scene.</p>
             </div>
 
-            {filteredCategories.length === 0 && !isSearching ? (
+            {filteredCategories.length === 0 ? (
               <div style={{ textAlign: "center", padding: "60px 20px", backgroundColor: "#fff", borderRadius: "16px" }}>
                 <p style={{ color: "#666", fontSize: "18px" }}>No categories match the current filter.</p>
-                <button onClick={() => { setSearchQuery(""); setActiveFilter("all"); }} style={{ marginTop: "16px", padding: "12px 24px", backgroundColor: c.orange, color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: "600", fontFamily: "inherit" }}>
+                <button onClick={() => setActiveFilter("all")} style={{ marginTop: "16px", padding: "12px 24px", backgroundColor: c.orange, color: "#fff", border: "none", borderRadius: "8px", cursor: "pointer", fontWeight: "600", fontFamily: "inherit" }}>
                   Show All Categories
                 </button>
               </div>
