@@ -455,14 +455,32 @@ export default function MilwaukeeBars() {
 
         {/* Hero */}
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #0d1f1a 100%)`, padding: "60px 24px 80px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.05, backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}></div>
-          <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative" }}>
+          {/* SEO-optimized hero image - visually integrated but crawlable */}
+          <img
+            src="/images/milwaukee-bars-nightlife.jpg"
+            alt="Milwaukee bars and nightlife scene featuring historic taverns, craft cocktail lounges, and vibrant neighborhood bars"
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              opacity: 0.15,
+              top: 0,
+              left: 0,
+              zIndex: 0,
+            }}
+          />
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.05, backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")", zIndex: 1 }}></div>
+          <div style={{ maxWidth: "900px", margin: "0 auto", position: "relative", zIndex: 1 }}>
             <p style={{ color: c.orange, fontSize: "13px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>The Complete Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "900", marginBottom: "20px", lineHeight: 1.1 }}>
               Milwaukee Bars
             </h1>
             <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto 32px" }}>
               More bars per capita than almost any city in America. From century-old dive bars to craft cocktail lounges, find your perfect Milwaukee watering hole.
+            </p>
+            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, marginBottom: "24px" }}>
+              Last Updated: April 2026
             </p>
 
             {/* Search Bar */}
@@ -512,6 +530,65 @@ export default function MilwaukeeBars() {
                 <p style={{ fontSize: "13px", color: c.tan, fontWeight: "600" }}>{item.label}</p>
               </div>
             ))}
+          </section>
+
+          {/* Neighborhood Map Visual */}
+          <section style={{ marginBottom: "60px" }}>
+            <div style={{ textAlign: "center", marginBottom: "24px" }}>
+              <h2 style={{ fontSize: "24px", fontWeight: "800", color: c.green1, marginBottom: "8px" }}>Milwaukee Bar Districts</h2>
+              <p style={{ color: "#666", fontSize: "15px" }}>Tap a neighborhood to explore</p>
+            </div>
+            <div style={{
+              position: "relative",
+              backgroundColor: "#fff",
+              borderRadius: "16px",
+              padding: "32px",
+              boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+              overflow: "hidden"
+            }}>
+              {/* Simplified visual map grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", maxWidth: "600px", margin: "0 auto" }}>
+                {[
+                  { name: "Riverwest", position: "top-left", bars: "10+", color: "#8B4513" },
+                  { name: "East Side", position: "top-center", bars: "20+", color: "#6B5B95" },
+                  { name: "Brady Street", position: "top-right", bars: "15+", color: "#F7786B" },
+                  { name: "Downtown", position: "middle-left", bars: "20+", color: "#34A853" },
+                  { name: "Third Ward", position: "middle-center", bars: "15+", color: "#DAA520" },
+                  { name: "Walker's Point", position: "middle-right", bars: "30+", color: "#FF6B35" },
+                  { name: "Bay View", position: "bottom", bars: "25+", color: "#4A90A4" },
+                ].map((hood, i) => (
+                  <a
+                    key={hood.name}
+                    href="#neighborhoods"
+                    style={{
+                      backgroundColor: hood.color,
+                      color: "#fff",
+                      padding: "20px 16px",
+                      borderRadius: "12px",
+                      textAlign: "center",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                      transition: "transform 0.2s, box-shadow 0.2s",
+                      gridColumn: hood.name === "Bay View" ? "2" : "auto",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.05)";
+                      e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                  >
+                    <p style={{ fontWeight: "700", fontSize: "14px", marginBottom: "4px" }}>{hood.name}</p>
+                    <p style={{ fontSize: "12px", opacity: 0.9, margin: 0 }}>{hood.bars} bars</p>
+                  </a>
+                ))}
+              </div>
+              <p style={{ textAlign: "center", marginTop: "20px", fontSize: "13px", color: "#888" }}>
+                Click any district to jump to neighborhood details below
+              </p>
+            </div>
           </section>
 
           {/* Filter Pills */}
