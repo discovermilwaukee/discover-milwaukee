@@ -1,0 +1,25 @@
+DISCOVER MILWAUKEE — COMPLETE PRODUCTION BASELINE (revised capture)
+Captured:        2026-05-18 (America/Chicago)
+Live domain:     https://www.discover-milwaukee.com
+Production dpl:  dpl_3WxSNZJbEJWHTjGbvfyJdJVv2s92 (Vercel, prod, created 2026-05-02)
+
+THE BIG FACT
+  Live working pages:        80 (HTTP 200)
+  Reproducible from GitHub:  ~61  (main @ fdf951c, 2026-04-19)
+  LIVE-ONLY, NO SOURCE:      19 working pages (May-2026 guides) exist ONLY as
+                             deployed build output — not in GitHub, not Downloads.
+                             Captured here as rendered HTML (only copy that exists).
+  BROKEN: /best-wings-milwaukee is in sitemap.xml but returns 404 (pre-existing SEO bug).
+
+CONTENTS
+  pages-html/        80 rendered pages (every live route, sitemap ∪ repo)
+  PAGE-STATUS.tsv    route / HTTP code / source-status (repo vs LIVE-ONLY)
+  seo/               live sitemap.xml (81 <loc>), robots.txt, webmanifest, og-image
+  seo-inventory.tsv  per-page title/meta/canonical/JSON-LD (61-page pass; superseded by PAGE-STATUS)
+  MANIFEST.sha       sha1 of every captured file
+
+SOURCE-OF-TRUTH REALITY
+  GitHub main is NOT the complete source (missing 19 pages). The only complete
+  artifact is the Vercel deployment dpl_3WxSNZJbEJWHTjGbvfyJdJVv2s92 itself, plus
+  this rendered-HTML capture. True source likely on the machine that ran the
+  2026-05-02 CLI deploy (location unknown).
