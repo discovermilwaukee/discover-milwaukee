@@ -70,7 +70,7 @@ const PAGE_SEO = {
   },
   partner: {
     title: "Advertise in Milwaukee | Partner With Discover Milwaukee",
-    description: "Reach Milwaukee's most engaged local audience. 22M+ annual views. Sponsored content, event promotion, and brand partnerships for Milwaukee businesses.",
+    description: "Advertise in Milwaukee with Discover Milwaukee: 37M+ yearly views on Instagram, TikTok & Facebook. Sponsored content, influencer marketing & brand partnerships.",
     canonical: "/partner",
     ogType: "website",
   }
