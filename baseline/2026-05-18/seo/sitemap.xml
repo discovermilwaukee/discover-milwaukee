@@ -600,4 +600,27 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- NEW GUIDES - MAY 2026 -->
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/best-golf-milwaukee</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/memorial-day-weekend-milwaukee</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/summer-live-music-milwaukee</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
