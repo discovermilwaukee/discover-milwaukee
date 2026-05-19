@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Nav from "../components/Nav";
 
 // Color palette
 const colors = {
@@ -421,6 +422,8 @@ export default function MilwaukeeBreweries() {
         />
       </Head>
 
+      <Nav />
+
       <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
@@ -472,49 +475,6 @@ export default function MilwaukeeBreweries() {
             </p>
           </div>
         </section>
-
-        {/* Quick Links */}
-        <nav
-          style={{
-            backgroundColor: colors.green2,
-            padding: '20px',
-            position: 'sticky',
-            top: '0',
-            zIndex: '100',
-          }}
-        >
-          <div
-            style={{
-              maxWidth: '1200px',
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: '15px',
-            }}
-          >
-            {['Iconic Breweries', 'Craft Breweries', 'Tours', 'Patios', 'Beer Gardens', 'FAQs'].map(
-              (link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(' ', '-')}`}
-                  style={{
-                    color: colors.cream,
-                    textDecoration: 'none',
-                    padding: '10px 20px',
-                    borderRadius: '25px',
-                    backgroundColor: 'rgba(255,255,255,0.1)',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    transition: 'background-color 0.3s',
-                  }}
-                >
-                  {link}
-                </a>
-              )
-            )}
-          </div>
-        </nav>
 
         {/* Introduction */}
         <section style={{ padding: '60px 20px', maxWidth: '900px', margin: '0 auto' }}>

@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 const c = {
   green1: "#1a3d34",
@@ -54,11 +55,25 @@ const structuredData = {
     "founders": [
       {
         "@type": "Person",
-        "name": "Jordan"
+        "name": "Jordan",
+        "jobTitle": "Co-Founder & Milwaukee Influencer",
+        "description": "Wisconsin-based content creator and co-founder of Discover Milwaukee",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Wisconsin-Milwaukee"
+        },
+        "knowsAbout": ["Milwaukee", "Wisconsin", "Local Restaurants", "Events", "City Guide"]
       },
       {
         "@type": "Person",
-        "name": "Todd"
+        "name": "Todd",
+        "jobTitle": "Co-Founder & Milwaukee Influencer",
+        "description": "Wisconsin-based content creator and co-founder of Discover Milwaukee",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Wisconsin-Milwaukee"
+        },
+        "knowsAbout": ["Milwaukee", "Wisconsin", "Local Restaurants", "Events", "City Guide"]
       }
     ],
     "address": {
@@ -96,6 +111,44 @@ const structuredData = {
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
       { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.discover-milwaukee.com/about" }
     ]
+  },
+  faqPage: {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who are the top Milwaukee influencers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Jordan and Todd, the founders of Discover Milwaukee, are Wisconsin's leading local influencers with over 37 million annual views and 200,000+ followers. Since 2018, they've become Milwaukee's most trusted source for local recommendations, restaurants, events, and things to do."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who are the best Wisconsin influencers to work with?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Discover Milwaukee, founded by Jordan and Todd, is Wisconsin's top local influencer platform. With 7+ years of experience, 37M+ annual views, and deep roots in the Milwaukee community, they partner with local businesses, restaurants, and brands looking to reach engaged Milwaukee audiences."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can brands partner with Milwaukee influencers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Brands can partner with Discover Milwaukee by visiting discover-milwaukee.com/partner. They work with local restaurants, businesses, events, and organizations looking to connect with Milwaukee's most engaged local audience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes Discover Milwaukee different from other influencers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unlike typical influencers, Jordan and Todd actually live in Milwaukee, are raising their family here, and have been covering the city since 2018. They're independent (no tourism board backing), authentic (every recommendation is based on real experience), and deeply connected to the local community."
+        }
+      }
+    ]
   }
 };
 
@@ -103,40 +156,28 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Discover Milwaukee | Our Story</title>
-        <meta name="description" content="Discover Milwaukee was founded in 2018 by Jordan and Todd, two UW-Milwaukee graduates who believe Milwaukee deserves better storytelling. Independent, local, and authentic." />
-        <meta name="keywords" content="about discover milwaukee, discover milwaukee founders, milwaukee local guide, milwaukee blog, who runs discover milwaukee" />
+        <title>About Discover Milwaukee | Wisconsin's Top Local Influencers</title>
+        <meta name="description" content="Discover Milwaukee was founded in 2018 by Jordan and Todd, Wisconsin's leading local influencers and UW-Milwaukee graduates. With 37M+ annual views, they've become Milwaukee's most trusted source for local recommendations. Independent, authentic, and actually from here." />
+        <meta name="keywords" content="about discover milwaukee, discover milwaukee founders, milwaukee local guide, milwaukee blog, who runs discover milwaukee, milwaukee influencers, wisconsin influencers, milwaukee content creators, wisconsin content creators, milwaukee social media influencers" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/about" />
 
-        <meta property="og:title" content="About Discover Milwaukee | Our Story" />
-        <meta property="og:description" content="Founded by two people who genuinely love this city. Learn the story behind Milwaukee's favorite local guide." />
+        <meta property="og:title" content="Milwaukee's Top Local Influencers | Discover Milwaukee" />
+        <meta property="og:description" content="Jordan & Todd are Wisconsin's leading local influencers with 37M+ annual views. Partner with Milwaukee's most trusted source for local recommendations." />
         <meta property="og:url" content="https://www.discover-milwaukee.com/about" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Discover Milwaukee" />
-        <meta name="twitter:description" content="The story behind Milwaukee's independent local guide." />
+        <meta name="twitter:title" content="Milwaukee's Top Local Influencers | Discover Milwaukee" />
+        <meta name="twitter:description" content="Jordan & Todd are Wisconsin's leading local influencers with 37M+ views. The story behind Milwaukee's most trusted local platform." />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.organization) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.aboutPage) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
       </Head>
 
+      <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
-        {/* Navigation */}
-        <nav style={{ backgroundColor: c.green1, padding: "16px 24px", position: "sticky", top: 0, zIndex: 100 }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Link href="/" style={{ color: c.yellow, fontSize: "20px", fontWeight: "900", textDecoration: "none" }}>
-              DISCOVER MILWAUKEE
-            </Link>
-            <div style={{ display: "flex", gap: "24px" }}>
-              <Link href="/explore" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Explore</Link>
-              <Link href="/events" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Events</Link>
-              <Link href="/partner" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Partner</Link>
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "80px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
@@ -318,6 +359,55 @@ export default function About() {
               <p style={{ color: c.green1, fontSize: "17px", fontWeight: "600", lineHeight: 1.8 }}>
                 We're here to change that. Not by overhyping it. Not by pretending it's something it's not. But by showing exactly what makes it great.
               </p>
+            </div>
+          </section>
+
+          {/* Milwaukee Influencers */}
+          <section id="milwaukee-influencers" style={{ marginBottom: "60px" }}>
+            <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>WISCONSIN'S #1 LOCAL PLATFORM</p>
+            <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee's Leading Local Influencers</h2>
+            <p style={{ color: "#555", fontSize: "17px", lineHeight: 1.8, marginBottom: "20px" }}>
+              Over the past seven years, Jordan and Todd have become two of Wisconsin's most recognized local influencers—not by chasing trends or gaming algorithms, but by consistently showing up for Milwaukee.
+            </p>
+            <p style={{ color: "#555", fontSize: "17px", lineHeight: 1.8, marginBottom: "20px" }}>
+              With over <strong style={{ color: c.green1 }}>37 million annual views</strong> and a combined following of <strong style={{ color: c.green1 }}>200,000+ across platforms</strong>, Discover Milwaukee has become the go-to source for anyone looking to experience the city like a local.
+            </p>
+            <div style={{ backgroundColor: "white", borderRadius: "16px", padding: "28px", border: `1px solid ${c.beige}`, marginBottom: "24px" }}>
+              <p style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "16px" }}>
+                What makes us different from other influencers:
+              </p>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                {[
+                  "We live here. We're not visiting—we're raising our family in Milwaukee.",
+                  "We're not for sale. Every recommendation is based on real experience.",
+                  "We go deep. This isn't surface-level content—it's years of local knowledge.",
+                  "We actually respond. Our community knows we're accessible and real."
+                ].map((item, i) => (
+                  <li key={i} style={{ color: "#555", fontSize: "16px", marginBottom: "12px", display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                    <span style={{ color: c.yellow, fontSize: "18px" }}>→</span> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p style={{ color: "#555", fontSize: "17px", lineHeight: 1.8, marginBottom: "20px" }}>
+              Here's the thing: we're usually behind the camera, not in front of it. We're not chasing clout or trying to become celebrities. We'd rather let Milwaukee be the star.
+            </p>
+            <p style={{ color: c.green1, fontSize: "17px", fontWeight: "600", lineHeight: 1.8, marginBottom: "24px" }}>
+              Being called "Milwaukee influencers" or "Wisconsin influencers" is fine—but we prefer to think of ourselves as locals who just happen to have a platform.
+            </p>
+
+            {/* Brand Partnership CTA */}
+            <div style={{ backgroundColor: c.green1, borderRadius: "16px", padding: "28px", textAlign: "center" }}>
+              <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>FOR BRANDS & BUSINESSES</p>
+              <p style={{ color: c.cream, fontSize: "20px", fontWeight: "700", marginBottom: "8px" }}>
+                Want to reach Milwaukee's most engaged local audience?
+              </p>
+              <p style={{ color: c.beige, fontSize: "16px", marginBottom: "20px" }}>
+                We partner with restaurants, local businesses, events, and organizations across Wisconsin.
+              </p>
+              <Link href="/partner" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none", fontSize: "15px" }}>
+                Partner With Us →
+              </Link>
             </div>
           </section>
 

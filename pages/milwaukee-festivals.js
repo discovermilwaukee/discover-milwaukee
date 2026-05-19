@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 const c = {
   green1: "#1a3d34",
@@ -490,17 +491,7 @@ export default function MilwaukeeFestivals() {
       </Head>
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
-        <nav style={{ backgroundColor: c.green1, padding: "16px 24px", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Link href="/" style={{ color: c.yellow, fontSize: "20px", fontWeight: "900", textDecoration: "none" }}>DISCOVER MILWAUKEE</Link>
-            <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
-              <Link href="/explore" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Explore</Link>
-              <Link href="/events" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Events</Link>
-              <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", borderBottom: `2px solid ${c.yellow}`, paddingBottom: "4px" }}>Festivals</span>
-              <Link href="/newsletter" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Newsletter</Link>
-            </div>
-          </div>
-        </nav>
+        <Nav />
 
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>

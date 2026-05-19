@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 const c = {
   green1: "#1a3d34",
@@ -564,6 +565,8 @@ export default function MilwaukeeCoffeeShops() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
       </Head>
+
+      <Nav />
 
       <main style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         {/* Hero Section */}

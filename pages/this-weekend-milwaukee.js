@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import Nav from "../components/Nav";
 
 // =============================================================================
 // WEEKLY CONTENT - UPDATE EACH WEEK
@@ -818,6 +819,8 @@ export default function ThisWeekendMilwaukee() {
       </Head>
 
       <main style={{ background: colors.cream, minHeight: '100vh' }}>
+        <Nav />
+
         {/* Hero Header */}
         <header style={{
           background: `linear-gradient(135deg, ${colors.green1} 0%, ${colors.green2} 100%)`,

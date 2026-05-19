@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 const c = {
   green1: "#1a3d34",
@@ -231,16 +232,9 @@ export default function PackersBarsMilwaukee() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       </Head>
 
+      <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
-          <nav style={{ marginBottom: "24px", fontSize: "0.9rem" }}>
-            <Link href="/" style={{ color: c.green2, textDecoration: "none" }}>Home</Link>
-            <span style={{ margin: "0 8px", color: "#999" }}>/</span>
-            <Link href="/explore" style={{ color: c.green2, textDecoration: "none" }}>Explore</Link>
-            <span style={{ margin: "0 8px", color: "#999" }}>/</span>
-            <span style={{ color: c.green1 }}>Packers Bars</span>
-          </nav>
-
           <header style={{ marginBottom: "40px" }}>
             <h1 style={{ fontSize: "2.5rem", color: c.green1, marginBottom: "16px", lineHeight: "1.2" }}>Best Packers Bars in Milwaukee: Where to Watch Green Bay</h1>
             <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.8", marginBottom: "16px" }}>

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 export default function Custom500() {
   const c = {
@@ -14,15 +15,8 @@ export default function Custom500() {
         <meta name="description" content="We hit a snag. Our team is on it." />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      
-      {/* Nav */}
-      <nav style={{ backgroundColor: c.cream, borderBottom: `3px solid ${c.yellow}`, padding: "0 16px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", height: "70px" }}>
-          <Link href="/">
-            <span style={{ fontSize: "22px", fontWeight: "900", color: c.green1, letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer" }}>DISCOVER MILWAUKEE</span>
-          </Link>
-        </div>
-      </nav>
+
+      <Nav />
 
       {/* 500 Content */}
       <div style={{ padding: "80px 16px", textAlign: "center" }}>

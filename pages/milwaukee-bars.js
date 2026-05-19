@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 const c = {
   green1: "#1a3d34",
@@ -599,18 +600,9 @@ export default function MilwaukeeBars() {
         Skip to main content
       </a>
 
-      <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: "'Poppins', system-ui, sans-serif" }}>
-        {/* Nav */}
-        <nav style={{ backgroundColor: c.green1, padding: "16px 24px", position: "sticky", top: 0, zIndex: 100 }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <Link href="/" style={{ color: c.yellow, fontSize: "20px", fontWeight: "900", textDecoration: "none", cursor: "pointer" }}>DISCOVER MILWAUKEE</Link>
-            <div style={{ display: "flex", gap: "24px" }}>
-              <Link href="/explore" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>Explore</Link>
-              <Link href="/events" style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>Events</Link>
-            </div>
-          </div>
-        </nav>
+      <Nav />
 
+      <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: "'Poppins', system-ui, sans-serif" }}>
         {/* Breadcrumb */}
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 24px" }}>
           <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
