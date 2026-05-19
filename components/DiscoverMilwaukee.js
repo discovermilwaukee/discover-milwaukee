@@ -3986,6 +3986,29 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <span style={{ color: c.green1, fontSize: "24px", fontWeight: "900", alignSelf: isMobile ? "flex-end" : "center" }}>→</span>
               </div>
             </div>
+
+            {/* WHY PARTNER WITH US — what partnering actually does */}
+            <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
+              <div style={{ textAlign: "center", marginBottom: "28px" }}>
+                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>What Partnering Actually Does</p>
+                <h2 style={{ color: c.cream, fontSize: isMobile ? "24px" : "32px", fontWeight: "900", textTransform: "uppercase", marginBottom: "10px" }}>When We Post, Milwaukee Moves</h2>
+                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>Not impressions. Not "engagement." Real people walking in, booking, and buying — that week.</p>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? "16px" : "24px" }}>
+                {[
+                  { icon: "📈", title: "37 million views that go somewhere", body: "Reach only counts if it acts. Ours does — 37.1M views a year from locals who use us to decide where to actually go." },
+                  { icon: "🤝", title: "You inherit the trust we've earned", body: "Milwaukee already takes our word for it. Feature with us and that credibility points at you from day one — no warming up a cold audience." },
+                  { icon: "💸", title: "They show up ready to spend", body: "Our audience is 79% ages 18–44 — locals who try new places, go out midweek, and spend money here. You're reaching the people who fill rooms and tabs." }
+                ].map((b, i) => (
+                  <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    <span style={{ fontSize: "28px" }}>{b.icon}</span>
+                    <h3 style={{ color: c.cream, fontSize: isMobile ? "17px" : "18px", fontWeight: "900", margin: "14px 0 8px" }}>{b.title}</h3>
+                    <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.7, margin: 0 }}>{b.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "24px", marginBottom: isMobile ? "32px" : "48px" }}>
               <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
