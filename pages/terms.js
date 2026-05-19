@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/Nav";
 
 export default function TermsOfService() {
   const c = {
@@ -8,23 +9,15 @@ export default function TermsOfService() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: c.cream, fontFamily: "system-ui, sans-serif" }}>
+    <>
       <Head>
         <title>Terms of Service | Discover Milwaukee</title>
         <meta name="description" content="Terms of Service for Discover Milwaukee." />
       </Head>
-      
-      {/* Nav */}
-      <nav style={{ backgroundColor: c.cream, borderBottom: `3px solid ${c.yellow}`, padding: "0 16px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", height: "70px" }}>
-          <Link href="/">
-            <span style={{ fontSize: "22px", fontWeight: "900", color: c.green1, letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer" }}>DISCOVER MILWAUKEE</span>
-          </Link>
-        </div>
-      </nav>
-
-      {/* Content */}
-      <div style={{ padding: "60px 16px", maxWidth: "800px", margin: "0 auto" }}>
+      <Nav />
+      <div style={{ minHeight: "100vh", backgroundColor: c.cream, fontFamily: "system-ui, sans-serif" }}>
+        {/* Content */}
+        <div style={{ padding: "60px 16px", maxWidth: "800px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "36px", fontWeight: "900", color: c.green1, marginBottom: "24px" }}>Terms of Service</h1>
         <p style={{ color: c.tan, marginBottom: "32px" }}>Last updated: January 2026</p>
         
@@ -86,7 +79,8 @@ export default function TermsOfService() {
             <span style={{ color: c.green1, fontWeight: "600", cursor: "pointer" }}>← Back to Home</span>
           </Link>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

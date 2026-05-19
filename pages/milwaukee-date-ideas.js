@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Nav from "../components/Nav";
 
 // Color palette
 const colors = {
@@ -158,6 +159,7 @@ export default function MilwaukeeDateIdeas() {
         />
       </Head>
 
+      <Nav />
       <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
@@ -219,56 +221,6 @@ export default function MilwaukeeDateIdeas() {
             </div>
           </div>
         </section>
-
-        {/* Quick Navigation */}
-        <nav
-          style={{
-            backgroundColor: colors.beige,
-            padding: '20px',
-            position: 'sticky',
-            top: 0,
-            zIndex: 100,
-            borderBottom: `2px solid ${colors.green2}`,
-          }}
-        >
-          <div
-            style={{
-              maxWidth: '1200px',
-              margin: '0 auto',
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '15px',
-              justifyContent: 'center',
-            }}
-          >
-            {[
-              { label: 'Romantic Dinners', href: '#romantic-dinners' },
-              { label: 'Creative Dates', href: '#creative-dates' },
-              { label: 'First Dates', href: '#first-dates' },
-              { label: 'Outdoor Dates', href: '#outdoor-dates' },
-              { label: 'Free Ideas', href: '#free-dates' },
-              { label: 'Seasonal', href: '#seasonal-dates' },
-              { label: 'FAQs', href: '#faqs' },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                style={{
-                  color: colors.green1,
-                  textDecoration: 'none',
-                  fontWeight: '500',
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  transition: 'background-color 0.2s',
-                }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = colors.cream)}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </nav>
 
         {/* Introduction */}
         <section style={{ maxWidth: '900px', margin: '0 auto', padding: '60px 20px 40px' }}>

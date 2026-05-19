@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Nav from "../components/Nav";
 
 // Color palette
 const colors = {
@@ -411,6 +412,7 @@ export default function FreeThingsMilwaukee() {
         />
       </Head>
 
+      <Nav />
       <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
         {/* Hero Section */}
         <section
@@ -491,55 +493,6 @@ export default function FreeThingsMilwaukee() {
             </div>
           </div>
         </section>
-
-        {/* Quick Navigation */}
-        <nav
-          style={{
-            backgroundColor: colors.beige,
-            padding: '25px 20px',
-            position: 'sticky',
-            top: '0',
-            zIndex: '100',
-            borderBottom: `3px solid ${colors.green2}`,
-          }}
-        >
-          <div
-            style={{
-              maxWidth: '1100px',
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '20px',
-              flexWrap: 'wrap',
-            }}
-          >
-            {[
-              { label: 'Free Museums', href: '#museums' },
-              { label: 'Parks & Outdoors', href: '#parks' },
-              { label: 'Free Events', href: '#events' },
-              { label: 'Beer Gardens', href: '#beer-gardens' },
-              { label: 'Self-Guided Tours', href: '#tours' },
-              { label: 'Summer Activities', href: '#summer' },
-              { label: 'Winter Activities', href: '#winter' },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                style={{
-                  color: colors.green1,
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '0.95rem',
-                  padding: '8px 15px',
-                  borderRadius: '6px',
-                  transition: 'background-color 0.2s',
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </nav>
 
         {/* Introduction */}
         <section style={{ padding: '60px 20px', maxWidth: '900px', margin: '0 auto' }}>

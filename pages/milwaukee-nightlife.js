@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Nav from "../components/Nav";
 
 // Color palette
 const colors = {
@@ -432,6 +433,7 @@ export default function MilwaukeeNightlife() {
         />
       </Head>
 
+      <Nav />
       <main style={{ backgroundColor: colors.cream, color: colors.green1 }}>
         {/* Hero Section */}
         <section
@@ -513,57 +515,6 @@ export default function MilwaukeeNightlife() {
             </div>
           </div>
         </section>
-
-        {/* Quick Navigation */}
-        <nav
-          style={{
-            backgroundColor: colors.beige,
-            padding: '20px',
-            position: 'sticky',
-            top: 0,
-            zIndex: 100,
-            borderBottom: `2px solid ${colors.green2}`,
-          }}
-        >
-          <div
-            style={{
-              maxWidth: '1200px',
-              margin: '0 auto',
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '20px',
-              flexWrap: 'wrap',
-            }}
-          >
-            {['Cocktail Bars', 'Dive Bars', 'Dance Clubs', 'LGBTQ+', 'Live Music', 'Sports Bars', 'Bar Crawls'].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/[^a-z]/g, '-')}`}
-                  style={{
-                    color: colors.green1,
-                    textDecoration: 'none',
-                    fontWeight: '600',
-                    fontSize: '0.95rem',
-                    padding: '8px 15px',
-                    borderRadius: '20px',
-                    transition: 'all 0.2s',
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = colors.green2;
-                    e.currentTarget.style.color = colors.cream;
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = colors.green1;
-                  }}
-                >
-                  {item}
-                </a>
-              )
-            )}
-          </div>
-        </nav>
 
         {/* Introduction */}
         <section style={{ padding: '60px 20px', maxWidth: '900px', margin: '0 auto' }}>

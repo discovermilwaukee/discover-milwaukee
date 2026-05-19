@@ -659,11 +659,127 @@ const isWithinWeek = (eventDate, monday) => {
 };
 
 // =============================================================================
-// FALLBACK EVENTS - Empty until real events are provided via Google Sheets
+// EVENTS DATA - May 2026 Milwaukee Events
 // =============================================================================
 
-// No hardcoded fallback events - events should come from Google Sheets or be manually added
-const FALLBACK_EVENTS = [];
+const FALLBACK_EVENTS = [
+  // May 1-3
+  { id: "may-1-3-book-sale", title: "Used Book Sale", startDateTime: "2026-05-01T10:00:00", endDateTime: "2026-05-03T17:00:00", venueName: "Milwaukee Art Museum", category: "Arts", shortDescription: "Annual used book sale at MAM with thousands of titles.", costType: "free", featured: true, allDay: false },
+
+  // May 2
+  { id: "may-2-umos-cinco", title: "UMOS Cinco de Mayo Festival", startDateTime: "2026-05-02T11:00:00", venueName: "UMOS", category: "Food & Drink", shortDescription: "Celebrate Cinco de Mayo with food, music, and culture.", costType: "free", featured: true, allDay: false },
+  { id: "may-2-zocalo-cinco", title: "Cinco de Mayo Weekend", startDateTime: "2026-05-02T11:00:00", venueName: "Zocalo", category: "Food & Drink", shortDescription: "Cinco de Mayo celebration at Zocalo Food Park.", costType: "free", featured: false, allDay: false },
+  { id: "may-2-day-drinks", title: "Day Drinks & Handmade Things", startDateTime: "2026-05-02T12:00:00", venueName: "Station 1846", category: "Shopping", shortDescription: "Craft market with local makers and drinks.", costType: "free", featured: false, allDay: false },
+  { id: "may-2-made-for-mom", title: "made for mom MKE", startDateTime: "2026-05-02T10:00:00", venueName: "Joy Social", category: "Shopping", shortDescription: "Mother's Day themed makers market.", costType: "free", featured: false, allDay: false },
+
+  // May 3
+  { id: "may-3-audubon-market", title: "Schlitz Audubon May Market", startDateTime: "2026-05-03T10:00:00", venueName: "Schlitz Audubon", category: "Shopping", shortDescription: "Spring market at the nature center.", costType: "free", featured: true, allDay: false },
+  { id: "may-3-grilled-cheese", title: "6th Annual Grilled Cheese Fest", startDateTime: "2026-05-03T11:00:00", venueName: "The Tap Yard Waukesha", category: "Food & Drink", shortDescription: "Celebrate the perfect grilled cheese sandwich.", costType: "paid", featured: true, allDay: false },
+
+  // May 7
+  { id: "may-7-fitness-plaza", title: "Fitness on the Plaza", startDateTime: "2026-05-07T17:30:00", venueName: "Deer District", category: "Fitness", shortDescription: "Free outdoor fitness classes at the Deer District.", costType: "free", featured: false, allDay: false },
+
+  // May 9
+  { id: "may-9-dog-mom", title: "Dog Mom Day Celebration", startDateTime: "2026-05-09T12:00:00", venueName: "The Hounds & Tap", category: "Family", shortDescription: "Celebrate dog moms with your furry friends.", costType: "free", featured: false, allDay: false },
+  { id: "may-9-queer-prom", title: "Queer Prom", startDateTime: "2026-05-09T19:00:00", venueName: "South Second", category: "Nightlife", shortDescription: "An inclusive prom celebration for all.", costType: "paid", featured: true, allDay: false },
+  { id: "may-9-kites", title: "Kites Over Greendale", startDateTime: "2026-05-09T10:00:00", venueName: "Community Park, Greendale", category: "Family", shortDescription: "Annual kite flying festival for all ages.", costType: "free", featured: false, allDay: false },
+
+  // May 10
+  { id: "may-10-zoo-mothers", title: "Mother's Day at the Zoo", startDateTime: "2026-05-10T09:00:00", venueName: "Milwaukee Co Zoo", category: "Family", shortDescription: "Special Mother's Day activities at the zoo.", costType: "paid", featured: true, allDay: false },
+  { id: "may-10-414flea-mothers", title: "414Flea Mother's Day Market", startDateTime: "2026-05-10T10:00:00", venueName: "414loral", category: "Shopping", shortDescription: "Mother's Day themed flea market.", costType: "free", featured: false, allDay: false },
+
+  // May 12
+  { id: "may-12-bark-park", title: "Bark at the Park", startDateTime: "2026-05-12T18:10:00", venueName: "Am Fam Field", category: "Sports", shortDescription: "Bring your dog to the Brewers game.", costType: "paid", featured: true, allDay: false },
+
+  // May 14
+  { id: "may-14-riverwalk-market", title: "Market on the Riverwalk", startDateTime: "2026-05-14T11:00:00", venueName: "Schlitz Park", category: "Shopping", shortDescription: "Outdoor market along the riverwalk.", costType: "free", featured: false, allDay: false },
+  { id: "may-14-shorewood-art", title: "Shorewood Art Walk", startDateTime: "2026-05-14T17:00:00", venueName: "Oakland Ave Shorewood", category: "Arts", shortDescription: "Gallery walk through Shorewood businesses.", costType: "free", featured: false, allDay: false },
+  { id: "may-14-wash-heights-market", title: "Washington Heights Night Market", startDateTime: "2026-05-14T17:00:00", venueName: "5327 W Washington Blvd", category: "Shopping", shortDescription: "Evening market in Washington Heights.", costType: "free", featured: false, allDay: false },
+
+  // May 16
+  { id: "may-16-flowers", title: "Festival of Flowers", startDateTime: "2026-05-16T10:00:00", venueName: "Milwaukee Public Market", category: "Shopping", shortDescription: "Celebrate spring with flowers at the Public Market.", costType: "free", featured: true, allDay: false },
+  { id: "may-16-big-truck", title: "Big Truck Day", startDateTime: "2026-05-16T10:00:00", venueName: "Red Arrow Park", category: "Family", shortDescription: "Kids can explore big trucks up close.", costType: "free", featured: false, allDay: false },
+
+  // May 17
+  { id: "may-17-gather-grow", title: "Gather & Grow Market", startDateTime: "2026-05-17T09:00:00", venueName: "Tosa Farmers Market", category: "Shopping", shortDescription: "Spring market at the Tosa Farmers Market.", costType: "free", featured: false, allDay: false },
+  { id: "may-17-spring-makers", title: "Spring Spectacular Makers Market", startDateTime: "2026-05-17T11:00:00", venueName: "Sprecher Brewery", category: "Shopping", shortDescription: "Local makers market at Sprecher Brewery.", costType: "free", featured: false, allDay: false },
+  { id: "may-17-mke-makers", title: "Milwaukee Makers Market", startDateTime: "2026-05-17T10:00:00", venueName: "The Ivy House", category: "Shopping", shortDescription: "Handmade goods from Milwaukee makers.", costType: "free", featured: false, allDay: false },
+  { id: "may-17-maifest", title: "Maifest Gluten Free Festival", startDateTime: "2026-05-17T11:00:00", venueName: "Lakefront Brewery", category: "Food & Drink", shortDescription: "Gluten-free celebration at Lakefront Brewery.", costType: "free", featured: true, allDay: false },
+  { id: "may-17-book-swap", title: "Free Book Swap", startDateTime: "2026-05-17T12:00:00", venueName: "Dead Bird Brewing", category: "Arts", shortDescription: "Bring books, take books at Dead Bird.", costType: "free", featured: false, allDay: false },
+  { id: "may-17-pet-fest", title: "House of Harley Pet Fest", startDateTime: "2026-05-17T10:00:00", venueName: "House of Harley-Davidson", category: "Family", shortDescription: "Pet-friendly festival at House of Harley.", costType: "free", featured: false, allDay: false },
+
+  // May 19
+  { id: "may-19-pack-walk", title: "Pack Walk", startDateTime: "2026-05-19T18:00:00", venueName: "Catalano Square", category: "Family", shortDescription: "Community dog walk through the Third Ward.", costType: "free", featured: false, allDay: false },
+
+  // May 21
+  { id: "may-21-betty-brinn", title: "Community Access Day", startDateTime: "2026-05-21T10:00:00", venueName: "Betty Brinn", category: "Family", shortDescription: "Free admission day at Betty Brinn Children's Museum.", costType: "free", featured: false, allDay: false },
+
+  // May 22-24
+  { id: "may-22-jansen-fest", title: "Dan Jansen Family Fest", startDateTime: "2026-05-22T17:00:00", endDateTime: "2026-05-24T21:00:00", venueName: "Konkel Park Greenfield", category: "Family", shortDescription: "Family festival with rides, food, and entertainment.", costType: "free", featured: true, allDay: false },
+
+  // May 23
+  { id: "may-23-cream-vintage", title: "Cream Fresh Vintage Market", startDateTime: "2026-05-23T10:00:00", venueName: "Ivanhoe Plaza", category: "Shopping", shortDescription: "Curated vintage market.", costType: "free", featured: false, allDay: false },
+  { id: "may-23-falls-fest", title: "Falls Memorial Fest", startDateTime: "2026-05-23T12:00:00", venueName: "Main St Menomonee Falls", category: "Food & Drink", shortDescription: "Memorial weekend festival in the Falls.", costType: "free", featured: false, allDay: false },
+  { id: "may-23-blk-girl", title: "BLK Girl Fest: Unapologetically HER", startDateTime: "2026-05-23T10:00:00", venueName: "Baird Center", category: "Arts", shortDescription: "Celebrating Black women entrepreneurs and creators.", costType: "paid", featured: true, allDay: false },
+
+  // May 28
+  { id: "may-28-pet-days", title: "Pet Days", startDateTime: "2026-05-28T11:00:00", venueName: "Zocalo", category: "Family", shortDescription: "Pet-friendly event at Zocalo Food Park.", costType: "free", featured: false, allDay: false },
+  { id: "may-28-dining-week", title: "Downtown Dining Week Begins", startDateTime: "2026-05-28T11:00:00", venueName: "Downtown Milwaukee", category: "Food & Drink", shortDescription: "Special prix fixe menus at downtown restaurants.", costType: "paid", featured: true, allDay: true },
+
+  // May 29
+  { id: "may-29-bay-view-gallery", title: "Bay View Gallery Night", startDateTime: "2026-05-29T17:00:00", venueName: "Various venues & businesses", category: "Arts", shortDescription: "Art walk through Bay View galleries and shops.", costType: "free", featured: true, allDay: false },
+  { id: "may-29-vliet-live", title: "43rd + Vliet Create. Connect. Live Music & Entertainment", startDateTime: "2026-05-29T17:00:00", venueName: "Denizen MKE", category: "Live Music", shortDescription: "Live music and community event.", costType: "free", featured: false, allDay: false },
+  { id: "may-29-food-truck-friday", title: "Food Truck Friday + Mini Market", startDateTime: "2026-05-29T16:00:00", venueName: "West Allis Farmers Market", category: "Food & Drink", shortDescription: "Food trucks and mini market in West Allis.", costType: "free", featured: false, allDay: false },
+
+  // May 29-31
+  { id: "may-29-tattoo-fest", title: "Milwaukee Tattoo Festival", startDateTime: "2026-05-29T12:00:00", endDateTime: "2026-05-31T20:00:00", venueName: "Baird Center", category: "Arts", shortDescription: "Annual tattoo convention with artists from around the world.", costType: "paid", featured: true, allDay: false },
+
+  // May 30
+  { id: "may-30-tacos-tequila", title: "Tacos & Tequila Festival", startDateTime: "2026-05-30T11:00:00", venueName: "Franklin Field", category: "Food & Drink", shortDescription: "Celebrate tacos and tequila at this outdoor festival.", costType: "paid", featured: true, allDay: false },
+  { id: "may-30-smoke-water", title: "Smoke on the Water BBQ & Brews Fest", startDateTime: "2026-05-30T11:00:00", venueName: "Henry Maier Festival Park", category: "Food & Drink", shortDescription: "BBQ competition and craft beer festival.", costType: "paid", featured: true, allDay: false },
+  { id: "may-30-bikerfest", title: "BikerFest Block Party", startDateTime: "2026-05-30T12:00:00", venueName: "East Side Milwaukee Farwell Ave", category: "Outdoors", shortDescription: "Bike-themed block party on the East Side.", costType: "free", featured: false, allDay: false },
+  { id: "may-30-lager-friends", title: "Lager & Friends", startDateTime: "2026-05-30T12:00:00", venueName: "Gathering Place Brewing", category: "Food & Drink", shortDescription: "Lager celebration at Gathering Place.", costType: "free", featured: false, allDay: false },
+
+  // May 30-31
+  { id: "may-30-morning-glory", title: "Morning Glory Art Fair", startDateTime: "2026-05-30T10:00:00", endDateTime: "2026-05-31T17:00:00", venueName: "The Marcus Center", category: "Arts", shortDescription: "Juried art fair at the Marcus Center.", costType: "free", featured: true, allDay: false },
+
+  // May 30 - June 1
+  { id: "may-30-festa", title: "Festa Italiana", startDateTime: "2026-05-30T15:00:00", endDateTime: "2026-06-01T23:00:00", venueName: "Henry Maier Festival Park", category: "Food & Drink", shortDescription: "Milwaukee's Italian festival with food, music, and culture.", costType: "paid", featured: true, allDay: false },
+
+  // May 31
+  { id: "may-31-locust-beer", title: "Locust Street Beer Run", startDateTime: "2026-05-31T11:00:00", venueName: "Locust Street Festival", category: "Fitness", shortDescription: "Fun run through the Locust Street Festival.", costType: "paid", featured: false, allDay: false },
+  { id: "may-31-locust-fest", title: "Locust Street Festival", startDateTime: "2026-05-31T11:00:00", venueName: "Locust St between Holton & Humboldt", category: "Live Music", shortDescription: "Annual street festival with live music and vendors.", costType: "free", featured: true, allDay: false },
+  { id: "may-31-pride-makers", title: "Handmade with Pride Makers Market", startDateTime: "2026-05-31T11:00:00", venueName: "Great Lakes Distillery", category: "Shopping", shortDescription: "LGBTQ+ makers market at Great Lakes Distillery.", costType: "free", featured: false, allDay: false },
+];
+
+// Helper function to get the current week's Monday and Sunday
+const getCurrentWeekRange = () => {
+  const now = new Date();
+  const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+  const monday = new Date(now);
+  const sunday = new Date(now);
+
+  // Calculate Monday (if today is Sunday, go back 6 days; otherwise go back to Monday)
+  const daysToMonday = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+  monday.setDate(now.getDate() - daysToMonday);
+  monday.setHours(0, 0, 0, 0);
+
+  // Calculate Sunday (end of week)
+  const daysToSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+  sunday.setDate(now.getDate() + daysToSunday);
+  sunday.setHours(23, 59, 59, 999);
+
+  return { monday, sunday };
+};
+
+// Filter events to current week
+const getThisWeekEvents = (events) => {
+  const { monday, sunday } = getCurrentWeekRange();
+  return events.filter(event => {
+    const eventDate = new Date(event.startDateTime);
+    return eventDate >= monday && eventDate <= sunday;
+  });
+};
 
 // ============================================================================
 // GUIDE CATEGORIES - Category-based navigation for Explore page
@@ -2579,7 +2695,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 </div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "20px" }}>
-                {events.filter(e => e.featured).slice(0, 4).map((event, i) => {
+                {(() => {
+                  // Get this week's events, prioritizing featured ones
+                  const thisWeekEvents = getThisWeekEvents(events);
+                  const featuredThisWeek = thisWeekEvents.filter(e => e.featured);
+                  const displayEvents = featuredThisWeek.length >= 4
+                    ? featuredThisWeek.slice(0, 4)
+                    : [...featuredThisWeek, ...thisWeekEvents.filter(e => !e.featured)].slice(0, 4);
+                  return displayEvents;
+                })().map((event, i) => {
                   const categoryIcons = {
                     "Arts": "🎨", "Sports": "🏀", "Food & Drink": "🍸", "Comedy": "🎤",
                     "Live Music": "🎵", "Family": "👨‍👩‍👧‍👦", "Nightlife": "🌙", "Outdoors": "🌲",
