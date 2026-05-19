@@ -1937,17 +1937,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   const [partnerForm, setPartnerForm] = useState({
     fullName: "",
     emailAddress: "",
-    phone: "",
     companyName: "",
-    role: "",
-    website: "",
     socialHandles: "",
     budget: "",
-    goals: [],
-    timing: "",
     partnershipInterest: [],
     notes: "",
-    preferredContact: "",
     heardAbout: "",
     city: ""
   });
@@ -2089,19 +2083,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           _subject: `Partnership Inquiry from ${partnerForm.companyName}`,
           fullName: partnerForm.fullName,
           email: partnerForm.emailAddress,
-          phone: partnerForm.phone || "Not provided",
           companyName: partnerForm.companyName,
-          role: partnerForm.role,
-          website: partnerForm.website || "Not provided",
           socialHandles: partnerForm.socialHandles || "Not provided",
           budget: partnerForm.budget,
-          timing: partnerForm.timing,
-          goals: partnerForm.goals.length > 0 ? partnerForm.goals.join(", ") : "None selected",
           partnershipInterest: partnerForm.partnershipInterest.length > 0 ? partnerForm.partnershipInterest.join(", ") : "None selected",
-          preferredContact: partnerForm.preferredContact || "Not specified",
           heardAbout: partnerForm.heardAbout || "Not specified",
           city: partnerForm.city || "Not specified",
-          notes: partnerForm.notes
+          notes: partnerForm.notes || "Not provided"
         })
       });
       
@@ -3863,6 +3851,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <p style={{ color: c.cream, fontSize: isMobile ? "15px" : "17px", lineHeight: 1.7, textAlign: "center" }}>Discover Milwaukee isn't a billboard. We're where Milwaukee goes to decide where to eat, drink, hang out, and spend money. If your brand wants attention from real people, you're in the right place.</p>
             </div>
 
+            {/* TOP CTA — reachable without scrolling */}
+            <div style={{ textAlign: "center", marginBottom: isMobile ? "36px" : "56px" }}>
+              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 44px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "15px" : "17px", textTransform: "uppercase", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
+                Start Your Partnership →
+              </button>
+              <p style={{ color: c.beige, fontSize: "13px", marginTop: "12px" }}>Takes about a minute · No commitment</p>
+            </div>
+
             {/* BRANDS WE'VE WORKED WITH */}
             <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
@@ -4055,53 +4051,30 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
                 <form onSubmit={handlePartnerSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                   
-                  {/* Contact Information Section */}
+                  {/* About You Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>📋</span> Contact Information
+                      <span>📋</span> About You
                     </h2>
-                    
+
                     <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "16px" }}>
                       <div style={{ gridColumn: isMobile ? "span 1" : "span 2" }}>
                         <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Full Name *</label>
                         <input type="text" required value={partnerForm.fullName} onChange={(e) => handlePartnerFormChange("fullName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
-                      
-                      <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Email Address *</label>
-                        <input type="email" required value={partnerForm.emailAddress} onChange={(e) => handlePartnerFormChange("emailAddress", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
-                      </div>
-                      
-                      <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Phone Number</label>
-                        <input type="tel" value={partnerForm.phone} onChange={(e) => handlePartnerFormChange("phone", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
-                      </div>
-                      
+
                       <div>
                         <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Company / Brand Name *</label>
                         <input type="text" required value={partnerForm.companyName} onChange={(e) => handlePartnerFormChange("companyName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
-                      
+
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Role / Title *</label>
-                        <select required value={partnerForm.role} onChange={(e) => handlePartnerFormChange("role", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
-                          <option value="">Select your role</option>
-                          <option value="Owner / Founder">Owner / Founder</option>
-                          <option value="Marketing Manager">Marketing Manager</option>
-                          <option value="Marketing Director / VP">Marketing Director / VP</option>
-                          <option value="General Manager">General Manager</option>
-                          <option value="Operator">Operator</option>
-                          <option value="Other">Other</option>
-                        </select>
+                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Email Address *</label>
+                        <input type="email" required value={partnerForm.emailAddress} onChange={(e) => handlePartnerFormChange("emailAddress", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
-                      
-                      <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Company Website</label>
-                        <input type="url" value={partnerForm.website} onChange={(e) => handlePartnerFormChange("website", e.target.value)} placeholder="https://" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
-                      </div>
-                      
+
                       <div style={{ gridColumn: isMobile ? "span 1" : "span 2" }}>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Social Media Handles</label>
+                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Social Media Handles <span style={{ color: c.tan, fontWeight: "400" }}>(optional)</span></label>
                         <input type="text" value={partnerForm.socialHandles} onChange={(e) => handlePartnerFormChange("socialHandles", e.target.value)} placeholder="@instagram, @tiktok, etc." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                     </div>
@@ -4124,40 +4097,6 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     </select>
                   </div>
 
-                  {/* Goals Section */}
-                  <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-                    <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>🎯</span> Goals and Intent
-                    </h2>
-                    
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>What are you looking to drive right now? * (Select all that apply)</label>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
-                      {["Brand awareness", "Foot traffic or in-store visits", "Event promotion", "Product or service launch", "Hiring or recruiting", "Seasonal promotion", "Email or audience growth", "Not sure yet"].map((goal) => (
-                        <label key={goal} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "12px", backgroundColor: partnerForm.goals.includes(goal) ? c.beige : c.cream, borderRadius: "8px", cursor: "pointer", border: `2px solid ${partnerForm.goals.includes(goal) ? c.green1 : c.beige}`, transition: "all 0.2s" }}>
-                          <input type="checkbox" checked={partnerForm.goals.includes(goal)} onChange={() => handleCheckboxChange("goals", goal)} style={{ width: "18px", height: "18px", accentColor: c.green1 }} />
-                          <span style={{ fontSize: "14px", color: c.green1, fontWeight: "500" }}>{goal}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Timing Section */}
-                  <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-                    <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>📅</span> Timing
-                    </h2>
-                    
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>When are you looking to run a campaign? *</label>
-                    <select required value={partnerForm.timing} onChange={(e) => handlePartnerFormChange("timing", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
-                      <option value="">Select timing</option>
-                      <option value="ASAP (within the next 2 weeks)">ASAP (within the next 2 weeks)</option>
-                      <option value="This month">This month</option>
-                      <option value="Next month">Next month</option>
-                      <option value="Next 2–3 months">Next 2–3 months</option>
-                      <option value="Just exploring">Just exploring</option>
-                    </select>
-                  </div>
-
                   {/* Partnership Interest Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
@@ -4165,11 +4104,21 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     </h2>
                     
                     <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>What type of partnership are you interested in? (Optional)</label>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
-                      {["One-time feature", "Ongoing monthly partnership", "Giveaway collaboration", "Event partnership", "Category exclusivity", "Not sure yet"].map((interest) => (
-                        <label key={interest} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "12px", backgroundColor: partnerForm.partnershipInterest.includes(interest) ? c.beige : c.cream, borderRadius: "8px", cursor: "pointer", border: `2px solid ${partnerForm.partnershipInterest.includes(interest) ? c.green1 : c.beige}`, transition: "all 0.2s" }}>
-                          <input type="checkbox" checked={partnerForm.partnershipInterest.includes(interest)} onChange={() => handleCheckboxChange("partnershipInterest", interest)} style={{ width: "18px", height: "18px", accentColor: c.green1 }} />
-                          <span style={{ fontSize: "14px", color: c.green1, fontWeight: "500" }}>{interest}</span>
+                    <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "10px" }}>
+                      {[
+                        { label: "One-time feature" },
+                        { label: "Ongoing partnership" },
+                        { label: "Giveaway collaboration" },
+                        { label: "Event partnership" },
+                        { label: "Sponsorship", hint: "e.g. This Week in Milwaukee, Festival Guide" },
+                        { label: "Not sure yet" }
+                      ].map((opt) => (
+                        <label key={opt.label} style={{ display: "flex", alignItems: "flex-start", gap: "10px", padding: "12px", backgroundColor: partnerForm.partnershipInterest.includes(opt.label) ? c.beige : c.cream, borderRadius: "8px", cursor: "pointer", border: `2px solid ${partnerForm.partnershipInterest.includes(opt.label) ? c.green1 : c.beige}`, transition: "all 0.2s" }}>
+                          <input type="checkbox" checked={partnerForm.partnershipInterest.includes(opt.label)} onChange={() => handleCheckboxChange("partnershipInterest", opt.label)} style={{ width: "18px", height: "18px", accentColor: c.green1, marginTop: "1px", flexShrink: 0 }} />
+                          <span style={{ fontSize: "14px", color: c.green1, fontWeight: "500" }}>
+                            {opt.label}
+                            {opt.hint && <span style={{ display: "block", fontSize: "12px", color: c.tan, fontWeight: "400", marginTop: "2px" }}>{opt.hint}</span>}
+                          </span>
                         </label>
                       ))}
                     </div>
@@ -4181,9 +4130,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       <span>📝</span> Tell Us More
                     </h2>
                     
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Anything else we should know? *</label>
-                    <p style={{ fontSize: "12px", color: c.tan, marginBottom: "10px" }}>Share your goals, any offers or promotions, key dates, or anything that would help us understand what you're looking for.</p>
-                    <textarea required value={partnerForm.notes} onChange={(e) => handlePartnerFormChange("notes", e.target.value)} rows={5} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
+                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Anything else we should know? <span style={{ color: c.tan, fontWeight: "400" }}>(optional — but it helps us help you faster)</span></label>
+                    <p style={{ fontSize: "12px", color: c.tan, marginBottom: "10px" }}>A sentence or two on your goals, any offers or promotions, or key dates goes a long way toward us recommending the right fit. Skip it if you'd rather just talk.</p>
+                    <textarea value={partnerForm.notes} onChange={(e) => handlePartnerFormChange("notes", e.target.value)} rows={4} placeholder="Optional — tell us what you're hoping to accomplish." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
                   </div>
 
                   {/* Optional Fields Section */}
@@ -4193,15 +4142,6 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     </h2>
                     
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                      <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Preferred contact method</label>
-                        <select value={partnerForm.preferredContact} onChange={(e) => handlePartnerFormChange("preferredContact", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
-                          <option value="">Select preference</option>
-                          <option value="Email">Email</option>
-                          <option value="Phone">Phone</option>
-                        </select>
-                      </div>
-                      
                       <div>
                         <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>How did you hear about Discover Milwaukee?</label>
                         <select value={partnerForm.heardAbout} onChange={(e) => handlePartnerFormChange("heardAbout", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
