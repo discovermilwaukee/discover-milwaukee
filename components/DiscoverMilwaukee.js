@@ -3845,7 +3845,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ textAlign: "center", marginBottom: isMobile ? "32px" : "48px" }}>
               <p style={{ color: c.yellow, fontSize: isMobile ? "12px" : "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>GROW WITH US</p>
               <h1 style={{ fontSize: isMobile ? "28px" : "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase" }}>Partner With Discover Milwaukee</h1>
-              <p style={{ fontSize: isMobile ? "16px" : "18px", color: c.beige, maxWidth: "650px", margin: "0 auto" }}>Want Locals to Actually Care About Your Brand? Good. So Do We.</p>
+              <p style={{ fontSize: isMobile ? "16px" : "18px", color: c.beige, maxWidth: "650px", margin: "0 auto" }}>Get your brand in front of the Milwaukee locals who actually show up.</p>
             </div>
             <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "20px" : "32px", marginBottom: isMobile ? "32px" : "48px", border: "1px solid rgba(255,255,255,0.1)" }}>
               <p style={{ color: c.cream, fontSize: isMobile ? "15px" : "17px", lineHeight: 1.7, textAlign: "center" }}>Discover Milwaukee isn't a billboard. We're where Milwaukee goes to decide where to eat, drink, hang out, and spend money. If your brand wants attention from real people, you're in the right place.</p>
