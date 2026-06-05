@@ -120,19 +120,19 @@ export default function App({ Component, pageProps }) {
         <meta name="ICBM" content="43.0389, -87.9065" />
 
         {/* Default Open Graph */}
-        <meta property="og:site_name" content="Discover Milwaukee" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
+        <meta property="og:locale" content="en_US" key="og:locale" />
+        <meta property="og:type" content="website" key="og:type" />
 
         {/* Twitter Card defaults */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@discovermke" />
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:site" content="@discovermke" key="twitter:site" />
 
-        {/* Default OG Image - Pages can override */}
-        <meta property="og:image" content="https://www.discover-milwaukee.com/android-chrome-512x512.png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta property="og:image:alt" content="Discover Milwaukee - Your Guide to MKE" />
+        {/* Default OG Image - Pages can override by re-using the same `key` */}
+        <meta property="og:image" content="https://www.discover-milwaukee.com/android-chrome-512x512.png" key="og:image" />
+        <meta property="og:image:width" content="512" key="og:image:width" />
+        <meta property="og:image:height" content="512" key="og:image:height" />
+        <meta property="og:image:alt" content="Discover Milwaukee - Your Guide to MKE" key="og:image:alt" />
 
         {/* Favicon defaults */}
         <link rel="icon" href="/favicon.ico" />

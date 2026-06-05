@@ -182,6 +182,79 @@ const overviewStats = [
   { label: "Shuttle", value: "MCTS from 3 free park-and-ride lots" },
 ];
 
+const VENUES = {
+  amphitheater: {
+    "@type": "Place",
+    name: "American Family Insurance Amphitheater",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "200 N Harbor Dr",
+      addressLocality: "Milwaukee",
+      addressRegion: "WI",
+      postalCode: "53202",
+      addressCountry: "US",
+    },
+  },
+  bmo: {
+    "@type": "Place",
+    name: "BMO Pavilion at Henry Maier Festival Park",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "200 N Harbor Dr",
+      addressLocality: "Milwaukee",
+      addressRegion: "WI",
+      postalCode: "53202",
+      addressCountry: "US",
+    },
+  },
+};
+
+const subEvents = [
+  { name: "Garth Brooks at Summerfest 2026", date: "2026-06-16", venue: "amphitheater", performers: [{ type: "Person", name: "Garth Brooks" }] },
+  { name: "Garth Brooks at Summerfest 2026 (Night 2)", date: "2026-06-17", venue: "amphitheater", performers: [{ type: "Person", name: "Garth Brooks" }] },
+  { name: "Charlie Wilson at Summerfest 2026", date: "2026-06-18", venue: "bmo", performers: [{ type: "Person", name: "Charlie Wilson" }] },
+  { name: "Carín León at Summerfest 2026", date: "2026-06-20", venue: "amphitheater", performers: [{ type: "Person", name: "Carín León" }] },
+  { name: "David Lee Roth at Summerfest 2026", date: "2026-06-20", venue: "bmo", performers: [{ type: "Person", name: "David Lee Roth" }] },
+  { name: "Ed Sheeran at Summerfest 2026", date: "2026-06-25", venue: "amphitheater", performers: [{ type: "Person", name: "Ed Sheeran" }] },
+  { name: "The Roots at Summerfest 2026", date: "2026-06-25", venue: "bmo", performers: [{ type: "MusicGroup", name: "The Roots" }] },
+  { name: "Cody Johnson at Summerfest 2026", date: "2026-06-26", venue: "amphitheater", performers: [{ type: "Person", name: "Cody Johnson" }] },
+  { name: "Post Malone with Carter Faith at Summerfest 2026", date: "2026-06-27", venue: "amphitheater", performers: [{ type: "Person", name: "Post Malone" }, { type: "Person", name: "Carter Faith" }] },
+  { name: "Russell Dickerson at Summerfest 2026", date: "2026-06-27", venue: "bmo", performers: [{ type: "Person", name: "Russell Dickerson" }] },
+  { name: "Muse at Summerfest 2026", date: "2026-07-02", venue: "amphitheater", performers: [{ type: "MusicGroup", name: "Muse" }] },
+  { name: "Ella Mai at Summerfest 2026", date: "2026-07-02", venue: "bmo", performers: [{ type: "Person", name: "Ella Mai" }] },
+  { name: "Alex Warren at Summerfest 2026", date: "2026-07-03", venue: "amphitheater", performers: [{ type: "Person", name: "Alex Warren" }] },
+  { name: "Buju Banton with Stephen Marley at Summerfest 2026", date: "2026-07-03", venue: "bmo", performers: [{ type: "Person", name: "Buju Banton" }, { type: "Person", name: "Stephen Marley" }] },
+  { name: "Jelly Roll with Tyler Hubbard at Summerfest 2026", date: "2026-07-04", venue: "amphitheater", performers: [{ type: "Person", name: "Jelly Roll" }, { type: "Person", name: "Tyler Hubbard" }] },
+];
+
+const buildSubEvents = () => subEvents.map((s) => ({
+  "@type": "MusicEvent",
+  name: s.name,
+  startDate: s.date,
+  endDate: s.date,
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: VENUES[s.venue],
+  performer: s.performers.map((p) => ({ "@type": p.type, name: p.name })),
+  offers: {
+    "@type": "Offer",
+    url: "https://www.summerfest.com/ticket-info/",
+    availability: "https://schema.org/InStock",
+    category: "primary",
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "Milwaukee World Festival, Inc.",
+    url: "https://www.summerfest.com",
+  },
+  isAccessibleForFree: false,
+  superEvent: {
+    "@type": "MusicFestival",
+    name: "Summerfest 2026",
+    url: "https://www.discover-milwaukee.com/summerfest-milwaukee",
+  },
+}));
+
 const structuredData = {
   article: {
     "@context": "https://schema.org",
@@ -215,7 +288,8 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "MusicFestival",
     name: "Summerfest 2026",
-    description: "The world's largest music festival, presented by American Family Insurance. Three Thursday–Saturday weekends in Milwaukee.",
+    description: "The world's largest music festival, presented by American Family Insurance. Three Thursday–Saturday weekends in Milwaukee — June 18–20, June 25–27, and July 2–4, 2026.",
+    image: "https://www.discover-milwaukee.com/images/summerfest-og.svg",
     startDate: "2026-06-18",
     endDate: "2026-07-04",
     eventStatus: "https://schema.org/EventScheduled",
@@ -238,6 +312,25 @@ const structuredData = {
       name: "Milwaukee World Festival, Inc.",
       url: "https://www.summerfest.com",
     },
+    performer: [
+      { "@type": "Person", name: "Garth Brooks" },
+      { "@type": "Person", name: "Carín León" },
+      { "@type": "Person", name: "Ed Sheeran" },
+      { "@type": "Person", name: "Cody Johnson" },
+      { "@type": "Person", name: "Post Malone" },
+      { "@type": "Person", name: "Carter Faith" },
+      { "@type": "MusicGroup", name: "Muse" },
+      { "@type": "Person", name: "Alex Warren" },
+      { "@type": "Person", name: "Jelly Roll" },
+      { "@type": "Person", name: "Tyler Hubbard" },
+      { "@type": "Person", name: "Charlie Wilson" },
+      { "@type": "Person", name: "David Lee Roth" },
+      { "@type": "MusicGroup", name: "The Roots" },
+      { "@type": "Person", name: "Russell Dickerson" },
+      { "@type": "Person", name: "Ella Mai" },
+      { "@type": "Person", name: "Buju Banton" },
+      { "@type": "Person", name: "Stephen Marley" },
+    ],
     offers: {
       "@type": "Offer",
       url: "https://www.summerfest.com/ticket-info/",
@@ -246,6 +339,7 @@ const structuredData = {
       availability: "https://schema.org/InStock",
       validFrom: "2025-11-01",
     },
+    subEvent: buildSubEvents(),
   },
 };
 
@@ -270,15 +364,29 @@ export default function SummerfestMilwaukee() {
   return (
     <>
       <Head>
-        <title>Summerfest 2026 Milwaukee | Complete Guide: Lineup, Tickets, Stages, Food, Parking & Tips</title>
-        <meta name="description" content="The complete Summerfest 2026 guide — full AmFam Amphitheater + BMO Pavilion lineup, every stage, food vendors, all 10 free-admission days, MCTS shuttles, bag policy, accessibility & insider tips." />
+        <title>Summerfest 2026 Milwaukee: Lineup, Tickets, Parking & Tips</title>
+        <meta name="description" content="Summerfest 2026 in Milwaukee: full lineup (Ed Sheeran, Post Malone, Muse, Jelly Roll), tickets, parking, free-admission days, food, bag policy & insider tips." />
         <meta name="keywords" content="summerfest 2026, summerfest milwaukee, summerfest lineup 2026, summerfest tickets, summerfest dates, summerfest parking, summerfest free admission, summerfest bmo pavilion, summerfest amfam amphitheater, summerfest mcts shuttle, summerfest bag policy, summerfest accessibility, summerfest food vendors" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/summerfest-milwaukee" />
 
-        <meta property="og:title" content="Summerfest 2026 Milwaukee | The Complete Guide" />
-        <meta property="og:description" content="Everything you need for Summerfest 2026: lineup, tickets, stages, food, shuttles, bag policy, accessibility, and insider tips." />
-        <meta property="og:url" content="https://www.discover-milwaukee.com/summerfest-milwaukee" />
-        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
+        <meta property="og:title" content="Summerfest 2026 Milwaukee: The Complete Guide" key="og:title" />
+        <meta property="og:description" content="Everything for Summerfest 2026: full lineup, tickets, stages, food, MCTS shuttles, bag policy, accessibility, and insider tips." key="og:description" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/summerfest-milwaukee" key="og:url" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/summerfest-og.svg" key="og:image" />
+        <meta property="og:image:width" content="1200" key="og:image:width" />
+        <meta property="og:image:height" content="630" key="og:image:height" />
+        <meta property="og:image:alt" content="Summerfest 2026 — Complete Milwaukee Guide. Jun 18–20, Jun 25–27, Jul 2–4." key="og:image:alt" />
+        <meta property="article:published_time" content="2026-06-04T00:00:00-05:00" key="article:published_time" />
+        <meta property="article:modified_time" content="2026-06-04T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:author" content="Discover Milwaukee" key="article:author" />
+        <meta property="article:section" content="Music & Festivals" key="article:section" />
+
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:title" content="Summerfest 2026 Milwaukee: The Complete Guide" key="twitter:title" />
+        <meta name="twitter:description" content="Full Summerfest 2026 guide — lineup, tickets, stages, food, parking, free-admission days, and insider tips." key="twitter:description" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/summerfest-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
@@ -291,8 +399,8 @@ export default function SummerfestMilwaukee() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 2026 · THE COMPLETE GUIDE</p>
-            <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Summerfest 2026</h1>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · THE COMPLETE GUIDE</p>
+            <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Summerfest 2026 Milwaukee: The Complete Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               The world's largest music festival lives in Milwaukee. Full 2026 guide — every confirmed show, every stage, every vendor, every way to get in free, plus the parking, accessibility and gate-strategy details locals actually use.
             </p>
@@ -492,10 +600,17 @@ export default function SummerfestMilwaukee() {
               ))}
             </div>
 
-            <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "20px", borderRadius: "12px" }}>
+            <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "20px", borderRadius: "12px", marginBottom: "16px" }}>
               <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}>Beer Gardens & Drinks</h3>
               <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>
-                Klement's Sausage & Beer Garden anchors the Milwaukee-classic corner; Miller Lite Oasis covers the lakefront. Local Wisconsin breweries pour through the grounds, with non-alcoholic options (sodas, mocktails, sparkling water) at every major bar. Throwback Thursday on June 25 includes 50% off select drinks noon–6 p.m.
+                Klement's Sausage & Beer Garden anchors the Milwaukee-classic corner; Miller Lite Oasis covers the lakefront. Local Wisconsin breweries pour through the grounds, with non-alcoholic options (sodas, mocktails, sparkling water) at every major bar. Throwback Thursday on June 25 includes 50% off select drinks noon–6 p.m. Want to dig deeper into Milwaukee's beer scene before or after the festival? See our <Link href="/best-brewery-tours-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>best brewery tours</Link> and <Link href="/milwaukee-breweries" style={{ color: c.green2, fontWeight: "600" }}>Milwaukee breweries</Link> guides.
+              </p>
+            </div>
+
+            <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "18px", borderRadius: "12px" }}>
+              <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", marginBottom: "8px" }}>Hungry for Milwaukee-classic food beyond the grounds?</h3>
+              <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>
+                Summerfest's vendor lineup covers the staples, but Milwaukee is a food town outside the gates too. Locals send Summerfest visitors to <Link href="/best-cheese-curds-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>cheese curds</Link>, <Link href="/best-fish-fry-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>Friday fish fry</Link>, <Link href="/best-doughnuts-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>morning-after doughnuts</Link>, and <Link href="/late-night-food-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>late-night food</Link> after a long festival day. The festival sits between <Link href="/third-ward-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>Third Ward</Link> and <Link href="/walkers-point-milwaukee" style={{ color: c.green2, fontWeight: "600" }}>Walker's Point</Link> — easy walks for a pre- or post-show meal.
               </p>
             </div>
           </section>
