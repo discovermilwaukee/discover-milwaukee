@@ -184,12 +184,15 @@ const faqs = [
   },
 ];
 
+const allTours = [...tours.heavyweights, ...tours.modern, ...tours.small];
+
 const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Best Brewery Tours in Milwaukee 2026: Top Beer Tours & Tastings",
     "description": "A researched guide to the best brewery tours in Milwaukee — historic heavyweights, the funniest tour in the country, and the small craft taprooms locals send guests to.",
+    "image": "https://www.discover-milwaukee.com/images/best-brewery-tours-og.svg",
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-05-28",
@@ -212,6 +215,31 @@ const structuredData = {
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
       { "@type": "ListItem", "position": 2, "name": "Best Brewery Tours Milwaukee", "item": "https://www.discover-milwaukee.com/best-brewery-tours-milwaukee" }
     ]
+  },
+  itemList: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Best Brewery Tours in Milwaukee",
+    "description": "12 Milwaukee breweries offering tours and tasting-room experiences worth booking.",
+    "numberOfItems": allTours.length,
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": allTours.map((spot, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Brewery",
+        "name": spot.name,
+        "priceRange": spot.priceRange,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": spot.address.split(",")[0].trim(),
+          "addressLocality": (spot.address.match(/,\s*([^,]+?),\s*WI/) || [,"Milwaukee"])[1],
+          "addressRegion": "WI",
+          "postalCode": (spot.address.match(/WI\s+(\d{5})/) || [,""])[1],
+          "addressCountry": "US"
+        }
+      }
+    }))
   }
 };
 
@@ -254,26 +282,41 @@ export default function BestBreweryToursMilwaukee() {
   return (
     <>
       <Head>
-        <title>Best Brewery Tours in Milwaukee 2026 | Top Beer Tours & Tastings</title>
-        <meta name="description" content="The best brewery tours in Milwaukee, researched and verified. Lakefront's famous comedy tour, Miller, Pabst, Sprecher's root-beer flight, plus the craft taprooms locals send guests to." />
+        <title>Best Brewery Tours in Milwaukee 2026: 12 Top Picks</title>
+        <meta name="description" content="12 best brewery tours in Milwaukee 2026 — Lakefront's comedy tour, Miller, Pabst, Sprecher, Third Space and the craft taprooms locals send guests to." />
         <meta name="keywords" content="best brewery tours milwaukee, milwaukee brewery tours, milwaukee beer tours, lakefront brewery tour, miller brewery tour, pabst brewery tour, milwaukee craft beer tours, beer capital tours" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/best-brewery-tours-milwaukee" />
 
-        <meta property="og:title" content="Best Brewery Tours in Milwaukee 2026 | The Proven List" />
-        <meta property="og:description" content="Milwaukee is the historical beer capital and still earns the title. The brewery tours that actually deliver — historic, comedic, and craft." />
-        <meta property="og:url" content="https://www.discover-milwaukee.com/best-brewery-tours-milwaukee" />
-        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
+        <meta property="og:title" content="Best Brewery Tours in Milwaukee 2026: 12 Top Picks" key="og:title" />
+        <meta property="og:description" content="The 12 Milwaukee brewery tours that actually deliver — historic, comedic, craft. Lakefront, Miller, Pabst, Sprecher, Third Space and more." key="og:description" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-brewery-tours-milwaukee" key="og:url" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/best-brewery-tours-og.svg" key="og:image" />
+        <meta property="og:image:width" content="1200" key="og:image:width" />
+        <meta property="og:image:height" content="630" key="og:image:height" />
+        <meta property="og:image:alt" content="Best Brewery Tours in Milwaukee — 12 breweries, historic to craft." key="og:image:alt" />
+        <meta property="article:published_time" content="2026-05-28T00:00:00-05:00" key="article:published_time" />
+        <meta property="article:modified_time" content="2026-05-28T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:author" content="Discover Milwaukee" key="article:author" />
+        <meta property="article:section" content="Food & Drink" key="article:section" />
+
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:title" content="Best Brewery Tours in Milwaukee 2026: 12 Top Picks" key="twitter:title" />
+        <meta name="twitter:description" content="The 12 Milwaukee brewery tours that actually deliver — historic, comedic, craft." key="twitter:description" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/best-brewery-tours-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.itemList) }} />
       </Head>
 
       <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 28, 2026 · 12 BREWERIES</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Brewery Tours in Milwaukee
             </h1>
@@ -287,7 +330,7 @@ export default function BestBreweryToursMilwaukee() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Tour times, prices and availability shift seasonally. Always confirm directly with the brewery before you go, especially for weekend or holiday slots. Prices listed are approximate.
+              <strong>Note:</strong> Tour times, prices and availability shift seasonally. Always confirm directly with the brewery before you go. Prices listed are approximate. Doing a beer-and-food day? Pair a tour with <Link href="/best-cheese-curds-milwaukee" style={{ color: c.green2 }}>Milwaukee cheese curds</Link>, a <Link href="/best-fish-fry-milwaukee" style={{ color: c.green2 }}>Friday fish fry</Link>, or hit <Link href="/packers-bars-milwaukee" style={{ color: c.green2 }}>a Packers bar</Link> on game day.
             </p>
           </div>
 
