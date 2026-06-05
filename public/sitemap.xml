@@ -660,4 +660,48 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- TIER 1 - JUNE 2026 -->
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-hotels</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/brewers-game-guide-milwaukee</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/bucks-game-guide-milwaukee</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-public-market</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/bachelorette-party-milwaukee</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/bachelor-party-milwaukee</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
