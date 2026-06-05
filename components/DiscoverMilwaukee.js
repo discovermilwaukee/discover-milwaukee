@@ -659,7 +659,7 @@ const isWithinWeek = (eventDate, monday) => {
 };
 
 // =============================================================================
-// EVENTS DATA - May 2026 Milwaukee Events
+// EVENTS DATA - May–June 2026 Milwaukee Events
 // =============================================================================
 
 const FALLBACK_EVENTS = [
@@ -750,6 +750,109 @@ const FALLBACK_EVENTS = [
   { id: "may-31-locust-beer", title: "Locust Street Beer Run", startDateTime: "2026-05-31T11:00:00", venueName: "Locust Street Festival", category: "Fitness", shortDescription: "Fun run through the Locust Street Festival.", costType: "paid", featured: false, allDay: false },
   { id: "may-31-locust-fest", title: "Locust Street Festival", startDateTime: "2026-05-31T11:00:00", venueName: "Locust St between Holton & Humboldt", category: "Live Music", shortDescription: "Annual street festival with live music and vendors.", costType: "free", featured: true, allDay: false },
   { id: "may-31-pride-makers", title: "Handmade with Pride Makers Market", startDateTime: "2026-05-31T11:00:00", venueName: "Great Lakes Distillery", category: "Shopping", shortDescription: "LGBTQ+ makers market at Great Lakes Distillery.", costType: "free", featured: false, allDay: false },
+
+  // =================== JUNE 2026 ===================
+
+  // June 4 (Thursday)
+  { id: "jun-4-jazz-park", title: "Jazz in the Park", startDateTime: "2026-06-04T17:00:00", endDateTime: "2026-06-04T21:00:00", venueName: "Cathedral Square Park", category: "Live Music", shortDescription: "Free weekly summer concert series in Cathedral Square Park, 5–9pm.", costType: "free", featured: true, allDay: false },
+  { id: "jun-4-patiopalooza", title: "Patiopalooza", startDateTime: "2026-06-04T16:00:00", endDateTime: "2026-06-04T20:00:00", venueName: "The Little Village Play Cafe", category: "Family", shortDescription: "Family-friendly patio party at The Little Village, 4–8pm.", costType: "free", featured: false, allDay: false },
+
+  // June 4–6
+  { id: "jun-4-pride-fest", title: "PrideFest Milwaukee", startDateTime: "2026-06-04T17:00:00", endDateTime: "2026-06-06T23:59:00", venueName: "Henry Maier Festival Park", category: "Nightlife", shortDescription: "Three-day LGBTQ+ pride festival on the Summerfest grounds.", costType: "paid", featured: true, allDay: false },
+
+  // June 5 (Friday)
+  { id: "jun-5-ride-with-pride", title: "Ride with Pride", startDateTime: "2026-06-05T10:00:00", venueName: "Davidson Park", category: "Outdoors", shortDescription: "Group bike ride starting in Davidson Park at 10am.", costType: "free", featured: false, allDay: false },
+
+  // June 5–6
+  { id: "jun-5-art-64", title: "Art 64", startDateTime: "2026-06-05T11:00:00", endDateTime: "2026-06-06T18:00:00", venueName: "Tosa Village", category: "Arts", shortDescription: "Two-day arts festival in Tosa Village.", costType: "free", featured: false, allDay: false },
+  { id: "jun-5-3rd-st-vintage", title: "3rd St Vintage Market with All Goods", startDateTime: "2026-06-05T11:00:00", endDateTime: "2026-06-06T17:00:00", venueName: "3rd St Market Hall", category: "Shopping", shortDescription: "Vintage market at 3rd St Market Hall — Fri 11a–6p, Sat 11a–5p.", costType: "free", featured: false, allDay: false },
+
+  // June 5–7
+  { id: "jun-5-mke-metal-fest", title: "Milwaukee Metal Fest", startDateTime: "2026-06-05T17:00:00", endDateTime: "2026-06-07T23:59:00", venueName: "The Rave", category: "Live Music", shortDescription: "Three-day metal festival at The Rave.", costType: "paid", featured: true, allDay: false },
+
+  // June 6 (Saturday)
+  { id: "jun-6-brewtown-rumble", title: "Brewtown Rumble", startDateTime: "2026-06-06T11:00:00", endDateTime: "2026-06-06T16:00:00", venueName: "Davidson Park", category: "Sports", shortDescription: "Motorcycle rally and bike show at Davidson Park, 11a–4p.", costType: "free", featured: false, allDay: false },
+  { id: "jun-6-highland-games", title: "Milwaukee Highland Games", startDateTime: "2026-06-06T09:00:00", endDateTime: "2026-06-06T21:00:00", venueName: "Croatian Park", category: "Sports", shortDescription: "Scottish heavy athletics, music, and culture at Croatian Park, 9a–9p.", costType: "paid", featured: false, allDay: false },
+  { id: "jun-6-pet-palooza", title: "Pet Palooza", startDateTime: "2026-06-06T10:00:00", endDateTime: "2026-06-06T16:00:00", venueName: "Greendale Gazebo Park", category: "Family", shortDescription: "Pet-focused festival at Greendale Gazebo Park, 10a–4p.", costType: "free", featured: false, allDay: false },
+  { id: "jun-6-pop-out-pride", title: "Pop Out for Pride Pop-Up Market", startDateTime: "2026-06-06T12:00:00", endDateTime: "2026-06-06T17:00:00", venueName: "The Cooperage", category: "Shopping", shortDescription: "LGBTQ+ makers pop-up at The Cooperage, 12–5p.", costType: "free", featured: false, allDay: false },
+  { id: "jun-6-viva-mke", title: "Viva MKE Marketplace", startDateTime: "2026-06-06T11:00:00", endDateTime: "2026-06-06T19:00:00", venueName: "2997 S 20th St", category: "Shopping", shortDescription: "Marketplace showcasing Milwaukee makers, 11a–7p.", costType: "free", featured: false, allDay: false },
+  { id: "jun-6-day-drinks", title: "Day Drinks & Handmade Things", startDateTime: "2026-06-06T10:00:00", endDateTime: "2026-06-06T15:00:00", venueName: "Station 1846", category: "Shopping", shortDescription: "Makers market with drinks at Station 1846, 10a–3p.", costType: "free", featured: false, allDay: false },
+
+  // June 6–7
+  { id: "jun-6-savannah-bananas", title: "Savannah Bananas", startDateTime: "2026-06-06T18:00:00", endDateTime: "2026-06-07T21:00:00", venueName: "American Family Field", category: "Sports", shortDescription: "Two-night Savannah Bananas baseball spectacle at American Family Field.", costType: "paid", featured: true, allDay: false },
+  { id: "jun-6-st-robert-fair", title: "St Robert Shorewood Annual Parish Fair", startDateTime: "2026-06-06T12:00:00", endDateTime: "2026-06-07T20:00:00", venueName: "St Robert Parish, Shorewood", category: "Family", shortDescription: "Annual parish fair — Sat 12–10p, Sun 12–8p.", costType: "free", featured: false, allDay: false },
+
+  // June 7 (Sunday)
+  { id: "jun-7-west-allis-a-la-carte", title: "West Allis A La Carte", startDateTime: "2026-06-07T11:00:00", endDateTime: "2026-06-07T17:00:00", venueName: "70th to 76th & Greenfield Ave, West Allis", category: "Food & Drink", shortDescription: "West Allis food festival, 11a–5p.", costType: "free", featured: false, allDay: false },
+  { id: "jun-7-pride-parade", title: "Pride Parade", startDateTime: "2026-06-07T14:00:00", venueName: "2nd Street, Walker's Point", category: "Family", shortDescription: "Annual Pride Parade down 2nd Street between Scott and Seeboth, 2pm start.", costType: "free", featured: true, allDay: false },
+  { id: "jun-7-fiesta-puerto-rico", title: "Fiesta Puerto Rico Fest & Parade", startDateTime: "2026-06-07T11:00:00", endDateTime: "2026-06-07T19:00:00", venueName: "Humboldt Park", category: "Food & Drink", shortDescription: "Puerto Rican festival and parade at Humboldt Park, 11a–7p.", costType: "free", featured: true, allDay: false },
+  { id: "jun-7-lolo-fest", title: "Lolo Fest", startDateTime: "2026-06-07T10:00:00", endDateTime: "2026-06-07T16:00:00", venueName: "Harley-Davidson Museum", category: "Family", shortDescription: "Family-friendly festival at the Harley-Davidson Museum, 10a–4p.", costType: "free", featured: false, allDay: false },
+  { id: "jun-7-414flea", title: "414Flea", startDateTime: "2026-06-07T11:00:00", endDateTime: "2026-06-07T17:00:00", venueName: "Zocalo Food Park", category: "Shopping", shortDescription: "414Flea outdoor flea market at Zocalo, 11a–5p.", costType: "free", featured: false, allDay: false },
+
+  // June 11
+  { id: "jun-11-sherman-phoenix-market", title: "Sherman Phoenix Night Market & Patio Party", startDateTime: "2026-06-11T17:00:00", endDateTime: "2026-06-11T21:00:00", venueName: "Sherman Phoenix", category: "Shopping", shortDescription: "Evening market and patio party at Sherman Phoenix.", costType: "free", featured: false, allDay: false },
+
+  // June 12 (Friday)
+  { id: "jun-12-food-truck-friday-1", title: "Food Truck Friday + Mini Market", startDateTime: "2026-06-12T16:00:00", venueName: "West Allis Farmers Market", category: "Food & Drink", shortDescription: "Food trucks and mini market in West Allis.", costType: "free", featured: false, allDay: false },
+
+  // June 12–13
+  { id: "jun-12-sauced", title: "SAUCED Night Market", startDateTime: "2026-06-12T17:00:00", endDateTime: "2026-06-13T22:00:00", venueName: "House of RAD", category: "Food & Drink", shortDescription: "Two-night food and market event at House of RAD.", costType: "free", featured: false, allDay: false },
+  { id: "jun-12-hartfest", title: "HartFest", startDateTime: "2026-06-12T17:00:00", endDateTime: "2026-06-13T22:00:00", venueName: "Hart Park, Wauwatosa", category: "Live Music", shortDescription: "Two-day music and food festival at Hart Park in Tosa.", costType: "free", featured: false, allDay: false },
+
+  // June 12–14
+  { id: "jun-12-tosa-greek-fest", title: "Tosa Greek Fest", startDateTime: "2026-06-12T11:00:00", endDateTime: "2026-06-14T22:00:00", venueName: "Sts Constantine & Helen Greek Orthodox Church", category: "Food & Drink", shortDescription: "Three-day Greek festival with food, music, and culture.", costType: "free", featured: true, allDay: false },
+  { id: "jun-12-lionfest", title: "61st Annual Lionfest", startDateTime: "2026-06-12T11:00:00", endDateTime: "2026-06-14T22:00:00", venueName: "Thiensville Village Park", category: "Family", shortDescription: "61st year of Thiensville's Lionfest community festival.", costType: "free", featured: false, allDay: false },
+
+  // June 13 (Saturday)
+  { id: "jun-13-happy-day", title: "Happy Day", startDateTime: "2026-06-13T12:00:00", venueName: "Third Space Brewing", category: "Food & Drink", shortDescription: "Day-long celebration at Third Space Brewing.", costType: "free", featured: false, allDay: false },
+  { id: "jun-13-summer-soulstice", title: "Summer Soulstice Music Festival", startDateTime: "2026-06-13T12:00:00", venueName: "East Side Milwaukee", category: "Live Music", shortDescription: "Free outdoor music festival on the East Side.", costType: "free", featured: true, allDay: false },
+  { id: "jun-13-midtown-pride", title: "Midtown Pride", startDateTime: "2026-06-13T12:00:00", venueName: "Joy Ice Cream Social", category: "Family", shortDescription: "Midtown Pride celebration at Joy Ice Cream Social.", costType: "free", featured: false, allDay: false },
+  { id: "jun-13-rock-onto-wellness", title: "Rock onto Wellness", startDateTime: "2026-06-13T11:00:00", venueName: "Urban Park, Summerfest North Gate", category: "Fitness", shortDescription: "Wellness event in Urban Park at the Summerfest North Gate.", costType: "free", featured: false, allDay: false },
+
+  // June 14 (Sunday)
+  { id: "jun-14-gather-grow", title: "Gather & Grow Market", startDateTime: "2026-06-14T10:00:00", venueName: "The Little Village Play Cafe", category: "Shopping", shortDescription: "Family-focused makers market at The Little Village Play Cafe.", costType: "free", featured: false, allDay: false },
+  { id: "jun-14-big-picnic", title: "The Big Picnic at Riverwalk Commons", startDateTime: "2026-06-14T11:00:00", venueName: "Riverwalk Commons", category: "Family", shortDescription: "Community picnic at Riverwalk Commons.", costType: "free", featured: false, allDay: false },
+  { id: "jun-14-veganmania", title: "VeganMania", startDateTime: "2026-06-14T11:00:00", venueName: "Greenfield Park", category: "Food & Drink", shortDescription: "Vegan food festival in Greenfield Park.", costType: "free", featured: false, allDay: false },
+  { id: "jun-14-albanian-fest", title: "Albanian Fest", startDateTime: "2026-06-14T12:00:00", venueName: "Croatian Park", category: "Food & Drink", shortDescription: "Albanian cultural festival at Croatian Park.", costType: "free", featured: false, allDay: false },
+  { id: "jun-14-mke-foodie-fest", title: "MKE Foodie Fest", startDateTime: "2026-06-14T11:00:00", venueName: "Sherman Phoenix", category: "Food & Drink", shortDescription: "Milwaukee food festival at Sherman Phoenix.", costType: "free", featured: false, allDay: false },
+
+  // June 16
+  { id: "jun-16-riverwalk-concert-1", title: "Riverwalk Commons Concert Series", startDateTime: "2026-06-16T18:00:00", venueName: "Riverwalk Commons", category: "Live Music", shortDescription: "First June night of the Riverwalk Commons Concert Series.", costType: "free", featured: false, allDay: false },
+
+  // June 18
+  { id: "jun-18-betty-brinn", title: "Community Access Day", startDateTime: "2026-06-18T10:00:00", venueName: "Betty Brinn Children's Museum", category: "Family", shortDescription: "Free admission day at Betty Brinn Children's Museum.", costType: "free", featured: false, allDay: false },
+  { id: "jun-18-414flea-night", title: "414Flea Night Market", startDateTime: "2026-06-18T17:00:00", venueName: "Zocalo Food Park", category: "Shopping", shortDescription: "Evening edition of the 414Flea at Zocalo.", costType: "free", featured: false, allDay: false },
+
+  // June 19
+  { id: "jun-19-juneteenth", title: "Juneteenth Celebration", startDateTime: "2026-06-19T10:00:00", venueName: "Dr Martin Luther King Jr Dr", category: "Arts", shortDescription: "Milwaukee's Juneteenth Day celebration along MLK Drive.", costType: "free", featured: true, allDay: false },
+
+  // June 20
+  { id: "jun-20-ope-makers", title: "Summer Ope!-stive Maker's Market", startDateTime: "2026-06-20T17:00:00", venueName: "Ope Brewing Co", category: "Shopping", shortDescription: "Makers market at Ope Brewing Co.", costType: "free", featured: false, allDay: false },
+  { id: "jun-20-cream-vintage", title: "Cream Fresh Vintage Fest", startDateTime: "2026-06-20T10:00:00", venueName: "Ivanhoe Plaza", category: "Shopping", shortDescription: "Curated vintage market at Ivanhoe Plaza.", costType: "free", featured: false, allDay: false },
+  { id: "jun-20-wild-ones", title: "Wild Ones Motorcycle Rally", startDateTime: "2026-06-20T10:00:00", venueName: "Harley-Davidson Museum", category: "Sports", shortDescription: "Motorcycle rally at the Harley-Davidson Museum.", costType: "free", featured: false, allDay: false },
+
+  // June 21
+  { id: "jun-21-mke-makers-family", title: "Milwaukee Makers Market: Celebrate Family", startDateTime: "2026-06-21T10:00:00", venueName: "American Family Field", category: "Shopping", shortDescription: "Family-themed Milwaukee Makers Market at American Family Field.", costType: "free", featured: false, allDay: false },
+
+  // June 24
+  { id: "jun-24-mke-night-market", title: "Milwaukee Night Market", startDateTime: "2026-06-24T17:00:00", venueName: "West Wisconsin Ave, Downtown", category: "Shopping", shortDescription: "Downtown Milwaukee's signature night market on W Wisconsin Ave.", costType: "free", featured: true, allDay: false },
+
+  // June 25
+  { id: "jun-25-sherman-phoenix-market", title: "Sherman Phoenix Night Market & Patio Party", startDateTime: "2026-06-25T17:00:00", endDateTime: "2026-06-25T21:00:00", venueName: "Sherman Phoenix", category: "Shopping", shortDescription: "Second June edition of the Sherman Phoenix Night Market.", costType: "free", featured: false, allDay: false },
+  { id: "jun-25-riverwalk-market", title: "Market on the Riverwalk", startDateTime: "2026-06-25T11:00:00", venueName: "Schlitz Park", category: "Shopping", shortDescription: "Outdoor market along the riverwalk at Schlitz Park.", costType: "free", featured: false, allDay: false },
+  { id: "jun-25-414freeze", title: "414Freeze: A 414Flea Pop-Up", startDateTime: "2026-06-25T17:00:00", venueName: "Joy Ice Cream", category: "Shopping", shortDescription: "414Flea pop-up at Joy Ice Cream.", costType: "free", featured: false, allDay: false },
+
+  // June 26
+  { id: "jun-26-food-truck-friday-2", title: "Food Truck Friday + Mini Market", startDateTime: "2026-06-26T16:00:00", venueName: "West Allis Farmers Market", category: "Food & Drink", shortDescription: "Second June edition of West Allis Food Truck Friday.", costType: "free", featured: false, allDay: false },
+
+  // June 27–28
+  { id: "jun-27-strawberry-fest", title: "Strawberry Festival", startDateTime: "2026-06-27T10:00:00", endDateTime: "2026-06-28T17:00:00", venueName: "Historic Downtown Cedarburg", category: "Family", shortDescription: "Annual two-day Strawberry Festival in historic downtown Cedarburg.", costType: "free", featured: true, allDay: false },
+
+  // June 28
+  { id: "jun-28-pride-on-brady", title: "Pride on Brady", startDateTime: "2026-06-28T12:00:00", venueName: "Brady Street", category: "Nightlife", shortDescription: "Pride street party on historic Brady Street.", costType: "free", featured: true, allDay: false },
+
+  // June 30
+  { id: "jun-30-riverwalk-concert-2", title: "Riverwalk Commons Concert Series", startDateTime: "2026-06-30T18:00:00", venueName: "Riverwalk Commons", category: "Live Music", shortDescription: "Second June night of the Riverwalk Commons Concert Series.", costType: "free", featured: false, allDay: false },
 ];
 
 // Helper function to get the current week's Monday and Sunday
