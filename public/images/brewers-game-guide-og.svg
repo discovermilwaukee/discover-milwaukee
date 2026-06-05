@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3d34"/>
+      <stop offset="100%" style="stop-color:#2d5a4a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <text x="600" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#f4a261" text-anchor="middle">DISCOVER MILWAUKEE · 2026 SEASON</text>
+  <text x="600" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="100" font-weight="900" fill="#f4d03f" text-anchor="middle">BREWERS GAME DAY</text>
+  <text x="600" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="100" font-weight="900" fill="#faf8f5" text-anchor="middle">MILWAUKEE</text>
+  <text x="600" y="445" font-family="system-ui, -apple-system, sans-serif" font-size="26" fill="#e8e4dc" text-anchor="middle">Parking · Tailgating · Food · Bars · Tips</text>
+  <rect x="300" y="500" width="600" height="62" rx="31" fill="#f4a261"/>
+  <text x="600" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1a3d34" text-anchor="middle">AMERICAN FAMILY FIELD GUIDE 2026</text>
+  <text x="600" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="500" fill="#e8e4dc" text-anchor="middle">discover-milwaukee.com/brewers-game-guide-milwaukee</text>
+</svg>
