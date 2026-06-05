@@ -193,12 +193,20 @@ const faqs = [
   },
 ];
 
+const allCurdSpots = [
+  ...curdSpots.institutions,
+  ...curdSpots.fresh,
+  ...curdSpots.brewery,
+  ...curdSpots.elevated,
+];
+
 const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Best Cheese Curds in Milwaukee 2026: Fried & Fresh Wisconsin Curds",
     "description": "A researched guide to the best cheese curds in Milwaukee — fried-curd institutions, fresh squeaky curds from cheese shops, brewery taprooms and elevated takes.",
+    "image": "https://www.discover-milwaukee.com/images/best-cheese-curds-og.svg",
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-05-28",
@@ -221,6 +229,32 @@ const structuredData = {
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
       { "@type": "ListItem", "position": 2, "name": "Best Cheese Curds Milwaukee", "item": "https://www.discover-milwaukee.com/best-cheese-curds-milwaukee" }
     ]
+  },
+  itemList: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Best Cheese Curds in Milwaukee",
+    "description": "13 Milwaukee spots for fried and fresh Wisconsin cheese curds — bars, cheese shops, breweries, and elevated takes.",
+    "numberOfItems": allCurdSpots.length,
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": allCurdSpots.map((spot, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Restaurant",
+        "name": spot.name,
+        "priceRange": spot.priceRange,
+        "servesCuisine": "American · Wisconsin",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": spot.address.split(",")[0].trim(),
+          "addressLocality": (spot.address.match(/,\s*([^,]+?),\s*WI/) || [,"Milwaukee"])[1],
+          "addressRegion": "WI",
+          "postalCode": (spot.address.match(/WI\s+(\d{5})/) || [,""])[1],
+          "addressCountry": "US"
+        }
+      }
+    }))
   }
 };
 
@@ -263,26 +297,41 @@ export default function BestCheeseCurdsMilwaukee() {
   return (
     <>
       <Head>
-        <title>Best Cheese Curds in Milwaukee 2026 | Fried & Fresh Wisconsin Curds</title>
-        <meta name="description" content="The best cheese curds in Milwaukee — fried at Sobelman's, squeaky-fresh at Hill Valley Dairy, beer-battered at Lakefront's Curdsday. The proven list, by style." />
+        <title>Best Cheese Curds in Milwaukee 2026: Fried & Fresh</title>
+        <meta name="description" content="Best cheese curds in Milwaukee 2026: 13 spots for fried + fresh squeaky Wisconsin curds — Sobelman's, Hill Valley Dairy, Lakefront Curdsday & more." />
         <meta name="keywords" content="best cheese curds milwaukee, fried cheese curds milwaukee, fresh cheese curds milwaukee, squeaky cheese curds milwaukee, wisconsin cheese curds milwaukee, sobelman's curds, lakefront brewery curds" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/best-cheese-curds-milwaukee" />
 
-        <meta property="og:title" content="Best Cheese Curds in Milwaukee 2026 | Fried & Fresh" />
-        <meta property="og:description" content="Milwaukee's best cheese curds by style and neighborhood — fried-curd institutions, fresh squeaky curds, brewery standouts and elevated takes." />
-        <meta property="og:url" content="https://www.discover-milwaukee.com/best-cheese-curds-milwaukee" />
-        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
+        <meta property="og:title" content="Best Cheese Curds in Milwaukee 2026: Fried & Fresh" key="og:title" />
+        <meta property="og:description" content="13 Milwaukee cheese-curd spots — fried-curd institutions, fresh-from-the-cheesemaker, brewery standouts, and elevated takes." key="og:description" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-cheese-curds-milwaukee" key="og:url" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/best-cheese-curds-og.svg" key="og:image" />
+        <meta property="og:image:width" content="1200" key="og:image:width" />
+        <meta property="og:image:height" content="630" key="og:image:height" />
+        <meta property="og:image:alt" content="Best Cheese Curds in Milwaukee — 13 spots, fried to fresh." key="og:image:alt" />
+        <meta property="article:published_time" content="2026-05-28T00:00:00-05:00" key="article:published_time" />
+        <meta property="article:modified_time" content="2026-05-28T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:author" content="Discover Milwaukee" key="article:author" />
+        <meta property="article:section" content="Food & Drink" key="article:section" />
+
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:title" content="Best Cheese Curds in Milwaukee 2026: Fried & Fresh" key="twitter:title" />
+        <meta name="twitter:description" content="13 Milwaukee cheese-curd spots — fried, fresh, brewery, elevated." key="twitter:description" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/best-cheese-curds-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.itemList) }} />
       </Head>
 
       <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 28, 2026 · 13 SPOTS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Cheese Curds in Milwaukee
             </h1>
@@ -296,7 +345,7 @@ export default function BestCheeseCurdsMilwaukee() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Curd menus, fryer specials and cheesemaker schedules change. Confirm hours, make-days and current dips with the spot before you go. Prices listed are approximate.
+              <strong>Note:</strong> Curd menus, fryer specials and cheesemaker schedules change. Confirm hours, make-days and current dips with the spot before you go. Prices listed are approximate. Building a full Milwaukee food day? Add a <Link href="/best-brewery-tours-milwaukee" style={{ color: c.green2 }}>brewery tour</Link>, a <Link href="/best-fish-fry-milwaukee" style={{ color: c.green2 }}>Friday fish fry</Link>, or hit <Link href="/packers-bars-milwaukee" style={{ color: c.green2 }}>a Packers bar</Link> on game day.
             </p>
           </div>
 

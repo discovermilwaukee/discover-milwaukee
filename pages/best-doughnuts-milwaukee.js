@@ -182,12 +182,20 @@ const faqs = [
   },
 ];
 
+const allDoughnutSpots = [
+  ...doughnutSpots.institutions,
+  ...doughnutSpots.craft,
+  ...doughnutSpots.paczki,
+  ...doughnutSpots.worthTheDrive,
+];
+
 const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Best Doughnuts in Milwaukee 2026: Top Donut Shops, Paczki & Bakeries",
     "description": "A researched guide to the best doughnuts in Milwaukee — institutions, craft shops, Polish paczki bakeries and late-night spots, by neighborhood and price.",
+    "image": "https://www.discover-milwaukee.com/images/best-doughnuts-og.svg",
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-05-28",
@@ -210,6 +218,31 @@ const structuredData = {
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
       { "@type": "ListItem", "position": 2, "name": "Best Doughnuts Milwaukee", "item": "https://www.discover-milwaukee.com/best-doughnuts-milwaukee" }
     ]
+  },
+  itemList: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Best Doughnut Shops in Milwaukee",
+    "description": "12 doughnut shops, paczki bakeries and craft favorites across Milwaukee and the suburbs.",
+    "numberOfItems": allDoughnutSpots.length,
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": allDoughnutSpots.map((spot, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Bakery",
+        "name": spot.name,
+        "priceRange": spot.priceRange,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": spot.address.split(",")[0].trim(),
+          "addressLocality": (spot.address.match(/,\s*([^,]+?),\s*WI/) || [,"Milwaukee"])[1],
+          "addressRegion": "WI",
+          "postalCode": (spot.address.match(/WI\s+(\d{5})/) || [,""])[1],
+          "addressCountry": "US"
+        }
+      }
+    }))
   }
 };
 
@@ -252,26 +285,41 @@ export default function BestDoughnutsMilwaukee() {
   return (
     <>
       <Head>
-        <title>Best Doughnuts in Milwaukee 2026 | Top Donut Shops, Paczki & Bakeries</title>
-        <meta name="description" content="The best doughnuts in Milwaukee, researched and verified. Top donut shops, Polish paczki bakeries and craft favorites — Cranky Al's, Grebe's, Donut Monster and more." />
+        <title>Best Doughnuts in Milwaukee 2026: Donuts & Paczki</title>
+        <meta name="description" content="Best doughnuts in Milwaukee 2026: 12 verified shops + paczki bakeries — Cranky Al's, Grebe's, Donut Monster, National Bakery, Sciortino & more." />
         <meta name="keywords" content="best doughnuts milwaukee, best donuts milwaukee, milwaukee doughnut shops, milwaukee donut shops, paczki milwaukee, fat tuesday paczki milwaukee, milwaukee bakery doughnuts, cranky al's, grebe's bakery" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/best-doughnuts-milwaukee" />
 
-        <meta property="og:title" content="Best Doughnuts in Milwaukee 2026 | The Verified Spots" />
-        <meta property="og:description" content="Milwaukee's best doughnuts by style, neighborhood and price — old-school bakeries, Polish paczki, brown-butter old-fashioneds and late-night picks." />
-        <meta property="og:url" content="https://www.discover-milwaukee.com/best-doughnuts-milwaukee" />
-        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
+        <meta property="og:title" content="Best Doughnuts in Milwaukee 2026: Donuts & Paczki" key="og:title" />
+        <meta property="og:description" content="12 Milwaukee doughnut shops + paczki bakeries — institutions, craft, Polish, and late-night picks." key="og:description" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-doughnuts-milwaukee" key="og:url" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/best-doughnuts-og.svg" key="og:image" />
+        <meta property="og:image:width" content="1200" key="og:image:width" />
+        <meta property="og:image:height" content="630" key="og:image:height" />
+        <meta property="og:image:alt" content="Best Doughnuts in Milwaukee — 12 shops, institutions to craft to paczki." key="og:image:alt" />
+        <meta property="article:published_time" content="2026-05-28T00:00:00-05:00" key="article:published_time" />
+        <meta property="article:modified_time" content="2026-05-28T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:author" content="Discover Milwaukee" key="article:author" />
+        <meta property="article:section" content="Food & Drink" key="article:section" />
+
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:title" content="Best Doughnuts in Milwaukee 2026: Donuts & Paczki" key="twitter:title" />
+        <meta name="twitter:description" content="12 Milwaukee doughnut shops + paczki bakeries — institutions to craft." key="twitter:description" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/best-doughnuts-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.itemList) }} />
       </Head>
 
       <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 28, 2026 · 12 SHOPS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Doughnuts in Milwaukee
             </h1>
@@ -285,7 +333,7 @@ export default function BestDoughnutsMilwaukee() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Hours, prices and flavors change — and many shops sell out by mid-morning. Always confirm with the bakery before you go, especially on Fat Tuesday.
+              <strong>Note:</strong> Hours, prices and flavors change — and many shops sell out by mid-morning. Always confirm with the bakery before you go, especially on Fat Tuesday. Pair a doughnut with <Link href="/best-coffee-milwaukee" style={{ color: c.green2 }}>Milwaukee's best coffee</Link>, a full <Link href="/best-breakfast-milwaukee" style={{ color: c.green2 }}>breakfast</Link>, or <Link href="/best-brunch-milwaukee" style={{ color: c.green2 }}>weekend brunch</Link>.
             </p>
           </div>
 

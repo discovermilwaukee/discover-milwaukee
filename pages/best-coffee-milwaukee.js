@@ -193,12 +193,20 @@ const faqs = [
   },
 ];
 
+const allSpots = [
+  ...coffeeSpots.institutions,
+  ...coffeeSpots.specialty,
+  ...coffeeSpots.neighborhood,
+  ...coffeeSpots.newSchool,
+];
+
 const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Best Coffee in Milwaukee 2026: Top Coffee Shops & Roasters",
     "description": "A researched guide to the best coffee in Milwaukee — proven local roasters, third-wave cafes and neighborhood coffeehouses by neighborhood and style.",
+    "image": "https://www.discover-milwaukee.com/images/best-coffee-og.svg",
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-05-28",
@@ -221,6 +229,31 @@ const structuredData = {
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
       { "@type": "ListItem", "position": 2, "name": "Best Coffee Milwaukee", "item": "https://www.discover-milwaukee.com/best-coffee-milwaukee" }
     ]
+  },
+  itemList: {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Best Coffee Shops in Milwaukee",
+    "description": "13 proven local roasters and specialty coffee cafés across Milwaukee.",
+    "numberOfItems": allSpots.length,
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": allSpots.map((spot, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "CafeOrCoffeeShop",
+        "name": spot.name,
+        "priceRange": spot.priceRange,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": spot.address.split(",")[0].trim(),
+          "addressLocality": (spot.address.match(/,\s*([^,]+?),\s*WI/) || [,"Milwaukee"])[1],
+          "addressRegion": "WI",
+          "postalCode": (spot.address.match(/WI\s+(\d{5})/) || [,""])[1],
+          "addressCountry": "US"
+        }
+      }
+    }))
   }
 };
 
@@ -263,31 +296,46 @@ export default function BestCoffeeMilwaukee() {
   return (
     <>
       <Head>
-        <title>Best Coffee in Milwaukee 2026 | Top Coffee Shops & Roasters</title>
-        <meta name="description" content="The best coffee in Milwaukee, researched and proven. Top local roasters and specialty cafes — Colectivo, Stone Creek, Anodyne, Valentine and the third-wave spots." />
+        <title>Best Coffee in Milwaukee 2026: Top Shops & Roasters</title>
+        <meta name="description" content="Best coffee in Milwaukee 2026: 13 proven local roasters and specialty cafés — Colectivo, Stone Creek, Anodyne, Valentine, Likewise, Discourse & more." />
         <meta name="keywords" content="best coffee milwaukee, milwaukee coffee shops, milwaukee coffee roasters, best espresso milwaukee, best pour over milwaukee, milwaukee cafes, colectivo coffee, stone creek coffee" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/best-coffee-milwaukee" />
 
-        <meta property="og:title" content="Best Coffee in Milwaukee 2026 | Top Coffee Shops & Roasters" />
-        <meta property="og:description" content="Milwaukee's best coffee by neighborhood and style — local roasters, third-wave cafes and the neighborhood coffeehouses locals actually go to." />
-        <meta property="og:url" content="https://www.discover-milwaukee.com/best-coffee-milwaukee" />
-        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
+        <meta property="og:title" content="Best Coffee in Milwaukee 2026: Top Shops & Roasters" key="og:title" />
+        <meta property="og:description" content="13 proven Milwaukee coffee spots — local roasters, third-wave cafés and the neighborhood coffeehouses locals actually go to." key="og:description" />
+        <meta property="og:url" content="https://www.discover-milwaukee.com/best-coffee-milwaukee" key="og:url" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta property="og:image" content="https://www.discover-milwaukee.com/images/best-coffee-og.svg" key="og:image" />
+        <meta property="og:image:width" content="1200" key="og:image:width" />
+        <meta property="og:image:height" content="630" key="og:image:height" />
+        <meta property="og:image:alt" content="Best Coffee in Milwaukee — 13 proven local roasters and specialty cafés." key="og:image:alt" />
+        <meta property="article:published_time" content="2026-05-28T00:00:00-05:00" key="article:published_time" />
+        <meta property="article:modified_time" content="2026-05-28T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:author" content="Discover Milwaukee" key="article:author" />
+        <meta property="article:section" content="Food & Drink" key="article:section" />
+
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:title" content="Best Coffee in Milwaukee 2026: Top Shops & Roasters" key="twitter:title" />
+        <meta name="twitter:description" content="13 proven Milwaukee coffee spots — local roasters, third-wave cafés, neighborhood favorites." key="twitter:description" />
+        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/best-coffee-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.itemList) }} />
       </Head>
 
       <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 28, 2026 · 13 PROVEN SPOTS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Coffee in Milwaukee
             </h1>
             <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "620px", margin: "0 auto" }}>
-              Milwaukee's coffee scene punches above its size — proven local roasters, third-wave pour-overs, and the neighborhood cafes that hold the city together. Here are the spots that actually deliver.
+              Milwaukee's coffee scene punches above its size — proven local roasters, third-wave pour-overs, and the neighborhood cafés that hold the city together. 13 spots, by style and neighborhood.
             </p>
           </div>
         </header>
@@ -296,7 +344,7 @@ export default function BestCoffeeMilwaukee() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Cafe hours, single-origins and bar programs rotate. Always confirm current hours with the shop before you go. Prices listed are approximate.
+              <strong>Note:</strong> Cafe hours, single-origins and bar programs rotate. Always confirm current hours with the shop before you go. Prices listed are approximate. Pair your morning coffee with <Link href="/best-doughnuts-milwaukee" style={{ color: c.green2 }}>Milwaukee's best doughnuts</Link>, a <Link href="/best-breakfast-milwaukee" style={{ color: c.green2 }}>full breakfast</Link>, or a <Link href="/best-brunch-milwaukee" style={{ color: c.green2 }}>weekend brunch</Link>.
             </p>
           </div>
 
