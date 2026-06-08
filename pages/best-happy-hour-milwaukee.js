@@ -16,141 +16,129 @@ const happyHourSpots = {
   bestValue: [
     {
       name: "Aperitivo",
-      neighborhood: "Third Ward",
+      neighborhood: "Historic Third Ward",
       priceRange: "$$",
-      address: "Third Ward, Milwaukee",
-      happyHourTimes: "Check for current hours",
-      description: "Italian-inspired small plates meet serious happy hour value. Wine and rail drinks for $5, draft beers for $4, plus $11 bar snacks including fried surf clams, steak forks, Margherita flatbread, and meatballs.",
-      drinkSpecials: "$5 wine & rail drinks, $4 draft beers",
-      foodSpecials: "$11 bar snacks - surf clams, steak forks, flatbread, meatballs",
-      vibe: "Upscale casual, Italian-inspired",
-      insiderTip: "The steak forks are an underrated steal. Perfect pre-dinner snack.",
+      address: "311 N Plankinton Ave, Milwaukee, WI 53203",
+      happyHourTimes: "Tue–Thu 4–6 p.m.; Fri 4–5 p.m. (closed Sun & Mon)",
+      description: "Italian-inspired aperitivo bar in the Pritzlaff Building (corner of Plankinton & St. Paul). The happy hour is a flat-$8 menu — four rotating wine pours, four rotating cocktails, and five rotating small plates (hummus & pitas, skewers, flatbreads). Dine-in only.",
+      drinkSpecials: "$8 across the menu — 4 rotating wines, 4 rotating cocktails",
+      foodSpecials: "$8 small plates — 5 rotating items (hummus & pitas, skewers, flatbreads)",
+      vibe: "Upscale-casual Italian aperitivo, Third Ward",
+      insiderTip: "Friday's window is one hour only (4–5 p.m.) — show up at 4 sharp or you'll miss it. Dine-in only; no to-go on the HH menu.",
     },
     {
       name: "Black Sheep",
       neighborhood: "Walker's Point",
       priceRange: "$$",
       address: "216 S 2nd St, Milwaukee, WI 53204",
-      happyHourTimes: "Mon-Sat 4-6pm",
-      description: "A Walker's Point staple with one of the best happy hour deals in the city. $10 cheese boards pair perfectly with $5 Stoli martinis, Four Roses Manhattans, wine pours, or house sangria.",
-      drinkSpecials: "$5 Stoli martinis, Four Roses Manhattans, wine, sangria",
-      foodSpecials: "$10 cheese boards",
+      happyHourTimes: "Mon–Sat 4–6 p.m. (Fri extends 11 a.m.–6 p.m. with +$4 drafts)",
+      description: "Walker's Point staple. $5 Stoli martinis, $5 Four Roses Manhattans, $5 house wine pours (red or white), $5 house-made sangria. The $10 cheese board pairs perfectly — but it's only available Mon–Thu.",
+      drinkSpecials: "$5 Stoli martinis, $5 Four Roses Manhattans, $5 house wine, $5 house-made sangria · Fri extended HH adds $4 drafts",
+      foodSpecials: "$10 cheese board — Mon–Thu only (not Fri/Sat)",
       vibe: "Cozy, neighborhood, craft-focused",
-      insiderTip: "The cheese board is generous enough to share. Great date spot.",
+      insiderTip: "The cheese board is the move — but go Mon–Thu. Friday's extended HH (11 a.m.–6 p.m.) is the longest window in this guide; pair the $4 drafts with the regular menu.",
     },
     {
       name: "Odd Duck",
-      neighborhood: "Bay View",
+      neighborhood: "Walker's Point",
       priceRange: "$$",
-      address: "2352 S Kinnickinnic Ave, Milwaukee, WI 53207",
-      happyHourTimes: "Tue-Sat 3-6pm",
-      description: "Bay View's culinary anchor offers $5 draft beers and $8 wine glasses during happy hour. While the food specials rotate, the quality is always top-notch.",
-      drinkSpecials: "$5 draft beer, $8 wine glasses",
-      foodSpecials: "Rotating specials",
+      address: "939 S 2nd St, Milwaukee, WI 53204",
+      happyHourTimes: "Tue–Sat 3–6 p.m.",
+      description: "Chef-driven Walker's Point restaurant (relocated from Bay View in 2022). $5 draft beers and $8 glasses of wine at the bar. The small-plates menu (always available) is what locals pair with the HH drinks — no separate HH food menu.",
+      drinkSpecials: "$5 draft beer, $8 wine by the glass",
+      foodSpecials: "No formal HH food menu — order from the ever-changing small-plates list",
       vibe: "Creative, culinary, adventurous",
-      insiderTip: "Sit at the bar to watch the open kitchen. Order whatever's seasonal.",
+      insiderTip: "Sit at the bar to watch the open kitchen. Order whatever's marked seasonal on the small-plates list.",
     },
   ],
   classic: [
     {
-      name: "Von Trier's",
-      neighborhood: "East Side",
+      name: "Von Trier",
+      neighborhood: "Lower East Side",
       priceRange: "$-$$",
       address: "2235 N Farwell Ave, Milwaukee, WI 53211",
-      happyHourTimes: "Daily 4-6pm",
-      description: "A Milwaukee institution since 1978. The $7 happy hour includes your drink of choice plus free popcorn served all day, every day. German beer hall vibes in the heart of the East Side.",
-      drinkSpecials: "$7 happy hour specials",
-      foodSpecials: "Free popcorn all day",
+      happyHourTimes: "Daily 4–6 p.m.",
+      description: "Milwaukee's German beer-hall fixture at Farwell & North since 1978. $7 happy hour menu on cocktails and mixed drinks. Free popcorn served with drinks all day, every day. Outdoor biergarten in summer.",
+      drinkSpecials: "$7 happy-hour menu (cocktails and mixed drinks)",
+      foodSpecials: "Free popcorn with drinks, all day",
       vibe: "German beer hall, classic Milwaukee",
-      insiderTip: "The boot of beer is a Milwaukee tradition. Great outdoor biergarten in summer.",
+      insiderTip: "The biergarten is the right call on warm Fridays — get there before 4 p.m. or grab one of the inside booths.",
     },
     {
       name: "Maxie's Southern Comfort",
       neighborhood: "West Side",
       priceRange: "$$",
       address: "6732 W Fairview Ave, Milwaukee, WI 53213",
-      happyHourTimes: "Daily 4-6pm",
-      description: "Southern hospitality meets Milwaukee happy hour. $1 off drinks, $1 off oysters, and select starters for $6. The oyster deal alone is worth the trip.",
-      drinkSpecials: "$1 off all drinks",
-      foodSpecials: "$1 off oysters, $6 select starters",
+      happyHourTimes: "Mon–Sat 4–6 p.m.",
+      description: "Branded \"Milwaukee's Happiest Happy Hour.\" $1 off all drinks (beer, wine, cocktails), $2 fresh-shucked oysters, and $9 select appetizers including fried green tomatoes, PEI mussels, peel-N-eat shrimp, Kentucky Nuggets, Creole chicken meatballs, and gumbo. Just completed a 2026 refresh with co-owner Dan Sidner back as GM.",
+      drinkSpecials: "$1 off all drinks (the \"Buck Off!\" deal)",
+      foodSpecials: "$2 fresh-shucked oysters · $9 select apps (green tomatoes, mussels, peel-N-eat shrimp, Kentucky Nuggets, Creole meatballs, gumbo)",
       vibe: "Southern comfort, neighborhood staple",
-      insiderTip: "The oysters are the move. Combine with a whiskey cocktail for the full Southern experience.",
+      insiderTip: "$2 oysters with a whiskey cocktail is the move. The Kentucky Nuggets are the sleeper.",
     },
     {
       name: "Miller Time Pub & Grill",
-      neighborhood: "Downtown",
+      neighborhood: "Westown",
       priceRange: "$-$$",
       address: "509 W Wisconsin Ave, Milwaukee, WI 53203",
-      happyHourTimes: "Mon-Thu 4-7pm",
-      description: "Classic Milwaukee pub attached to the Miller Brewing legacy. Straightforward happy hour in the heart of downtown, perfect for after-work drinks.",
-      drinkSpecials: "Happy hour pricing on beer and cocktails",
-      foodSpecials: "Bar food specials",
-      vibe: "Classic pub, downtown, after-work",
-      insiderTip: "Great spot before a show at the Riverside or Pabst Theater.",
+      happyHourTimes: "Mon–Thu 4–7 p.m. (+ late-night 10 p.m.–midnight)",
+      description: "Classic downtown pub attached to the Hilton Milwaukee City Center, with Miller Brewing branding throughout. Straightforward post-work happy hour plus a late-night window — and game-day specials when the Brewers or Bucks are home.",
+      drinkSpecials: "$3 rail drinks, $3 Miller drafts, $5 house wine · Late-night 10 p.m.–midnight: $3 Miller High Life taps and shots · Game-day: $5 Miller Lite drafts during Brewers/Bucks home games, $6 pints during basketball games",
+      foodSpecials: "$2 off appetizers",
+      vibe: "Classic pub, downtown, after-work + late-night",
+      insiderTip: "Great spot before a show at the Riverside or Pabst Theater — and the late-night window is one of the only downtown HH options after 10 p.m.",
     },
   ],
   elevated: [
     {
       name: "Birch",
-      neighborhood: "Bay View",
+      neighborhood: "Brewer's Hill",
       priceRange: "$$$",
       address: "459 E Pleasant St, Milwaukee, WI 53202",
-      happyHourTimes: "Tue-Fri 4-6pm (bar only)",
-      description: "High-end tasting menu restaurant with a surprisingly accessible happy hour. Special pricing on select drinks and rotating menu items at the bar—a chance to taste Birch without the full commitment.",
-      drinkSpecials: "Special pricing on select drinks",
-      foodSpecials: "Rotating bar menu items",
+      happyHourTimes: "Tue–Fri 4–6 p.m. (bar only)",
+      description: "High-end tasting-menu restaurant on the Brewer's Hill / Lower East Side border with a bar-only happy hour — a chance to experience Birch without the full prix-fixe commitment.",
+      drinkSpecials: "Bar happy-hour menu — call (414) 921-4250 to confirm current pricing",
+      foodSpecials: "Bar-only menu items — call to confirm current pricing",
       vibe: "Upscale, intimate, special occasion",
-      insiderTip: "This is how you taste Birch on a budget. Sit at the bar and trust the bartender.",
+      insiderTip: "Sit at the bar and trust the bartender. Reservations not required at the bar during HH. Specific HH pricing rotates — call to confirm before you go.",
     },
     {
-      name: "DanDan",
-      neighborhood: "Downtown",
-      priceRange: "$$-$$$",
-      address: "360 E Erie St, Milwaukee, WI 53202",
-      happyHourTimes: "Check for current hours",
-      description: "Modern Chinese cuisine with a happy hour that highlights their creative cocktails and shareable plates. The dan dan noodles are legendary anytime.",
-      drinkSpecials: "Cocktail specials",
-      foodSpecials: "Shareable plates",
-      vibe: "Modern, bold, creative",
-      insiderTip: "Even outside happy hour, the cocktail program is worth exploring.",
+      name: "Bryant's Cocktail Lounge",
+      neighborhood: "Historic Mitchell Street",
+      priceRange: "$$",
+      address: "1579 S 9th St, Milwaukee, WI 53204",
+      happyHourTimes: "Sun–Thu, approximately 5–7 p.m. (call to confirm)",
+      description: "Milwaukee's oldest cocktail lounge, in business since 1938. No printed cocktail menu — tell the bartender what you like and they'll build something. Quiet, cocktail-focused happy hour with $5 Old Fashioneds and Depression-era cocktails. No food served.",
+      drinkSpecials: "Approx. $5 Old Fashioneds and Depression-era cocktails (call to confirm)",
+      foodSpecials: "No food served — drinks only",
+      vibe: "Historic, intimate, cocktail-focused",
+      insiderTip: "There's no menu — describe a flavor or mood (\"something bourbon-forward,\" \"light and refreshing\") and the bartender takes it from there. HH days/times have shifted with ownership tweaks — phone (414) 383-2620 before you head out.",
     },
   ],
   neighborhood: [
     {
       name: "Hooligan's Super Bar",
-      neighborhood: "East Side",
+      neighborhood: "Lower East Side",
       priceRange: "$",
       address: "2017 E North Ave, Milwaukee, WI 53202",
-      happyHourTimes: "Daily",
-      description: "The East Side's happy hour institution. Cheap drinks, no pretense, and a neighborhood vibe that's kept locals coming back for years.",
-      drinkSpecials: "Budget-friendly drink specials",
-      foodSpecials: "Bar snacks",
+      happyHourTimes: "Mon–Fri 4–7 p.m.",
+      description: "East Side neighborhood institution at Farwell & North. ~30 taps and 99+ bottles and cans, all $1 off during HH. Mixers and rail drinks $2 off. Half-priced appetizers across the menu.",
+      drinkSpecials: "$1 off all draft beers, $1 off bottles/cans, $1 off wine, $2 off mixers and rail drinks",
+      foodSpecials: "Half-priced appetizers",
       vibe: "Dive-ish, neighborhood, no frills",
-      insiderTip: "This is where you go when you want cheap drinks and good company.",
+      insiderTip: "Half-priced apps + $1 off taps for three hours is the best beer-and-bar-food value on the East Side. Pair with the smoky paprika aioli wings.",
     },
     {
       name: "The Vanguard",
       neighborhood: "Bay View",
       priceRange: "$$",
       address: "2659 S Kinnickinnic Ave, Milwaukee, WI 53207",
-      happyHourTimes: "Check for current specials",
-      description: "Craft sausages and cocktails in a fun, energetic setting. While known for their creative sausages, the drink specials make this a great happy hour destination.",
-      drinkSpecials: "Cocktail and beer specials",
-      foodSpecials: "Sausage deals",
+      happyHourTimes: "All hours of operation — daily drink deals (no traditional fixed HH window)",
+      description: "Craft sausage spot with a rotating daily drink program in place of a fixed happy hour. The bourbon-of-the-day deal is the value play, and Pabst / Rhinelander / Milwaukee Classic Lager cans are always $2.",
+      drinkSpecials: "Daily bourbon: $2 shot / $3 mixed / $4 pour Sun–Thu (up $1 each Fri–Sat) · $2 cans of PBR, Rhinelander, Milwaukee Classic Lager (always)",
+      foodSpecials: "Daily themed sausage specials (Meatball Monday and similar — themes shift)",
       vibe: "Energetic, creative, fun",
-      insiderTip: "Get a sausage flight to try multiple options. The Duck Bacon Jalapeño is popular.",
-    },
-    {
-      name: "Bryant's Cocktail Lounge",
-      neighborhood: "Walker's Point",
-      priceRange: "$$-$$$",
-      address: "1579 S 9th St, Milwaukee, WI 53204",
-      happyHourTimes: "Early evening",
-      description: "Milwaukee's oldest cocktail lounge, serving drinks since 1938. No menu—tell the bartender what you like and they'll create something perfect. Early evening is the best time to enjoy without crowds.",
-      drinkSpecials: "No traditional happy hour, but early evening is less crowded",
-      foodSpecials: "No food",
-      vibe: "Historic, intimate, cocktail-focused",
-      insiderTip: "There's no menu. Trust the bartender. Say 'something with bourbon' or 'light and refreshing.'",
+      insiderTip: "The bourbon-of-the-day pricing changes daily — ask the bartender what's on. The Duck Bacon Jalapeño sausage is a longtime favorite.",
     },
   ],
 };
@@ -158,27 +146,27 @@ const happyHourSpots = {
 const faqs = [
   {
     question: "What are the best happy hour deals in Milwaukee?",
-    answer: "Top Milwaukee happy hour deals include Aperitivo ($5 wine/rail, $4 drafts), Black Sheep ($5 craft cocktails, $10 cheese boards), Odd Duck ($5 draft, $8 wine), Von Trier's ($7 happy hour + free popcorn), and Maxie's ($1 off drinks and oysters)."
+    answer: "Top Milwaukee happy hour deals include Aperitivo (flat $8 wines, cocktails and small plates Tue–Thu 4–6 p.m. + Fri 4–5 p.m.), Black Sheep ($5 Stoli martinis / Four Roses Manhattans / wine / sangria + $10 cheese board Mon–Thu), Odd Duck ($5 draft, $8 wine Tue–Sat 3–6 p.m.), Maxie's ($2 oysters, $9 select apps, $1 off all drinks Mon–Sat 4–6 p.m.), Hooligan's ($1 off taps/bottles/wine, $2 off mixers, half-price apps Mon–Fri 4–7 p.m.), and Von Trier ($7 happy-hour menu + free popcorn, daily 4–6 p.m.)."
   },
   {
     question: "What time is happy hour in Milwaukee?",
-    answer: "Most Milwaukee happy hours run from 4-6pm on weekdays. Some spots start as early as 3pm (Odd Duck) and some extend to 7pm (Miller Time Pub). Check individual restaurants as times vary and may change seasonally."
+    answer: "Most Milwaukee happy hours run Mon–Fri (or Mon–Sat) from 4–6 p.m. The earliest starter is Odd Duck (3 p.m. Tue–Sat). The longest weekday window is Miller Time Pub (4–7 p.m. Mon–Thu, plus a 10 p.m.–midnight late-night window). Black Sheep runs an extended Friday HH from 11 a.m.–6 p.m. The shortest window is Aperitivo's Friday slot (4–5 p.m. only). Times shift — call ahead for the venue you're targeting."
   },
   {
     question: "Where can I get cheap drinks in Milwaukee?",
-    answer: "For budget-friendly drinks, try Hooligan's Super Bar (East Side), Von Trier's (includes free popcorn), or the many dive bars throughout the city. Happy hour at spots like Aperitivo and Black Sheep offer upscale drinks at lower prices."
+    answer: "For budget-friendly drinks, Hooligan's Super Bar on the East Side ($1 off taps/bottles/wine, $2 off mixers Mon–Fri 4–7 p.m.) is the value pick. The Vanguard's $2 cans of PBR, Rhinelander and Milwaukee Classic Lager are always on. Miller Time Pub's $3 rails, $3 Miller drafts and $5 house wine downtown are dependable. For upscale-at-a-discount, Aperitivo's flat-$8 HH menu (Tue–Thu 4–6 p.m. + Fri 4–5 p.m.) and Black Sheep's $5 cocktails are the moves."
   },
   {
     question: "Are there food specials during Milwaukee happy hours?",
-    answer: "Yes! Many spots offer food specials alongside drink deals. Aperitivo has $11 bar snacks, Black Sheep offers $10 cheese boards, Maxie's has $1 off oysters and $6 starters, and most bars have discounted appetizers."
+    answer: "Yes. Aperitivo has $8 rotating small plates (Tue–Thu 4–6, Fri 4–5). Black Sheep has a $10 cheese board (Mon–Thu only). Maxie's has $2 fresh-shucked oysters and $9 select apps (fried green tomatoes, PEI mussels, Kentucky Nuggets, Creole meatballs, gumbo). Hooligan's serves half-priced appetizers. Miller Time Pub has $2 off appetizers. Von Trier offers free popcorn with drinks all day."
   },
   {
     question: "What Milwaukee bars have happy hour on weekends?",
-    answer: "Weekend happy hours are less common, but Von Trier's runs daily happy hour, and many neighborhood bars offer consistent specials. Check individual restaurants as weekend happy hour availability varies."
+    answer: "Von Trier runs its $7 happy-hour menu daily (including Sat and Sun). Black Sheep runs an extended Friday HH from 11 a.m.–6 p.m. and continues regular HH Saturday 4–6 p.m. Maxie's, Odd Duck, and Hooligan's run their HH on Saturday. The Vanguard's daily drink deals are always on. Most other spots are weekday-only (Mon–Thu or Mon–Fri)."
   },
   {
     question: "Where is happy hour near Fiserv Forum?",
-    answer: "Before Bucks or Brewers games, try Uncle Buck's rooftop (Deer District), Pilot Project (Pabst Brewery District), or Miller Time Pub & Grill (downtown). These spots are walkable to Fiserv Forum and American Family Field."
+    answer: "Walking distance from Fiserv Forum in the Deer District / Westown: Uncle Buck's Fishbowl on N Dr Martin Luther King Jr Dr has a Tue–Fri 4–7 p.m. HH ($5 tap beer, wine and rail mixers) — but the HH is NOT available during Fiserv Forum events, so plan around your game time. Pilot Project Brewing in the Pabst Brewery District (1128 N 9th St) runs Mon–Thu specials including $5 select drinks and a $10 app-plus-drink combo. Miller Time Pub & Grill at 5th & Wisconsin (Mon–Thu 4–7 p.m.) adds $5 Miller Lite drafts during Brewers/Bucks home games."
   },
 ];
 
@@ -191,7 +179,7 @@ const structuredData = {
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
-    "dateModified": "2026-04-18",
+    "dateModified": "2026-06-07",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/best-happy-hour-milwaukee"
   },
   faqPage: {
@@ -270,7 +258,7 @@ export default function BestHappyHourMilwaukee() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED APRIL 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 7, 2026 · 11 VERIFIED SPOTS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Happy Hour in Milwaukee
             </h1>
@@ -284,7 +272,7 @@ export default function BestHappyHourMilwaukee() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Happy hour times and specials can change. Always verify current offerings with the restaurant. Prices listed are approximate and subject to change.
+              <strong>Heads up:</strong> Every spot below was verified against the venue's own website or recent menu in June 2026 — but happy-hour times, prices and food specials shift frequently with seasons, ownership changes, and game-day schedules. Always call ahead before you go, especially for the Sunday/Monday options (most HH is weekday) and for any Fiserv Forum game-night plans (some downtown HHs are suspended on event nights).
             </p>
           </div>
 
