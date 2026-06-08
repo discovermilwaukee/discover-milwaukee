@@ -19,10 +19,10 @@ const fishFrySpots = {
       neighborhood: "Brewer's Hill",
       priceRange: "$$",
       address: "1872 N Commerce St, Milwaukee, WI 53212",
-      description: "The quintessential Milwaukee fish fry experience. Crispy beer-battered cod, house-made potato pancakes, coleslaw, rye bread, and applesauce—served alongside excellent craft beer. Friday nights feature live polka music, creating an atmosphere that's pure Wisconsin.",
-      fishOptions: "Beer-battered cod, baked cod, lake perch",
-      sides: "Potato pancakes, fries, coleslaw, rye bread, applesauce",
-      insiderTip: "No reservations—arrive by 5pm or expect a wait. Grab a beer and enjoy the brewery tour while you wait.",
+      description: "The quintessential Milwaukee fish fry experience. Beer-battered Atlantic cod (2 or 3 piece), baked cod, hand-breaded whole bluegill, and a family-pack option — served alongside excellent craft beer. The Brewhaus Polka Kings play live Fridays 5:30–8:30 p.m., creating an atmosphere that's pure Wisconsin.",
+      fishOptions: "Beer-battered cod, baked cod, hand-breaded bluegill, fish tacos, fried-shrimp combo",
+      sides: "Seasoned fries, creamy coleslaw, tartar sauce, lemon wedge",
+      insiderTip: "Limited reservations 4:00–4:30 p.m. and 6:00–6:30 p.m. — otherwise arrive by 5 p.m. or expect a wait. Multiple-year Shepherd Express Readers' Pick winner.",
       bestFor: "First-timers, tourists, authentic Milwaukee experience",
       allYouCanEat: false,
     },
@@ -31,11 +31,23 @@ const fishFrySpots = {
       neighborhood: "Walker's Point",
       priceRange: "$$",
       address: "800 S 2nd St, Milwaukee, WI 53204",
-      description: "Beer-battered cod or perch that comes out in crunchy, deep-golden batter that locks in juiciness. The homemade tartar sauce gets mentions in every review for its zesty flavor. A neighborhood institution.",
-      fishOptions: "Beer-battered cod, perch",
-      sides: "Potato pancakes or fries, coleslaw, rye bread",
-      insiderTip: "The tartar sauce is house-made and exceptional. Ask for extra.",
+      description: "Walker's Point staple since 1985 with 326+ consecutive Friday fish fries on the board. Beer-battered Icelandic cod, pan-fried lake perch, and a famously good house tartar. The Steny's Bloody Mary was voted best in the city three years running.",
+      fishOptions: "Beer-battered Icelandic cod, baked cod, beer-battered or pan-fried lake perch, saucy shrimp",
+      sides: "Hand-cut fries, potato pancakes, Jamaican potato salad, sauteed veggies, cottage cheese, coleslaw, buttered marble rye",
+      insiderTip: "The house tartar is exceptional — ask for extra. Pair the fish with the city's most-decorated Bloody Mary.",
       bestFor: "Sports fans, neighborhood regulars, quality over quantity",
+      allYouCanEat: false,
+    },
+    {
+      name: "St. Paul Fish Company",
+      neighborhood: "Third Ward",
+      priceRange: "$$",
+      address: "400 N Water St, Milwaukee, WI 53202",
+      description: "The Milwaukee Public Market's fresh-fish counter with 246+ consecutive Friday fish fries on the books. Schlitz-battered cod is the signature; walleye, perch, grouper, and catfish round out the case. Casual counter service inside the market hall — not a tavern, not a white-tablecloth restaurant.",
+      fishOptions: "Schlitz-battered cod, walleye, perch, grouper, catfish",
+      sides: "Chips or fries, coleslaw, tartar — plus raw-bar oysters and lobster rolls available alongside",
+      insiderTip: "Order the Schlitz-battered cod fish-and-chips, then take it upstairs to the Public Market mezzanine. Friday lunchtime is often the price-best window.",
+      bestFor: "Fresh-fish seekers, Public Market visitors, fast counter lunch",
       allYouCanEat: false,
     },
   ],
@@ -43,37 +55,13 @@ const fishFrySpots = {
     {
       name: "Swingin' Door Exchange",
       neighborhood: "Downtown",
-      priceRange: "$$",
+      priceRange: "$",
       address: "219 E Michigan St, Milwaukee, WI 53202",
-      description: "Feast on crispy, beer-battered cod or perch with all the must-haves in a setting where Friday fish fry makes any visitor feel like a local. Often recommended to out-of-towners for the authentic Milwaukee fish fry experience.",
-      fishOptions: "Beer-battered cod, perch",
-      sides: "Classic sides, coleslaw, rye bread",
-      insiderTip: "Good for groups—the space is larger than most neighborhood taverns.",
-      bestFor: "Visitors, downtown workers, groups",
-      allYouCanEat: false,
-    },
-    {
-      name: "Erv's Mug",
-      neighborhood: "South Side",
-      priceRange: "$$",
-      address: "7001 W Oklahoma Ave, Milwaukee, WI 53219",
-      description: "Renowned for its beer-battered lake perch—a treasured fish in Wisconsin fish fries. Erv's represents the neighborhood tavern fish fry at its finest: no pretense, just excellent fried fish.",
-      fishOptions: "Lake perch (specialty), cod",
-      sides: "Traditional sides",
-      insiderTip: "Lake perch is the move here. It's what they're known for.",
-      bestFor: "Perch lovers, neighborhood authenticity",
-      allYouCanEat: false,
-    },
-    {
-      name: "Maxie's Southern Comfort",
-      neighborhood: "West Side",
-      priceRange: "$$",
-      address: "6732 W Fairview Ave, Milwaukee, WI 53213",
-      description: "A unique twist on fish fry—beer-battered haddock with creamy coleslaw, fries, and house-made tartar sauce. The fish has a nice crispy exterior that isn't overly heavy or greasy. Southern hospitality meets Wisconsin tradition.",
-      fishOptions: "Beer-battered haddock",
-      sides: "Fries, creamy coleslaw, house-made tartar sauce",
-      insiderTip: "The oyster happy hour is also excellent. Combine both for a seafood feast.",
-      bestFor: "Southern food fans, oyster lovers, unique fish fry experience",
+      description: "Downtown East Town saloon with 209+ consecutive Friday fish fries on the board. Icelandic cod (fried or baked, 2/3/4 piece, $9.50–$13.50) and lake perch ($13), plus a combo fry (2pc cod + 2pc perch + 3 shrimp, $16.50). Also runs the fish fry Saturday 10 a.m.–2 p.m.",
+      fishOptions: "Fried or baked Icelandic cod (2/3/4 pc), lake perch, combo fry (cod + perch + shrimp)",
+      sides: "Choice of housemade chips, fries, slaw, or soup; buttered marble rye; housemade tartar/cocktail. Substitutions include chili, chowder, spicy vermouth carrots, brussels sprouts, grilled beets",
+      insiderTip: "One of the few downtown fish fries that also runs Saturday late-morning — great if you can't get a Friday slot.",
+      bestFor: "Visitors, downtown workers, groups, value seekers",
       allYouCanEat: false,
     },
     {
@@ -88,44 +76,54 @@ const fishFrySpots = {
       bestFor: "Tradition seekers, German food lovers, multi-generation Milwaukee families",
       allYouCanEat: false,
     },
-  ],
-  allYouCanEat: [
     {
       name: "Serb Hall",
       neighborhood: "South Side",
-      priceRange: "$-$$",
+      priceRange: "$",
       address: "5101 W Oklahoma Ave, Milwaukee, WI 53219",
-      description: "A Milwaukee institution serving all-you-can-eat fish fry since 1950. The banquet-hall atmosphere and family-style service make this a quintessential Milwaukee experience.",
-      fishOptions: "Serbian-style breaded fish",
-      sides: "Potato salad, coleslaw, bread",
-      insiderTip: "Cash only. Come hungry—the portions are legendary.",
-      bestFor: "Value seekers, large groups, Milwaukee tradition",
-      allYouCanEat: true,
+      description: "Iconic South Side hall serving the city's signature hand-breaded Serbian-style cod since 1950. Single-portion dinners across three preparations: square-cut Icelandic cod, hand-breaded Atlantic cod (fried or baked), and the signature Serbian-style Atlantic cod in tomato sauce with peppers, onions, and garlic. Dine-in, drive-thru, and walk-up windows on Fridays 3:30–8:30 p.m.",
+      fishOptions: "Icelandic cod (2/3 pc, $15.95/$18.95), hand-breaded Atlantic cod fried or baked (2/3 pc, $13.95/$15.95), Serbian-style Atlantic cod in tomato sauce (2/3 pc, $14.95/$16.95)",
+      sides: "Choice of potato (French fries, garlic mashed, or Serbian potato salad), Serb Hall coleslaw, salted marble rye with butter, fresh lemon, tartar. House potato pancakes $2 each à la carte",
+      insiderTip: "Order the hand-breaded Serbian-style cod — it's the signature and the dish locals make the drive for. (Some older guides label Serb Hall as all-you-can-eat — it isn't; the menu is fixed 2- or 3-piece dinners.)",
+      bestFor: "Hand-breaded fans, Serbian heritage, banquet-hall scale",
+      allYouCanEat: false,
     },
   ],
   neighborhood: [
+    {
+      name: "Erv's Mug",
+      neighborhood: "Oak Creek",
+      priceRange: "$$",
+      address: "130 W Ryan Rd, Oak Creek, WI 53154",
+      description: "Family-owned, women-owned Oak Creek tavern since 1979 (daughter Danielle now at the helm). The fish fry runs Wednesdays and Fridays — 3-piece dinners. Lake perch is the signature, with a \"crackly golden shell\" praised by the Milwaukee Journal Sentinel, OnMilwaukee, Shepherd Express, and TMJ4.",
+      fishOptions: "Beer-battered cod, baked cod, tilapia, lake perch (beer-battered or lightly floured), yellowfin tuna, walleye pike, calamari, shrimp",
+      sides: "Soup, coleslaw, rye bread, choice of potato",
+      insiderTip: "Order the lake perch — it's what they're known for. Wednesday is the lower-traffic night if Friday is too booked. Note: Oak Creek is south of Milwaukee proper — plan ~20 minutes from downtown.",
+      bestFor: "Perch lovers, suburban neighborhood authenticity",
+      allYouCanEat: false,
+    },
+    {
+      name: "Maxie's Southern Comfort",
+      neighborhood: "West Side",
+      priceRange: "$$",
+      address: "6732 W Fairview Ave, Milwaukee, WI 53213",
+      description: "A Southern/Cajun-Creole spin on the Milwaukee Friday fish fry. Single-portion beer-battered fresh haddock ($19.95) with Cajun waffle fries and house-made cornbread instead of the usual rye and potato pancakes. Maxie's reopened after a 2026 refresh with the haddock fish fry intact.",
+      fishOptions: "Beer-battered fresh haddock",
+      sides: "Creamy coleslaw, house-made tartar, Cajun waffle fries, house-made cornbread",
+      insiderTip: "Pair with the $2 oyster happy hour for a Cajun-meets-Wisconsin seafood night.",
+      bestFor: "Southern food fans, oyster lovers, twist-on-tradition fish fry",
+      allYouCanEat: false,
+    },
     {
       name: "Barnacle Bud's",
       neighborhood: "Bay View",
       priceRange: "$$",
       address: "1955 S Hilbert Ave, Milwaukee, WI 53207",
-      description: "A nautical-themed neighborhood spot with solid fish fry and waterfront-adjacent vibes. The casual atmosphere and reasonable prices make it a Bay View favorite.",
-      fishOptions: "Cod, perch",
-      sides: "Fries, coleslaw",
-      insiderTip: "Get there early for parking—the lot fills up fast on Fridays.",
-      bestFor: "Bay View locals, casual dining",
-      allYouCanEat: false,
-    },
-    {
-      name: "Three Brothers",
-      neighborhood: "Bay View",
-      priceRange: "$$",
-      address: "2414 S St Clair St, Milwaukee, WI 53207",
-      description: "Better known for Serbian cuisine, Three Brothers also serves an excellent fish fry on Fridays. The unique setting in a historic building adds to the charm.",
-      fishOptions: "Breaded fish",
-      sides: "Serbian-influenced sides",
-      insiderTip: "Try the Serbian specialties alongside your fish fry for a unique experience.",
-      bestFor: "Adventurous eaters, unique atmosphere",
+      description: "Dockside Bay View patio with a \"Key West in Milwaukee\" vibe — at its best in warm months. The Friday fish fry includes cod, perch, grouper, catfish, smelt, and clam strips, plus coconut shrimp. Closed Mon–Wed; open Thu–Sat 11 a.m.–9 p.m. and Sun 11 a.m.–6 p.m.",
+      fishOptions: "Cod, perch, grouper, catfish, smelt, clam strips, coconut shrimp",
+      sides: "Coleslaw, French fries, rye bread with butter, Friday clam chowder",
+      insiderTip: "Get the Grouper Reuben (cult favorite). Patio fills fast on warm Fridays — get there early.",
+      bestFor: "Bay View locals, patio season, casual waterfront-adjacent dining",
       allYouCanEat: false,
     },
   ],
@@ -135,23 +133,23 @@ const fishFrySpots = {
       neighborhood: "Downtown Lakefront",
       priceRange: "$$$",
       address: "550 N Harbor Dr, Milwaukee, WI 53202",
-      description: "An elevated take on fish fry with Lake Michigan views. Fresh seafood, refined preparations, and a stunning setting make this perfect for a special Friday occasion.",
-      fishOptions: "Market fish, premium preparations",
-      sides: "Elevated classic sides",
-      insiderTip: "Request lakeside seating. The view is spectacular.",
+      description: "Bartolotta's New England-style fine-dining restaurant with sweeping Lake Michigan views from the downtown lakefront. The Friday fish fry rotates with the seasonal menu — call ahead for the specific fish that week. White-tablecloth upscale; this is not a tavern fish fry.",
+      fishOptions: "Rotating seasonal fish — call (414) 395-4900 to confirm the Friday menu",
+      sides: "Elevated New England-style accompaniments; rotates with the season",
+      insiderTip: "Request a lakeside table when you reserve — the view is the whole point. Open Mon–Thu 5–9 p.m., Fri–Sun 11 a.m.–2 p.m. and 5–9 p.m.",
       bestFor: "Special occasions, date nights, visitors wanting upscale",
       allYouCanEat: false,
     },
     {
-      name: "St. Paul Fish Company",
-      neighborhood: "Third Ward",
+      name: "Three Brothers",
+      neighborhood: "Bay View",
       priceRange: "$$$",
-      address: "400 N Water St, Milwaukee, WI 53202",
-      description: "Located in the Milwaukee Public Market, St. Paul Fish Company offers some of the freshest fish in the city. Their fish fry showcases quality seafood in a more refined preparation.",
-      fishOptions: "Fresh market fish",
-      sides: "Market sides",
-      insiderTip: "Get the oysters to start—they're the best in Milwaukee.",
-      bestFor: "Seafood purists, quality over quantity, Public Market visitors",
+      address: "2414 S St Clair St, Milwaukee, WI 53207",
+      description: "James Beard Award-winning Serbian dinner-house in a historic 1897 Schlitz tavern building since 1956. Not a traditional Wisconsin fish fry — the menu's fish dishes (Atlantic cod, square-cut Icelandic cod, and the signature Serbian-style fish in tomato sauce with peppers and garlic) are part of a full Serbian dinner-house menu, not a Friday-only special.",
+      fishOptions: "Atlantic cod, square-cut Icelandic cod, Serbian-style fish in tomato sauce",
+      sides: "Serbian dinner-house sides — typically rice, vegetables, Serbian-style accompaniments. Not the classic Milwaukee fish fry plate.",
+      insiderTip: "Reservations strongly recommended — the dining room is small. Order off the full Serbian menu, not just the fish — the room is the experience. Open Wed–Fri 5–9 p.m., Sat–Sun 4–9 p.m.",
+      bestFor: "Serbian food lovers, James Beard fans, special-occasion dining (not a casual fish-fry stop)",
       allYouCanEat: false,
     },
   ],
@@ -172,15 +170,15 @@ const faqs = [
   },
   {
     question: "Where is the best fish fry in Milwaukee?",
-    answer: "Top fish fry spots include Lakefront Brewery (classic experience with polka music), Steny's (excellent batter), Kegel's Inn (German-American since 1924, famous potato pancakes), and Serb Hall (legendary all-you-can-eat institution). The best fish fry often depends on whether you prefer atmosphere, value, or quality fish."
+    answer: "Top fish fry spots include Lakefront Brewery (classic experience with live polka), Steny's Tavern & Grill (excellent beer batter, 326+ Friday fish fries running), St. Paul Fish Company at the Milwaukee Public Market (Schlitz-battered cod fish-and-chips), Kegel's Inn (German-American since 1924, famous house potato pancakes), Serb Hall (iconic hand-breaded Serbian-style cod since 1950), and Swingin' Door Exchange (downtown East Town saloon, also serves Saturday). The best fish fry often depends on whether you prefer atmosphere, quality fish, or a specific style."
   },
   {
     question: "Is fish fry only on Fridays in Milwaukee?",
     answer: "While Friday is traditional (due to Catholic no-meat Fridays), many Milwaukee restaurants serve fish fry throughout the week. However, the full Friday night fish fry experience—with the crowds, the atmosphere, and often live music—is specifically a Friday tradition."
   },
   {
-    question: "Where can I get all-you-can-eat fish fry in Milwaukee?",
-    answer: "The best-known all-you-can-eat Friday fish fry in Milwaukee is Serb Hall on the South Side — a banquet-hall Milwaukee institution since 1950 serving Serbian-style breaded fish. Reservations are recommended for big-appetite Friday nights. Note: Kegel's Inn in West Allis is sometimes mentioned alongside Serb Hall, but its Friday fish fry is single-portion only — not all-you-can-eat."
+    question: "Do any Milwaukee fish fry spots offer all-you-can-eat?",
+    answer: "None of the spots featured on this guide currently offer all-you-can-eat. Serb Hall and Kegel's Inn — the two Milwaukee venues most commonly associated with AYCE — both serve single-portion Friday fish fry dinners only (2-piece or 3-piece, roughly $13–$19). AYCE Friday fish fry in the broader Milwaukee area is more common at suburban supper-club venues; if all-you-can-eat is the priority, call ahead to confirm — fish-fry formats shift with ownership changes and operating costs."
   },
 ];
 
@@ -189,7 +187,7 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Best Fish Fry in Milwaukee 2026: Complete Friday Fish Fry Guide",
-    "description": "Discover the best Friday fish fry in Milwaukee, WI. Traditional taverns, all-you-can-eat spots, and the authentic Wisconsin fish fry experience.",
+    "description": "The best Friday fish fry in Milwaukee — traditional taverns, neighborhood spots, upscale picks and the authentic Wisconsin fish fry experience.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
@@ -259,12 +257,12 @@ export default function BestFishFryMilwaukee() {
     <>
       <Head>
         <title>Best Fish Fry in Milwaukee 2026 | Friday Fish Fry Guide</title>
-        <meta name="description" content="Find the best Friday fish fry in Milwaukee, WI. Traditional taverns, all-you-can-eat spots, beer-battered cod, lake perch, and authentic Wisconsin fish fry tradition." />
-        <meta name="keywords" content="best fish fry milwaukee, friday fish fry milwaukee, wisconsin fish fry, beer battered cod milwaukee, lake perch milwaukee, all you can eat fish fry" />
+        <meta name="description" content="Find the best Friday fish fry in Milwaukee — traditional taverns, neighborhood spots and upscale picks. Beer-battered cod, lake perch, Serbian-style, polka and the authentic Wisconsin tradition." />
+        <meta name="keywords" content="best fish fry milwaukee, friday fish fry milwaukee, wisconsin fish fry, beer battered cod milwaukee, lake perch milwaukee, serb hall fish fry, kegels fish fry, lakefront fish fry" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/best-fish-fry-milwaukee" />
 
         <meta property="og:title" content="Best Fish Fry in Milwaukee 2026 | Friday Fish Fry Guide" />
-        <meta property="og:description" content="Milwaukee's definitive fish fry guide. Traditional taverns, all-you-can-eat spots, and the authentic Wisconsin Friday fish fry experience." />
+        <meta property="og:description" content="Milwaukee's definitive Friday fish fry guide — traditional taverns, neighborhood spots, upscale picks, and the authentic Wisconsin experience." />
         <meta property="og:url" content="https://www.discover-milwaukee.com/best-fish-fry-milwaukee" />
         <meta property="og:type" content="article" />
 
@@ -293,11 +291,11 @@ export default function BestFishFryMilwaukee() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href="#best-overall" style={{ color: c.green2, fontSize: "14px" }}>Best Overall</a>
               <span style={{ color: c.beige }}>|</span>
-              <a href="#all-you-can-eat" style={{ color: c.green2, fontSize: "14px" }}>All-You-Can-Eat</a>
-              <span style={{ color: c.beige }}>|</span>
               <a href="#traditional" style={{ color: c.green2, fontSize: "14px" }}>Traditional</a>
               <span style={{ color: c.beige }}>|</span>
               <a href="#neighborhood" style={{ color: c.green2, fontSize: "14px" }}>Neighborhood</a>
+              <span style={{ color: c.beige }}>|</span>
+              <a href="#upscale" style={{ color: c.green2, fontSize: "14px" }}>Upscale</a>
               <span style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
             </div>
@@ -322,14 +320,6 @@ export default function BestFishFryMilwaukee() {
             {fishFrySpots.bestOverall.map((spot, i) => <FishFryCard key={i} spot={spot} />)}
           </section>
 
-          <section id="all-you-can-eat" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>All-You-Can-Eat Fish Fry</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Come hungry. These spots serve unlimited fish for one price—a Milwaukee tradition for those with serious appetites.
-            </p>
-            {fishFrySpots.allYouCanEat.map((spot, i) => <FishFryCard key={i} spot={spot} />)}
-          </section>
-
           <section id="traditional" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Traditional Fish Fry Spots</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
@@ -346,7 +336,7 @@ export default function BestFishFryMilwaukee() {
             {fishFrySpots.neighborhood.map((spot, i) => <FishFryCard key={i} spot={spot} />)}
           </section>
 
-          <section style={{ marginBottom: "48px" }}>
+          <section id="upscale" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Upscale Fish Fry</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
               Elevated takes on the tradition for special Friday occasions.
