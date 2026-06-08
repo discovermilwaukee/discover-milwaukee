@@ -28,12 +28,12 @@ const atAGlance = [
 const admissionTiers = [
   { tier: "Adult (18–64)", price: "$25", notes: "Standard general admission" },
   { tier: "Senior (65+)", price: "$21", notes: "Valid ID at the door" },
-  { tier: "U.S. Military (with ID)", price: "$21", notes: "Active duty, veteran, retired" },
-  { tier: "College Student (with ID)", price: "$21", notes: "Valid student ID required" },
+  { tier: "U.S. Military (with ID)", price: "$21", notes: "Valid Military I.D. at the door" },
+  { tier: "Student (with school ID)", price: "$21", notes: "Valid school ID required (high school or college)" },
   { tier: "Child / Youth (5–17)", price: "$11", notes: "Under adult supervision" },
   { tier: "Child (under 5)", price: "Free", notes: "No ticket needed" },
   { tier: "H.O.G. & Museum Members", price: "Free", notes: "Membership card at the door — call to confirm current tier benefits" },
-  { tier: "Groups (15+) & Family / Annual passes", price: "Call to confirm", notes: "Group sales (414) 287-2799 · annual passes through the H-D Museum website" },
+  { tier: "Groups (10+) & Family / Annual passes", price: "Call to confirm", notes: "Group sales (414) 287-2799 · annual passes through the H-D Museum website" },
 ];
 
 const exhibits = [
@@ -75,7 +75,7 @@ const exhibits = [
   {
     name: "Custom Culture",
     gallery: "2nd floor",
-    description: "Harley-Davidson's impact on American culture, anchored by King Kong — a 13-foot, two-engine custom motorcycle built over decades by Felix Predko — plus exact replicas of the \"Captain America\" and \"Billy Bike\" choppers ridden by Peter Fonda and Dennis Hopper in Easy Rider (1969).",
+    description: "Harley-Davidson's impact on American culture, anchored by King Kong — a 13-foot, two-engine custom motorcycle built over four years by Felix Predko — plus exact replicas of the \"Captain America\" and \"Billy Bike\" choppers ridden by Peter Fonda and Dennis Hopper in Easy Rider (1969).",
     why: "This is where the museum stops being about machines and starts being about myth. The Easy Rider bikes are the most-asked-about artifacts in the building.",
     tip: "Captain America was destroyed in the final scene of Easy Rider — these are screen-accurate replicas built from original specs. Worth reading the full panel."
   },
@@ -162,7 +162,7 @@ const faqs = [
   },
   {
     question: "What's near the Harley-Davidson Museum?",
-    answer: "The museum sits at the gateway to Walker's Point — Milwaukee's craft-beer and dining neighborhood. The Iron Horse Hotel (also Harley-themed) is a 9-minute walk east across the 6th Street Bascule Bridge. MobCraft Beer's taproom is right around the corner from the Iron Horse. Camino (Polish gastropub with 20 craft taps), Bryant's Cocktail Lounge (Milwaukee's oldest cocktail bar, 1938), Hotel Madrid's Movida tapas bar, and BelAir Cantina Walker's Point are all within a 5–10 minute walk. The Historic Third Ward and Milwaukee Public Market are about a 15-minute walk northeast."
+    answer: "The museum sits at the gateway to Walker's Point — Milwaukee's craft-beer and dining neighborhood. The Iron Horse Hotel (also Harley-themed) is a 9-minute walk east across the 6th Street Bascule Bridge. MobCraft Beer's taproom is right around the corner from the Iron Horse. Camino (American craft-beer gastropub with 20 rotating taps) and Hotel Madrid's Movida tapas bar are both within a 5–10 minute walk. Bryant's Cocktail Lounge (Milwaukee's oldest cocktail bar, 1938) is ~15 minutes away or a quick rideshare. The Historic Third Ward and Milwaukee Public Market are about a 15-minute walk northeast."
   },
 ];
 
@@ -524,12 +524,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>Camino</h3>
                 <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~10 min walk · 434 S 2nd St</p>
-                <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>Polish-inspired gastropub with 20 rotating craft taps. Half-off pierogi during HH (Mon–Fri 2–5). Excellent Friday fish fry. Ride-friendly.</p>
-              </div>
-              <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
-                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>BelAir Cantina — Walker's Point</h3>
-                <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~12 min walk · 718 S 5th St</p>
-                <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>Milwaukee's local Mexican chain. Tacos, margaritas, patio. Easy post-museum lunch or evening pivot.</p>
+                <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>American craft-beer gastropub with 20 rotating taps — pierogi alongside burgers, poutine and brunch. Excellent Friday fish fry. Ride-friendly.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>Bryant's Cocktail Lounge</h3>

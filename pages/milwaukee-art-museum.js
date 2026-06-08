@@ -17,7 +17,7 @@ const atAGlance = [
   { label: "Hours (verified June 2026)", value: "Mon 10–5 · TUE CLOSED · Wed 10–5 · Thu 10–8 · Fri–Sun 10–5" },
   { label: "Admission start price", value: "Adults $27 · Seniors/Students/Military $20 · Kids 12 & under FREE · Members FREE" },
   { label: "Free / pay-what-you-wish", value: "Every Thursday 4–8 p.m. (pay-what-you-wish) + Bank of America cardholders free the first full weekend of every month" },
-  { label: "Brise Soleil flap times", value: "Opens with the Museum (10 a.m.) · Closes and reopens at noon · Closes with the Museum (5 p.m. most days, 8 p.m. Thu) — weather and wind permitting" },
+  { label: "Brise Soleil flap times", value: "Opens with the Museum (10 a.m.) · Closes and reopens at noon · Closes at 10 p.m. nightly (wings stay lit even on Mondays when the Museum is closed) — weather and wind permitting" },
   { label: "Architecture", value: "Three buildings: Saarinen War Memorial (1957) + David Kahler Building (1975) + Calatrava Quadracci Pavilion (2001)" },
   { label: "Collection size", value: "30,000+ works spanning antiquity to today across ~40 galleries" },
   { label: "Best for", value: "Architecture, photography, families, lakefront walks, rainy days, free Thursday-night dates" },
@@ -37,10 +37,10 @@ const admissionTiers = [
 ];
 
 const briseSoleil = [
-  { label: "10:00 a.m. — Daily opening", value: "The 217-ton, 90-spar Burke Brise Soleil unfolds with the Museum's opening. This is the slowest, longest take — the wings rise from a closed clamshell to full extension over roughly 3.5 minutes." },
+  { label: "10:00 a.m. — Daily opening", value: "The 90-ton, 72-fin Burke Brise Soleil (217-foot wingspan) unfolds with the Museum's opening. This is the slowest, longest take — the wings rise from a closed clamshell to full extension over roughly 3.5 minutes." },
   { label: "12:00 noon — The midday flap", value: "The wings close completely and then reopen. This is the photographer's window — the only daytime moment when you can watch a full close-and-open cycle without leaving the lakefront." },
-  { label: "Museum closing — 5 p.m. (or 8 p.m. Thursday)", value: "The wings fold back down with the Museum's close, taking another ~3.5 minutes." },
-  { label: "Weather cancellations", value: "Sustained winds of 23 mph or gusts over 40 mph trigger an automatic safety lock — common on windy spring and fall days. Snow, ice, and lightning also cancel the flap. Call (414) 224-3200 the morning of if conditions look rough." },
+  { label: "10 p.m. — Nightly fold", value: "The wings fold back down at 10 p.m. every night, taking another ~3.5 minutes — they keep this lighting schedule even on Mondays when the Museum is closed." },
+  { label: "Weather cancellations", value: "Sustained winds of 23 mph trigger an automatic safety lock via the wings' ultrasonic wind sensors — common on windy spring and fall days. Snow, ice, and lightning also cancel the flap. Call (414) 224-3200 the morning of if conditions look rough." },
 ];
 
 const briseViewing = [
@@ -60,7 +60,7 @@ const buildings = [
   {
     name: "Kahler Building (1975)",
     architect: "David Kahler",
-    desc: "The brutalist concrete galleries that hold most of the permanent collection. Reimagined and reopened in November 2015 after a $34M renovation that added 30,000 sq ft of gallery space and reorganized the floors around natural lakefront light. This is where you find the bulk of the American, European, Modern, Contemporary, Folk & Self-Taught, and Decorative Arts galleries. Don't skip it — the Pavilion is the icon, but the Kahler is the museum."
+    desc: "The brutalist concrete galleries that hold most of the permanent collection. Reimagined and reopened in November 2015 after a $34M renovation that added 25,000 sq ft of gallery space (150,000 sq ft total) and reorganized the floors around natural lakefront light. This is where you find the bulk of the American, European, Modern, Contemporary, Folk & Self-Taught, and Decorative Arts galleries. Don't skip it — the Pavilion is the icon, but the Kahler is the museum."
   },
   {
     name: "War Memorial Center (1957)",
@@ -171,7 +171,7 @@ const faqs = [
   },
   {
     question: "When do the Burke Brise Soleil (Calatrava wings) open and close?",
-    answer: "The 217-ton, 90-spar Burke Brise Soleil opens with the Museum at 10 a.m., closes and reopens at noon, and closes again with the Museum at 5 p.m. (or 8 p.m. on Thursdays) — but ONLY when weather and wind conditions permit. Sustained winds over roughly 23 mph or gusts over 40 mph automatically lock the wings in their closed position for safety. Snow, ice, and lightning also cancel the flap. The midday close-and-reopen at noon is the only full cycle you can watch in daylight without coming back. Call (414) 224-3200 the morning of your visit if winds look high."
+    answer: "The 90-ton, 72-fin Burke Brise Soleil (217-foot wingspan) opens with the Museum at 10 a.m., closes and reopens at noon, and folds back down at 10 p.m. every night — but ONLY when weather and wind conditions permit. Sustained winds of roughly 23 mph automatically lock the wings in their closed position via the ultrasonic sensors. Snow, ice, and lightning also cancel the flap. The wings keep their nightly fold schedule even on Mondays when the Museum is closed. The midday close-and-reopen at noon is the only full cycle you can watch in daylight without coming back. Call (414) 224-3200 the morning of your visit if winds look high."
   },
   {
     question: "Where should I stand to watch the wings open?",
@@ -209,7 +209,7 @@ const structuredData = {
     "@type": "Museum",
     name: "Milwaukee Art Museum",
     alternateName: "MAM",
-    description: "The Milwaukee Art Museum is a world-class lakefront art museum housing 30,000+ works of art in three buildings designed by Eero Saarinen (1957), David Kahler (1975), and Santiago Calatrava (2001). Home of the iconic Burke Brise Soleil — the movable, 217-ton, 90-spar wings that open and close daily.",
+    description: "The Milwaukee Art Museum is a world-class lakefront art museum housing 30,000+ works of art in three buildings designed by Eero Saarinen (1957), David Kahler (1975), and Santiago Calatrava (2001). Home of the iconic Burke Brise Soleil — the movable 90-ton, 72-fin wings with a 217-foot wingspan that open and close daily.",
     url: "https://mam.org",
     telephone: "+1-414-224-3200",
     image: "https://www.discover-milwaukee.com/images/milwaukee-art-museum-og.svg",
@@ -380,7 +380,7 @@ export default function MilwaukeeArtMuseum() {
 
           <section id="brise-soleil" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>The Burke Brise Soleil (Calatrava Wings)</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>The 217-ton, 90-spar movable sunscreen that put Milwaukee on the global architecture map. Calatrava's only completed U.S. building project at the time of its 2001 opening, and still the country's most theatrical museum entrance.</p>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>The 90-ton, 72-fin movable sunscreen (217-foot wingspan) that put Milwaukee on the global architecture map. Calatrava's only completed U.S. building project at the time of its 2001 opening, and still the country's most theatrical museum entrance.</p>
 
             <div style={{ display: "grid", gap: "12px", marginBottom: "20px" }}>
               {briseSoleil.map((b) => (
@@ -401,7 +401,7 @@ export default function MilwaukeeArtMuseum() {
             <div style={{ backgroundColor: c.green1, padding: "18px 20px", borderRadius: "12px" }}>
               <p style={{ fontSize: "12px", fontWeight: "700", color: c.yellow, marginBottom: "8px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Photo tip</p>
               <p style={{ fontSize: "14px", color: c.cream, margin: 0, lineHeight: 1.7 }}>
-                The midday noon close-and-reopen is the only daytime full cycle. Set up at the foot of Cudahy Gardens 10 minutes early — the wings start moving on the dot. For golden hour, the 8 p.m. Thursday close (only night of the week the museum stays open late) drops the wings against a downtown sunset.
+                The midday noon close-and-reopen is the only daytime full cycle. Set up at the foot of Cudahy Gardens 10 minutes early — the wings start moving on the dot. For golden hour, the 10 p.m. nightly fold drops the wings against a lit downtown skyline — year-round, even Mondays when the Museum is shut.
               </p>
             </div>
           </section>
@@ -468,7 +468,7 @@ export default function MilwaukeeArtMuseum() {
 
           <section id="collections" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>The Collection (30,000+ Works)</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>MAM grew from the 1888 reunion of the Layton Art Gallery and the Milwaukee Art Institute. Today, it holds one of the country's strongest folk-art collections, the iconic Bradley Collection of Modern Art, and deep Old Master prints and drawings holdings.</p>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>MAM grew from the 1957 merger of the Layton Art Gallery and the Milwaukee Art Institute — both founded in 1888. Today, it holds one of the country's strongest folk-art collections, the iconic Bradley Collection of Modern Art, and deep Old Master prints and drawings holdings.</p>
             <div style={{ display: "grid", gap: "12px" }}>
               {collections.map((col) => (
                 <div key={col.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "18px 20px", borderRadius: "12px" }}>
