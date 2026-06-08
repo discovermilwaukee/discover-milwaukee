@@ -128,7 +128,7 @@ const rentals = [
 const animalBarns = [
   { barn: "Upper & Lower Cattle Barns + Dairy Lane", animals: "~1,100 dairy cattle + ~500 beef cattle judged each year. Dairy classes judged in The Coliseum. Milking Parlor demos daily." },
   { barn: "Sheep & Goat Barn", animals: "~1,300 sheep + ~1,200 goats shown across the run." },
-  { barn: "Swine Barn", animals: "~1,000 swine shown — also home to the Saz's Famous Racing Pigs arena (presented by Milwaukee Admirals)." },
+  { barn: "Piggly Wiggly Swine & Goat Barn", animals: "~1,000 swine + goats shown (the barn houses both species). Saz's Famous Racing Pigs perform in a nearby arena throughout the fair." },
   { barn: "Livestock Horse Barn + \"Neigh\"borhood Corral", animals: "~400 horses shown across breeds — draft horse hitches and the Coliseum horse shows are crowd favorites." },
   { barn: "Compeer Financial Discovery Barnyard", animals: "Walk-through kid-friendly barn — chicks, baby pigs, calves, lambs, goats up close. The best stop with young kids." },
   { barn: "The Coliseum", animals: "Main show ring for cattle, horses and the Governor's Blue Ribbon Livestock Auction. Free seating; check daily schedule for show times." },
