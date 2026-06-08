@@ -229,10 +229,13 @@ export default function BestHappyHourMilwaukee() {
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.foodSpecials}</p>
         </div>
       </div>
-      <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "12px", borderRadius: "8px" }}>
+      <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
         <p style={{ fontSize: "12px", fontWeight: "700", color: "#b8860b", marginBottom: "4px" }}>INSIDER TIP</p>
         <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.insiderTip}</p>
       </div>
+      {spot.address && (
+        <p style={{ fontSize: "13px", color: "#777", margin: 0 }}>📍 {spot.address}</p>
+      )}
     </div>
   );
 
