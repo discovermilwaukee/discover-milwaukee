@@ -76,20 +76,20 @@ const fishFrySpots = {
       bestFor: "Southern food fans, oyster lovers, unique fish fry experience",
       allYouCanEat: false,
     },
-  ],
-  allYouCanEat: [
     {
       name: "Kegel's Inn",
       neighborhood: "West Allis",
       priceRange: "$$",
       address: "5901 W National Ave, West Allis, WI 53214",
-      description: "A German-American institution since 1924 with one of the area's most popular all-you-can-eat fish fries. The old-world charm and generous portions make this a Friday night tradition for many Milwaukee families.",
-      fishOptions: "Cod, perch",
-      sides: "Potato pancakes, German potato salad, coleslaw, rye bread",
-      insiderTip: "Make reservations—this place gets packed. The German specialties are also excellent.",
-      bestFor: "Big appetites, families, German food lovers",
-      allYouCanEat: true,
+      description: "A German-American institution since 1924, Kegel's serves a single-portion Friday fish fry that's a Milwaukee tradition. Old-world tavern charm, the original Kegel family recipes still on the menu, and the city's most well-known house potato pancakes alongside the fish.",
+      fishOptions: "Cod, lake perch (lightly breaded), walleye, grouper, jumbo shrimp",
+      sides: "Famous house potato pancakes, French fries, coleslaw, rye bread, tartar, lemon",
+      insiderTip: "Reservations are essential — Friday nights pack out. Order the lake perch with potato pancakes for the most-Wisconsin plate, and don't skip the German specialties (schnitzel, sauerbraten) if you have room.",
+      bestFor: "Tradition seekers, German food lovers, multi-generation Milwaukee families",
+      allYouCanEat: false,
     },
+  ],
+  allYouCanEat: [
     {
       name: "Serb Hall",
       neighborhood: "South Side",
@@ -172,7 +172,7 @@ const faqs = [
   },
   {
     question: "Where is the best fish fry in Milwaukee?",
-    answer: "Top fish fry spots include Lakefront Brewery (classic experience with polka music), Steny's (excellent batter), Kegel's Inn (all-you-can-eat), and Serb Hall (legendary institution). The best fish fry often depends on whether you prefer atmosphere, value, or quality fish."
+    answer: "Top fish fry spots include Lakefront Brewery (classic experience with polka music), Steny's (excellent batter), Kegel's Inn (German-American since 1924, famous potato pancakes), and Serb Hall (legendary all-you-can-eat institution). The best fish fry often depends on whether you prefer atmosphere, value, or quality fish."
   },
   {
     question: "Is fish fry only on Fridays in Milwaukee?",
@@ -180,7 +180,7 @@ const faqs = [
   },
   {
     question: "Where can I get all-you-can-eat fish fry in Milwaukee?",
-    answer: "Popular all-you-can-eat fish fry spots include Kegel's Inn in West Allis and Serb Hall on the South Side. These spots are especially popular with big appetites and families. Reservations are recommended, especially at Kegel's."
+    answer: "The best-known all-you-can-eat Friday fish fry in Milwaukee is Serb Hall on the South Side — a banquet-hall Milwaukee institution since 1950 serving Serbian-style breaded fish. Reservations are recommended for big-appetite Friday nights. Note: Kegel's Inn in West Allis is sometimes mentioned alongside Serb Hall, but its Friday fish fry is single-portion only — not all-you-can-eat."
   },
 ];
 
@@ -193,7 +193,7 @@ const structuredData = {
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
-    "dateModified": "2026-04-18",
+    "dateModified": "2026-06-07",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/best-fish-fry-milwaukee"
   },
   faqPage: {
