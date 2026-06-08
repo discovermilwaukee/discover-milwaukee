@@ -704,4 +704,32 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://www.discover-milwaukee.com/harley-davidson-museum-milwaukee</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-art-museum</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-county-zoo</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/wisconsin-state-fair-milwaukee</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
