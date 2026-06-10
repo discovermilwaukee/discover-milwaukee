@@ -298,6 +298,30 @@ export default function WisconsinStateFairMilwaukee() {
             </p>
           </div>
 
+          <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/fair/fair-cream-puff.jpg" alt="Wisconsin State Fair Original Cream Puffs displayed at Wisconsin State Fair Park" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The iconic Original Cream Puffs — sold since 1924.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/fair/fair-cream-puff-pavilion.jpg" alt="Wisconsin State Fair Original Cream Puff Pavilion exterior at Wisconsin State Fair Park in West Allis" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Original Cream Puff Pavilion (now the Dairy Building).</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/fair/fair-main-entrance.jpg" alt="Wisconsin State Fair Main Entrance panorama showing carnival rides and the front gate at Wisconsin State Fair Park" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Panorama of the Main Entrance and SpinCity midway.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/fair/fair-grandstand-avenue.jpg" alt="Wisconsin State Fair Grandstand Avenue viewed from the SkyGlider above the fairgrounds" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Grandstand Avenue from the SkyGlider overhead trolley.</figcaption>
+              </figure>
+            </div>
+            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+              Photos via Wikimedia Commons. Credits: Michael Barera (CC-BY-SA-4.0); Michael Barera (CC-BY-SA-4.0); Corey Coyle (CC-BY-3.0); Michael Barera (CC-BY-SA-4.0).
+            </p>
+          </section>
+
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Wisconsin State Fair 2026 at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The numbers you need before you book parking or buy tickets.</p>

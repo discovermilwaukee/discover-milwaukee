@@ -365,6 +365,30 @@ export default function MilwaukeeArtMuseum() {
             </p>
           </div>
 
+          <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/mam/mam-brise-soleil-extended.jpg" alt="Milwaukee Art Museum Burke Brise Soleil wings fully extended over the Calatrava-designed Quadracci Pavilion" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Burke Brise Soleil's 217-foot wingspan fully unfurled.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/mam/mam-quadracci-pavilion.jpg" alt="Milwaukee Art Museum Quadracci Pavilion exterior designed by Santiago Calatrava seen from the south" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Calatrava's Quadracci Pavilion along Milwaukee's lakefront.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/mam/mam-windhover-interior.jpg" alt="Milwaukee Art Museum Windhover Hall interior showing Calatrava's white concrete spars and vaulted glass ceiling" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Inside Windhover Hall — Calatrava's ribs arc toward a 90-foot glass ceiling.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/mam/mam-calatrava-rear.jpg" alt="Milwaukee Art Museum rear facade of the Calatrava Quadracci Pavilion in white concrete and glass" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The back face of the Quadracci Pavilion.</figcaption>
+              </figure>
+            </div>
+            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+              Photos via Wikimedia Commons. Credits: Nicholas Hartmann (CC-BY-SA-4.0); Carol M. Highsmith (CC0); Sailko (CC-BY-3.0); Uriel-carmen (CC-BY-SA-3.0).
+            </p>
+          </section>
+
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Milwaukee Art Museum at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The essentials, verified against mam.org in June 2026.</p>

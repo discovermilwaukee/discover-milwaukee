@@ -345,6 +345,30 @@ export default function MilwaukeeCountyZoo() {
             </p>
           </div>
 
+          <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/zoo/zoo-main-entrance.jpg" alt="Milwaukee County Zoo Main Entrance gate and signage on Bluemound Road" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Main Entrance on West Bluemound Road.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/zoo/zoo-gorilla.jpg" alt="Western lowland gorilla foraging at the Milwaukee County Zoo Stearns Family Apes of Africa habitat" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>A gorilla in the Stearns Family Apes of Africa building.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/zoo/zoo-jaguar.jpg" alt="Close-up portrait of a jaguar at the Milwaukee County Zoo big cat habitat" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>A jaguar at the Milwaukee County Zoo (Commons featured picture).</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/zoo/zoo-safari-train.jpg" alt="Milwaukee County Zoo miniature Safari Train carrying visitors through the zoo grounds" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Safari Train winding through the zoo grounds.</figcaption>
+              </figure>
+            </div>
+            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+              Photos via Wikimedia Commons. Credits: Michael Barera (CC-BY-SA-4.0); Antigrandiose (CC-BY-SA-3.0); Cburnett (CC-BY-SA-3.0); David W. Feldbruegge (CC-BY-2.0).
+            </p>
+          </section>
+
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Milwaukee County Zoo at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>Fast answers to the questions most visitors ask before they go.</p>
