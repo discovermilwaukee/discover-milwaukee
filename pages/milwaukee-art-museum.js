@@ -305,7 +305,7 @@ export default function MilwaukeeArtMuseum() {
     <>
       <Head>
         <title>Milwaukee Art Museum 2026 Guide | Hours, Calatrava Wings</title>
-        <meta name="description" content="Milwaukee Art Museum 2026 guide: verified hours, tickets, exhibits, Calatrava Brise Soleil flap times, parking, Café Calatrava, and the June 12–14 Lakefront Festival." />
+        <meta name="description" content="Milwaukee Art Museum 2026: verified hours, tickets, exhibits, Calatrava Brise Soleil times, Lakeshore Café, parking, and June 12–14 Lakefront Festival." />
         <meta name="keywords" content="milwaukee art museum, MAM milwaukee, calatrava wings milwaukee, burke brise soleil, milwaukee art museum hours, milwaukee art museum tickets, milwaukee art museum admission, quadracci pavilion, lakefront festival of art 2026, cafe calatrava, lakeshore cafe, milwaukee museums, things to do milwaukee" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-art-museum" />
 
