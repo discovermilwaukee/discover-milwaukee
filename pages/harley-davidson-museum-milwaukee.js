@@ -303,6 +303,30 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             </p>
           </div>
 
+          <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/harley/harley-museum-panorama.jpg" alt="Harley-Davidson Museum campus panorama along the Menomonee River in Milwaukee" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The 20-acre Harley-Davidson Museum campus on the Menomonee River.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/harley/harley-museum-exterior.jpg" alt="Harley-Davidson Museum exterior viewed from across the Menomonee River in Milwaukee, Wisconsin" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Museum's modern brick-and-glass architecture at 400 W Canal St.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/harley/harley-museum-tank-wall.jpg" alt="Harley-Davidson Museum Tank Wall exhibit displaying decades of motorcycle fuel tank graphics" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Tank Wall — a floor-to-ceiling timeline of fuel-tank art.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/harley/harley-museum-bike-parade.jpg" alt="Harley-Davidson Museum gallery floor lined with vintage motorcycles arranged in chronological procession" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Vintage Harleys lined up across the main gallery floor in chronological order.</figcaption>
+              </figure>
+            </div>
+            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+              Photos via Wikimedia Commons. Credits: Tedder (CC-BY-3.0); Dori (CC-BY-SA-3.0); Danemroberts (CC-BY-SA-3.0); Danemroberts (CC-BY-SA-3.0).
+            </p>
+          </section>
+
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Harley-Davidson Museum at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The fast answers most visitors need before they go.</p>
