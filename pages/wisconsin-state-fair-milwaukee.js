@@ -237,13 +237,13 @@ export default function WisconsinStateFairMilwaukee() {
   return (
     <>
       <Head>
-        <title>Wisconsin State Fair 2026 Guide | Dates, Tickets, Cream Puffs</title>
-        <meta name="description" content="Wisconsin State Fair 2026 visitor guide (Aug 6–16, West Allis): verified dates, ticket prices, parking, free concerts, cream puffs, daily discount days and food." />
+        <title>Wisconsin State Fair 2026 | Dates, Tickets, Cream Puffs</title>
+        <meta name="description" content="Wisconsin State Fair 2026 guide (Aug 6–16, West Allis): verified dates, ticket prices, parking, free concerts, cream puffs, discount days, food." />
         <meta name="keywords" content="wisconsin state fair 2026, wisconsin state fair dates 2026, wisconsin state fair tickets, wisconsin state fair cream puffs, wisconsin state fair parking, wisconsin state fair main stage 2026, west allis state fair, milwaukee state fair, wisconsin state fair discount days" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/wisconsin-state-fair-milwaukee" />
 
         <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
-        <meta property="og:title" content="Wisconsin State Fair 2026 Guide | Dates, Tickets, Cream Puffs" key="og:title" />
+        <meta property="og:title" content="Wisconsin State Fair 2026 | Dates, Tickets, Cream Puffs" key="og:title" />
         <meta property="og:description" content="Verified 2026 Wisconsin State Fair guide — Aug 6–16 in West Allis. Tickets, parking, cream puffs, free concerts, daily discount days, animals and the SpinCity midway." key="og:description" />
         <meta property="og:url" content="https://www.discover-milwaukee.com/wisconsin-state-fair-milwaukee" key="og:url" />
         <meta property="og:type" content="article" key="og:type" />
@@ -257,7 +257,7 @@ export default function WisconsinStateFairMilwaukee() {
         <meta property="article:section" content="Events" key="article:section" />
 
         <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
-        <meta name="twitter:title" content="Wisconsin State Fair 2026 Guide | Dates, Tickets, Cream Puffs" key="twitter:title" />
+        <meta name="twitter:title" content="Wisconsin State Fair 2026 | Dates, Tickets, Cream Puffs" key="twitter:title" />
         <meta name="twitter:description" content="Verified Aug 6–16 dates, ticket prices, cream puffs, free concerts, parking, discount days." key="twitter:description" />
         <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/wisconsin-state-fair-og.svg" key="twitter:image" />
 
