@@ -269,7 +269,7 @@ export default function SporkiesDrinkies2026() {
     <>
       <Head>
         <title>Wisconsin State Fair Sporkies & Drinkies 2026 Finalists</title>
-        <meta name="description" content="Sporkies 2026 finalists — Bayou Crunch Cup, Cream City Cone, Tinga Tango Chicharrones + 5 more — plus the 4 Drinkies at the Wisconsin State Fair." />
+        <meta name="description" content="Wisconsin State Fair Sporkies 2026 — Bayou Crunch Cup, Cream City Cone, Tinga Tango Chicharrones + 5 more food finalists, plus the 4 Drinkies. Aug 6–16." />
         <meta name="keywords" content="wisconsin state fair sporkies 2026, drinkies 2026, bayou crunch cup, cream city cone, tinga tango chicharrones, porky puff, deep fried horchata balls, sweet lemon berry cheese curds, al pastor pizza, birria flamin bombs, color changing swamp juice, cookie butter coffee float, hot honey chicken lemonade, tilt-a-spritz, golden spork, golden cup, state fair park west allis" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/wisconsin-state-fair-sporkies-2026" />
 
@@ -402,7 +402,7 @@ export default function SporkiesDrinkies2026() {
                   display: "flex",
                   flexDirection: "column",
                 }}>
-                  <div style={{ aspectRatio: "16 / 10", backgroundColor: c.beige, backgroundImage: `url(${s.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+                  <img src={s.image} alt={`${s.name} — Wisconsin State Fair Sporkies 2026 finalist by ${s.vendor}`} loading="lazy" width="600" height="375" style={{ width: "100%", aspectRatio: "16 / 10", objectFit: "cover", backgroundColor: c.beige, display: "block" }} />
                   <div style={{ padding: "18px" }}>
                     <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{s.tag}</p>
                     <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{s.name}</h3>
@@ -434,7 +434,7 @@ export default function SporkiesDrinkies2026() {
                   display: "flex",
                   flexDirection: "column",
                 }}>
-                  <div style={{ aspectRatio: "16 / 10", backgroundColor: c.beige, backgroundImage: `url(${d.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+                  <img src={d.image} alt={`${d.name} — Wisconsin State Fair Drinkies 2026 finalist by ${d.vendor}`} loading="lazy" width="600" height="375" style={{ width: "100%", aspectRatio: "16 / 10", objectFit: "cover", backgroundColor: c.beige, display: "block" }} />
                   <div style={{ padding: "18px" }}>
                     <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{d.tag}</p>
                     <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{d.name}</h3>
