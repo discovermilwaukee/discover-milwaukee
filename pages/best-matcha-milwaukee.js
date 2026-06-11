@@ -180,7 +180,7 @@ const matchaLatteShops = [
     matcha: "Pilcrow roasts its own coffee in-house and serves an iced matcha latte alongside a rotating cold-brew flight program. Matcha is not the headline here — coffee is — but the matcha latte holds up.",
     order: "Iced matcha latte to balance whatever cold-brew flight you're already ordering.",
     opened: "Pilcrow has been in Bronzeville since 2017; the current 416 W Walnut roastery and tasting bar opened in 2019.",
-    note: "The tasting room is the move — sit in for the rotating cold-brew specials.",
+    note: "Pilcrow has been in Bronzeville since 2017 (current 416 W Walnut roastery and tasting bar since 2019). The tasting room is the move — sit in for the rotating cold-brew specials.",
   },
   {
     name: "Likewise Coffee",
@@ -190,7 +190,7 @@ const matchaLatteShops = [
     matcha: "Matcha latte on the menu daily. Likewise is the clean, light-filled Third Ward room — a tourist-friendly stop that doesn't compromise the drink.",
     order: "Matcha latte iced in summer, hot in winter.",
     opened: "Mon–Sat 7 a.m.–6 p.m. · Sun 8:30 a.m.–3:30 p.m.",
-    note: "Outdoor seating, dog-friendly, free Wi-Fi. Walkable to Public Market and Lakefront.",
+    note: "Hours: Mon–Sat 7 a.m.–6 p.m. · Sun 8:30 a.m.–3:30 p.m. Outdoor seating, dog-friendly, free Wi-Fi. Walkable to Public Market and Lakefront.",
   },
   {
     name: "Lake Effect Coffee Company",
@@ -449,7 +449,7 @@ const structuredData = {
       { "@type": "ListItem", position: 12, item: { "@type": "Cafe", name: "Anodyne Coffee Roasting Co. — Walker's Point Roastery", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-763-1143", address: { "@type": "PostalAddress", streetAddress: "224 W Bruce St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Anodyne+Coffee+Walkers+Point+Milwaukee", url: "https://anodynecoffee.com" } },
       { "@type": "ListItem", position: 13, item: { "@type": "Cafe", name: "The Daily Bird", servesCuisine: "Coffee, Matcha, Bakery", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "818 E Center St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=The+Daily+Bird+Riverwest+Milwaukee", url: "https://thedailybirdmke.square.site" } },
       { "@type": "ListItem", position: 14, item: { "@type": "Cafe", name: "Pilcrow Coffee", servesCuisine: "Coffee, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "416 W Walnut St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Pilcrow+Coffee+Bronzeville+Milwaukee", url: "https://www.pilcrowcoffee.com" } },
-      { "@type": "ListItem", position: 15, item: { "@type": "Cafe", name: "Likewise Coffee", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-914-9497", address: { "@type": "PostalAddress", streetAddress: "232 E Erie St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, openingHours: "Mo-Su 07:00-18:00", hasMap: "https://www.google.com/maps/search/?api=1&query=Likewise+Coffee+Milwaukee", url: "https://www.likewisemke.com" } },
+      { "@type": "ListItem", position: 15, item: { "@type": "Cafe", name: "Likewise Coffee", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-914-9497", address: { "@type": "PostalAddress", streetAddress: "232 E Erie St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, openingHours: ["Mo-Sa 07:00-18:00", "Su 08:30-15:30"], hasMap: "https://www.google.com/maps/search/?api=1&query=Likewise+Coffee+Milwaukee", url: "https://www.likewisemke.com" } },
       { "@type": "ListItem", position: 16, item: { "@type": "Cafe", name: "Lake Effect Coffee Company", servesCuisine: "Coffee, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "6217 W Greenfield Ave", addressLocality: "West Allis", addressRegion: "WI", postalCode: "53214", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Lake+Effect+Coffee+West+Allis", url: "https://lakeeffectcoffeeco.com" } },
       { "@type": "ListItem", position: 17, item: { "@type": "Cafe", name: "Miss Molly's Cafe & Pastry Shop", servesCuisine: "Bakery, Coffee, Matcha", priceRange: "$$", telephone: "+1-414-249-5665", address: { "@type": "PostalAddress", streetAddress: "9201 W Center St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53222", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Miss+Molly%27s+Cafe+Milwaukee", url: "https://www.missmollyscafe.com" } },
       { "@type": "ListItem", position: 18, item: { "@type": "Cafe", name: "Valentine Coffee Roasters — Third Ward", servesCuisine: "Coffee, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "189 N Milwaukee St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Valentine+Coffee+Third+Ward+Milwaukee", url: "https://www.valentinecoffeeco.com" } },
