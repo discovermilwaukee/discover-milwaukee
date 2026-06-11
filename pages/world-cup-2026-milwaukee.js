@@ -481,7 +481,7 @@ export default function WorldCup2026Milwaukee() {
               </figure>
               <figure style={{ margin: 0 }}>
                 <img src="/images/world-cup/estadio-azteca-exterior.jpg" alt="Exterior of Estadio Azteca in Mexico City, opening match venue of the 2026 FIFA World Cup" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
-                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Milwaukee soccer-pub tradition gathers tomorrow: Nomad on Brady, Highbury in Bay View, Three Lions in Shorewood.</figcaption>
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Milwaukee soccer-pub tradition gathers today: Nomad on Brady, Highbury in Bay View, Three Lions in Shorewood.</figcaption>
               </figure>
               <figure style={{ margin: 0 }}>
                 <img src="/images/world-cup/world-cup-fans.jpg" alt="FIFA World Cup fans cheering in a packed stadium during a tournament match" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
@@ -499,7 +499,7 @@ export default function WorldCup2026Milwaukee() {
 
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>2026 World Cup in Milwaukee at a Glance</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The fast facts before tomorrow&apos;s opening match.</p>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The fast facts for the tournament — opening match was today.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
