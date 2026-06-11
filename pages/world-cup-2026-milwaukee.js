@@ -249,6 +249,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Where to Watch the World Cup 2026 in Milwaukee: Best Bars, Soccer Pubs & Watch Parties",
     description: "Definitive 2026 guide to watching the FIFA World Cup in Milwaukee — Nomad, Highbury, Three Lions, Moran's USMNT block parties, Café Corazón for Mexico, plus every kickoff time in Central.",
     image: "https://www.discover-milwaukee.com/images/world-cup-2026-og.svg",

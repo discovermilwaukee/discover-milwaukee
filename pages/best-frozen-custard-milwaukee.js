@@ -232,6 +232,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Best Frozen Custard in Milwaukee 2026: Kopp's, Leon's, Gilles & the Capital of the World",
     description: "The definitive 2026 guide to Milwaukee frozen custard — Kopp's, Leon's, Gilles, Oscar's and 6 more verified neighborhood stands. Flavor of the Day, hours, addresses, history.",
     image: "https://www.discover-milwaukee.com/images/best-frozen-custard-og.svg",

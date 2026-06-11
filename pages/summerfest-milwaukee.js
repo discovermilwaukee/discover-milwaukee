@@ -259,6 +259,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Summerfest 2026 Milwaukee: Complete Guide to Dates, Lineup, Tickets, Stages, Food & More",
     description: "The most comprehensive 2026 guide to Summerfest in Milwaukee — full AmFam Amphitheater + BMO Pavilion lineup, every stage, every food vendor, every free-admission day, MCTS shuttles, bag policy, accessibility, and insider tips.",
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },

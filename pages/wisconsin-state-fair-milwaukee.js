@@ -152,6 +152,7 @@ const structuredData = {
   event: {
     "@context": "https://schema.org",
     "@type": "Festival",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     name: "Wisconsin State Fair 2026",
     description: "The 175th Wisconsin State Fair, presented by T-Mobile — 11 days of food, free concerts, rides, animals and the iconic Original Cream Puff at Wisconsin State Fair Park in West Allis.",
     startDate: "2026-08-06T10:00:00-05:00",

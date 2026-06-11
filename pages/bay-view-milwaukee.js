@@ -143,6 +143,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     "headline": "Bay View Milwaukee Neighborhood Guide 2026: Restaurants, Bars & Things to Do",
     "description": "Complete guide to Bay View, Milwaukee's hip artsy neighborhood. Best restaurants, craft beer bars, vintage shopping on KK Ave, South Shore Park, and local insider tips.",
     "author": {
@@ -357,7 +358,22 @@ export default function BayViewMilwaukee() {
         {/* Main Content */}
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
 
-          {/* Overview Section */}
+          {/* Overview Section */}          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Bay View Milwaukee Guide</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Odd Duck, Honeypie Cafe, Palomino Bar, Birch, Sugar Maple</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Exploring this Milwaukee neighborhood</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
+
           <section id="overview" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "16px" }}>Welcome to Bay View</h2>
             <div style={{ backgroundColor: "white", padding: "24px", borderRadius: "16px", border: `1px solid ${c.beige}`, marginBottom: "24px" }}>

@@ -207,6 +207,7 @@ const structuredData = {
   museum: {
     "@context": "https://schema.org",
     "@type": "Museum",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     name: "Milwaukee Art Museum",
     alternateName: "MAM",
     description: "The Milwaukee Art Museum is a world-class lakefront art museum housing 30,000+ works of art in three buildings designed by Eero Saarinen (1957), David Kahler (1975), and Santiago Calatrava (2001). Home of the iconic Burke Brise Soleil — the movable 90-ton, 72-fin wings with a 217-foot wingspan that open and close daily.",

@@ -124,6 +124,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     "headline": "Best Brunch in Milwaukee 2026: Top Spots, Hidden Gems & Where to Avoid Waits",
     "description": "Complete guide to Milwaukee brunch spots. Blue's Egg, Story Hill BKC, Café Benelux, plus hidden gems and tips for beating the weekend crowds.",
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
@@ -241,7 +242,20 @@ export default function BestBrunchMilwaukee() {
           </div>
         </div>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Best Brunch in Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Blue's Egg, Story Hill BKC, Café Benelux, Engine Company No. 3, Honeypie Café</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
+
 
           <section id="top-picks" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Top Brunch Spots in Milwaukee</h2>
