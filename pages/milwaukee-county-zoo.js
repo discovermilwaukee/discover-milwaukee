@@ -269,6 +269,7 @@ const structuredData = {
       position: idx + 1,
       item: {
         "@type": "TouristAttraction",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
         name: e.name,
         description: e.what,
         isAccessibleForFree: false,

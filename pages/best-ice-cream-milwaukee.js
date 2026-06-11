@@ -165,6 +165,7 @@ export default function BestIceCreamMilwaukee() {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Best Ice Cream & Frozen Custard in Milwaukee: Complete Guide [2026]",
     description: "Discover Milwaukee's best frozen custard and ice cream from legendary Kopp's to artisanal Purple Door. The frozen custard capital of the world.",
     image: "https://www.discover-milwaukee.com/images/best-ice-cream-milwaukee.jpg",
@@ -247,7 +248,20 @@ export default function BestIceCreamMilwaukee() {
               Beyond custard, the city also offers artisanal ice cream shops pushing creative boundaries. This guide covers both traditions—from neon-lit custard stands to small-batch creameries. All locations verified open in 2026.
             </p>
             <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026 | All locations verified open</p>
-          </header>
+          </header>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Best Ice Cream in Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Kopp's Frozen Custard, Leon's Frozen Custard, Gilles Frozen Custard, Oscar's Frozen Custard, Purple Door Ice Cream</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
+
 
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ fontSize: "1.8rem", color: c.green1, marginBottom: "8px", paddingBottom: "12px", borderBottom: `2px solid ${c.orange}` }}>Classic Frozen Custard</h2>

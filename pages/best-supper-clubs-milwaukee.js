@@ -309,6 +309,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Best Wisconsin Supper Clubs Milwaukee 2026: Verified Guide",
     description: "Definitive 2026 guide to the best Wisconsin supper clubs in and around Milwaukee — verified hours, brandy Old Fashioneds, relish trays, Friday fish fry, prime rib and the cultural markers that define a true supper club.",
     image: "https://www.discover-milwaukee.com/images/best-supper-clubs-og.svg",

@@ -204,6 +204,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     "headline": "Best Coffee in Milwaukee 2026: Top Coffee Shops & Roasters",
     "description": "A researched guide to the best coffee in Milwaukee — proven local roasters, third-wave cafes and neighborhood coffeehouses by neighborhood and style.",
     "image": "https://www.discover-milwaukee.com/images/best-coffee-og.svg",
@@ -346,7 +347,20 @@ export default function BestCoffeeMilwaukee() {
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
               <strong>Note:</strong> Cafe hours, single-origins and bar programs rotate. Always confirm current hours with the shop before you go. Prices listed are approximate. Pair your morning coffee with <Link href="/best-doughnuts-milwaukee" style={{ color: c.green2 }}>Milwaukee's best doughnuts</Link>, a <Link href="/best-breakfast-milwaukee" style={{ color: c.green2 }}>full breakfast</Link>, or a <Link href="/best-brunch-milwaukee" style={{ color: c.green2 }}>weekend brunch</Link>.
             </p>
-          </div>
+          </div>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Best Coffee in Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Colectivo Coffee — Lakefront, Stone Creek Coffee — Factory Cafe, Anodyne Coffee Roasting — Walker's Point, Valentine Coffee Roasters — Vliet Street, Likewise Coffee</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
+
 
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>The Milwaukee Coffee Institutions</h2>

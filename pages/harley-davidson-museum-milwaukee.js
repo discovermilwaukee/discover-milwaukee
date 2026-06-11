@@ -178,6 +178,7 @@ const breadcrumb = {
 const museumLd = {
   "@context": "https://schema.org",
   "@type": "Museum",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
   name: "Harley-Davidson Museum",
   description: "The official Harley-Davidson Museum — a 130,000-square-foot, 20-acre campus along the Menomonee River in Milwaukee, with two floors of motorcycles spanning 1903 to today, interactive galleries, MOTOR Bar & Restaurant, and the H-D Shop.",
   url: "https://www.harley-davidson.com/us/en/museum.html",

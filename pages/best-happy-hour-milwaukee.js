@@ -150,6 +150,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Best Happy Hour in Milwaukee 2026: 35+ Verified Spots by Day, Neighborhood & Type",
     description: "Comprehensive guide to Milwaukee happy hour — 35+ verified spots with exact days, times, drink and food specials. Filter by day of week, neighborhood, and type.",
     image: "https://www.discover-milwaukee.com/images/best-happy-hour-og.svg",

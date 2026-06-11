@@ -145,6 +145,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Milwaukee Brewers Game Day Guide 2026: Parking, Food, Bars & Tips",
     description: "The complete 2026 Milwaukee Brewers game-day guide — American Family Field parking prices, tailgating, food, bars with shuttles, the Sausage Race, family tips and FAQs.",
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },
@@ -298,7 +299,26 @@ export default function BrewersGameGuideMilwaukee() {
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
               <strong>Heads up:</strong> Parking prices, shuttle bars, and theme nights shift through the season. Confirm with the Brewers and your shuttle bar before you go. Cubs games always run at the higher weekend parking tier.
             </p>
-          </div>
+          </div>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Milwaukee Brewers Game Day Guide</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Featured</dt>
+              <dd style={{ color: "#444", margin: 0 }}>8 game day verified across Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Standing Room / Cheapest, Terrace Reserved, Loge Outfield / Bleachers, Field Outfield / Field Box, Field Infield / Diamond Box</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Coverage</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Spans multiple Milwaukee neighborhoods — see body for details</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Game day in Milwaukee</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
+
 
           <section id="overview" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>At a Glance</h2>

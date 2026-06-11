@@ -225,6 +225,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Wisconsin State Fair Sporkies & Drinkies 2026: All 12 Finalists",
     description: "The definitive 2026 guide to the Wisconsin State Fair Sporkies and Drinkies finalist competitions — all 8 Sporkies dishes, all 4 Drinkies drinks, vendors, locations, judging, and where to find each one on the fairgrounds.",
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },

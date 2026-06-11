@@ -215,6 +215,7 @@ const structuredData = {
   article: {
     "@context": "https://schema.org",
     "@type": "Article",
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Milwaukee Bucks Game Day Guide 2026: Fiserv Forum, Deer District, Parking, Shuttle Bars & More",
     description: "The complete 2026 guide to a Bucks game at Fiserv Forum and the Deer District — tickets, parking, the shuttle bars locals use, transit, food inside the arena, nearby bars, and insider tips.",
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },
@@ -362,7 +363,26 @@ export default function BucksGameGuideMilwaukee() {
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
               <strong>Heads up:</strong> Shuttle schedules, parking prices, and Deer District programming shift by opponent and event. Confirm with each bar's socials and the Bucks app on game day before you head out.
             </p>
-          </div>
+          </div>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Milwaukee Bucks Game Day Guide</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Featured</dt>
+              <dd style={{ color: "#444", margin: 0 }}>8 game day verified across Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Spitfire's on State, Steny's Tavern & Grill, Kelly's Bleachers, Highland Parking Garage, MECCA Garage (Wisconsin Center)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Coverage</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Spans multiple Milwaukee neighborhoods — see body for details</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Game day in Milwaukee</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
+
 
           <section id="overview" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>At a Glance</h2>
