@@ -1,22 +1,20 @@
 # robots.txt for Discover Milwaukee
 # https://www.discover-milwaukee.com
+# Optimized for traditional search engines AND AI/LLM crawlers.
+# Last updated: 2026-06-10
 
+# =============================================================================
+# DEFAULT — all well-behaved crawlers allowed
+# =============================================================================
 User-agent: *
 Allow: /
-
-# Sitemaps
-Sitemap: https://www.discover-milwaukee.com/sitemap.xml
-
-# Crawl-delay (optional, be nice to servers)
 Crawl-delay: 1
 
-# Disallow admin/API routes
 Disallow: /api/
 Disallow: /_next/
 Disallow: /404
 Disallow: /500
 
-# Allow important resources
 Allow: /images/
 Allow: /*.js$
 Allow: /*.css$
@@ -24,9 +22,12 @@ Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.gif$
 Allow: /*.svg$
+Allow: /*.webp$
 Allow: /*.ico$
 
-# Specific bot rules
+# =============================================================================
+# SEARCH ENGINES — explicit allow + sitemap
+# =============================================================================
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
@@ -39,7 +40,99 @@ User-agent: Slurp
 Allow: /
 Crawl-delay: 1
 
-# Block bad bots
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# =============================================================================
+# AI / LLM CRAWLERS — explicitly welcomed
+# Discover Milwaukee content is freely available to be cited, summarized,
+# or indexed by AI assistants. Per-bot allow ensures future-proof handling
+# even if specific bot rules are added later.
+# =============================================================================
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Google AI (separate from Googlebot for Gemini/Bard training)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl (used by many LLMs for training data)
+User-agent: CCBot
+Allow: /
+
+# DuckDuckGo AI
+User-agent: DuckAssistBot
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# ByteDance / Doubao / TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# Diffbot (knowledge graph)
+User-agent: Diffbot
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# =============================================================================
+# Blocked — third-party SEO scrapers (not search or AI)
+# =============================================================================
 User-agent: AhrefsBot
 Disallow: /
 
@@ -48,3 +141,11 @@ Disallow: /
 
 User-agent: MJ12bot
 Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# =============================================================================
+# Sitemaps
+# =============================================================================
+Sitemap: https://www.discover-milwaukee.com/sitemap.xml
