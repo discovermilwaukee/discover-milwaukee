@@ -199,19 +199,19 @@ const atAGlance = [
 ];
 
 const marqueeMatches = [
-  { date: "Thu Jun 11", match: "Mexico vs South Africa (OPENING)", ct: "2 p.m. CT", venue: "Estadio Azteca, Mexico City", channel: "FOX / Telemundo", milwaukee: "Nomad's Brady Street watch party kicks off the tournament" },
-  { date: "Fri Jun 12", match: "USA vs Paraguay (USMNT opener)", ct: "8 p.m. CT", venue: "SoFi Stadium, Los Angeles", channel: "FOX / Telemundo", milwaukee: "Moran's USMNT Block Party #1 · Nomad · Tom's Watch Bar" },
-  { date: "Thu Jun 18", match: "Mexico vs South Korea", ct: "8 p.m. CT", venue: "Estadio Akron, Guadalajara", channel: "FOX / Telemundo", milwaukee: "Café Corazón · Conejito's · Nomad" },
-  { date: "Fri Jun 19", match: "USA vs Australia", ct: "2 p.m. CT", venue: "Lumen Field, Seattle", channel: "FOX / Telemundo", milwaukee: "Moran's USMNT Block Party #2 · Nomad" },
-  { date: "Wed Jun 24", match: "Czechia vs Mexico", ct: "8 p.m. CT", venue: "Estadio Azteca, Mexico City", channel: "FOX / Telemundo", milwaukee: "Café Corazón · Conejito's · Nomad" },
-  { date: "Thu Jun 25", match: "USA vs Türkiye", ct: "9 p.m. CT", venue: "SoFi Stadium, Los Angeles", channel: "FOX / Telemundo", milwaukee: "Moran's USMNT Block Party #3 · Nomad" },
-  { date: "Jun 28 – Jul 3", match: "Round of 32 (new for 48-team format)", ct: "Various", venue: "U.S./Canada/Mexico venues", channel: "FOX / Telemundo", milwaukee: "Nomad continues every match · Tom's Watch Bar" },
-  { date: "Jul 4 – Jul 7", match: "Round of 16", ct: "Various", venue: "Houston, Philadelphia, Vancouver, Atlanta and others", channel: "FOX / Telemundo", milwaukee: "Nomad · Highbury · Tom's Watch Bar" },
-  { date: "Jul 9 – Jul 11", match: "Quarterfinals", ct: "Various", venue: "Boston, LA, Miami, Kansas City", channel: "FOX / Telemundo", milwaukee: "Nomad · Tom's Watch Bar · Three Lions for England QF (if they advance)" },
-  { date: "Jul 14", match: "Semifinal #1", ct: "2 p.m. CT", venue: "AT&T Stadium, Arlington TX", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar" },
-  { date: "Jul 15", match: "Semifinal #2", ct: "2 p.m. CT", venue: "Mercedes-Benz Stadium, Atlanta", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar" },
-  { date: "Sat Jul 18", match: "Third-place match", ct: "4 p.m. CT", venue: "Hard Rock Stadium, Miami Gardens", channel: "FOX / Telemundo", milwaukee: "Nomad · Tom's Watch Bar" },
-  { date: "SUN Jul 19", match: "WORLD CUP FINAL", ct: "2 p.m. CT", venue: "MetLife Stadium, East Rutherford NJ", channel: "FOX / Telemundo", milwaukee: "Nomad's Brady Street Block Party · Moran's Final Block Party (11 a.m.–7 p.m.) · every soccer pub in the city" },
+  { date: "Thu Jun 11", match: "Mexico vs South Africa (OPENING)", ct: "2 p.m. CT", venue: "Estadio Azteca, Mexico City", channel: "FOX / Telemundo", milwaukee: "Nomad's Brady Street watch party · Café Corazón · Conejito's · Potawatomi Sportsbook (21+)" },
+  { date: "Fri Jun 12", match: "USA vs Paraguay (USMNT opener)", ct: "8 p.m. CT", venue: "SoFi Stadium, Los Angeles", channel: "FOX / Telemundo", milwaukee: "Moran's USMNT Block Party #1 · Nomad · Tom's Watch Bar · Potawatomi Sportsbook (21+)" },
+  { date: "Thu Jun 18", match: "Mexico vs South Korea", ct: "8 p.m. CT", venue: "Estadio Akron, Guadalajara", channel: "FOX / Telemundo", milwaukee: "Café Corazón · Conejito's · Nomad · Potawatomi Sportsbook (21+)" },
+  { date: "Fri Jun 19", match: "USA vs Australia", ct: "2 p.m. CT", venue: "Lumen Field, Seattle", channel: "FOX / Telemundo", milwaukee: "Moran's USMNT Block Party #2 · Nomad · Tom's Watch Bar · Potawatomi Sportsbook (21+)" },
+  { date: "Wed Jun 24", match: "Czechia vs Mexico", ct: "8 p.m. CT", venue: "Estadio Azteca, Mexico City", channel: "FOX / Telemundo", milwaukee: "Café Corazón · Conejito's · Nomad · Potawatomi Sportsbook (21+)" },
+  { date: "Thu Jun 25", match: "USA vs Türkiye", ct: "9 p.m. CT", venue: "SoFi Stadium, Los Angeles", channel: "FOX / Telemundo", milwaukee: "Moran's USMNT Block Party #3 · Nomad · Tom's Watch Bar · Potawatomi Sportsbook (21+)" },
+  { date: "Jun 28 – Jul 3", match: "Round of 32 (new for 48-team format)", ct: "Various", venue: "U.S./Canada/Mexico venues", channel: "FOX / Telemundo", milwaukee: "Nomad continues every match · Tom's Watch Bar · Potawatomi Sportsbook (21+) · Highbury for early kickoffs (6:30 a.m. open)" },
+  { date: "Jul 4 – Jul 7", match: "Round of 16", ct: "Various", venue: "Houston, Philadelphia, Vancouver, Atlanta and others", channel: "FOX / Telemundo", milwaukee: "Nomad · Highbury · Tom's Watch Bar · Potawatomi Sportsbook (21+) · Three Lions / Red Lion for England" },
+  { date: "Jul 9 – Jul 11", match: "Quarterfinals", ct: "Various", venue: "Boston, LA, Miami, Kansas City", channel: "FOX / Telemundo", milwaukee: "Nomad · Tom's Watch Bar · Potawatomi Sportsbook (21+) · Three Lions / Red Lion for England QF (if they advance)" },
+  { date: "Jul 14", match: "Semifinal #1", ct: "2 p.m. CT", venue: "AT&T Stadium, Arlington TX", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar · Potawatomi Sportsbook (21+)" },
+  { date: "Jul 15", match: "Semifinal #2", ct: "2 p.m. CT", venue: "Mercedes-Benz Stadium, Atlanta", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar · Potawatomi Sportsbook (21+)" },
+  { date: "Sat Jul 18", match: "Third-place match", ct: "4 p.m. CT", venue: "Hard Rock Stadium, Miami Gardens", channel: "FOX / Telemundo", milwaukee: "Nomad · Tom's Watch Bar · Potawatomi Sportsbook (21+)" },
+  { date: "SUN Jul 19", match: "WORLD CUP FINAL", ct: "2 p.m. CT", venue: "MetLife Stadium, East Rutherford NJ", channel: "FOX / Telemundo", milwaukee: "Nomad's Brady Street Block Party · Moran's Final Block Party (11 a.m.–7 p.m.) · Potawatomi Sportsbook (21+, Midwest's biggest sportsbook) · every soccer pub in the city" },
 ];
 
 const faqs = [
