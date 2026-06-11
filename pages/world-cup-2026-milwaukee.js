@@ -70,13 +70,13 @@ const soccerPubs = [
     hours: "Regular pub hours (call to confirm match-day openings). For the four announced 2026 World Cup events, the pub closes Milwaukee Avenue outside the bar and runs an outdoor block party.",
     capacity: "Pub interior plus the entire blocked-off section of Milwaukee Avenue for the four announced 2026 watch parties. Jumbotron, live music, food vendors.",
     foodDrink: "Irish pub menu, full bar. For block parties: authentic Mexican food and rotating vendors announced via Moran's social channels.",
-    insiderTip: "Moran's has confirmed four Team USA block parties around the 2026 USMNT World Cup matches (June 12, June 19, June 25 and a USMNT knockout date if the team advances), plus a Final block party on July 19. Owner James Moran has been running World Cup viewing parties since 1998 — the pub has 25+ years of pedigree.",
+    insiderTip: "Moran's has confirmed FOUR block parties total: June 12 (USA vs Paraguay), June 19 (USA vs Australia), June 25 (USA vs Türkiye), and Sunday July 19 (World Cup Final, 11 a.m.–7 p.m. with kickoff 2 p.m. CT). The food partner is Azteca Restaurant. No USMNT knockout block party has been announced — likely if the U.S. advances, but not confirmed. Owner James Moran has been running World Cup viewing parties since 1998.",
     why: "The only Milwaukee-area venue with publicly announced, on-the-record USMNT 2026 block-party programming. Worth the 10-minute drive south.",
   },
   {
     name: "Tom's Watch Bar — Deer District",
     address: "1134 N Vel R. Phillips Ave, Milwaukee, WI 53203",
-    phone: "(414) 488-5666",
+    phone: "(414) 376-6669",
     neighborhood: "Deer District (next to Fiserv Forum)",
     supports: "Open-allegiance neutral ground — built for big-screen tournament viewing. Massive screens, stadium sound.",
     hours: "Mon–Wed 4 p.m.–10 p.m. · Thu 4 p.m.–midnight · Fri–Sat 11 a.m.–midnight · Sun 11 a.m.–10 p.m. — expanded hours expected for early World Cup kickoffs (confirm with the venue).",
@@ -85,18 +85,6 @@ const soccerPubs = [
     insiderTip: "If you want a guaranteed seat with a clear view of a screen for a non-USMNT/non-Mexico match — Argentina vs Algeria on a Tuesday afternoon, say — Tom's is the easiest plan. It does not pull the same emotional crowd as Nomad or Highbury, but every match is on.",
     why: "Only major national-brand watch bar in the Deer District. Replaces the now-CLOSED MECCA Sports Bar that occupied the same kind of role in past cycles.",
   },
-  {
-    name: "SportClub",
-    address: "750 N Jefferson St, Milwaukee, WI 53202",
-    phone: "(414) 808-1588",
-    neighborhood: "East Town (a block from Cathedral Square Park)",
-    supports: "International, soccer-first. SportClub is owned by Nomad's Mike Eitel and shares the Nomad's soccer DNA.",
-    hours: "Mon–Thu 11 a.m.–10 p.m. · Fri 11 a.m.–midnight · Sat 10 a.m.–midnight · Sun 10 a.m.–10 p.m. (verify match-day extensions — opening earlier than 10 a.m. is likely for big matches; call ahead).",
-    capacity: "More upscale than the Nomad, refined pub-style food, multiple screens, indoor and patio seating.",
-    foodDrink: "Globally-influenced pub menu, discounted-champagne happy hour, real cocktail program — a different feel from a typical sports bar.",
-    insiderTip: "If Nomad is packed (it will be) and you want the same soccer-first programming with a quieter, slightly more refined room, this is the sister-bar move. East Town location makes it walkable from the downtown hotels.",
-    why: "Sister bar to Nomad, owned by Mike Eitel, listed in Milwaukee Record's 11-soccer-bars-for-the-World-Cup roundup and on every major Champions League / World Cup viewing guide for Milwaukee.",
-  },
 ];
 
 const byCountry = [
@@ -104,7 +92,7 @@ const byCountry = [
     team: "USMNT (United States)",
     group: "Group D — vs Paraguay, Australia, Türkiye",
     schedule: "Fri Jun 12 vs Paraguay (LA) — 8 p.m. CT · Fri Jun 19 vs Australia (Seattle) — 2 p.m. CT · Thu Jun 25 vs Türkiye (LA) — 9 p.m. CT",
-    where: "Moran's Pub (South Milwaukee) — confirmed USMNT block-party series with Jumbotron, four parties announced for June 12, June 19, June 25 and a possible knockout date. Nomad World Pub (Brady Street) — Brady Beach Jumbotron, 'every match' commitment. Tom's Watch Bar (Deer District) — biggest screens. The Highbury (Bay View) and SportClub (Cathedral Square) — open-allegiance crowd that goes hard for USMNT.",
+    where: "Moran's Pub (South Milwaukee) — confirmed USMNT block-party series with Jumbotron. FOUR parties total: June 12, June 19, June 25 and Sunday July 19 (Final). No USMNT knockout party has been announced — likely if the U.S. advances but not confirmed. Nomad World Pub (Brady Street) — Brady Beach Jumbotron, 'every match' commitment. Tom's Watch Bar (Deer District) — biggest screens. The Highbury (Bay View) — open-allegiance crowd that goes hard for USMNT.",
   },
   {
     team: "Mexico (El Tri)",
@@ -115,8 +103,8 @@ const byCountry = [
   {
     team: "Argentina (defending champions)",
     group: "Group J — vs Algeria, Austria, Jordan",
-    schedule: "Argentina enters as 2022 World Cup champions. Group-stage dates run mid-June through early July — check ESPN's match schedule for kickoff details as the tournament unfolds.",
-    where: "Argentina does not have a dedicated Milwaukee club bar the way England (Three Lions / Red Lion) or Arsenal (Highbury) do. Nomad World Pub and SportClub draw the strongest South American supporter crowds for Argentina matches. Tom's Watch Bar in the Deer District is the most reliable big-screen plan.",
+    schedule: "Argentina enters as 2022 World Cup champions. Group J runs June 16 through June 27 — Argentina opens vs Algeria on Tue June 16 in Kansas City (8 p.m. CT). Check ESPN's match schedule for the other two group matches.",
+    where: "Argentina does not have a dedicated Milwaukee club bar the way England (Three Lions / Red Lion) or Arsenal (Highbury) do. Nomad World Pub draws the strongest South American supporter crowds for Argentina matches. Tom's Watch Bar in the Deer District is the most reliable big-screen plan.",
   },
   {
     team: "Brazil",
@@ -134,25 +122,25 @@ const byCountry = [
     team: "Germany",
     group: "Group E — vs Curaçao, Côte d'Ivoire, Ecuador",
     schedule: "Group-stage matches in mid-to-late June across U.S. venues.",
-    where: "Old German Beer Hall (1009 N Old World 3rd St, downtown — Hofbräu Munich beer hall, open daily 10 a.m.–midnight, (414) 226-2728). Mader's German Restaurant (1037 N Old World 3rd St, downtown — Milwaukee's most iconic German dining room since 1902). Von Trier (2235 N Farwell Ave, Lower East Side — Milwaukee's German beer-hall fixture since 1978 with a biergarten). Call ahead to confirm each venue is showing the specific Germany match — these are restaurants and beer halls first, sports bars second.",
+    where: "Old German Beer Hall (1009 N Old World 3rd St, downtown — Hofbräu Munich beer hall, open daily 10 a.m.–midnight, (414) 226-2728). Mader's German Restaurant (1041 N Old World 3rd St, (414) 271-3377 — Milwaukee's most iconic German dining room since 1902). Von Trier (2235 N Farwell Ave, Lower East Side — Milwaukee's German beer-hall fixture since 1978 with a biergarten). Call ahead to confirm each venue is showing the specific Germany match — these are restaurants and beer halls first, sports bars second.",
   },
   {
     team: "Spain",
     group: "Group H — vs Cape Verde, Saudi Arabia, Uruguay",
     schedule: "Group-stage matches mid-to-late June. Spain enters as one of the highest-ranked teams in the field.",
-    where: "Movida at Hotel Madrid (600 S 6th St, Walker's Point — Milwaukee's Spanish tapas restaurant). Movida is closed Monday and Tuesday — verify the specific Spain match falls on an open day (Wed–Sun) and call to confirm they are showing it. Otherwise default to Nomad, SportClub or Tom's Watch Bar.",
+    where: "Movida at Hotel Madrid (600 S 6th St, Walker's Point — Milwaukee's Spanish tapas restaurant). Movida is closed Monday and Tuesday — verify the specific Spain match falls on an open day (Wed–Sun) and call to confirm they are showing it. Otherwise default to Nomad or Tom's Watch Bar.",
   },
   {
     team: "France",
     group: "Group I — vs Senegal, Iraq, Norway",
     schedule: "Group-stage matches mid-June through late June across U.S. host cities.",
-    where: "No dedicated French bar in Milwaukee. Nomad, SportClub and Tom's Watch Bar are the universal options. For a French-leaning crowd, French-speaking Milwaukeeans tend to gather at Nomad for major Les Bleus moments.",
+    where: "No dedicated French bar in Milwaukee. Nomad and Tom's Watch Bar are the universal options. For a French-leaning crowd, French-speaking Milwaukeeans tend to gather at Nomad for major Les Bleus moments.",
   },
   {
     team: "Croatia, Serbia, Eastern Europe",
     group: "Croatia in Group L (with England) · Serbia did not qualify this cycle",
     schedule: "Croatia plays England in the group stage — that match will be a big one at both Three Lions and Red Lion in Milwaukee.",
-    where: "Three Brothers Serbian Restaurant (2414 S St Clair St, Bay View — James Beard–honored, family-run since 1956). Three Brothers is a restaurant first (open Wed–Sun 4 p.m.) but is the Serbian/Balkan cultural anchor in the city. Call (414) 481-7530 to confirm whether they are showing matches.",
+    where: "Three Brothers Serbian Restaurant (2414 S St Clair St, Bay View — James Beard–honored, family-run for 60+ years). Three Brothers is a restaurant first (Wed–Fri 5 p.m., Sat–Sun 4 p.m.) but is the Serbian/Balkan cultural anchor in the city. Call (414) 481-7530 to confirm whether they are showing matches.",
   },
   {
     team: "Italy and Poland",
@@ -208,10 +196,10 @@ const marqueeMatches = [
   { date: "Jun 28 – Jul 3", match: "Round of 32 (new for 48-team format)", ct: "Various", venue: "U.S./Canada/Mexico venues", channel: "FOX / Telemundo", milwaukee: "Nomad continues every match · Tom's Watch Bar" },
   { date: "Jul 4 – Jul 7", match: "Round of 16", ct: "Various", venue: "Houston, Philadelphia, Vancouver, Atlanta and others", channel: "FOX / Telemundo", milwaukee: "Nomad · Highbury · Tom's Watch Bar" },
   { date: "Jul 9 – Jul 11", match: "Quarterfinals", ct: "Various", venue: "Boston, LA, Miami, Kansas City", channel: "FOX / Telemundo", milwaukee: "Nomad · Tom's Watch Bar · Three Lions for England QF (if they advance)" },
-  { date: "Jul 14", match: "Semifinal #1", ct: "Afternoon CT (TBC)", venue: "AT&T Stadium, Arlington TX", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar" },
-  { date: "Jul 15", match: "Semifinal #2", ct: "Afternoon CT (TBC)", venue: "Mercedes-Benz Stadium, Atlanta", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar" },
-  { date: "Sat Jul 18", match: "Third-place match", ct: "Afternoon CT (TBC)", venue: "Hard Rock Stadium, Miami Gardens", channel: "FOX / Telemundo", milwaukee: "Nomad · SportClub" },
-  { date: "SUN Jul 19", match: "WORLD CUP FINAL", ct: "Afternoon CT (TBC)", venue: "MetLife Stadium, East Rutherford NJ", channel: "FOX / Telemundo", milwaukee: "Nomad's Brady Street Block Party (announced) · Moran's Final Block Party · every soccer pub in the city" },
+  { date: "Jul 14", match: "Semifinal #1", ct: "2 p.m. CT", venue: "AT&T Stadium, Arlington TX", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar" },
+  { date: "Jul 15", match: "Semifinal #2", ct: "2 p.m. CT", venue: "Mercedes-Benz Stadium, Atlanta", channel: "FOX / Telemundo", milwaukee: "Nomad's outdoor Jumbotron · Tom's Watch Bar" },
+  { date: "Sat Jul 18", match: "Third-place match", ct: "4 p.m. CT", venue: "Hard Rock Stadium, Miami Gardens", channel: "FOX / Telemundo", milwaukee: "Nomad · Tom's Watch Bar" },
+  { date: "SUN Jul 19", match: "WORLD CUP FINAL", ct: "2 p.m. CT", venue: "MetLife Stadium, East Rutherford NJ", channel: "FOX / Telemundo", milwaukee: "Nomad's Brady Street Block Party · Moran's Final Block Party (11 a.m.–7 p.m.) · every soccer pub in the city" },
 ];
 
 const faqs = [
@@ -225,7 +213,7 @@ const faqs = [
   },
   {
     question: "Where is the best place to watch USMNT World Cup matches in Milwaukee?",
-    answer: "Moran's Pub in South Milwaukee (912 Milwaukee Ave) has confirmed four USMNT Team USA Block Parties for the 2026 World Cup — outdoor Jumbotron on a closed-off Milwaukee Avenue, live music, food vendors. This is the only Milwaukee venue with publicly announced, dedicated USMNT viewing-party programming for every Group D match (June 12 vs Paraguay, June 19 vs Australia, June 25 vs Türkiye) plus a knockout-round event if the U.S. advances. Nomad World Pub on Brady Street is the in-city alternative with massive crowds and the Brady Beach outdoor Jumbotron. Tom's Watch Bar in the Deer District is the easiest big-screen plan for a guaranteed seat. The Highbury in Bay View and SportClub near Cathedral Square also draw strong USMNT crowds."
+    answer: "Moran's Pub in South Milwaukee (912 Milwaukee Ave) has confirmed FOUR block parties total for the 2026 World Cup — outdoor Jumbotron on a closed-off Milwaukee Avenue, live music, food from Azteca Restaurant. The four are: June 12 (USA vs Paraguay), June 19 (USA vs Australia), June 25 (USA vs Türkiye), and Sunday July 19 (World Cup Final, 11 a.m.–7 p.m.). No USMNT knockout block party has been announced — Moran's would likely add one if the U.S. advances, but it's not yet confirmed. Nomad World Pub on Brady Street is the in-city alternative with massive crowds and the Brady Beach outdoor Jumbotron. Tom's Watch Bar in the Deer District is the easiest big-screen plan for a guaranteed seat. The Highbury in Bay View also draws strong USMNT crowds."
   },
   {
     question: "Where is the best place to watch Mexico World Cup matches in Milwaukee?",
@@ -245,11 +233,11 @@ const faqs = [
   },
   {
     question: "Are there kid-friendly places to watch the World Cup in Milwaukee?",
-    answer: "Yes — several. Three Lions Pub in Shorewood is family-friendly (restaurant first, pub second). Café Corazón at both Riverwest and Bay View is a full restaurant where families bring kids regularly. Conejito's Place in Walker's Point has been a multi-generation family dining room since 1972. Milwaukee Ale House in the Third Ward is a sit-down brewpub with a kitchen and a riverfront patio that works for families. Tom's Watch Bar in the Deer District is technically family-welcome until later evening — go for an afternoon kickoff. Avoid Nomad, SportClub and Highbury for kids during the loudest matches — those are bar-first, packed-room atmospheres. The 2 p.m. CT opening match (Mexico vs South Africa on June 11) is the most kid-friendly marquee slot of the tournament."
+    answer: "Yes — several. Three Lions Pub in Shorewood is family-friendly (restaurant first, pub second). Café Corazón at both Riverwest and Bay View is a full restaurant where families bring kids regularly. Conejito's Place in Walker's Point has been a multi-generation family dining room since 1972. Milwaukee Ale House in the Third Ward is a sit-down brewpub with a kitchen and a riverfront patio that works for families. Tom's Watch Bar in the Deer District is technically family-welcome until later evening — go for an afternoon kickoff. Avoid Nomad and Highbury for kids during the loudest matches — those are bar-first, packed-room atmospheres. The 2 p.m. CT opening match (Mexico vs South Africa on June 11) is the most kid-friendly marquee slot of the tournament."
   },
   {
     question: "Where can I watch Argentina, Brazil, Spain or Germany matches in Milwaukee?",
-    answer: "Argentina (defending champions, Group J): Nomad World Pub draws the strongest South American supporter crowd; Tom's Watch Bar guarantees a big screen. Brazil (Group C): same — Nomad or Tom's. There is no dedicated Argentine or Brazilian bar in Milwaukee. Spain (Group H): Movida at Hotel Madrid (600 S 6th St, Walker's Point) is the city's Spanish tapas restaurant — but it is CLOSED Mon and Tue, so check the specific Spain match date. Default to Nomad otherwise. Germany (Group E): Old German Beer Hall (1009 N Old World 3rd St, downtown, daily 10 a.m.–midnight, (414) 226-2728) and Mader's German Restaurant (downtown, since 1902) are the obvious community gatherings; Von Trier on Farwell is the East Side German beer-hall fallback. Call ahead — these are restaurants and beer halls first, not sports bars."
+    answer: "Argentina (defending champions, Group J): Nomad World Pub draws the strongest South American supporter crowd; Tom's Watch Bar guarantees a big screen. Brazil (Group C): same — Nomad or Tom's. There is no dedicated Argentine or Brazilian bar in Milwaukee. Spain (Group H): Movida at Hotel Madrid (600 S 6th St, Walker's Point) is the city's Spanish tapas restaurant — but it is CLOSED Mon and Tue, so check the specific Spain match date. Default to Nomad otherwise. Germany (Group E): Old German Beer Hall (1009 N Old World 3rd St, downtown, daily 10 a.m.–midnight, (414) 226-2728) and Mader's German Restaurant (1041 N Old World 3rd St, (414) 271-3377, since 1902) are the obvious community gatherings; Von Trier on Farwell is the East Side German beer-hall fallback. Call ahead — these are restaurants and beer halls first, not sports bars."
   },
   {
     question: "What food and drink should I plan for long World Cup match days in Milwaukee?",
@@ -296,14 +284,13 @@ const structuredData = {
       { "@type": "ListItem", position: 3, item: { "@type": "BarOrPub", name: "Three Lions Pub", telephone: "+1-414-763-6992", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "4515 N Oakland Ave", addressLocality: "Shorewood", addressRegion: "WI", postalCode: "53211", addressCountry: "US" }, openingHours: ["Mo-Th 11:00-00:00","Fr 11:00-01:00","Sa 09:00-01:00","Su 09:00-00:00"], url: "https://threelionspub.com" } },
       { "@type": "ListItem", position: 4, item: { "@type": "BarOrPub", name: "Red Lion Pub", telephone: "+1-414-431-9009", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1850 N Water St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, openingHours: ["We-Th 16:00-00:00","Fr 11:00-01:00","Sa 09:00-01:00","Su 09:00-23:00"], url: "https://redlionpubmke.com" } },
       { "@type": "ListItem", position: 5, item: { "@type": "BarOrPub", name: "Moran's Pub", telephone: "+1-414-762-2233", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "912 Milwaukee Ave", addressLocality: "South Milwaukee", addressRegion: "WI", postalCode: "53172", addressCountry: "US" }, url: "https://moranspub.com" } },
-      { "@type": "ListItem", position: 6, item: { "@type": "BarOrPub", name: "Tom's Watch Bar — Deer District", telephone: "+1-414-488-5666", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1134 N Vel R. Phillips Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, openingHours: ["Mo-We 16:00-22:00","Th 16:00-00:00","Fr-Sa 11:00-00:00","Su 11:00-22:00"], url: "https://tomswatchbar.com/milwaukee" } },
-      { "@type": "ListItem", position: 7, item: { "@type": "BarOrPub", name: "SportClub", telephone: "+1-414-808-1588", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "750 N Jefferson St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, openingHours: ["Mo-Th 11:00-22:00","Fr 11:00-00:00","Sa 10:00-00:00","Su 10:00-22:00"] } },
+      { "@type": "ListItem", position: 6, item: { "@type": "BarOrPub", name: "Tom's Watch Bar — Deer District", telephone: "+1-414-376-6669", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1134 N Vel R. Phillips Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, openingHours: ["Mo-We 16:00-22:00","Th 16:00-00:00","Fr-Sa 11:00-00:00","Su 11:00-22:00"], url: "https://tomswatchbar.com/milwaukee" } },
       { "@type": "ListItem", position: 8, item: { "@type": "Restaurant", name: "Café Corazón — Riverwest", telephone: "+1-414-810-3941", priceRange: "$$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "3129 N Bremen St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, url: "https://corazonmilwaukee.com" } },
       { "@type": "ListItem", position: 9, item: { "@type": "Restaurant", name: "Café Corazón — Bay View", telephone: "+1-414-810-3941", priceRange: "$$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "2394 S Kinnickinnic Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, url: "https://corazonmilwaukee.com" } },
       { "@type": "ListItem", position: 10, item: { "@type": "Restaurant", name: "Conejito's Place", telephone: "+1-414-278-9106", priceRange: "$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "539 W Virginia St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, openingHours: ["Su-Th 11:00-20:00","Fr-Sa 11:00-21:00"], url: "https://conejitosmke.com" } },
       { "@type": "ListItem", position: 11, item: { "@type": "Restaurant", name: "Movida at Hotel Madrid", priceRange: "$$", servesCuisine: "Spanish", address: { "@type": "PostalAddress", streetAddress: "600 S 6th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, openingHours: ["We-Th 16:00-21:00","Fr 16:00-22:00","Sa 10:00-22:00","Su 10:00-21:00"], url: "https://www.hotelmadridmke.com" } },
       { "@type": "ListItem", position: 12, item: { "@type": "BarOrPub", name: "Old German Beer Hall", telephone: "+1-414-226-2728", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1009 N Old World 3rd St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, openingHours: "Mo-Su 10:00-00:00", url: "https://oldgermanbeerhall.com" } },
-      { "@type": "ListItem", position: 13, item: { "@type": "Restaurant", name: "Mader's German Restaurant", priceRange: "$$$", servesCuisine: "German", address: { "@type": "PostalAddress", streetAddress: "1037 N Old World 3rd St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, url: "https://madersrestaurant.com" } },
+      { "@type": "ListItem", position: 13, item: { "@type": "Restaurant", name: "Mader's German Restaurant", telephone: "+1-414-271-3377", priceRange: "$$$", servesCuisine: "German", address: { "@type": "PostalAddress", streetAddress: "1041 N Old World 3rd St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, url: "https://madersrestaurant.com" } },
       { "@type": "ListItem", position: 14, item: { "@type": "Restaurant", name: "Three Brothers Serbian Restaurant", priceRange: "$$", servesCuisine: "Serbian", address: { "@type": "PostalAddress", streetAddress: "2414 S St Clair St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, openingHours: ["We-Fr 17:00-21:00","Sa-Su 16:00-21:00"], url: "https://www.threebrothersmke.com" } },
       { "@type": "ListItem", position: 15, item: { "@type": "BarOrPub", name: "Steny's Tavern & Grill", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "800 S 2nd St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, openingHours: ["Mo-Th 11:00-01:00","Fr-Sa 11:00-02:30","Su 11:00-01:00"], url: "https://www.stenystavern.com" } },
       { "@type": "ListItem", position: 16, item: { "@type": "BarOrPub", name: "Milwaukee Ale House", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "233 N Water St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" } } },
