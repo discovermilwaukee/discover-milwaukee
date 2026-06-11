@@ -491,9 +491,25 @@ export default function WorldCup2026Milwaukee() {
                 <img src="/images/world-cup/metlife-stadium-final.jpg" alt="MetLife Stadium in East Rutherford New Jersey — host of the 2026 FIFA World Cup Final on July 19" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Final — Sunday July 19 at MetLife Stadium, East Rutherford NJ. Defending champion: Argentina.</figcaption>
               </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/world-cup/usmnt-starting-xi.jpg" alt="USMNT Starting XI on the pitch versus Belgium on March 28, 2026 — the pre-World Cup squad" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>USMNT Starting XI vs Belgium, March 28, 2026 — the pre-World Cup squad anchor.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/world-cup/usmnt-pulisic.jpg" alt="Christian Pulisic in the United States national team kit before the 2026 FIFA World Cup" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Christian Pulisic — captain and the face of the USMNT&apos;s 2026 World Cup run.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/world-cup/usmnt-pulisic-action.jpg" alt="Christian Pulisic in action for the United States Men's National Team" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>USMNT in action — Group D opener vs Paraguay is Friday June 12 at 8 p.m. CT.</figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <img src="/images/world-cup/usmnt-american-outlaws.jpg" alt="American Outlaws supporters group tailgating before a U.S. national team match" loading="lazy" width="800" height="500" style={{ width: "100%", aspectRatio: "8 / 5", objectFit: "cover", borderRadius: "12px", display: "block", backgroundColor: c.beige }} />
+                <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The American Outlaws — the U.S. supporters&apos; group at a pre-match tailgate.</figcaption>
+              </figure>
             </div>
             <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
-              Photos via Wikimedia Commons. Credits: Estadio Azteca aerial (CC-BY-SA-4.0); Estadio Azteca exterior — Carlos Valenzuela (CC-BY-SA-4.0); 2010 FIFA World Cup fans — Octagon (CC-BY-3.0); MetLife Stadium 2022 — Thecoolone1223 (CC-BY-4.0).
+              Photos via Wikimedia Commons. Credits: Estadio Azteca aerial (CC-BY-SA-4.0); Estadio Azteca exterior — Carlos Valenzuela (CC-BY-SA-4.0); 2010 FIFA World Cup fans — Octagon (CC-BY-3.0); MetLife Stadium 2022 — Thecoolone1223 (CC-BY-4.0); USMNT Starting XI vs Belgium — Bryan Berlin (CC-BY-SA-4.0); Christian Pulisic vs Belgium — Bryan Berlin (CC-BY-SA-4.0); USMNT vs Trinidad &amp; Tobago — Erik Drost (CC-BY-2.0); American Outlaws tailgate — Garrett3000 (CC-BY-SA-3.0).
             </p>
           </section>
 
