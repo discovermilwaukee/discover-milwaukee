@@ -303,6 +303,30 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Harley-Davidson Museum</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Address</dt>
+              <dd style={{ color: "#444", margin: 0 }}>400 W Canal St, Milwaukee, WI 53203</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Hours</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Daily 10 a.m. – 5 p.m. (holidays vary)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Adult admission</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$25 (Senior/Student/Military $21, Child 5–17 $11, under 5 free)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Bike Night</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Thursdays 5–9 p.m., May 7 – Sept 24, 2026 (free outside the museum)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>MOTOR Bar & Restaurant</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Sun–Wed 11 a.m.–8 p.m., Thu–Sat 11 a.m.–9 p.m. — no ticket required</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Parking</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Free (H Lot and D Lot, west of 6th St)</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-08">2026-06-08</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
               <figure style={{ margin: 0 }}>

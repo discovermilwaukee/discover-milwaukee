@@ -365,6 +365,30 @@ export default function MilwaukeeArtMuseum() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Milwaukee Art Museum</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Address</dt>
+              <dd style={{ color: "#444", margin: 0 }}>700 N Art Museum Dr, Milwaukee, WI 53202</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Hours</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Closed Tuesdays · Mon/Wed/Fri/Sat/Sun 10 a.m.–5 p.m. · Thu 10 a.m.–8 p.m.</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Adult admission</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$27 (Seniors/Students/Military $20, Kids 12 & under FREE, Members FREE)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Free / pay-what-you-wish</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Every Thursday 4–8 p.m. · Bank of America cardholders free first full weekend monthly</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Burke Brise Soleil schedule</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Opens with the Museum (10 a.m.), flaps at noon, folds 10 p.m. nightly — weather permitting</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Brise Soleil specs</dt>
+              <dd style={{ color: "#444", margin: 0 }}>90-ton, 72-fin wings with a 217-foot wingspan, designed by Santiago Calatrava</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-08">2026-06-08</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
               <figure style={{ margin: 0 }}>

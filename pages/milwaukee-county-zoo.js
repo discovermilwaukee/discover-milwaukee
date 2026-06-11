@@ -345,6 +345,32 @@ export default function MilwaukeeCountyZoo() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Milwaukee County Zoo</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Address</dt>
+              <dd style={{ color: "#444", margin: 0 }}>10001 W Bluemound Rd, Milwaukee, WI 53226</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Summer hours (through Sept 7)</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Daily 9:30 a.m. – 5 p.m.</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Admission (flex pricing)</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Adult $14.75–$19.75 summer · $12.75–$15.75 winter</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Kids 2 and under</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Free, every day</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Parking</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$15 per car (free for Zoo Pass members)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Family Free Days 2026</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Jan 3, Feb 7, Mar 7, Oct 3, Nov 7, Dec 5</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Notable</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Small Mammals Building closed indefinitely; Belle is the sole elephant since April 2026</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
               <figure style={{ margin: 0 }}>

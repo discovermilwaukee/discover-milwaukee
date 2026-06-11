@@ -283,6 +283,30 @@ export default function BestHappyHourMilwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Best happy hours in Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Total spots verified</dt>
+              <dd style={{ color: "#444", margin: 0 }}>36+ across 9 Milwaukee neighborhoods</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Filters available</dt>
+              <dd style={{ color: "#444", margin: 0 }}>By day of week, neighborhood, type (cocktails / wine / food / patio)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top all-around picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Aperitivo (Third Ward), Black Sheep (Walker's Point), Maxie's (Wauwatosa), Hooligan's (East Side), Three Lions Pub (Shorewood)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Earliest start</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Camino (Mon–Fri 2 p.m.), Story Hill BKC (Tue–Sat 2 p.m.)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Longest single-day HH</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Mason Street Grill (Mon Industry Night 4–8:30 p.m.)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Best late-night</dt>
+              <dd style={{ color: "#444", margin: 0 }}>BelAir Water St (Thu–Sat 9–11 p.m.), Miller Time Pub (Mon–Thu 10 p.m.–midnight)</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-07">2026-06-07</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Milwaukee Happy Hour at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>Fast picks for common questions.</p>

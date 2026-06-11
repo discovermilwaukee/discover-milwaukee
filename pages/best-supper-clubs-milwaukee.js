@@ -429,6 +429,28 @@ export default function BestSupperClubsMilwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Wisconsin supper clubs in and around Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>True supper clubs featured</dt>
+              <dd style={{ color: "#444", margin: 0 }}>9 — verified against the cultural markers: relish tray, brandy Old Fashioned, Friday fish fry, family ownership</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Five O'Clock Steakhouse, The Packing House, Clifford's, Saz's State House, Klemmer's, Fox & Hounds, HobNob (Racine)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Signature drink</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Brandy Old Fashioned — Wisconsin's signature cocktail, brandy not whiskey</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Signature anchor</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Friday fish fry, prime rib, relish tray to start</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Recently closed (not in this guide)</dt>
+              <dd style={{ color: "#444", margin: 0 }}>River Lane Inn, Jake's Pewaukee, Sven's, Polonez, Smoky's (Madison)</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="at-a-glance" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Wisconsin Supper Clubs at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The fundamentals every Milwaukee supper-club visitor should know.</p>

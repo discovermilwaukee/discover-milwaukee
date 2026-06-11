@@ -377,6 +377,32 @@ export default function WorldCup2026Milwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Tournament</dt>
+              <dd style={{ color: "#444", margin: 0 }}>2026 FIFA World Cup</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Dates</dt>
+              <dd style={{ color: "#444", margin: 0 }}>June 11 – July 19, 2026</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Hosts</dt>
+              <dd style={{ color: "#444", margin: 0 }}>USA, Canada, Mexico</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Milwaukee host status</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Not a host city — viewing only</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Top Milwaukee soccer pubs</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Nomad World Pub, The Highbury, Three Lions, Red Lion, Moran's, Tom's Watch Bar</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>USMNT block parties</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Moran's Pub — 4 confirmed: Jun 12, 19, 25, Jul 19</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Opening match</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Mexico vs South Africa, June 11, 2 p.m. CT, Estadio Azteca</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Final</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Sunday July 19, 2 p.m. CT, MetLife Stadium</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
               <figure style={{ margin: 0 }}>

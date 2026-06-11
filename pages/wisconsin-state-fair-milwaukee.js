@@ -298,6 +298,32 @@ export default function WisconsinStateFairMilwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Event</dt>
+              <dd style={{ color: "#444", margin: 0 }}>2026 Wisconsin State Fair (175th anniversary)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Dates</dt>
+              <dd style={{ color: "#444", margin: 0 }}>August 6–16, 2026</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Location</dt>
+              <dd style={{ color: "#444", margin: 0 }}>640 S 84th St, West Allis, WI 53214</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Adult admission</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$20 gate · $15 advance</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Senior 60+ / Military / Youth 6–11</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$15 / $15 / $13 — kids 5 & under free</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Cream Puffs</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$5 single, $22 6-pack voucher, sold at the Dairy Building</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Parking</dt>
+              <dd style={{ color: "#444", margin: 0 }}>$30 Mon–Thu · $36 Fri–Sun (cashless only)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Main Stage 2026 highlights</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Nelly, Wynonna & Etheridge, for KING+COUNTRY, John Mulaney, AJR, The Beach Boys</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
               <figure style={{ margin: 0 }}>
