@@ -409,9 +409,9 @@ export default function WorldCup2026Milwaukee() {
         <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
 
           <aside aria-labelledby="newsletter-cta-heading" style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, color: c.cream, padding: "24px 28px", borderRadius: "16px", marginBottom: "28px", border: `2px solid ${c.orange}` }}>
-            <p style={{ color: c.orange, fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}>📬 Don&apos;t miss a kickoff</p>
-            <h2 id="newsletter-cta-heading" style={{ color: c.cream, fontSize: "20px", fontWeight: "900", margin: "0 0 8px", lineHeight: 1.25 }}>Get Milwaukee&apos;s World Cup updates in your inbox</h2>
-            <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.55, margin: "0 0 14px" }}>Weekly Discover Milwaukee newsletter — verified watch parties, last-minute schedule shifts, and the best events in the city. Free. Unsubscribe anytime.</p>
+            <p style={{ color: c.orange, fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}>📬 The weekly Milwaukee scoop</p>
+            <h2 id="newsletter-cta-heading" style={{ color: c.cream, fontSize: "20px", fontWeight: "900", margin: "0 0 8px", lineHeight: 1.25 }}>Discover what&apos;s happening in Milwaukee</h2>
+            <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.55, margin: "0 0 14px" }}>Join 10,000+ Milwaukee insiders. The best events, new restaurant openings, hidden gems, and local favorites — delivered free every Wednesday.</p>
             <form onSubmit={handleSubscribe} style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               <label htmlFor="wc-newsletter-email" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0,0,0,0)" }}>Email address</label>
               <input
