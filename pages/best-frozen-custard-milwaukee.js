@@ -453,6 +453,30 @@ export default function BestFrozenCustardMilwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Best frozen custard in Milwaukee</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>The 4 Pillars</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Kopp's, Leon's, Gilles, Oscar's</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Total stands featured</dt>
+              <dd style={{ color: "#444", margin: 0 }}>8 verified neighborhood stands</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>USDA legal definition</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Frozen custard requires ≥1.4% egg yolk solids by weight</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Tradition</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Flavor of the Day — each stand publishes a daily rotating flavor calendar</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Oldest Milwaukee custard stand</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Gilles Frozen Custard (1938, 7515 W Bluemound Rd, Wauwatosa)</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Milwaukee's claim</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Unofficial Frozen Custard Capital of the World</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>
               <figure style={{ margin: 0 }}>

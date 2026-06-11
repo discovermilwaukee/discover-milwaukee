@@ -449,6 +449,28 @@ export default function SummerfestMilwaukee() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Event</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Summerfest — the world's largest music festival</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Dates</dt>
+              <dd style={{ color: "#444", margin: 0 }}>June 18–20, 25–27 + July 2–4, 2026</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Location</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Henry Maier Festival Park, 200 N Harbor Dr, Milwaukee, WI 53202</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Free admission windows</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Multiple weekdays noon–3 p.m. with sponsor conditions</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>AmFam Amphitheater headliners 2026</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Garth Brooks (pre-fest), Carín León, Ed Sheeran, Cody Johnson, Post Malone, Muse, Alex Warren, Jelly Roll w/ Tyler Hubbard</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>BMO Pavilion 2026 highlights</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Charlie Wilson, David Lee Roth, The Roots, Russell Dickerson, Ella Mai, Buju Banton w/ Stephen Marley</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-05">2026-06-05</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="overview" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Summerfest 2026 at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>

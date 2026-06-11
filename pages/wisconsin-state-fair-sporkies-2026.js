@@ -353,6 +353,28 @@ export default function SporkiesDrinkies2026() {
             </p>
           </div>
 
+
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Event</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Wisconsin State Fair Sporkies & Drinkies 2026</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Fair dates</dt>
+              <dd style={{ color: "#444", margin: 0 }}>August 6–16, 2026</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Sporkies finalists</dt>
+              <dd style={{ color: "#444", margin: 0 }}>8 — Bayou Crunch Cup, Cream City Cone, Tinga Tango Chicharrones, Porky Puff, Deep-Fried Horchata Balls, Sweet Lemon Berry Cheese Curds, Al Pastor Pizza, Birria Flamin' Bombs</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Drinkies finalists</dt>
+              <dd style={{ color: "#444", margin: 0 }}>4 — Tilt-A-Spritz, Hot Honey Chicken Lemonade, Cookie Butter Coffee Float, Color-Changing Swamp Juice</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Location</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Wisconsin State Fair Park, 640 S 84th St, West Allis, WI 53214</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Cost</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Free with fair admission (each item priced individually)</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+            </p>
+          </section>
+
           <section id="overview" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Sporkies & Drinkies 2026 at a Glance</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
