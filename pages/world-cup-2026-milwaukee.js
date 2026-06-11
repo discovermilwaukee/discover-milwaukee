@@ -326,6 +326,29 @@ const navLinks = [
 
 export default function WorldCup2026Milwaukee() {
   const [openFaq, setOpenFaq] = useState(null);
+  const [email, setEmail] = useState("");
+  const [subscribeStatus, setSubscribeStatus] = useState("idle");
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) return;
+    setSubscribeStatus("loading");
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (response.ok) {
+        setSubscribeStatus("success");
+        setEmail("");
+      } else {
+        setSubscribeStatus("error");
+      }
+    } catch {
+      setSubscribeStatus("error");
+    }
+  };
 
   return (
     <>
@@ -384,6 +407,39 @@ export default function WorldCup2026Milwaukee() {
         </nav>
 
         <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+
+          <aside aria-labelledby="newsletter-cta-heading" style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, color: c.cream, padding: "24px 28px", borderRadius: "16px", marginBottom: "28px", border: `2px solid ${c.orange}` }}>
+            <p style={{ color: c.orange, fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}>📬 Don&apos;t miss a kickoff</p>
+            <h2 id="newsletter-cta-heading" style={{ color: c.cream, fontSize: "20px", fontWeight: "900", margin: "0 0 8px", lineHeight: 1.25 }}>Get Milwaukee&apos;s World Cup updates in your inbox</h2>
+            <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.55, margin: "0 0 14px" }}>Weekly Discover Milwaukee newsletter — verified watch parties, last-minute schedule shifts, and the best events in the city. Free. Unsubscribe anytime.</p>
+            <form onSubmit={handleSubscribe} style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              <label htmlFor="wc-newsletter-email" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0,0,0,0)" }}>Email address</label>
+              <input
+                id="wc-newsletter-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                disabled={subscribeStatus === "loading"}
+                style={{ flex: "1 1 240px", minWidth: "200px", padding: "10px 14px", borderRadius: "8px", border: "none", fontSize: "14px", color: c.green1, backgroundColor: c.cream }}
+              />
+              <button
+                type="submit"
+                disabled={subscribeStatus === "loading"}
+                style={{ background: c.orange, color: c.green1, border: "none", padding: "10px 20px", borderRadius: "8px", fontWeight: "700", fontSize: "14px", cursor: subscribeStatus === "loading" ? "not-allowed" : "pointer", whiteSpace: "nowrap" }}
+              >
+                {subscribeStatus === "loading" ? "Joining…" : "Subscribe"}
+              </button>
+            </form>
+            {subscribeStatus === "success" && (
+              <p style={{ color: c.yellow, fontSize: "13px", margin: "10px 0 0", fontWeight: "600" }}>✓ You&apos;re in. Check your inbox to confirm.</p>
+            )}
+            {subscribeStatus === "error" && (
+              <p style={{ color: "#ffb3b3", fontSize: "13px", margin: "10px 0 0" }}>Something went wrong — try again, or sign up at <Link href="/newsletter" style={{ color: c.yellow, textDecoration: "underline" }}>discover-milwaukee.com/newsletter</Link>.</p>
+            )}
+            <p style={{ color: c.beige, fontSize: "11px", margin: "12px 0 0", opacity: 0.7 }}>Powered by Beehiiv. No spam, ever.</p>
+          </aside>
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
