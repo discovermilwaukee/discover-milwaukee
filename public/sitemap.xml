@@ -753,4 +753,11 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://www.discover-milwaukee.com/world-cup-2026-milwaukee</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
 </urlset>
