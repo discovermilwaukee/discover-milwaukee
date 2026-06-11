@@ -28,7 +28,7 @@ const soccerPubs = [
   {
     name: "The Highbury Pub",
     address: "2322 S Kinnickinnic Ave, Milwaukee, WI 53207",
-    phone: "(414) 539-4242",
+    phone: "(414) 294-4400",
     neighborhood: "Bay View",
     supports: "Arsenal (Brew City Gunners HQ); strong Manchester City, Chelsea, Borussia Dortmund crowds also turn up. For the World Cup it is open-allegiance — England, USMNT and neutrals all welcome.",
     hours: "Opens at 6:30 a.m. on early-match days — owner Joe Katz has done early Saturday openings since 2004 and is doing them again for the 2026 World Cup. Regular hours: daily 11 a.m.–close, later on weekends.",
@@ -85,6 +85,18 @@ const soccerPubs = [
     insiderTip: "If you want a guaranteed seat with a clear view of a screen for a non-USMNT/non-Mexico match — Argentina vs Algeria on a Tuesday afternoon, say — Tom's is the easiest plan. It does not pull the same emotional crowd as Nomad or Highbury, but every match is on.",
     why: "Only major national-brand watch bar in the Deer District. Replaces the now-CLOSED MECCA Sports Bar that occupied the same kind of role in past cycles.",
   },
+  {
+    name: "Potawatomi Sportsbook",
+    address: "1721 W Canal St, Milwaukee, WI 53233",
+    phone: "1-800-PAYSBIG (1-800-729-7244) — casino main line",
+    neighborhood: "Menomonee Valley (inside Potawatomi Casino Hotel)",
+    supports: "Open-allegiance — built for big-screen viewing of every match, period. Largest indoor screen in the Midwest.",
+    hours: "Betting counter: Mon–Thu 11 a.m.–11 p.m. · Fri 11 a.m.–midnight · Sat 9 a.m.–midnight · Sun 9 a.m.–11 p.m. The venue has publicly committed to showing every 2026 FIFA World Cup match through the July 19 Final. Self-service betting kiosks 24/7.",
+    capacity: "6,500 sq ft, two-level venue — the largest retail sportsbook in the Midwest. The centerpiece is a 2,000+ sq ft LED video wall capable of showing up to 30 events simultaneously, plus multiple HD TVs. Stadium-style seating and recliners; 200+ seats in the main area with a VIP deck above; max capacity 419.",
+    foodDrink: "The Kitchen at the Sportsbook serves a full menu — brunch, burgers, wings, appetizers, shareables (kitchen hours Mon–Fri 4 p.m.–11 p.m.; Sat–Sun 10 a.m.–11 p.m. — bar bites available outside those windows). Full bar with cocktails, draft beer, beer towers. Tournament specials: Michelob Ultra buckets and Casamigos spicy margaritas (both official FIFA partners).",
+    insiderTip: "21+ ONLY (entire casino floor) — bring kids elsewhere. Walk-in is FREE; no cover, no ticket. Tables are first-come, first-served for the tournament (a departure from the venue's usual reservation-only model). For the 2 p.m. CT Final on Sunday July 19, arrive well before the 9 a.m. open if you want a recliner facing the video wall. You do NOT need to place a bet to watch. Free self-parking in the attached 4,400-space garage. Jerseys explicitly encouraged.",
+    why: "Confirmed by Milwaukee Magazine — Potawatomi Sportsbook is showing every 2026 World Cup match live on a 2,000 sq ft LED video wall, anchoring the Midwest's largest retail sportsbook. Wisconsin sports betting is tribally operated; tournament bets can be placed at the counter or 24/7 kiosks. Potawatomi's mobile betting app currently works only on-property; statewide mobile betting is not yet live in Wisconsin as of June 2026.",
+  },
 ];
 
 const byCountry = [
@@ -92,25 +104,25 @@ const byCountry = [
     team: "USMNT (United States)",
     group: "Group D — vs Paraguay, Australia, Türkiye",
     schedule: "Fri Jun 12 vs Paraguay (LA) — 8 p.m. CT · Fri Jun 19 vs Australia (Seattle) — 2 p.m. CT · Thu Jun 25 vs Türkiye (LA) — 9 p.m. CT",
-    where: "Moran's Pub (South Milwaukee) — confirmed USMNT block-party series with Jumbotron. FOUR parties total: June 12, June 19, June 25 and Sunday July 19 (Final). No USMNT knockout party has been announced — likely if the U.S. advances but not confirmed. Nomad World Pub (Brady Street) — Brady Beach Jumbotron, 'every match' commitment. Tom's Watch Bar (Deer District) — biggest screens. The Highbury (Bay View) — open-allegiance crowd that goes hard for USMNT.",
+    where: "Moran's Pub (South Milwaukee) — confirmed USMNT block-party series with Jumbotron. FOUR parties total: June 12, June 19, June 25 and Sunday July 19 (Final). No USMNT knockout party has been announced — likely if the U.S. advances but not confirmed. Nomad World Pub (Brady Street) — Brady Beach Jumbotron, 'every match' commitment. Potawatomi Sportsbook — the Midwest's largest retail sportsbook, with a 2,000+ sq ft LED video wall, 21+ only. Tom's Watch Bar (Deer District) — dozens of screens. The Highbury (Bay View) — open-allegiance crowd that goes hard for USMNT.",
   },
   {
     team: "Mexico (El Tri)",
     group: "Group A (host group) — vs South Africa, South Korea, Czechia",
     schedule: "Thu Jun 11 vs South Africa (Mexico City — opening match) — 2 p.m. CT · Thu Jun 18 vs South Korea (Guadalajara) — 8 p.m. CT · Wed Jun 24 vs Czechia (Mexico City) — 8 p.m. CT",
-    where: "Café Corazón (3129 N Bremen St, Riverwest · 2394 S Kinnickinnic Ave, Bay View) — Milwaukee's Mexican-restaurant favorite. Conejito's Place (539 W Virginia St, Walker's Point) — the historic Mexican restaurant since 1972, beloved by the Mexican-American community. Nomad World Pub on Brady Street draws huge Mexico-supporting crowds for the opener — kickoff is 2 p.m. Central, a perfect early-afternoon party slot. Call Café Corazón at (414) 810-3941 and Conejito's at (414) 278-9106 to confirm whether they are running TV viewing for specific Mexico matches.",
+    where: "Café Corazón (3129 N Bremen St, Riverwest · 2394 S Kinnickinnic Ave, Bay View) — Milwaukee's Mexican-restaurant favorite. Conejito's Place (539 W Virginia St, Walker's Point) — the historic Mexican restaurant since 1972, beloved by the Mexican-American community. Nomad World Pub on Brady Street draws huge Mexico-supporting crowds for the opener — kickoff is 2 p.m. Central, a perfect early-afternoon party slot. Call Café Corazón Riverwest at (414) 810-3941 or Bay View at (414) 544-2774, and Conejito's at (414) 278-9106, to confirm whether they are running TV viewing for specific Mexico matches.",
   },
   {
     team: "Argentina (defending champions)",
     group: "Group J — vs Algeria, Austria, Jordan",
     schedule: "Argentina enters as 2022 World Cup champions. Group J runs June 16 through June 27 — Argentina opens vs Algeria on Tue June 16 in Kansas City (8 p.m. CT). Check ESPN's match schedule for the other two group matches.",
-    where: "Argentina does not have a dedicated Milwaukee club bar the way England (Three Lions / Red Lion) or Arsenal (Highbury) do. Nomad World Pub draws the strongest South American supporter crowds for Argentina matches. Tom's Watch Bar in the Deer District is the most reliable big-screen plan.",
+    where: "Argentina does not have a dedicated Milwaukee club bar the way England (Three Lions / Red Lion) or Arsenal (Highbury) do. Nomad World Pub draws the strongest South American supporter crowds for Argentina matches. Tom's Watch Bar in the Deer District and Potawatomi Sportsbook in the Menomonee Valley are the two most reliable big-screen plans.",
   },
   {
     team: "Brazil",
     group: "Group C — vs Morocco, Haiti, Scotland",
     schedule: "Group-stage matches scattered across the U.S. host cities — verify daily kickoff times at the FIFA / FOX Sports schedule (FOX is the U.S. English-language broadcaster; Telemundo carries Spanish-language).",
-    where: "Same as Argentina — no single dedicated Brazil bar in Milwaukee. Nomad World Pub is the cultural soccer hub and will be the loudest Brazilian-supporter spot in the city. Tom's Watch Bar is the screens-guaranteed plan.",
+    where: "Same as Argentina — no single dedicated Brazil bar in Milwaukee. Nomad World Pub is the cultural soccer hub and will be the loudest Brazilian-supporter spot in the city. Tom's Watch Bar and Potawatomi Sportsbook are the screens-guaranteed plans (note: Potawatomi is 21+).",
   },
   {
     team: "England (Three Lions)",
@@ -128,19 +140,19 @@ const byCountry = [
     team: "Spain",
     group: "Group H — vs Cape Verde, Saudi Arabia, Uruguay",
     schedule: "Group-stage matches mid-to-late June. Spain enters as one of the highest-ranked teams in the field.",
-    where: "Movida at Hotel Madrid (600 S 6th St, Walker's Point — Milwaukee's Spanish tapas restaurant). Movida is closed Monday and Tuesday — verify the specific Spain match falls on an open day (Wed–Sun) and call to confirm they are showing it. Otherwise default to Nomad or Tom's Watch Bar.",
+    where: "Movida at Hotel Madrid (600 S 6th St, Walker's Point — Milwaukee's Spanish tapas restaurant). Movida is closed Monday and Tuesday — verify the specific Spain match falls on an open day (Wed–Sun) and call to confirm they are showing it. Otherwise default to Nomad, Potawatomi Sportsbook (21+), or Tom's Watch Bar.",
   },
   {
     team: "France",
     group: "Group I — vs Senegal, Iraq, Norway",
     schedule: "Group-stage matches mid-June through late June across U.S. host cities.",
-    where: "No dedicated French bar in Milwaukee. Nomad and Tom's Watch Bar are the universal options. For a French-leaning crowd, French-speaking Milwaukeeans tend to gather at Nomad for major Les Bleus moments.",
+    where: "No dedicated French bar in Milwaukee. Nomad, Tom's Watch Bar, and Potawatomi Sportsbook (21+) are the universal options. For a French-leaning crowd, French-speaking Milwaukeeans tend to gather at Nomad for major Les Bleus moments.",
   },
   {
     team: "Croatia, Serbia, Eastern Europe",
     group: "Croatia in Group L (with England) · Serbia did not qualify this cycle",
     schedule: "Croatia plays England in the group stage — that match will be a big one at both Three Lions and Red Lion in Milwaukee.",
-    where: "Three Brothers Serbian Restaurant (2414 S St Clair St, Bay View — James Beard–honored, family-run for 60+ years). Three Brothers is a restaurant first (Wed–Fri 5 p.m., Sat–Sun 4 p.m.) but is the Serbian/Balkan cultural anchor in the city. Call (414) 481-7530 to confirm whether they are showing matches.",
+    where: "Three Brothers Serbian Restaurant (2414 S St Clair St, Bay View — James Beard–honored, family-run since 1956). Three Brothers is a restaurant first (Wed–Fri 5 p.m., Sat–Sun 4 p.m.) but is the Serbian/Balkan cultural anchor in the city. Call (414) 481-7530 to confirm whether they are showing matches.",
   },
   {
     team: "Italy and Poland",
@@ -217,7 +229,7 @@ const faqs = [
   },
   {
     question: "Where is the best place to watch Mexico World Cup matches in Milwaukee?",
-    answer: "Café Corazón (3129 N Bremen St in Riverwest and 2394 S Kinnickinnic Ave in Bay View — call (414) 810-3941) is Milwaukee's beloved Mexican restaurant and the natural community gathering point for El Tri matches. Conejito's Place (539 W Virginia St, Walker's Point — (414) 278-9106), open since 1972, is the historic anchor of Milwaukee's Mexican community and a long-loved viewing spot. Nomad World Pub on Brady Street will be the loudest open-allegiance Mexico crowd in the city — the opening match (Mexico vs South Africa, 2 p.m. CT on June 11) is essentially the city's tournament-kickoff party at Nomad. Always call ahead to confirm the specific match is being shown."
+    answer: "Café Corazón (3129 N Bremen St in Riverwest — call (414) 810-3941; or 2394 S Kinnickinnic Ave in Bay View — call (414) 544-2774) is Milwaukee's beloved Mexican restaurant and the natural community gathering point for El Tri matches. Conejito's Place (539 W Virginia St, Walker's Point — (414) 278-9106), open since 1972, is the historic anchor of Milwaukee's Mexican community and a long-loved viewing spot. Nomad World Pub on Brady Street will be the loudest open-allegiance Mexico crowd in the city — the opening match (Mexico vs South Africa, 2 p.m. CT on June 11) is essentially the city's tournament-kickoff party at Nomad. Always call ahead to confirm the specific match is being shown."
   },
   {
     question: "What is the best soccer bar in Milwaukee for the World Cup?",
@@ -256,7 +268,7 @@ const structuredData = {
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },
     publisher: { "@type": "Organization", name: "Discover Milwaukee" },
     datePublished: "2026-06-10",
-    dateModified: "2026-06-10",
+    dateModified: "2026-06-11",
     mainEntityOfPage: "https://www.discover-milwaukee.com/world-cup-2026-milwaukee",
   },
   faqPage: {
@@ -281,13 +293,14 @@ const structuredData = {
     numberOfItems: 17,
     itemListElement: [
       { "@type": "ListItem", position: 1, item: { "@type": "BarOrPub", name: "Nomad World Pub", telephone: "+1-414-224-8111", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1401 E Brady St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, openingHours: ["Mo-Th 13:00-02:00","Fr 13:00-02:30","Sa 06:30-02:30","Su 06:30-02:00"], url: "https://nomadworldpub.com" } },
-      { "@type": "ListItem", position: 2, item: { "@type": "BarOrPub", name: "The Highbury Pub", telephone: "+1-414-539-4242", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2322 S Kinnickinnic Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, openingHours: "Mo-Su 11:00-02:00", url: "https://www.thehighbury.com" } },
+      { "@type": "ListItem", position: 2, item: { "@type": "BarOrPub", name: "The Highbury Pub", telephone: "+1-414-294-4400", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2322 S Kinnickinnic Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, openingHours: "Mo-Su 11:00-02:00", url: "https://www.thehighbury.com" } },
       { "@type": "ListItem", position: 3, item: { "@type": "BarOrPub", name: "Three Lions Pub", telephone: "+1-414-763-6992", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "4515 N Oakland Ave", addressLocality: "Shorewood", addressRegion: "WI", postalCode: "53211", addressCountry: "US" }, openingHours: ["Mo-Th 11:00-00:00","Fr 11:00-01:00","Sa 09:00-01:00","Su 09:00-00:00"], url: "https://threelionspub.com" } },
       { "@type": "ListItem", position: 4, item: { "@type": "BarOrPub", name: "Red Lion Pub", telephone: "+1-414-431-9009", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1850 N Water St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, openingHours: ["We-Th 16:00-00:00","Fr 11:00-01:00","Sa 09:00-01:00","Su 09:00-23:00"], url: "https://redlionpubmke.com" } },
       { "@type": "ListItem", position: 5, item: { "@type": "BarOrPub", name: "Moran's Pub", telephone: "+1-414-762-2233", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "912 Milwaukee Ave", addressLocality: "South Milwaukee", addressRegion: "WI", postalCode: "53172", addressCountry: "US" }, url: "https://moranspub.com" } },
       { "@type": "ListItem", position: 6, item: { "@type": "BarOrPub", name: "Tom's Watch Bar — Deer District", telephone: "+1-414-376-6669", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1134 N Vel R. Phillips Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, openingHours: ["Mo-We 16:00-22:00","Th 16:00-00:00","Fr-Sa 11:00-00:00","Su 11:00-22:00"], url: "https://tomswatchbar.com/milwaukee" } },
+      { "@type": "ListItem", position: 7, item: { "@type": "BarOrPub", name: "Potawatomi Sportsbook", telephone: "+1-800-729-7244", priceRange: "$$", description: "Inside Potawatomi Casino Hotel — the largest retail sportsbook in the Midwest. 2,000+ sq ft LED video wall showing every 2026 FIFA World Cup match. 21+ only.", address: { "@type": "PostalAddress", streetAddress: "1721 W Canal St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53233", addressCountry: "US" }, openingHours: ["Mo-Th 11:00-23:00","Fr 11:00-00:00","Sa 09:00-00:00","Su 09:00-23:00"], url: "https://www.potawatomi.com/casino/sportsbook" } },
       { "@type": "ListItem", position: 8, item: { "@type": "Restaurant", name: "Café Corazón — Riverwest", telephone: "+1-414-810-3941", priceRange: "$$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "3129 N Bremen St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, url: "https://corazonmilwaukee.com" } },
-      { "@type": "ListItem", position: 9, item: { "@type": "Restaurant", name: "Café Corazón — Bay View", telephone: "+1-414-810-3941", priceRange: "$$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "2394 S Kinnickinnic Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, url: "https://corazonmilwaukee.com" } },
+      { "@type": "ListItem", position: 9, item: { "@type": "Restaurant", name: "Café Corazón — Bay View", telephone: "+1-414-544-2774", priceRange: "$$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "2394 S Kinnickinnic Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, url: "https://corazonmilwaukee.com" } },
       { "@type": "ListItem", position: 10, item: { "@type": "Restaurant", name: "Conejito's Place", telephone: "+1-414-278-9106", priceRange: "$", servesCuisine: "Mexican", address: { "@type": "PostalAddress", streetAddress: "539 W Virginia St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, openingHours: ["Su-Th 11:00-20:00","Fr-Sa 11:00-21:00"], url: "https://conejitosmke.com" } },
       { "@type": "ListItem", position: 11, item: { "@type": "Restaurant", name: "Movida at Hotel Madrid", priceRange: "$$", servesCuisine: "Spanish", address: { "@type": "PostalAddress", streetAddress: "600 S 6th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, openingHours: ["We-Th 16:00-21:00","Fr 16:00-22:00","Sa 10:00-22:00","Su 10:00-21:00"], url: "https://www.hotelmadridmke.com" } },
       { "@type": "ListItem", position: 12, item: { "@type": "BarOrPub", name: "Old German Beer Hall", telephone: "+1-414-226-2728", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1009 N Old World 3rd St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, openingHours: "Mo-Su 10:00-00:00", url: "https://oldgermanbeerhall.com" } },
@@ -332,7 +345,7 @@ export default function WorldCup2026Milwaukee() {
         <meta property="og:image:height" content="630" key="og:image:height" />
         <meta property="og:image:alt" content="Where to watch the 2026 FIFA World Cup in Milwaukee — verified soccer pubs, sports bars, USMNT and Mexico viewing venues, June 11 to July 19, 2026." key="og:image:alt" />
         <meta property="article:published_time" content="2026-06-10T00:00:00-05:00" key="article:published_time" />
-        <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:modified_time" content="2026-06-11T00:00:00-05:00" key="article:modified_time" />
         <meta property="article:author" content="Discover Milwaukee" key="article:author" />
         <meta property="article:section" content="Sports" key="article:section" />
 
@@ -352,7 +365,7 @@ export default function WorldCup2026Milwaukee() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · KICKOFF TOMORROW · VERIFIED VENUES</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 11, 2026 · TOURNAMENT UNDERWAY · VERIFIED VENUES</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Where to Watch the World Cup in Milwaukee — 2026 Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "720px", margin: "0 auto" }}>
               The 48-team tournament runs <strong>June 11 – July 19, 2026</strong>. Milwaukee is not a host city — but the soccer-pub scene here is real. Here&apos;s where to watch, with every kickoff in Central Time. Verified June 2026 against each venue&apos;s own website and Milwaukee press.
@@ -374,7 +387,7 @@ export default function WorldCup2026Milwaukee() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Heads up:</strong> The opening match (Mexico vs South Africa, 2 p.m. Central) kicks off tomorrow. Every venue below was verified against the venue&apos;s own website and recent Milwaukee press (OnMilwaukee, Milwaukee Record, Urban Milwaukee, Milwaukee Magazine) in June 2026 — but match-day hours and watch-party programming can shift fast in a tournament window. Always call ahead before you go for early-morning openings or specific match showings. Several venues older guides reference (Punch Bowl Social, MECCA Sports Bar, Good City Deer District, Nomad Nacional, Polonez) are CLOSED — they are not in this guide.
+              <strong>Heads up:</strong> The tournament is underway — the opening match (Mexico vs South Africa, 2 p.m. Central) kicked off today. Every venue below was verified against the venue&apos;s own website and recent Milwaukee press (OnMilwaukee, Milwaukee Record, Urban Milwaukee, Milwaukee Magazine) in June 2026 — but match-day hours and watch-party programming can shift fast in a tournament window. Always call ahead before you go for early-morning openings or specific match showings. Several venues older guides reference (Punch Bowl Social, MECCA Sports Bar, Good City Deer District, Nomad Nacional, Polonez) are CLOSED — they are not in this guide.
             </p>
           </div>
 
@@ -400,7 +413,7 @@ export default function WorldCup2026Milwaukee() {
               <dd style={{ color: "#444", margin: 0 }}>Sunday July 19, 2 p.m. CT, MetLife Stadium</dd>
             </dl>
             <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
-              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
+              Cross-reference verified <time dateTime="2026-06-11">2026-06-11</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
 
@@ -468,12 +481,12 @@ export default function WorldCup2026Milwaukee() {
                 </tbody>
               </table>
             </div>
-            <p style={{ color: "#666", fontSize: "13px", marginTop: "12px" }}>Sources: FIFA official schedule, ESPN, FOX Sports, NBC Sports — verified June 10, 2026. FOX (English) and Telemundo (Spanish) hold the U.S. broadcast rights.</p>
+            <p style={{ color: "#666", fontSize: "13px", marginTop: "12px" }}>Sources: FIFA official schedule, ESPN, FOX Sports, NBC Sports — verified June 11, 2026. FOX (English) and Telemundo (Spanish) hold the U.S. broadcast rights.</p>
           </section>
 
           <section id="soccer-pubs" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>The Dedicated Soccer Pubs</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>These six are the heart of Milwaukee&apos;s soccer-watching scene. If your first move during the World Cup is one of these, you are doing it right.</p>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>These seven are the heart of Milwaukee&apos;s soccer-watching scene. If your first move during the World Cup is one of these, you are doing it right.</p>
 
             {soccerPubs.map((p) => (
               <div key={p.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "22px 24px", marginBottom: "20px" }}>
@@ -569,7 +582,7 @@ export default function WorldCup2026Milwaukee() {
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
                 <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>THE HIGHBURY — 6:30 A.M.</p>
-                <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>20+ years of opening at 6:30 a.m. for big early-morning matches. Owner Joe Katz has spiked coffee ready. Confirm a specific match opening at (414) 539-4242.</p>
+                <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>20+ years of opening at 6:30 a.m. for big early-morning matches. Owner Joe Katz has spiked coffee ready. Confirm a specific match opening at (414) 294-4400.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
                 <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>RED LION PUB — 6:45 A.M. SAT</p>
@@ -631,7 +644,7 @@ export default function WorldCup2026Milwaukee() {
 
         <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
           <p style={{ color: c.beige, fontSize: "14px", margin: "0 0 8px" }}>© 2026 Discover Milwaukee. Your insider&apos;s guide to MKE.</p>
-          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75 }}>2026 FIFA World Cup viewing-venue facts verified against each venue&apos;s own website and Milwaukee press (OnMilwaukee, Milwaukee Record, Urban Milwaukee, Milwaukee Magazine) on June 10, 2026. Match dates and Central Time conversions sourced from FIFA, ESPN, FOX Sports and NBC Sports. Tournament hours, watch parties and special programming shift fast in-tournament — always confirm with the venue before going. Venues mentioned in older Milwaukee guides that have CLOSED and are intentionally excluded: Punch Bowl Social, MECCA Sports Bar, Good City Deer District, Nomad Nacional, Polonez.</p>
+          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75 }}>2026 FIFA World Cup viewing-venue facts verified against each venue&apos;s own website and Milwaukee press (OnMilwaukee, Milwaukee Record, Urban Milwaukee, Milwaukee Magazine) on June 11, 2026. Match dates and Central Time conversions sourced from FIFA, ESPN, FOX Sports and NBC Sports. Tournament hours, watch parties and special programming shift fast in-tournament — always confirm with the venue before going. Venues mentioned in older Milwaukee guides that have CLOSED and are intentionally excluded: Punch Bowl Social, MECCA Sports Bar, Good City Deer District, Nomad Nacional, Polonez.</p>
         </footer>
       </div>
     </>
