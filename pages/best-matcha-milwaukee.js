@@ -46,14 +46,28 @@ const specialists = [
     neighborhood: "East Side",
     address: "2410 N Murray Ave, Milwaukee, WI 53211",
     phone: "info@bluehour.coffee — phone not publicly listed",
-    hours: "Daily 7 a.m.–8 p.m.",
+    hours: "Daily 7 a.m.–8 p.m. (call to confirm — hours have evolved since the May 2026 soft open)",
     opened: "Soft-opened May 16–17, 2026 (the matcha sold out opening weekend) by Milwaukee streetwear brand Unfinished Legacy",
-    owners: "Unfinished Legacy — a Milwaukee-born streetwear label expanding into a café concept attached to its East Side studio",
-    matchaProgram: "Matcha-forward by design. The owners have publicly stated matcha is one of the things they want Blue Hour to be known for. Drinks are built on ceremonial-grade matcha with house-made natural syrups; the standout has been the ube matcha (a violet-and-green layered drink that became the opening-weekend signature) and a black sesame matcha that's drawn praise from early regulars. Coffee comes from local roaster Sugar Leaf.",
-    whatToOrder: "The ube matcha latte — it's the drink Blue Hour has become known for in its first month open. If ube isn't your thing, the straight matcha latte with house oat milk is the cleanest read on what the ceremonial powder actually tastes like here.",
+    owners: "Brema Brema — Unfinished Legacy founder; the café is named for his favorite time of day, attached to the brand's East Side studio",
+    matchaProgram: "Matcha-forward by design. The owners have publicly stated matcha is one of the things they want Blue Hour to be known for. Drinks are built on ceremonial-grade matcha with house-made natural syrups; the matcha-specific signatures are the blueberry matcha latte and the black sesame matcha latte. (Blue Hour's ube drink — the violet opening-weekend hit — is an ube latte, not a matcha.) Coffee comes from local roaster Sugar Leaf.",
+    whatToOrder: "The blueberry matcha latte or the black sesame matcha latte — the two matcha-specific signatures. The straight matcha latte with house oat milk is the cleanest read on what the ceremonial powder actually tastes like here.",
     insiderTip: "Show up early. The matcha ran out on day one and has been one of the most-ordered drinks since. There's limited street parking on Murray; check side streets.",
     sourcing: "Ceremonial-grade matcha confirmed on the menu; specific origin not publicly listed as of June 2026 — call to confirm.",
     url: "bluehourcoffee.com",
+  },
+  {
+    name: "Sora Matcha",
+    neighborhood: "Pop-up — Sheboygan roots with regular Milwaukee dates at Deer District Market and partner studios in the Third Ward",
+    address: "Pop-up only — no fixed storefront. Follow @matchawithsora on Instagram for the week's schedule.",
+    phone: "Email matchawithsora@gmail.com — no phone publicly listed",
+    hours: "Pop-up schedule varies week to week. Matcha Table workshops are RSVP-only and posted on Instagram.",
+    opened: "Founded by Pa Ying Lee, an Alverno College alum (2014–2018); exact launch year not publicly stated — most active press footprint is 2024–2026",
+    owners: "Pa Ying Lee — runs Sora Matcha as a traveling matcha bar and educational pop-up; has taught workshops at UWM's Lubar Entrepreneurship Center as part of its Diverse Ideas series",
+    matchaProgram: "The most sourcing-specific operator on this list. Sora uses shade-grown first-harvest tencha sourced directly from a small family-owned farm in Wazuka (Kyoto Prefecture, Japan) — the same Kyoto mountain region known for spring water used in cultivation. Pa Ying whisks with a chasen using a fast \"W\" motion (never circular) and brews with warm water, never boiling. Strong emphasis on ritual, mindfulness and education.",
+    whatToOrder: "The signature handcrafted matcha latte, prepared tableside with the Wazuka tencha. A houjicha affogato has appeared at recent ticketed workshops.",
+    insiderTip: "Sora Matcha is a pop-up — there is no walk-in storefront. Best ways in: catch a Deer District Market or Milwaukee studio pop-up date posted on @matchawithsora, or book a seat at one of Pa Ying's ticketed workshops (recent example: Nourish Farms \"Matcha 101: A Guided Japanese Tea Experience,\" $40/person — pricing varies by host venue).",
+    sourcing: "Verified — first-harvest tencha from a small family farm in Wazuka, Kyoto Prefecture, Japan.",
+    url: "matchawithsora.com",
   },
 ];
 
@@ -86,7 +100,17 @@ const matchaLatteShops = [
     matcha: "Discourse uses matcha from Rishi Tea — the Milwaukee-headquartered specialty tea importer (185 S 33rd Ct). Their downtown shop describes the matcha latte as \"soft, round, and gently sweet,\" with l-theanine credited for the calm-energy feel. They also build seasonal matcha drinks with house syrups and Harney & Sons fruit teas — blackberry-lime matcha being a recent example.",
     order: "Straight matcha latte to taste the Rishi powder, or whatever the seasonal art-menu matcha is — Discourse's art-drink program is one of the most ambitious in the city.",
     opened: "Downtown location is the current flagship — note that the older Farwell Avenue Discourse location closed (verified June 2026 on Yelp).",
-    note: "Hours: Mon–Sun 7:30 a.m.–4:30 p.m. The downtown space is in a 19th-century landmark building — go for the room as much as the drink.",
+    note: "Hours: Mon–Sun 7:30 a.m.–4:30 p.m. Discourse also runs a smaller café inside Radio Milwaukee at 158 S Barclay (Walker's Point). The downtown space is in a 19th-century landmark building — go for the room as much as the drink.",
+  },
+  {
+    name: "Wake N Brew Coffee Co.",
+    address: "Mobile trailer — anchor location 3000 S Howell Ave (Humboldt Park edge, Bay View). Schedule rotates; check Instagram before going.",
+    neighborhood: "Mobile / Bay View (Humboldt Park anchor)",
+    phone: "DM @wakenbrewcoffee.co on Instagram — no public phone listed",
+    matcha: "Wake N Brew runs matcha lattes as part of a broader specialty-latte menu (cold brew, espresso, chai, lemonade, hot chocolate, rotating pastries). Specific matcha sourcing, grade, and whisking method are NOT publicly disclosed — call to confirm before ordering if you care about the source.",
+    order: "The ube latte is the Instagram-famous signature, with thick pastel-purple foam — it sold out on opening day. Fruity Pebbles and banana bread lattes are also house specialties. For matcha specifically, the standard matcha latte is on the menu.",
+    opened: "Debuted August 23, 2025 at Humboldt Park — founded by Becky Colton",
+    note: "Mobile trailer, NOT a brick-and-mortar. Tripadvisor lists hours as Sun, Mon, Wed–Sat 8 a.m.–1 p.m. (closed Tuesday) but those come from an unclaimed listing — confirm via @wakenbrewcoffee.co before driving over. Do NOT confuse with Wake & Brew Coffee Co. (wakeandbrewcoffee.com), an unrelated company.",
   },
   {
     name: "Brew-Jas Coffee House",
@@ -155,7 +179,7 @@ const matchaLatteShops = [
     phone: "Call to confirm — see pilcrowcoffee.com",
     matcha: "Pilcrow roasts its own coffee in-house and serves an iced matcha latte alongside a rotating cold-brew flight program. Matcha is not the headline here — coffee is — but the matcha latte holds up.",
     order: "Iced matcha latte to balance whatever cold-brew flight you're already ordering.",
-    opened: "Pilcrow has been in Bronzeville since 2018.",
+    opened: "Pilcrow has been in Bronzeville since 2017; the current 416 W Walnut roastery and tasting bar opened in 2019.",
     note: "The tasting room is the move — sit in for the rotating cold-brew specials.",
   },
   {
@@ -165,7 +189,7 @@ const matchaLatteShops = [
     phone: "(414) 914-9497",
     matcha: "Matcha latte on the menu daily. Likewise is the clean, light-filled Third Ward room — a tourist-friendly stop that doesn't compromise the drink.",
     order: "Matcha latte iced in summer, hot in winter.",
-    opened: "Open daily 7 a.m.–6 p.m.",
+    opened: "Mon–Sat 7 a.m.–6 p.m. · Sun 8:30 a.m.–3:30 p.m.",
     note: "Outdoor seating, dog-friendly, free Wi-Fi. Walkable to Public Market and Lakefront.",
   },
   {
@@ -215,7 +239,7 @@ const bubbleTea = [
     phone: "Call to confirm — see elitebobamilwaukee.square.site",
     matcha: "Standard matcha milk tea with the full boba topping lineup — tapioca, popping boba, jellies, cheese foam. One of the most popular boba stops on the East Side.",
     order: "Matcha milk tea with tapioca pearls — order it slightly sweet (50%) to taste the matcha.",
-    note: "Hours: Mon–Thu and Sat–Sun 11 a.m.–8 p.m. · Fri 11 a.m.–8:30 p.m.",
+    note: "Hours: Mon–Thu and Sun 11 a.m.–8 p.m. · Fri 11 a.m.–8:30 p.m. · Sat 11 a.m.–9 p.m.",
   },
   {
     name: "Taichi Bubble Tea",
@@ -302,7 +326,7 @@ const grocery = [
 
 const neighborhoodGuide = [
   { hood: "Bay View", pick: "Jasher's Organic Tea House (2680 S Kinnickinnic) for ceremonial matcha; Vendetta Bay View (2268 S Kinnickinnic) for creative matcha lattes; Honeypie + Smallpie nearby for pastries.", why: "Bay View is the densest matcha neighborhood in Milwaukee in 2026 — a true tea house, a coffee shop with a serious matcha latte program and two pastry destinations all walkable along KK." },
-  { hood: "East Side / Lower East Side", pick: "Blue Hour Coffee (2410 N Murray) for ceremonial matcha and ube matcha; Tsaocaa (2224 N Farwell) for matcha boba + HK matcha waffle; Elite Boba MKE (1956 N Farwell) for matcha milk tea.", why: "East Side is the new center of gravity since Blue Hour opened in May 2026 — and Farwell Avenue has the densest run of matcha boba in the city." },
+  { hood: "East Side / Lower East Side", pick: "Blue Hour Coffee (2410 N Murray) for ceremonial matcha and creative matcha lattes (blueberry, black sesame); Tsaocaa (2224 N Farwell) for matcha boba + HK matcha waffle; Elite Boba MKE (1956 N Farwell) for matcha milk tea.", why: "East Side is the new center of gravity since Blue Hour opened in May 2026 — and Farwell Avenue has the densest run of matcha boba in the city." },
   { hood: "Shorewood / North Shore", pick: "Love Cafe (3801 N Oakland) for Shizuoka ceremonial matcha; Love Cafe also runs a summer 2026 pop-up at Nonfiction Natural Wines in Bay View.", why: "Shorewood has one of the city's most carefully-sourced ceremonial matcha programs — Shizuoka-origin powder served at a wellness-focused café." },
   { hood: "Walker's Point", pick: "Vendetta Coffee (524 S 2nd St) for creative matcha lattes; Anodyne Roastery (224 W Bruce) for the room.", why: "Walker's Point is the South Side's coffee-and-matcha core — start at Vendetta, walk to Anodyne's roastery." },
   { hood: "Third Ward", pick: "Likewise Coffee (232 E Erie) for a clean matcha latte; Valentine Third Ward (189 N Milwaukee St) for matcha with lavender; Colectivo Lakefront (1701 N Lincoln Memorial Dr) for matcha with a lake view.", why: "The Third Ward is the easiest neighborhood for visitors — three serious matcha lattes within a 10-minute walk of Public Market." },
@@ -368,12 +392,12 @@ const faqs = [
 
 const atAGlance = [
   { label: "Cafés in this guide", value: "20+ verified matcha venues across Milwaukee" },
-  { label: "Dedicated matcha specialists", value: "Jasher's Organic Tea House, Rodeo Matcha (pop-up), Blue Hour Coffee" },
+  { label: "Dedicated matcha specialists", value: "Jasher's Organic Tea House, Rodeo Matcha (pop-up), Blue Hour Coffee, Sora Matcha (pop-up)" },
   { label: "Best for ceremonial-grade matcha", value: "Jasher's (Bay View), HoneyBee Sage (Bronzeville), Love Cafe (Shorewood)" },
   { label: "Best creative matcha lattes", value: "Rodeo Matcha (pop-up), Blue Hour Coffee, Vendetta Coffee Bar" },
   { label: "Best matcha boba", value: "Tsaocaa (East Side) + the HK Matcha Waffle" },
   { label: "Local matcha source", value: "Rishi Tea & Botanicals — Milwaukee HQ, 185 S 33rd Ct" },
-  { label: "Verified date", value: "June 10, 2026 — every venue cross-checked against its own website + Milwaukee press" },
+  { label: "Verified date", value: "June 11, 2026 — every venue cross-checked against its own website + Milwaukee press" },
 ];
 
 const structuredData = {
@@ -382,12 +406,12 @@ const structuredData = {
     "@type": "Article",
     "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     headline: "Best Matcha in Milwaukee 2026: Cafés, Lattes & Pastries",
-    description: "The definitive 2026 guide to the best matcha in Milwaukee — ceremonial specialists Jasher's and Blue Hour, Love Cafe's Shizuoka sourcing, Rodeo Matcha pop-ups, plus the best matcha lattes, boba and pastries.",
+    description: "The definitive 2026 guide to the best matcha in Milwaukee — ceremonial specialists Jasher's, Blue Hour and Sora Matcha, Love Cafe's Shizuoka sourcing, Rodeo Matcha pop-ups, plus the best matcha lattes, boba and pastries.",
     image: "https://www.discover-milwaukee.com/images/best-matcha-og.svg",
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },
     publisher: { "@type": "Organization", name: "Discover Milwaukee" },
     datePublished: "2026-06-10",
-    dateModified: "2026-06-10",
+    dateModified: "2026-06-11",
     mainEntityOfPage: "https://www.discover-milwaukee.com/best-matcha-milwaukee",
   },
   faqPage: {
@@ -409,7 +433,7 @@ const structuredData = {
     name: "Best Matcha in Milwaukee — Cafés, Lattes, Boba & Pastries",
     description: "Verified Milwaukee matcha venues — ceremonial-grade specialists, best matcha lattes, boba shops with matcha milk tea, and pastry destinations.",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
-    numberOfItems: 20,
+    numberOfItems: 22,
     itemListElement: [
       { "@type": "ListItem", position: 1, item: { "@type": "Cafe", name: "Jasher's Organic Tea House", servesCuisine: "Tea, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2680 S Kinnickinnic Ave, Suite 4", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, openingHours: "Tu-Fr 16:00-21:00, Sa 09:00-17:00", hasMap: "https://www.google.com/maps/search/?api=1&query=Jasher%27s+Organic+Tea+House+Milwaukee", url: "https://jashersorganic.com" } },
       { "@type": "ListItem", position: 2, item: { "@type": "Cafe", name: "Rodeo Matcha (pop-up)", servesCuisine: "Matcha", priceRange: "$$", address: { "@type": "PostalAddress", addressLocality: "Milwaukee", addressRegion: "WI", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Rodeo+Matcha+Milwaukee", url: "https://www.rodeomatcha.com" } },
@@ -420,7 +444,7 @@ const structuredData = {
       { "@type": "ListItem", position: 7, item: { "@type": "Cafe", name: "Brew-Jas Coffee House", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-635-0018", address: { "@type": "PostalAddress", streetAddress: "3062 S 13th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53215", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Brew-Jas+Coffee+House+Milwaukee", url: "https://www.facebook.com/brewjascoffeemke/" } },
       { "@type": "ListItem", position: 8, item: { "@type": "Cafe", name: "Vendetta Coffee Bar — Walker's Point", servesCuisine: "Coffee, Matcha, Bakery", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "524 S 2nd St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Vendetta+Coffee+Walkers+Point+Milwaukee", url: "https://www.vendettacoffeebar.com" } },
       { "@type": "ListItem", position: 9, item: { "@type": "Cafe", name: "Vendetta Coffee Bar — Bay View", servesCuisine: "Coffee, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2268 S Kinnickinnic Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Vendetta+Coffee+Bay+View+Milwaukee", url: "https://www.vendettacoffeebar.com" } },
-      { "@type": "ListItem", position: 10, item: { "@type": "Cafe", name: "Stone Creek Coffee — Factory Café", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-270-1008", address: { "@type": "PostalAddress", streetAddress: "422 N 5th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Stone+Creek+Coffee+Factory+Cafe+Milwaukee", url: "https://www.stonecreekcoffee.com" } },
+      { "@type": "ListItem", position: 10, item: { "@type": "Cafe", name: "Stone Creek Coffee — Factory Café", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-431-2157", address: { "@type": "PostalAddress", streetAddress: "422 N 5th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53203", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Stone+Creek+Coffee+Factory+Cafe+Milwaukee", url: "https://www.stonecreekcoffee.com" } },
       { "@type": "ListItem", position: 11, item: { "@type": "Cafe", name: "Colectivo Coffee — Lakefront", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-273-6753", address: { "@type": "PostalAddress", streetAddress: "1701 N Lincoln Memorial Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Colectivo+Coffee+Lakefront+Milwaukee", url: "https://colectivo.com" } },
       { "@type": "ListItem", position: 12, item: { "@type": "Cafe", name: "Anodyne Coffee Roasting Co. — Walker's Point Roastery", servesCuisine: "Coffee, Matcha", priceRange: "$$", telephone: "+1-414-763-1143", address: { "@type": "PostalAddress", streetAddress: "224 W Bruce St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53204", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Anodyne+Coffee+Walkers+Point+Milwaukee", url: "https://anodynecoffee.com" } },
       { "@type": "ListItem", position: 13, item: { "@type": "Cafe", name: "The Daily Bird", servesCuisine: "Coffee, Matcha, Bakery", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "818 E Center St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=The+Daily+Bird+Riverwest+Milwaukee", url: "https://thedailybirdmke.square.site" } },
@@ -431,6 +455,8 @@ const structuredData = {
       { "@type": "ListItem", position: 18, item: { "@type": "Cafe", name: "Valentine Coffee Roasters — Third Ward", servesCuisine: "Coffee, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "189 N Milwaukee St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Valentine+Coffee+Third+Ward+Milwaukee", url: "https://www.valentinecoffeeco.com" } },
       { "@type": "ListItem", position: 19, item: { "@type": "Restaurant", name: "Tsaocaa 朝茶 — East Side", servesCuisine: "Bubble Tea, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2224 N Farwell Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Tsaocaa+East+Side+Milwaukee", url: "http://tsaocaamke.com" } },
       { "@type": "ListItem", position: 20, item: { "@type": "Restaurant", name: "Elite Boba MKE", servesCuisine: "Bubble Tea, Matcha", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1956 N Farwell Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Elite+Boba+MKE+Milwaukee", url: "https://elitebobamilwaukee.square.site" } },
+      { "@type": "ListItem", position: 21, item: { "@type": "Cafe", name: "Sora Matcha", servesCuisine: "Matcha (pop-up)", priceRange: "$$", description: "Sheboygan-based pop-up matcha bar with regular Milwaukee dates; sources first-harvest tencha from Wazuka, Kyoto Prefecture, Japan.", hasMap: "https://www.google.com/maps/search/?api=1&query=Sora+Matcha+Milwaukee", url: "https://www.matchawithsora.com" } },
+      { "@type": "ListItem", position: 22, item: { "@type": "Cafe", name: "Wake N Brew Coffee Co.", servesCuisine: "Coffee, Matcha (mobile trailer)", priceRange: "$", description: "Mobile coffee trailer that anchors at the Humboldt Park edge of Bay View (3000 S Howell Ave); founded by Becky Colton, debuted August 2025.", address: { "@type": "PostalAddress", streetAddress: "3000 S Howell Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53207", addressCountry: "US" }, hasMap: "https://www.google.com/maps/search/?api=1&query=Wake+N+Brew+Coffee+Milwaukee" } },
     ],
   },
 };
@@ -455,7 +481,7 @@ export default function BestMatchaMilwaukee() {
     <>
       <Head>
         <title>Best Matcha in Milwaukee 2026: Cafés, Lattes & Pastries</title>
-        <meta name="description" content="The definitive 2026 Milwaukee matcha guide — ceremonial-grade specialists Jasher's & Blue Hour, Love Cafe's Shizuoka sourcing, Rodeo Matcha pop-ups, best lattes & boba." />
+        <meta name="description" content="The 2026 Milwaukee matcha guide — Jasher's, Blue Hour & Sora Matcha specialists, Love Cafe Shizuoka sourcing, Rodeo Matcha pop-ups, best lattes & boba." />
         <meta name="keywords" content="best matcha milwaukee, matcha latte milwaukee, where to get matcha milwaukee, ceremonial matcha milwaukee, jasher's tea house, blue hour coffee, love cafe matcha, rodeo matcha, rishi tea milwaukee, milwaukee matcha cafe, milwaukee boba matcha, vendetta coffee matcha, discourse coffee matcha, honeybee sage matcha, milwaukee tea house bay view" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/best-matcha-milwaukee" />
 
@@ -469,13 +495,13 @@ export default function BestMatchaMilwaukee() {
         <meta property="og:image:height" content="630" key="og:image:height" />
         <meta property="og:image:alt" content="Best Matcha in Milwaukee 2026 — ceremonial-grade specialists, lattes, boba and pastries across the city." key="og:image:alt" />
         <meta property="article:published_time" content="2026-06-10T00:00:00-05:00" key="article:published_time" />
-        <meta property="article:modified_time" content="2026-06-10T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:modified_time" content="2026-06-11T00:00:00-05:00" key="article:modified_time" />
         <meta property="article:author" content="Discover Milwaukee" key="article:author" />
         <meta property="article:section" content="Food & Drink" key="article:section" />
 
         <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
         <meta name="twitter:title" content="Best Matcha in Milwaukee 2026: Cafés, Lattes & Pastries" key="twitter:title" />
-        <meta name="twitter:description" content="Ceremonial specialists Jasher's & Blue Hour, Love Cafe's Shizuoka matcha, Rodeo Matcha pop-ups + 15 more verified Milwaukee matcha spots." key="twitter:description" />
+        <meta name="twitter:description" content="Specialists Jasher's, Blue Hour & Sora Matcha, Love Cafe Shizuoka sourcing, Rodeo Matcha pop-ups + 18 more verified Milwaukee matcha spots." key="twitter:description" />
         <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/best-matcha-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
@@ -492,7 +518,7 @@ export default function BestMatchaMilwaukee() {
             <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · VERIFIED AGAINST EVERY VENUE&apos;S OWN WEBSITE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Best Matcha in Milwaukee — 2026 Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "720px", margin: "0 auto" }}>
-              Milwaukee&apos;s matcha scene exploded in late 2025 and 2026. A dedicated tea house opened in Bay View. A streetwear brand launched a matcha-forward café on the East Side. A pop-up matcha specialist became one of the most-followed food accounts in the city. And Milwaukee is the headquarters of <strong>Rishi Tea</strong> — the company supplying matcha to half the cafes you&apos;ll visit. Here are the <strong>20+ spots</strong> that earn the list. Verified June 2026.
+              Milwaukee&apos;s matcha scene exploded in late 2025 and 2026. A dedicated tea house opened in Bay View. A streetwear brand launched a matcha-forward café on the East Side. Two pop-up matcha specialists — one Milwaukee-based, one Sheboygan-based with regular city dates — built devoted followings. And Milwaukee is the headquarters of <strong>Rishi Tea</strong> — the company supplying matcha to half the cafes you&apos;ll visit. Here are the <strong>22+ spots</strong> that earn the list. Verified <time dateTime="2026-06-11">June 11, 2026</time>.
             </p>
           </div>
         </header>
@@ -523,7 +549,7 @@ export default function BestMatchaMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Total venues featured</dt>
               <dd style={{ color: "#444", margin: 0 }}>20+ verified matcha spots across the city</dd>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Dedicated matcha specialists</dt>
-              <dd style={{ color: "#444", margin: 0 }}>Jasher&apos;s Organic Tea House (Bay View), Rodeo Matcha (pop-up), Blue Hour Coffee (East Side)</dd>
+              <dd style={{ color: "#444", margin: 0 }}>Jasher&apos;s Organic Tea House (Bay View), Rodeo Matcha (pop-up), Blue Hour Coffee (East Side), Sora Matcha (pop-up)</dd>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Top ceremonial picks</dt>
               <dd style={{ color: "#444", margin: 0 }}>Jasher&apos;s, HoneyBee Sage, Love Cafe (Shizuoka-sourced)</dd>
               <dt style={{ color: c.green1, fontWeight: "700" }}>What to look for in quality matcha</dt>
@@ -533,7 +559,7 @@ export default function BestMatchaMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Local source</dt>
               <dd style={{ color: "#444", margin: 0 }}>Rishi Tea &amp; Botanicals — Milwaukee-headquartered specialty tea importer at 185 S 33rd Ct, founded 1997. Supplies matcha to many of the cafés on this list.</dd>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Verified date</dt>
-              <dd style={{ color: "#444", margin: 0 }}><time dateTime="2026-06-10">June 10, 2026</time></dd>
+              <dd style={{ color: "#444", margin: 0 }}><time dateTime="2026-06-11">June 11, 2026</time></dd>
             </dl>
             <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
               Cross-reference verified against each venue&apos;s own website + Milwaukee press (OnMilwaukee, Urban Milwaukee, Milwaukee Magazine, BizTimes, Milwaukee Record, TMJ4).
@@ -622,7 +648,7 @@ export default function BestMatchaMilwaukee() {
 
           <section id="specialists" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>The Matcha Specialists</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The three operators in Milwaukee where matcha is the point, not a menu item. If you only have time for one matcha stop in the city, choose from this section.</p>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The four operators in and around Milwaukee where matcha is the point, not a menu item. If you only have time for one matcha stop, choose from this section.</p>
 
             {specialists.map((p) => (
               <div key={p.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "22px 24px", marginBottom: "20px" }}>
