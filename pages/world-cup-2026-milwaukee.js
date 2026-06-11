@@ -446,7 +446,7 @@ export default function WorldCup2026Milwaukee() {
 
           <section id="soccer-pubs" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>The Dedicated Soccer Pubs</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>These seven are the heart of Milwaukee&apos;s soccer-watching scene. If your first move during the World Cup is one of these, you are doing it right.</p>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>These six are the heart of Milwaukee&apos;s soccer-watching scene. If your first move during the World Cup is one of these, you are doing it right.</p>
 
             {soccerPubs.map((p) => (
               <div key={p.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "22px 24px", marginBottom: "20px" }}>
