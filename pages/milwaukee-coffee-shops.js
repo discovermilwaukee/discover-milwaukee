@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -569,6 +570,8 @@ export default function MilwaukeeCoffeeShops() {
       <Nav />
 
       <main style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+          <NewsletterCTA />
+
         {/* Hero Section */}
         <section style={{
           background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`,

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -268,6 +269,7 @@ export default function DayTripsMilwaukee() {
             </p>
             <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026</p>
           </header>
+          <NewsletterCTA />
 
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ fontSize: "1.8rem", color: c.green1, marginBottom: "8px", paddingBottom: "12px", borderBottom: `2px solid ${c.orange}` }}>Under 1 Hour</h2>

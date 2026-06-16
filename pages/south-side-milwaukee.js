@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -238,6 +239,8 @@ export default function SouthSideMilwaukee() {
         </div>
 
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+          <NewsletterCTA />
+
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>The Neighborhood</h2>
             <p style={{ color: "#555", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
