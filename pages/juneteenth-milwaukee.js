@@ -22,7 +22,7 @@ const atAGlance = [
   { label: "Organizer", value: "Northcott Neighborhood House (since 1971)" },
   { label: "2026 theme", value: "Honoring the Past and Empowering the Future" },
   { label: "Evening add-on", value: "Summerfest Juneteenth Celebration, Henry Maier Festival Park" },
-  { label: "Holiday status", value: "Federal holiday since 2021; Milwaukee County offices & courts closed" },
+  { label: "Holiday status", value: "Federal holiday since 2021; Milwaukee County offices & libraries closed" },
   { label: "Crowd", value: "Tens of thousands — one of the nation's oldest & longest-running" },
 ];
 
@@ -33,7 +33,7 @@ const dayPlan = [
   { time: "All day", what: "Kids Zone (ages 5–12) — carnival rides, petting zoo, pony rides", where: "MLK Jr. Elementary School playground" },
   { time: "All day", what: "Teen Zone (12–17) — basketball tournament vs. MPD, Double Dutch, spoken word, music", where: "Along the festival footprint" },
   { time: "All day", what: "Seniors Zone — DJ, karaoke, bingo, cards", where: "Walgreens lot at King Dr & Locust St" },
-  { time: "All day", what: "Veterans Zone — veterans' support services & resources", where: "Clinton Rose Park (Bernice & N. King Dr area)" },
+  { time: "All day", what: "Veterans Zone — veterans' support services & resources", where: "Clinton & Bernice Rose Park (near N. King Dr)" },
   { time: "6 p.m. onward", what: "Summerfest Juneteenth Celebration (separate ticketed event)", where: "Henry Maier Festival Park, 200 N. Harbor Dr" },
 ];
 
@@ -61,10 +61,10 @@ const eventsAround = [
   },
   {
     name: "Juneteenth Photowalk",
-    date: "June 18 (6–7 p.m.) & June 19 (9–11 a.m. and 1–3 p.m.)",
-    venue: "Henry Maier Festival Park · then King Drive · then The Peace Park (464 W. Locust St)",
+    date: "June 18–19, 2026 (confirm session times)",
+    venue: "The Peace Park & Garden · 464 W. Locust St",
     cost: "Free",
-    note: "A free, open meet-up for photographers and visual storytellers documenting Black culture, freedom and joy — Thursday evening at the lakefront, Friday morning along the parade route on King Drive, and Friday afternoon at The Peace Park.",
+    note: "A free, open meet-up (organized by Gaining Visuals) for photographers and visual storytellers documenting Black culture, freedom and joy. Milwaukee NNS lists Friday June 19 sessions at The Peace Park at 9 a.m. and 1 p.m., plus a June 18 meet-up — exact times have varied across listings, so confirm the schedule with the organizer at gainingvisuals.com before heading out.",
   },
   {
     name: "Juneteenth Gospel Festival MKE",
@@ -110,12 +110,6 @@ const blackOwned = [
     note: "Right on King Drive in the heart of Bronzeville — chicken & waffles, shrimp & grits, a full bar and a Sunday-brunch reputation. The natural sit-down anchor for a Juneteenth on King Drive.",
   },
   {
-    name: "Mi Casa Su Cafe",
-    cuisine: "Comfort food & brunch",
-    address: "1835 N. Dr. Martin Luther King Jr. Dr",
-    note: "A Black-owned King Drive favorite (despite the name, it is eclectic comfort and breakfast/brunch, not Mexican) — burgers, shrimp & grits and big breakfast plates.",
-  },
-  {
     name: "Confectionately Yours",
     cuisine: "Bakery & café",
     address: "1920 N. Dr. Martin Luther King Jr. Dr",
@@ -142,7 +136,7 @@ const blackOwned = [
   {
     name: "Twisted Plants",
     cuisine: "100% vegan comfort food",
-    address: "1233 E. Brady St (also Cudahy & West Allis)",
+    address: "1233 E. Brady St (also West Allis)",
     note: "Arielle & Brandon Hawthorne's all-vegan kitchen — plant-based wings, sandwiches and shakes for the meat-free crowd.",
   },
   {
@@ -171,11 +165,11 @@ const faqs = [
   },
   {
     question: "How much does it cost and is it family-friendly?",
-    answer: "The King Drive parade and street festival are completely free to attend. It is built for families: there's a Kids Zone (ages 5–12) at the MLK Jr. Elementary School playground with carnival rides, a petting zoo and pony rides; a Teen Zone (12–17) with a basketball tournament against the Milwaukee Police Department, Double Dutch and spoken word; a Seniors Zone with a DJ, karaoke and bingo at the Walgreens lot near King & Locust; and a Veterans Zone at Clinton Rose Park. The separate evening Summerfest Juneteenth Celebration requires Summerfest admission, though there's a free-entry food-donation promo on June 19 from noon to 3 p.m.",
+    answer: "The King Drive parade and street festival are completely free to attend. It is built for families: there's a Kids Zone (ages 5–12) at the MLK Jr. Elementary School playground with carnival rides, a petting zoo and pony rides; a Teen Zone (12–17) with a basketball tournament against the Milwaukee Police Department, Double Dutch and spoken word; a Seniors Zone with a DJ, karaoke and bingo at the Walgreens lot near King & Locust; and a Veterans Zone at Clinton &amp; Bernice Rose Park. The separate evening Summerfest Juneteenth Celebration requires Summerfest admission, though there's a free-entry food-donation promo on June 19 from noon to 3 p.m.",
   },
   {
     question: "Where do I park and how do I get there?",
-    answer: "King Drive will have street closures along the festival and parade route, so plan to park in the surrounding residential neighborhoods and walk in — arrive early for the best spots. The most reliable transit option is the MCTS Route 19 bus, which runs directly up and down King Drive; standard fare is about $2 ($1 reduced) via the Umo app or RideMCTS.com. Important: the Hop streetcar does NOT reach Bronzeville or King Drive — it runs a downtown loop and a lakefront line only, so don't plan to take the streetcar to Juneteenth. An extension up King Drive has been proposed but is not built as of 2026.",
+    answer: "King Drive will have street closures along the festival and parade route, so plan to park in the surrounding residential neighborhoods and walk in — arrive early for the best spots. The most reliable transit option is the MCTS Route 19 bus, which runs directly up and down King Drive; standard fare is $2.75 ($1.25 reduced) via the Umo app (WisGo) or RideMCTS.com. Important: the Hop streetcar does NOT reach Bronzeville or King Drive — it runs a downtown loop and a lakefront line only, so don't plan to take the streetcar to Juneteenth. An extension up King Drive has been proposed but is not built as of 2026.",
   },
   {
     question: "What is Juneteenth and why is it celebrated on June 19?",
@@ -183,7 +177,7 @@ const faqs = [
   },
   {
     question: "Are city offices, courts and libraries closed for Juneteenth in Milwaukee?",
-    answer: "Juneteenth is a federal holiday and an official paid Milwaukee County holiday, so Milwaukee County offices and the Milwaukee County Circuit Court are closed Friday, June 19, 2026, as are Wisconsin state courts. All Milwaukee Public Library locations are also closed that day. Banks and many government services observe the holiday too. If you need a specific city or county service, check that office's holiday schedule before you go.",
+    answer: "Juneteenth is a federal holiday and an official paid Milwaukee County holiday, so Milwaukee County offices are closed Friday, June 19, 2026, and all Milwaukee Public Library locations are closed that day. Worth knowing: the Milwaukee County Circuit Court and Wisconsin's state courts are NOT scheduled to close for Juneteenth in 2026 (per the state court holiday schedule), and many private businesses stay open. Banks and federal offices observe the holiday. If you need a specific city or county service, check that office's holiday schedule before you go.",
   },
   {
     question: "What other Juneteenth events are happening around Milwaukee?",
@@ -191,7 +185,7 @@ const faqs = [
   },
   {
     question: "What are good Black-owned restaurants to support near the celebration?",
-    answer: "Right on King Drive: Bronzeville Kitchen & Lounge (2053 N. MLK Dr) for upscale soul food and brunch, Mi Casa Su Cafe (1835 N. MLK Dr) for comfort food, and Confectionately Yours (1920 N. MLK Dr) for desserts and coffee. Near the parade staging area, Mr. Perkins' Family Restaurant (2001 W. Atkinson Ave) has served soul food since 1969. Elsewhere in the city: Daddy's Soul Food & Grille (754 N. 27th St), 1700 Pull Up (1848 W. Fond du Lac Ave) for turkey legs, Twisted Plants (1233 E. Brady St) for vegan, and the Sherman Phoenix food hall (3536 W. Fond du Lac Ave), a marketplace of roughly 30 mostly Black-owned businesses. Juneteenth is a natural day to put dollars into Black-owned Milwaukee.",
+    answer: "Right on King Drive: Bronzeville Kitchen & Lounge (2053 N. MLK Dr) for upscale soul food and brunch, and Confectionately Yours (1920 N. MLK Dr) for desserts and coffee. Near the parade staging area, Mr. Perkins' Family Restaurant (2001 W. Atkinson Ave) has served soul food since 1969. Elsewhere in the city: Daddy's Soul Food & Grille (754 N. 27th St), 1700 Pull Up (1848 W. Fond du Lac Ave) for turkey legs, Twisted Plants (1233 E. Brady St) for vegan, and the Sherman Phoenix food hall (3536 W. Fond du Lac Ave), a marketplace of roughly 30 mostly Black-owned businesses. Juneteenth is a natural day to put dollars into Black-owned Milwaukee.",
   },
   {
     question: "What should I bring and expect at the festival?",
@@ -251,19 +245,18 @@ const structuredData = {
     name: "Black-Owned Restaurants & Cultural Sites for Juneteenth in Milwaukee",
     description: "Verified Black-owned restaurants and cultural destinations to support around Juneteenth in Milwaukee.",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
-    numberOfItems: 11,
+    numberOfItems: 10,
     itemListElement: [
       { "@type": "ListItem", position: 1, item: { "@type": "Restaurant", name: "Bronzeville Kitchen & Lounge", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2053 N. Dr. Martin Luther King Jr. Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 2, item: { "@type": "Restaurant", name: "Mi Casa Su Cafe", servesCuisine: "American", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1835 N. Dr. Martin Luther King Jr. Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 3, item: { "@type": "Bakery", name: "Confectionately Yours", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1920 N. Dr. Martin Luther King Jr. Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 4, item: { "@type": "Restaurant", name: "Daddy's Soul Food & Grille", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "754 N. 27th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53208", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 5, item: { "@type": "Restaurant", name: "Mr. Perkins' Family Restaurant", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2001 W. Atkinson Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53209", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 6, item: { "@type": "Restaurant", name: "1700 Pull Up", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1848 W. Fond du Lac Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53205", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 7, item: { "@type": "Restaurant", name: "Twisted Plants", servesCuisine: "Vegan", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1233 E. Brady St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 8, item: { "@type": "FoodEstablishment", name: "Sherman Phoenix Marketplace", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "3536 W. Fond du Lac Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53210", addressCountry: "US" } } },
-      { "@type": "ListItem", position: 9, item: { "@type": "Museum", name: "America's Black Holocaust Museum", address: { "@type": "PostalAddress", streetAddress: "401 W. North Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, url: "https://www.abhmuseum.org" } },
-      { "@type": "ListItem", position: 10, item: { "@type": "Museum", name: "Milwaukee Public Museum", address: { "@type": "PostalAddress", streetAddress: "800 W. Wells St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53233", addressCountry: "US" }, url: "https://www.mpm.edu" } },
-      { "@type": "ListItem", position: 11, item: { "@type": "Museum", name: "Milwaukee Art Museum", address: { "@type": "PostalAddress", streetAddress: "700 N. Art Museum Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, url: "https://www.mam.org" } },
+      { "@type": "ListItem", position: 2, item: { "@type": "Bakery", name: "Confectionately Yours", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1920 N. Dr. Martin Luther King Jr. Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" } } },
+      { "@type": "ListItem", position: 3, item: { "@type": "Restaurant", name: "Daddy's Soul Food & Grille", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "754 N. 27th St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53208", addressCountry: "US" } } },
+      { "@type": "ListItem", position: 4, item: { "@type": "Restaurant", name: "Mr. Perkins' Family Restaurant", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "2001 W. Atkinson Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53209", addressCountry: "US" } } },
+      { "@type": "ListItem", position: 5, item: { "@type": "Restaurant", name: "1700 Pull Up", servesCuisine: "Soul Food", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1848 W. Fond du Lac Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53205", addressCountry: "US" } } },
+      { "@type": "ListItem", position: 6, item: { "@type": "Restaurant", name: "Twisted Plants", servesCuisine: "Vegan", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "1233 E. Brady St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" } } },
+      { "@type": "ListItem", position: 7, item: { "@type": "FoodEstablishment", name: "Sherman Phoenix Marketplace", priceRange: "$$", address: { "@type": "PostalAddress", streetAddress: "3536 W. Fond du Lac Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53210", addressCountry: "US" } } },
+      { "@type": "ListItem", position: 8, item: { "@type": "Museum", name: "America's Black Holocaust Museum", address: { "@type": "PostalAddress", streetAddress: "401 W. North Ave", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53212", addressCountry: "US" }, url: "https://www.abhmuseum.org" } },
+      { "@type": "ListItem", position: 9, item: { "@type": "Museum", name: "Milwaukee Public Museum", address: { "@type": "PostalAddress", streetAddress: "800 W. Wells St", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53233", addressCountry: "US" }, url: "https://www.mpm.edu" } },
+      { "@type": "ListItem", position: 10, item: { "@type": "Museum", name: "Milwaukee Art Museum", address: { "@type": "PostalAddress", streetAddress: "700 N. Art Museum Dr", addressLocality: "Milwaukee", addressRegion: "WI", postalCode: "53202", addressCountry: "US" }, url: "https://www.mam.org" } },
     ],
   },
 };
@@ -422,7 +415,7 @@ export default function JuneteenthMilwaukee() {
               <dt style={{ color: c.green, fontWeight: "700" }}>2026 theme</dt>
               <dd style={{ color: "#444", margin: 0 }}>Honoring the Past and Empowering the Future</dd>
               <dt style={{ color: c.green, fontWeight: "700" }}>Holiday</dt>
-              <dd style={{ color: "#444", margin: 0 }}>Federal holiday; Milwaukee County offices, courts &amp; libraries closed</dd>
+              <dd style={{ color: "#444", margin: 0 }}>Federal holiday; Milwaukee County offices &amp; libraries closed</dd>
             </dl>
             <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
               Verified <time dateTime="2026-06-15">2026-06-15</time> against juneteenthmilwaukee.com, Northcott Neighborhood House, venue sites and Milwaukee press.
@@ -461,7 +454,7 @@ export default function JuneteenthMilwaukee() {
                   <li><strong>Kids Zone (5–12):</strong> carnival rides, petting zoo, pony rides at the MLK Jr. Elementary School playground.</li>
                   <li><strong>Teen Zone (12–17):</strong> a basketball tournament against the Milwaukee Police Department, Double Dutch, hula hoop, spoken word and music.</li>
                   <li><strong>Seniors Zone:</strong> DJ, karaoke, bingo and cards at the Walgreens lot near King Drive &amp; Locust Street.</li>
-                  <li><strong>Veterans Zone:</strong> veterans&apos; support services and resources at Clinton Rose Park.</li>
+                  <li><strong>Veterans Zone:</strong> veterans&apos; support services and resources at Clinton &amp; Bernice Rose Park.</li>
                 </ul>
               </div>
               <p style={{ fontSize: "13px", color: "#555", margin: "0", lineHeight: 1.7 }}>
@@ -539,7 +532,7 @@ export default function JuneteenthMilwaukee() {
               </p>
               <h3 style={{ color: c.red, fontSize: "18px", fontWeight: "900", margin: "0 0 8px" }}>Bronzeville &amp; King Drive</h3>
               <p style={{ color: "#444", fontSize: "15px", lineHeight: 1.8, margin: 0 }}>
-                The celebration&apos;s home is no accident. <strong>Bronzeville</strong> — centered on the Near North Side, historically running from King Drive (formerly North 3rd Street) toward 12th Street between roughly Juneau and North Avenues — was Milwaukee&apos;s African American cultural and business heart from the early 1900s through the 1960s, famous for jazz, blues and Black-owned enterprise before mid-century urban renewal and the construction of I-43 displaced much of it. <strong>King Drive</strong> is the district&apos;s spine, running through the <strong>Harambee</strong> neighborhood (the name is Swahili for &quot;all pull together&quot;). Holding Juneteenth here is a continual act of celebration and revitalization of that legacy.
+                The celebration&apos;s home is no accident. <strong>Bronzeville</strong> — centered on the Near North Side, historically running from King Drive (formerly North 3rd Street) toward 12th Street between roughly State Street and North Avenue — was Milwaukee&apos;s African American cultural and business heart from the early 1900s through the 1960s, famous for jazz, blues and Black-owned enterprise before mid-century urban renewal and the construction of I-43 displaced much of it. <strong>King Drive</strong> is the district&apos;s spine, running through the <strong>Harambee</strong> neighborhood (the name is Swahili for &quot;all pull together&quot;). Holding Juneteenth here is a continual act of celebration and revitalization of that legacy.
               </p>
             </div>
           </section>
@@ -578,7 +571,7 @@ export default function JuneteenthMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "16px" }}>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
                 <p style={{ fontSize: "11px", fontWeight: "700", color: c.red, letterSpacing: "1.5px", marginBottom: "6px" }}>BY BUS</p>
-                <p style={{ fontSize: "14px", color: c.ink, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>The MCTS <strong>Route 19</strong> runs directly up and down King Drive — the easiest transit option. Fare is about $2 ($1 reduced) via the Umo app or RideMCTS.com.</p>
+                <p style={{ fontSize: "14px", color: c.ink, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>The MCTS <strong>Route 19</strong> runs directly up and down King Drive — the easiest transit option. Fare is $2.75 ($1.25 reduced) via the Umo app (WisGo) or RideMCTS.com.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
                 <p style={{ fontSize: "11px", fontWeight: "700", color: c.red, letterSpacing: "1.5px", marginBottom: "6px" }}>PARKING</p>
