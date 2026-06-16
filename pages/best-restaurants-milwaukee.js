@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 // Brand colors matching main site
 const c = {
   green1: "#1a3d34",
@@ -329,6 +330,8 @@ export default function BestRestaurantsMilwaukee() {
 
         {/* Main Content */}
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+          <NewsletterCTA />
+
 
           {/* Michelin Contenders */}
           <section id="michelin-contenders" style={{ marginBottom: "48px" }}>

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 // Brand colors matching main site
 const c = {
   green1: "#1a3d34",
@@ -491,6 +492,8 @@ export default function EastSideMilwaukee() {
 
         {/* Main Content */}
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+          <NewsletterCTA />
+
 
           {/* Overview */}          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
             <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>

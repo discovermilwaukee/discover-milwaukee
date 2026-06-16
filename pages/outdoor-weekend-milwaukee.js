@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -105,6 +106,8 @@ export default function OutdoorWeekendMilwaukee() {
         </header>
 
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+          <NewsletterCTA />
+
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Best Parks</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>

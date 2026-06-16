@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -192,6 +193,8 @@ export default function NewRestaurantsMilwaukee() {
         </div>
 
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+          <NewsletterCTA />
+
 
           <section id="hottest" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Hottest New Openings</h2>

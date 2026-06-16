@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
 const colors = {
   green1: '#1a3d34',
@@ -425,6 +426,8 @@ export default function MilwaukeeBreweries() {
       <Nav />
 
       <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
+          <NewsletterCTA />
+
         {/* Hero Section */}
         <section
           style={{

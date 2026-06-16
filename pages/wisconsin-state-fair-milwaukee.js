@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -292,6 +293,8 @@ export default function WisconsinStateFairMilwaukee() {
         </nav>
 
         <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+          <NewsletterCTA />
+
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>

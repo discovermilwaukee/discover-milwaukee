@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 
+import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -654,6 +655,8 @@ export default function MilwaukeeBars() {
         </header>
 
         <main id="main-content" style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px" }}>
+          <NewsletterCTA />
+
 
           {/* Quick Stats */}
           <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "16px", marginBottom: "60px" }}>
