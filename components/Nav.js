@@ -33,7 +33,14 @@ export default function Nav() {
 
   const currentPage = router.pathname.replace("/", "") || "home";
 
-  const navItems = ["Home", "Explore", "Events", "Festivals", "Newsletter", "About"];
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Explore", href: "/explore" },
+    { label: "Events", href: "/events" },
+    { label: "Festivals", href: "/milwaukee-festivals" },
+    { label: "Newsletter", href: "/newsletter" },
+    { label: "About", href: "/about" },
+  ];
 
   return (
     <>
@@ -55,12 +62,11 @@ export default function Nav() {
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
               {navItems.map((item) => {
-                const href = item === "Home" ? "/" : `/${item.toLowerCase()}`;
-                const isActive = item === "Home" ? currentPage === "home" || currentPage === "" : currentPage === item.toLowerCase();
+                const isActive = item.href === "/" ? currentPage === "home" || currentPage === "" : currentPage === item.href.replace("/", "");
                 return (
                   <Link
-                    key={item}
-                    href={href}
+                    key={item.label}
+                    href={item.href}
                     style={{
                       color: isActive ? c.yellow : c.green1,
                       fontSize: "14px",
@@ -72,7 +78,7 @@ export default function Nav() {
                       textDecoration: "none",
                     }}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 );
               })}
@@ -152,12 +158,11 @@ export default function Nav() {
         {isMobile && mobileMenuOpen && (
           <div style={{ backgroundColor: c.cream, borderTop: `1px solid ${c.beige}`, padding: "16px" }}>
             {navItems.map((item) => {
-              const href = item === "Home" ? "/" : `/${item.toLowerCase()}`;
-              const isActive = item === "Home" ? currentPage === "home" || currentPage === "" : currentPage === item.toLowerCase();
+              const isActive = item.href === "/" ? currentPage === "home" || currentPage === "" : currentPage === item.href.replace("/", "");
               return (
                 <Link
-                  key={item}
-                  href={href}
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   style={{
                     display: "block",
@@ -172,7 +177,7 @@ export default function Nav() {
                     textDecoration: "none",
                   }}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               );
             })}
