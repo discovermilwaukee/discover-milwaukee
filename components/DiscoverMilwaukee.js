@@ -2198,7 +2198,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           email: partnerForm.emailAddress,
           companyName: partnerForm.companyName,
           socialHandles: partnerForm.socialHandles || "Not provided",
-          budget: partnerForm.budget,
+          budget: partnerForm.budget ? `$${Number(partnerForm.budget).toLocaleString("en-US")}` : "Not provided",
           partnershipInterest: partnerForm.partnershipInterest.length > 0 ? partnerForm.partnershipInterest.join(", ") : "None selected",
           heardAbout: partnerForm.heardAbout || "Not specified",
           city: partnerForm.city || "Not specified",
@@ -4223,14 +4223,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     </h2>
                     <p style={{ fontSize: "13px", color: c.tan, marginBottom: "16px" }}>This helps us recommend the right partnership options for your goals.</p>
                     
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>What budget range are you considering for promotion? *</label>
-                    <select required value={partnerForm.budget} onChange={(e) => handlePartnerFormChange("budget", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
-                      <option value="">Select budget range</option>
-                      <option value="$1,000 and under">$1,000 and under</option>
-                      <option value="$1,000–$3,000">$1,000–$3,000</option>
-                      <option value="$3,000–$10,000">$3,000–$10,000</option>
-                      <option value="$10,000+">$10,000+</option>
-                    </select>
+                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>What budget are you considering for promotion? *</label>
+                    <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+                      <span style={{ position: "absolute", left: "16px", fontSize: "15px", fontWeight: "600", color: c.tan, pointerEvents: "none" }}>$</span>
+                      <input required type="number" min="0" step="1" inputMode="numeric" value={partnerForm.budget} onChange={(e) => handlePartnerFormChange("budget", e.target.value)} placeholder="Enter an amount" style={{ width: "100%", padding: "14px 16px 14px 30px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                    </div>
                   </div>
 
                   {/* Partnership Interest Section */}
