@@ -62,6 +62,7 @@ const creators = [
   { ig: "tjjdysart", tt: "tjdysart", name: "TJ Dysart", category: "news", rank: 32100, bio: "A WISN-12 News reporter covering Milwaukee's biggest stories, on air and all over your feed. Breaking news with a familiar face." },
   { ig: "wisconsinfoodie", tt: "wisconsinfoodie", name: "Wisconsin Foodie", category: "food", rank: 32063, bio: "An Emmy-winning PBS and YouTube series that travels the Midwest telling the food stories from our own backyard. Wisconsin's table, on camera." },
   { ig: "ayaidk", tt: "", name: "aya", category: "music", rank: 30307, bio: "aya writes songs and draws when the mood hits, a Milwaukee artist with a quiet, magnetic pull. Give the music a listen." },
+  { ig: "actiionjaackson", tt: "actiionjaackson", name: "Katie, RN", category: "lifestyle", rank: 30092, bio: "A Milwaukee registered nurse turned lifestyle creator — beauty, hair, and real life told from a 12-hour-shift point of view. Founder of the Nurse Bae community, equal parts glam and grind." },
   { ig: "natevomhof", tt: "natevomhof", name: "Nate Vomhof", category: "arts", rank: 29534, bio: "Nate is a pharmacist by trade and a photographer by obsession, shooting Milwaukee, and Brutus the dog, in its best light." },
   { ig: "colormesassy", tt: "", name: "Gabi Loomis", category: "lifestyle", rank: 28107, bio: "Gabi is the chaos coordinator of three boys, making mom life cute with wearable outfits and Midwest gems. Real accent, real recs." },
   { ig: "rockwaypottery", tt: "", name: "MaryAnne Roethle", category: "arts", rank: 23251, bio: "MaryAnne throws beautiful, functional pottery out of Wauwatosa since 2019. Everyday objects made by hand, made local." },
@@ -118,7 +119,7 @@ const ttUrl = (h) => `https://www.tiktok.com/@${h}`;
 const faqs = [
   {
     q: "Who are the biggest social media influencers in Milwaukee?",
-    a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 51 verified Milwaukee-area creators by their total reach across both platforms.",
+    a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 52 verified Milwaukee-area creators by their total reach across both platforms.",
   },
   {
     q: "How is this Milwaukee influencer list ranked?",
@@ -144,7 +145,7 @@ const structuredData = {
     "@type": "Article",
     headline: "Milwaukee Influencers & Creators: The Definitive 2026 List",
     description:
-      "A curated, ranked guide to 51 of the top social media influencers and content creators in the Milwaukee area, ordered by combined Instagram + TikTok following across food, lifestyle, sports, music, arts, and local media.",
+      "A curated, ranked guide to 52 of the top social media influencers and content creators in the Milwaukee area, ordered by combined Instagram + TikTok following across food, lifestyle, sports, music, arts, and local media.",
     image: OG_IMAGE,
     author: { "@type": "Organization", name: "Discover Milwaukee" },
     publisher: {
@@ -300,7 +301,7 @@ export default function MilwaukeeInfluencers() {
         <title>Milwaukee Influencers & Creators: The Ranked 2026 List | Discover Milwaukee</title>
         <meta
           name="description"
-          content="The definitive 2026 ranking of Milwaukee's top social media influencers and creators — 51 verified locals ranked by combined Instagram + TikTok following, with direct links to every profile, across food, lifestyle, sports, music, arts, and media."
+          content="The definitive 2026 ranking of Milwaukee's top social media influencers and creators — 52 verified locals ranked by combined Instagram + TikTok following, with direct links to every profile, across food, lifestyle, sports, music, arts, and media."
         />
         <meta
           name="keywords"
@@ -312,7 +313,7 @@ export default function MilwaukeeInfluencers() {
         <meta property="og:title" content="Milwaukee Influencers & Creators: The Ranked 2026 List" key="og:title" />
         <meta
           property="og:description"
-          content="51 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile — food, lifestyle, sports, music, arts, and media."
+          content="52 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile — food, lifestyle, sports, music, arts, and media."
           key="og:description"
         />
         <meta property="og:url" content={PAGE_URL} key="og:url" />
@@ -323,7 +324,7 @@ export default function MilwaukeeInfluencers() {
         <meta name="twitter:title" content="Milwaukee Influencers & Creators: The Ranked 2026 List" key="twitter:title" />
         <meta
           name="twitter:description"
-          content="51 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile."
+          content="52 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile."
           key="twitter:description"
         />
         <meta name="twitter:image" content={OG_IMAGE} key="twitter:image" />
