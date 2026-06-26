@@ -39,6 +39,7 @@ const creators = [
   { ig: "414bigfrank", tt: "414bigfrank23", name: "Big Frank", category: "music", rank: 617400, bio: "One of Milwaukee's hottest rappers and a driving force behind the city's signature 'lowend' clap sound. His breakout 'Backpack' went viral nationwide, but he's 414 to the core — area code right there in the name." },
   { ig: "ike_wynter", tt: "ike_wynter", name: "Ike Wynter", category: "arts", rank: 517600, bio: "A Milwaukee eco-artist who turns reclaimed and salvaged wood into striking sculptures — from pop-culture pieces like SpongeBob and the Rugrats to custom work for the likes of Mike Tyson, NFL players, and the Brewers. Featured on NBC Nightly News and TMJ4, he's Milwaukee craftsmanship with a national audience." },
   { ig: "realbalanced", tt: "realbalanced", name: "Sara Nelson", category: "food", rank: 450800, bio: "The Wisconsin recipe developer behind Real Balanced, making low-carb and keto cooking actually doable. Tested recipes, no fuss." },
+  { ig: "alexwehrley", tt: "alexwehrley", name: "Alex Wehrley", category: "news", rank: 404200, bio: "Former Miss Wisconsin USA turned viral content creator and TV host who came home to Milwaukee. Midwest humor with heart — skits, recipes, and the traditions that make Wisconsin living what it is." },
   { ig: "violetsaretommy", tt: "violetsaretommy", name: "Tommy Violet", category: "news", rank: 272600, bio: "Milwaukee's self-styled 'unofficial Mayor' — a musician and creator who turns everyday city life into a love letter to the 414. If it's happening in Milwaukee, Tommy's probably there." },
   { ig: "imcertifiedtrapper", tt: "imcertifiedtrapper", name: "Certified Trapper", category: "music", rank: 220925, bio: "A Wisconsin rapper whose offbeat style broke out online. Viral hooks, homegrown origin." },
   { ig: "discovermilwaukee", tt: "discovermilwaukee", name: "Discover Milwaukee", category: "news", rank: 192300, bio: "That's us — Jordan & Todd, the duo behind Discover Milwaukee and your insider's guide to the city. A 2026 Brewers Social Ambassador and former Milwaukee Bucks Ambassador, we cover the events, eats, and people who make the 414 worth talking about, reaching hundreds of thousands across Instagram, TikTok, and Facebook. Hi from this side of the screen." },
@@ -118,7 +119,7 @@ const ttUrl = (h) => `https://www.tiktok.com/@${h}`;
 const faqs = [
   {
     q: "Who are the biggest social media influencers in Milwaukee?",
-    a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 51 verified Milwaukee-area creators by their total reach across both platforms.",
+    a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 52 verified Milwaukee-area creators by their total reach across both platforms.",
   },
   {
     q: "How is this Milwaukee influencer list ranked?",
@@ -144,7 +145,7 @@ const structuredData = {
     "@type": "Article",
     headline: "Milwaukee Influencers & Creators: The Definitive 2026 List",
     description:
-      "A curated, ranked guide to 51 of the top social media influencers and content creators in the Milwaukee area, ordered by combined Instagram + TikTok following across food, lifestyle, sports, music, arts, and local media.",
+      "A curated, ranked guide to 52 of the top social media influencers and content creators in the Milwaukee area, ordered by combined Instagram + TikTok following across food, lifestyle, sports, music, arts, and local media.",
     image: OG_IMAGE,
     author: { "@type": "Organization", name: "Discover Milwaukee" },
     publisher: {
@@ -300,7 +301,7 @@ export default function MilwaukeeInfluencers() {
         <title>Milwaukee Influencers & Creators: The Ranked 2026 List | Discover Milwaukee</title>
         <meta
           name="description"
-          content="The definitive 2026 ranking of Milwaukee's top social media influencers and creators — 51 verified locals ranked by combined Instagram + TikTok following, with direct links to every profile, across food, lifestyle, sports, music, arts, and media."
+          content="The definitive 2026 ranking of Milwaukee's top social media influencers and creators — 52 verified locals ranked by combined Instagram + TikTok following, with direct links to every profile, across food, lifestyle, sports, music, arts, and media."
         />
         <meta
           name="keywords"
@@ -312,7 +313,7 @@ export default function MilwaukeeInfluencers() {
         <meta property="og:title" content="Milwaukee Influencers & Creators: The Ranked 2026 List" key="og:title" />
         <meta
           property="og:description"
-          content="51 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile — food, lifestyle, sports, music, arts, and media."
+          content="52 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile — food, lifestyle, sports, music, arts, and media."
           key="og:description"
         />
         <meta property="og:url" content={PAGE_URL} key="og:url" />
@@ -323,7 +324,7 @@ export default function MilwaukeeInfluencers() {
         <meta name="twitter:title" content="Milwaukee Influencers & Creators: The Ranked 2026 List" key="twitter:title" />
         <meta
           name="twitter:description"
-          content="51 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile."
+          content="52 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile."
           key="twitter:description"
         />
         <meta name="twitter:image" content={OG_IMAGE} key="twitter:image" />
