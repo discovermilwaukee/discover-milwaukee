@@ -36,16 +36,21 @@ const creators = [
   { ig: "emiliexfosters", tt: "emiliexfosters", name: "Emilie Rackovan", category: "lifestyle", rank: 971900, bio: "A Milwaukee mom sharing the real, joyful story of fostering and adoption. Family life with the camera rolling." },
   { ig: "itsmyaap", tt: "myamyaa8", name: "Myaap", category: "music", rank: 840600, bio: "A Milwaukee rapper with a fast-rising following and a sound built for the city. 414 energy, full volume." },
   { ig: "khloekuriatnyk", tt: "khloekuriatnyk", name: "Khloe Kuriatnyk", category: "lifestyle", rank: 638500, bio: "A Milwaukee creator sharing style, motherhood, and everyday life with a loyal following. Relatable, polished, and all MKE." },
+  { ig: "414bigfrank", tt: "414bigfrank23", name: "Big Frank", category: "music", rank: 617400, bio: "One of Milwaukee's hottest rappers and a driving force behind the city's signature 'lowend' clap sound. His breakout 'Backpack' went viral nationwide, but he's 414 to the core — area code right there in the name." },
   { ig: "ike_wynter", tt: "ike_wynter", name: "Ike Wynter", category: "arts", rank: 517600, bio: "A Milwaukee eco-artist who turns reclaimed and salvaged wood into striking sculptures — from pop-culture pieces like SpongeBob and the Rugrats to custom work for the likes of Mike Tyson, NFL players, and the Brewers. Featured on NBC Nightly News and TMJ4, he's Milwaukee craftsmanship with a national audience." },
   { ig: "realbalanced", tt: "realbalanced", name: "Sara Nelson", category: "food", rank: 450800, bio: "The Wisconsin recipe developer behind Real Balanced, making low-carb and keto cooking actually doable. Tested recipes, no fuss." },
+  { ig: "violetsaretommy", tt: "violetsaretommy", name: "Tommy Violet", category: "news", rank: 272600, bio: "Milwaukee's self-styled 'unofficial Mayor' — a musician and creator who turns everyday city life into a love letter to the 414. If it's happening in Milwaukee, Tommy's probably there." },
   { ig: "imcertifiedtrapper", tt: "imcertifiedtrapper", name: "Certified Trapper", category: "music", rank: 220925, bio: "A Wisconsin rapper whose offbeat style broke out online. Viral hooks, homegrown origin." },
   { ig: "discovermilwaukee", tt: "discovermilwaukee", name: "Discover Milwaukee", category: "news", rank: 192300, bio: "That's us — Jordan & Todd, the duo behind Discover Milwaukee and your insider's guide to the city. A 2026 Brewers Social Ambassador and former Milwaukee Bucks Ambassador, we cover the events, eats, and people who make the 414 worth talking about, reaching hundreds of thousands across Instagram, TikTok, and Facebook. Hi from this side of the screen." },
   { ig: "reynoldsgareth", tt: "reynoldsgareth", name: "Gareth Reynolds", category: "news", rank: 151500, bio: "A Wisconsin-bred comedian, actor, and co-host of the hit history-comedy podcast 'The Dollop.' Stand-up wit with Midwest DNA." },
+  { ig: "s.u.n.n.y.lou", tt: "s.u.n.n.y.lou", name: "Sunny Lou", category: "music", rank: 126500, bio: "A Milwaukee-born audio engineer, DJ, and songwriter at the center of the city's underground hip-hop scene. The sound behind a lot of records you already know." },
   { ig: "mkeeeeeats", tt: "mkeeeeeats", name: "Judy (MKEeeeEats)", category: "food", rank: 120628, bio: "Judy eats, drinks, and runs her way across the city, then hands you the receipts. A 2026 Brewers Ambassador with a feed full of where to go next." },
   { ig: "datboyinc", tt: "datboyinc", name: "INCOGNITO", category: "news", rank: 118117, bio: "INCOGNITO is a national radio personality with deep Milwaukee roots, mic in hand and the city behind him. Full volume, all the time." },
   { ig: "andreaboehlke", tt: "andreaboehlke", name: "Andrea Boehlke", category: "news", rank: 77797, bio: "A Wisconsin-raised TV host and three-time 'Survivor' competitor turned media personality. Random Lake roots, national screen time." },
   { ig: "kristinbrey", tt: "asgoeswisconsin", name: "Kristin Brey", category: "news", rank: 74700, bio: "The voice behind 'As Goes Wisconsin,' cutting through the noise on state politics with sharp, no-spin commentary. Wisconsin's plain-talk host." },
   { ig: "lill.waukee", tt: "lillwaukee", name: "Lillwaukee", category: "food", rank: 69200, bio: "A Milwaukee food account hunting the city's best plates and hidden gems. Your next craving probably lives here." },
+  { ig: "djaymando", tt: "djaymando", name: "DJay Mando", category: "music", rank: 64400, bio: "A high-energy Milwaukee DJ who's spun for the Bucks and the Packers. When the building needs to move, he's the one on the ones and twos." },
+  { ig: "sophinlaw", tt: "sophinlaw", name: "Soph in Law", category: "news", rank: 61700, bio: "A Milwaukee lawyer turned creator with sharp, funny takes on local culture, the city's housing crunch, and where to eat next. Equal parts counsel and content." },
   { ig: "dudefoods", tt: "dudefoods", name: "Nick (DudeFoods)", category: "food", rank: 59858, bio: "Nick makes rad food and writes about it. Over-the-top recipes, deep Milwaukee roots, and creations you kind of have to see to believe." },
   { ig: "milwaukeeuncut", tt: "milwaukeeuncutpod", name: "Milwaukee Uncut", category: "news", rank: 55300, bio: "A Milwaukee podcast going deep with the people shaping the city — unfiltered conversations, local lens." },
   { ig: "wisconsincheeseplease", tt: "wisconsincheeseplease", name: "Sam Buschman", category: "food", rank: 47676, bio: "A Wisconsin creator celebrating the state's one true love: cheese. Curds, pairings, and dairy-state pride." },
@@ -54,6 +59,7 @@ const creators = [
   { ig: "milwaukeephoto", tt: "milwaukeephoto", name: "Meg in MKE", category: "lifestyle", rank: 41204, bio: "Meg eats, drinks, and explores her way across Milwaukee with a camera and hiking-boot energy. Adventure is the whole point." },
   { ig: "sophiaminnaert", tt: "", name: "Sophia Minnaert", category: "sports", rank: 36316, bio: "Sophia covers the Brewers from the field and the booth, Pura Vida energy all season long. Milwaukee baseball from the inside." },
   { ig: "jacob_slade_", tt: "jacob_slade_", name: "Jacob Slade", category: "music", rank: 34217, bio: "Jacob Slade makes ethereal sounds out of Milwaukee, WI. Atmospheric, homegrown, built for headphones." },
+  { ig: "tjjdysart", tt: "tjdysart", name: "TJ Dysart", category: "news", rank: 32100, bio: "A WISN-12 News reporter covering Milwaukee's biggest stories, on air and all over your feed. Breaking news with a familiar face." },
   { ig: "wisconsinfoodie", tt: "wisconsinfoodie", name: "Wisconsin Foodie", category: "food", rank: 32063, bio: "An Emmy-winning PBS and YouTube series that travels the Midwest telling the food stories from our own backyard. Wisconsin's table, on camera." },
   { ig: "ayaidk", tt: "", name: "aya", category: "music", rank: 30307, bio: "aya writes songs and draws when the mood hits, a Milwaukee artist with a quiet, magnetic pull. Give the music a listen." },
   { ig: "natevomhof", tt: "natevomhof", name: "Nate Vomhof", category: "arts", rank: 29534, bio: "Nate is a pharmacist by trade and a photographer by obsession, shooting Milwaukee, and Brutus the dog, in its best light." },
@@ -64,6 +70,7 @@ const creators = [
   { ig: "lemontreecathy", tt: "", name: "Cathy", category: "lifestyle", rank: 19125, bio: "Cathy is an MKE-based recipe maker, mom of four girls, and a wine-and-coffee devotee. Her feed is comfort food you'll actually cook." },
   { ig: "mauriciopaints", tt: "", name: "Mauricio Ramirez", category: "arts", rank: 17600, bio: "Mauricio is a visual artist and muralist blending realism, geometry, and color, on walls across Milwaukee and the country. Big, bold public art." },
   { ig: "cookingwithkelli", tt: "cookingwith.kelli", name: "Kelli Calkins", category: "food", rank: 16536, bio: "A Milwaukee home cook sharing approachable recipes and kitchen wins. Real food, made doable." },
+  { ig: "silversspots", tt: "silversspots", name: "Silversspots", category: "food", rank: 15000, bio: "On a mission to become the king of Milwaukee food reviews, one plate at a time. Honest takes, DMs open for your next rec." },
   { ig: "melaniericks", tt: "", name: "Melanie Ricks", category: "sports", rank: 12329, bio: "Melanie works the Bucks sideline as reporter and host, closest seat in the house. Game-night Milwaukee, live." },
   { ig: "munchinginmilwaukee", tt: "munchinginmilwaukee", name: "Munching in Milwaukee", category: "food", rank: 12253, bio: "Eating across Milwaukee one spot at a time, with the recs to prove it. The city's menu, sampled." },
   { ig: "socialcig", tt: "socialcig", name: "Social Cig", category: "music", rank: 12137, bio: "Social Cig is midwest indie skate rock, tour dates and all. Milwaukee's answer to a sweaty, joyful basement show." },
@@ -71,24 +78,6 @@ const creators = [
   { ig: "shotbybasi", tt: "", name: "Basi", category: "arts", rank: 11522, bio: "Basi shoots Milwaukee in stills and motion, a photographer and videographer with a booked calendar and a sharp eye." },
   { ig: "midwestgirladventures", tt: "midwestgirladventures", name: "Tia", category: "lifestyle", rank: 10722, bio: "Tia will travel for food, coffee, and a hiking trail, every time. A Midwest adventurer mapping the good stuff." },
   { ig: "websterx", tt: "", name: "WebsterX", category: "music", rank: 10458, bio: "WebsterX is one of Milwaukee's defining voices in hip-hop, an artist and community builder who helped put the city's sound on the map." },
-  { ig: "djbizzon", tt: "djbizzon", name: "DJ Bizzon", category: "music", rank: 9518, bio: "DJ Bizzon is a Milwaukee turntablist and Twitch Ambassador, self-proclaimed Yam Provider. Crate-digging energy on and offline." },
-  { ig: "hangrymke", tt: "", name: "Jenna (HangryMKE)", category: "food", rank: 9072, bio: "Jenna structures her days around food, camera always eating first. She works through Milwaukee and beyond one hangry mission at a time." },
-  { ig: "lofredrich", tt: "", name: "Lori Fredrich", category: "food", rank: 8517, bio: "A Milwaukee food storyteller, dining concierge at OnMilwaukee, TMJ4 contributor, and author of the 'Wisconsin Field to Fork' cookbook. A pro's palate." },
-  { ig: "briajonestv", tt: "briajonestv", name: "Bria Jones", category: "news", rank: 7302, bio: "Bria Jones is an Emmy-winning journalist and FOX6 Weekend WakeUp anchor. Milwaukee mornings, in good hands." },
-  { ig: "ericaexploresmke", tt: "", name: "Erica", category: "food", rank: 6202, bio: "Erica is always hunting the next thing to do in MKE, taco in one hand and a brewery flight in the other. Casual, curious, all over the city." },
-  { ig: "noshmke", tt: "", name: "NoshMKE", category: "food", rank: 4757, bio: "Eating everything in Milwaukee so you don't have to. NoshMKE is your stand-in at every table worth a visit." },
-  { ig: "weezie_eats", tt: "", name: "Anne", category: "food", rank: 4412, bio: "Anne runs on Midwest food adventures, eggs, burgers, and coffee included. A foodie's foodie working through the city's menu." },
-  { ig: "howsheseesmke", tt: "", name: "Elizabeth", category: "food", rank: 4094, bio: "Elizabeth champions Milwaukee small businesses and the people behind them. A local lens on the shops and spots worth your money." },
-  { ig: "nathan.marzion", tt: "", name: "Nathan Marzion", category: "sports", rank: 4007, bio: "Bucks in Six, every time. Nathan is a Marquette grad turned full-time Milwaukee hoops believer." },
-  { ig: "theuttkes", tt: "", name: "Shannon & TJ Uttke", category: "arts", rank: 3806, bio: "Shannon and TJ are the Uttkes, Milwaukee photographers making real pictures of happy people. Genuine moments, beautifully kept." },
-  { ig: "tarikmoody", tt: "", name: "Tarik Moody", category: "news", rank: 3572, bio: "Tarik runs digital at Radio Milwaukee and Hyfin, hosts Rhythm Lab Radio, and contributes to NPR Music. A tastemaker's tastemaker." },
-  { ig: "promiseipromise", tt: "", name: "PROMISE", category: "news", rank: 3282, bio: "PROMISE is an award-winning radio host, comedian, and community advocate. 'It's not a threat, it's a promise.'" },
-  { ig: "fred_the_artist", tt: "", name: "Fred Kaems", category: "arts", rank: 3251, bio: "Fred Kaems is a Milwaukee muralist and a lover of life, husband and father first. Color on the walls, heart in the work." },
-  { ig: "frontrowamy", tt: "", name: "Front Row Amy", category: "sports", rank: 3117, bio: "Front Row Amy is a fixture at the ballpark, baseball's favorite bubbler. Brewers superfandom in human form." },
-  { ig: "milwaukeefoodking", tt: "", name: "Richard Winter", category: "food", rank: 2752, bio: "Dentist by day, MMA judge on the side, food obsessive always. Richard is on a quest to find the world's best bite, or make it himself." },
-  { ig: "reginaldbaylorstudio", tt: "", name: "Reginald Baylor", category: "arts", rank: 2137, bio: "Reginald Baylor is a Milwaukee artist known for bold, graphic work and a studio practice that's pure imagination. A local original." },
-  { ig: "lifestyledbyleena", tt: "", name: "Leena Emily", category: "lifestyle", rank: 2122, bio: "Leena brings everyday style to moms and millennials, fashion, music, travel, and wellness in one feed. Approachable looks with a creative streak." },
-  { ig: "eric_nehm", tt: "", name: "Eric Nehm", category: "sports", rank: 1306, bio: "Eric covers the Bucks beat for The Athletic, the reporting locals trust. Deep, sourced, and steady all season." },
 ];
 
 const CREATOR_COUNT = creators.length;
@@ -101,14 +90,13 @@ const TIERS = [
   { id: "50k", label: "50K – 100K Followers", min: 50000 },
   { id: "25k", label: "25K – 50K Followers", min: 25000 },
   { id: "10k", label: "10K – 25K Followers", min: 10000 },
-  { id: "under10k", label: "Under 10K Followers", min: 0 },
 ];
 
 function tierFor(rank) {
   for (const t of TIERS) {
     if (rank >= t.min) return t.id;
   }
-  return "under10k";
+  return "10k";
 }
 
 const FILTERS = [
@@ -130,11 +118,11 @@ const ttUrl = (h) => `https://www.tiktok.com/@${h}`;
 const faqs = [
   {
     q: "Who are the biggest social media influencers in Milwaukee?",
-    a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 62 verified Milwaukee-area creators by their total reach across both platforms.",
+    a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 51 verified Milwaukee-area creators by their total reach across both platforms.",
   },
   {
     q: "How is this Milwaukee influencer list ranked?",
-    a: "Every creator is ranked by their combined Instagram + TikTok following, then grouped into tiers (1 Million+, 500K–1M, 250K–500K, 100K–250K, 50K–100K, 25K–50K, 10K–25K, and Under 10K). We show tiers instead of exact follower counts because those numbers change daily, and we'd rather be accurate than precise.",
+    a: "Every creator is ranked by their combined Instagram + TikTok following, then grouped into tiers (1 Million+, 500K–1M, 250K–500K, 100K–250K, 50K–100K, 25K–50K, and 10K–25K). We show tiers instead of exact follower counts because those numbers change daily, and we'd rather be accurate than precise.",
   },
   {
     q: "How were these Milwaukee creators chosen and verified?",
@@ -156,7 +144,7 @@ const structuredData = {
     "@type": "Article",
     headline: "Milwaukee Influencers & Creators: The Definitive 2026 List",
     description:
-      "A curated, ranked guide to 62 of the top social media influencers and content creators in the Milwaukee area, ordered by combined Instagram + TikTok following across food, lifestyle, sports, music, arts, and local media.",
+      "A curated, ranked guide to 51 of the top social media influencers and content creators in the Milwaukee area, ordered by combined Instagram + TikTok following across food, lifestyle, sports, music, arts, and local media.",
     image: OG_IMAGE,
     author: { "@type": "Organization", name: "Discover Milwaukee" },
     publisher: {
@@ -312,7 +300,7 @@ export default function MilwaukeeInfluencers() {
         <title>Milwaukee Influencers & Creators: The Ranked 2026 List | Discover Milwaukee</title>
         <meta
           name="description"
-          content="The definitive 2026 ranking of Milwaukee's top social media influencers and creators — 62 verified locals ranked by combined Instagram + TikTok following, with direct links to every profile, across food, lifestyle, sports, music, arts, and media."
+          content="The definitive 2026 ranking of Milwaukee's top social media influencers and creators — 51 verified locals ranked by combined Instagram + TikTok following, with direct links to every profile, across food, lifestyle, sports, music, arts, and media."
         />
         <meta
           name="keywords"
@@ -324,7 +312,7 @@ export default function MilwaukeeInfluencers() {
         <meta property="og:title" content="Milwaukee Influencers & Creators: The Ranked 2026 List" key="og:title" />
         <meta
           property="og:description"
-          content="62 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile — food, lifestyle, sports, music, arts, and media."
+          content="51 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile — food, lifestyle, sports, music, arts, and media."
           key="og:description"
         />
         <meta property="og:url" content={PAGE_URL} key="og:url" />
@@ -335,7 +323,7 @@ export default function MilwaukeeInfluencers() {
         <meta name="twitter:title" content="Milwaukee Influencers & Creators: The Ranked 2026 List" key="twitter:title" />
         <meta
           name="twitter:description"
-          content="62 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile."
+          content="51 verified Milwaukee-area creators ranked by combined Instagram + TikTok following, with links to every profile."
           key="twitter:description"
         />
         <meta name="twitter:image" content={OG_IMAGE} key="twitter:image" />
