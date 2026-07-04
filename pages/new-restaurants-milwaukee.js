@@ -82,7 +82,7 @@ const structuredData = {
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-01-15",
-    "dateModified": "2026-04-15",
+    "dateModified": "2026-07-03",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/new-restaurants-milwaukee"
   },
   faqPage: {
@@ -171,7 +171,7 @@ export default function NewRestaurantsMilwaukee() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.orange} 0%, ${c.yellow} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED WEEKLY • APRIL 2026</p>
+            <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED WEEKLY • JULY 2026</p>
             <h1 style={{ color: c.green1, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               New Restaurants in Milwaukee
             </h1>
@@ -185,6 +185,8 @@ export default function NewRestaurantsMilwaukee() {
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>JUMP TO</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <a href="#at-a-glance" style={{ color: c.green2, fontSize: "14px" }}>At a Glance</a>
+              <span style={{ color: c.beige }}>|</span>
               <a href="#hottest" style={{ color: c.green2, fontSize: "14px" }}>Hottest Openings</a>
               <span style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
@@ -195,6 +197,41 @@ export default function NewRestaurantsMilwaukee() {
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "40px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "18px", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              The hottest new restaurants in Milwaukee for 2026 are Cassis (a French-European bistro in the Third Ward from Birch's James Beard-nominated chef Kyle Knall), Nakama (high-end omakase on the Lower East Side with Sushi Master winner Jason Morimoto), and Aya (modern Mediterranean and Middle Eastern downtown in the Ascent building). The Third Ward and Downtown lead Milwaukee's new-restaurant development, followed by Walker's Point and the East Side.
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>New Milwaukee Restaurants at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Restaurant</th>
+                    <th style={{ padding: "10px 12px" }}>Neighborhood</th>
+                    <th style={{ padding: "10px 12px" }}>Cuisine</th>
+                    <th style={{ padding: "10px 12px" }}>Price</th>
+                    <th style={{ padding: "10px 12px" }}>Opened</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {newRestaurants.hottest.map((r, i) => (
+                    <tr key={r.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                      <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{r.name}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.neighborhood}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.cuisine}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.priceRange}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.opened}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <section id="hottest" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Hottest New Openings</h2>

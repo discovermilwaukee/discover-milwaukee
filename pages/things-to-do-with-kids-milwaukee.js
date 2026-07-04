@@ -335,7 +335,7 @@ const structuredData = {
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
     "datePublished": "2026-05-01",
-    "dateModified": "2026-05-01",
+    "dateModified": "2026-07-03",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/things-to-do-with-kids-milwaukee",
   },
   faqPage: {
@@ -447,6 +447,8 @@ export default function ThingsToDoWithKidsMilwaukee() {
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>EXPLORE BY TYPE</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <a href="#at-a-glance" style={{ color: c.green2, fontSize: "14px" }}>At a Glance</a>
+              <span style={{ color: c.beige }}>|</span>
               <a href="#best-overall" style={{ color: c.green2, fontSize: "14px" }}>Best Overall</a>
               <span style={{ color: c.beige }}>|</span>
               <a href="#museums" style={{ color: c.green2, fontSize: "14px" }}>Museums</a>
@@ -465,6 +467,43 @@ export default function ThingsToDoWithKidsMilwaukee() {
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "40px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "18px", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              The best things to do with kids in Milwaukee are the Milwaukee County Zoo, Discovery World (science museum and aquarium on the lakefront), the Milwaukee Public Museum (dinosaurs and Streets of Old Milwaukee), and the Betty Brinn Children's Museum for younger kids. The Milwaukee Art Museum is free for kids 12 and under. For free outdoor fun, head to Bradford Beach, Lakeshore State Park, or the Northwestern Mutual Community Park playground. Rainy-day picks include Sky Zone, JB's on 41, and the Pettit National Ice Center.
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee Family Attractions at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Attraction</th>
+                    <th style={{ padding: "10px 12px" }}>Neighborhood</th>
+                    <th style={{ padding: "10px 12px" }}>Type</th>
+                    <th style={{ padding: "10px 12px" }}>Price</th>
+                    <th style={{ padding: "10px 12px" }}>Ages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.values(familyActivities).flat()
+                    .filter((a, i, arr) => arr.findIndex((x) => x.name === a.name) === i)
+                    .map((a, i) => (
+                      <tr key={a.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                        <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{a.name}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.neighborhood}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.type}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.priceRange}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.ageRange}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <section id="best-overall" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Best Overall Family Attractions</h2>

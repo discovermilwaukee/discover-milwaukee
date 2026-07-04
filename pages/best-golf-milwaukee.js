@@ -225,7 +225,7 @@ const structuredData = {
     "author": { "@type": "Organization", "name": "Discover Milwaukee", "url": "https://www.discover-milwaukee.com" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-05-18",
-    "dateModified": "2026-05-18",
+    "dateModified": "2026-07-03",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/best-golf-milwaukee"
   },
   faqPage: {
@@ -305,7 +305,7 @@ export default function BestGolfMilwaukee() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED MAY 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JULY 2026</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Golf in Milwaukee
             </h1>
@@ -318,6 +318,39 @@ export default function BestGolfMilwaukee() {
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "40px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "18px", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              The best golf near Milwaukee is Erin Hills — a public, walking-only course 45 minutes northwest that hosted the 2017 U.S. Open and 2025 U.S. Women's Open. The Bog (an Arnold Palmer design in Saukville) and Washington County Golf Course (an Arthur Hills municipal in Hartford) round out the premium public options. For value, Milwaukee County's park courses — led by Brown Deer Park, where Tiger Woods turned pro — offer affordable rounds. The top private clubs are Milwaukee Country Club (River Hills) and Blue Mound (a historic Seth Raynor design in Wauwatosa).
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee Golf Courses at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Course</th>
+                    <th style={{ padding: "10px 12px" }}>Area</th>
+                    <th style={{ padding: "10px 12px" }}>Access</th>
+                    <th style={{ padding: "10px 12px" }}>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.values(golfCourses).flat().map((g, i) => (
+                    <tr key={g.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                      <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{g.name}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{g.area}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{g.access}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{g.tag}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>

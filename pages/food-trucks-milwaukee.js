@@ -179,7 +179,7 @@ export default function FoodTrucksMilwaukee() {
     author: { "@type": "Organization", name: "Discover Milwaukee" },
     publisher: { "@type": "Organization", name: "Discover Milwaukee", logo: { "@type": "ImageObject", url: "https://www.discover-milwaukee.com/logo.png" } },
     datePublished: "2026-04-18",
-    dateModified: "2026-04-18",
+    dateModified: "2026-07-03",
     mainEntityOfPage: "https://www.discover-milwaukee.com/food-trucks-milwaukee",
   };
 
@@ -253,9 +253,45 @@ export default function FoodTrucksMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               Whether you're hunting down lunch downtown, looking for catering for your next event, or just craving something different, this guide covers the best food trucks Milwaukee has to offer—plus where to find them.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026 | All trucks verified active</p>
+            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: July 2026 | All trucks verified active</p>
           </header>
           <NewsletterCTA />
+
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "1.15rem", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              The best food trucks in Milwaukee are El Chido Street Tacos (widely called the city's best taco truck), Cottonwood Trailer Pie for wood-fired pizza, and Sweet Smoke BBQ for Texas-style brisket. To find them, check the Milwaukee County Courthouse on Thursdays, the N. 91st &amp; Calumet industrial park for Foodie Fridays, or brewery taprooms on weekends. Most trucks post daily locations on Instagram and Facebook, and meals typically run $8–15.
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ fontSize: "1.6rem", color: c.green1, marginBottom: "16px" }}>Milwaukee Food Trucks at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Food Truck</th>
+                    <th style={{ padding: "10px 12px" }}>Cuisine</th>
+                    <th style={{ padding: "10px 12px" }}>Price</th>
+                    <th style={{ padding: "10px 12px" }}>Must Try</th>
+                    <th style={{ padding: "10px 12px" }}>Best For</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.values(foodTrucks).flat().map((t, i) => (
+                    <tr key={t.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                      <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{t.name}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{t.style}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{t.priceRange}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{t.mustTry}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{t.bestFor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ fontSize: "1.8rem", color: c.green1, marginBottom: "8px", paddingBottom: "12px", borderBottom: `2px solid ${c.orange}` }}>Mexican & Tacos</h2>
