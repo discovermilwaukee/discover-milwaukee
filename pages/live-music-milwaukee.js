@@ -207,7 +207,7 @@ export default function LiveMusicMilwaukee() {
     author: { "@type": "Organization", name: "Discover Milwaukee" },
     publisher: { "@type": "Organization", name: "Discover Milwaukee", logo: { "@type": "ImageObject", url: "https://www.discover-milwaukee.com/logo.png" } },
     datePublished: "2026-04-18",
-    dateModified: "2026-04-18",
+    dateModified: "2026-07-03",
     mainEntityOfPage: "https://www.discover-milwaukee.com/live-music-milwaukee",
   };
 
@@ -283,9 +283,45 @@ export default function LiveMusicMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               From arena shows at Fiserv Forum to discovering your next favorite band at Cactus Club, this guide covers every corner of Milwaukee's music scene. Whether you're chasing major headliners or supporting local artists, the city delivers.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026 | All venues verified active</p>
+            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: July 2026 | All venues verified active</p>
           </header>
           <NewsletterCTA />
+
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "1.15rem", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              The best live music venues in Milwaukee are the Pabst Theater (historic 1,339-seat theater with exceptional acoustics), Fiserv Forum for arena headliners, and Shank Hall for legendary intimate shows. Historic Pabst Theater Group rooms — the Riverside Theater and Turner Hall Ballroom — anchor the mid-size scene, while Cactus Club in Bay View and Linneman's in Riverwest are the heart of Milwaukee's local scene. For jazz, head to the Jazz Estate or Caroline's. Summerfest, the world's largest music festival, runs late June into July on the lakefront.
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ fontSize: "1.6rem", color: c.green1, marginBottom: "16px" }}>Milwaukee Music Venues at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Venue</th>
+                    <th style={{ padding: "10px 12px" }}>Neighborhood</th>
+                    <th style={{ padding: "10px 12px" }}>Type</th>
+                    <th style={{ padding: "10px 12px" }}>Capacity</th>
+                    <th style={{ padding: "10px 12px" }}>Best For</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.values(venueSpots).flat().map((v, i) => (
+                    <tr key={v.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                      <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{v.name}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{v.neighborhood}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{v.style}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{v.capacity}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{v.bestFor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ fontSize: "1.8rem", color: c.green1, marginBottom: "8px", paddingBottom: "12px", borderBottom: `2px solid ${c.orange}` }}>Major Venues</h2>

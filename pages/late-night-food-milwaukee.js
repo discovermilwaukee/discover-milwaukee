@@ -334,7 +334,7 @@ const structuredData = {
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
     "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
     "datePublished": "2026-05-01",
-    "dateModified": "2026-05-01",
+    "dateModified": "2026-07-03",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/late-night-food-milwaukee"
   },
   faqPage: {
@@ -445,6 +445,8 @@ export default function LateNightFoodMilwaukee() {
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>EXPLORE BY TYPE</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <a href="#at-a-glance" style={{ color: c.green2, fontSize: "14px" }}>At a Glance</a>
+              <span style={{ color: c.beige }}>|</span>
               <a href="#best-overall" style={{ color: c.green2, fontSize: "14px" }}>Best Overall</a>
               <span style={{ color: c.beige }}>|</span>
               <a href="#late-night-pizza" style={{ color: c.green2, fontSize: "14px" }}>Late Night Pizza</a>
@@ -463,6 +465,43 @@ export default function LateNightFoodMilwaukee() {
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "40px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "18px", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              For late-night food in Milwaukee, the true 24-hour spots are George Webb, Omega Restaurant (Paul's Omega), and Taqueria La Brazita. The latest kitchens are Toppers Pizza (until 4am Thursday–Saturday), Oakland Gyros (until 4am Saturdays), and Gyro Palace in Walker's Point (drive-thru until 3:30am weekends). For delivery after midnight, Pizza Shuttle and Zayna's run until 3am. Milwaukee's best after-bar clusters are Walker's Point, Brady Street, and the East Side.
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee Late Night Food at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Spot</th>
+                    <th style={{ padding: "10px 12px" }}>Neighborhood</th>
+                    <th style={{ padding: "10px 12px" }}>Style</th>
+                    <th style={{ padding: "10px 12px" }}>Price</th>
+                    <th style={{ padding: "10px 12px" }}>Late-Night Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.values(lateNightSpots).flat()
+                    .filter((s, i, arr) => arr.findIndex((x) => x.name === s.name) === i)
+                    .map((s, i) => (
+                      <tr key={s.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                        <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{s.name}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{s.neighborhood}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{s.style}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{s.priceRange}</td>
+                        <td style={{ padding: "10px 12px", color: "#555" }}>{s.hoursNote}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <section id="best-overall" style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Best Overall Late Night</h2>

@@ -184,7 +184,7 @@ const structuredData = {
       }
     },
     "datePublished": "2026-01-15",
-    "dateModified": "2026-04-15",
+    "dateModified": "2026-07-03",
     "mainEntityOfPage": "https://www.discover-milwaukee.com/best-restaurants-milwaukee"
   },
   faqPage: {
@@ -282,7 +282,7 @@ export default function BestRestaurantsMilwaukee() {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Best Restaurants in Milwaukee - Fine dining and local favorites" />
         <meta property="article:published_time" content="2026-01-15" />
-        <meta property="article:modified_time" content="2026-04-15" />
+        <meta property="article:modified_time" content="2026-07-03" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -302,7 +302,7 @@ export default function BestRestaurantsMilwaukee() {
         {/* Hero Section */}
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED APRIL 2026</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JULY 2026</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Restaurants in Milwaukee
             </h1>
@@ -317,6 +317,8 @@ export default function BestRestaurantsMilwaukee() {
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>QUICK LINKS</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <a href="#at-a-glance" style={{ color: c.green2, fontSize: "14px" }}>At a Glance</a>
+              <span style={{ color: c.beige }}>|</span>
               <a href="#michelin-contenders" style={{ color: c.green2, fontSize: "14px" }}>Michelin Contenders</a>
               <span style={{ color: c.beige }}>|</span>
               <a href="#new-restaurants" style={{ color: c.green2, fontSize: "14px" }}>New in 2026</a>
@@ -332,6 +334,45 @@ export default function BestRestaurantsMilwaukee() {
         <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
+          {/* Key Facts — lead answer block */}
+          <section id="key-facts" style={{ marginBottom: "40px", scrollMarginTop: "80px" }}>
+            <p style={{ color: c.green1, fontSize: "18px", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
+              The best restaurants in Milwaukee for 2026 are Sanford (American fine dining, East Side), DanDan (modern Chinese, Downtown), Amilinda (Spanish &amp; Portuguese, Downtown), and Birch (contemporary tasting menu, Bay View) at the fine-dining level, with Odd Duck, La Merenda, and Morel leading the city's local favorites. The most talked-about new openings are Cassis, Nakama, and Aya. Milwaukee has no Michelin-starred restaurants because the guide does not cover Wisconsin, but several spots operate at that level.
+            </p>
+          </section>
+
+          {/* At-a-Glance table — quick reference */}
+          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
+            <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Best Milwaukee Restaurants at a Glance</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+                <thead>
+                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                    <th style={{ padding: "10px 12px" }}>Restaurant</th>
+                    <th style={{ padding: "10px 12px" }}>Neighborhood</th>
+                    <th style={{ padding: "10px 12px" }}>Cuisine</th>
+                    <th style={{ padding: "10px 12px" }}>Price</th>
+                    <th style={{ padding: "10px 12px" }}>Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ...restaurants.michelinContenders.map((r) => ({ ...r, tag: "Fine Dining" })),
+                    ...restaurants.newRestaurants.map((r) => ({ ...r, tag: "New in 2026" })),
+                    ...restaurants.localFavorites.map((r) => ({ ...r, tag: "Local Favorite" })),
+                  ].map((r, i) => (
+                    <tr key={r.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
+                      <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{r.name}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.neighborhood}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.cuisine}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.priceRange}</td>
+                      <td style={{ padding: "10px 12px", color: "#555" }}>{r.tag}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           {/* Michelin Contenders */}
           <section id="michelin-contenders" style={{ marginBottom: "48px" }}>
