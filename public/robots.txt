@@ -11,10 +11,13 @@ Allow: /
 Crawl-delay: 1
 
 Disallow: /api/
-Disallow: /_next/
+Disallow: /_next/data/
 Disallow: /404
 Disallow: /500
 
+# Next.js build assets (JS/CSS) must stay crawlable so Googlebot and
+# JS-rendering AI crawlers can fully render pages.
+Allow: /_next/static/
 Allow: /images/
 Allow: /*.js$
 Allow: /*.css$
