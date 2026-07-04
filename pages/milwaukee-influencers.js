@@ -101,6 +101,16 @@ function tierFor(rank) {
   return "10k";
 }
 
+const TIER_SHORT = {
+  "1m": "1M+",
+  "500k": "500K–1M",
+  "250k": "250K–500K",
+  "100k": "100K–250K",
+  "50k": "50K–100K",
+  "25k": "25K–50K",
+  "10k": "10K–25K",
+};
+
 const FILTERS = [
   { id: "all", label: "All" },
   { id: "food", label: "Food & Drink" },
@@ -118,6 +128,10 @@ const igUrl = (h) => `https://www.instagram.com/${h}/`;
 const ttUrl = (h) => `https://www.tiktok.com/@${h}`;
 
 const faqs = [
+  {
+    q: "Who is the #1 Milwaukee influencer?",
+    a: "By combined Instagram and TikTok following, the biggest Milwaukee-area creator is comedian Hero DW, followed by Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Discover Milwaukee's full ranking covers 53 verified local creators across food, lifestyle, sports, music, arts, and media.",
+  },
   {
     q: "Who are the biggest social media influencers in Milwaukee?",
     a: "Ranked by combined Instagram and TikTok following, the biggest Milwaukee-area creators include comedian Hero DW, Milwaukee-born drag superstar Trixie Mattel, basketball creator TJass (Tristan Jass), 'Wisconsin nice' comedian Charlie Berens, and rapper Lakeyah. Our full list ranks 53 verified Milwaukee-area creators by their total reach across both platforms.",
@@ -155,7 +169,7 @@ const structuredData = {
       logo: { "@type": "ImageObject", url: "https://www.discover-milwaukee.com/images/logo.png" },
     },
     datePublished: "2026-06-25",
-    dateModified: "2026-06-25",
+    dateModified: "2026-07-03",
     mainEntityOfPage: { "@type": "WebPage", "@id": PAGE_URL },
   },
   faqPage: {
@@ -362,7 +376,7 @@ export default function MilwaukeeInfluencers() {
               margin: "0 0 12px",
             }}
           >
-            Updated June 2026
+            Updated July 2026
           </p>
           <h1 style={{ fontSize: "40px", lineHeight: 1.1, margin: "0 0 16px", fontWeight: "900" }}>
             Milwaukee Influencers &amp; Creators
@@ -379,6 +393,11 @@ export default function MilwaukeeInfluencers() {
         <NewsletterCTA />
 
         <section id="key-facts" style={{ margin: "8px 0 32px" }}>
+          <p style={{ fontSize: "17px", lineHeight: 1.6, color: c.green1, fontWeight: "700", margin: "0 0 14px" }}>
+            The top Milwaukee influencers in 2026, ranked by combined Instagram and TikTok following, are Hero DW, Trixie
+            Mattel, TJass (Tristan Jass), Charlie Berens, and Lakeyah. Below, Discover Milwaukee ranks all{" "}
+            {CREATOR_COUNT} verified local creators — across food, lifestyle, sports, music, arts, and media.
+          </p>
           <p style={{ fontSize: "16px", lineHeight: 1.7, color: "#2a3a34" }}>
             Milwaukee punches way above its weight online. This is the city's creator class in one place —{" "}
             {CREATOR_COUNT} verified influencers and personalities, ranked by their combined Instagram and TikTok
@@ -387,6 +406,54 @@ export default function MilwaukeeInfluencers() {
             against its public Instagram and TikTok, linked them directly, and left out pro athletes on purpose. Filter
             by what you're into, or scroll the whole roster top to bottom.
           </p>
+        </section>
+
+        {/* Quick-reference ranking table (extractable) */}
+        <section id="ranking-table" aria-labelledby="ranking-heading" style={{ marginBottom: "40px" }}>
+          <h2 id="ranking-heading" style={{ fontSize: "22px", fontWeight: "900", color: c.green1, marginBottom: "12px" }}>
+            Milwaukee Influencers Ranked — Quick Reference
+          </h2>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+              <thead>
+                <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
+                  <th style={{ padding: "8px 10px" }}>#</th>
+                  <th style={{ padding: "8px 10px" }}>Creator</th>
+                  <th style={{ padding: "8px 10px" }}>Category</th>
+                  <th style={{ padding: "8px 10px" }}>Follower Tier</th>
+                  <th style={{ padding: "8px 10px" }}>Profiles</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...creators]
+                  .sort((a, b) => b.rank - a.rank)
+                  .map((cr, i) => (
+                    <tr
+                      key={cr.ig}
+                      style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}
+                    >
+                      <td style={{ padding: "8px 10px", fontWeight: "700" }}>{i + 1}</td>
+                      <td style={{ padding: "8px 10px", fontWeight: "700", color: c.green1 }}>{cr.name}</td>
+                      <td style={{ padding: "8px 10px" }}>{CATEGORIES[cr.category].label}</td>
+                      <td style={{ padding: "8px 10px" }}>{TIER_SHORT[tierFor(cr.rank)]}</td>
+                      <td style={{ padding: "8px 10px" }}>
+                        <a href={igUrl(cr.ig)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2 }}>
+                          Instagram
+                        </a>
+                        {cr.tt ? (
+                          <>
+                            {" · "}
+                            <a href={ttUrl(cr.tt)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2 }}>
+                              TikTok
+                            </a>
+                          </>
+                        ) : null}
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
         </section>
 
         {/* Category filter */}
