@@ -142,7 +142,7 @@ const body = [
   { p: "Because in the end, this conversation isn’t really about a highway." },
   { p: "It’s about whether we believe Milwaukee is worth building for." },
   { p: "I do." },
-  { p: "Now let’s build like we believe it." },
+  { p: "I hope we all do." },
 ];
 
 const sections = body.filter((b) => b.h2).map((b) => ({ href: `#${b.id}`, label: b.h2 }));
@@ -280,6 +280,25 @@ export default function I794Milwaukee() {
         </nav>
 
         <main style={{ maxWidth: "760px", margin: "0 auto", padding: "40px 24px" }}>
+          <figure style={{ margin: "0 0 28px" }}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+              aria-label="Rendering of a revitalized I-794 corridor in downtown Milwaukee"
+              style={{ width: "100%", display: "block", borderRadius: "16px", backgroundColor: c.green1, aspectRatio: "4096 / 2160" }}
+            >
+              <source src="/videos/i-794-revitalization.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <figcaption style={{ color: c.green2, fontSize: "13px", fontStyle: "italic", textAlign: "center", margin: "10px 0 0" }}>
+              A rendering of what a revitalized I-794 corridor could look like. Video: John Everitt.
+            </figcaption>
+          </figure>
+
           <NewsletterCTA />
 
           <article>
