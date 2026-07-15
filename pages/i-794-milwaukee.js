@@ -24,7 +24,7 @@ const body = [
   { p: "That question stayed with me long after I left. It’s the reason I started writing this." },
 
   { h2: "Why I’m Writing This", id: "why-im-writing-this" },
-  { p: "Before I go any further, I want to be clear about something." },
+  { p: "Before I go any further, I want to be clear." },
   { p: "I’m not an urban planner, a transportation engineer, or an economist. The people who do those jobs know far more than I ever will, and I genuinely hope WisDOT, city leaders, developers, neighborhood organizations, business owners, and residents continue asking hard questions before any decision is made." },
   { p: "My perspective comes from years of exploring Milwaukee through Discover Milwaukee." },
   { p: "Our goal has always been simple; help people experience this city beyond the places they already know." },
