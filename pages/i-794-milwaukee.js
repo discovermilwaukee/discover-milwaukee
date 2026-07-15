@@ -20,7 +20,7 @@ const c = {
 const body = [
   { p: "A few weeks ago, I was walking through the Historic Third Ward on one of those summer afternoons. The patios were busy, people wandered in and out of shops, and families and friends were sharing meals and drinks on the local patios. It felt alive, and honestly, it made me stop for a second just to take it all in." },
   { p: "Then I looked down Broadway." },
-  { p: (<>I saw the concrete ramps, the overpasses, and the stretch of I-794 cutting through the middle of it all. I remember standing there thinking, <em>Have we just gotten used to this?</em> found myself wondering what this part of the city could feel like if it brought people together instead of dividing them.</>) },
+  { p: (<>I saw the concrete ramps, the overpasses, and the stretch of I-794 cutting through the middle of it all. I remember standing there thinking, <em>Have we just gotten used to this?</em> I found myself wondering what this part of the city could feel like if it brought people together instead of dividing them.</>) },
   { p: "That question stayed with me long after I left. It’s the reason I started writing this." },
 
   { h2: "Why I’m Writing This", id: "why-im-writing-this" },
@@ -28,7 +28,7 @@ const body = [
   { p: "I’m not an urban planner, a transportation engineer, or an economist. The people who do those jobs know far more than I ever will, and I genuinely hope WisDOT, city leaders, developers, neighborhood organizations, business owners, and residents continue asking hard questions before any decision is made." },
   { p: "My perspective comes from years of exploring Milwaukee through Discover Milwaukee." },
   { p: "Our goal has always been simple; help people experience this city beyond the places they already know." },
-  { p: "Over the years, that’s taken us into many neighborhood, introduced us to thousands of local business owners, and shown us how connected Milwaukee feels when people experience it on foot instead of through a windshield." },
+  { p: "Over the years, that’s taken us into many neighborhoods, introduced us to thousands of local business owners, and shown us how connected Milwaukee feels when people experience it on foot instead of through a windshield." },
   { p: "That’s why this conversation feels so important to me." },
   { p: "Not because I believe I have the right answer." },
   { p: "Because I believe Milwaukee deserves the biggest vision we can imagine for its future." },
