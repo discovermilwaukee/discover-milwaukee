@@ -577,6 +577,9 @@ export default function BayViewMilwaukee() {
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.yellow, color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 All Things to Do →
               </Link>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+                Best Happy Hour →
+              </Link>
             </div>
           </section>
 
