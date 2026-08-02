@@ -380,6 +380,9 @@ export default function BestPatiosMilwaukee() {
               <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Best Brunch →
               </Link>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+                Best Happy Hour →
+              </Link>
             </div>
           </section>
 

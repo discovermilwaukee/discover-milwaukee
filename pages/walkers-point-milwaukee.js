@@ -917,6 +917,21 @@ export default function WalkersPointMilwaukee() {
                 </span>
                 Best Restaurants MKE
               </Link>
+              <Link
+                href="/best-happy-hour-milwaukee"
+                style={{
+                  display: "block",
+                  backgroundColor: c.green1,
+                  color: c.cream,
+                  padding: "20px",
+                  borderRadius: "12px",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                }}
+              >
+                <span style={{ fontSize: "14px", color: c.yellow, display: "block", marginBottom: "4px" }}>GUIDE</span>
+                Best Happy Hour MKE
+              </Link>
             </div>
           </section>
 

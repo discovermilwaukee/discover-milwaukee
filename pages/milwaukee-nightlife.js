@@ -1352,6 +1352,21 @@ export default function MilwaukeeNightlife() {
                 East Side Guide
               </Link>
               <Link
+                href="/best-happy-hour-milwaukee"
+                style={{
+                  backgroundColor: colors.cream,
+                  color: colors.green1,
+                  padding: '15px 30px',
+                  borderRadius: '30px',
+                  textDecoration: 'none',
+                  fontWeight: '700',
+                  fontSize: '1rem',
+                  transition: 'transform 0.2s',
+                }}
+              >
+                Best Happy Hour
+              </Link>
+              <Link
                 href="/events"
                 style={{
                   backgroundColor: colors.cream,

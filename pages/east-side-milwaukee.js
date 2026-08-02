@@ -684,6 +684,9 @@ export default function EastSideMilwaukee() {
               <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: "white", color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center", border: `1px solid ${c.beige}` }}>
                 Best Patios
               </Link>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: "white", color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center", border: `1px solid ${c.beige}` }}>
+                Best Happy Hour
+              </Link>
               <Link href="/events" style={{ display: "block", backgroundColor: "white", color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center", border: `1px solid ${c.beige}` }}>
                 Events Calendar
               </Link>

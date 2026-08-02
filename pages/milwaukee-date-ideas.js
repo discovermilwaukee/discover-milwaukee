@@ -1932,6 +1932,20 @@ export default function MilwaukeeDateIdeas() {
               >
                 Things To Do
               </Link>
+              <Link
+                href="/best-happy-hour-milwaukee"
+                style={{
+                  backgroundColor: colors.green2,
+                  color: colors.cream,
+                  padding: '16px 32px',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  display: 'inline-block',
+                }}
+              >
+                Best Happy Hour
+              </Link>
             </div>
           </div>
         </section>
