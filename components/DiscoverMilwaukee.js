@@ -2716,10 +2716,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </h1>
 
               {/* Brand alt logo — Hoan Bridge over the wordmark (brand signature) */}
-              <img src="/images/discover-milwaukee-altlogo.png" alt="Discover Milwaukee" width="320" height="320" style={{ width: isMobile ? "220px" : "300px", height: "auto", display: "block", margin: isMobile ? "22px auto 0" : "30px auto 0" }} />
+              <img src="/images/discover-milwaukee-altlogo.png" alt="Discover Milwaukee" width="320" height="320" style={{ width: isMobile ? "220px" : "300px", height: "auto", display: "block", margin: isMobile ? "6px auto 0" : "8px auto 0" }} />
 
               {/* Subdeck */}
-              <p className="dm-fade-up dm-delay-2" style={{ color: c.green2, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "22px auto 0" : "26px auto 0", maxWidth: "560px" }}>
+              <p className="dm-fade-up dm-delay-2" style={{ color: c.green2, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "8px auto 0" : "10px auto 0", maxWidth: "560px" }}>
                 The hidden gems, the local favorites, and the openings worth your Saturday — chosen by people who actually live here and delivered in one five-minute email each week.
               </p>
 
