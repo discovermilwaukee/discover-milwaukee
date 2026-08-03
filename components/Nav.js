@@ -68,7 +68,7 @@ export default function Nav() {
       {/* Banner */}
       <header role="banner">
         <div style={{ backgroundColor: c.green1, color: c.cream, padding: "10px 16px", textAlign: "center", fontSize: isMobile ? "12px" : "14px" }}>
-          Your Weekly Guide to Everything Milwaukee — Delivered Free 📬
+          Your Weekly Guide to Everything Milwaukee — Delivered Free
         </div>
       </header>
 
@@ -320,9 +320,18 @@ export default function Nav() {
                 textAlign: "center",
                 border: currentPage === "partner" ? `2px solid ${c.yellow}` : "none",
                 textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
               }}
             >
-              🤝 Partner With Us
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                <path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"></path>
+                <path d="M3 12.5h18"></path>
+              </svg>
+              Partner With Us
             </Link>
           </div>
         )}

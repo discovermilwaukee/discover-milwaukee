@@ -10,6 +10,10 @@ import { GUIDE_CATEGORIES } from "../lib/guides";
 // Display typeface for home-page headlines (loaded in _document.js). Falls back
 // to system-ui everywhere it isn't applied, so guide pages are untouched.
 const DISPLAY_FONT = "'Anton', system-ui, -apple-system, sans-serif";
+// Brand type system (free substitutes for the paid brand fonts).
+// Scoped to the home page via an inline wrapper so guide pages are untouched.
+const BODY_FONT = "'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif";
+const SCRIPT_FONT = "'Damion', 'Brush Script MT', cursive";
 
 // Custom hook for responsive breakpoints
 const useResponsive = () => {
@@ -1716,6 +1720,44 @@ const Icons = {
   ChevronRight: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9,18 15,12 9,6"/></svg>,
 };
 
+// -----------------------------------------------------------------------------
+// LINE ICON SET (home page) — one cohesive family that replaces every emoji.
+// Editorial line art: 24px grid, 1.6px stroke, currentColor, round joins.
+// -----------------------------------------------------------------------------
+const lineProps = (size) => ({ width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" });
+const LineIcons = {
+  Compass: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="12" cy="12" r="9"/><path d="M16.2 7.8l-2.1 5.3-5.3 2.1 2.1-5.3z"/></svg>,
+  Utensils: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M6 3v6a2.2 2.2 0 0 0 4.4 0V3"/><path d="M8.2 11v10"/><path d="M16.5 3c-1.4 1-2.2 3.2-2.2 6 0 2.2.9 3.6 2.2 4.2V21"/></svg>,
+  Taco: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M2.5 15.5a9.5 9.5 0 0 1 19 0Z"/><path d="M6 12.5l1 3M10 10.7l.5 4.8M14 10.7l-.5 4.8M18 12.5l-1 3"/></svg>,
+  Pizza: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M3 6l9 15 9-15a20 20 0 0 0-18 0z"/><path d="M3 6a20 20 0 0 1 18 0"/><circle cx="10" cy="9.5" r="1"/><circle cx="14" cy="9.5" r="1"/><circle cx="12" cy="14" r="1"/></svg>,
+  BeerMug: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M6 8h9v12H6z"/><path d="M15 10h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3"/><path d="M6 8a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3"/><path d="M9 5V4M12 5V4"/></svg>,
+  Cocktail: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M4 5h16l-8 8z"/><path d="M12 13v6"/><path d="M8 21h8"/><path d="M15 8l3-3"/></svg>,
+  Music: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M9 18V6l10-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>,
+  Gem: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18"/><path d="M8.5 3 6 9l6 12 6-12-2.5-6"/></svg>,
+  Car: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M5 11l1.6-4.2A2 2 0 0 1 8.5 5.5h7a2 2 0 0 1 1.9 1.3L19 11"/><rect x="3" y="11" width="18" height="5" rx="1.5"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>,
+  Umbrella: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 3v2"/><path d="M3 12a9 9 0 0 1 18 0Z"/><path d="M12 12v6a2.5 2.5 0 0 0 5 0"/></svg>,
+  Paw: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="7" cy="9" r="1.6"/><circle cx="12" cy="7.5" r="1.7"/><circle cx="17" cy="9" r="1.6"/><path d="M12 12c-2.5 0-4.5 2-4.5 4a2.5 2.5 0 0 0 2.5 2.5c.9 0 1.3-.5 2-.5s1.1.5 2 .5a2.5 2.5 0 0 0 2.5-2.5c0-2-2-4-4.5-4z"/></svg>,
+  Calendar: ({ size = 24 } = {}) => <svg {...lineProps(size)}><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>,
+  Buildings: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M3 21V8l6-3v16"/><path d="M9 21V10l6-3v14"/><path d="M15 21V12l6-3v12"/><path d="M2 21h20"/></svg>,
+  Ticket: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M4 7h16v3a2 2 0 0 0 0 4v3H4v-3a2 2 0 0 0 0-4z"/><path d="M14 7v2M14 11v2M14 15v2"/></svg>,
+  Sparkle: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 3.5v3M20.5 5h-3"/></svg>,
+  Pin: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 21s-6.5-5.5-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.5"/></svg>,
+  Bolt: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>,
+  BookOpen: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 6C10.5 5 8 4.5 4 4.5V18c4 0 6.5.5 8 1.5"/><path d="M12 6c1.5-1 4-1.5 8-1.5V18c-4 0-6.5.5-8 1.5"/><path d="M12 6v13.5"/></svg>,
+  Mail: ({ size = 24 } = {}) => <svg {...lineProps(size)}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>,
+  Briefcase: ({ size = 24 } = {}) => <svg {...lineProps(size)}><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/><path d="M3 12h18"/></svg>,
+  Palette: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 3a9 9 0 1 0 0 18c1 0 1.8-.8 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H16a5 5 0 0 0 5-5c0-3.9-4-7-9-7z"/><circle cx="7.5" cy="11" r="1"/><circle cx="11" cy="7.5" r="1"/><circle cx="15.5" cy="8.5" r="1"/></svg>,
+  Basketball: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/><path d="M5.5 5.5C8 8 8 16 5.5 18.5M18.5 5.5C16 8 16 16 18.5 18.5"/></svg>,
+  Mic: ({ size = 24 } = {}) => <svg {...lineProps(size)}><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v4M9 21h6"/></svg>,
+  Users: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5.5"/><path d="M17 14.5a6 6 0 0 1 4 5.5"/></svg>,
+  Moon: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>,
+  Tree: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 3l6 8h-3l3 5H6l3-5H6z"/><path d="M12 16v5"/></svg>,
+  Dumbbell: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10"/></svg>,
+  Bag: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>,
+  Star: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z"/></svg>,
+  Sun: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>,
+};
+
 // MAIN COMPONENT
 export function DiscoverMilwaukee({ initialPage = "home" }) {
   const router = useRouter();
@@ -2384,7 +2426,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   )}
                   {globalSearchResults.events.length === 0 && globalSearchResults.articles.length === 0 && globalSearchResults.guides.length === 0 && (
                     <div style={{ textAlign: "center", padding: "40px 20px" }}>
-                      <span style={{ fontSize: "48px", display: "block", marginBottom: "16px" }}>🔍</span>
+                      <span style={{ display: "flex", justifyContent: "center", marginBottom: "16px", color: colors.tan }}><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
                       <p style={{ color: darkMode ? colors.black : colors.green1, fontWeight: "700", marginBottom: "8px" }}>No results found</p>
                       <p style={{ color: colors.tan, fontSize: "14px" }}>Try searching for something else</p>
                     </div>
@@ -2487,7 +2529,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {/* Banner */}
       <header role="banner">
         <div style={{ backgroundColor: darkMode ? colors.green1 : c.green1, color: darkMode ? colors.black : c.cream, padding: "10px 16px", textAlign: "center", fontSize: isMobile ? "12px" : "14px" }}>
-          Your Weekly Guide to Everything Milwaukee — Delivered Free 📬
+          Your Weekly Guide to Everything Milwaukee — Delivered Free
         </div>
       </header>
 
@@ -2554,15 +2596,16 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   border: "none", 
                   cursor: "pointer", 
                   padding: "8px",
-                  fontSize: "20px"
+                  color: darkMode ? colors.navText : c.green1,
+                  display: "flex"
                 }}
                 aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
               >
-                {darkMode ? "☀️" : "🌙"}
+                {darkMode ? <LineIcons.Sun size={20} /> : <LineIcons.Moon size={20} />}
               </button>
             </div>
           )}
-          
+
           {/* Mobile Nav Icons */}
           {isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -2589,13 +2632,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   border: "none", 
                   cursor: "pointer", 
                   padding: "8px",
-                  fontSize: "18px"
+                  color: darkMode ? colors.navText : c.green1,
+                  display: "flex"
                 }}
                 aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
               >
-                {darkMode ? "☀️" : "🌙"}
+                {darkMode ? <LineIcons.Sun size={18} /> : <LineIcons.Moon size={18} />}
               </button>
-              
+
               {/* Hamburger */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
@@ -2647,7 +2691,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 border: page === "partner" ? `2px solid ${c.yellow}` : "none"
               }}
             >
-              🤝 Partner With Us
+              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px" }}><LineIcons.Briefcase size={18} /> Partner With Us</span>
             </div>
           </div>
         )}
@@ -2655,128 +2699,117 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
       {/* HOME */}
       {page === "home" && (
-        <>
-          <section style={{ position: "relative", overflow: "hidden", background: `radial-gradient(1200px 520px at 12% -15%, ${c.green2} 0%, ${c.green1} 52%, #21402a 100%)`, padding: isMobile ? "44px 16px 0" : "84px 16px 0" }}>
-            {/* Subtle dot texture for depth (decorative) */}
-            <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
-            <div style={{ position: "relative", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1.05fr 0.95fr", gap: isMobile ? "32px" : "56px", alignItems: "center", paddingBottom: isMobile ? "44px" : "84px" }}>
-              <div className="dm-fade-up">
-                <p style={{ color: c.yellow, fontSize: isMobile ? "11px" : "13px", fontWeight: "800", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>The Original Milwaukee Insider</p>
-                <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "42px" : "68px", fontWeight: "400", color: c.cream, lineHeight: 1.02, letterSpacing: "0.5px", marginBottom: "18px", textTransform: "uppercase" }}>
-                  Your Insider's <span style={{ color: c.yellow }}>Guide</span> to Milwaukee
-                </h1>
-                <p style={{ color: c.beige, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, marginBottom: "26px", maxWidth: "480px" }}>The hidden gems. The local favorites. The spots only real Milwaukeeans know about. One email, once a week — no fluff.</p>
+        <div style={{ fontFamily: BODY_FONT, backgroundColor: c.cream }}>
+          {/* ===== EDITORIAL HERO / MASTHEAD ===== */}
+          <section style={{ position: "relative", overflow: "hidden", backgroundColor: c.cream, padding: isMobile ? "40px 16px 0" : "76px 16px 0" }}>
+            <div style={{ maxWidth: "960px", margin: "0 auto", textAlign: "center" }}>
+              {/* Nameplate: real brand mark + kicker */}
+              <div className="dm-fade-up" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: isMobile ? "22px" : "30px" }}>
+                <img src="/images/discover-milwaukee-logo.png" alt="Discover Milwaukee" width="96" height="96" style={{ width: isMobile ? "72px" : "96px", height: "auto" }} />
+                <p style={{ color: c.tan, fontSize: isMobile ? "10px" : "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2019</p>
+              </div>
+
+              {/* Masthead headline — Anton with a Damion script accent */}
+              <h1 className="dm-fade-up dm-delay-1" style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "38px" : "70px", fontWeight: "400", color: c.green1, lineHeight: 1.03, letterSpacing: "0.5px", textTransform: "uppercase", margin: "0 auto", maxWidth: "840px" }}>
+                The insider's guide to a city worth{" "}
+                <span style={{ fontFamily: SCRIPT_FONT, color: c.blue2, textTransform: "none", fontSize: isMobile ? "46px" : "84px", letterSpacing: 0 }}>knowing</span>
+              </h1>
+
+              {/* Yellow Hoan Bridge — brand signature (bridge must always remain yellow) */}
+              <svg aria-hidden="true" viewBox="0 0 400 62" style={{ width: isMobile ? "240px" : "320px", height: "auto", display: "block", margin: isMobile ? "22px auto 0" : "30px auto 0" }}>
+                <g fill="none" stroke={c.yellow} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M40 44 Q200 4 360 44" />
+                  <path d="M20 44 H380" />
+                  <path d="M20 44 L8 58 M20 44 L32 58" />
+                  <path d="M380 44 L392 58 M380 44 L368 58" />
+                  <line x1="100" y1="31.8" x2="100" y2="44" strokeWidth="4" />
+                  <line x1="140" y1="26.8" x2="140" y2="44" strokeWidth="4" />
+                  <line x1="200" y1="24" x2="200" y2="44" strokeWidth="4" />
+                  <line x1="260" y1="26.8" x2="260" y2="44" strokeWidth="4" />
+                  <line x1="300" y1="31.8" x2="300" y2="44" strokeWidth="4" />
+                </g>
+              </svg>
+
+              {/* Subdeck */}
+              <p className="dm-fade-up dm-delay-2" style={{ color: c.green2, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "22px auto 0" : "26px auto 0", maxWidth: "560px" }}>
+                The hidden gems, the local favorites, and the openings worth your Saturday — chosen by people who actually live here and delivered in one five-minute email each week.
+              </p>
+
+              {/* Single email capture */}
+              <div className="dm-fade-up dm-delay-3" style={{ margin: isMobile ? "26px auto 0" : "30px auto 0", maxWidth: "480px" }}>
                 {subscribeStatus === "success" ? (
-                  <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", marginBottom: "12px", maxWidth: "460px" }}>
-                    <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox to confirm.</p>
+                  <div style={{ backgroundColor: c.green1, borderRadius: "10px", padding: "18px 24px" }}>
+                    <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>You're in. Check your inbox to confirm.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "460px", marginBottom: "14px" }}>
-                    <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "17px 22px", borderRadius: "50px", border: "none", fontSize: "15px", boxShadow: "0 6px 20px rgba(0,0,0,0.18)" }} />
-                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "17px 32px", color: c.green1, fontWeight: "800", border: "none", borderRadius: "50px", fontSize: "15px", whiteSpace: "nowrap", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
-                      {subscribeStatus === "loading" ? "Joining..." : "Get the Guide"}
+                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "10px" }}>
+                    <input type="email" placeholder="you@email.com" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "16px 18px", borderRadius: "10px", border: `1px solid ${c.beige}`, backgroundColor: c.white, fontSize: "15px", color: c.green1, fontFamily: BODY_FONT }} />
+                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                      {subscribeStatus === "loading" ? "Joining…" : "Get the Guide"}
                     </button>
                   </form>
                 )}
-                <p style={{ color: c.beige, fontSize: "13px", opacity: 0.85, marginBottom: "28px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
+                <p style={{ color: c.tan, fontSize: "12.5px", marginTop: "12px", letterSpacing: "0.3px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
+              </div>
 
-                {/* Trust strip — accurate, canonical stats */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "20px" : "32px", alignItems: "center" }}>
-                  {[
-                    { n: "37.1M+", l: "views a year" },
-                    { n: "99", l: "local guides" },
-                    { n: "7 yrs", l: "covering MKE" }
-                  ].map((s, i) => (
-                    <div key={i} style={{ display: "flex", flexDirection: "column" }}>
-                      <span style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "22px" : "26px", lineHeight: 1 }}>{s.n}</span>
-                      <span style={{ color: c.beige, fontSize: "12px", opacity: 0.85, textTransform: "uppercase", letterSpacing: "1px" }}>{s.l}</span>
+              {/* Trust strip — canonical stats, hairline dividers */}
+              <div className="dm-fade-up dm-delay-4" style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: isMobile ? "16px" : "28px", margin: isMobile ? "30px auto 0" : "40px auto 0", padding: isMobile ? "18px 20px" : "18px 32px", borderTop: `1px solid ${c.beige}`, borderBottom: `1px solid ${c.beige}` }}>
+                {[
+                  { n: "37.1M+", l: "views a year" },
+                  { n: "99", l: "local guides" },
+                  { n: "7 yrs", l: "covering MKE" }
+                ].map((s, i) => (
+                  <React.Fragment key={i}>
+                    {i > 0 && <span aria-hidden="true" style={{ width: "1px", height: "28px", backgroundColor: c.beige }} />}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <span style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: isMobile ? "22px" : "26px", lineHeight: 1 }}>{s.n}</span>
+                      <span style={{ color: c.tan, fontSize: "11px", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "6px" }}>{s.l}</span>
                     </div>
-                  ))}
-                </div>
-                <p onClick={() => { navigateTo("partner"); setShowPartnerForm(true); }} style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", marginTop: "18px", cursor: "pointer", display: "inline-block" }}>
-                  Brands & partners: reach 37.1M+ views a year →
-                </p>
+                  </React.Fragment>
+                ))}
               </div>
 
-              <div style={{ display: "flex", justifyContent: "center" }} className="dm-fade-up dm-delay-2">
-                <div className="dm-float" style={{ background: "linear-gradient(160deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", border: "1px solid rgba(255,255,255,0.18)", borderRadius: "24px", padding: isMobile ? "26px" : "34px", width: "100%", maxWidth: "400px", boxShadow: "0 24px 60px rgba(0,0,0,0.28)" }}>
-                  <h2 style={{ color: c.yellow, fontSize: "13px", fontWeight: "800", marginBottom: "22px", textTransform: "uppercase", letterSpacing: "2px" }}>What You'll Get</h2>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-                    {[
-                      { icon: "🎯", title: "Curated, Not Cluttered", desc: "We filter the noise so you don't have to." },
-                      { icon: "📍", title: "Actually Local", desc: "Written by people who live here and go to these places." },
-                      { icon: "⚡", title: "A 5-Minute Read", desc: "Just the highlights, every single week." }
-                    ].map((item, i) => (
-                      <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                        <span style={{ fontSize: "26px", flexShrink: 0, lineHeight: 1 }}>{item.icon}</span>
-                        <div>
-                          <h3 style={{ color: c.cream, fontSize: "15px", fontWeight: "700", marginBottom: "4px" }}>{item.title}</h3>
-                          <p style={{ color: c.beige, fontSize: "13px", lineHeight: 1.45, opacity: 0.9 }}>{item.desc}</p>
-                        </div>
-                      </div>
-                    ))}
+              {/* What you'll get — three points, custom line icons */}
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? "20px" : "28px", margin: isMobile ? "34px auto 0" : "48px auto 0", maxWidth: "780px", textAlign: "left" }}>
+                {[
+                  { Icon: LineIcons.Sparkle, title: "Curated, not cluttered", desc: "We filter the noise so you don't have to." },
+                  { Icon: LineIcons.Pin, title: "Actually local", desc: "Written by people who live here and go to these places." },
+                  { Icon: LineIcons.Bolt, title: "A five-minute read", desc: "Just the highlights, every single week." }
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                    <span style={{ color: c.blue2, flexShrink: 0, marginTop: "1px" }}><item.Icon size={26} /></span>
+                    <div>
+                      <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px", fontFamily: BODY_FONT }}>{item.title}</h3>
+                      <p style={{ color: c.tan, fontSize: "13.5px", lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            </div>
 
-            {/* Original Milwaukee skyline silhouette (decorative vector art) */}
-            <svg aria-hidden="true" viewBox="0 0 1200 180" preserveAspectRatio="none" style={{ position: "relative", display: "block", width: "100%", height: isMobile ? "80px" : "150px" }}>
-              {/* back layer */}
-              <g fill="rgba(0,0,0,0.16)">
-                <rect x="60" y="90" width="70" height="90" />
-                <rect x="150" y="70" width="46" height="110" />
-                <rect x="470" y="80" width="60" height="100" />
-                <rect x="720" y="96" width="80" height="84" />
-                <rect x="980" y="78" width="52" height="102" />
-                <rect x="1080" y="100" width="70" height="80" />
-              </g>
-              {/* front layer */}
-              <g fill="rgba(0,0,0,0.30)">
-                {/* grain elevator cluster */}
-                <rect x="20" y="110" width="18" height="70" /><rect x="40" y="110" width="18" height="70" /><rect x="60" y="110" width="18" height="70" />
-                {/* Basilica spire */}
-                <rect x="210" y="66" width="30" height="114" /><polygon points="210,66 225,30 240,66" />
-                {/* mid tower */}
-                <rect x="270" y="50" width="54" height="130" /><rect x="278" y="34" width="38" height="16" />
-                {/* US Bank Center (tall) */}
-                <rect x="360" y="8" width="66" height="172" /><polygon points="360,8 393,-14 426,8" />
-                {/* Northwestern Mutual */}
-                <rect x="452" y="40" width="58" height="140" /><rect x="452" y="40" width="58" height="10" fill="rgba(240,166,35,0.5)" />
-                {/* Allen-Bradley clock tower */}
-                <rect x="548" y="70" width="52" height="110" /><rect x="556" y="52" width="36" height="18" /><rect x="566" y="40" width="16" height="12" />
-                <circle cx="574" cy="88" r="7" fill="rgba(247,241,231,0.85)" />
-                {/* Milwaukee Art Museum wings (Calatrava) */}
-                <polygon points="640,150 720,110 720,150" />
-                <polygon points="800,150 720,110 720,150" />
-                <rect x="716" y="110" width="8" height="70" />
-                {/* block towers right of center */}
-                <rect x="840" y="56" width="50" height="124" />
-                <rect x="900" y="88" width="40" height="92" />
-                <rect x="955" y="30" width="60" height="150" /><polygon points="955,30 985,10 1015,30" />
-                <rect x="1040" y="72" width="46" height="108" />
-                <rect x="1100" y="96" width="60" height="84" />
-                <rect x="1168" y="120" width="24" height="60" />
-              </g>
-            </svg>
+              <p onClick={() => { navigateTo("partner"); setShowPartnerForm(true); }} style={{ color: c.blue2, fontSize: "13px", fontWeight: "600", margin: isMobile ? "28px 0 0" : "40px 0 0", paddingBottom: isMobile ? "8px" : "8px", cursor: "pointer", display: "inline-block" }}>
+                Brands &amp; partners: reach 37.1M+ views a year →
+              </p>
+            </div>
           </section>
 
           {/* PROMOTED EVENTS */}
-          <section style={{ padding: "60px 16px", backgroundColor: c.white }}>
+          <section style={{ padding: isMobile ? "56px 16px" : "84px 16px", backgroundColor: c.white }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              <div style={{ textAlign: "center", marginBottom: "32px" }}>
-                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>Don't Miss Out</p>
-                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.green1, textTransform: "uppercase", marginBottom: "8px", letterSpacing: "0.5px" }}>This Week in Milwaukee</h2>
-                <p style={{ color: c.tan, fontSize: "16px", marginBottom: "16px" }}>Handpicked events worth your time</p>
+              {/* Editorial section header */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "20px", borderBottom: `1px solid ${c.beige}`, paddingBottom: "20px", marginBottom: "36px" }}>
+                <div>
+                  <p style={{ color: c.orange, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>The Agenda</p>
+                  <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: 0 }}>This Week in Milwaukee</h2>
+                </div>
                 {/* Sponsor */}
-                <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", backgroundColor: c.cream, padding: "10px 20px", borderRadius: "50px", border: `1px solid ${c.beige}` }}>
-                  <span style={{ color: c.tan, fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Presented by</span>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: c.tan, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
                   <a href="https://nicoletlaw.com" target="_blank" rel="noopener noreferrer sponsored" style={{ display: "flex", alignItems: "center" }}>
                     <img src="/images/nicolet-law-logo.png" alt="Nicolet Law - Accident & Injury Lawyers" style={{ height: "28px", width: "auto" }} />
                   </a>
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "20px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "16px" : "24px" }}>
                 {(() => {
                   // Get this week's events, prioritizing featured ones
                   const thisWeekEvents = getThisWeekEvents(events);
@@ -2786,31 +2819,32 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     : [...featuredThisWeek, ...thisWeekEvents.filter(e => !e.featured)].slice(0, 4);
                   return displayEvents;
                 })().map((event, i) => {
-                  const categoryIcons = {
-                    "Arts": "🎨", "Sports": "🏀", "Food & Drink": "🍸", "Comedy": "🎤",
-                    "Live Music": "🎵", "Family": "👨‍👩‍👧‍👦", "Nightlife": "🌙", "Outdoors": "🌲",
-                    "Fitness": "💪", "Shopping": "🛍️"
+                  const eventCategoryIcons = {
+                    "Arts": LineIcons.Palette, "Sports": LineIcons.Basketball, "Food & Drink": LineIcons.Cocktail, "Comedy": LineIcons.Mic,
+                    "Live Music": LineIcons.Music, "Family": LineIcons.Users, "Nightlife": LineIcons.Moon, "Outdoors": LineIcons.Tree,
+                    "Fitness": LineIcons.Dumbbell, "Shopping": LineIcons.Bag
                   };
+                  const EventIcon = eventCategoryIcons[event.category] || LineIcons.Calendar;
                   const eventDate = new Date(event.startDateTime);
                   const dateStr = eventDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
                   const timeStr = event.allDay ? "All Day" : eventDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
                   return (
-                    <div key={event.id || i} onClick={() => { setSelectedEvent(event); navigateTo("events"); }} style={{ backgroundColor: c.cream, borderRadius: "16px", padding: "24px", cursor: "pointer", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", transition: "transform 0.2s, box-shadow 0.2s", border: `2px solid transparent` }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = c.yellow; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; e.currentTarget.style.borderColor = "transparent"; }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
-                        <span style={{ fontSize: "32px" }}>{categoryIcons[event.category] || "📅"}</span>
-                        <span style={{ backgroundColor: c.green1, color: c.cream, padding: "4px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "700", textTransform: "uppercase" }}>{event.category}</span>
+                    <div key={event.id || i} onClick={() => { setSelectedEvent(event); navigateTo("events"); }} className="dm-card" style={{ backgroundColor: c.cream, borderRadius: "12px", padding: "22px", cursor: "pointer", border: `1px solid ${c.beige}` }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+                        <span style={{ color: c.green1 }}><EventIcon size={30} /></span>
+                        <span style={{ color: c.tan, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "4px" }}>{event.category}</span>
                       </div>
-                      <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", marginBottom: "8px", lineHeight: 1.3 }}>{event.title}</h3>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                        <p style={{ color: c.tan, fontSize: "13px", fontWeight: "600" }}>{dateStr} • {timeStr}</p>
+                      <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "12px", lineHeight: 1.3, fontFamily: BODY_FONT }}>{event.title}</h3>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "3px", borderTop: `1px solid ${c.beige}`, paddingTop: "12px" }}>
+                        <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600" }}>{dateStr} · {timeStr}</p>
                         <p style={{ color: c.tan, fontSize: "12px" }}>{event.venueName}</p>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              <div style={{ textAlign: "center", marginTop: "32px" }}>
-                <button onClick={() => navigateTo("events")} style={{ padding: "14px 32px", backgroundColor: c.green1, color: c.cream, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "700", fontSize: "14px", textTransform: "uppercase" }}>
+              <div style={{ textAlign: "center", marginTop: "36px" }}>
+                <button onClick={() => navigateTo("events")} style={{ padding: "13px 30px", backgroundColor: "transparent", color: c.green1, borderRadius: "8px", border: `1.5px solid ${c.green1}`, cursor: "pointer", fontWeight: "700", fontSize: "13px", textTransform: "uppercase", letterSpacing: "1px", fontFamily: BODY_FONT, transition: "all 0.2s" }} onMouseOver={e => { e.currentTarget.style.backgroundColor = c.green1; e.currentTarget.style.color = c.cream; }} onMouseOut={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = c.green1; }}>
                   View All Events →
                 </button>
               </div>
@@ -2818,103 +2852,76 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </section>
 
           {/* POPULAR GUIDES - Internal Linking for SEO */}
-          <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
+          <section style={{ padding: isMobile ? "56px 16px" : "84px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              <div style={{ textAlign: "center", marginBottom: "32px" }}>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>99 Local Guides</p>
-                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.green1, textTransform: "uppercase", marginBottom: "8px", letterSpacing: "0.5px" }}>Explore Milwaukee</h2>
-                <p style={{ color: c.tan, fontSize: "16px" }}>In-depth guides written by locals, updated for 2026</p>
+              {/* Editorial section header */}
+              <div style={{ borderBottom: `1px solid ${c.beige}`, paddingBottom: "20px", marginBottom: "32px" }}>
+                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>99 Local Guides</p>
+                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: "0 0 10px" }}>Explore Milwaukee</h2>
+                <p style={{ color: c.tan, fontSize: "16px", margin: 0 }}>In-depth guides written by locals, updated for 2026.</p>
               </div>
 
               {/* Category Quick Links */}
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px", marginBottom: "32px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "32px" }}>
                 {[
-                  { title: "Food & Dining", icon: "🍽️", color: "#e17055" },
-                  { title: "Bars & Nightlife", icon: "🍸", color: "#6c5ce7" },
-                  { title: "Activities", icon: "🎯", color: "#00b894" },
-                  { title: "Neighborhoods", icon: "🏘️", color: "#0984e3" },
-                  { title: "Weekend Guides", icon: "📅", color: "#d35400" },
+                  { title: "Food & Dining", Icon: LineIcons.Utensils },
+                  { title: "Bars & Nightlife", Icon: LineIcons.Cocktail },
+                  { title: "Activities", Icon: LineIcons.Ticket },
+                  { title: "Neighborhoods", Icon: LineIcons.Buildings },
+                  { title: "Weekend Guides", Icon: LineIcons.Calendar },
                 ].map((cat, i) => (
                   <a
                     key={i}
                     href="/explore"
                     onClick={(e) => { e.preventDefault(); navigateTo("explore"); }}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      padding: "10px 18px",
-                      backgroundColor: c.white,
-                      color: c.green1,
-                      border: `2px solid ${cat.color}`,
-                      borderRadius: "50px",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                      transition: "all 0.2s"
-                    }}
-                    onMouseOver={e => {
-                      e.currentTarget.style.backgroundColor = cat.color;
-                      e.currentTarget.style.color = c.white;
-                    }}
-                    onMouseOut={e => {
-                      e.currentTarget.style.backgroundColor = c.white;
-                      e.currentTarget.style.color = c.green1;
-                    }}
+                    style={{ display: "flex", alignItems: "center", gap: "9px", padding: "10px 18px", backgroundColor: c.white, color: c.green1, border: `1px solid ${c.beige}`, borderRadius: "50px", textDecoration: "none", cursor: "pointer", transition: "all 0.2s" }}
+                    onMouseOver={e => { e.currentTarget.style.backgroundColor = c.green1; e.currentTarget.style.color = c.cream; e.currentTarget.style.borderColor = c.green1; }}
+                    onMouseOut={e => { e.currentTarget.style.backgroundColor = c.white; e.currentTarget.style.color = c.green1; e.currentTarget.style.borderColor = c.beige; }}
                   >
-                    <span style={{ fontSize: "18px" }}>{cat.icon}</span>
-                    <span style={{ fontSize: "14px", fontWeight: "700", color: "inherit" }}>{cat.title}</span>
+                    <span style={{ display: "flex", color: "inherit" }}><cat.Icon size={18} /></span>
+                    <span style={{ fontSize: "14px", fontWeight: "600", color: "inherit", fontFamily: BODY_FONT }}>{cat.title}</span>
                   </a>
                 ))}
               </div>
 
-              {/* Featured Guides Grid - Now with 12 guides including new ones */}
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : isTablet ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: "16px", marginBottom: "24px" }}>
+              {/* Featured Guides Grid */}
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : isTablet ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "28px" }}>
                 {[
-                  { title: "Things to Do", desc: "Complete activity guide", href: "/things-to-do-milwaukee", icon: "🎯" },
-                  { title: "Best Restaurants", desc: "Top dining spots", href: "/best-restaurants-milwaukee", icon: "🍽️" },
-                  { title: "Best Tacos", desc: "Taco spots ranked", href: "/best-tacos-milwaukee", icon: "🌮" },
-                  { title: "Best Pizza", desc: "Pizza guide", href: "/best-pizza-milwaukee", icon: "🍕" },
-                  { title: "Best Dive Bars", desc: "Classic dives", href: "/best-dive-bars-milwaukee", icon: "🍺" },
-                  { title: "Cocktail Bars", desc: "Craft cocktails", href: "/best-cocktail-bars-milwaukee", icon: "🍹" },
-                  { title: "Live Music", desc: "Where to see shows", href: "/live-music-milwaukee", icon: "🎵" },
-                  { title: "Hidden Gems", desc: "Secret local spots", href: "/hidden-gems-milwaukee", icon: "💎" },
-                  { title: "Day Trips", desc: "Nearby escapes", href: "/day-trips-milwaukee", icon: "🚗" },
-                  { title: "Rainy Day", desc: "Indoor activities", href: "/rainy-day-milwaukee", icon: "🌧️" },
-                  { title: "Dog Friendly", desc: "Pet-friendly spots", href: "/dog-friendly-milwaukee", icon: "🐕" },
-                  { title: "This Weekend", desc: "What's happening", href: "/this-weekend-milwaukee", icon: "📅" },
+                  { title: "Things to Do", desc: "Complete activity guide", href: "/things-to-do-milwaukee", Icon: LineIcons.Compass },
+                  { title: "Best Restaurants", desc: "Top dining spots", href: "/best-restaurants-milwaukee", Icon: LineIcons.Utensils },
+                  { title: "Best Tacos", desc: "Taco spots ranked", href: "/best-tacos-milwaukee", Icon: LineIcons.Taco },
+                  { title: "Best Pizza", desc: "Pizza guide", href: "/best-pizza-milwaukee", Icon: LineIcons.Pizza },
+                  { title: "Best Dive Bars", desc: "Classic dives", href: "/best-dive-bars-milwaukee", Icon: LineIcons.BeerMug },
+                  { title: "Cocktail Bars", desc: "Craft cocktails", href: "/best-cocktail-bars-milwaukee", Icon: LineIcons.Cocktail },
+                  { title: "Live Music", desc: "Where to see shows", href: "/live-music-milwaukee", Icon: LineIcons.Music },
+                  { title: "Hidden Gems", desc: "Secret local spots", href: "/hidden-gems-milwaukee", Icon: LineIcons.Gem },
+                  { title: "Day Trips", desc: "Nearby escapes", href: "/day-trips-milwaukee", Icon: LineIcons.Car },
+                  { title: "Rainy Day", desc: "Indoor activities", href: "/rainy-day-milwaukee", Icon: LineIcons.Umbrella },
+                  { title: "Dog Friendly", desc: "Pet-friendly spots", href: "/dog-friendly-milwaukee", Icon: LineIcons.Paw },
+                  { title: "This Weekend", desc: "What's happening", href: "/this-weekend-milwaukee", Icon: LineIcons.Calendar },
                 ].map((guide, i) => (
-                  <a key={i} href={guide.href} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "14px", padding: "20px", textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", display: "block", border: `2px solid transparent` }} onMouseOver={e => { e.currentTarget.style.borderColor = c.yellow; }} onMouseOut={e => { e.currentTarget.style.borderColor = "transparent"; }}>
-                    <span style={{ fontSize: "30px", display: "block", marginBottom: "10px" }}>{guide.icon}</span>
-                    <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px" }}>{guide.title}</h3>
+                  <a key={i} href={guide.href} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "12px", padding: "22px 20px", textDecoration: "none", border: `1px solid ${c.beige}`, display: "block" }}>
+                    <span style={{ color: c.green1, display: "block", marginBottom: "14px" }}><guide.Icon size={30} /></span>
+                    <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px", fontFamily: BODY_FONT }}>{guide.title}</h3>
                     <p style={{ color: c.tan, fontSize: "13px", margin: 0 }}>{guide.desc}</p>
                   </a>
                 ))}
               </div>
 
               {/* Browse All Guides Button */}
-              <div style={{ textAlign: "center", marginBottom: "32px" }}>
+              <div style={{ textAlign: "center", marginBottom: "40px" }}>
                 <button
                   onClick={() => navigateTo("explore")}
-                  style={{
-                    padding: "14px 32px",
-                    backgroundColor: c.green1,
-                    color: c.cream,
-                    borderRadius: "50px",
-                    border: "none",
-                    cursor: "pointer",
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    textTransform: "uppercase"
-                  }}
+                  style={{ padding: "14px 32px", backgroundColor: c.green1, color: c.cream, borderRadius: "8px", border: "none", cursor: "pointer", fontWeight: "700", fontSize: "13px", textTransform: "uppercase", letterSpacing: "1px", fontFamily: BODY_FONT }}
                 >
                   Browse All 99 Guides →
                 </button>
               </div>
 
               {/* Neighborhood Links */}
-              <div style={{ borderTop: `1px solid ${c.beige}`, paddingTop: "24px" }}>
-                <p style={{ textAlign: "center", color: c.tan, fontSize: "13px", fontWeight: "600", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "1px" }}>Explore by Neighborhood</p>
-                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "12px" }}>
+              <div style={{ borderTop: `1px solid ${c.beige}`, paddingTop: "28px" }}>
+                <p style={{ color: c.tan, fontSize: "12px", fontWeight: "600", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "2px" }}>Explore by Neighborhood</p>
+                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "10px" }}>
                   {[
                     { title: "Third Ward", href: "/third-ward-milwaukee" },
                     { title: "Bay View", href: "/bay-view-milwaukee" },
@@ -2925,8 +2932,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     { title: "Brady Street", href: "/brady-street-milwaukee" },
                     { title: "South Side", href: "/south-side-milwaukee" },
                   ].map((hood, i) => (
-                    <a key={i} href={hood.href} style={{ backgroundColor: c.green1, color: c.cream, padding: "12px 16px", borderRadius: "8px", textDecoration: "none", fontSize: "14px", fontWeight: "600", textAlign: "center", transition: "background-color 0.2s" }} onMouseOver={e => e.currentTarget.style.backgroundColor = c.green2} onMouseOut={e => e.currentTarget.style.backgroundColor = c.green1}>
-                      {hood.title} →
+                    <a key={i} href={hood.href} style={{ backgroundColor: c.white, color: c.green1, padding: "13px 16px", borderRadius: "8px", border: `1px solid ${c.beige}`, textDecoration: "none", fontSize: "14px", fontWeight: "600", display: "flex", justifyContent: "space-between", alignItems: "center", transition: "all 0.2s", fontFamily: BODY_FONT }} onMouseOver={e => { e.currentTarget.style.backgroundColor = c.green1; e.currentTarget.style.color = c.cream; }} onMouseOut={e => { e.currentTarget.style.backgroundColor = c.white; e.currentTarget.style.color = c.green1; }}>
+                      <span>{hood.title}</span><span style={{ color: c.yellow }}>→</span>
                     </a>
                   ))}
                 </div>
@@ -2960,18 +2967,18 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", opacity: 0.7, marginBottom: "44px" }}>Views per year across our channels. *Facebook projected from 11/25 onward.</p>
 
               {/* Secondary conversion — lock in a subscriber */}
-              <div style={{ background: "linear-gradient(150deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "24px", padding: isMobile ? "28px 22px" : "40px", textAlign: "center", maxWidth: "720px", margin: "0 auto" }}>
-                <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "24px" : "32px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Get the good stuff first</h3>
-                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "16px", lineHeight: 1.6, marginBottom: "22px" }}>Join the locals who get Milwaukee's best each week — new spots, events, and hidden gems in one 5-minute email.</p>
+              <div style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "16px", padding: isMobile ? "28px 22px" : "44px", textAlign: "center", maxWidth: "680px", margin: "0 auto" }}>
+                <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "26px" : "34px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Get the good stuff first</h3>
+                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "16px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "460px", marginLeft: "auto", marginRight: "auto" }}>Join the locals who get Milwaukee's best each week — new spots, events, and hidden gems in one five-minute email.</p>
                 {subscribeStatus === "success" ? (
-                  <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", maxWidth: "460px", margin: "0 auto" }}>
-                    <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox to confirm.</p>
+                  <div style={{ backgroundColor: "rgba(255,255,255,0.12)", borderRadius: "10px", padding: "16px 24px", maxWidth: "460px", margin: "0 auto" }}>
+                    <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>You're in. Check your inbox to confirm.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "460px", margin: "0 auto" }}>
-                    <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "17px 22px", borderRadius: "50px", border: "none", fontSize: "15px" }} />
-                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "17px 32px", color: c.green1, fontWeight: "800", border: "none", borderRadius: "50px", fontSize: "15px", whiteSpace: "nowrap", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
-                      {subscribeStatus === "loading" ? "Joining..." : "Get the Guide"}
+                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "10px", maxWidth: "460px", margin: "0 auto" }}>
+                    <input type="email" placeholder="you@email.com" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "16px 18px", borderRadius: "10px", border: "none", fontSize: "15px", fontFamily: BODY_FONT, color: c.green1 }} />
+                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                      {subscribeStatus === "loading" ? "Joining…" : "Get the Guide"}
                     </button>
                   </form>
                 )}
@@ -2980,41 +2987,29 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
           </section>
 
-          <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
+          <section style={{ padding: isMobile ? "56px 16px" : "80px 16px", backgroundColor: c.white }}>
             <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "20px", marginBottom: "20px" }}>
-                {[{ l: "Explore", d: "Guides & local favorites", i: "📚", p: "explore", href: "/explore" }, { l: "Events", d: "What's happening this week", i: "📅", p: "events", href: "/events" }, { l: "Newsletter", d: "Get the weekly scoop", i: "📬", p: "newsletter", href: "/newsletter" }].map(x => (
-                  <a key={x.l} href={x.href} onClick={(e) => { e.preventDefault(); navigateTo(x.p); }} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", cursor: "pointer", textAlign: "center", textDecoration: "none", display: "block", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-                    <span style={{ fontSize: "36px", display: "block", marginBottom: "10px" }}>{x.i}</span>
-                    <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", marginBottom: "6px" }}>{x.l}</h3>
-                    <p style={{ color: c.tan, fontSize: "14px" }}>{x.d}</p>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "16px", marginBottom: "16px" }}>
+                {[{ l: "Explore", d: "Guides & local favorites", Icon: LineIcons.BookOpen, p: "explore", href: "/explore" }, { l: "Events", d: "What's happening this week", Icon: LineIcons.Calendar, p: "events", href: "/events" }, { l: "Newsletter", d: "Get the weekly scoop", Icon: LineIcons.Mail, p: "newsletter", href: "/newsletter" }].map(x => (
+                  <a key={x.l} href={x.href} onClick={(e) => { e.preventDefault(); navigateTo(x.p); }} className="dm-card" style={{ backgroundColor: c.cream, borderRadius: "12px", padding: isMobile ? "22px" : "28px", cursor: "pointer", textDecoration: "none", display: "block", border: `1px solid ${c.beige}` }}>
+                    <span style={{ color: c.green1, display: "block", marginBottom: "14px" }}><x.Icon size={30} /></span>
+                    <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "6px", fontFamily: BODY_FONT }}>{x.l}</h3>
+                    <p style={{ color: c.tan, fontSize: "14px", margin: 0 }}>{x.d}</p>
                   </a>
                 ))}
               </div>
               <a
                 href="/partner"
                 onClick={(e) => { e.preventDefault(); navigateTo("partner"); }}
-                style={{
-                  backgroundColor: c.green1,
-                  borderRadius: "16px",
-                  padding: "24px 28px",
-                  cursor: "pointer",
-                  textAlign: "center",
-                  textDecoration: "none",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "12px"
-                }}
+                style={{ backgroundColor: c.green1, borderRadius: "12px", padding: "24px 28px", cursor: "pointer", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px" }}
               >
-                <span style={{ fontSize: "24px" }}>🤝</span>
-                <h3 style={{ color: c.cream, fontSize: "18px", fontWeight: "800", margin: 0 }}>Partner With Us</h3>
+                <span style={{ color: c.yellow, display: "flex" }}><LineIcons.Briefcase size={26} /></span>
+                <h3 style={{ color: c.cream, fontSize: "18px", fontWeight: "700", margin: 0, fontFamily: BODY_FONT }}>Partner With Us</h3>
                 <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "600" }}>→</span>
               </a>
             </div>
           </section>
-        </>
+        </div>
       )}
 
       {/* EXPLORE */}
@@ -4410,7 +4405,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Bottom Bar */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", display: "flex", flexDirection: isMobile ? "column" : "row", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
             <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8 }}>© 2026 Discover Milwaukee. All rights reserved.</p>
-            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8 }}>Made with 🍺 in Milwaukee, WI</p>
+            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, display: "flex", alignItems: "center", gap: "6px" }}>Made with <LineIcons.BeerMug size={15} /> in Milwaukee, WI</p>
           </div>
         </div>
       </footer>
