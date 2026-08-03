@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 // =============================================================================
 // WEEKLY CONTENT - UPDATE EACH WEEK
@@ -832,6 +834,7 @@ export default function ThisWeekendMilwaukee() {
 
       <main style={{ background: colors.cream, minHeight: '100vh' }}>
         <Nav />
+      <Breadcrumbs />
 
         {/* Hero Header */}
         <header style={{
@@ -944,7 +947,8 @@ export default function ThisWeekendMilwaukee() {
         </div>
 
         {/* Footer Note */}
-        <Footer />
+        <RelatedGuides />
+      <Footer />
       </main>
 
       {/* Global Styles */}

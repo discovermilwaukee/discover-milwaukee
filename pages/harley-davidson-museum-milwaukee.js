@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -276,6 +278,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
       </Head>
 
       <Nav />
+      <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
@@ -632,7 +635,8 @@ export default function HarleyDavidsonMuseumMilwaukee() {
           </section>
         </main>
 
-        <Footer />
+        <RelatedGuides />
+      <Footer />
       </div>
     </>
   );

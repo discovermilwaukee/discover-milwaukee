@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -216,6 +218,7 @@ export default function BestBrunchMilwaukee() {
       </Head>
 
       <Nav />
+      <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.yellow} 0%, ${c.orange} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
@@ -341,7 +344,8 @@ export default function BestBrunchMilwaukee() {
           </section>
         </main>
 
-        <Footer />
+        <RelatedGuides />
+      <Footer />
       </div>
     </>
   );

@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
@@ -162,6 +164,7 @@ export default function MilwaukeeDateIdeas() {
       </Head>
 
       <Nav />
+      <Breadcrumbs />
       <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
           <NewsletterCTA />
 
@@ -1952,7 +1955,8 @@ export default function MilwaukeeDateIdeas() {
         </section>
 
         {/* Footer */}
-        <Footer />
+        <RelatedGuides />
+      <Footer />
       </main>
 
       <style jsx>{`
