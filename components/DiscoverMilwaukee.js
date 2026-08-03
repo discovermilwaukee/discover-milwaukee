@@ -2738,17 +2738,17 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
 
               {/* Trust strip — canonical stats, hairline dividers */}
-              <div className="dm-fade-up dm-delay-4" style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: isMobile ? "16px" : "28px", margin: isMobile ? "30px auto 0" : "40px auto 0", padding: isMobile ? "18px 20px" : "18px 32px", borderTop: `1px solid ${c.beige}`, borderBottom: `1px solid ${c.beige}` }}>
+              <div className="dm-fade-up dm-delay-4" style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: isMobile ? "22px" : "44px", margin: isMobile ? "30px auto 0" : "40px auto 0", padding: isMobile ? "24px 22px" : "28px 44px", borderTop: `2px solid ${c.yellow}`, borderBottom: `2px solid ${c.yellow}` }}>
                 {[
                   { n: "37.1M+", l: "views a year" },
                   { n: "99", l: "local guides" },
                   { n: "7 yrs", l: "covering MKE" }
                 ].map((s, i) => (
                   <React.Fragment key={i}>
-                    {i > 0 && <span aria-hidden="true" style={{ width: "1px", height: "28px", backgroundColor: c.beige }} />}
+                    {i > 0 && <span aria-hidden="true" style={{ width: "1px", height: isMobile ? "44px" : "56px", backgroundColor: c.beige }} />}
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                      <span style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: isMobile ? "22px" : "26px", lineHeight: 1 }}>{s.n}</span>
-                      <span style={{ color: c.tan, fontSize: "11px", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "6px" }}>{s.l}</span>
+                      <span style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: isMobile ? "36px" : "52px", lineHeight: 1 }}>{s.n}</span>
+                      <span style={{ color: c.tan, fontSize: isMobile ? "12px" : "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "8px" }}>{s.l}</span>
                     </div>
                   </React.Fragment>
                 ))}
