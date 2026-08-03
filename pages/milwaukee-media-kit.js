@@ -94,6 +94,22 @@ const faqSchema = {
         text: "Yes. Discover Milwaukee works with both local Milwaukee businesses and national brands looking to enter or grow in the Milwaukee market through trusted local creators.",
       },
     },
+    {
+      "@type": "Question",
+      name: "How do I advertise or market my business in Milwaukee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The most efficient way to advertise in Milwaukee is through a trusted local platform whose audience already acts on its recommendations. Discover Milwaukee reaches 37.1 million views a year across Instagram, TikTok and Facebook. Submit the partner intake form to get a tailored plan.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does it cost to advertise with Discover Milwaukee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Partnerships are tailored to your goals and budget, from entry-level one-time features to ongoing seasonal campaigns. Share your budget range in the partner intake form for a custom recommendation.",
+      },
+    },
   ],
 };
 
@@ -151,11 +167,12 @@ export default function MediaKitPage() {
   return (
     <div style={{ fontFamily: BODY, backgroundColor: c.cream, color: c.ink }}>
       <Head>
-        <title>Milwaukee Media Kit | Advertise With Discover Milwaukee</title>
+        <title>Milwaukee Media Kit | Advertising & Marketing in Milwaukee, WI</title>
         <meta
           name="description"
-          content="Discover Milwaukee's media kit for brands & agencies: 37.1M annual views, 235K+ followers across Instagram, TikTok & Facebook, 79% aged 18–44. Sponsored content, influencer marketing & event partnerships in the Milwaukee market."
+          content="Discover Milwaukee's media kit for brands & agencies: 37.1M annual views, 235K+ followers across Instagram, TikTok & Facebook, 79% aged 18–44. Advertising, influencer marketing, sponsored content & event partnerships across Milwaukee and Wisconsin."
         />
+        <meta name="keywords" content="advertising in Milwaukee, marketing in Milwaukee, Milwaukee media kit, Milwaukee influencer marketing, Wisconsin advertising, Milwaukee advertising, how to advertise in Milwaukee" />
         <link rel="canonical" href={`${SITE}/milwaukee-media-kit`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Milwaukee Media Kit | Advertise With Discover Milwaukee" />
@@ -187,7 +204,7 @@ export default function MediaKitPage() {
             Discover Milwaukee is the city&apos;s most-followed independent local platform. For brands — local or national — it&apos;s the fastest way into an engaged, ready-to-spend Milwaukee audience.
           </p>
           <Link
-            href="/partner"
+            href="/partner?apply=1"
             style={{ display: "inline-block", padding: "16px 40px", backgroundColor: c.green1, color: c.cream, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "16px", textTransform: "uppercase", letterSpacing: "1px" }}
           >
             Start a Partnership →
@@ -343,6 +360,22 @@ export default function MediaKitPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section style={{ maxWidth: "760px", margin: "0 auto", padding: "64px 16px" }}>
+        <div style={{ textAlign: "center", marginBottom: "36px" }}>
+          <Kicker>Questions</Kicker>
+          <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.green1, margin: 0 }}>
+            Advertising in Milwaukee, Answered
+          </h2>
+        </div>
+        {faqSchema.mainEntity.map((q) => (
+          <div key={q.name} style={{ borderBottom: `1px solid ${c.beige}`, padding: "20px 0" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: 700, color: c.green1, margin: "0 0 8px" }}>{q.name}</h3>
+            <p style={{ color: c.ink, fontSize: "15px", lineHeight: 1.65, margin: 0 }}>{q.acceptedAnswer.text}</p>
+          </div>
+        ))}
+      </section>
+
       {/* CTA */}
       <section style={{ backgroundColor: c.green1, padding: "72px 16px", textAlign: "center" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
@@ -354,7 +387,7 @@ export default function MediaKitPage() {
             Tell us your goals and budget in the intake form — we&apos;ll come back with a tailored recommendation.
           </p>
           <Link
-            href="/partner"
+            href="/partner?apply=1"
             style={{ display: "inline-block", padding: "18px 44px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "17px", textTransform: "uppercase", letterSpacing: "1px" }}
           >
             Start a Partnership →

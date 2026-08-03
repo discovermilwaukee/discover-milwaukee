@@ -2192,6 +2192,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   // Partner Intake Form state
   const [showPartnerForm, setShowPartnerForm] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  // Deep-link: /partner?apply=1 opens the intake form directly (media-kit & article CTAs)
+  useEffect(() => {
+    if (router.query.apply && page === "partner") {
+      setShowPartnerForm(true);
+    }
+  }, [router.query.apply, page]);
   const [partnerForm, setPartnerForm] = useState({
     fullName: "",
     emailAddress: "",
@@ -4015,6 +4022,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 Start Your Partnership →
               </button>
               <p style={{ color: c.beige, fontSize: "13px", marginTop: "12px" }}>Takes about a minute · No commitment</p>
+              <p style={{ marginTop: "16px", fontSize: "14px" }}>
+                <a href="/milwaukee-media-kit" style={{ color: c.yellow, fontWeight: "700", textDecoration: "none", margin: "0 10px" }}>View the Media Kit</a>
+                <a href="/milwaukee-influencer-marketing" style={{ color: c.yellow, fontWeight: "700", textDecoration: "none", margin: "0 10px" }}>Milwaukee Marketing Guide</a>
+              </p>
             </div>
 
             {/* BRANDS WE'VE WORKED WITH */}
