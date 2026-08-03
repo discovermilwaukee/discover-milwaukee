@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Brand colors matching main site
@@ -493,6 +495,7 @@ export default function WalkersPointMilwaukee() {
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <Nav />
+      <Breadcrumbs />
 
         {/* Hero Section */}
         <header
@@ -1000,7 +1003,8 @@ export default function WalkersPointMilwaukee() {
         </main>
 
         {/* Footer */}
-        <Footer />
+        <RelatedGuides />
+      <Footer />
       </div>
     </>
   );

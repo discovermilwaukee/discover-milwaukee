@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
@@ -436,6 +438,7 @@ export default function MilwaukeeNightlife() {
       </Head>
 
       <Nav />
+      <Breadcrumbs />
       <main style={{ backgroundColor: colors.cream, color: colors.green1 }}>
           <NewsletterCTA />
 
@@ -1387,7 +1390,8 @@ export default function MilwaukeeNightlife() {
         </section>
 
         {/* Footer Note */}
-        <Footer />
+        <RelatedGuides />
+      <Footer />
       </main>
     </>
   );

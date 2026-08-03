@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import RelatedGuides from "../components/RelatedGuides";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -243,6 +245,7 @@ export default function FoodTrucksMilwaukee() {
       </Head>
 
       <Nav />
+      <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
@@ -362,7 +365,8 @@ export default function FoodTrucksMilwaukee() {
             </div>
           </section>
 
-          <Footer />
+          <RelatedGuides />
+      <Footer />
         </div>
       </div>
     </>
