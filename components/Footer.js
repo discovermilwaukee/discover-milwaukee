@@ -29,6 +29,7 @@ const SITE_LINKS = [
   { label: "Newsletter", href: "/newsletter" },
   { label: "About", href: "/about" },
   { label: "Partner", href: "/partner" },
+  { label: "Advertise", href: "/milwaukee-media-kit" },
 ];
 
 const LEGAL_LINKS = [

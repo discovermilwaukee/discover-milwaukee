@@ -444,6 +444,20 @@
   </url>
 
   <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-media-kit</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.discover-milwaukee.com/milwaukee-influencer-marketing</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://www.discover-milwaukee.com/privacy</loc>
     <lastmod>2026-05-18</lastmod>
     <changefreq>yearly</changefreq>
