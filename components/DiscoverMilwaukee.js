@@ -2722,7 +2722,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               {/* Nameplate: real brand mark + kicker */}
               <div className="dm-fade-up" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: isMobile ? "22px" : "30px" }}>
                 <img src="/images/discover-milwaukee-logo.png" alt="Discover Milwaukee" width="96" height="96" style={{ width: isMobile ? "72px" : "96px", height: "auto" }} />
-                <p style={{ color: c.tan, fontSize: isMobile ? "10px" : "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2019</p>
+                <p style={{ color: c.tan, fontSize: isMobile ? "10px" : "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2018</p>
               </div>
 
               {/* Masthead headline — Anton with a Damion script accent */}
@@ -2758,7 +2758,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 {[
                   { n: "37.1M+", l: "views a year" },
                   { n: "99", l: "local guides" },
-                  { n: "7 yrs", l: "covering MKE" }
+                  { n: "8 yrs", l: "covering MKE" }
                 ].map((s, i) => (
                   <React.Fragment key={i}>
                     {i > 0 && <span aria-hidden="true" style={{ width: "1px", height: isMobile ? "44px" : "56px", backgroundColor: c.beige }} />}
