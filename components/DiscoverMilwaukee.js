@@ -4245,9 +4245,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "2fr 1fr 1fr 1fr", gap: isMobile ? "32px" : "40px", marginBottom: "40px", textAlign: isMobile ? "center" : "left" }}>
             {/* Brand Column */}
             <div>
-              <div onClick={() => navigateTo("home")} style={{ cursor: "pointer", marginBottom: "12px" }}>
+              <a href="/" onClick={(e) => { e.preventDefault(); navigateTo("home"); }} style={{ cursor: "pointer", marginBottom: "12px", display: "inline-block", textDecoration: "none" }}>
                 <span style={{ fontSize: isMobile ? "18px" : "20px", fontWeight: "900", color: c.cream, letterSpacing: "1px", textTransform: "uppercase" }}>DISCOVER MILWAUKEE</span>
-              </div>
+              </a>
               <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.6, marginBottom: "16px", maxWidth: "280px", margin: isMobile ? "0 auto 16px" : "0 0 16px" }}>
                 Your insider's guide to everything worth doing in Milwaukee. No fluff. Just the good stuff.
               </p>
@@ -4262,11 +4262,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div>
               <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Explore</h4>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <span onClick={() => navigateTo("events")} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Events Calendar</span>
-                <span onClick={() => navigateTo("explore")} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>City Guides</span>
+                <a href="/events" onClick={(e) => { e.preventDefault(); navigateTo("events"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Events Calendar</a>
+                <a href="/explore" onClick={(e) => { e.preventDefault(); navigateTo("explore"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>City Guides</a>
                 <a href="/things-to-do-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Things to Do</a>
                 <a href="/best-restaurants-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Best Restaurants</a>
-                <span onClick={() => navigateTo("newsletter")} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Newsletter</span>
+                <a href="/newsletter" onClick={(e) => { e.preventDefault(); navigateTo("newsletter"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Newsletter</a>
               </div>
             </div>
             
@@ -4275,8 +4275,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Company</h4>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a href="/about" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>About Us</a>
-                <span onClick={() => navigateTo("partner")} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Partner With Us</span>
-                <span onClick={() => { navigateTo("events"); setShowEventForm(true); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Submit an Event</span>
+                <a href="/partner" onClick={(e) => { e.preventDefault(); navigateTo("partner"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Partner With Us</a>
+                <a href="/events" onClick={(e) => { e.preventDefault(); navigateTo("events"); setShowEventForm(true); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Submit an Event</a>
                 <a href="mailto:contact@discover-milwaukee.com" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Contact Us</a>
               </div>
             </div>
