@@ -24,10 +24,13 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://i.imgur.com" />
 
-        {/* Display font (Anton, SIL OFL) — headings only; body stays system-ui */}
+        {/* Brand type system (all SIL OFL / free):
+            Anton = Interstate Condensed Black substitute (headlines)
+            Jost  = Futura substitute (paragraph headers + body)
+            Damion = exact brand accent script */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700&family=Damion&display=swap"
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
 
