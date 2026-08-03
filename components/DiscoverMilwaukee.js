@@ -668,7 +668,7 @@ const isWithinWeek = (eventDate, monday) => {
 };
 
 // =============================================================================
-// EVENTS DATA - May–June 2026 Milwaukee Events
+// EVENTS DATA - May–August 2026 Milwaukee Events
 // =============================================================================
 
 const FALLBACK_EVENTS = [
@@ -872,6 +872,162 @@ const FALLBACK_EVENTS = [
 
   // June 30
   { id: "jun-30-riverwalk-concert-2", title: "Riverwalk Commons Concert Series", startDateTime: "2026-06-30T18:00:00", venueName: "Riverwalk Commons", category: "Live Music", shortDescription: "Second June night of the Riverwalk Commons Concert Series.", costType: "free", featured: false, allDay: false },
+
+  // =================== AUGUST 2026 ===================
+
+  // Aug 1–8
+  { id: "aug-1-8-bronzeville-week", title: "Bronzeville Week", startDateTime: "2026-08-01T00:00:00", endDateTime: "2026-08-08T23:59:00", venueName: "Bronzeville (N. Dr. Martin Luther King Jr. Dr.)", category: "Arts", shortDescription: "Week-long celebration of Bronzeville arts, culture, and commerce with 25+ neighborhood events.", costType: "free", featured: true, allDay: true },
+
+  // Chill on the Hill (Tuesdays)
+  { id: "aug-4-chill-on-the-hill", title: "Chill on the Hill", startDateTime: "2026-08-04T18:30:00", venueName: "Humboldt Park Band Chalet", category: "Live Music", shortDescription: "Free weekly Tuesday summer concert series with local live music and food trucks at Humboldt Park.", costType: "free", featured: false, allDay: false },
+  { id: "aug-11-chill-on-the-hill", title: "Chill on the Hill", startDateTime: "2026-08-11T18:30:00", venueName: "Humboldt Park Band Chalet", category: "Live Music", shortDescription: "Free weekly Tuesday summer concert series with local live music and food trucks at Humboldt Park.", costType: "free", featured: false, allDay: false },
+  { id: "aug-18-chill-on-the-hill", title: "Chill on the Hill", startDateTime: "2026-08-18T18:30:00", venueName: "Humboldt Park Band Chalet", category: "Live Music", shortDescription: "Free weekly Tuesday summer concert series with local live music and food trucks at Humboldt Park.", costType: "free", featured: false, allDay: false },
+  { id: "aug-25-chill-on-the-hill", title: "Chill on the Hill", startDateTime: "2026-08-25T18:30:00", venueName: "Humboldt Park Band Chalet", category: "Live Music", shortDescription: "Free weekly Tuesday summer concert series with local live music and food trucks at Humboldt Park.", costType: "free", featured: false, allDay: false },
+
+  // Washington Park Wednesdays
+  { id: "aug-5-washington-park-weds", title: "Washington Park Wednesdays", startDateTime: "2026-08-05T18:00:00", venueName: "Washington Park (Urban Ecology Center)", category: "Live Music", shortDescription: "Free Wednesday summer concert series at Washington Park with music and community meals.", costType: "free", featured: false, allDay: false },
+  { id: "aug-12-washington-park-weds", title: "Washington Park Wednesdays", startDateTime: "2026-08-12T18:00:00", venueName: "Washington Park (Urban Ecology Center)", category: "Live Music", shortDescription: "Free Wednesday summer concert series at Washington Park with music and community meals.", costType: "free", featured: false, allDay: false },
+  { id: "aug-19-washington-park-weds", title: "Washington Park Wednesdays", startDateTime: "2026-08-19T18:00:00", venueName: "Washington Park (Urban Ecology Center)", category: "Live Music", shortDescription: "Free Wednesday summer concert series at Washington Park with music and community meals.", costType: "free", featured: false, allDay: false },
+  { id: "aug-26-washington-park-weds", title: "Washington Park Wednesdays", startDateTime: "2026-08-26T18:00:00", venueName: "Washington Park (Urban Ecology Center)", category: "Live Music", shortDescription: "Free Wednesday summer concert series at Washington Park with music and community meals.", costType: "free", featured: false, allDay: false },
+
+  // Fitness on the Plaza (Thursdays)
+  { id: "aug-6-fitness-plaza", title: "Fitness on the Plaza", startDateTime: "2026-08-06T18:00:00", venueName: "The Plaza at Fiserv Forum (Deer District)", category: "Fitness", shortDescription: "Free 45-minute outdoor fitness classes at the Fiserv Forum plaza; no registration required.", costType: "free", featured: false, allDay: false },
+  { id: "aug-13-fitness-plaza", title: "Fitness on the Plaza", startDateTime: "2026-08-13T18:00:00", venueName: "The Plaza at Fiserv Forum (Deer District)", category: "Fitness", shortDescription: "Free 45-minute outdoor fitness classes at the Fiserv Forum plaza; no registration required.", costType: "free", featured: false, allDay: false },
+  { id: "aug-27-fitness-plaza", title: "Fitness on the Plaza", startDateTime: "2026-08-27T18:00:00", venueName: "The Plaza at Fiserv Forum (Deer District)", category: "Fitness", shortDescription: "Free 45-minute outdoor fitness classes at the Fiserv Forum plaza; no registration required.", costType: "free", featured: false, allDay: false },
+
+  // Patiopalooza (Thursdays)
+  { id: "aug-6-patiopalooza", title: "Patiopalooza", startDateTime: "2026-08-06T16:00:00", venueName: "The Little Village Play Cafe, Wauwatosa", category: "Family", shortDescription: "Free Thursday family block party with food trucks, music, kids crafts, and pop-up makers.", costType: "free", featured: false, allDay: false },
+  { id: "aug-13-patiopalooza", title: "Patiopalooza", startDateTime: "2026-08-13T16:00:00", venueName: "The Little Village Play Cafe, Wauwatosa", category: "Family", shortDescription: "Free Thursday family block party with food trucks, music, kids crafts, and pop-up makers.", costType: "free", featured: false, allDay: false },
+  { id: "aug-20-patiopalooza", title: "Patiopalooza", startDateTime: "2026-08-20T16:00:00", venueName: "The Little Village Play Cafe, Wauwatosa", category: "Family", shortDescription: "Free Thursday family block party with food trucks, music, kids crafts, and pop-up makers.", costType: "free", featured: false, allDay: false },
+  { id: "aug-27-patiopalooza", title: "Patiopalooza", startDateTime: "2026-08-27T16:00:00", venueName: "The Little Village Play Cafe, Wauwatosa", category: "Family", shortDescription: "Free Thursday family block party with food trucks, music, kids crafts, and pop-up makers.", costType: "free", featured: false, allDay: false },
+
+  // Art Blaze
+  { id: "aug-6-art-blaze", title: "Art Blaze", startDateTime: "2026-08-06T16:00:00", venueName: "McKinley Beach & South Shore (Milwaukee lakefront)", category: "Arts", shortDescription: "Free lakefront celebration of interactive art, music, dance, and inflatable sculptures.", costType: "free", featured: false, allDay: false },
+  { id: "aug-20-art-blaze", title: "Art Blaze", startDateTime: "2026-08-20T16:00:00", venueName: "McKinley Beach & South Shore (Milwaukee lakefront)", category: "Arts", shortDescription: "Free lakefront celebration of interactive art, music, dance, and inflatable sculptures.", costType: "free", featured: false, allDay: false },
+
+  // Cathedral Square Market (Thursdays)
+  { id: "aug-6-cathedral-square-market", title: "Cathedral Square Market", startDateTime: "2026-08-06T15:00:00", venueName: "Cathedral Square Park", category: "Shopping", shortDescription: "Free Thursday afternoon market at Cathedral Square Park with local vendors and handmade goods.", costType: "free", featured: false, allDay: false },
+  { id: "aug-13-cathedral-square-market", title: "Cathedral Square Market", startDateTime: "2026-08-13T15:00:00", venueName: "Cathedral Square Park", category: "Shopping", shortDescription: "Free Thursday afternoon market at Cathedral Square Park with local vendors and handmade goods.", costType: "free", featured: false, allDay: false },
+  { id: "aug-20-cathedral-square-market", title: "Cathedral Square Market", startDateTime: "2026-08-20T15:00:00", venueName: "Cathedral Square Park", category: "Shopping", shortDescription: "Free Thursday afternoon market at Cathedral Square Park with local vendors and handmade goods.", costType: "free", featured: false, allDay: false },
+  { id: "aug-27-cathedral-square-market", title: "Cathedral Square Market", startDateTime: "2026-08-27T15:00:00", venueName: "Cathedral Square Park", category: "Shopping", shortDescription: "Free Thursday afternoon market at Cathedral Square Park with local vendors and handmade goods.", costType: "free", featured: false, allDay: false },
+
+  // Jazz in the Park (Thursdays)
+  { id: "aug-6-jazz-park", title: "Jazz in the Park", startDateTime: "2026-08-06T18:00:00", venueName: "Cathedral Square Park", category: "Live Music", shortDescription: "Free Thursday evening live jazz concerts at Cathedral Square Park in downtown Milwaukee.", costType: "free", featured: true, allDay: false },
+  { id: "aug-13-jazz-park", title: "Jazz in the Park", startDateTime: "2026-08-13T18:00:00", venueName: "Cathedral Square Park", category: "Live Music", shortDescription: "Free Thursday evening live jazz concerts at Cathedral Square Park in downtown Milwaukee.", costType: "free", featured: true, allDay: false },
+  { id: "aug-20-jazz-park", title: "Jazz in the Park", startDateTime: "2026-08-20T18:00:00", venueName: "Cathedral Square Park", category: "Live Music", shortDescription: "Free Thursday evening live jazz concerts at Cathedral Square Park in downtown Milwaukee.", costType: "free", featured: true, allDay: false },
+  { id: "aug-27-jazz-park", title: "Jazz in the Park", startDateTime: "2026-08-27T18:00:00", venueName: "Cathedral Square Park", category: "Live Music", shortDescription: "Free Thursday evening live jazz concerts at Cathedral Square Park in downtown Milwaukee.", costType: "free", featured: true, allDay: false },
+
+  // MKE River Round Up (Thursdays)
+  { id: "aug-6-river-round-up", title: "MKE River Round Up", startDateTime: "2026-08-06T17:00:00", venueName: "Milwaukee RiverWalk (Twisted Fisherman)", category: "Live Music", shortDescription: "Live music from a pontoon boat on the Milwaukee River with kayakers paddling alongside.", costType: "free", featured: false, allDay: false },
+  { id: "aug-13-river-round-up", title: "MKE River Round Up", startDateTime: "2026-08-13T17:00:00", venueName: "Milwaukee RiverWalk (Twisted Fisherman)", category: "Live Music", shortDescription: "Live music from a pontoon boat on the Milwaukee River with kayakers paddling alongside.", costType: "free", featured: false, allDay: false },
+  { id: "aug-20-river-round-up", title: "MKE River Round Up", startDateTime: "2026-08-20T17:00:00", venueName: "Milwaukee RiverWalk (Twisted Fisherman)", category: "Live Music", shortDescription: "Live music from a pontoon boat on the Milwaukee River with kayakers paddling alongside.", costType: "free", featured: false, allDay: false },
+  { id: "aug-27-river-round-up", title: "MKE River Round Up", startDateTime: "2026-08-27T17:00:00", venueName: "Milwaukee RiverWalk (Twisted Fisherman)", category: "Live Music", shortDescription: "Live music from a pontoon boat on the Milwaukee River with kayakers paddling alongside.", costType: "free", featured: false, allDay: false },
+
+  // Arts & Hops Night Market Series
+  { id: "aug-6-arts-and-hops", title: "Arts & Hops Night Market Series", startDateTime: "2026-08-06T00:00:00", venueName: "Milwaukee County parks (rotating)", category: "Shopping", shortDescription: "Evening art-and-craft night market series rotating across Milwaukee-area parks with local vendors and beer.", costType: "free", featured: false, allDay: true },
+  { id: "aug-20-arts-and-hops", title: "Arts & Hops Night Market Series", startDateTime: "2026-08-20T00:00:00", venueName: "Milwaukee County parks (rotating)", category: "Shopping", shortDescription: "Evening art-and-craft night market series rotating across Milwaukee-area parks with local vendors and beer.", costType: "free", featured: false, allDay: true },
+
+  // Sherman Phoenix Night Market & Patio Party
+  { id: "aug-6-sherman-phoenix", title: "Sherman Phoenix Night Market & Patio Party", startDateTime: "2026-08-06T17:00:00", venueName: "Sherman Phoenix Marketplace", category: "Shopping", shortDescription: "Free Thursday night market with local businesses, food specials, DJ, and live entertainment.", costType: "free", featured: false, allDay: false },
+  { id: "aug-20-sherman-phoenix", title: "Sherman Phoenix Night Market & Patio Party", startDateTime: "2026-08-20T17:00:00", venueName: "Sherman Phoenix Marketplace", category: "Shopping", shortDescription: "Free Thursday night market with local businesses, food specials, DJ, and live entertainment.", costType: "free", featured: false, allDay: false },
+
+  // Aug 6–16
+  { id: "aug-6-16-state-fair", title: "Wisconsin State Fair", startDateTime: "2026-08-06T00:00:00", endDateTime: "2026-08-16T23:59:00", venueName: "Wisconsin State Fair Park, West Allis", category: "Family", shortDescription: "Wisconsin's largest annual fair with rides, food, livestock, and concerts.", costType: "paid", featured: true, allDay: true },
+
+  // Deer Garden Summer Concert Series (Fridays)
+  { id: "aug-7-deer-garden-concert", title: "Deer Garden Summer Concert Series", startDateTime: "2026-08-07T16:00:00", venueName: "The Deer Garden (Deer District)", category: "Live Music", shortDescription: "Free Friday evening concerts by local artists at The Deer Garden in the Deer District.", costType: "free", featured: false, allDay: false },
+  { id: "aug-14-deer-garden-concert", title: "Deer Garden Summer Concert Series", startDateTime: "2026-08-14T16:00:00", venueName: "The Deer Garden (Deer District)", category: "Live Music", shortDescription: "Free Friday evening concerts by local artists at The Deer Garden in the Deer District.", costType: "free", featured: false, allDay: false },
+  { id: "aug-21-deer-garden-concert", title: "Deer Garden Summer Concert Series", startDateTime: "2026-08-21T16:00:00", venueName: "The Deer Garden (Deer District)", category: "Live Music", shortDescription: "Free Friday evening concerts by local artists at The Deer Garden in the Deer District.", costType: "free", featured: false, allDay: false },
+  { id: "aug-28-deer-garden-concert", title: "Deer Garden Summer Concert Series", startDateTime: "2026-08-28T16:00:00", venueName: "The Deer Garden (Deer District)", category: "Live Music", shortDescription: "Free Friday evening concerts by local artists at The Deer Garden in the Deer District.", costType: "free", featured: false, allDay: false },
+
+  // Aug 7–9
+  { id: "aug-7-9-moon-festival", title: "Third Ward Moon Festival", startDateTime: "2026-08-07T17:00:00", endDateTime: "2026-08-09T18:00:00", venueName: "Catalano Square (Historic Third Ward)", category: "Arts", shortDescription: "Three-day cultural festival featuring Luke Jerram's 23-foot Museum of the Moon, live music, and art.", costType: "free", featured: true, allDay: false },
+
+  // Aug 8
+  { id: "aug-8-falls-kids-fest", title: "Falls Kids Fest", startDateTime: "2026-08-08T11:00:00", venueName: "Menomonee Falls Village Park", category: "Family", shortDescription: "Free family festival with games, bounce houses, food trucks, and stage performances for kids.", costType: "free", featured: false, allDay: false },
+  { id: "aug-8-rolling-bike-party", title: "Rolling Bike Party", startDateTime: "2026-08-08T00:00:00", venueName: "Milwaukee", category: "Outdoors", shortDescription: "Group community bike ride through Milwaukee.", costType: "free", featured: false, allDay: true },
+
+  // Aug 9
+  { id: "aug-9-red-magic-art-fest", title: "Red Magic Art Festival", startDateTime: "2026-08-09T10:00:00", venueName: "Jackson Park", category: "Arts", shortDescription: "Wisconsin's largest Native American arts and culture festival with Indigenous artists, vendors, and music.", costType: "free", featured: true, allDay: false },
+  { id: "aug-9-gather-grow", title: "Gather & Grow Market", startDateTime: "2026-08-09T00:00:00", venueName: "Milwaukee", category: "Shopping", shortDescription: "Artisan market featuring handcrafted goods and specialty items from local Wisconsin makers.", costType: "free", featured: false, allDay: true },
+  { id: "aug-9-gothic-market", title: "The Gothic Market", startDateTime: "2026-08-09T12:00:00", venueName: "Baird Center", category: "Shopping", shortDescription: "Vendor market showcasing gothic, punk, and dark-aesthetic apparel, jewelry, art, and home decor.", costType: "paid", featured: false, allDay: false },
+
+  // Riverwalk Commons Concert Series
+  { id: "aug-11-riverwalk-concert", title: "Riverwalk Commons Concert Series", startDateTime: "2026-08-11T18:00:00", venueName: "Riverwalk Commons", category: "Live Music", shortDescription: "Free outdoor live music series near the Milwaukee Public Market.", costType: "free", featured: false, allDay: false },
+  { id: "aug-18-riverwalk-concert", title: "Riverwalk Commons Concert Series", startDateTime: "2026-08-18T18:00:00", venueName: "Riverwalk Commons", category: "Live Music", shortDescription: "Free outdoor live music series near the Milwaukee Public Market.", costType: "free", featured: false, allDay: false },
+  { id: "aug-25-riverwalk-concert", title: "Riverwalk Commons Concert Series", startDateTime: "2026-08-25T18:00:00", venueName: "Riverwalk Commons", category: "Live Music", shortDescription: "Free outdoor live music series near the Milwaukee Public Market.", costType: "free", featured: false, allDay: false },
+
+  // Aug 13
+  { id: "aug-13-wash-heights-market", title: "Washington Heights Night Market", startDateTime: "2026-08-13T17:00:00", venueName: "Washington Blvd, Washington Heights", category: "Shopping", shortDescription: "Neighborhood night market with local artists, makers, and restaurants along Washington Boulevard.", costType: "free", featured: false, allDay: false },
+
+  // Aug 13–16
+  { id: "aug-13-16-irish-fest", title: "Milwaukee Irish Fest", startDateTime: "2026-08-13T00:00:00", endDateTime: "2026-08-16T23:59:00", venueName: "Henry Maier Festival Park", category: "Live Music", shortDescription: "Large Celtic music and culture festival with acts across 16 stages on the lakefront.", costType: "paid", featured: true, allDay: true },
+
+  // Aug 14–15
+  { id: "aug-14-15-summer-park-jam", title: "Summer Park Jam Weekend", startDateTime: "2026-08-14T12:00:00", endDateTime: "2026-08-15T21:00:00", venueName: "Marcus Performing Arts Center & Peck Pavilion", category: "Live Music", shortDescription: "TRUE Skool's two-day festival with live performances, art, vendors, food trucks, and family activities.", costType: "free", featured: false, allDay: false },
+
+  // Aug 15
+  { id: "aug-15-center-street-daze", title: "Center Street Daze Fest", startDateTime: "2026-08-15T11:00:00", venueName: "Center Street (Holton to Humboldt), Riverwest", category: "Live Music", shortDescription: "Riverwest street festival with 100+ vendors, 30+ bands on multiple stages, food, and the Art Cart Race.", costType: "free", featured: false, allDay: false },
+  { id: "aug-15-strength-in-the-city", title: "Strength in the City Fest", startDateTime: "2026-08-15T09:00:00", venueName: "Veterans Park", category: "Fitness", shortDescription: "Free wellness festival with 20+ mini-classes including yoga, Pilates, HIIT, dance, and meditation.", costType: "free", featured: false, allDay: false },
+  { id: "aug-15-color-clash-run", title: "Color Clash Run", startDateTime: "2026-08-15T00:00:00", venueName: "Milwaukee", category: "Fitness", shortDescription: "Color run where participants are covered in colored powder along the course.", costType: "paid", featured: false, allDay: true },
+  { id: "aug-15-rev-and-rumble", title: "Rev & Rumble Boxing Night", startDateTime: "2026-08-15T16:00:00", venueName: "Davidson Park", category: "Sports", shortDescription: "Free amateur boxing event with Midwest fighters, food trucks, and family activities.", costType: "free", featured: false, allDay: false },
+
+  // Aug 16
+  { id: "aug-16-makers-market", title: "Milwaukee Makers Market", startDateTime: "2026-08-16T10:00:00", venueName: "Discovery World", category: "Shopping", shortDescription: "Curated market of local small-business makers selling handcrafted goods.", costType: "free", featured: false, allDay: false },
+
+  // Aug 17
+  { id: "aug-17-downtown-employee-week", title: "Downtown Employee Appreciation Week", startDateTime: "2026-08-17T00:00:00", endDateTime: "2026-08-21T23:59:00", venueName: "Downtown Milwaukee", category: "Family", shortDescription: "A week of free activities, giveaways, games, and discounts for downtown Milwaukee employees.", costType: "free", featured: false, allDay: true },
+
+  // Aug 19
+  { id: "aug-19-mke-night-market", title: "Milwaukee Night Market", startDateTime: "2026-08-19T17:00:00", venueName: "W Wisconsin Ave, Westown", category: "Shopping", shortDescription: "Free outdoor evening market with 100+ local vendors, food, and entertainment.", costType: "free", featured: true, allDay: false },
+  { id: "aug-19-beach-bonfire", title: "Beach Bonfire", startDateTime: "2026-08-19T00:00:00", venueName: "Lakeshore State Park (Pebble Beach)", category: "Outdoors", shortDescription: "Park staff host a lakefront bonfire where visitors can make s'mores; all ages welcome.", costType: "free", featured: false, allDay: true },
+
+  // Aug 20
+  { id: "aug-20-betty-brinn-access", title: "Community Access Day at Betty Brinn", startDateTime: "2026-08-20T09:00:00", venueName: "Betty Brinn Children's Museum", category: "Family", shortDescription: "Free admission for all guests at the children's museum.", costType: "free", featured: false, allDay: false },
+
+  // Aug 20–22
+  { id: "aug-20-22-fresh-coast-jazz", title: "Fresh Coast Jazz Festival", startDateTime: "2026-08-20T17:00:00", endDateTime: "2026-08-22T23:00:00", venueName: "The Pabst Theater", category: "Live Music", shortDescription: "Annual contemporary jazz festival featuring national performers.", costType: "paid", featured: true, allDay: false },
+
+  // Aug 20–23
+  { id: "aug-20-23-a-la-carte-zoo", title: "A La Carte at the Zoo", startDateTime: "2026-08-20T09:30:00", endDateTime: "2026-08-23T20:00:00", venueName: "Milwaukee County Zoo", category: "Food & Drink", shortDescription: "Four-day food-and-music festival with 30+ restaurants and six entertainment stages.", costType: "paid", featured: true, allDay: false },
+
+  // Aug 21
+  { id: "aug-21-newaukee-afterlight", title: "Newaukee Afterlight", startDateTime: "2026-08-21T18:30:00", venueName: "Downtown Milwaukee / Riverwalk", category: "Arts", shortDescription: "Free one-night celebration of light, music, and art with interactive installations along the Riverwalk.", costType: "free", featured: true, allDay: false },
+  { id: "aug-21-davidson-movie-night", title: "Davidson Park Movie Night: Zootopia 2", startDateTime: "2026-08-21T18:30:00", venueName: "Davidson Park", category: "Family", shortDescription: "Free outdoor movie screening at Davidson Park; bring a blanket or lawn chair.", costType: "free", featured: false, allDay: false },
+  { id: "aug-21-west-allis-food-truck", title: "West Allis Food Truck Friday + Mini Market", startDateTime: "2026-08-21T17:00:00", venueName: "West Allis Farmers Market", category: "Food & Drink", shortDescription: "Free evening event with food trucks, craft beer, live music, and a mini market.", costType: "free", featured: false, allDay: false },
+
+  // Aug 21–23
+  { id: "aug-21-23-mexican-fiesta", title: "Mexican Fiesta", startDateTime: "2026-08-21T00:00:00", endDateTime: "2026-08-23T23:59:00", venueName: "Henry Maier Festival Park", category: "Food & Drink", shortDescription: "Multi-day festival celebrating Mexican culture, music, art, and food.", costType: "paid", featured: true, allDay: true },
+  { id: "aug-21-23-taste-of-egypt", title: "Taste of Egypt", startDateTime: "2026-08-21T11:00:00", endDateTime: "2026-08-23T19:00:00", venueName: "St. Mary & St. Antonious Coptic Orthodox Church, Oak Creek", category: "Food & Drink", shortDescription: "Annual Egyptian cultural festival with food, activities, and church tours.", costType: "free", featured: false, allDay: false },
+  { id: "aug-21-23-serbian-days", title: "Serbian Days Festival", startDateTime: "2026-08-21T17:00:00", endDateTime: "2026-08-23T22:00:00", venueName: "St. Sava Serbian Orthodox Cathedral", category: "Food & Drink", shortDescription: "Multi-day festival of Serbian food, folk dancing, live music, and cathedral tours.", costType: "paid", featured: false, allDay: false },
+
+  // Aug 22
+  { id: "aug-22-franksville-night-market", title: "Night Market at the Franksville Craft Beer Garden", startDateTime: "2026-08-22T16:00:00", venueName: "Franksville Craft Beer Garden", category: "Shopping", shortDescription: "Free market with 70+ vintage, handmade, and boutique vendors, food trucks, live music, and craft beer.", costType: "free", featured: false, allDay: false },
+  { id: "aug-22-day-drinks", title: "Day Drinks & Handmade Things", startDateTime: "2026-08-22T10:00:00", venueName: "Station 1846, Walker's Point", category: "Shopping", shortDescription: "Free Walker's Point makers market with local vendors, coffee, cocktails, and live music.", costType: "free", featured: false, allDay: false },
+  { id: "aug-22-black-business-marketplace", title: "2nd Annual Black Business Month Marketplace", startDateTime: "2026-08-22T12:00:00", venueName: "America's Black Holocaust Museum", category: "Shopping", shortDescription: "Curated marketplace of local Black-owned merchandise and food vendors with a kids' craft corner.", costType: "free", featured: false, allDay: false },
+  { id: "aug-22-cream-fresh-vintage", title: "Cream Fresh Vintage Market Series", startDateTime: "2026-08-22T11:00:00", venueName: "Ivanhoe Plaza", category: "Shopping", shortDescription: "Recurring vintage and streetwear market with food, drinks, and music.", costType: "free", featured: false, allDay: false },
+  { id: "aug-22-falls-festival-arts", title: "Falls Festival of the Arts", startDateTime: "2026-08-22T10:00:00", venueName: "Downtown Menomonee Falls", category: "Arts", shortDescription: "One-day downtown art festival with 100+ artists, live music, food trucks, kids zone, and beer garden.", costType: "free", featured: false, allDay: false },
+
+  // Aug 22–23
+  { id: "aug-22-23-asian-street-food", title: "Asian Street Food Fest", startDateTime: "2026-08-22T00:00:00", endDateTime: "2026-08-23T23:59:00", venueName: "Veterans Park", category: "Food & Drink", shortDescription: "Traveling Asian street food night market with vendors, performances, and shopping.", costType: "paid", featured: false, allDay: true },
+
+  // Aug 23
+  { id: "aug-23-flower-festival", title: "Flower Festival + Makers Market", startDateTime: "2026-08-23T10:00:00", venueName: "The Ivy House", category: "Shopping", shortDescription: "Flower-themed garden party with 30+ local makers, you-pick bouquets, drinks, music, and treats.", costType: "paid", featured: false, allDay: false },
+
+  // Aug 25
+  { id: "aug-25-books-and-beers", title: "MKE Books & Beers", startDateTime: "2026-08-25T00:00:00", venueName: "The Deer Garden (Deer District)", category: "Family", shortDescription: "Free community book fair with local authors, vendors, and a book drive benefiting literacy nonprofits.", costType: "free", featured: false, allDay: true },
+
+  // Aug 28–29
+  { id: "aug-28-29-country-in-the-burg", title: "Country in the Burg", startDateTime: "2026-08-28T16:30:00", endDateTime: "2026-08-29T23:00:00", venueName: "Cedar Creek Park, Cedarburg", category: "Live Music", shortDescription: "Two-night country music festival featuring national headliners.", costType: "paid", featured: true, allDay: false },
+
+  // Aug 29
+  { id: "aug-29-hops-and-hounds", title: "Hops & Hounds Patio Party", startDateTime: "2026-08-29T00:00:00", venueName: "Milwaukee", category: "Nightlife", shortDescription: "Dog-friendly patio gathering with craft beer and local vendors.", costType: "free", featured: false, allDay: true },
+  { id: "aug-29-wfb-night-market", title: "WFB Night Market", startDateTime: "2026-08-29T17:00:00", venueName: "Berkeley Blvd & Silver Spring Dr, Whitefish Bay", category: "Shopping", shortDescription: "Evening market with food trucks, artisan vendors, and free live music.", costType: "free", featured: false, allDay: false },
+  { id: "aug-29-pulse-wellness-fest", title: "Pulse Health & Wellness Fest", startDateTime: "2026-08-29T09:00:00", venueName: "Henry Maier Festival Park", category: "Fitness", shortDescription: "Free outdoor wellness fest with 40+ group fitness classes, cooking demos, and health organizations.", costType: "free", featured: false, allDay: false },
+  { id: "aug-29-brew-city-cigar-fest", title: "14th Annual Brew City Cigar Fest", startDateTime: "2026-08-29T17:30:00", venueName: "The Bavarian Bierhaus, Glendale", category: "Nightlife", shortDescription: "Premium cigar and spirits festival with unlimited samplings, live entertainment, and demonstrations.", costType: "paid", featured: false, allDay: false },
+
+  // Aug 30
+  { id: "aug-30-wildflowers-on-water", title: "4th Annual Wildflowers on the Water", startDateTime: "2026-08-30T15:00:00", venueName: "Lakeshore State Park", category: "Arts", shortDescription: "Free family celebration of nature and arts with live music, local vendors, and art activities.", costType: "free", featured: false, allDay: false },
 ];
 
 // Helper function to get the current week's Monday and Sunday
