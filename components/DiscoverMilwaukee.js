@@ -3676,16 +3676,16 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
       {/* EVENTS */}
       {page === "events" && !selectedEvent && !showEventForm && (
-        <>
-          <section style={{ background: `linear-gradient(135deg, ${c.orange} 0%, ${c.yellow} 100%)`, padding: "60px 16px" }}>
-            <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>WHAT'S HAPPENING</p>
-              <h1 style={{ fontSize: "44px", fontWeight: "900", color: c.green1, marginBottom: "12px", textTransform: "uppercase" }}>Milwaukee Events</h1>
-              <p style={{ fontSize: "18px", color: c.green1, fontWeight: "600", marginBottom: "16px" }}>Your Social Calendar, Handled.</p>
-              <p style={{ color: c.green1, fontSize: "16px", lineHeight: 1.6, opacity: 0.85, marginBottom: "24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
+        <div style={{ fontFamily: BODY_FONT }}>
+          <section style={{ backgroundColor: c.cream, padding: isMobile ? "48px 16px 36px" : "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
+            <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
+              <p style={{ color: c.orange, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>WHAT'S HAPPENING</p>
+              <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "40px" : "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Milwaukee Events</h1>
+              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Your Social Calendar, Handled.</p>
+              <p style={{ color: c.green2, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto 24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
               {/* Sponsor */}
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", backgroundColor: "rgba(255,255,255,0.95)", padding: "12px 24px", borderRadius: "50px", boxShadow: "0 4px 16px rgba(0,0,0,0.1)" }}>
-                <span style={{ color: "#666", fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Presented by</span>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", backgroundColor: c.white, padding: "12px 24px", borderRadius: "50px", border: `1px solid ${c.beige}` }}>
+                <span style={{ color: c.tan, fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
                 <a href="https://nicoletlaw.com" target="_blank" rel="noopener noreferrer sponsored" style={{ display: "flex", alignItems: "center" }}>
                   <img src="/images/nicolet-law-logo.png" alt="Nicolet Law - Accident & Injury Lawyers" style={{ height: "32px", width: "auto" }} />
                 </a>
@@ -3715,48 +3715,68 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </section>
           <section style={{ padding: "40px 16px 80px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              {Object.values(eventsByDay).map(({ date, events }) => (
-                <div key={date.toDateString()} style={{ marginBottom: "28px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
-                    <span style={{ backgroundColor: isSameDay(date, new Date()) ? c.yellow : c.green1, color: isSameDay(date, new Date()) ? c.green1 : c.cream, padding: "6px 14px", borderRadius: "50px", fontSize: "13px", fontWeight: "700" }}>{formatDate(date, "day")}</span>
-                    {isSameDay(date, new Date()) && <span style={{ color: c.yellow, fontSize: "13px", fontWeight: "600" }}>Today</span>}
-                    <span style={{ color: c.tan, fontSize: "13px" }}>{events.length} events</span>
+              {(() => {
+                const eventCategoryIcons = {
+                  "Arts": LineIcons.Palette, "Sports": LineIcons.Basketball, "Food & Drink": LineIcons.Cocktail, "Comedy": LineIcons.Mic,
+                  "Live Music": LineIcons.Music, "Family": LineIcons.Users, "Nightlife": LineIcons.Moon, "Outdoors": LineIcons.Tree,
+                  "Fitness": LineIcons.Dumbbell, "Shopping": LineIcons.Bag
+                };
+                const eventCategoryColors = {
+                  "Arts": c.tan, "Sports": c.orange, "Food & Drink": c.orange, "Comedy": c.blue3,
+                  "Live Music": c.blue2, "Family": c.green2, "Nightlife": c.blue1, "Outdoors": c.green2,
+                  "Fitness": c.green1, "Shopping": c.blue3
+                };
+                return Object.values(eventsByDay).map(({ date, events }) => (
+                  <div key={date.toDateString()} style={{ marginBottom: "32px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                      <span style={{ backgroundColor: isSameDay(date, new Date()) ? c.orange : c.green1, color: c.cream, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>{formatDate(date, "day")}</span>
+                      {isSameDay(date, new Date()) && <span style={{ color: c.orange, fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>Today</span>}
+                      <span style={{ color: c.tan, fontSize: "12px", fontWeight: "600" }}>{events.length} {events.length === 1 ? "event" : "events"}</span>
+                      <span style={{ flex: 1, height: "1px", backgroundColor: c.beige }} />
+                    </div>
+                    {events.length > 0 ? (
+                      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "16px" }}>
+                        {events.map(e => {
+                          const EventIcon = eventCategoryIcons[e.category] || LineIcons.Calendar;
+                          const accent = eventCategoryColors[e.category] || c.green1;
+                          return (
+                            <div key={e.id} onClick={() => setSelectedEvent(e)} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "12px", padding: "22px", cursor: "pointer", border: `1px solid ${c.beige}`, borderLeft: `3px solid ${accent}` }}>
+                              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "14px" }}>
+                                <span style={{ color: accent }}><EventIcon size={28} /></span>
+                                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                  {e.featured && <span style={{ color: c.orange, fontSize: "9px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>Featured</span>}
+                                  <span style={{ color: c.tan, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>{e.category}</span>
+                                </div>
+                              </div>
+                              <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "8px", lineHeight: 1.3, fontFamily: BODY_FONT }}>{e.title}</h3>
+                              <p style={{ color: c.tan, fontSize: "13px", lineHeight: 1.45, marginBottom: "14px" }}>{e.shortDescription}</p>
+                              <div style={{ display: "flex", flexDirection: "column", gap: "5px", borderTop: `1px solid ${c.beige}`, paddingTop: "12px" }}>
+                                <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}><Icons.Clock />{e.allDay ? "All Day" : formatDate(e.startDateTime, "time")}<span style={{ color: c.tan, fontWeight: "500" }}>· {e.costType === "free" ? "Free" : "Ticketed"}</span></p>
+                                <p style={{ color: c.tan, fontSize: "12px", display: "flex", alignItems: "center", gap: "6px" }}><Icons.MapPin />{e.venueName}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div style={{ backgroundColor: c.white, borderRadius: "12px", padding: "24px", textAlign: "center", border: `1px solid ${c.beige}` }}>
+                        <p style={{ color: c.tan, fontSize: "14px" }}>No events added yet for this day.</p>
+                      </div>
+                    )}
                   </div>
-                  {events.length > 0 ? (
-                    <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "16px" }}>
-                      {events.map(e => (
-                        <div key={e.id} onClick={() => setSelectedEvent(e)} style={{ backgroundColor: c.white, borderRadius: "14px", padding: "18px", cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
-                          <div style={{ display: "flex", gap: "8px", marginBottom: "8px", flexWrap: "wrap" }}>
-                            <span style={{ backgroundColor: c.green1, color: c.cream, padding: "4px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "700", textTransform: "uppercase" }}>{e.category}</span>
-                            <span style={{ backgroundColor: e.costType === "free" ? c.green2 : c.yellow, color: e.costType === "free" ? c.white : c.green1, padding: "4px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "700" }}>{e.costDetails}</span>
-                            {e.featured && <span style={{ fontSize: "14px" }}>⭐</span>}
-                          </div>
-                          <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", marginBottom: "6px" }}>{e.title}</h3>
-                          <p style={{ color: c.tan, fontSize: "13px", lineHeight: 1.4, marginBottom: "10px" }}>{e.shortDescription}</p>
-                          <div style={{ display: "flex", gap: "14px", color: c.green1, fontSize: "12px", flexWrap: "wrap" }}>
-                            <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Icons.Clock />{e.allDay ? "All Day" : formatDate(e.startDateTime, "time")}</span>
-                            <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Icons.MapPin />{e.venueName}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div style={{ backgroundColor: c.white, borderRadius: "12px", padding: "20px", textAlign: "center" }}>
-                      <p style={{ color: c.tan, fontSize: "14px" }}>No events added yet for this day.</p>
-                    </div>
-                  )}
-                </div>
-              ))}
+                ));
+              })()}
             </div>
           </section>
-          <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.green1 }}>
+          <section style={{ padding: isMobile ? "48px 16px" : "72px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
-              <h2 style={{ fontSize: "28px", fontWeight: "900", color: c.cream, marginBottom: "12px", textTransform: "uppercase" }}>Have an Event to Share?</h2>
-              <p style={{ color: c.beige, fontSize: "16px", marginBottom: "24px" }}>Hosting something the city should know about? Get it in front of 37.1M+ views.</p>
-              <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: "16px 32px", backgroundColor: c.yellow, color: c.green1, fontWeight: "bold", borderRadius: "50px", border: "none", cursor: "pointer", fontSize: "15px" }}>Submit Your Event →</button>
+              <p style={{ color: c.yellow, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "14px", textTransform: "uppercase" }}>Get On The Calendar</p>
+              <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.cream, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>Have an Event to Share?</h2>
+              <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", lineHeight: 1.6, marginBottom: "28px" }}>Hosting something the city should know about? Get it in front of 37.1M+ views.</p>
+              <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="dm-cta" style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 40px", color: c.green1, fontWeight: "700", borderRadius: "50px", border: "none", cursor: "pointer", fontSize: isMobile ? "15px" : "16px" }}>Submit Your Event →</button>
             </div>
           </section>
-        </>
+        </div>
       )}
 
       {/* EVENT SUBMISSION FORM */}
@@ -3986,12 +4006,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ backgroundColor: c.green1, borderRadius: "20px", padding: "40px", marginBottom: "28px" }}>
               <div style={{ display: "flex", gap: "10px", marginBottom: "16px", flexWrap: "wrap" }}>
                 <span style={{ backgroundColor: c.yellow, color: c.green1, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase" }}>{selectedEvent.category}</span>
-                <span style={{ backgroundColor: selectedEvent.costType === "free" ? c.green2 : "rgba(255,255,255,0.2)", color: c.white, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700" }}>{selectedEvent.costDetails}</span>
+                <span style={{ backgroundColor: selectedEvent.costType === "free" ? c.green2 : "rgba(255,255,255,0.2)", color: c.white, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700" }}>{selectedEvent.costDetails || (selectedEvent.costType === "free" ? "Free" : "Ticketed")}</span>
               </div>
-              <h1 style={{ color: c.cream, fontSize: "32px", fontWeight: "900", marginBottom: "16px", textTransform: "uppercase" }}>{selectedEvent.title}</h1>
+              <h1 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", marginBottom: "18px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>{selectedEvent.title}</h1>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", color: c.beige, fontSize: "14px" }}>
                 <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><Icons.Clock />{selectedEvent.allDay ? "All Day" : `${formatDate(selectedEvent.startDateTime, "time")} - ${formatDate(selectedEvent.endDateTime, "time")}`}</span>
-                <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><Icons.MapPin />{selectedEvent.venueName}, {selectedEvent.neighborhood}</span>
+                <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><Icons.MapPin />{selectedEvent.venueName}{selectedEvent.neighborhood ? `, ${selectedEvent.neighborhood}` : ""}</span>
               </div>
             </div>
             <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "32px" }}>
