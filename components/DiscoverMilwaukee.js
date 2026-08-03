@@ -3012,9 +3012,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 </div>
               )}
               <section
+                id={category.id}
                 style={{
                   padding: isMobile ? "32px 16px" : "48px 16px",
-                  backgroundColor: catIndex % 2 === 0 ? c.white : c.cream
+                  backgroundColor: catIndex % 2 === 0 ? c.white : c.cream,
+                  scrollMarginTop: "90px"
                 }}
               >
                 <div style={{ maxWidth: "1100px", margin: "0 auto" }}>

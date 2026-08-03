@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { GUIDE_CATEGORIES } from "../lib/guides";
 
 const c = {
   green1: "#2C5235",
@@ -8,7 +9,19 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
+  tan: "#9E7F4B",
 };
+
+// Group the taxonomy into its 4 top-level buckets, preserving order
+const GUIDE_GROUPS = GUIDE_CATEGORIES.reduce((acc, cat) => {
+  let g = acc.find((x) => x.group === cat.group);
+  if (!g) {
+    g = { group: cat.group, categories: [] };
+    acc.push(g);
+  }
+  g.categories.push(cat);
+  return acc;
+}, []);
 
 const SearchIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,6 +34,15 @@ export default function Nav() {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [guidesOpen, setGuidesOpen] = useState(false);
+  const closeTimer = useRef(null);
+  const openGuides = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setGuidesOpen(true);
+  };
+  const scheduleCloseGuides = () => {
+    closeTimer.current = setTimeout(() => setGuidesOpen(false), 150);
+  };
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -34,7 +56,6 @@ export default function Nav() {
   const currentPage = router.pathname.replace("/", "") || "home";
 
   const navItems = [
-    { label: "Home", href: "/" },
     { label: "Explore", href: "/explore" },
     { label: "Events", href: "/events" },
     { label: "Festivals", href: "/milwaukee-festivals" },
@@ -61,6 +82,34 @@ export default function Nav() {
           {/* Desktop Nav */}
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+              {/* Guides mega-menu trigger */}
+              <div onMouseEnter={openGuides} onMouseLeave={scheduleCloseGuides}>
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded={guidesOpen}
+                  onClick={() => (guidesOpen ? setGuidesOpen(false) : openGuides())}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                    color: guidesOpen ? c.yellow : c.green1,
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    textTransform: "uppercase",
+                    borderBottom: guidesOpen ? `2px solid ${c.yellow}` : "2px solid transparent",
+                    padding: "6px 0",
+                    fontFamily: "inherit",
+                  }}
+                >
+                  Guides
+                  <span style={{ fontSize: "10px", transform: guidesOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>▾</span>
+                </button>
+              </div>
+
               {navItems.map((item) => {
                 const isActive = item.href === "/" ? currentPage === "home" || currentPage === "" : currentPage === item.href.replace("/", "");
                 return (
@@ -154,6 +203,57 @@ export default function Nav() {
           )}
         </div>
 
+        {/* Guides Mega-Menu Panel (desktop) */}
+        {!isMobile && guidesOpen && (
+          <div
+            onMouseEnter={openGuides}
+            onMouseLeave={scheduleCloseGuides}
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              backgroundColor: c.cream,
+              borderBottom: `3px solid ${c.yellow}`,
+              boxShadow: "0 12px 30px rgba(0,0,0,0.15)",
+              zIndex: 45,
+            }}
+          >
+            <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "28px 16px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "28px" }}>
+              {GUIDE_GROUPS.map((group) => (
+                <div key={group.group}>
+                  <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase", margin: "0 0 14px" }}>
+                    {group.group}
+                  </p>
+                  {group.categories.map((cat) => (
+                    <div key={cat.id} style={{ marginBottom: "14px" }}>
+                      <Link
+                        href={`/explore#${cat.id}`}
+                        onClick={() => setGuidesOpen(false)}
+                        style={{ display: "flex", alignItems: "center", gap: "6px", color: c.green1, fontSize: "13px", fontWeight: "700", textDecoration: "none", marginBottom: "6px" }}
+                      >
+                        <span>{cat.icon}</span>{cat.title}
+                      </Link>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+                        {cat.guides.slice(0, 4).map((g) => (
+                          <Link
+                            key={g.href}
+                            href={g.href}
+                            onClick={() => setGuidesOpen(false)}
+                            style={{ color: c.tan, fontSize: "12px", textDecoration: "none" }}
+                          >
+                            {g.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Mobile Menu Dropdown */}
         {isMobile && mobileMenuOpen && (
           <div style={{ backgroundColor: c.cream, borderTop: `1px solid ${c.beige}`, padding: "16px" }}>
@@ -181,6 +281,27 @@ export default function Nav() {
                 </Link>
               );
             })}
+            {/* Guides browse */}
+            <div style={{ borderTop: `1px solid ${c.beige}`, marginTop: "4px", paddingTop: "4px" }}>
+              {GUIDE_GROUPS.map((group) => (
+                <div key={group.group}>
+                  <p style={{ color: c.yellow, fontSize: "11px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase", margin: "12px 16px 4px" }}>
+                    {group.group}
+                  </p>
+                  {group.categories.map((cat) => (
+                    <Link
+                      key={cat.id}
+                      href={`/explore#${cat.id}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 16px", color: c.green1, fontSize: "15px", fontWeight: "600", textDecoration: "none" }}
+                    >
+                      <span>{cat.icon}</span>{cat.title}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
+
             {/* Partner - Highlighted */}
             <Link
               href="/partner"
