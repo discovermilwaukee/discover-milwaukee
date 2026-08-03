@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -214,22 +215,7 @@ export default function FoodieWeekendMilwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "48px 24px 32px" }}>
-          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-            <div style={{ marginBottom: "32px" }}>
-              <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: "center" }}>Explore Milwaukee</p>
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
-                <Link href="/best-restaurants-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Best Restaurants</Link>
-                <Link href="/third-ward-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Third Ward</Link>
-                <Link href="/bay-view-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Bay View</Link>
-                <Link href="/south-side-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>South Side</Link>
-              </div>
-            </div>
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", textAlign: "center" }}>
-              <p style={{ color: c.beige, fontSize: "14px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

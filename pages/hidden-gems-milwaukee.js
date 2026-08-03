@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -342,9 +343,7 @@ export default function HiddenGemsMilwaukee() {
             </div>
           </section>
 
-          <footer style={{ textAlign: "center", color: "#666", fontSize: "0.9rem" }}>
-            <p>Discovering Milwaukee's hidden gems since 2024. We trust you'll keep these secrets... mostly.</p>
-          </footer>
+          <Footer />
         </div>
       </div>
     </>

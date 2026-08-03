@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -361,9 +362,7 @@ export default function FoodTrucksMilwaukee() {
             </div>
           </section>
 
-          <footer style={{ textAlign: "center", color: "#666", fontSize: "0.9rem" }}>
-            <p>Discovering Milwaukee's best food trucks since 2024. All information verified and regularly updated.</p>
-          </footer>
+          <Footer />
         </div>
       </div>
     </>

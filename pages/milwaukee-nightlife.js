@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
@@ -1386,20 +1387,7 @@ export default function MilwaukeeNightlife() {
         </section>
 
         {/* Footer Note */}
-        <footer
-          style={{
-            backgroundColor: colors.green1,
-            color: colors.beige,
-            padding: '30px 20px',
-            textAlign: 'center',
-            fontSize: '0.9rem',
-          }}
-        >
-          <p style={{ opacity: 0.8 }}>
-            Please drink responsibly. Bar hours, offerings, and policies may change. Always confirm
-            details before visiting.
-          </p>
-        </footer>
+        <Footer />
       </main>
     </>
   );

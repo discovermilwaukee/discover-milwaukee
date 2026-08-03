@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import NewsletterCTA from "../components/NewsletterCTA";
 
 const c = {
@@ -280,12 +281,7 @@ export default function I794Milwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", margin: "0 0 8px" }}>© 2026 Discover Milwaukee. Your insider’s guide to MKE.</p>
-          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75, maxWidth: "760px", marginLeft: "auto", marginRight: "auto" }}>
-            This is an opinion column by Todd Spence, co-founder of Discover Milwaukee. The views expressed are his own. Discover Milwaukee supports an open, fact-driven public conversation about I-794 and welcomes perspectives from WisDOT, city leaders, neighborhood organizations, business owners and residents.
-          </p>
-        </footer>
+        <Footer />
       </div>
     </>
   );

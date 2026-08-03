@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -609,9 +610,7 @@ export default function MilwaukeeCountyZoo() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE. Zoo hours, prices and events independently verified against milwaukeezoo.org and zoosociety.org in June 2026 — confirm day-of details before you go.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );

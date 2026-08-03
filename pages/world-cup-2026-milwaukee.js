@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const c = {
   green1: "#1a3d34",
@@ -714,10 +715,7 @@ export default function WorldCup2026Milwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", margin: "0 0 8px" }}>© 2026 Discover Milwaukee. Your insider&apos;s guide to MKE.</p>
-          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75 }}>2026 FIFA World Cup viewing-venue facts verified against each venue&apos;s own website and Milwaukee press (OnMilwaukee, Milwaukee Record, Urban Milwaukee, Milwaukee Magazine) on June 11, 2026. Match dates and Central Time conversions sourced from FIFA, ESPN, FOX Sports and NBC Sports. Tournament hours, watch parties and special programming shift fast in-tournament — always confirm with the venue before going. Venues mentioned in older Milwaukee guides that have CLOSED and are intentionally excluded: Punch Bowl Social, MECCA Sports Bar, Good City Deer District, Nomad Nacional, Polonez.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );

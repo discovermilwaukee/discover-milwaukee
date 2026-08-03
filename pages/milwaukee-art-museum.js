@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -691,12 +692,7 @@ export default function MilwaukeeArtMuseum() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "13px", maxWidth: "700px", margin: "0 auto 10px", lineHeight: 1.6 }}>
-            Hours, admission, exhibition dates, and parking rates verified against mam.org in June 2026. Museums change schedules — always call (414) 224-3200 the morning of your visit, especially for high-wind days when the Brise Soleil flap may be cancelled.
-          </p>
-          <p style={{ color: c.beige, fontSize: "14px", margin: 0 }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
@@ -1069,21 +1070,7 @@ export default function MilwaukeeBreweries() {
         </section>
 
         {/* Footer */}
-        <footer
-          style={{
-            backgroundColor: colors.green1,
-            color: colors.cream,
-            padding: '40px 20px',
-            textAlign: 'center',
-          }}
-        >
-          <p style={{ opacity: '0.8', marginBottom: '15px' }}>
-            Discover Milwaukee | Your Guide to America's Beer Capital
-          </p>
-          <p style={{ opacity: '0.6', fontSize: '0.9rem' }}>
-            Please drink responsibly. Support local breweries.
-          </p>
-        </footer>
+        <Footer />
       </main>
     </>
   );

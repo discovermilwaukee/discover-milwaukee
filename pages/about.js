@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const c = {
   green1: "#1a3d34",
@@ -469,16 +470,7 @@ export default function About() {
         </main>
 
         {/* Footer */}
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", marginBottom: "16px" }}>© 2026 Discover Milwaukee. Built in MKE.</p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
-            <Link href="/" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Home</Link>
-            <Link href="/explore" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Explore</Link>
-            <Link href="/events" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Events</Link>
-            <Link href="/newsletter" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Newsletter</Link>
-            <Link href="/partner" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Partner</Link>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

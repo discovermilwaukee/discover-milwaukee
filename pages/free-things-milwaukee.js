@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
@@ -1125,6 +1126,7 @@ export default function FreeThingsMilwaukee() {
           </p>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

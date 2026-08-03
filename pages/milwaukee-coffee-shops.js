@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -819,11 +820,7 @@ export default function MilwaukeeCoffeeShops() {
         </section>
 
         {/* Footer */}
-        <footer style={{ backgroundColor: c.green1, padding: "40px 20px", textAlign: "center" }}>
-          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", margin: 0 }}>
-            © 2026 Discover Milwaukee. Made with love for MKE coffee culture.
-          </p>
-        </footer>
+        <Footer />
       </main>
     </>
   );

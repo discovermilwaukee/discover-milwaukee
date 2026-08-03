@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -631,10 +632,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", margin: "0 0 6px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75 }}>Hours, prices and event schedules verified against harley-davidson.com, motorrestaurant.com, Visit Milwaukee, and Milwaukee Record in June 2026. Always confirm with the venue before traveling.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );
