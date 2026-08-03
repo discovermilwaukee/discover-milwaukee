@@ -899,11 +899,12 @@ const getThisWeekEvents = (events) => {
 // ============================================================================
 const GUIDE_CATEGORIES = [
   {
-    id: "food-dining",
-    title: "Food & Dining",
+    id: "restaurants-cuisine",
+    group: "Eat & Drink",
+    title: "Restaurants & Cuisine",
     icon: "🍽️",
     color: "#e17055",
-    description: "Restaurant guides, cuisine roundups & foodie favorites",
+    description: "Top dining spots & cuisine roundups",
     guides: [
       { title: "Best Restaurants", href: "/best-restaurants-milwaukee", icon: "⭐", desc: "Top dining spots" },
       { title: "New Restaurants", href: "/new-restaurants-milwaukee", icon: "✨", desc: "Latest openings" },
@@ -913,38 +914,74 @@ const GUIDE_CATEGORIES = [
       { title: "Best Sushi", href: "/best-sushi-milwaukee", icon: "🍣", desc: "Sushi & Japanese" },
       { title: "Best Mexican", href: "/best-mexican-milwaukee", icon: "🇲🇽", desc: "Mexican restaurants" },
       { title: "Best Thai", href: "/best-thai-milwaukee", icon: "🍜", desc: "Thai cuisine" },
+      { title: "Best Chinese", href: "/best-chinese-milwaukee", icon: "🥡", desc: "Chinese food" },
+      { title: "Best Indian", href: "/best-indian-milwaukee", icon: "🍛", desc: "Indian cuisine" },
+      { title: "Best Vietnamese", href: "/best-vietnamese-milwaukee", icon: "🍲", desc: "Pho & more" },
+      { title: "Best Ramen", href: "/best-ramen-milwaukee", icon: "🍜", desc: "Ramen bowls" },
+      { title: "Best BBQ", href: "/best-bbq-milwaukee", icon: "🍖", desc: "Barbecue joints" },
+      { title: "Best Steakhouses", href: "/best-steakhouses-milwaukee", icon: "🥩", desc: "Steak dinners" },
+      { title: "Best Supper Clubs", href: "/best-supper-clubs-milwaukee", icon: "🍸", desc: "Wisconsin classic" },
       { title: "Best Fish Fry", href: "/best-fish-fry-milwaukee", icon: "🐟", desc: "Friday tradition" },
+      { title: "Best Wings", href: "/best-wings-milwaukee", icon: "🍗", desc: "Wing spots" },
+      { title: "Cheap Eats", href: "/cheap-eats-milwaukee", icon: "💵", desc: "Budget bites" },
+    ]
+  },
+  {
+    id: "cafes-sweets",
+    group: "Eat & Drink",
+    title: "Cafés, Sweets & Casual Eats",
+    icon: "🥐",
+    color: "#e84393",
+    description: "Brunch, bakeries, coffee & treats",
+    guides: [
       { title: "Best Brunch", href: "/best-brunch-milwaukee", icon: "🥞", desc: "Weekend brunch" },
+      { title: "Best Breakfast", href: "/best-breakfast-milwaukee", icon: "🍳", desc: "Morning eats" },
       { title: "Best Bakeries", href: "/best-bakeries-milwaukee", icon: "🥐", desc: "Bakeries & pastries" },
+      { title: "Best Doughnuts", href: "/best-doughnuts-milwaukee", icon: "🍩", desc: "Doughnut shops" },
       { title: "Best Ice Cream", href: "/best-ice-cream-milwaukee", icon: "🍦", desc: "Frozen treats" },
+      { title: "Best Frozen Custard", href: "/best-frozen-custard-milwaukee", icon: "🍨", desc: "MKE custard" },
+      { title: "Best Cheese Curds", href: "/best-cheese-curds-milwaukee", icon: "🧀", desc: "Fried curds" },
+      { title: "Best Coffee", href: "/best-coffee-milwaukee", icon: "☕", desc: "Coffee roasters" },
+      { title: "Coffee Shops", href: "/milwaukee-coffee-shops", icon: "☕", desc: "Cafés to work" },
+      { title: "Best Matcha", href: "/best-matcha-milwaukee", icon: "🍵", desc: "Matcha spots" },
       { title: "Food Trucks", href: "/food-trucks-milwaukee", icon: "🚚", desc: "Mobile eats" },
-      { title: "Best Happy Hour", href: "/best-happy-hour-milwaukee", icon: "🍻", desc: "Deals & specials" },
+      { title: "Late Night Food", href: "/late-night-food-milwaukee", icon: "🌃", desc: "After hours" },
     ]
   },
   {
     id: "bars-nightlife",
+    group: "Eat & Drink",
     title: "Bars & Nightlife",
     icon: "🍸",
     color: "#6c5ce7",
-    description: "Cocktail bars, dive bars, live music & late night",
+    description: "Cocktail bars, breweries, live music & late night",
     guides: [
       { title: "Milwaukee Nightlife", href: "/milwaukee-nightlife", icon: "🌙", desc: "Night out guide" },
-      { title: "Best Dive Bars", href: "/best-dive-bars-milwaukee", icon: "🍺", desc: "Classic dives" },
+      { title: "Milwaukee Bars", href: "/milwaukee-bars", icon: "🍺", desc: "Bar guide" },
       { title: "Best Cocktail Bars", href: "/best-cocktail-bars-milwaukee", icon: "🍹", desc: "Craft cocktails" },
+      { title: "Best Dive Bars", href: "/best-dive-bars-milwaukee", icon: "🍺", desc: "Classic dives" },
       { title: "Rooftop Bars", href: "/rooftop-bars-milwaukee", icon: "🏙️", desc: "Views & drinks" },
-      { title: "Live Music Venues", href: "/live-music-milwaukee", icon: "🎵", desc: "Where to see shows" },
-      { title: "Milwaukee Breweries", href: "/milwaukee-breweries", icon: "🍺", desc: "Craft beer guide" },
+      { title: "Best Happy Hour", href: "/best-happy-hour-milwaukee", icon: "🍻", desc: "Deals & specials" },
+      { title: "Speakeasies", href: "/milwaukee-speakeasies", icon: "🚪", desc: "Hidden bars" },
+      { title: "Karaoke Bars", href: "/milwaukee-karaoke-bars", icon: "🎤", desc: "Sing all night" },
+      { title: "Sports Bars", href: "/milwaukee-sports-bars", icon: "📺", desc: "Watch the game" },
       { title: "Packers Bars", href: "/packers-bars-milwaukee", icon: "🏈", desc: "Game day spots" },
+      { title: "Milwaukee Breweries", href: "/milwaukee-breweries", icon: "🍺", desc: "Craft beer guide" },
+      { title: "Brewery Tours", href: "/best-brewery-tours-milwaukee", icon: "🏭", desc: "Tour & taste" },
+      { title: "Live Music Venues", href: "/live-music-milwaukee", icon: "🎵", desc: "Where to see shows" },
+      { title: "Comedy Clubs", href: "/milwaukee-comedy-clubs", icon: "🎭", desc: "Stand-up & laughs" },
     ]
   },
   {
-    id: "activities",
-    title: "Activities & Experiences",
+    id: "activities-outdoors",
+    group: "Things to Do",
+    title: "Things to Do & Outdoors",
     icon: "🎯",
     color: "#00b894",
-    description: "Things to do, hidden gems & local experiences",
+    description: "Activities, hidden gems & the outdoors",
     guides: [
       { title: "Things to Do", href: "/things-to-do-milwaukee", icon: "🎯", desc: "Complete guide" },
+      { title: "Things to Do with Kids", href: "/things-to-do-with-kids-milwaukee", icon: "👨‍👩‍👧", desc: "Family fun" },
       { title: "Hidden Gems", href: "/hidden-gems-milwaukee", icon: "💎", desc: "Secret spots" },
       { title: "Rainy Day Activities", href: "/rainy-day-milwaukee", icon: "🌧️", desc: "Indoor fun" },
       { title: "Dog Friendly", href: "/dog-friendly-milwaukee", icon: "🐕", desc: "Pet-friendly spots" },
@@ -952,11 +989,62 @@ const GUIDE_CATEGORIES = [
       { title: "Date Ideas", href: "/milwaukee-date-ideas", icon: "💕", desc: "Romantic spots" },
       { title: "Free Things to Do", href: "/free-things-milwaukee", icon: "🆓", desc: "Budget-friendly" },
       { title: "Best Patios", href: "/best-patios-milwaukee", icon: "☀️", desc: "Outdoor spots" },
-      { title: "Coffee Shops", href: "/milwaukee-coffee-shops", icon: "☕", desc: "Best cafes" },
+      { title: "Hiking Trails", href: "/milwaukee-hiking-trails", icon: "🥾", desc: "Trails & nature" },
+      { title: "Shopping", href: "/milwaukee-shopping", icon: "🛍️", desc: "Where to shop" },
+      { title: "Farmers Markets", href: "/milwaukee-farmers-markets", icon: "🥕", desc: "Fresh & local" },
+      { title: "Best Golf", href: "/best-golf-milwaukee", icon: "⛳", desc: "Golf courses" },
+    ]
+  },
+  {
+    id: "attractions-museums",
+    group: "Things to Do",
+    title: "Attractions & Museums",
+    icon: "🏛️",
+    color: "#00cec9",
+    description: "Landmarks, museums & the waterfront",
+    guides: [
+      { title: "Art Museum", href: "/milwaukee-art-museum", icon: "🎨", desc: "MAM guide" },
+      { title: "County Zoo", href: "/milwaukee-county-zoo", icon: "🦁", desc: "Zoo visit" },
+      { title: "Harley-Davidson Museum", href: "/harley-davidson-museum-milwaukee", icon: "🏍️", desc: "H-D history" },
+      { title: "Public Market", href: "/milwaukee-public-market", icon: "🛒", desc: "Food hall" },
+      { title: "Museums", href: "/milwaukee-museums", icon: "🏛️", desc: "All museums" },
+      { title: "Waterfront", href: "/milwaukee-waterfront", icon: "⚓", desc: "Lakefront guide" },
+    ]
+  },
+  {
+    id: "sports-game-days",
+    group: "Things to Do",
+    title: "Sports & Game Days",
+    icon: "🏟️",
+    color: "#d63031",
+    description: "Brewers, Bucks & big games",
+    guides: [
+      { title: "Brewers Game Guide", href: "/brewers-game-guide-milwaukee", icon: "⚾", desc: "Baseball day" },
+      { title: "Bucks Game Guide", href: "/bucks-game-guide-milwaukee", icon: "🏀", desc: "Bucks night" },
+      { title: "World Cup 2026", href: "/world-cup-2026-milwaukee", icon: "⚽", desc: "MKE & the Cup" },
+    ]
+  },
+  {
+    id: "events-seasonal",
+    group: "Things to Do",
+    title: "Events & Seasonal",
+    icon: "🎉",
+    color: "#fdcb6e",
+    description: "Festivals, holidays & what's happening",
+    guides: [
+      { title: "Milwaukee Festivals", href: "/milwaukee-festivals", icon: "🎉", desc: "Festival calendar" },
+      { title: "This Weekend", href: "/this-weekend-milwaukee", icon: "🗓️", desc: "What's happening" },
+      { title: "Summerfest", href: "/summerfest-milwaukee", icon: "🎸", desc: "Big Gig guide" },
+      { title: "Wisconsin State Fair", href: "/wisconsin-state-fair-milwaukee", icon: "🎡", desc: "Fair guide" },
+      { title: "State Fair Sporkies 2026", href: "/wisconsin-state-fair-sporkies-2026", icon: "🍢", desc: "New fair foods" },
+      { title: "Juneteenth", href: "/juneteenth-milwaukee", icon: "✊", desc: "Celebration guide" },
+      { title: "Memorial Day Weekend", href: "/memorial-day-weekend-milwaukee", icon: "🇺🇸", desc: "Long weekend" },
+      { title: "Summer Live Music", href: "/summer-live-music-milwaukee", icon: "🎶", desc: "Outdoor concerts" },
     ]
   },
   {
     id: "neighborhoods",
+    group: "Neighborhoods",
     title: "Neighborhoods",
     icon: "🏘️",
     color: "#0984e3",
@@ -977,22 +1065,36 @@ const GUIDE_CATEGORIES = [
     ]
   },
   {
-    id: "weekend-guides",
-    title: "Weekend & Visitor Guides",
+    id: "plan-your-visit",
+    group: "Plan Your Visit",
+    title: "Plan Your Visit",
     icon: "📅",
     color: "#d35400",
-    description: "Plan your Milwaukee trip or weekend adventure",
+    description: "Itineraries, hotels & trip planning",
     guides: [
       { title: "First Time in Milwaukee", href: "/first-time-milwaukee", icon: "🎯", desc: "Essential guide" },
       { title: "Weekend in Milwaukee", href: "/weekend-in-milwaukee", icon: "📅", desc: "3-day itinerary" },
-      { title: "This Weekend", href: "/this-weekend-milwaukee", icon: "🗓️", desc: "What's happening" },
       { title: "Romantic Getaway", href: "/romantic-weekend-milwaukee", icon: "💕", desc: "Couples weekend" },
       { title: "Family Weekend", href: "/family-weekend-milwaukee", icon: "👨‍👩‍👧‍👦", desc: "Kid-friendly" },
-      { title: "Beer Lover's Guide", href: "/beer-lovers-milwaukee", icon: "🍺", desc: "Brewery tours" },
-      { title: "Foodie Weekend", href: "/foodie-weekend-milwaukee", icon: "🍽️", desc: "Culinary tour" },
-      { title: "Arts & Culture", href: "/arts-culture-milwaukee", icon: "🎭", desc: "Museums & theater" },
       { title: "Outdoor Adventure", href: "/outdoor-weekend-milwaukee", icon: "🚴", desc: "Parks & trails" },
-      { title: "Milwaukee Festivals", href: "/milwaukee-festivals", icon: "🎉", desc: "Festival calendar" },
+      { title: "Foodie Weekend", href: "/foodie-weekend-milwaukee", icon: "🍽️", desc: "Culinary tour" },
+      { title: "Beer Lover's Guide", href: "/beer-lovers-milwaukee", icon: "🍺", desc: "Brewery tours" },
+      { title: "Arts & Culture", href: "/arts-culture-milwaukee", icon: "🎭", desc: "Museums & theater" },
+      { title: "Milwaukee Hotels", href: "/milwaukee-hotels", icon: "🏨", desc: "Where to stay" },
+      { title: "Bachelor Party", href: "/bachelor-party-milwaukee", icon: "🎉", desc: "Guys' weekend" },
+      { title: "Bachelorette Party", href: "/bachelorette-party-milwaukee", icon: "💃", desc: "Girls' weekend" },
+    ]
+  },
+  {
+    id: "milwaukee-stories",
+    group: "Plan Your Visit",
+    title: "Milwaukee Stories & Local",
+    icon: "📖",
+    color: "#636e72",
+    description: "Local voices & city stories",
+    guides: [
+      { title: "Milwaukee Influencers", href: "/milwaukee-influencers", icon: "📸", desc: "Local voices" },
+      { title: "The I-794 Debate", href: "/i-794-milwaukee", icon: "🛣️", desc: "City's future" },
     ]
   }
 ];
@@ -3094,10 +3196,25 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             const isExpanded = expandedCategories[category.id];
             const visibleGuides = isExpanded ? category.guides : category.guides.slice(0, isMobile ? 4 : 6);
             const hasMore = category.guides.length > (isMobile ? 4 : 6);
+            const isFirstOfGroup = catIndex === 0 || GUIDE_CATEGORIES[catIndex - 1].group !== category.group;
 
             return (
+              <React.Fragment key={category.id}>
+              {isFirstOfGroup && (
+                <div style={{
+                  padding: isMobile ? "28px 16px 0" : "44px 16px 0",
+                  backgroundColor: catIndex % 2 === 0 ? c.white : c.cream
+                }}>
+                  <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", gap: "12px" }}>
+                    <span style={{ height: "3px", width: "32px", flex: "0 0 32px", backgroundColor: c.yellow, borderRadius: "2px" }} />
+                    <h2 style={{ fontSize: isMobile ? "13px" : "15px", fontWeight: "900", color: c.green2, letterSpacing: "2px", textTransform: "uppercase", margin: 0, whiteSpace: "nowrap" }}>
+                      {category.group}
+                    </h2>
+                    <span style={{ height: "3px", flex: 1, backgroundColor: c.beige, borderRadius: "2px" }} />
+                  </div>
+                </div>
+              )}
               <section
-                key={category.id}
                 style={{
                   padding: isMobile ? "32px 16px" : "48px 16px",
                   backgroundColor: catIndex % 2 === 0 ? c.white : c.cream
@@ -3211,6 +3328,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   )}
                 </div>
               </section>
+              </React.Fragment>
             );
           })}
 
@@ -3325,7 +3443,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ maxWidth: "900px", margin: "0 auto" }}>
               <div style={{
                 display: "grid",
-                gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(5, 1fr)",
+                gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(auto-fit, minmax(150px, 1fr))",
                 gap: "16px",
                 textAlign: "center"
               }}>
