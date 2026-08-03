@@ -2715,20 +2715,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <span style={{ fontFamily: SCRIPT_FONT, color: c.blue2, textTransform: "none", fontSize: isMobile ? "46px" : "84px", letterSpacing: 0 }}>knowing</span>
               </h1>
 
-              {/* Yellow Hoan Bridge — brand signature (bridge must always remain yellow) */}
-              <svg aria-hidden="true" viewBox="0 0 400 62" style={{ width: isMobile ? "240px" : "320px", height: "auto", display: "block", margin: isMobile ? "22px auto 0" : "30px auto 0" }}>
-                <g fill="none" stroke={c.yellow} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M40 44 Q200 4 360 44" />
-                  <path d="M20 44 H380" />
-                  <path d="M20 44 L8 58 M20 44 L32 58" />
-                  <path d="M380 44 L392 58 M380 44 L368 58" />
-                  <line x1="100" y1="31.8" x2="100" y2="44" strokeWidth="4" />
-                  <line x1="140" y1="26.8" x2="140" y2="44" strokeWidth="4" />
-                  <line x1="200" y1="24" x2="200" y2="44" strokeWidth="4" />
-                  <line x1="260" y1="26.8" x2="260" y2="44" strokeWidth="4" />
-                  <line x1="300" y1="31.8" x2="300" y2="44" strokeWidth="4" />
-                </g>
-              </svg>
+              {/* Brand alt logo — Hoan Bridge over the wordmark (brand signature) */}
+              <img src="/images/discover-milwaukee-altlogo.png" alt="Discover Milwaukee" width="320" height="320" style={{ width: isMobile ? "220px" : "300px", height: "auto", display: "block", margin: isMobile ? "22px auto 0" : "30px auto 0" }} />
 
               {/* Subdeck */}
               <p className="dm-fade-up dm-delay-2" style={{ color: c.green2, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "22px auto 0" : "26px auto 0", maxWidth: "560px" }}>
