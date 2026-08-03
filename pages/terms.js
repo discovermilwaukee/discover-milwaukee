@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 export default function TermsOfService() {
   const c = {
@@ -81,6 +82,7 @@ export default function TermsOfService() {
         </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

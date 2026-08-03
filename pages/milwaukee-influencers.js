@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import NewsletterCTA from "../components/NewsletterCTA";
 
 const c = {
@@ -543,9 +544,7 @@ export default function MilwaukeeInfluencers() {
         </section>
       </main>
 
-      <footer style={{ backgroundColor: c.green1, color: c.cream, textAlign: "center", padding: "32px 24px" }}>
-        <p style={{ margin: 0, fontSize: "14px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-      </footer>
+      <Footer />
     </>
   );
 }

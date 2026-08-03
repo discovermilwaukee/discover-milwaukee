@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -831,10 +832,7 @@ export default function BestMatchaMilwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.green1, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", margin: "0 0 8px" }}>© 2026 Discover Milwaukee. Your insider&apos;s guide to MKE.</p>
-          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75 }}>Matcha venue facts verified against each venue&apos;s own website and Milwaukee press (OnMilwaukee, Urban Milwaukee, Milwaukee Magazine, BizTimes Milwaukee, Milwaukee Record, TMJ4) in June 2026. Hours, pop-up dates and menu items shift — always confirm with the venue before going. Rodeo Matcha has no permanent storefront; follow @rodeomatcha for current pop-up locations.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );

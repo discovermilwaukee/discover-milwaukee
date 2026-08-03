@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 const c = {
@@ -1097,14 +1098,7 @@ export default function MilwaukeeBars() {
         </main>
 
         {/* Footer */}
-        <footer style={{ backgroundColor: c.green1, padding: "48px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", marginBottom: "16px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-          <div style={{ display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/about" style={{ color: c.beige, textDecoration: "none", fontSize: "14px", cursor: "pointer" }}>About</Link>
-            <Link href="/newsletter" style={{ color: c.beige, textDecoration: "none", fontSize: "14px", cursor: "pointer" }}>Newsletter</Link>
-            <Link href="/privacy" style={{ color: c.beige, textDecoration: "none", fontSize: "14px", cursor: "pointer" }}>Privacy</Link>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

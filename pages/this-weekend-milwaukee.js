@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 // =============================================================================
 // WEEKLY CONTENT - UPDATE EACH WEEK
@@ -943,24 +944,7 @@ export default function ThisWeekendMilwaukee() {
         </div>
 
         {/* Footer Note */}
-        <footer style={{
-          background: colors.beige,
-          padding: '24px',
-          textAlign: 'center',
-          fontSize: '14px',
-          color: '#666',
-        }}>
-          <p style={{ margin: 0 }}>
-            This page is updated every Thursday with the latest Milwaukee events and recommendations.
-            <br />
-            Last updated: {new Date(WEEKEND_DATA.lastUpdated).toLocaleDateString('en-US', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
-            })}
-          </p>
-        </footer>
+        <Footer />
       </main>
 
       {/* Global Styles */}

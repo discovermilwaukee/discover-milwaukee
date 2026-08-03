@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const c = {
   ink: "#171513",
@@ -626,10 +627,7 @@ export default function JuneteenthMilwaukee() {
           </section>
         </main>
 
-        <footer style={{ backgroundColor: c.ink, padding: "40px 24px", textAlign: "center" }}>
-          <p style={{ color: c.beige, fontSize: "14px", margin: "0 0 8px" }}>© 2026 Discover Milwaukee. Your insider&apos;s guide to MKE.</p>
-          <p style={{ color: c.beige, fontSize: "12px", margin: 0, opacity: 0.75, maxWidth: "760px", marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>Juneteenth Milwaukee facts verified June 15, 2026 against the official Juneteenth Milwaukee site (juneteenthmilwaukee.com), Northcott Neighborhood House, venue websites and Milwaukee press (FOX6, TMJ4, OnMilwaukee, Urban Milwaukee, Milwaukee NNS, Milwaukee Public Library, the Encyclopedia of Milwaukee). Festival boundaries, zone locations, museum free-day dates and Summerfest set times can shift close to the date — always confirm at the source before going.</p>
-        </footer>
+        <Footer />
       </div>
     </>
   );

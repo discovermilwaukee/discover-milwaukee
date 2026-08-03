@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Color palette
@@ -1951,21 +1952,7 @@ export default function MilwaukeeDateIdeas() {
         </section>
 
         {/* Footer */}
-        <footer
-          style={{
-            backgroundColor: colors.green1,
-            color: colors.cream,
-            padding: '40px 20px',
-            textAlign: 'center',
-          }}
-        >
-          <p style={{ opacity: 0.8, fontSize: '0.9rem' }}>
-            Last updated: March 2026 | Discover Milwaukee
-          </p>
-          <p style={{ opacity: 0.6, fontSize: '0.85rem', marginTop: '10px' }}>
-            Have a date idea we missed? We'd love to hear from you.
-          </p>
-        </footer>
+        <Footer />
       </main>
 
       <style jsx>{`

@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 // Brand colors matching main site
@@ -475,44 +476,7 @@ export default function BestRestaurantsMilwaukee() {
         </main>
 
         {/* Footer with Enhanced Cross-Linking */}
-        <footer style={{ backgroundColor: c.green1, padding: "48px 24px 32px" }}>
-          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-            {/* Food & Drink Guides */}
-            <div style={{ marginBottom: "32px" }}>
-              <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>More Food & Drink Guides</p>
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px" }}>
-                <Link href="/new-restaurants-milwaukee" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "10px 16px", borderRadius: "20px", fontSize: "13px", textDecoration: "none" }}>New Restaurants</Link>
-                <Link href="/best-brunch-milwaukee" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "10px 16px", borderRadius: "20px", fontSize: "13px", textDecoration: "none" }}>Best Brunch</Link>
-                <Link href="/best-patios-milwaukee" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "10px 16px", borderRadius: "20px", fontSize: "13px", textDecoration: "none" }}>Best Patios</Link>
-                <Link href="/milwaukee-breweries" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "10px 16px", borderRadius: "20px", fontSize: "13px", textDecoration: "none" }}>Breweries</Link>
-                <Link href="/milwaukee-coffee-shops" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "10px 16px", borderRadius: "20px", fontSize: "13px", textDecoration: "none" }}>Coffee Shops</Link>
-              </div>
-            </div>
-
-            {/* Neighborhood Guides */}
-            <div style={{ marginBottom: "32px" }}>
-              <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Explore by Neighborhood</p>
-              <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}>
-                <Link href="/third-ward-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Third Ward</Link>
-                <Link href="/bay-view-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Bay View</Link>
-                <Link href="/walkers-point-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>Walker's Point</Link>
-                <Link href="/east-side-milwaukee" style={{ color: c.beige, fontSize: "14px", textDecoration: "none" }}>East Side</Link>
-              </div>
-            </div>
-
-            {/* Site Navigation */}
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", textAlign: "center" }}>
-              <p style={{ color: c.beige, fontSize: "14px", marginBottom: "12px" }}>© 2026 Discover Milwaukee. Your insider's guide to MKE.</p>
-              <div style={{ display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap" }}>
-                <Link href="/" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Home</Link>
-                <Link href="/things-to-do-milwaukee" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Things to Do</Link>
-                <Link href="/events" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Events</Link>
-                <Link href="/about" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>About</Link>
-                <Link href="/partner" style={{ color: c.cream, fontSize: "14px", textDecoration: "none" }}>Partner</Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
