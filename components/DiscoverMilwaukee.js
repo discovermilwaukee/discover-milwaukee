@@ -1758,6 +1758,22 @@ const LineIcons = {
   Sun: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>,
 };
 
+// Explore page: presentation-only icon + brand-color override per category.
+// Keyed by category id; resolved through the active theme. Never touches guide data/SEO.
+const CAT_META = {
+  "restaurants-cuisine": { Icon: LineIcons.Utensils, ck: "orange" },
+  "cafes-sweets": { Icon: LineIcons.Sparkle, ck: "blue3" },
+  "bars-nightlife": { Icon: LineIcons.Cocktail, ck: "blue2" },
+  "activities-outdoors": { Icon: LineIcons.Compass, ck: "green2" },
+  "attractions-museums": { Icon: LineIcons.Buildings, ck: "blue1" },
+  "sports-game-days": { Icon: LineIcons.Basketball, ck: "orange" },
+  "events-seasonal": { Icon: LineIcons.Calendar, ck: "yellow" },
+  "neighborhoods": { Icon: LineIcons.Pin, ck: "blue3" },
+  "plan-your-visit": { Icon: LineIcons.Compass, ck: "green1" },
+  "milwaukee-stories": { Icon: LineIcons.BookOpen, ck: "tan" },
+};
+const catMeta = (id) => CAT_META[id] || { Icon: LineIcons.Star, ck: "green1" };
+
 // MAIN COMPONENT
 export function DiscoverMilwaukee({ initialPage = "home" }) {
   const router = useRouter();
@@ -3005,44 +3021,50 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
       {/* EXPLORE */}
       {page === "explore" && !selectedPost && (
-        <>
-          <section style={{ background: `linear-gradient(135deg, ${c.blue1} 0%, ${c.blue2} 100%)`, padding: "60px 16px" }}>
-            <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.blue3, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>YOUR MILWAUKEE ENCYCLOPEDIA</p>
-              <h1 style={{ fontSize: "44px", fontWeight: "900", color: c.cream, marginBottom: "12px", textTransform: "uppercase" }}>Explore Milwaukee</h1>
-              <p style={{ fontSize: "18px", color: c.yellow, fontWeight: "600", marginBottom: "16px" }}>Guides, Lists & Local Knowledge</p>
-              <p style={{ color: c.beige, fontSize: "16px", lineHeight: 1.6 }}>The definitive resource for things to do, places to eat, and neighborhoods to explore in Milwaukee. Written by locals, updated regularly.</p>
+        <div style={{ fontFamily: BODY_FONT }}>
+          <section style={{ backgroundColor: c.cream, padding: isMobile ? "48px 16px 36px" : "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
+            <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
+              <p style={{ color: c.orange, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>YOUR MILWAUKEE ENCYCLOPEDIA</p>
+              <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "40px" : "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Explore Milwaukee</h1>
+              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Guides, Lists & Local Knowledge</p>
+              <p style={{ color: c.green2, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto" }}>The definitive resource for things to do, places to eat, and neighborhoods to explore in Milwaukee. Written by locals, updated regularly.</p>
             </div>
           </section>
           
           {/* Pillar Pages Section */}
           <section style={{ padding: isMobile ? "32px 16px" : "48px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: isMobile ? "24px" : "28px", fontWeight: "900", color: c.green1, marginBottom: "24px", textAlign: "center" }}>Essential Milwaukee Guides</h2>
+              <div style={{ textAlign: "center", marginBottom: "28px" }}>
+                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "10px" }}>Start Here</p>
+                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "28px" : "40px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0 }}>Essential Milwaukee Guides</h2>
+              </div>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "20px", marginBottom: "20px" }}>
-                {exploreArticles.filter(p => p.isPillar).slice(0, 4).map(p => (
-                  <div key={p.id} onClick={() => setSelectedPost(p)} style={{ backgroundColor: p.color, borderRadius: "20px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", flexDirection: "column", minHeight: isMobile ? "auto" : "200px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-                      <span style={{ fontSize: "32px" }}>{p.icon}</span>
-                      <span style={{ backgroundColor: "rgba(255,255,255,0.2)", color: c.white, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", textTransform: "uppercase" }}>Pillar Guide</span>
+                {exploreArticles.filter(p => p.isPillar).slice(0, 4).map((p, i) => {
+                  const bg = [c.green1, c.blue1, c.orange, c.green2][i % 4];
+                  return (
+                  <div key={p.id} onClick={() => setSelectedPost(p)} style={{ backgroundColor: bg, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", flexDirection: "column", minHeight: isMobile ? "auto" : "200px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
+                      <span style={{ color: c.cream }}><LineIcons.BookOpen size={28} /></span>
+                      <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: c.cream, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
                     </div>
-                    <h3 style={{ color: c.white, fontSize: isMobile ? "18px" : "22px", fontWeight: "900", marginBottom: "10px", lineHeight: 1.2 }}>{p.title}</h3>
-                    <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "14px", lineHeight: 1.5, flex: 1 }}>{p.excerpt}</p>
+                    <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "400", marginBottom: "10px", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}>{p.title}</h3>
+                    <p style={{ color: "rgba(247,241,231,0.9)", fontSize: "14px", lineHeight: 1.5, flex: 1 }}>{p.excerpt}</p>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "16px" }}>
-                      <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px" }}>{p.readTimeMinutes} min read</span>
+                      <span style={{ color: "rgba(247,241,231,0.7)", fontSize: "12px" }}>{p.readTimeMinutes} min read</span>
                       <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "700" }}>Read Full Guide →</span>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
               {/* Fifth pillar as full width */}
               {exploreArticles.filter(p => p.isPillar)[4] && (
-                <div onClick={() => setSelectedPost(exploreArticles.filter(p => p.isPillar)[4])} style={{ backgroundColor: exploreArticles.filter(p => p.isPillar)[4].color, borderRadius: "20px", padding: "32px", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px" }}>
-                  <span style={{ fontSize: "48px" }}>{exploreArticles.filter(p => p.isPillar)[4].icon}</span>
+                <div onClick={() => setSelectedPost(exploreArticles.filter(p => p.isPillar)[4])} style={{ backgroundColor: c.blue2, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px" }}>
+                  <span style={{ color: c.cream, flexShrink: 0 }}><LineIcons.BookOpen size={isMobile ? 32 : 44} /></span>
                   <div style={{ flex: 1 }}>
-                    <span style={{ backgroundColor: "rgba(255,255,255,0.2)", color: c.white, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", textTransform: "uppercase" }}>Pillar Guide</span>
-                    <h3 style={{ color: c.white, fontSize: "22px", fontWeight: "900", margin: "8px 0", lineHeight: 1.2 }}>{exploreArticles.filter(p => p.isPillar)[4].title}</h3>
-                    <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "14px", lineHeight: 1.5 }}>{exploreArticles.filter(p => p.isPillar)[4].excerpt}</p>
+                    <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: c.cream, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
+                    <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "400", margin: "10px 0", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}>{exploreArticles.filter(p => p.isPillar)[4].title}</h3>
+                    <p style={{ color: "rgba(247,241,231,0.9)", fontSize: "14px", lineHeight: 1.5 }}>{exploreArticles.filter(p => p.isPillar)[4].excerpt}</p>
                   </div>
                   <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", whiteSpace: "nowrap" }}>Read Guide →</span>
                 </div>
@@ -3056,6 +3078,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             const visibleGuides = isExpanded ? category.guides : category.guides.slice(0, isMobile ? 4 : 6);
             const hasMore = category.guides.length > (isMobile ? 4 : 6);
             const isFirstOfGroup = catIndex === 0 || GUIDE_CATEGORIES[catIndex - 1].group !== category.group;
+            const meta = catMeta(category.id);
+            const accent = c[meta.ck];
 
             return (
               <React.Fragment key={category.id}>
@@ -3084,21 +3108,22 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
                   {/* Category Header */}
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                       <span style={{
-                        fontSize: "32px",
-                        width: "56px",
-                        height: "56px",
-                        backgroundColor: category.color,
+                        width: "52px",
+                        height: "52px",
+                        backgroundColor: accent,
+                        color: c.cream,
                         borderRadius: "14px",
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "center"
+                        justifyContent: "center",
+                        flexShrink: 0
                       }}>
-                        {category.icon}
+                        <meta.Icon size={26} />
                       </span>
                       <div>
-                        <h2 style={{ fontSize: isMobile ? "22px" : "26px", fontWeight: "900", color: c.green1, marginBottom: "4px" }}>
+                        <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "22px" : "30px", fontWeight: "400", color: c.green1, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px", lineHeight: 1.05 }}>
                           {category.title}
                         </h2>
                         <p style={{ color: c.tan, fontSize: "14px", margin: 0 }}>
@@ -3107,12 +3132,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       </div>
                     </div>
                     <span style={{
-                      backgroundColor: category.color,
-                      color: c.white,
+                      backgroundColor: accent,
+                      color: c.cream,
                       padding: "6px 14px",
                       borderRadius: "50px",
-                      fontSize: "13px",
-                      fontWeight: "700"
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.5px"
                     }}>
                       {category.guides.length} guides
                     </span>
@@ -3141,7 +3168,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         onMouseOver={e => {
                           e.currentTarget.style.transform = "translateY(-3px)";
                           e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)";
-                          e.currentTarget.style.borderColor = category.color;
+                          e.currentTarget.style.borderColor = accent;
                         }}
                         onMouseOut={e => {
                           e.currentTarget.style.transform = "translateY(0)";
@@ -3149,7 +3176,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           e.currentTarget.style.borderColor = "transparent";
                         }}
                       >
-                        <span style={{ fontSize: "24px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
+                        <span style={{ display: "block", width: "22px", height: "3px", borderRadius: "2px", backgroundColor: accent, marginBottom: "12px" }} />
                         <h3 style={{ color: c.green1, fontSize: "14px", fontWeight: "700", marginBottom: "4px", lineHeight: 1.3 }}>
                           {guide.title}
                         </h3>
@@ -3166,21 +3193,21 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         style={{
                           padding: "10px 24px",
                           backgroundColor: "transparent",
-                          color: category.color,
+                          color: accent,
                           borderRadius: "50px",
-                          border: `2px solid ${category.color}`,
+                          border: `2px solid ${accent}`,
                           cursor: "pointer",
                           fontWeight: "700",
                           fontSize: "13px",
                           transition: "all 0.2s"
                         }}
                         onMouseOver={e => {
-                          e.currentTarget.style.backgroundColor = category.color;
-                          e.currentTarget.style.color = c.white;
+                          e.currentTarget.style.backgroundColor = accent;
+                          e.currentTarget.style.color = c.cream;
                         }}
                         onMouseOut={e => {
                           e.currentTarget.style.backgroundColor = "transparent";
-                          e.currentTarget.style.color = category.color;
+                          e.currentTarget.style.color = accent;
                         }}
                       >
                         {isExpanded ? "Show Less" : `See All ${category.guides.length} Guides`} {isExpanded ? "↑" : "↓"}
@@ -3196,7 +3223,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Search Section */}
           <section style={{ padding: "48px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
-              <h2 style={{ fontSize: isMobile ? "22px" : "28px", fontWeight: "900", color: c.cream, marginBottom: "12px" }}>
+              <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "26px" : "38px", fontWeight: "400", color: c.cream, marginBottom: "12px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
                 Looking for Something Specific?
               </h2>
               <p style={{ color: c.beige, fontSize: "16px", marginBottom: "24px" }}>
@@ -3232,7 +3259,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       cat.guides.filter(g =>
                         g.title.toLowerCase().includes(searchLower) ||
                         g.desc.toLowerCase().includes(searchLower)
-                      ).map(g => ({ ...g, category: cat.title, categoryColor: cat.color }))
+                      ).map(g => ({ ...g, category: cat.title, categoryColor: c[catMeta(cat.id).ck] }))
                     );
 
                     if (matchingGuides.length === 0) {
@@ -3272,7 +3299,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                             onMouseOver={e => e.currentTarget.style.transform = "translateX(4px)"}
                             onMouseOut={e => e.currentTarget.style.transform = "translateX(0)"}
                           >
-                            <span style={{ fontSize: "24px" }}>{guide.icon}</span>
+                            <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: guide.categoryColor, flexShrink: 0 }} />
                             <div style={{ flex: 1 }}>
                               <h4 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "2px" }}>
                                 {guide.title}
@@ -3281,7 +3308,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                             </div>
                             <span style={{
                               backgroundColor: guide.categoryColor,
-                              color: c.white,
+                              color: c.cream,
                               padding: "4px 10px",
                               borderRadius: "50px",
                               fontSize: "10px",
@@ -3308,27 +3335,31 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 gap: "16px",
                 textAlign: "center"
               }}>
-                {GUIDE_CATEGORIES.map(cat => (
+                {GUIDE_CATEGORIES.map(cat => {
+                  const m = catMeta(cat.id);
+                  const a = c[m.ck];
+                  return (
                   <div
                     key={cat.id}
                     style={{
                       backgroundColor: c.white,
                       borderRadius: "12px",
-                      padding: "20px 16px",
-                      borderLeft: `4px solid ${cat.color}`
+                      padding: "22px 16px",
+                      borderLeft: `4px solid ${a}`
                     }}
                   >
-                    <span style={{ fontSize: "28px", display: "block", marginBottom: "8px" }}>{cat.icon}</span>
-                    <p style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "4px" }}>
+                    <span style={{ color: a, display: "inline-flex", marginBottom: "10px" }}><m.Icon size={26} /></span>
+                    <p style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: "34px", fontWeight: "400", marginBottom: "4px", lineHeight: 1 }}>
                       {cat.guides.length}
                     </p>
                     <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{cat.title}</p>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
-        </>
+        </div>
       )}
 
       {/* EXPLORE DETAIL - Full Article View */}
