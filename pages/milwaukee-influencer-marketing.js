@@ -56,6 +56,22 @@ const faqSchema = {
         text: "National ad buys treat Milwaukee as a fraction of a larger plan and carry no local credibility. A trusted Milwaukee creator delivers native content to people who already act on that creator's recommendations, so the message lands as a tip from a friend rather than an interruption.",
       },
     },
+    {
+      "@type": "Question",
+      name: "How much does it cost to advertise or market in Milwaukee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Costs vary by scope, from a single sponsored feature to an ongoing seasonal campaign. Local creator partnerships are typically far more cost-efficient than broad national media buys because the audience is targeted and already engaged. Share your budget in the partner intake form for a tailored plan.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can brands reach Wisconsin audiences beyond the city of Milwaukee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Milwaukee is the largest metro and media market in Wisconsin, so campaigns anchored in Milwaukee reach a statewide audience of young, active adults across southeastern Wisconsin and beyond.",
+      },
+    },
   ],
 };
 
@@ -100,11 +116,12 @@ export default function MilwaukeeInfluencerMarketing() {
   return (
     <div style={{ fontFamily: BODY, backgroundColor: c.cream, color: c.ink }}>
       <Head>
-        <title>Milwaukee Influencer Marketing: How Brands Reach the Market (2026)</title>
+        <title>Milwaukee Influencer Marketing & Advertising Guide (2026)</title>
         <meta
           name="description"
-          content="A guide for local & national brands on marketing in Milwaukee: market size, demographics, and how to reach the Milwaukee audience through trusted local influencers and social content."
+          content="A guide for local & national brands on marketing and advertising in Milwaukee and Wisconsin: market size, demographics, and how to reach the Milwaukee audience through trusted local influencers and social content."
         />
+        <meta name="keywords" content="marketing in Milwaukee, advertising in Milwaukee, Milwaukee influencer marketing, Wisconsin marketing, Wisconsin advertising, how to advertise in Milwaukee, Milwaukee marketing agency, reach the Milwaukee market" />
         <link rel="canonical" href={`${SITE}/milwaukee-influencer-marketing`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Milwaukee Influencer Marketing: How Brands Reach the Market (2026)" />
@@ -154,7 +171,7 @@ export default function MilwaukeeInfluencerMarketing() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "16px 16px 56px" }}>
         <H2>Milwaukee is a market worth buying</H2>
         <P>
-          Milwaukee is easy to overlook on a national media plan and expensive to ignore once you know the numbers. The metro area is home to more than 1.5 million people (U.S. Census Bureau, 2024) and ranks as the 38th-largest television market in the country (Nielsen DMA, 2024–25). Median household income in the metro is roughly $78,000 (U.S. Census Bureau, 2024), and the region&apos;s median age of about 39 skews toward working adults with money to spend.
+          Milwaukee is easy to overlook on a national media plan and expensive to ignore once you know the numbers. The metro area is home to more than 1.5 million people (U.S. Census Bureau, 2024) and ranks as the 38th-largest television market in the country (Nielsen DMA, 2024–25). Median household income in the metro is roughly $78,000 (U.S. Census Bureau, 2024), and the region&apos;s median age of about 39 skews toward working adults with money to spend. As the largest metro and media market in Wisconsin, Milwaukee is also the front door to reaching audiences across the state.
         </P>
         <P>
           It is also a city that spends on going out. Visitors alone poured an estimated $2.4 billion into the local economy in 2024 (VISIT Milwaukee), and the calendar — from Summerfest and the Wisconsin State Fair to a summer full of neighborhood festivals — keeps locals looking for the next place to eat, drink, and gather. That is the demand a brand is stepping into.
@@ -191,20 +208,29 @@ export default function MilwaukeeInfluencerMarketing() {
           <Link href="/about" style={{ color: c.blue2, fontWeight: 600 }}>about who we are</Link>.
         </P>
 
+        {/* FAQ */}
+        <H2>Milwaukee marketing FAQs</H2>
+        {faqSchema.mainEntity.map((q) => (
+          <div key={q.name} style={{ borderBottom: `1px solid ${c.beige}`, padding: "18px 0" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: 700, color: c.green1, margin: "0 0 8px" }}>{q.name}</h3>
+            <p style={{ color: c.ink, fontSize: "16px", lineHeight: 1.7, margin: 0 }}>{q.acceptedAnswer.text}</p>
+          </div>
+        ))}
+
         {/* CTA CARD */}
         <div style={{ backgroundColor: c.green1, borderRadius: "18px", padding: "36px 28px", textAlign: "center", margin: "40px 0 8px" }}>
           <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(24px, 4vw, 34px)", textTransform: "uppercase", color: c.cream, margin: "0 0 12px" }}>
             Ready to Reach Milwaukee?
           </h2>
           <p style={{ color: c.beige, fontSize: "16px", lineHeight: 1.6, margin: "0 0 24px" }}>
-            Start with the media kit, then tell us your goals in the partner intake form.
+            Tell us your goals in the partner intake form — or view the full media kit first.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "14px" }}>
-            <Link href="/milwaukee-media-kit" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
-              View the Media Kit
+            <Link href="/partner?apply=1" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
+              Start a Partnership →
             </Link>
-            <Link href="/partner" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: "transparent", color: c.cream, border: `2px solid ${c.yellow}`, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
-              Start a Partnership
+            <Link href="/milwaukee-media-kit" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: "transparent", color: c.cream, border: `2px solid ${c.yellow}`, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
+              View the Media Kit
             </Link>
           </div>
         </div>
