@@ -7,6 +7,10 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { GUIDE_CATEGORIES } from "../lib/guides";
 
+// Display typeface for home-page headlines (loaded in _document.js). Falls back
+// to system-ui everywhere it isn't applied, so guide pages are untouched.
+const DISPLAY_FONT = "'Anton', system-ui, -apple-system, sans-serif";
+
 // Custom hook for responsive breakpoints
 const useResponsive = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -2652,65 +2656,62 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {/* HOME */}
       {page === "home" && (
         <>
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: isMobile ? "40px 16px" : "80px 16px" }}>
-            <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "32px" : "48px", alignItems: "center" }}>
-              <div>
-                <p style={{ color: c.yellow, fontSize: isMobile ? "12px" : "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px" }}>THE ORIGINAL</p>
-                <h1 style={{ fontSize: isMobile ? "32px" : "48px", fontWeight: "900", color: c.cream, lineHeight: 1.1, marginBottom: "20px", textTransform: "uppercase" }}>Your Insider's Guide to Milwaukee</h1>
-                <p style={{ color: c.beige, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, marginBottom: "28px" }}>The hidden gems. The local favorites. The spots only real Milwaukeeans know about. One email. Once a week. No fluff.</p>
+          <section style={{ position: "relative", overflow: "hidden", background: `radial-gradient(1200px 520px at 12% -15%, ${c.green2} 0%, ${c.green1} 52%, #21402a 100%)`, padding: isMobile ? "44px 16px 0" : "84px 16px 0" }}>
+            {/* Subtle dot texture for depth (decorative) */}
+            <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
+            <div style={{ position: "relative", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1.05fr 0.95fr", gap: isMobile ? "32px" : "56px", alignItems: "center", paddingBottom: isMobile ? "44px" : "84px" }}>
+              <div className="dm-fade-up">
+                <p style={{ color: c.yellow, fontSize: isMobile ? "11px" : "13px", fontWeight: "800", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>The Original Milwaukee Insider</p>
+                <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "42px" : "68px", fontWeight: "400", color: c.cream, lineHeight: 1.02, letterSpacing: "0.5px", marginBottom: "18px", textTransform: "uppercase" }}>
+                  Your Insider's <span style={{ color: c.yellow }}>Guide</span> to Milwaukee
+                </h1>
+                <p style={{ color: c.beige, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, marginBottom: "26px", maxWidth: "480px" }}>The hidden gems. The local favorites. The spots only real Milwaukeeans know about. One email, once a week — no fluff.</p>
                 {subscribeStatus === "success" ? (
-                  <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", marginBottom: "12px", maxWidth: "440px" }}>
+                  <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", marginBottom: "12px", maxWidth: "460px" }}>
                     <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox to confirm.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "440px", marginBottom: "12px" }}>
-                    <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "16px 20px", borderRadius: "50px", border: "none", fontSize: "15px" }} />
-                    <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "16px 28px", backgroundColor: c.yellow, color: c.green1, fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
-                      {subscribeStatus === "loading" ? "..." : "Subscribe"}
+                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "460px", marginBottom: "14px" }}>
+                    <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "17px 22px", borderRadius: "50px", border: "none", fontSize: "15px", boxShadow: "0 6px 20px rgba(0,0,0,0.18)" }} />
+                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "17px 32px", color: c.green1, fontWeight: "800", border: "none", borderRadius: "50px", fontSize: "15px", whiteSpace: "nowrap", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                      {subscribeStatus === "loading" ? "Joining..." : "Get the Guide"}
                     </button>
                   </form>
                 )}
-                <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, marginBottom: "28px" }}>Delivered every Wednesday. Unsubscribe anytime.</p>
-                <div 
-                  onClick={() => { navigateTo("partner"); setShowPartnerForm(true); }} 
-                  style={{ 
-                    display: "flex", 
-                    alignItems: "center", 
-                    gap: "16px", 
-                    padding: "16px 20px", 
-                    backgroundColor: "rgba(0,0,0,0.2)", 
-                    borderRadius: "16px", 
-                    cursor: "pointer",
-                    width: "100%",
-                    transition: "all 0.2s"
-                  }} 
-                  onMouseOver={e => { e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.3)"; }} 
-                  onMouseOut={e => { e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.2)"; }}
-                >
-                  <div style={{ backgroundColor: c.yellow, borderRadius: "12px", padding: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <span style={{ fontSize: "24px" }}>📈</span>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <p style={{ color: c.cream, fontSize: "15px", fontWeight: "700", marginBottom: "2px" }}>Brands & Partners</p>
-                    <p style={{ color: c.beige, fontSize: "13px", opacity: 0.9 }}>22M+ views in 2025. Let's talk.</p>
-                  </div>
-                  <span style={{ color: c.yellow, fontSize: "20px", fontWeight: "900", flexShrink: 0 }}>→</span>
+                <p style={{ color: c.beige, fontSize: "13px", opacity: 0.85, marginBottom: "28px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
+
+                {/* Trust strip — accurate, canonical stats */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "20px" : "32px", alignItems: "center" }}>
+                  {[
+                    { n: "37.1M+", l: "views a year" },
+                    { n: "99", l: "local guides" },
+                    { n: "7 yrs", l: "covering MKE" }
+                  ].map((s, i) => (
+                    <div key={i} style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "22px" : "26px", lineHeight: 1 }}>{s.n}</span>
+                      <span style={{ color: c.beige, fontSize: "12px", opacity: 0.85, textTransform: "uppercase", letterSpacing: "1px" }}>{s.l}</span>
+                    </div>
+                  ))}
                 </div>
+                <p onClick={() => { navigateTo("partner"); setShowPartnerForm(true); }} style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", marginTop: "18px", cursor: "pointer", display: "inline-block" }}>
+                  Brands & partners: reach 37.1M+ views a year →
+                </p>
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <div style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "20px", padding: "32px", width: "100%", maxWidth: "380px" }}>
-                  <h3 style={{ color: c.cream, fontSize: "18px", fontWeight: "700", marginBottom: "20px", textAlign: "center" }}>What You'll Get</h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+              <div style={{ display: "flex", justifyContent: "center" }} className="dm-fade-up dm-delay-2">
+                <div className="dm-float" style={{ background: "linear-gradient(160deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", border: "1px solid rgba(255,255,255,0.18)", borderRadius: "24px", padding: isMobile ? "26px" : "34px", width: "100%", maxWidth: "400px", boxShadow: "0 24px 60px rgba(0,0,0,0.28)" }}>
+                  <h2 style={{ color: c.yellow, fontSize: "13px", fontWeight: "800", marginBottom: "22px", textTransform: "uppercase", letterSpacing: "2px" }}>What You'll Get</h2>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                     {[
-                      { icon: "🎯", title: "Curated, Not Cluttered", desc: "We filter through the noise so you don't have to." },
+                      { icon: "🎯", title: "Curated, Not Cluttered", desc: "We filter the noise so you don't have to." },
                       { icon: "📍", title: "Actually Local", desc: "Written by people who live here and go to these places." },
-                      { icon: "⚡", title: "Quick Read", desc: "Get the highlights in 5 minutes or less." }
+                      { icon: "⚡", title: "A 5-Minute Read", desc: "Just the highlights, every single week." }
                     ].map((item, i) => (
-                      <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                        <span style={{ fontSize: "24px", flexShrink: 0 }}>{item.icon}</span>
+                      <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+                        <span style={{ fontSize: "26px", flexShrink: 0, lineHeight: 1 }}>{item.icon}</span>
                         <div>
-                          <h4 style={{ color: c.cream, fontSize: "15px", fontWeight: "700", marginBottom: "4px" }}>{item.title}</h4>
-                          <p style={{ color: c.beige, fontSize: "13px", lineHeight: 1.4 }}>{item.desc}</p>
+                          <h3 style={{ color: c.cream, fontSize: "15px", fontWeight: "700", marginBottom: "4px" }}>{item.title}</h3>
+                          <p style={{ color: c.beige, fontSize: "13px", lineHeight: 1.45, opacity: 0.9 }}>{item.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -2718,6 +2719,46 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 </div>
               </div>
             </div>
+
+            {/* Original Milwaukee skyline silhouette (decorative vector art) */}
+            <svg aria-hidden="true" viewBox="0 0 1200 180" preserveAspectRatio="none" style={{ position: "relative", display: "block", width: "100%", height: isMobile ? "80px" : "150px" }}>
+              {/* back layer */}
+              <g fill="rgba(0,0,0,0.16)">
+                <rect x="60" y="90" width="70" height="90" />
+                <rect x="150" y="70" width="46" height="110" />
+                <rect x="470" y="80" width="60" height="100" />
+                <rect x="720" y="96" width="80" height="84" />
+                <rect x="980" y="78" width="52" height="102" />
+                <rect x="1080" y="100" width="70" height="80" />
+              </g>
+              {/* front layer */}
+              <g fill="rgba(0,0,0,0.30)">
+                {/* grain elevator cluster */}
+                <rect x="20" y="110" width="18" height="70" /><rect x="40" y="110" width="18" height="70" /><rect x="60" y="110" width="18" height="70" />
+                {/* Basilica spire */}
+                <rect x="210" y="66" width="30" height="114" /><polygon points="210,66 225,30 240,66" />
+                {/* mid tower */}
+                <rect x="270" y="50" width="54" height="130" /><rect x="278" y="34" width="38" height="16" />
+                {/* US Bank Center (tall) */}
+                <rect x="360" y="8" width="66" height="172" /><polygon points="360,8 393,-14 426,8" />
+                {/* Northwestern Mutual */}
+                <rect x="452" y="40" width="58" height="140" /><rect x="452" y="40" width="58" height="10" fill="rgba(240,166,35,0.5)" />
+                {/* Allen-Bradley clock tower */}
+                <rect x="548" y="70" width="52" height="110" /><rect x="556" y="52" width="36" height="18" /><rect x="566" y="40" width="16" height="12" />
+                <circle cx="574" cy="88" r="7" fill="rgba(247,241,231,0.85)" />
+                {/* Milwaukee Art Museum wings (Calatrava) */}
+                <polygon points="640,150 720,110 720,150" />
+                <polygon points="800,150 720,110 720,150" />
+                <rect x="716" y="110" width="8" height="70" />
+                {/* block towers right of center */}
+                <rect x="840" y="56" width="50" height="124" />
+                <rect x="900" y="88" width="40" height="92" />
+                <rect x="955" y="30" width="60" height="150" /><polygon points="955,30 985,10 1015,30" />
+                <rect x="1040" y="72" width="46" height="108" />
+                <rect x="1100" y="96" width="60" height="84" />
+                <rect x="1168" y="120" width="24" height="60" />
+              </g>
+            </svg>
           </section>
 
           {/* PROMOTED EVENTS */}
@@ -2725,7 +2766,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "32px" }}>
                 <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>Don't Miss Out</p>
-                <h2 style={{ fontSize: isMobile ? "24px" : "32px", fontWeight: "900", color: c.green1, textTransform: "uppercase", marginBottom: "8px" }}>This Week in Milwaukee</h2>
+                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.green1, textTransform: "uppercase", marginBottom: "8px", letterSpacing: "0.5px" }}>This Week in Milwaukee</h2>
                 <p style={{ color: c.tan, fontSize: "16px", marginBottom: "16px" }}>Handpicked events worth your time</p>
                 {/* Sponsor */}
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", backgroundColor: c.cream, padding: "10px 20px", borderRadius: "50px", border: `1px solid ${c.beige}` }}>
@@ -2780,8 +2821,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "32px" }}>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>50+ Local Guides</p>
-                <h2 style={{ fontSize: isMobile ? "24px" : "32px", fontWeight: "900", color: c.green1, textTransform: "uppercase", marginBottom: "8px" }}>Explore Milwaukee</h2>
+                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>99 Local Guides</p>
+                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.green1, textTransform: "uppercase", marginBottom: "8px", letterSpacing: "0.5px" }}>Explore Milwaukee</h2>
                 <p style={{ color: c.tan, fontSize: "16px" }}>In-depth guides written by locals, updated for 2026</p>
               </div>
 
@@ -2794,17 +2835,20 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   { title: "Neighborhoods", icon: "🏘️", color: "#0984e3" },
                   { title: "Weekend Guides", icon: "📅", color: "#d35400" },
                 ].map((cat, i) => (
-                  <button
+                  <a
                     key={i}
-                    onClick={() => navigateTo("explore")}
+                    href="/explore"
+                    onClick={(e) => { e.preventDefault(); navigateTo("explore"); }}
                     style={{
                       display: "flex",
                       alignItems: "center",
                       gap: "8px",
                       padding: "10px 18px",
                       backgroundColor: c.white,
+                      color: c.green1,
                       border: `2px solid ${cat.color}`,
                       borderRadius: "50px",
+                      textDecoration: "none",
                       cursor: "pointer",
                       transition: "all 0.2s"
                     }}
@@ -2819,7 +2863,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   >
                     <span style={{ fontSize: "18px" }}>{cat.icon}</span>
                     <span style={{ fontSize: "14px", fontWeight: "700", color: "inherit" }}>{cat.title}</span>
-                  </button>
+                  </a>
                 ))}
               </div>
 
@@ -2839,8 +2883,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   { title: "Dog Friendly", desc: "Pet-friendly spots", href: "/dog-friendly-milwaukee", icon: "🐕" },
                   { title: "This Weekend", desc: "What's happening", href: "/this-weekend-milwaukee", icon: "📅" },
                 ].map((guide, i) => (
-                  <a key={i} href={guide.href} style={{ backgroundColor: c.white, borderRadius: "12px", padding: "20px", textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", transition: "transform 0.2s, box-shadow 0.2s", display: "block", border: `2px solid transparent` }} onMouseOver={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.1)"; e.currentTarget.style.borderColor = c.yellow; }} onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)"; e.currentTarget.style.borderColor = "transparent"; }}>
-                    <span style={{ fontSize: "28px", display: "block", marginBottom: "8px" }}>{guide.icon}</span>
+                  <a key={i} href={guide.href} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "14px", padding: "20px", textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.06)", display: "block", border: `2px solid transparent` }} onMouseOver={e => { e.currentTarget.style.borderColor = c.yellow; }} onMouseOut={e => { e.currentTarget.style.borderColor = "transparent"; }}>
+                    <span style={{ fontSize: "30px", display: "block", marginBottom: "10px" }}>{guide.icon}</span>
                     <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px" }}>{guide.title}</h3>
                     <p style={{ color: c.tan, fontSize: "13px", margin: 0 }}>{guide.desc}</p>
                   </a>
@@ -2863,7 +2907,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     textTransform: "uppercase"
                   }}
                 >
-                  Browse All 50+ Guides →
+                  Browse All 99 Guides →
                 </button>
               </div>
 
@@ -2890,59 +2934,48 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
           </section>
 
-          {/* SOCIAL PROOF & TESTIMONIALS */}
-          <section style={{ padding: isMobile ? "50px 16px" : "70px 16px", backgroundColor: c.green1 }}>
+          {/* SOCIAL PROOF — reach the city actually gives us */}
+          <section style={{ padding: isMobile ? "54px 16px" : "80px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-              {/* Stats Row */}
-              <div style={{ textAlign: "center", marginBottom: "48px" }}>
-                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>Trusted by Milwaukee</p>
-                <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? "40px" : "80px" }}>
-                  {[
-                    { number: "22M+", label: "Annual Views" },
-                    { number: "7 Years", label: "Covering Milwaukee" }
-                  ].map((stat, i) => (
-                    <div key={i}>
-                      <p style={{ color: c.cream, fontSize: isMobile ? "32px" : "40px", fontWeight: "900", marginBottom: "4px" }}>{stat.number}</p>
-                      <p style={{ color: c.beige, fontSize: "14px" }}>{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
+              <div style={{ textAlign: "center", marginBottom: "40px" }}>
+                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px", textTransform: "uppercase" }}>Trusted Across Milwaukee</p>
+                <h2 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The City Is Already Watching</h2>
+                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", maxWidth: "560px", margin: "0 auto", lineHeight: 1.6 }}>37.1 million views a year from locals who use us to decide where to actually go.</p>
               </div>
-              
-              {/* Testimonials */}
-              <div style={{ marginBottom: "40px" }}>
-                <h2 style={{ color: c.cream, fontSize: isMobile ? "24px" : "28px", fontWeight: "900", textAlign: "center", marginBottom: "32px", textTransform: "uppercase" }}>What Milwaukee Says</h2>
-                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "20px" }}>
-                  {[
-                    {
-                      quote: "Finally, someone who actually knows Milwaukee. No tourist trap BS — just the real spots locals love.",
-                      name: "Sarah K.",
-                      title: "Bay View Resident",
-                      emoji: "🍺"
-                    },
-                    {
-                      quote: "I've lived here 10 years and Discover Milwaukee still shows me places I've never heard of. It's like having a cool friend who knows everyone.",
-                      name: "Marcus T.",
-                      title: "East Side",
-                      emoji: "🏠"
-                    },
-                    {
-                      quote: "The only newsletter I actually open every week. Short, useful, and makes me feel like I'm not missing out on the good stuff.",
-                      name: "Jenny L.",
-                      title: "Third Ward",
-                      emoji: "📬"
-                    }
-                  ].map((testimonial, i) => (
-                    <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.08)", borderRadius: "16px", padding: "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
-                      <span style={{ fontSize: "32px", display: "block", marginBottom: "16px" }}>{testimonial.emoji}</span>
-                      <p style={{ color: c.cream, fontSize: "15px", lineHeight: 1.6, marginBottom: "20px", fontStyle: "italic" }}>"{testimonial.quote}"</p>
-                      <div>
-                        <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700" }}>{testimonial.name}</p>
-                        <p style={{ color: c.beige, fontSize: "13px" }}>{testimonial.title}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+
+              {/* Reach breakdown — canonical numbers */}
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "12px" : "18px", marginBottom: "16px" }}>
+                {[
+                  { n: "Instagram", v: "13.4M" },
+                  { n: "Facebook", v: "19.5M*" },
+                  { n: "TikTok", v: "4.2M" },
+                  { n: "Total Reach", v: "37.1M" }
+                ].map((p, i) => (
+                  <div key={p.n} className={`dm-fade-up dm-delay-${i + 1}`} style={{ backgroundColor: p.n === "Total Reach" ? "rgba(240,166,35,0.12)" : "rgba(255,255,255,0.06)", borderRadius: "16px", padding: isMobile ? "18px" : "26px", textAlign: "center", border: p.n === "Total Reach" ? `2px solid ${c.yellow}` : "1px solid rgba(255,255,255,0.1)" }}>
+                    <div style={{ fontFamily: DISPLAY_FONT, color: p.n === "Total Reach" ? c.yellow : c.cream, fontSize: isMobile ? "26px" : "36px", lineHeight: 1 }}>{p.v}</div>
+                    <div style={{ color: c.beige, fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px", marginTop: "8px" }}>{p.n}</div>
+                  </div>
+                ))}
+              </div>
+              <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", opacity: 0.7, marginBottom: "44px" }}>Views per year across our channels. *Facebook projected from 11/25 onward.</p>
+
+              {/* Secondary conversion — lock in a subscriber */}
+              <div style={{ background: "linear-gradient(150deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "24px", padding: isMobile ? "28px 22px" : "40px", textAlign: "center", maxWidth: "720px", margin: "0 auto" }}>
+                <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "24px" : "32px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Get the good stuff first</h3>
+                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "16px", lineHeight: 1.6, marginBottom: "22px" }}>Join the locals who get Milwaukee's best each week — new spots, events, and hidden gems in one 5-minute email.</p>
+                {subscribeStatus === "success" ? (
+                  <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", maxWidth: "460px", margin: "0 auto" }}>
+                    <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox to confirm.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "460px", margin: "0 auto" }}>
+                    <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "17px 22px", borderRadius: "50px", border: "none", fontSize: "15px" }} />
+                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "17px 32px", color: c.green1, fontWeight: "800", border: "none", borderRadius: "50px", fontSize: "15px", whiteSpace: "nowrap", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                      {subscribeStatus === "loading" ? "Joining..." : "Get the Guide"}
+                    </button>
+                  </form>
+                )}
+                <p style={{ color: c.beige, fontSize: "12px", opacity: 0.8, marginTop: "14px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
               </div>
             </div>
           </section>
@@ -2950,22 +2983,24 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "900px", margin: "0 auto" }}>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "20px", marginBottom: "20px" }}>
-                {[{ l: "Explore", d: "Guides & local favorites", i: "📚", p: "explore" }, { l: "Events", d: "What's happening this week", i: "📅", p: "events" }, { l: "Newsletter", d: "Get the weekly scoop", i: "📬", p: "newsletter" }].map(x => (
-                  <div key={x.l} onClick={() => navigateTo(x.p)} style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", cursor: "pointer", textAlign: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+                {[{ l: "Explore", d: "Guides & local favorites", i: "📚", p: "explore", href: "/explore" }, { l: "Events", d: "What's happening this week", i: "📅", p: "events", href: "/events" }, { l: "Newsletter", d: "Get the weekly scoop", i: "📬", p: "newsletter", href: "/newsletter" }].map(x => (
+                  <a key={x.l} href={x.href} onClick={(e) => { e.preventDefault(); navigateTo(x.p); }} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", cursor: "pointer", textAlign: "center", textDecoration: "none", display: "block", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <span style={{ fontSize: "36px", display: "block", marginBottom: "10px" }}>{x.i}</span>
                     <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", marginBottom: "6px" }}>{x.l}</h3>
                     <p style={{ color: c.tan, fontSize: "14px" }}>{x.d}</p>
-                  </div>
+                  </a>
                 ))}
               </div>
-              <div 
-                onClick={() => navigateTo("partner")} 
-                style={{ 
-                  backgroundColor: c.green1, 
-                  borderRadius: "16px", 
-                  padding: "24px 28px", 
-                  cursor: "pointer", 
-                  textAlign: "center", 
+              <a
+                href="/partner"
+                onClick={(e) => { e.preventDefault(); navigateTo("partner"); }}
+                style={{
+                  backgroundColor: c.green1,
+                  borderRadius: "16px",
+                  padding: "24px 28px",
+                  cursor: "pointer",
+                  textAlign: "center",
+                  textDecoration: "none",
                   boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
                   display: "flex",
                   alignItems: "center",
@@ -2976,7 +3011,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <span style={{ fontSize: "24px" }}>🤝</span>
                 <h3 style={{ color: c.cream, fontSize: "18px", fontWeight: "800", margin: 0 }}>Partner With Us</h3>
                 <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "600" }}>→</span>
-              </div>
+              </a>
             </div>
           </section>
         </>
@@ -3544,7 +3579,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
               <h2 style={{ fontSize: "28px", fontWeight: "900", color: c.cream, marginBottom: "12px", textTransform: "uppercase" }}>Have an Event to Share?</h2>
-              <p style={{ color: c.beige, fontSize: "16px", marginBottom: "24px" }}>Hosting something the city should know about? Get it in front of 22M+ views.</p>
+              <p style={{ color: c.beige, fontSize: "16px", marginBottom: "24px" }}>Hosting something the city should know about? Get it in front of 37.1M+ views.</p>
               <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: "16px 32px", backgroundColor: c.yellow, color: c.green1, fontWeight: "bold", borderRadius: "50px", border: "none", cursor: "pointer", fontSize: "15px" }}>Submit Your Event →</button>
             </div>
           </section>
