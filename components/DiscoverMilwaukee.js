@@ -2219,19 +2219,28 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
   // Global search results
   const globalSearchResults = useMemo(() => {
-    if (!globalSearch.trim()) return { events: [], articles: [] };
+    if (!globalSearch.trim()) return { events: [], articles: [], guides: [] };
     const searchLower = globalSearch.toLowerCase();
     return {
-      events: events.filter(e => 
-        e.title.toLowerCase().includes(searchLower) || 
+      events: events.filter(e =>
+        e.title.toLowerCase().includes(searchLower) ||
         e.venueName?.toLowerCase().includes(searchLower) ||
         e.neighborhood?.toLowerCase().includes(searchLower) ||
         e.category?.toLowerCase().includes(searchLower)
       ).slice(0, 5),
-      articles: exploreArticles.filter(a => 
+      articles: exploreArticles.filter(a =>
         a.title.toLowerCase().includes(searchLower) ||
         a.neighborhood?.toLowerCase().includes(searchLower)
-      ).slice(0, 5)
+      ).slice(0, 5),
+      guides: GUIDE_CATEGORIES.flatMap(cat =>
+        cat.guides
+          .filter(g =>
+            g.title.toLowerCase().includes(searchLower) ||
+            g.desc.toLowerCase().includes(searchLower) ||
+            cat.title.toLowerCase().includes(searchLower)
+          )
+          .map(g => ({ ...g, category: cat.title, categoryColor: cat.color }))
+      ).slice(0, 8)
     };
   }, [globalSearch, events, exploreArticles]);
 
@@ -2289,6 +2298,38 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ padding: "20px", maxHeight: "50vh", overflowY: "auto" }}>
               {globalSearch.trim() ? (
                 <>
+                  {globalSearchResults.guides.length > 0 && (
+                    <div style={{ marginBottom: "24px" }}>
+                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>GUIDES</p>
+                      {globalSearchResults.guides.map((guide) => (
+                        <a
+                          key={guide.href}
+                          href={guide.href}
+                          onClick={() => { setShowSearchModal(false); setGlobalSearch(""); }}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                            padding: "12px",
+                            borderRadius: "10px",
+                            marginBottom: "8px",
+                            textDecoration: "none",
+                            backgroundColor: darkMode ? "rgba(255,255,255,0.05)" : colors.cream,
+                            transition: "background-color 0.2s"
+                          }}
+                          onMouseOver={e => e.currentTarget.style.backgroundColor = darkMode ? "rgba(255,255,255,0.1)" : colors.beige}
+                          onMouseOut={e => e.currentTarget.style.backgroundColor = darkMode ? "rgba(255,255,255,0.05)" : colors.cream}
+                        >
+                          <span style={{ fontSize: "24px" }}>{guide.icon}</span>
+                          <div style={{ flex: 1 }}>
+                            <p style={{ fontWeight: "700", color: darkMode ? colors.black : colors.green1, marginBottom: "2px" }}>{guide.title}</p>
+                            <p style={{ fontSize: "13px", color: colors.tan, margin: 0 }}>{guide.desc}</p>
+                          </div>
+                          <span style={{ backgroundColor: guide.categoryColor, color: colors.white, padding: "4px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "600", whiteSpace: "nowrap" }}>{guide.category}</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
                   {globalSearchResults.events.length > 0 && (
                     <div style={{ marginBottom: "24px" }}>
                       <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>EVENTS</p>
@@ -2315,7 +2356,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   )}
                   {globalSearchResults.articles.length > 0 && (
                     <div>
-                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>GUIDES & ARTICLES</p>
+                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>ARTICLES</p>
                       {globalSearchResults.articles.map((article, i) => (
                         <div 
                           key={article.id || i} 
@@ -2337,7 +2378,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       ))}
                     </div>
                   )}
-                  {globalSearchResults.events.length === 0 && globalSearchResults.articles.length === 0 && (
+                  {globalSearchResults.events.length === 0 && globalSearchResults.articles.length === 0 && globalSearchResults.guides.length === 0 && (
                     <div style={{ textAlign: "center", padding: "40px 20px" }}>
                       <span style={{ fontSize: "48px", display: "block", marginBottom: "16px" }}>🔍</span>
                       <p style={{ color: darkMode ? colors.black : colors.green1, fontWeight: "700", marginBottom: "8px" }}>No results found</p>
