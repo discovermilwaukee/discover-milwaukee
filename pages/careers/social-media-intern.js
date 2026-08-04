@@ -77,7 +77,7 @@ const QUALIFICATIONS = [
   {
     title: "Logistics",
     items: [
-      "Based in the Milwaukee area and able to get to events around the city.",
+      "Based in the Milwaukee area with reliable transportation to get to restaurants, stores, partners, and events around the city.",
       "Flexible availability for roughly 15–20 hours a week, including some evenings and weekends when events call for it.",
     ],
   },
@@ -86,6 +86,7 @@ const QUALIFICATIONS = [
     items: [
       "A genuine love for Milwaukee — you already know the neighborhoods, the spots, and what makes this city fun.",
       "A self-starter who's comfortable reaching out to businesses. You don't need sales experience, but you can't be shy about the ask.",
+      "Flexible and adaptable — no two days look the same here. One day you're shooting at a restaurant, the next you're pitching a partner or covering an event, so you roll with a bit of a different task every day.",
       "Thrives in a fast-paced, trend-driven environment and juggles a few things at once.",
       "Takes feedback well and wants to get better every week.",
     ],
@@ -96,7 +97,7 @@ const QUALIFICATIONS = [
       "Comfortable editing in CapCut and designing in Canva.",
       "At ease on camera and behind it.",
       "Plugged into social trends and what's performing right now.",
-      "Familiar with Google Workspace. Bonus points for any sales, marketing, or communications coursework or experience.",
+      "Bonus points for any sales, marketing, or communications coursework or experience.",
     ],
   },
 ];
@@ -133,7 +134,7 @@ const jobDescriptionHTML = `
 <p><strong>Communications:</strong> Monitor inboxes and partnership emails and respond professionally.</p>
 <p><strong>Production & Events:</strong> Capture content on the ground at events, provide on-camera support, and help run shoots and activations.</p>
 <h3>Qualifications</h3>
-<p>Milwaukee-based with flexible availability; a self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in CapCut and Canva and on camera; plugged into social trends; familiar with Google Workspace.</p>
+<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in CapCut and Canva and on camera; and plugged into social trends.</p>
 <h3>How to Apply</h3>
 <p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also include links to social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
 `;
