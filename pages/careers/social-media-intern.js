@@ -27,7 +27,7 @@ const DETAILS = [
   { k: "Role", v: "Social Media Intern" },
   { k: "Pay", v: "$15 / hour" },
   { k: "Hours", v: "15–20 / week" },
-  { k: "Location", v: "Milwaukee, WI (in person)" },
+  { k: "Location", v: "Milwaukee, WI (hybrid)" },
   { k: "Term", v: "Fall–Winter 2026" },
   { k: "Apply by", v: "Aug 30, 2026" },
 ];
@@ -107,8 +107,8 @@ const faqs = [
     answer: "Yes. This is a paid internship at $15 per hour for roughly 15–20 hours per week, based in Milwaukee.",
   },
   {
-    question: "Is the internship remote or in person?",
-    answer: "It's based in Milwaukee. Much of the work is out in the city — at openings, festivals, and events — so you'll need to be local and able to get around town.",
+    question: "Is the internship remote or hybrid?",
+    answer: "It's a hybrid role based in Milwaukee. Some of the work can be done remotely, but a lot of it happens out in the city — at openings, festivals, and events — so you'll need to be local and able to get around town.",
   },
   {
     question: "How long does the internship run?",
@@ -126,7 +126,7 @@ const faqs = [
 
 const jobDescriptionHTML = `
 <p>Discover Milwaukee is the city's go-to guide for what to eat, drink, and do in MKE. In 2025 our content reached 37.1 million views, and we have built an audience of 235,000+ followers (79.2% aged 18–44) across Instagram, TikTok, and Facebook. We're hiring a part-time Social Media Intern for fall and winter 2026 to help create the content Milwaukee actually watches — and to help find and activate the brand partnerships that fund it.</p>
-<p><strong>Pay:</strong> $15/hour. <strong>Hours:</strong> ~15–20/week. <strong>Location:</strong> Milwaukee, WI (in person). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
+<p><strong>Pay:</strong> $15/hour. <strong>Hours:</strong> ~15–20/week. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
 <h3>Responsibilities</h3>
 <p><strong>Content & Social Media:</strong> Shoot and edit native Reels and TikToks in CapCut, design graphics in Canva, write captions in our voice, post across Instagram/TikTok/Facebook, and manage community engagement.</p>
 <p><strong>Brand Partnerships & Sales:</strong> Research and build a pipeline of local and national brands, help pitch our partnership packages and media kit, activate signed partnerships (deliverables, giveaways, event tie-ins), and track leads and results.</p>
