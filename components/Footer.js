@@ -30,6 +30,7 @@ const SITE_LINKS = [
   { label: "About", href: "/about" },
   { label: "Partner", href: "/partner" },
   { label: "Advertise", href: "/milwaukee-media-kit" },
+  { label: "Careers", href: "/careers/social-media-intern" },
 ];
 
 const LEGAL_LINKS = [
