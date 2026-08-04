@@ -36,7 +36,7 @@ const RESPONSIBILITIES = [
   {
     title: "Content & Social Media",
     items: [
-      "Shoot and edit native Reels and TikToks (CapCut) that feel like they belong in the feed, not like an ad interrupting it.",
+      "Shoot and edit native Reels and TikToks (Edits) that feel like they belong in the feed, not like an ad interrupting it.",
       "Design clean graphics, story templates, and carousels in Canva.",
       "Write captions in our voice and schedule and post across Instagram, TikTok, and Facebook.",
       "Monitor comments and DMs, engage the community, and flag trends worth jumping on fast.",
@@ -94,7 +94,7 @@ const QUALIFICATIONS = [
   {
     title: "Skills & Tools",
     items: [
-      "Comfortable editing in CapCut and designing in Canva.",
+      "Comfortable editing in Edits and designing in Canva.",
       "At ease on camera and behind it.",
       "Plugged into social trends and what's performing right now.",
       "Bonus points for any sales, marketing, or communications coursework or experience.",
@@ -129,12 +129,12 @@ const jobDescriptionHTML = `
 <p>Discover Milwaukee is the city's go-to guide for what to eat, drink, and do in MKE. In 2025 our content reached 37.1 million views, and we have built an audience of 235,000+ followers (79.2% aged 18–44) across Instagram, TikTok, and Facebook. We're hiring a part-time Social Media Intern for fall and winter 2026 to help create the content Milwaukee actually watches — and to help find and activate the brand partnerships that fund it.</p>
 <p><strong>Pay:</strong> $15/hour. <strong>Hours:</strong> ~15–20/week. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
 <h3>Responsibilities</h3>
-<p><strong>Content & Social Media:</strong> Shoot and edit native Reels and TikToks in CapCut, design graphics in Canva, write captions in our voice, post across Instagram/TikTok/Facebook, and manage community engagement.</p>
+<p><strong>Content & Social Media:</strong> Shoot and edit native Reels and TikToks in Edits, design graphics in Canva, write captions in our voice, post across Instagram/TikTok/Facebook, and manage community engagement.</p>
 <p><strong>Brand Partnerships & Sales:</strong> Research and build a pipeline of local and national brands, help pitch our partnership packages and media kit, activate signed partnerships (deliverables, giveaways, event tie-ins), and track leads and results.</p>
 <p><strong>Communications:</strong> Monitor inboxes and partnership emails and respond professionally.</p>
 <p><strong>Production & Events:</strong> Capture content on the ground at events, provide on-camera support, and help run shoots and activations.</p>
 <h3>Qualifications</h3>
-<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in CapCut and Canva and on camera; and plugged into social trends.</p>
+<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in Edits and Canva and on camera; and plugged into social trends.</p>
 <h3>How to Apply</h3>
 <p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also include links to social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
 `;
