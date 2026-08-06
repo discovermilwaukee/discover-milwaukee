@@ -97,6 +97,7 @@ const QUALIFICATIONS = [
       "Comfortable editing in Edits and designing in Canva.",
       "At ease on camera and behind it.",
       "Plugged into social trends and what's performing right now.",
+      "Added bonus: filming experience on both iPhones and professional cameras — we shoot on a Sony a7S III.",
       "Bonus points for any sales, marketing, or communications coursework or experience.",
     ],
   },
@@ -134,7 +135,7 @@ const jobDescriptionHTML = `
 <p><strong>Communications:</strong> Monitor inboxes and partnership emails and respond professionally.</p>
 <p><strong>Production & Events:</strong> Capture content on the ground at events, provide on-camera support, and help run shoots and activations.</p>
 <h3>Qualifications</h3>
-<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in Edits and Canva and on camera; and plugged into social trends.</p>
+<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in Edits and Canva and on camera; and plugged into social trends. Filming experience on both iPhones and professional cameras (we shoot on a Sony a7S III) is an added bonus.</p>
 <h3>How to Apply</h3>
 <p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also include links to social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
 `;
