@@ -78,7 +78,7 @@ const QUALIFICATIONS = [
     title: "Logistics",
     items: [
       "Based in the Milwaukee area with reliable transportation to get to restaurants, stores, partners, and events around the city.",
-      "Flexible availability for roughly 15–20 hours a week, including some evenings and weekends when events call for it.",
+      "Flexible availability for roughly 15–20 hours a week, with availability on nights and weekends as needed to cover events.",
     ],
   },
   {
@@ -134,7 +134,7 @@ const jobDescriptionHTML = `
 <p><strong>Communications:</strong> Monitor inboxes and partnership emails and respond professionally.</p>
 <p><strong>Production & Events:</strong> Capture content on the ground at events, provide on-camera support, and help run shoots and activations.</p>
 <h3>Qualifications</h3>
-<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in Edits and Canva and on camera; and plugged into social trends.</p>
+<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in Edits and Canva and on camera; and plugged into social trends.</p>
 <h3>How to Apply</h3>
 <p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also include links to social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
 `;
