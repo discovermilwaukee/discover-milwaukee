@@ -76,49 +76,49 @@ const REELS = [
   {
     group: "National Brands",
     items: [
-      { src: "/reels/red-bull.mp4", title: "Red Bull", views: 40783 },
-      { src: "/reels/sunnyd-seltzers.mp4", title: "SunnyD Seltzers", views: null },
-      { src: "/reels/daylenes-supper-club.mp4", title: "Daylene’s Supper Club", views: 17312 },
-      { src: "/reels/oak-creek-grand-opening.mp4", title: "Grand Opening · Oak Creek", views: 30559 },
+      { src: "/reels/red-bull.mp4", title: "Red Bull", views: 111000 },
+      { src: "/reels/sunnyd-seltzers.mp4", title: "SunnyD Seltzers", views: 40000 },
+      { src: "/reels/daylenes-supper-club.mp4", title: "Daylene’s Supper Club", views: 119000 },
+      { src: "/reels/oak-creek-grand-opening.mp4", title: "Grand Opening · Oak Creek", views: 106000 },
     ],
   },
   {
     group: "Series",
     items: [
-      { src: "/reels/this-weekend-in-milwaukee.mp4", title: "This Weekend in Milwaukee", views: 10042 },
-      { src: "/reels/may-date-night.mp4", title: "Date Night in Milwaukee", views: 74575 },
+      { src: "/reels/this-weekend-in-milwaukee.mp4", title: "This Weekend in Milwaukee", views: 160000 },
+      { src: "/reels/may-date-night.mp4", title: "Date Night in Milwaukee", views: 258000 },
     ],
   },
   {
     group: "Restaurant Groups",
     items: [
-      { src: "/reels/winter-dining.mp4", title: "Winter Dining Experiences", views: 63574 },
-      { src: "/reels/hidden-gem.mp4", title: "Hidden Gem Feature", views: 103365 },
+      { src: "/reels/winter-dining.mp4", title: "Winter Dining Experiences", views: 185000 },
+      { src: "/reels/hidden-gem.mp4", title: "Hidden Gem Feature", views: 344000 },
     ],
   },
   {
     group: "Professional Sports Teams",
     items: [
-      { src: "/reels/april-date-night.mp4", title: "Date Night in Milwaukee", views: 116536 },
+      { src: "/reels/april-date-night.mp4", title: "Date Night in Milwaukee", views: 361000 },
     ],
   },
   {
     group: "Festivals",
     items: [
-      { src: "/reels/strawberry-festival.mp4", title: "Strawberry Festival · Cedarburg", views: 4504 },
-      { src: "/reels/german-fest.mp4", title: "German Fest", views: 169396 },
+      { src: "/reels/strawberry-festival.mp4", title: "Strawberry Festival · Cedarburg", views: 431000 },
+      { src: "/reels/german-fest.mp4", title: "German Fest", views: 513000 },
     ],
   },
   {
     group: "Local Markets",
     items: [
-      { src: "/reels/sauced-night-market.mp4", title: "SAUCED Night Market", views: 27004 },
+      { src: "/reels/sauced-night-market.mp4", title: "SAUCED Night Market", views: 196000 },
     ],
   },
   {
     group: "Activity",
     items: [
-      { src: "/reels/summerfest-scavenger-hunt.mp4", title: "Summerfest Scavenger Hunt", views: 13863 },
+      { src: "/reels/summerfest-scavenger-hunt.mp4", title: "Summerfest Scavenger Hunt", views: 80000 },
     ],
   },
 ];
