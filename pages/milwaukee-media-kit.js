@@ -451,9 +451,6 @@ export default function MediaKitPage() {
                   </a>
                 ))}
               </div>
-              <p style={{ color: c.tan, fontSize: "14px", fontStyle: "italic", marginTop: "20px", marginBottom: 0 }}>
-                {partners.length} brands and counting.
-              </p>
             </>
           ) : (
             <p style={{ color: c.tan, fontSize: "15px", margin: 0 }}>
