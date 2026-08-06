@@ -72,6 +72,16 @@ const DIFFERENTIATORS = [
   "Content people actually share",
 ];
 
+const REEL_CATEGORIES = [
+  { group: "National Brands", codes: ["C-cu1HKuZis", "C9hmBqmOqWe", "DaQBwXbR-NT", "DHvioU9uYxE"] },
+  { group: "Series", codes: ["DYmgPipJj8h", "C6tSl26uEt2"] },
+  { group: "Restaurant Groups", codes: ["DCZNVNOOGQs", "DIjDurKOZIB"] },
+  { group: "Professional Sports Teams", codes: ["C5lSm2Iu9rj"] },
+  { group: "Festivals", codes: ["DLC1lZwOJOp", "C9Us6O2ua4I"] },
+  { group: "Local Markets", codes: ["DZU5p9RRNNF"] },
+  { group: "Activity", codes: ["DJEjDh5u1Ap"] },
+];
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -373,6 +383,43 @@ export default function MediaKitPage() {
               <p style={{ color: c.green1, fontSize: "15px", fontWeight: 700, margin: 0 }}>When we post about a business, people show up.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* SEE THE WORK */}
+      <section style={{ backgroundColor: "#fff", borderTop: `1px solid ${c.beige}`, borderBottom: `1px solid ${c.beige}`, padding: "64px 16px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "44px" }}>
+            <Kicker>See the Work</Kicker>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.green1, margin: 0 }}>
+              Campaigns We&apos;ve Shot
+            </h2>
+            <p style={{ color: c.tan, fontSize: "16px", maxWidth: "580px", margin: "12px auto 0", lineHeight: 1.6 }}>
+              Real partnerships across every kind of brand. Press play and see how we tell a Milwaukee story.
+            </p>
+          </div>
+          {REEL_CATEGORIES.map((cat) => (
+            <div key={cat.group} style={{ marginBottom: "48px" }}>
+              <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "22px", textTransform: "uppercase", color: c.green1, margin: "0 0 20px", paddingBottom: "10px", borderBottom: `2px solid ${c.yellow}` }}>
+                {cat.group}
+              </h3>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
+                {cat.codes.map((code) => (
+                  <div key={code} style={{ borderRadius: "12px", overflow: "hidden", border: `1px solid ${c.beige}`, backgroundColor: c.cream }}>
+                    <iframe
+                      src={`https://www.instagram.com/reel/${code}/embed/`}
+                      title={`${cat.group} reel`}
+                      loading="lazy"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      allowFullScreen
+                      scrolling="no"
+                      style={{ width: "100%", height: "720px", border: "none", display: "block" }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
