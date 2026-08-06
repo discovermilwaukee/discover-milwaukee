@@ -123,7 +123,7 @@ const faqs = [
   },
   {
     question: "How do I apply for the Discover Milwaukee internship?",
-    answer: `Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line, and be sure to include links to social content you've created so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.`,
+    answer: `Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line, and be sure to send us links or files of social content you've created so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.`,
   },
 ];
 
@@ -138,7 +138,7 @@ const jobDescriptionHTML = `
 <h3>Qualifications</h3>
 <p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; experienced managing and running brand social media accounts (your own, a business's, or a client's); comfortable in Edits and Canva and on camera; and plugged into social trends. Filming experience on both iPhones and professional cameras (we shoot on a Sony a7S III) is an added bonus.</p>
 <h3>How to Apply</h3>
-<p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also include links to social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
+<p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also send us links or files of social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
 `;
 
 const jobPostingSchema = {
@@ -323,7 +323,7 @@ export default function SocialMediaIntern() {
               Email your resume to <a href={APPLY_MAILTO} style={{ color: c.yellow, fontWeight: 700, textDecoration: "none" }}>{APPLY_EMAIL}</a> with <strong>&ldquo;Social Media Intern Application&rdquo;</strong> and your name in the subject line.
             </p>
             <p style={{ color: c.beige, fontSize: "15px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY, maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
-              Along with your resume, <strong>include links to social content you&apos;ve created</strong> — posts, Reels, TikToks, or accounts you&apos;ve run. This part isn&apos;t optional; we want to see your creative ability. Bonus points if you tell us one Milwaukee brand you&apos;d love to see us work with. Applications are reviewed on a rolling basis through <strong>August 30, 2026</strong>.
+              Along with your resume, <strong>send us links or files of social content you&apos;ve created</strong> — posts, Reels, TikToks, or accounts you&apos;ve run. This part isn&apos;t optional; we want to see your creative ability. Bonus points if you tell us one Milwaukee brand you&apos;d love to see us work with. Applications are reviewed on a rolling basis through <strong>August 30, 2026</strong>.
             </p>
             <ApplyButton />
           </section>
