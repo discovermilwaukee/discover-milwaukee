@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
@@ -72,15 +72,65 @@ const DIFFERENTIATORS = [
   "Content people actually share",
 ];
 
-const REEL_CATEGORIES = [
-  { group: "National Brands", codes: ["C-cu1HKuZis", "C9hmBqmOqWe", "DaQBwXbR-NT", "DHvioU9uYxE"] },
-  { group: "Series", codes: ["DYmgPipJj8h", "C6tSl26uEt2"] },
-  { group: "Restaurant Groups", codes: ["DCZNVNOOGQs", "DIjDurKOZIB"] },
-  { group: "Professional Sports Teams", codes: ["C5lSm2Iu9rj"] },
-  { group: "Festivals", codes: ["DLC1lZwOJOp", "C9Us6O2ua4I"] },
-  { group: "Local Markets", codes: ["DZU5p9RRNNF"] },
-  { group: "Activity", codes: ["DJEjDh5u1Ap"] },
+const REELS = [
+  {
+    group: "National Brands",
+    items: [
+      { src: "/reels/red-bull.mp4", title: "Red Bull", views: 40783 },
+      { src: "/reels/sunnyd-seltzers.mp4", title: "SunnyD Seltzers", views: null },
+      { src: "/reels/daylenes-supper-club.mp4", title: "Daylene’s Supper Club", views: 17312 },
+      { src: "/reels/oak-creek-grand-opening.mp4", title: "Grand Opening · Oak Creek", views: 30559 },
+    ],
+  },
+  {
+    group: "Series",
+    items: [
+      { src: "/reels/this-weekend-in-milwaukee.mp4", title: "This Weekend in Milwaukee", views: 10042 },
+      { src: "/reels/may-date-night.mp4", title: "Date Night in Milwaukee", views: 74575 },
+    ],
+  },
+  {
+    group: "Restaurant Groups",
+    items: [
+      { src: "/reels/winter-dining.mp4", title: "Winter Dining Experiences", views: 63574 },
+      { src: "/reels/hidden-gem.mp4", title: "Hidden Gem Feature", views: 103365 },
+    ],
+  },
+  {
+    group: "Professional Sports Teams",
+    items: [
+      { src: "/reels/april-date-night.mp4", title: "Date Night in Milwaukee", views: 116536 },
+    ],
+  },
+  {
+    group: "Festivals",
+    items: [
+      { src: "/reels/strawberry-festival.mp4", title: "Strawberry Festival · Cedarburg", views: 4504 },
+      { src: "/reels/german-fest.mp4", title: "German Fest", views: 169396 },
+    ],
+  },
+  {
+    group: "Local Markets",
+    items: [
+      { src: "/reels/sauced-night-market.mp4", title: "SAUCED Night Market", views: 27004 },
+    ],
+  },
+  {
+    group: "Activity",
+    items: [
+      { src: "/reels/summerfest-scavenger-hunt.mp4", title: "Summerfest Scavenger Hunt", views: 13863 },
+    ],
+  },
 ];
+
+function formatViews(n) {
+  if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+  if (n >= 1000) {
+    const k = n / 1000;
+    return (k >= 100 ? Math.round(k).toString() : k.toFixed(1).replace(/\.0$/, "")) + "K";
+  }
+  return n.toString();
+}
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -176,6 +226,80 @@ function Kicker({ children, color = c.orange }) {
     <p style={{ color, fontSize: "13px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>
       {children}
     </p>
+  );
+}
+
+function SoundIcon({ on }) {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+      {on ? (
+        <>
+          <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+          <path d="M19 5a9 9 0 0 1 0 14" />
+        </>
+      ) : (
+        <path d="M17 9l6 6M23 9l-6 6" />
+      )}
+    </svg>
+  );
+}
+
+function ReelCard({ src, title, views }) {
+  const ref = useRef(null);
+  const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) v.play().catch(() => {});
+          else v.pause();
+        });
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
+  const toggleSound = () => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted) v.play().catch(() => {});
+  };
+
+  return (
+    <div
+      onClick={toggleSound}
+      style={{ position: "relative", borderRadius: "16px", overflow: "hidden", aspectRatio: "9 / 16", backgroundColor: "#000", border: "1px solid rgba(255,255,255,0.14)", boxShadow: "0 10px 26px rgba(0,0,0,0.28)", cursor: "pointer" }}
+    >
+      <video
+        ref={ref}
+        src={src}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+      {views != null && (
+        <div style={{ position: "absolute", top: "12px", right: "12px", backgroundColor: c.yellow, color: c.green1, fontSize: "12px", fontWeight: 800, padding: "5px 10px", borderRadius: "50px" }}>
+          {formatViews(views)} views
+        </div>
+      )}
+      <div style={{ position: "absolute", top: "12px", left: "12px", display: "flex", alignItems: "center", gap: "5px", backgroundColor: "rgba(0,0,0,0.55)", color: "#fff", fontSize: "11px", fontWeight: 700, padding: "5px 9px", borderRadius: "50px" }}>
+        <SoundIcon on={!muted} />
+        {muted ? "Tap for sound" : "Sound on"}
+      </div>
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "30px 14px 14px", background: "linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0))" }}>
+        <p style={{ color: "#fff", fontSize: "14px", fontWeight: 700, margin: 0, lineHeight: 1.3 }}>{title}</p>
+      </div>
+    </div>
   );
 }
 
@@ -387,39 +511,35 @@ export default function MediaKitPage() {
       </section>
 
       {/* SEE THE WORK */}
-      <section style={{ backgroundColor: "#fff", borderTop: `1px solid ${c.beige}`, borderBottom: `1px solid ${c.beige}`, padding: "64px 16px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <section style={{ backgroundColor: c.green1, padding: "64px 16px" }}>
+        <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "44px" }}>
-            <Kicker>See the Work</Kicker>
-            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.green1, margin: 0 }}>
+            <Kicker color={c.yellow}>See the Work</Kicker>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.cream, margin: 0 }}>
               Campaigns We&apos;ve Shot
             </h2>
-            <p style={{ color: c.tan, fontSize: "16px", maxWidth: "580px", margin: "12px auto 0", lineHeight: 1.6 }}>
-              Real partnerships across every kind of brand. Press play and see how we tell a Milwaukee story.
+            <p style={{ color: c.beige, fontSize: "16px", maxWidth: "620px", margin: "12px auto 0", lineHeight: 1.6 }}>
+              Real partnerships across every kind of brand — with the view counts to match. This is what showing up on Milwaukee&apos;s feed actually looks like.
             </p>
           </div>
-          {REEL_CATEGORIES.map((cat) => (
-            <div key={cat.group} style={{ marginBottom: "48px" }}>
-              <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "22px", textTransform: "uppercase", color: c.green1, margin: "0 0 20px", paddingBottom: "10px", borderBottom: `2px solid ${c.yellow}` }}>
-                {cat.group}
-              </h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px" }}>
-                {cat.codes.map((code) => (
-                  <div key={code} style={{ borderRadius: "12px", overflow: "hidden", border: `1px solid ${c.beige}`, backgroundColor: c.cream }}>
-                    <iframe
-                      src={`https://www.instagram.com/reel/${code}/embed/`}
-                      title={`${cat.group} reel`}
-                      loading="lazy"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      allowFullScreen
-                      scrolling="no"
-                      style={{ width: "100%", height: "720px", border: "none", display: "block" }}
-                    />
-                  </div>
+          {REELS.map((cat) => (
+            <div key={cat.group} style={{ marginBottom: "52px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "22px" }}>
+                <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(20px, 3vw, 26px)", textTransform: "uppercase", color: c.yellow, margin: 0, whiteSpace: "nowrap" }}>
+                  {cat.group}
+                </h3>
+                <span style={{ flex: 1, height: "2px", backgroundColor: "rgba(255,255,255,0.15)" }} />
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))", gap: "18px" }}>
+                {cat.items.map((r) => (
+                  <ReelCard key={r.src} src={r.src} title={r.title} views={r.views} />
                 ))}
               </div>
             </div>
           ))}
+          <p style={{ color: c.beige, fontSize: "13px", fontStyle: "italic", textAlign: "center", margin: "4px 0 0", opacity: 0.7 }}>
+            View counts as reported by Instagram. Tap any clip to hear the sound.
+          </p>
         </div>
       </section>
 
