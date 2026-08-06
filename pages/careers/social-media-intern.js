@@ -26,7 +26,7 @@ const c = {
 const DETAILS = [
   { k: "Role", v: "Social Media Intern" },
   { k: "Pay", v: "$20 / hour" },
-  { k: "Hours", v: "15–20 / week" },
+  { k: "Hours", v: "10–15 / week" },
   { k: "Location", v: "Milwaukee, WI (hybrid)" },
   { k: "Term", v: "Fall–Winter 2026" },
   { k: "Apply by", v: "Aug 30, 2026" },
@@ -78,7 +78,7 @@ const QUALIFICATIONS = [
     title: "Logistics",
     items: [
       "Based in the Milwaukee area with reliable transportation to get to restaurants, stores, partners, and events around the city.",
-      "Flexible availability for roughly 15–20 hours a week, with availability on nights and weekends as needed to cover events.",
+      "Flexible availability for roughly 10–15 hours a week — with the potential to increase based on needs — including nights and weekends as needed to cover events.",
     ],
   },
   {
@@ -107,7 +107,7 @@ const QUALIFICATIONS = [
 const faqs = [
   {
     question: "Is the Discover Milwaukee social media internship paid?",
-    answer: "Yes. This is a paid internship at $20 per hour for roughly 15–20 hours per week, based in Milwaukee.",
+    answer: "Yes. This is a paid internship at $20 per hour for roughly 10–15 hours per week, with the potential to increase based on needs, based in Milwaukee.",
   },
   {
     question: "Is the internship remote or hybrid?",
@@ -129,7 +129,7 @@ const faqs = [
 
 const jobDescriptionHTML = `
 <p>Discover Milwaukee is the city's go-to guide for what to eat, drink, and do in MKE. In 2025 our content reached 37.1 million views, and we have built an audience of 235,000+ followers (79.2% aged 18–44) across Instagram, TikTok, and Facebook. We're hiring a part-time Social Media Intern for fall and winter 2026 to help create the content Milwaukee actually watches — and to help find and activate the brand partnerships that fund it.</p>
-<p><strong>Pay:</strong> $20/hour. <strong>Hours:</strong> ~15–20/week. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
+<p><strong>Pay:</strong> $20/hour. <strong>Hours:</strong> ~10–15/week, with potential to increase based on needs. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
 <h3>Responsibilities</h3>
 <p>This is a dynamic role — expect your responsibilities to shift based on what we need week to week.</p>
 <p><strong>Content & Social Media:</strong> Shoot and edit native Reels and TikToks in Edits, design graphics in Canva, write captions in our voice, post across Instagram/TikTok/Facebook, and manage community engagement.</p>
@@ -243,12 +243,12 @@ export default function SocialMediaIntern() {
     <>
       <Head>
         <title>Social Media Intern (Milwaukee, Part-Time) | Discover Milwaukee Careers</title>
-        <meta name="description" content="Discover Milwaukee is hiring a part-time Social Media Intern in Milwaukee for fall/winter 2026. $20/hour, 15–20 hrs/week. Create content and help activate brand partnerships. Email your resume to apply." />
+        <meta name="description" content="Discover Milwaukee is hiring a part-time Social Media Intern in Milwaukee for fall/winter 2026. $20/hour, 10–15 hrs/week. Create content and help activate brand partnerships. Email your resume to apply." />
         <meta name="keywords" content="social media intern Milwaukee, marketing internship Milwaukee, part-time social media job Milwaukee, content creator internship Milwaukee, Discover Milwaukee careers, brand partnerships intern Milwaukee" />
         <link rel="canonical" href={`${SITE}/careers/social-media-intern`} />
 
         <meta property="og:title" content="Social Media Intern — Discover Milwaukee (Part-Time, Fall/Winter 2026)" />
-        <meta property="og:description" content="Join Milwaukee's biggest local lifestyle platform. Create content, find and activate brand partnerships. $20/hour, 15–20 hrs/week. Apply now." />
+        <meta property="og:description" content="Join Milwaukee's biggest local lifestyle platform. Create content, find and activate brand partnerships. $20/hour, 10–15 hrs/week. Apply now." />
         <meta property="og:url" content={`${SITE}/careers/social-media-intern`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${SITE}/og-best-patios.jpg`} />
