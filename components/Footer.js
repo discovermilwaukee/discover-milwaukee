@@ -28,7 +28,7 @@ const SITE_LINKS = [
   { label: "Festivals", href: "/milwaukee-festivals" },
   { label: "Newsletter", href: "/newsletter" },
   { label: "About", href: "/about" },
-  { label: "Partner", href: "/partner" },
+  { label: "Partner", href: "/milwaukee-media-kit" },
   { label: "Advertise", href: "/milwaukee-media-kit" },
   { label: "Careers", href: "/careers/social-media-intern" },
 ];
