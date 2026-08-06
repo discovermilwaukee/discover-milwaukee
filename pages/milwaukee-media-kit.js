@@ -58,6 +58,20 @@ const FORMATS = [
   "Newsletter placement",
 ];
 
+const MOVES = [
+  { title: "37 Million Views That Go Somewhere", body: "Reach only counts if it acts. Ours does — 37.1M views a year from locals who use us to decide where to actually go." },
+  { title: "You Inherit the Trust We've Earned", body: "Milwaukee already takes our word for it. Feature with us and that credibility points at you from day one — no warming up a cold audience." },
+  { title: "They Show Up Ready to Spend", body: "Our audience is 79% ages 18–44 — locals who try new places, go out midweek, and spend money here. You're reaching the people who fill rooms and tabs." },
+];
+
+const DIFFERENTIATORS = [
+  "Native content that blends into feeds",
+  "Storytelling that feels real",
+  "Massive local trust",
+  "Multi-platform amplification",
+  "Content people actually share",
+];
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -306,9 +320,59 @@ export default function MediaKitPage() {
           ) : (
             <p style={{ color: c.tan, fontSize: "15px", margin: 0 }}>
               From neighborhood gems to household names — see the full roster on our{" "}
-              <Link href="/partner" style={{ color: c.blue2, fontWeight: 600 }}>partner page</Link>.
+              <Link href="/partner?apply=1" style={{ color: c.blue2, fontWeight: 600 }}>partner page</Link>.
             </p>
           )}
+        </div>
+      </section>
+
+      {/* WHEN WE POST, MILWAUKEE MOVES */}
+      <section style={{ backgroundColor: c.green1, padding: "64px 16px" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "40px" }}>
+            <Kicker color={c.yellow}>What Partnering Actually Does</Kicker>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.cream, margin: "0 0 14px" }}>
+              When We Post, Milwaukee Moves
+            </h2>
+            <p style={{ color: c.beige, fontSize: "17px", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>
+              Not impressions. Not &quot;engagement.&quot; Real people walking in, booking, and buying — that week.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
+            {MOVES.map((b) => (
+              <div key={b.title} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "16px", padding: "28px", border: "1px solid rgba(255,255,255,0.12)" }}>
+                <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "20px", textTransform: "uppercase", color: c.yellow, margin: "0 0 10px", lineHeight: 1.15 }}>{b.title}</h3>
+                <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.7, margin: 0 }}>{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT MAKES US DIFFERENT */}
+      <section style={{ maxWidth: "1000px", margin: "0 auto", padding: "64px 16px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px", alignItems: "center" }}>
+          <div>
+            <Kicker>Why Us</Kicker>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(26px, 4vw, 40px)", textTransform: "uppercase", color: c.green1, margin: "0 0 16px" }}>
+              What Makes Us Different
+            </h2>
+            <p style={{ color: c.ink, fontSize: "16px", lineHeight: 1.7, margin: 0 }}>
+              We don&apos;t do boring. We don&apos;t do stock photos. And we definitely don&apos;t do &quot;Hey guys, check this out&quot; energy. We make content locals actually want to watch — and act on.
+            </p>
+          </div>
+          <div style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "28px" }}>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+              {DIFFERENTIATORS.map((d) => (
+                <li key={d} style={{ display: "flex", gap: "10px", padding: "11px 0", borderBottom: `1px solid ${c.beige}`, fontSize: "15px", fontWeight: 600, color: c.ink }}>
+                  <span style={{ color: c.orange, fontWeight: 700 }}>—</span>{d}
+                </li>
+              ))}
+            </ul>
+            <div style={{ marginTop: "18px", padding: "16px", backgroundColor: c.beige, borderRadius: "10px", borderLeft: `4px solid ${c.orange}` }}>
+              <p style={{ color: c.green1, fontSize: "15px", fontWeight: 700, margin: 0 }}>When we post about a business, people show up.</p>
+            </div>
+          </div>
         </div>
       </section>
 

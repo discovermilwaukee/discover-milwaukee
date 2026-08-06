@@ -134,10 +134,10 @@ export default function Nav() {
 
               {/* Partner Button - Highlighted */}
               <Link
-                href="/partner"
+                href="/milwaukee-media-kit"
                 style={{
-                  backgroundColor: currentPage === "partner" ? c.yellow : c.green1,
-                  color: currentPage === "partner" ? c.green1 : c.cream,
+                  backgroundColor: currentPage === "milwaukee-media-kit" ? c.yellow : c.green1,
+                  color: currentPage === "milwaukee-media-kit" ? c.green1 : c.cream,
                   padding: "10px 20px",
                   borderRadius: "50px",
                   border: "none",
@@ -304,7 +304,7 @@ export default function Nav() {
 
             {/* Partner - Highlighted */}
             <Link
-              href="/partner"
+              href="/milwaukee-media-kit"
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 display: "block",
@@ -318,7 +318,7 @@ export default function Nav() {
                 backgroundColor: c.green1,
                 borderRadius: "10px",
                 textAlign: "center",
-                border: currentPage === "partner" ? `2px solid ${c.yellow}` : "none",
+                border: currentPage === "milwaukee-media-kit" ? `2px solid ${c.yellow}` : "none",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
