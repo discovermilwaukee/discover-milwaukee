@@ -25,7 +25,7 @@ const c = {
 
 const DETAILS = [
   { k: "Role", v: "Social Media Intern" },
-  { k: "Pay", v: "$15 / hour" },
+  { k: "Pay", v: "$20 / hour" },
   { k: "Hours", v: "15–20 / week" },
   { k: "Location", v: "Milwaukee, WI (hybrid)" },
   { k: "Term", v: "Fall–Winter 2026" },
@@ -94,6 +94,7 @@ const QUALIFICATIONS = [
   {
     title: "Skills & Tools",
     items: [
+      "Experience managing and running brand social media accounts — planning, posting, and growing a page, whether it's your own, a business's, or a client's.",
       "Comfortable editing in Edits and designing in Canva.",
       "At ease on camera and behind it.",
       "Plugged into social trends and what's performing right now.",
@@ -106,7 +107,7 @@ const QUALIFICATIONS = [
 const faqs = [
   {
     question: "Is the Discover Milwaukee social media internship paid?",
-    answer: "Yes. This is a paid internship at $15 per hour for roughly 15–20 hours per week, based in Milwaukee.",
+    answer: "Yes. This is a paid internship at $20 per hour for roughly 15–20 hours per week, based in Milwaukee.",
   },
   {
     question: "Is the internship remote or hybrid?",
@@ -128,14 +129,14 @@ const faqs = [
 
 const jobDescriptionHTML = `
 <p>Discover Milwaukee is the city's go-to guide for what to eat, drink, and do in MKE. In 2025 our content reached 37.1 million views, and we have built an audience of 235,000+ followers (79.2% aged 18–44) across Instagram, TikTok, and Facebook. We're hiring a part-time Social Media Intern for fall and winter 2026 to help create the content Milwaukee actually watches — and to help find and activate the brand partnerships that fund it.</p>
-<p><strong>Pay:</strong> $15/hour. <strong>Hours:</strong> ~15–20/week. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
+<p><strong>Pay:</strong> $20/hour. <strong>Hours:</strong> ~15–20/week. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
 <h3>Responsibilities</h3>
 <p><strong>Content & Social Media:</strong> Shoot and edit native Reels and TikToks in Edits, design graphics in Canva, write captions in our voice, post across Instagram/TikTok/Facebook, and manage community engagement.</p>
 <p><strong>Brand Partnerships & Sales:</strong> Research and build a pipeline of local and national brands, help pitch our partnership packages and media kit, activate signed partnerships (deliverables, giveaways, event tie-ins), and track leads and results.</p>
 <p><strong>Communications:</strong> Monitor inboxes and partnership emails and respond professionally.</p>
 <p><strong>Production & Events:</strong> Capture content on the ground at events, provide on-camera support, and help run shoots and activations.</p>
 <h3>Qualifications</h3>
-<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; comfortable in Edits and Canva and on camera; and plugged into social trends. Filming experience on both iPhones and professional cameras (we shoot on a Sony a7S III) is an added bonus.</p>
+<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; experienced managing and running brand social media accounts (your own, a business's, or a client's); comfortable in Edits and Canva and on camera; and plugged into social trends. Filming experience on both iPhones and professional cameras (we shoot on a Sony a7S III) is an added bonus.</p>
 <h3>How to Apply</h3>
 <p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also include links to social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through August 30, 2026.</p>
 `;
@@ -172,7 +173,7 @@ const jobPostingSchema = {
     currency: "USD",
     value: {
       "@type": "QuantitativeValue",
-      value: 15,
+      value: 20,
       unitText: "HOUR",
     },
   },
@@ -241,12 +242,12 @@ export default function SocialMediaIntern() {
     <>
       <Head>
         <title>Social Media Intern (Milwaukee, Part-Time) | Discover Milwaukee Careers</title>
-        <meta name="description" content="Discover Milwaukee is hiring a part-time Social Media Intern in Milwaukee for fall/winter 2026. $15/hour, 15–20 hrs/week. Create content and help activate brand partnerships. Email your resume to apply." />
+        <meta name="description" content="Discover Milwaukee is hiring a part-time Social Media Intern in Milwaukee for fall/winter 2026. $20/hour, 15–20 hrs/week. Create content and help activate brand partnerships. Email your resume to apply." />
         <meta name="keywords" content="social media intern Milwaukee, marketing internship Milwaukee, part-time social media job Milwaukee, content creator internship Milwaukee, Discover Milwaukee careers, brand partnerships intern Milwaukee" />
         <link rel="canonical" href={`${SITE}/careers/social-media-intern`} />
 
         <meta property="og:title" content="Social Media Intern — Discover Milwaukee (Part-Time, Fall/Winter 2026)" />
-        <meta property="og:description" content="Join Milwaukee's biggest local lifestyle platform. Create content, find and activate brand partnerships. $15/hour, 15–20 hrs/week. Apply now." />
+        <meta property="og:description" content="Join Milwaukee's biggest local lifestyle platform. Create content, find and activate brand partnerships. $20/hour, 15–20 hrs/week. Apply now." />
         <meta property="og:url" content={`${SITE}/careers/social-media-intern`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`${SITE}/og-best-patios.jpg`} />
