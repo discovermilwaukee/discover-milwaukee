@@ -65,6 +65,7 @@ const MOVES = [
 ];
 
 const DIFFERENTIATORS = [
+  "100% organic reach — nothing boosted or paid",
   "Native content that blends into feeds",
   "Storytelling that feels real",
   "Massive local trust",
@@ -370,6 +371,9 @@ export default function MediaKitPage() {
             </div>
           ))}
         </div>
+        <p style={{ color: c.yellow, textAlign: "center", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px", margin: "28px auto 0" }}>
+          100% Organic — No Boosted Posts, No Paid Reach
+        </p>
       </section>
 
       {/* AUDIENCE + PLATFORMS */}
@@ -537,8 +541,8 @@ export default function MediaKitPage() {
               </div>
             </div>
           ))}
-          <p style={{ color: c.beige, fontSize: "13px", fontStyle: "italic", textAlign: "center", margin: "4px 0 0", opacity: 0.7 }}>
-            View counts as reported by Instagram. Tap any clip to hear the sound.
+          <p style={{ color: c.beige, fontSize: "13px", fontStyle: "italic", textAlign: "center", margin: "4px 0 0", opacity: 0.75, lineHeight: 1.6 }}>
+            Every number here is 100% organic — no boosted posts, no paid views or reach. Just a community that actually watches. View counts from Instagram insights; tap any clip for sound.
           </p>
         </div>
       </section>
