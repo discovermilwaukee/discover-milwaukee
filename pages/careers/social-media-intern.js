@@ -36,7 +36,7 @@ const RESPONSIBILITIES = [
   {
     title: "Content & Social Media",
     items: [
-      "Shoot and edit videos for platforms using Edits — Reels and TikToks that feel like they belong in the feed, not like an ad interrupting it.",
+      "Shoot and edit videos for platforms using Edits: Reels and TikToks that feel like they belong in the feed, not like an ad interrupting it.",
       "Design clean graphics, story templates, and carousels in Canva.",
       "Write captions in our voice and schedule and post across Instagram, TikTok, and Facebook.",
       "Monitor comments and DMs, engage the community, and flag trends worth jumping on fast.",
@@ -47,7 +47,7 @@ const RESPONSIBILITIES = [
     items: [
       "Research and build a pipeline of local and national brands that should be marketing to Milwaukee.",
       "Reach out to prospects and help pitch our partnership packages and media kit.",
-      "Help activate partnerships once they're signed — coordinating deliverables, giveaways, and event tie-ins.",
+      "Help activate partnerships once they're signed, coordinating deliverables, giveaways, and event tie-ins.",
       "Track leads, follow-ups, and results so we always know what's working.",
       "Represent Discover Milwaukee professionally to the businesses we want to work with.",
     ],
@@ -78,15 +78,15 @@ const QUALIFICATIONS = [
     title: "Logistics",
     items: [
       "Based in the Milwaukee area with reliable transportation to get to restaurants, stores, partners, and events around the city.",
-      "Flexible availability for roughly 10–15 hours a week — with the potential to increase based on needs — including nights and weekends as needed to cover events.",
+      "Flexible availability for roughly 10–15 hours a week, with the potential for those hours to increase based on needs, including nights and weekends as needed to cover events.",
     ],
   },
   {
     title: "Mindset & Work Style",
     items: [
-      "A genuine love for Milwaukee — you already know the neighborhoods, the spots, and what makes this city fun.",
+      "A genuine love for Milwaukee: you already know the neighborhoods, the spots, and what makes this city fun.",
       "A self-starter who's comfortable reaching out to businesses. You don't need sales experience, but you can't be shy about the ask.",
-      "Flexible and adaptable — no two days look the same here. One day you're shooting at a restaurant, the next you're pitching a partner or covering an event, so you roll with a bit of a different task every day.",
+      "Flexible and adaptable: no two days look the same here. One day you're shooting at a restaurant, the next you're pitching a partner or covering an event, so you roll with a bit of a different task every day.",
       "Thrives in a fast-paced, trend-driven environment and juggles a few things at once.",
       "Takes feedback well and wants to get better every week.",
     ],
@@ -94,11 +94,11 @@ const QUALIFICATIONS = [
   {
     title: "Skills & Tools",
     items: [
-      "Experience managing and running brand social media accounts — planning, posting, and growing a page, whether it's your own, a business's, or a client's.",
+      "Experience managing and running brand social media accounts: planning, posting, and growing a page, whether it's your own, a business's, or a client's.",
       "Comfortable editing in Edits and designing in Canva.",
       "At ease on camera and behind it.",
       "Plugged into social trends and what's performing right now.",
-      "Added bonus: filming experience on both iPhones and professional cameras — we shoot on a Sony a7S III.",
+      "Added bonus: filming experience on both iPhones and professional cameras. We shoot on a Sony a7S III.",
       "Bonus points for any sales, marketing, or communications coursework or experience.",
     ],
   },
@@ -107,11 +107,11 @@ const QUALIFICATIONS = [
 const faqs = [
   {
     question: "Is the Discover Milwaukee social media internship paid?",
-    answer: "Yes. This is a paid internship at $17+ per hour for roughly 10–15 hours per week, with the potential to increase based on needs, based in Milwaukee.",
+    answer: "Yes. This is a paid internship at $17+ per hour for roughly 10–15 hours per week, with the potential for those hours to increase based on needs, based in Milwaukee.",
   },
   {
     question: "Is the internship remote or hybrid?",
-    answer: "It's a hybrid role based in Milwaukee. Some of the work can be done remotely, but a lot of it happens out in the city — at openings, festivals, and events — so you'll need to be local and able to get around town.",
+    answer: "It's a hybrid role based in Milwaukee. Some of the work can be done remotely, but a lot of it happens out in the city, at openings, festivals, and events, so you'll need to be local and able to get around town.",
   },
   {
     question: "How long does the internship run?",
@@ -128,16 +128,16 @@ const faqs = [
 ];
 
 const jobDescriptionHTML = `
-<p>Discover Milwaukee is the city's go-to guide for what to eat, drink, and do in MKE. In 2025 our content reached 37.1 million views, and we have built an audience of 235,000+ followers (79.2% aged 18–44) across Instagram, TikTok, and Facebook. We're hiring a part-time Social Media Intern for fall and winter 2026 to help create the content Milwaukee actually watches — and to help find and activate the brand partnerships that fund it.</p>
+<p>Discover Milwaukee is the city's go-to guide for what to eat, drink, and do in MKE. In 2025 our content reached 37.1 million views, and we have built an audience of 235,000+ followers (79.2% aged 18–44) across Instagram, TikTok, and Facebook. We're hiring a part-time Social Media Intern for fall and winter 2026 to help create the content Milwaukee actually watches, and to help find and activate the brand partnerships that fund it.</p>
 <p><strong>Pay:</strong> $17+/hour. <strong>Hours:</strong> ~10–15/week, with potential to increase based on needs. <strong>Location:</strong> Milwaukee, WI (hybrid). <strong>Term:</strong> Fall–Winter 2026 with possible extension into the new year.</p>
 <h3>Responsibilities</h3>
-<p>This is a dynamic role — expect your responsibilities to shift based on what we need week to week.</p>
+<p>This is a dynamic role: expect your responsibilities to shift based on what we need week to week.</p>
 <p><strong>Content & Social Media:</strong> Shoot and edit Reels and TikToks in Edits, design graphics in Canva, write captions in our voice, post across Instagram/TikTok/Facebook, and manage community engagement.</p>
 <p><strong>Brand Partnerships & Sales:</strong> Research and build a pipeline of local and national brands, help pitch our partnership packages and media kit, activate signed partnerships (deliverables, giveaways, event tie-ins), and track leads and results.</p>
 <p><strong>Communications:</strong> Monitor inboxes and partnership emails and respond professionally.</p>
 <p><strong>Production & Events:</strong> Capture content on the ground at events, provide on-camera support, and help run shoots and activations.</p>
 <h3>Qualifications</h3>
-<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable — no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; experienced managing and running brand social media accounts (your own, a business's, or a client's); comfortable in Edits and Canva and on camera; and plugged into social trends. Filming experience on both iPhones and professional cameras (we shoot on a Sony a7S III) is an added bonus.</p>
+<p>Milwaukee-based with reliable transportation to get to restaurants, stores, partners, and events around the city, with availability on nights and weekends as needed. Flexible and adaptable, no two days look the same, so you're comfortable carrying a bit of a different task each day. A self-starter who loves the city and isn't shy about reaching out to businesses; experienced managing and running brand social media accounts (your own, a business's, or a client's); comfortable in Edits and Canva and on camera; and plugged into social trends. Filming experience on both iPhones and professional cameras (we shoot on a Sony a7S III) is an added bonus.</p>
 <h3>How to Apply</h3>
 <p>Email your resume to ${APPLY_EMAIL} with "Social Media Intern Application" and your name in the subject line. You must also send us links or files of social content you've created (posts, Reels, TikToks, or accounts you've run) so we can see your creative ability. Applications are reviewed on a rolling basis through September 4, 2026.</p>
 `;
@@ -219,7 +219,7 @@ export default function SocialMediaIntern() {
         ...style,
       }}
     >
-      Apply — Email Your Resume →
+      Apply: Email Your Resume →
     </a>
   );
 
@@ -247,7 +247,7 @@ export default function SocialMediaIntern() {
         <meta name="keywords" content="social media intern Milwaukee, marketing internship Milwaukee, part-time social media job Milwaukee, content creator internship Milwaukee, Discover Milwaukee careers, brand partnerships intern Milwaukee" />
         <link rel="canonical" href={`${SITE}/careers/social-media-intern`} />
 
-        <meta property="og:title" content="Social Media Intern — Discover Milwaukee (Part-Time, Fall/Winter 2026)" />
+        <meta property="og:title" content="Social Media Intern | Discover Milwaukee (Part-Time, Fall/Winter 2026)" />
         <meta property="og:description" content="Join Milwaukee's biggest local lifestyle platform. Create content, find and activate brand partnerships. $17+/hour, 10–15 hrs/week. Apply now." />
         <meta property="og:url" content={`${SITE}/careers/social-media-intern`} />
         <meta property="og:type" content="website" />
@@ -271,7 +271,7 @@ export default function SocialMediaIntern() {
               Social Media Intern
             </h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "640px", margin: "0 auto 28px", fontFamily: BODY }}>
-              Help create the content Milwaukee actually watches — and help us find and activate the brands that want in. Part-time, paid, and right in the middle of everything happening in MKE.
+              Help create the content Milwaukee actually watches, and help us find and activate the brands that want in. Part-time, paid, and right in the middle of everything happening in MKE.
             </p>
             <ApplyButton />
           </div>
@@ -295,7 +295,7 @@ export default function SocialMediaIntern() {
               Milwaukee&apos;s Front Row Seat
             </h2>
             <p style={{ color: "#4a4a4a", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px", fontFamily: BODY }}>
-              Discover Milwaukee is the city&apos;s go-to guide for what to eat, drink, and do in MKE. When something&apos;s happening — a new restaurant, a festival, a patio worth the wait — we&apos;re the ones telling Milwaukee about it. In 2025 our content reached <strong>37.1 million views</strong>, and we&apos;ve built an audience of <strong>235,000+ followers</strong> across Instagram, TikTok, and Facebook, most of them locals aged 18–44 who actually go do the things we post.
+              Discover Milwaukee is the city&apos;s go-to guide for what to eat, drink, and do in MKE. When something&apos;s happening (a new restaurant, a festival, a patio worth the wait), we&apos;re the ones telling Milwaukee about it. In 2025 our content reached <strong>37.1 million views</strong>, and we&apos;ve built an audience of <strong>235,000+ followers</strong> across Instagram, TikTok, and Facebook, most of them locals aged 18–44 who actually go do the things we post.
             </p>
             <p style={{ color: "#4a4a4a", fontSize: "16px", lineHeight: 1.8, margin: 0, fontFamily: BODY }}>
               We&apos;re growing, and this internship sits at the center of two things that make us go: creating content people love, and building the brand partnerships that let us keep doing it. You&apos;ll get real reps in both.
@@ -308,7 +308,7 @@ export default function SocialMediaIntern() {
               What You&apos;ll Do
             </h2>
             <p style={{ color: "#4a4a4a", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px", fontFamily: BODY }}>
-              This is a dynamic role — expect your responsibilities to shift based on what we need week to week. The list below is where you&apos;ll spend most of your time, but you should be ready to jump on whatever the moment calls for.
+              This is a dynamic role: expect your responsibilities to shift based on what we need week to week. The list below is where you&apos;ll spend most of your time, but you should be ready to jump on whatever the moment calls for.
             </p>
             {RESPONSIBILITIES.map((block, i) => <ListBlock key={i} block={block} />)}
           </section>
@@ -327,7 +327,7 @@ export default function SocialMediaIntern() {
               Email your resume to <a href={APPLY_MAILTO} style={{ color: c.yellow, fontWeight: 700, textDecoration: "none" }}>{APPLY_EMAIL}</a> with <strong>&ldquo;Social Media Intern Application&rdquo;</strong> and your name in the subject line.
             </p>
             <p style={{ color: c.beige, fontSize: "15px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY, maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
-              Along with your resume, <strong>send us links or files of social content you&apos;ve created</strong> — posts, Reels, TikToks, or accounts you&apos;ve run. This part isn&apos;t optional; we want to see your creative ability. Bonus points if you tell us one Milwaukee brand you&apos;d love to see us work with. Applications are reviewed on a rolling basis through <strong>September 4, 2026</strong>.
+              Along with your resume, <strong>send us links or files of social content you&apos;ve created</strong>: posts, Reels, TikToks, or accounts you&apos;ve run. This part isn&apos;t optional; we want to see your creative ability. Bonus points if you tell us one Milwaukee brand you&apos;d love to see us work with. Applications are reviewed on a rolling basis through <strong>September 4, 2026</strong>.
             </p>
             <ApplyButton />
           </section>
