@@ -2814,7 +2814,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <p style={{ color: c.yellow, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>For Brands &amp; Partners</p>
                 <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "26px" : "36px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05, margin: "0 0 14px" }}>Reach 37.1M+ views a year</h3>
                 <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, margin: "0 auto 26px", maxWidth: "460px" }}>Put your brand in front of Milwaukee's most engaged local audience. Let's talk about working together.</p>
-                <button onClick={() => { navigateTo("partner"); setShowPartnerForm(true); }} className="dm-cta" style={{ padding: isMobile ? "16px 30px" : "18px 40px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "50px", fontSize: isMobile ? "16px" : "17px", cursor: "pointer", fontFamily: BODY_FONT }}>
+                <button onClick={() => { window.location.href = "/milwaukee-media-kit"; }} className="dm-cta" style={{ padding: isMobile ? "16px 30px" : "18px 40px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "50px", fontSize: isMobile ? "16px" : "17px", cursor: "pointer", fontFamily: BODY_FONT }}>
                   Inquire About Partnering →
                 </button>
               </div>
