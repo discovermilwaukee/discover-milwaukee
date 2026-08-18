@@ -689,6 +689,95 @@ const dayTrips = [
   },
 ];
 
+// Official website + linked Instagram/Facebook per venue, verified Aug 2026.
+// Generic managing-agency socials (WI DNR, county parks) intentionally omitted —
+// only place-specific profiles are listed.
+const LINKS = {
+  // Festivals
+  "Milwaukee Oktoberfest": { website: "https://www.milwaukeeworldfestival.com/", instagram: "https://www.instagram.com/milwaukeeworldfestival", facebook: "https://www.facebook.com/MilwaukeeWorldFestival/" },
+  "Oktoberfest at the Bavarian Bierhaus": { website: "https://www.thebavarianbierhaus.com/oktoberfest", instagram: "https://www.instagram.com/bavarianbierhaus_mke/", facebook: "https://www.facebook.com/bavbierhaus/" },
+  "Waukesha Oktoberfest": { website: "https://www.waukesha-wi.gov/residents/oktoberfest.php" },
+  "Germantown Historical Society Oktoberfest": { website: "https://www.germantownhistoricalsociety.org/oktoberfest", instagram: "https://www.instagram.com/dheinsville/", facebook: "https://www.facebook.com/Germantown.Historical.Society.WI/" },
+  "Cedarburg Wine & Harvest Festival": { website: "https://www.cedarburgfestivals.org/", instagram: "https://www.instagram.com/cedarburgfest/", facebook: "https://www.facebook.com/FestivalsOfCedarburg" },
+  "Fall on the Farms — Old World Wisconsin": { website: "https://oldworldwisconsin.wisconsinhistory.org/", facebook: "https://www.facebook.com/OldWorldWisconsin/" },
+  "Elegant Farmer Autumn Harvest Fest": { website: "https://www.elegantfarmer.com/harvest-festival/", instagram: "https://www.instagram.com/elegantfarmerpies", facebook: "https://www.facebook.com/p/The-Elegant-Farmer-100064478482664/" },
+  "Boo at the Zoo": { website: "https://milwaukeezoo.org/visit/upcoming-events/boo-at-the-zoo/", instagram: "https://www.instagram.com/milwaukeecozoo/", facebook: "https://www.facebook.com/MilwaukeeCountyZoo/" },
+  "China Lights: Legends Come Alive": { website: "https://chinalights.org/", instagram: "https://www.instagram.com/chinalightswi/", facebook: "https://www.facebook.com/chinalightswi" },
+  "Mitchell Park Domes Fall Flower Show": { website: "https://milwaukeedomes.org/", instagram: "https://www.instagram.com/milwaukeedomes/", facebook: "https://www.facebook.com/themilwaukeedomes/" },
+  "Día de los Muertos Festival & 5K": { website: "https://foresthomecemetery.com/dia-de-los-muertos/", instagram: "https://www.instagram.com/foresthomecemetery/", facebook: "https://www.facebook.com/foresthome1850/" },
+  "Elktoberfest": { website: "https://www.elkhartlake.com/event/elktoberfest/", instagram: "https://www.instagram.com/elkhartlake/", facebook: "https://www.facebook.com/ElkhartLakeWI/" },
+
+  // Apple orchards
+  "Barthel Fruit Farm": { website: "https://www.barthelfruitfarm.com" },
+  "Peck & Bushel Organic Fruit Company": { website: "https://www.peckandbushel.com", instagram: "https://www.instagram.com/peckandbushel/", facebook: "https://www.facebook.com/Peck-Bushel-Fruit-Company-196838473716394/" },
+  "Appleland Farm Market": { website: "https://www.applelandorchard.com", facebook: "https://www.facebook.com/pages/Appleland-Farm-Market/120306514648893" },
+  "Honey Creek Orchard": { website: "https://www.honeycreekorchardcedarburg.com", instagram: "https://www.instagram.com/honeycreekorchard/", facebook: "https://www.facebook.com/honeycreekorchard" },
+  "Rim's Edge Orchard": { website: "http://www.rimsedgeorchard.com" },
+  "Apple Holler": { website: "https://www.appleholler.com", instagram: "https://www.instagram.com/applehollerwi", facebook: "https://www.facebook.com/applehollerwi" },
+  "Jacobson Orchards": { website: "https://jacobsonorchards.com", facebook: "https://www.facebook.com/JacobsonOrchards" },
+  "Awe's Apple Orchard": { facebook: "https://www.facebook.com/p/Awes-Apple-Orchard-100068894634215/" },
+  "Apple Barn Orchard & Winery": { website: "https://applebarnorchardandwinery.com", instagram: "https://www.instagram.com/applebarnwi/", facebook: "https://www.facebook.com/applebarnorchardandwinery/" },
+  "Weston's Antique Apples": { website: "http://www.westonapples.com" },
+
+  // Pumpkin patches
+  "Swan's Pumpkin Farm": { website: "https://thepumpkinfarm.com/", instagram: "https://www.instagram.com/SwansPumpkinFarm/", facebook: "https://www.facebook.com/SwansPumpkinFarm" },
+  "Basse's Taste of Country": { website: "https://bassesfarms.com/", instagram: "https://www.instagram.com/bassestasteofcountry/", facebook: "https://www.facebook.com/BassesTasteOfCountryFarmMarket/" },
+  "Schuett Farms": { website: "https://www.schuettfarm.com/", instagram: "https://www.instagram.com/SchuettFarms", facebook: "https://www.facebook.com/SchuettFarms" },
+  "Jerry Smith Produce & Pumpkin Farm": { website: "https://www.jerrysmithfarm.com/", instagram: "https://www.instagram.com/jerrysmith_pumpkinfarm/", facebook: "https://www.facebook.com/smithpumpkinfarm/" },
+  "Cozy Nook Farm": { website: "https://cozynookfarms.com/" },
+  "Meadowbrook Pumpkin Farm": { website: "https://meadowbrookfun.com/", facebook: "https://www.facebook.com/meadowbrookfun/" },
+  "Thompson Farm": { website: "https://www.thompsonfarmwi.com/", instagram: "https://www.instagram.com/thompsonfarmwi/", facebook: "https://www.facebook.com/thompsonfarmwi" },
+  "Lindner's Pumpkin Farm": { website: "https://www.lindnerspumpkinfarm.com/", facebook: "https://www.facebook.com/p/Lindners-Pumpkin-Farm-and-Corn-Maze-100054286610680/" },
+  "Pearce's Farm Stand": { website: "https://www.pearcefarms.com/", instagram: "https://www.instagram.com/pearcesfarmstand/", facebook: "https://www.facebook.com/p/Pearces-Farm-Stand-100064848991933/" },
+  "Squire's Pumpkin Patch": { website: "https://squirespumpkinpatch.weebly.com/", facebook: "https://www.facebook.com/SquiresPumpkinPatch/" },
+
+  // Haunted houses & Halloween
+  "The Hill Has Eyes": { website: "https://www.hillhaseyes.com/", instagram: "https://www.instagram.com/hillhaseyesmke", facebook: "https://www.facebook.com/TheHillHasEyesMKE/" },
+  "Buffalo Bill's Haunted Trail": { website: "https://buffalobillshauntedtrail.com/" },
+  "Desolate Acres": { website: "https://www.desolateacres.com/", facebook: "https://www.facebook.com/desolateacres" },
+  "Soul Reapers / Terror at the Fair": { website: "https://terroratthefair.com/" },
+  "Meadowbrook Haunted Forest & Cornfield": { website: "https://meadowbrookfun.com/", facebook: "https://www.facebook.com/meadowbrook.hauntedcornfield/" },
+  "Pabst Mansion: Illuminating the Dark": { website: "https://www.pabstmansion.com/", instagram: "https://www.instagram.com/pabstmansionmke/", facebook: "https://www.facebook.com/pabstmansionmke" },
+  "Milwaukee Ghost Walks": { website: "https://www.americanghostwalks.com/wisconsin/milwaukee", instagram: "https://www.instagram.com/americanghostwalks", facebook: "https://www.facebook.com/americanghostwalks" },
+  "Halloween Haunts at Wehr Nature Center": { website: "https://www.wehrnaturecenter.com/", facebook: "https://www.facebook.com/wehrnaturecenter/" },
+  "Dominion of Terror": { website: "https://www.dominionofterror.com/", instagram: "https://www.instagram.com/DominionOfTerror", facebook: "https://www.facebook.com/DominionOfTerror/" },
+
+  // Fall foliage & parks (generic agency socials omitted)
+  "Lake Park": { website: "https://lakeparkfriends.org/", facebook: "https://www.facebook.com/Lake-Park-Friends-170033143027783/" },
+  "Seven Bridges Trail — Grant Park": { website: "https://county.milwaukee.gov/EN/Parks" },
+  "Schlitz Audubon Nature Center": { website: "https://www.schlitzaudubon.org/", instagram: "https://www.instagram.com/schlitzaudubon/", facebook: "https://www.facebook.com/SchlitzAudubonNatureCenter/" },
+  "Havenwoods State Forest": { website: "https://dnr.wisconsin.gov/topic/parks/havenwoods" },
+  "Boerner Botanical Gardens & Whitnall Park": { website: "https://boernerbotanicalgardens.org/", facebook: "https://www.facebook.com/BoernerFriends/" },
+  "Lapham Peak Unit — Kettle Moraine": { website: "https://dnr.wisconsin.gov/topic/parks/laphampeak" },
+  "Holy Hill — Basilica & Scenic Tower": { website: "https://www.holyhill.com/", instagram: "https://www.instagram.com/holyhillshrine/", facebook: "https://www.facebook.com/Basilica-and-National-Shrine-of-Mary-Help-of-Christians-at-Holy-Hill-183995886291/" },
+  "Retzer Nature Center": { website: "https://www.waukeshacounty.gov/parks-and-land-use/parks-and-recreation/retzer-nature-center/" },
+  "Parnell Tower — Kettle Moraine (Northern Unit)": { website: "https://dnr.wisconsin.gov/topic/parks/kmn" },
+  "Scuppernong Trails — Kettle Moraine (Southern Unit)": { website: "https://dnr.wisconsin.gov/topic/parks/kms" },
+  "Cedarburg Covered Bridge Park": { website: "https://www.ozaukeecounty.gov/2241/Covered-Bridge-Park" },
+  "Cedarburg Bog State Natural Area": { website: "https://dnr.wisconsin.gov/topic/statenaturalareas/CedarburgBog" },
+  "Devil's Lake State Park": { website: "https://dnr.wisconsin.gov/topic/parks/devilslake" },
+  "Peninsula State Park & Eagle Tower": { website: "https://dnr.wisconsin.gov/topic/parks/peninsula" },
+
+  // Fall food & drink
+  "Lakefront Brewery — Oktoberfest": { website: "https://lakefrontbrewery.com", instagram: "https://www.instagram.com/lakefrontbrewery", facebook: "https://www.facebook.com/lakefront" },
+  "Sprecher Brewing — Oktoberfest & Pumpkin Lager": { website: "https://www.sprecherbrewery.com", instagram: "https://www.instagram.com/sprecherbrewery", facebook: "https://www.facebook.com/sprecherbrewing" },
+  "Third Space Brewing — Oktoberfest": { website: "https://thirdspacebrewing.com", instagram: "https://www.instagram.com/thirdspacebrewing", facebook: "https://www.facebook.com/thirdspacebrewing" },
+  "Milwaukee Brewing Company — Oktoberfest": { website: "https://mkebrewing.com", instagram: "https://www.instagram.com/mkebrewco", facebook: "https://www.facebook.com/milwaukeebrewing" },
+  "New Glarus Staghorn Oktoberfest": { website: "https://www.newglarusbrewing.com", instagram: "https://www.instagram.com/newglarusbrewing", facebook: "https://www.facebook.com/newglarusbrewing" },
+  "Five O'Clock Steakhouse": { website: "https://www.fiveoclocksteakhouse.com", instagram: "https://www.instagram.com/fiveoclocksteakhouse", facebook: "https://www.facebook.com/FiveOClockSteak" },
+  "Bryant's Cocktail Lounge": { website: "https://www.bryantscocktaillounge.com", instagram: "https://www.instagram.com/bryantslounge", facebook: "https://www.facebook.com/bryantscocktaillounge" },
+  "Anodyne Coffee": { website: "https://anodynecoffee.com", instagram: "https://www.instagram.com/anodynecoffee", facebook: "https://www.facebook.com/anodynecoffee" },
+
+  // Day trips
+  "Cedarburg": { website: "https://www.cedarburg.org", instagram: "https://www.instagram.com/cedarburgchamberwi", facebook: "https://www.facebook.com/Cedarburg" },
+  "Door County": { website: "https://www.doorcounty.com", instagram: "https://www.instagram.com/doorcounty", facebook: "https://www.facebook.com/DoorCountyWisconsin" },
+  "Lake Geneva": { website: "https://www.visitlakegeneva.com", instagram: "https://www.instagram.com/visitlakegeneva", facebook: "https://www.facebook.com/mylakegeneva" },
+  "Wisconsin Dells": { website: "https://www.wisdells.com", instagram: "https://www.instagram.com/waterparkcapital", facebook: "https://www.facebook.com/wisdells" },
+  "New Glarus": { website: "https://swisstown.com", instagram: "https://www.instagram.com/new.glarus", facebook: "https://www.facebook.com/newglaruschamber" },
+  "Galena, Illinois": { website: "https://www.visitgalena.org", instagram: "https://www.instagram.com/visitgalena", facebook: "https://www.facebook.com/VisitGalena" },
+  "Kettle Moraine Scenic Drive": { website: "https://dnr.wisconsin.gov/topic/parks/kmscenicdrive" },
+};
+
 const SECTIONS = [
   { id: "festivals", kicker: "Prost & Harvest", title: "Fall Festivals & Oktoberfest", blurb: "Milwaukee's German roots come alive every autumn. From the marquee downtown Oktoberfest to harvest festivals, lantern walks, and living-history farms, here's where the season officially begins.", list: festivals, schemaType: "Event" },
   { id: "apple-orchards", kicker: "U-Pick", title: "Apple Orchards Near Milwaukee", blurb: "Warm cider donuts, wagon rides, and rows of ripe apples. These verified orchards within about an hour of the city cover everything from massive family destinations to quiet heirloom farms.", list: orchards, schemaType: "LocalBusiness" },
@@ -912,7 +1001,13 @@ export default function FallGuideMilwaukee() {
     <span style={{ backgroundColor: bg, color, padding: "4px 12px", borderRadius: "999px", fontSize: "12px", fontWeight: "600", fontFamily: BODY, letterSpacing: "0.3px" }}>{children}</span>
   );
 
-  const ItemCard = ({ item }) => (
+  const ItemLink = ({ href, label }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>{label}</a>
+  );
+
+  const ItemCard = ({ item }) => {
+    const links = LINKS[item.name];
+    return (
     <div id={slug(item.name)} style={{ backgroundColor: "#fff", borderRadius: "18px", padding: "26px", marginBottom: "20px", border: `1px solid ${c.beige}`, boxShadow: "0 1px 2px rgba(32,41,31,0.04)", scrollMarginTop: "80px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
@@ -935,8 +1030,16 @@ export default function FallGuideMilwaukee() {
         </div>
       )}
       {item.address && <p style={{ fontSize: "13px", color: "#8a8a8a", marginTop: "12px", marginBottom: 0, fontFamily: BODY }}>{item.address}</p>}
+      {links && (links.website || links.instagram || links.facebook) && (
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
+          {links.website && <ItemLink href={links.website} label="Website ↗" />}
+          {links.instagram && <ItemLink href={links.instagram} label="Instagram ↗" />}
+          {links.facebook && <ItemLink href={links.facebook} label="Facebook ↗" />}
+        </div>
+      )}
     </div>
-  );
+    );
+  };
 
   return (
     <>
