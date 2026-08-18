@@ -5,6 +5,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Breadcrumbs from "../components/Breadcrumbs";
 import RelatedGuides from "../components/RelatedGuides";
+import RegionMap from "../components/RegionMap";
 
 import NewsletterCTA from "../components/NewsletterCTA";
 
@@ -760,6 +761,85 @@ const confirmedEvents = [
 
 const allItems = SECTIONS.flatMap((s) => s.list.map((item) => ({ ...item, schemaType: s.schemaType, anchor: s.id })));
 
+const slug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+// [lng, lat] for longer-term venues plotted on the region map. Town/address-level,
+// validated to fall in the correct county (point-in-polygon). Single-day festivals
+// and the statewide-only New Glarus beer are intentionally not mapped.
+const COORDS = {
+  "Barthel Fruit Farm": [-87.978, 43.245],
+  "Peck & Bushel Organic Fruit Company": [-88.232, 43.283],
+  "Appleland Farm Market": [-87.952, 43.472],
+  "Honey Creek Orchard": [-87.985, 43.312],
+  "Rim's Edge Orchard": [-88.170, 43.280],
+  "Apple Holler": [-87.912, 42.700],
+  "Jacobson Orchards": [-88.246, 42.782],
+  "Awe's Apple Orchard": [-88.043, 42.862],
+  "Apple Barn Orchard & Winery": [-88.497, 42.680],
+  "Weston's Antique Apples": [-88.132, 42.965],
+  "Swan's Pumpkin Farm": [-87.938, 42.754],
+  "Basse's Taste of Country": [-88.223, 43.248],
+  "Schuett Farms": [-88.362, 42.900],
+  "Jerry Smith Produce & Pumpkin Farm": [-87.903, 42.612],
+  "Cozy Nook Farm": [-88.303, 43.005],
+  "Meadowbrook Pumpkin Farm": [-88.198, 43.437],
+  "Thompson Farm": [-88.048, 42.552],
+  "Lindner's Pumpkin Farm": [-88.118, 42.972],
+  "Pearce's Farm Stand": [-88.598, 42.535],
+  "Squire's Pumpkin Patch": [-88.196, 42.664],
+  "The Hill Has Eyes": [-88.016, 42.889],
+  "Buffalo Bill's Haunted Trail": [-88.052, 42.862],
+  "Desolate Acres": [-88.245, 43.017],
+  "Soul Reapers / Terror at the Fair": [-88.190, 42.510],
+  "Meadowbrook Haunted Forest & Cornfield": [-88.198, 43.437],
+  "Pabst Mansion: Illuminating the Dark": [-87.935, 43.039],
+  "Milwaukee Ghost Walks": [-87.906, 43.032],
+  "Halloween Haunts at Wehr Nature Center": [-88.028, 42.900],
+  "Dominion of Terror": [-87.724, 43.760],
+  "Lake Park": [-87.885, 43.052],
+  "Seven Bridges Trail — Grant Park": [-87.852, 42.900],
+  "Schlitz Audubon Nature Center": [-87.892, 43.170],
+  "Havenwoods State Forest": [-87.962, 43.120],
+  "Boerner Botanical Gardens & Whitnall Park": [-88.017, 42.938],
+  "Lapham Peak Unit — Kettle Moraine": [-88.398, 43.028],
+  "Holy Hill — Basilica & Scenic Tower": [-88.305, 43.252],
+  "Retzer Nature Center": [-88.283, 43.000],
+  "Parnell Tower — Kettle Moraine (Northern Unit)": [-88.050, 43.720],
+  "Scuppernong Trails — Kettle Moraine (Southern Unit)": [-88.487, 42.888],
+  "Covered Bridge (Cedarburg)": [-87.982, 43.332],
+  "Cedarburg Bog State Natural Area": [-88.030, 43.400],
+  "Devil's Lake State Park": [-89.730, 43.428],
+  "Peninsula State Park & Eagle Tower": [-87.233, 45.130],
+  "Lakefront Brewery — Oktoberfest": [-87.905, 43.052],
+  "Sprecher Brewing — Oktoberfest & Pumpkin Lager": [-87.922, 43.132],
+  "Third Space Brewing — Oktoberfest": [-87.942, 43.030],
+  "Milwaukee Brewing Company — Oktoberfest": [-87.902, 42.998],
+  "Five O'Clock Steakhouse": [-87.943, 43.045],
+  "Bryant's Cocktail Lounge": [-87.926, 43.012],
+  "Anodyne Coffee": [-87.912, 43.018],
+  "Cedarburg": [-87.988, 43.298],
+  "Door County": [-87.380, 44.850],
+  "Lake Geneva": [-88.433, 42.591],
+  "Wisconsin Dells": [-89.771, 43.628],
+  "New Glarus": [-89.630, 42.814],
+  "Galena, Illinois": [-90.429, 42.417],
+  "Kettle Moraine Scenic Drive": [-88.305, 43.252],
+};
+
+const firstSentence = (t) => { const m = t.match(/^.*?[.!?](?=\s|$)/); return m ? m[0] : t; };
+
+const mapItems = allItems
+  .filter((it) => it.anchor !== "festivals" && COORDS[it.name])
+  .map((it) => ({
+    name: it.name,
+    slug: slug(it.name),
+    category: it.anchor,
+    where: it.where,
+    blurb: it.bestFor || firstSentence(it.description),
+    lng: COORDS[it.name][0],
+    lat: COORDS[it.name][1],
+  }));
+
 const structuredData = {
   article: {
     "@context": "https://schema.org",
@@ -833,7 +913,7 @@ export default function FallGuideMilwaukee() {
   );
 
   const ItemCard = ({ item }) => (
-    <div style={{ backgroundColor: "#fff", borderRadius: "18px", padding: "26px", marginBottom: "20px", border: `1px solid ${c.beige}`, boxShadow: "0 1px 2px rgba(32,41,31,0.04)" }}>
+    <div id={slug(item.name)} style={{ backgroundColor: "#fff", borderRadius: "18px", padding: "26px", marginBottom: "20px", border: `1px solid ${c.beige}`, boxShadow: "0 1px 2px rgba(32,41,31,0.04)", scrollMarginTop: "80px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
@@ -907,9 +987,10 @@ export default function FallGuideMilwaukee() {
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
             <p style={{ fontSize: "12px", fontWeight: "700", color: c.green1, marginBottom: "12px", letterSpacing: "1.5px", fontFamily: BODY }}>JUMP TO</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 12px", alignItems: "center" }}>
-              {SECTIONS.map((s, i) => (
+              <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>
+              {SECTIONS.map((s) => (
                 <React.Fragment key={s.id}>
-                  {i > 0 && <span style={{ color: c.beige }}>|</span>}
+                  <span style={{ color: c.beige }}>|</span>
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title.replace(" Near Milwaukee", "").replace(" from Milwaukee", "")}</a>
                 </React.Fragment>
               ))}
@@ -944,6 +1025,13 @@ export default function FallGuideMilwaukee() {
             <p style={{ color: "#4a4a4a", fontSize: "15px", lineHeight: 1.75, margin: 0, fontFamily: BODY }}>
               In southeastern Wisconsin, autumn color typically arrives <strong>early-to-mid October</strong> and varies year to year with the weather — some seasons peak stretches into late October. Milwaukee and its surrounding counties generally hit their best color in the first half to middle of the month, while more northern day trips like Door County and Baraboo often peak a bit earlier, around the second-to-third week. Because timing shifts every year, don&apos;t lock in an exact date — check the interactive <strong>Travel Wisconsin Fall Color Report</strong> or the <strong>Wisconsin DNR</strong> fall-color guidance the week you plan to go.
             </p>
+          </section>
+
+          <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
+            <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+            <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Fall in Southeastern Wisconsin, Mapped</h2>
+            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every longer-term fall spot in this guide — orchards, pumpkin patches, haunted houses, foliage hikes, breweries, and day trips — plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
+            <RegionMap items={mapItems} />
           </section>
 
           {SECTIONS.map((section) => (
