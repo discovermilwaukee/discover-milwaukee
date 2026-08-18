@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { COUNTIES, VIEWBOX, project } from "../lib/regionMapData";
 
 // Category colors + display order for the legend/dots. Keyed by the guide's
@@ -20,6 +20,53 @@ const DISPLAY = "'Anton', system-ui, -apple-system, sans-serif";
 const W = VIEWBOX.w;
 const H = VIEWBOX.h;
 
+// 3D extrusion: every county sits on a stacked "base"; active ones lift off it.
+const DEPTH = 11; // resting slab thickness (user units)
+const LIFT = 16; // how far an active county rises off the board
+const WALL = "#C9AC72"; // base tan for the extruded side walls
+
+function darken(hex, f) {
+  const n = parseInt(hex.slice(1), 16);
+  const cl = (v) => Math.max(0, Math.min(255, Math.round(v * f)));
+  return `rgb(${cl((n >> 16) & 255)},${cl((n >> 8) & 255)},${cl(n & 255)})`;
+}
+
+// Parse an SVG path "d" (M x,y x,y ... Z, possibly multi-subpath) into rings.
+function parseRings(d) {
+  return d
+    .split("Z")
+    .filter((s) => s.trim())
+    .map((s) => {
+      const pts = [];
+      const re = /(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g;
+      let m;
+      while ((m = re.exec(s))) pts.push([parseFloat(m[1]), parseFloat(m[2])]);
+      return pts;
+    });
+}
+const COUNTY_RINGS = COUNTIES.map((co) => ({ name: co.name, rings: parseRings(co.d) }));
+function countyOf(x, y) {
+  for (const { name, rings } of COUNTY_RINGS) {
+    let inside = false;
+    for (const ring of rings) {
+      for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const [xi, yi] = ring[i];
+        const [xj, yj] = ring[j];
+        if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) inside = !inside;
+      }
+    }
+    if (inside) return name;
+  }
+  return null;
+}
+
+// Precompute the darkened side-wall shades once (deepest = darkest).
+const WALL_STACK = [];
+for (let k = DEPTH; k >= 1; k--) {
+  const f = 0.86 - 0.36 * ((k - 1) / (DEPTH - 1));
+  WALL_STACK.push({ k, fill: darken(WALL, f) });
+}
+
 const ARROWS = ["→", "↘", "↓", "↙", "←", "↖", "↑", "↗"];
 function arrowFor(dx, dy) {
   let a = (Math.atan2(dy, dx) * 180) / Math.PI; // 0=E, 90=S(down), -90=N(up)
@@ -28,19 +75,32 @@ function arrowFor(dx, dy) {
 }
 
 export default function RegionMap({ items = [] }) {
-  const [hovered, setHovered] = useState(null); // slug (mouse/focus)
-  const [pinned, setPinned] = useState(null); // slug (tap)
+  const [hovered, setHovered] = useState(null); // dot slug (mouse/focus)
+  const [pinned, setPinned] = useState(null); // dot slug (tap)
+  const [hoveredCounty, setHoveredCounty] = useState(null); // county name (mouse/focus)
+  const [selectedCounty, setSelectedCounty] = useState(null); // county name (click/tap lock)
   const [filter, setFilter] = useState(null); // category id or null
+  const [reduce, setReduce] = useState(false);
   const lastPointer = useRef("mouse");
 
   const active = hovered || pinned;
+  const activeCounty = hoveredCounty || selectedCounty;
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const on = () => setReduce(mq.matches);
+    on();
+    mq.addEventListener ? mq.addEventListener("change", on) : mq.addListener(on);
+    return () => (mq.removeEventListener ? mq.removeEventListener("change", on) : mq.removeListener(on));
+  }, []);
 
   const scrollToCard = useCallback((slug) => {
     if (typeof document === "undefined") return;
     const el = document.getElementById(slug);
     if (!el) return;
-    const reduce = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    const r = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: r ? "auto" : "smooth", block: "center" });
     const prev = el.style.boxShadow;
     el.style.transition = "box-shadow 0.25s ease";
     el.style.boxShadow = "0 0 0 3px #F0A623";
@@ -59,10 +119,22 @@ export default function RegionMap({ items = [] }) {
     else edges.push(enriched);
   }
 
+  // Group on-map dots by the county they fall in, so a lifted county carries
+  // its pins up with it.
+  const dotsByCounty = {};
+  const looseDots = [];
+  for (const d of dots) {
+    const cn = countyOf(d.x, d.y);
+    if (cn) (dotsByCounty[cn] || (dotsByCounty[cn] = [])).push(d);
+    else looseDots.push(d);
+  }
+
   const present = ORDER.filter((id) => items.some((it) => it.category === id));
   const dimmed = (cat) => filter && cat !== filter;
 
   const tip = active ? [...dots, ...edges].find((d) => d.slug === active) : null;
+  const tipCounty = tip ? countyOf(tip.x, tip.y) : null;
+  const tipLift = tip && tipCounty && activeCounty === tipCounty ? LIFT : 0;
 
   const handleClick = (slug) => {
     if (lastPointer.current === "touch") {
@@ -70,6 +142,32 @@ export default function RegionMap({ items = [] }) {
     } else {
       scrollToCard(slug);
     }
+  };
+
+  // Draw order: keep the active county last so it pops above its neighbors.
+  const ordered = [...COUNTIES];
+  if (activeCounty) {
+    const i = ordered.findIndex((co) => co.name === activeCounty);
+    if (i >= 0) ordered.push(ordered.splice(i, 1)[0]);
+  }
+
+  const renderDot = (d) => {
+    const faded = dimmed(d.category);
+    const isActive = active === d.slug;
+    return (
+      <g key={d.slug} opacity={faded ? 0.12 : 1} style={{ cursor: faded ? "default" : "pointer" }}
+         tabIndex={faded ? -1 : 0} role="button" aria-label={`${d.name} — ${d.catLabel}`}
+         onPointerDown={(e) => { lastPointer.current = e.pointerType || "mouse"; }}
+         onClick={(e) => { e.stopPropagation(); if (!faded) handleClick(d.slug); }}
+         onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && !faded) { e.preventDefault(); scrollToCard(d.slug); } }}
+         onFocus={() => { if (!faded) { setHovered(d.slug); const cn = countyOf(d.x, d.y); if (cn) setHoveredCounty(cn); } }}
+         onBlur={() => { setHovered(null); setHoveredCounty(null); }}
+         onPointerEnter={(e) => { if (e.pointerType === "mouse" && !faded) setHovered(d.slug); }}
+         onPointerLeave={(e) => { if (e.pointerType === "mouse") setHovered(null); }}>
+        {isActive && <circle cx={d.x} cy={d.y} r="16" fill={d.color} opacity="0.25" />}
+        <circle cx={d.x} cy={d.y} r={isActive ? 11 : 9} fill={d.color} stroke="#fff" strokeWidth="2.5" />
+      </g>
+    );
   };
 
   return (
@@ -105,19 +203,66 @@ export default function RegionMap({ items = [] }) {
         <svg
           viewBox={`0 0 ${W} ${H}`}
           role="img"
-          aria-label="Map of southeastern Wisconsin counties with fall destinations marked"
-          style={{ width: "100%", height: "auto", display: "block", background: c.cream, borderRadius: "16px", border: `1px solid ${c.beige}`, touchAction: "manipulation" }}
-          onClick={() => setPinned(null)}
+          aria-label="Raised relief map of southeastern Wisconsin counties with fall destinations marked"
+          style={{ width: "100%", height: "auto", display: "block", borderRadius: "16px", border: `1px solid ${c.beige}`, touchAction: "manipulation" }}
+          onClick={() => { setPinned(null); setSelectedCounty(null); }}
         >
-          {/* Counties */}
-          {COUNTIES.map((co) => (
-            <path key={co.name} d={co.d} fill="#fff" stroke={c.tan} strokeWidth="2.5" strokeLinejoin="round" />
-          ))}
-          {COUNTIES.map((co) => (
-            <text key={co.name + "-l"} x={co.lx} y={co.ly} textAnchor="middle" style={{ fontFamily: BODY, fontSize: "26px", fontWeight: 700, letterSpacing: "0.5px", fill: "#B9A98A", pointerEvents: "none", textTransform: "uppercase" }}>
-              {co.name}
-            </text>
-          ))}
+          <defs>
+            <radialGradient id="rm-bg" cx="50%" cy="36%" r="80%">
+              <stop offset="0%" stopColor="#FBF6EC" />
+              <stop offset="100%" stopColor="#ECE1CC" />
+            </radialGradient>
+            <linearGradient id="rm-face" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#F1E7D3" />
+            </linearGradient>
+            <linearGradient id="rm-face-active" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#FFFDF7" />
+              <stop offset="100%" stopColor="#FBEBCF" />
+            </linearGradient>
+          </defs>
+
+          {/* Table surface */}
+          <rect x="0" y="0" width={W} height={H} fill="url(#rm-bg)" />
+
+          {/* Counties as extruded slabs */}
+          {ordered.map((co) => {
+            const isActive = activeCounty === co.name;
+            const cDots = dotsByCounty[co.name] || [];
+            return (
+              <g
+                key={co.name}
+                style={{
+                  cursor: "pointer",
+                  transition: reduce ? "none" : "transform 0.3s cubic-bezier(.2,.8,.2,1), filter 0.3s ease",
+                  transform: isActive ? `translateY(${-LIFT}px)` : "translateY(0)",
+                  filter: isActive
+                    ? "drop-shadow(0 20px 18px rgba(60,45,20,0.34))"
+                    : "drop-shadow(0 3px 5px rgba(60,45,20,0.16))",
+                }}
+                onPointerEnter={(e) => { if (e.pointerType === "mouse") setHoveredCounty(co.name); }}
+                onPointerLeave={(e) => { if (e.pointerType === "mouse") setHoveredCounty((p) => (p === co.name ? null : p)); }}
+                onPointerDown={(e) => { lastPointer.current = e.pointerType || "mouse"; }}
+                onClick={(e) => { e.stopPropagation(); setPinned(null); setSelectedCounty((p) => (p === co.name ? null : co.name)); }}
+              >
+                {/* Extruded side walls */}
+                {WALL_STACK.map(({ k, fill }) => (
+                  <path key={k} d={co.d} transform={`translate(0,${k})`} fill={fill} />
+                ))}
+                {/* Top face */}
+                <path d={co.d} fill={isActive ? "url(#rm-face-active)" : "url(#rm-face)"} stroke={c.tan} strokeWidth={isActive ? 3 : 2.2} strokeLinejoin="round" />
+                {/* Label */}
+                <text x={co.lx} y={co.ly} textAnchor="middle" style={{ fontFamily: BODY, fontSize: "26px", fontWeight: 700, letterSpacing: "0.5px", fill: isActive ? "#8A7752" : "#B9A98A", pointerEvents: "none", textTransform: "uppercase" }}>
+                  {co.name}
+                </text>
+                {/* Pins that ride with the county */}
+                {cDots.map(renderDot)}
+              </g>
+            );
+          })}
+
+          {/* Any dots not resolved to a county (fallback) */}
+          {looseDots.map(renderDot)}
 
           {/* Off-map edge markers (farther day trips), clamped to the border by direction */}
           {edges.map((d) => {
@@ -129,7 +274,7 @@ export default function RegionMap({ items = [] }) {
             const ey = H / 2 + dy * scale;
             const faded = dimmed(d.category);
             return (
-              <g key={d.slug} opacity={faded ? 0.12 : 1} style={{ cursor: faded ? "default" : "pointer" }}
+              <g key={d.slug} opacity={faded ? 0.12 : 1} style={{ cursor: faded ? "default" : "pointer", filter: "drop-shadow(0 3px 4px rgba(60,45,20,0.25))" }}
                  tabIndex={faded ? -1 : 0} role="button" aria-label={`${d.name} — ${d.catLabel}, beyond the map`}
                  onPointerDown={(e) => { lastPointer.current = e.pointerType || "mouse"; }}
                  onClick={(e) => { e.stopPropagation(); if (!faded) handleClick(d.slug); }}
@@ -137,29 +282,10 @@ export default function RegionMap({ items = [] }) {
                  onFocus={() => !faded && setHovered(d.slug)} onBlur={() => setHovered(null)}
                  onPointerEnter={(e) => { if (e.pointerType === "mouse" && !faded) setHovered(d.slug); }}
                  onPointerLeave={(e) => { if (e.pointerType === "mouse") setHovered(null); }}>
-                <circle cx={ex} cy={ey} r="13" fill={d.color} stroke="#fff" strokeWidth="2.5" opacity="0.85" />
+                <circle cx={ex} cy={ey} r="13" fill={d.color} stroke="#fff" strokeWidth="2.5" opacity="0.9" />
                 <text x={ex} y={ey + 7} textAnchor="middle" style={{ fontFamily: BODY, fontSize: "18px", fontWeight: 700, fill: "#fff", pointerEvents: "none" }}>
                   {arrowFor(dx, dy)}
                 </text>
-              </g>
-            );
-          })}
-
-          {/* On-map dots */}
-          {dots.map((d) => {
-            const faded = dimmed(d.category);
-            const isActive = active === d.slug;
-            return (
-              <g key={d.slug} opacity={faded ? 0.12 : 1} style={{ cursor: faded ? "default" : "pointer" }}
-                 tabIndex={faded ? -1 : 0} role="button" aria-label={`${d.name} — ${d.catLabel}`}
-                 onPointerDown={(e) => { lastPointer.current = e.pointerType || "mouse"; }}
-                 onClick={(e) => { e.stopPropagation(); if (!faded) handleClick(d.slug); }}
-                 onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && !faded) { e.preventDefault(); scrollToCard(d.slug); } }}
-                 onFocus={() => !faded && setHovered(d.slug)} onBlur={() => setHovered(null)}
-                 onPointerEnter={(e) => { if (e.pointerType === "mouse" && !faded) setHovered(d.slug); }}
-                 onPointerLeave={(e) => { if (e.pointerType === "mouse") setHovered(null); }}>
-                {isActive && <circle cx={d.x} cy={d.y} r="16" fill={d.color} opacity="0.25" />}
-                <circle cx={d.x} cy={d.y} r={isActive ? 11 : 9} fill={d.color} stroke="#fff" strokeWidth="2.5" />
               </g>
             );
           })}
@@ -172,7 +298,7 @@ export default function RegionMap({ items = [] }) {
             style={{
               position: "absolute",
               left: `${(tip.x / W) * 100}%`,
-              top: `${(tip.y / H) * 100}%`,
+              top: `${((tip.y - tipLift) / H) * 100}%`,
               transform: `translate(-50%, calc(-100% - 14px))`,
               width: "min(240px, 72vw)",
               background: "#fff",
@@ -199,7 +325,7 @@ export default function RegionMap({ items = [] }) {
       </div>
 
       <p style={{ textAlign: "center", fontSize: "12px", color: "#999", margin: "12px 0 0" }}>
-        Hover or tap a dot for a quick look; click to jump to the full listing. Arrows on the edge point toward farther day trips. Dot positions are approximate.
+        Hover or tap a county to raise it; hover or tap a dot for a quick look, then click to jump to the full listing. Arrows on the edge point toward farther day trips. Dot positions are approximate.
       </p>
     </div>
   );
