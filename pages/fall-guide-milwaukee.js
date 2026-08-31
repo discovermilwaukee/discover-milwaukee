@@ -126,27 +126,30 @@ const festivals = [
     name: "Mitchell Park Domes Fall Flower Show",
     where: "Milwaukee",
     type: "Flower Show",
+    badge: "Sept 19–Nov 8, 2026",
     description: "The Show Dome fills with thousands of chrysanthemums in dozens of varieties, arranged with themed sculptures and seasonal décor under the iconic glass domes. A warm, colorful indoor escape and a 120-plus-year Milwaukee tradition — perfect for a rainy fall afternoon.",
     bestFor: "A rainy-day indoor fall outing",
-    proTip: "The fall show typically runs late September into mid-November; check the Domes site for 2026 dates and theme.",
+    proTip: "The Show Dome is closed Sept 8–18 for installation, so the mums open Sept 19 — an ideal rainy-day pick.",
     address: "The Domes, 524 S Layton Blvd, Milwaukee, WI 53215",
   },
   {
     name: "Día de los Muertos Festival & 5K",
     where: "Milwaukee",
     type: "Cultural",
+    badge: "Oct 24, 2026",
     description: "A moving Day of the Dead celebration set within Milwaukee's historic garden cemetery, honoring loved ones with ofrendas, music, art, and a run/walk through the arboretum grounds. It blends solemn remembrance with vibrant Mexican-American cultural tradition.",
     bestFor: "Culture and remembrance in late October",
-    proTip: "Typically held in late October — confirm the 2026 date on the cemetery's site before planning.",
+    proTip: "The 5K run/walk starts at 9:30 a.m. and the festival runs 10 a.m.–3 p.m. — register ahead if you want to run.",
     address: "Forest Home Cemetery & Arboretum, 2405 W Forest Home Ave, Milwaukee, WI 53215",
   },
   {
     name: "Elktoberfest",
     where: "Elkhart Lake",
     type: "Oktoberfest · Day Trip",
+    badge: "Sept 19, 2026",
     description: "Wisconsin's most charming lake village puts its own spin on Oktoberfest with stein hoists, brats, pretzels, polka, and a morning run/walk, capped by live music at historic Siebkens. A scenic day trip that pairs with Kettle Moraine fall color to the south.",
     bestFor: "A scenic small-town Oktoberfest getaway",
-    proTip: "Typically held in mid-to-late September — verify the 2026 date on the Elkhart Lake site.",
+    proTip: "One day only, 9 a.m.–9 p.m. — pair it with a Kettle Moraine fall-color drive on the way home.",
     address: "Downtown Elkhart Lake, WI 53020",
   },
 ];
@@ -846,6 +849,9 @@ const confirmedEvents = [
   { name: "Boo at the Zoo", start: "2026-10-16", end: "2026-10-24", venue: "Milwaukee County Zoo", street: "10001 W Bluemound Rd", city: "Milwaukee", zip: "53226" },
   { name: "Elegant Farmer Autumn Harvest Fest", start: "2026-09-12", end: "2026-10-25", venue: "The Elegant Farmer", street: "1545 Main St", city: "Mukwonago", zip: "53149" },
   { name: "China Lights: Legends Come Alive", start: "2026-09-11", end: "2026-11-01", venue: "Boerner Botanical Gardens", street: "9400 Boerner Dr", city: "Hales Corners", zip: "53130" },
+  { name: "Mitchell Park Domes Fall Flower Show", start: "2026-09-19", end: "2026-11-08", venue: "Mitchell Park Domes", street: "524 S Layton Blvd", city: "Milwaukee", zip: "53215" },
+  { name: "Día de los Muertos Festival & 5K", start: "2026-10-24", end: "2026-10-24", venue: "Forest Home Cemetery & Arboretum", street: "2405 W Forest Home Ave", city: "Milwaukee", zip: "53215" },
+  { name: "Elktoberfest", start: "2026-09-19", end: "2026-09-19", venue: "Downtown Elkhart Lake", street: "Downtown Elkhart Lake", city: "Elkhart Lake", zip: "53020" },
 ];
 
 const allItems = SECTIONS.flatMap((s) => s.list.map((item) => ({ ...item, schemaType: s.schemaType, anchor: s.id })));
@@ -936,8 +942,9 @@ const structuredData = {
     "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
     "headline": "Fall in Milwaukee 2026: The Ultimate Guide to Autumn Activities",
     "description": "The most comprehensive guide to fall in Milwaukee and surrounding areas: Oktoberfest, apple orchards, pumpkin patches, corn mazes, haunted houses, fall color, seasonal food and drink, and the best autumn day trips.",
+    "image": `${SITE}/images/fall-guide-milwaukee-og.png`,
     "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee" },
+    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": `${SITE}/images/discover-milwaukee-logo.png` } },
     "datePublished": "2026-08-17",
     "dateModified": UPDATED,
     "mainEntityOfPage": `${SITE}${PATH}`,
@@ -951,13 +958,23 @@ const structuredData = {
     "itemListElement": allItems.map((item, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "item": {
-        "@type": item.schemaType,
-        "name": item.name,
-        "description": item.description,
-        "url": `${SITE}${PATH}#${item.anchor}`,
-        ...(item.address ? { "address": { "@type": "PostalAddress", "streetAddress": item.address, "addressRegion": "WI", "addressCountry": "US" } } : {}),
-      },
+      // Events are emitted as complete, standalone Event nodes below (see `events`).
+      // In the list we reference them as generic items so we never emit an Event
+      // missing the required `startDate`/`location` fields.
+      "item": item.schemaType === "Event"
+        ? {
+            "@type": "Thing",
+            "name": item.name,
+            "description": item.description,
+            "url": `${SITE}${PATH}#${item.anchor}`,
+          }
+        : {
+            "@type": item.schemaType,
+            "name": item.name,
+            "description": item.description,
+            "url": `${SITE}${PATH}#${item.anchor}`,
+            ...(item.address ? { "address": { "@type": "PostalAddress", "streetAddress": item.address, "addressRegion": "WI", "addressCountry": "US" } } : {}),
+          },
     })),
   },
   events: confirmedEvents.map((e) => ({
@@ -966,6 +983,7 @@ const structuredData = {
     "name": e.name,
     "startDate": e.start,
     "endDate": e.end,
+    "image": `${SITE}/images/fall-guide-milwaukee-og.png`,
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
@@ -1053,11 +1071,11 @@ export default function FallGuideMilwaukee() {
         <meta property="og:description" content="Oktoberfest, apple orchards, pumpkin patches, haunted houses, fall color & day trips — the most comprehensive fall guide for Milwaukee and beyond." />
         <meta property="og:url" content={`${SITE}${PATH}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={`${SITE}/images/fall-guide-milwaukee-og.svg`} />
+        <meta property="og:image" content={`${SITE}/images/fall-guide-milwaukee-og.png`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={`${SITE}/images/fall-guide-milwaukee-og.svg`} />
+        <meta name="twitter:image" content={`${SITE}/images/fall-guide-milwaukee-og.png`} />
         <meta property="article:published_time" content="2026-08-17T00:00:00-05:00" />
         <meta property="article:modified_time" content={`${UPDATED}T00:00:00-05:00`} />
         <meta property="article:section" content="Seasonal Guides" />
