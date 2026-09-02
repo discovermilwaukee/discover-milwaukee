@@ -30,12 +30,34 @@ const SearchIcon = () => (
   </svg>
 );
 
-export default function Nav() {
+export default function Nav({ onSearchClick }) {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
+  const [navSearchOpen, setNavSearchOpen] = useState(false);
+  const [navSearch, setNavSearch] = useState("");
+  const openSearch = () => {
+    setMobileMenuOpen(false);
+    if (onSearchClick) onSearchClick();
+    else setNavSearchOpen(true);
+  };
   const closeTimer = useRef(null);
+
+  const navSearchResults = navSearch.trim()
+    ? GUIDE_CATEGORIES.flatMap((cat) =>
+        cat.guides
+          .filter((g) => {
+            const q = navSearch.toLowerCase();
+            return (
+              g.title.toLowerCase().includes(q) ||
+              (g.desc && g.desc.toLowerCase().includes(q)) ||
+              cat.title.toLowerCase().includes(q)
+            );
+          })
+          .map((g) => ({ ...g, category: cat.title, icon: cat.icon }))
+      )
+    : [];
   const openGuides = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setGuidesOpen(true);
@@ -154,8 +176,9 @@ export default function Nav() {
               </Link>
 
               {/* Search Button */}
-              <Link
-                href="/explore"
+              <button
+                type="button"
+                onClick={openSearch}
                 style={{
                   background: "none",
                   border: "none",
@@ -168,7 +191,7 @@ export default function Nav() {
                 aria-label="Search"
               >
                 <SearchIcon />
-              </Link>
+              </button>
             </div>
           )}
 
@@ -176,8 +199,9 @@ export default function Nav() {
           {isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               {/* Search Button */}
-              <Link
-                href="/explore"
+              <button
+                type="button"
+                onClick={openSearch}
                 style={{
                   background: "none",
                   border: "none",
@@ -188,7 +212,7 @@ export default function Nav() {
                 aria-label="Search"
               >
                 <SearchIcon />
-              </Link>
+              </button>
 
               {/* Hamburger */}
               <button
@@ -336,6 +360,87 @@ export default function Nav() {
           </div>
         )}
       </nav>
+
+      {/* Search Modal (guide search — used on pages without the full DiscoverMilwaukee modal) */}
+      {navSearchOpen && (
+        <div
+          onClick={() => setNavSearchOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.8)",
+            zIndex: 100,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            padding: isMobile ? "60px 16px" : "100px 16px",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              backgroundColor: c.cream,
+              borderRadius: "20px",
+              width: "100%",
+              maxWidth: "600px",
+              maxHeight: "70vh",
+              overflow: "hidden",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.35)",
+            }}
+          >
+            <div style={{ padding: "20px", borderBottom: `1px solid ${c.beige}`, display: "flex", alignItems: "center", gap: "12px" }}>
+              <span style={{ color: c.tan, display: "flex" }}><SearchIcon /></span>
+              <input
+                type="text"
+                autoFocus
+                placeholder="Search guides (e.g., tacos, dive bars, Third Ward...)"
+                value={navSearch}
+                onChange={(e) => setNavSearch(e.target.value)}
+                style={{ flex: 1, border: "none", outline: "none", fontSize: "18px", backgroundColor: "transparent", color: c.green1 }}
+              />
+              <button
+                type="button"
+                onClick={() => setNavSearchOpen(false)}
+                aria-label="Close search"
+                style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", fontSize: "20px", color: c.tan }}
+              >
+                ✕
+              </button>
+            </div>
+            <div style={{ padding: "16px 20px", maxHeight: "50vh", overflowY: "auto" }}>
+              {!navSearch.trim() ? (
+                <p style={{ color: c.tan, fontSize: "14px", textAlign: "center", padding: "20px" }}>
+                  Start typing to search all {GUIDE_CATEGORIES.reduce((sum, cat) => sum + cat.guides.length, 0)}+ guides.
+                </p>
+              ) : navSearchResults.length === 0 ? (
+                <p style={{ color: c.tan, fontSize: "14px", textAlign: "center", padding: "20px" }}>
+                  No guides found for &quot;{navSearch}&quot;. Try another search term.
+                </p>
+              ) : (
+                <>
+                  <p style={{ color: c.tan, fontSize: "13px", margin: "0 0 12px" }}>
+                    {navSearchResults.length} result{navSearchResults.length !== 1 ? "s" : ""} found
+                  </p>
+                  {navSearchResults.map((g) => (
+                    <Link
+                      key={g.href}
+                      href={g.href}
+                      onClick={() => { setNavSearchOpen(false); setNavSearch(""); }}
+                      style={{ display: "flex", alignItems: "center", gap: "10px", padding: "12px", borderRadius: "12px", textDecoration: "none", color: c.green1 }}
+                    >
+                      <span style={{ fontSize: "18px" }}>{g.icon}</span>
+                      <span>
+                        <span style={{ display: "block", fontSize: "14px", fontWeight: "700" }}>{g.title}</span>
+                        <span style={{ display: "block", fontSize: "12px", color: c.tan }}>{g.category}</span>
+                      </span>
+                    </Link>
+                  ))}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

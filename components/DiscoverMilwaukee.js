@@ -2733,7 +2733,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         ))}
       </Head>
       
-      <Nav />
+      <Nav onSearchClick={() => setShowSearchModal(true)} />
 
       {/* HOME */}
       {page === "home" && (
