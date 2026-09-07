@@ -9,6 +9,12 @@ import {
   FEATURED,
   PARTNER_DASHBOARD,
   PARTNER_BENEFITS,
+  AUDIENCE,
+  PARTNER_ASSURANCES,
+  VALUE_FLOW,
+  PARTNER_COMPARISON,
+  PARTNER_TESTIMONIALS,
+  PARTNER_FAQ,
 } from "../lib/passData";
 
 // =============================================================================
@@ -1122,40 +1128,123 @@ function RedeemModal({ redeem, member, onConfirm, onClose }) {
 }
 
 // ---------------------------------------------------------------------------
+function CompareCell({ v }) {
+  if (v === true) return <span className="cmp-yes">✓</span>;
+  if (v === false) return <span className="cmp-no">—</span>;
+  return <span className="cmp-txt">{v}</span>;
+}
+
 function BusinessView({ benefits, dashboard, price, onLead }) {
   const [chartRef, chartSeen] = useInView({ threshold: 0.3 });
+  const [audRef, audSeen] = useInView({ threshold: 0.4 });
   const maxV = Math.max(...dashboard.monthly.map((m) => m.v));
+  const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <>
+      {/* HERO */}
       <section className="hero hero--biz">
         <div className="hero-inner biz">
           <Reveal>
             <span className="eyebrow light">For Milwaukee businesses</span>
+            <span className="free-badge">100% free to join</span>
             <h1 className="hero-h1 light">
-              Fill seats.
+              Milwaukee&apos;s audience.
               <br />
-              Win regulars.
+              Zero cost to you.
             </h1>
             <p className="hero-sub light">
-              Put your business inside a membership locals actually use. Members discover you,
-              redeem an offer, and come back at full price. You only give a perk to real,
-              new customers — and you see every redemption.
+              Get your business in front of the locals who decide where Milwaukee goes — inside a
+              membership they open again and again. You only ever give a perk to a real customer who
+              walks in. No fee. No ad spend. Nothing to lose.
             </p>
             <div className="hero-cta">
               <button className="btn btn-white" onClick={onLead}>
-                Become a partner
+                Claim your free spot
               </button>
               <a href="#dashboard" className="btn btn-ghost light">
                 See the dashboard
               </a>
             </div>
+            <div className="hero-trust light-trust">
+              <span>✓ Free to join</span>
+              <span>✓ No POS integration</span>
+              <span>✓ Cancel anytime</span>
+            </div>
           </Reveal>
         </div>
       </section>
 
+      {/* AUDIENCE REACH */}
+      <section ref={audRef} className="reachband">
+        <div className="reachband-inner">
+          <span className="reach-kicker">The audience you tap into</span>
+          <h2 className="reach-title">You&apos;re not starting from zero.</h2>
+          <p className="reach-sub">
+            Discover Milwaukee already reaches the people you want walking through your door.
+          </p>
+          <div className="reach-grid">
+            {AUDIENCE.map((a, i) => (
+              <div
+                key={a.l}
+                className="reach-stat"
+                style={{
+                  opacity: audSeen ? 1 : 0,
+                  transform: audSeen ? "translateY(0)" : "translateY(14px)",
+                  transition: `all .6s ease ${i * 90}ms`,
+                }}
+              >
+                <div className="reach-v">{a.v}</div>
+                <div className="reach-l">{a.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NOTHING TO LOSE / ASSURANCES */}
       <section className="section">
-        <SectionHead kicker="Why partner" title="What your business gets" />
+        <SectionHead kicker="Why it's a no-brainer" title="Nothing to lose. A lot to gain." />
+        <div className="assure-grid">
+          {PARTNER_ASSURANCES.map((a, i) => (
+            <Reveal key={a.title} delay={(i % 4) * 70}>
+              <div className="assure-tile">
+                <span className="assure-emoji">{a.emoji}</span>
+                <h3>{a.title}</h3>
+                <p>{a.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* VALUE FLOW — how you win */}
+      <section className="section">
+        <SectionHead kicker="How you actually win" title="A perk today. A regular for years." />
+        <div className="flow">
+          {VALUE_FLOW.map((f, i) => (
+            <Reveal key={f.step} delay={i * 90} style={{ minWidth: 0 }}>
+              <div className="flow-step">
+                <span className="flow-emoji">{f.emoji}</span>
+                <div className="flow-body">
+                  <h3>{f.step}</h3>
+                  <p>{f.detail}</p>
+                </div>
+                {i < VALUE_FLOW.length - 1 && <span className="flow-arrow">→</span>}
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <div className="flow-math">
+          <b>The math:</b> a <b>$14</b> appetizer that turns a first-timer into a regular who spends
+          <b> $60+</b> a visit, brings friends, and comes back all year — pays for itself the first
+          night.
+        </div>
+      </section>
+
+      {/* BENEFITS */}
+      <section className="section">
+        <SectionHead kicker="What you get" title="Everything a partner unlocks" />
         <div className="benefit-grid">
           {benefits.map((b, i) => (
             <Reveal key={b.title} delay={(i % 4) * 70}>
@@ -1166,6 +1255,38 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* COMPARISON */}
+      <section className="section">
+        <SectionHead kicker="How it compares" title="Better than the marketing you're already paying for" />
+        <div className="cmp-wrap">
+          <table className="cmp">
+            <thead>
+              <tr>
+                <th className="cmp-rowhead"></th>
+                {PARTNER_COMPARISON.columns.map((c, i) => (
+                  <th key={c} className={i === 0 ? "cmp-us" : ""}>
+                    {i === 0 && <span className="cmp-crown">★</span>}
+                    {c}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {PARTNER_COMPARISON.rows.map((r) => (
+                <tr key={r.label}>
+                  <td className="cmp-rowhead">{r.label}</td>
+                  {r.vals.map((v, i) => (
+                    <td key={i} className={i === 0 ? "cmp-us" : ""}>
+                      <CompareCell v={v} />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -1214,14 +1335,37 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         </div>
       </section>
 
-      {/* HOW IT WORKS (biz) */}
+      {/* TESTIMONIALS */}
       <section className="section">
-        <SectionHead kicker="How it works" title="Simple to run, easy to track" />
+        <SectionHead kicker="What partners say" title="Local businesses, real results" />
+        <div className="quotes">
+          {PARTNER_TESTIMONIALS.map((t, i) => (
+            <Reveal key={t.name} delay={i * 90} style={{ minWidth: 0 }}>
+              <figure className="quote">
+                <div className="quote-mark">&ldquo;</div>
+                <blockquote>{t.quote}</blockquote>
+                <figcaption>
+                  <span className="quote-emoji">{t.emoji}</span>
+                  <span>
+                    <b>{t.name}</b>
+                    <small>{t.business}</small>
+                  </span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+        <p className="quotes-note">Illustrative testimonials for this demo.</p>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="section">
+        <SectionHead kicker="Getting started" title="Live in three simple steps" />
         <div className="steps">
           {[
-            { n: "1", t: "Set your offer", d: "Pick a perk that turns first-timers into regulars. Pause or change it anytime." },
-            { n: "2", t: "Members redeem", d: "They show a confirmation screen — no POS integration, nothing to install." },
-            { n: "3", t: "Track & grow", d: "Watch redemptions, new customers, and attributed spend in your dashboard." },
+            { n: "1", t: "Post your offer", d: "Pick a perk that turns first-timers into regulars. It's free to list and you can change it anytime." },
+            { n: "2", t: "Members redeem", d: "They show a confirmation screen at the counter — no POS integration, nothing to install." },
+            { n: "3", t: "Watch it grow", d: "Track redemptions, new customers, and attributed spend right in your dashboard." },
           ].map((s, i) => (
             <Reveal key={s.n} delay={i * 90}>
               <div className="step">
@@ -1234,14 +1378,41 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="section">
+        <SectionHead kicker="Questions?" title="The honest answers" />
+        <div className="faq">
+          {PARTNER_FAQ.map((f, i) => (
+            <div
+              key={f.q}
+              className={`faq-item ${openFaq === i ? "open" : ""}`}
+              onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
+            >
+              <div className="faq-q">
+                <span>{f.q}</span>
+                <span className="faq-toggle">{openFaq === i ? "−" : "+"}</span>
+              </div>
+              <div className="faq-a">
+                <p>{f.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section">
         <div className="biz-cta">
-          <h2>Ready to reach Milwaukee&apos;s most engaged locals?</h2>
-          <p>Tell us about your business and we&apos;ll show you how the Pass can work for you.</p>
-          <button className="btn btn-primary lg" onClick={onLead}>
-            Become a partner
+          <span className="scarcity">⚡ Limited partner spots per category</span>
+          <h2>Claim your spot before a competitor does.</h2>
+          <p>
+            It&apos;s free to join and takes minutes to set up. Tell us about your business and
+            we&apos;ll get your offer in front of Milwaukee.
+          </p>
+          <button className="btn btn-white lg" onClick={onLead}>
+            Become a partner — free
           </button>
+          <div className="cta-trust">No fee · No POS · Cancel anytime</div>
         </div>
       </section>
     </>
@@ -1861,7 +2032,138 @@ function PassStyles() {
         border-radius: 24px; padding: 46px 28px; text-align: center; color: #fff;
       }
       .biz-cta h2 { font-family: ${DISPLAY}; font-size: clamp(26px, 5vw, 40px); margin: 0 0 10px; }
-      .biz-cta p { color: #d5e0f5; font-size: 16px; margin: 0 0 22px; }
+      .biz-cta p { color: #d5e0f5; font-size: 16px; margin: 0 auto 22px; max-width: 520px; }
+      .scarcity {
+        display: inline-block; background: rgba(255, 255, 255, 0.14); color: #ffe08a;
+        font-weight: 700; font-size: 12.5px; letter-spacing: 0.05em;
+        padding: 7px 14px; border-radius: 999px; margin-bottom: 16px;
+      }
+      .cta-trust { margin-top: 16px; font-size: 13px; color: #b8c6e6; font-weight: 600; letter-spacing: 0.02em; }
+
+      /* ---------- business: free badge + hero trust ---------- */
+      .free-badge {
+        display: inline-block; background: #4cf0a0; color: #063a25;
+        font-family: ${BODY}; font-weight: 800; font-size: 12px; letter-spacing: 0.08em;
+        text-transform: uppercase; padding: 6px 13px; border-radius: 999px;
+        margin: 0 0 16px 8px; box-shadow: 0 6px 18px rgba(76, 240, 160, 0.35);
+      }
+      .hero-trust.light-trust { color: #cfe0ff; }
+
+      /* ---------- business: audience reach band ---------- */
+      .reachband {
+        background:
+          radial-gradient(600px 300px at 85% -20%, rgba(76, 240, 160, 0.14), transparent),
+          ${C.ink};
+        color: #fff; text-align: center; padding: 54px 20px;
+      }
+      .reachband-inner { max-width: 1000px; margin: 0 auto; }
+      .reach-kicker {
+        font-family: ${BODY}; font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+        text-transform: uppercase; color: #7fb0ff;
+      }
+      .reach-title { font-family: ${DISPLAY}; font-size: clamp(28px, 5vw, 46px); margin: 8px 0 6px; }
+      .reach-sub { color: #aeb6c4; font-size: 16px; margin: 0 auto 30px; max-width: 520px; }
+      .reach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+      .reach-stat {
+        background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 16px; padding: 22px 12px;
+      }
+      .reach-v {
+        font-family: ${DISPLAY}; font-size: clamp(30px, 5vw, 46px); line-height: 1;
+        background: linear-gradient(120deg, #7fb0ff, #4cf0a0);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .reach-l { font-size: 13px; color: #c7cede; margin-top: 8px; }
+
+      /* ---------- business: assurances ---------- */
+      .assure-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .assure-tile {
+        background: #fff; border: 1px solid ${C.line}; border-radius: 16px; padding: 22px; height: 100%;
+        border-top: 3px solid ${C.good};
+      }
+      .assure-emoji { font-size: 30px; }
+      .assure-tile h3 { font-family: ${DISPLAY}; font-size: 19px; margin: 12px 0 6px; }
+      .assure-tile p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.5; }
+
+      /* ---------- business: value flow ---------- */
+      .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .flow-step {
+        position: relative; background: #fff; border: 1px solid ${C.line}; border-radius: 16px;
+        padding: 20px; display: flex; flex-direction: column; gap: 10px; height: 100%;
+      }
+      .flow-emoji {
+        width: 46px; height: 46px; border-radius: 12px; background: #f2f6ff;
+        display: flex; align-items: center; justify-content: center; font-size: 24px;
+      }
+      .flow-body h3 { font-family: ${DISPLAY}; font-size: 18px; margin: 0 0 4px; }
+      .flow-body p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.45; }
+      .flow-arrow {
+        position: absolute; right: -13px; top: 50%; transform: translateY(-50%);
+        color: ${C.brand}; font-size: 22px; font-weight: 700; z-index: 2; background: ${C.bg};
+        border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+      }
+      .flow-math {
+        margin-top: 20px; background: #eef7f1; border: 1px solid #cfead9; border-radius: 14px;
+        padding: 18px 20px; font-size: 15.5px; line-height: 1.55; color: ${C.ink};
+      }
+      .flow-math b { color: ${C.good}; }
+      .flow-math b:first-child { color: ${C.ink}; }
+
+      /* ---------- business: comparison table ---------- */
+      .cmp-wrap { overflow-x: auto; border: 1px solid ${C.line}; border-radius: 18px; background: #fff; }
+      .cmp { width: 100%; border-collapse: collapse; min-width: 620px; }
+      .cmp th, .cmp td {
+        padding: 15px 14px; text-align: center; font-size: 14px; border-bottom: 1px solid ${C.line};
+      }
+      .cmp thead th { font-family: ${BODY}; font-weight: 700; font-size: 13.5px; color: ${C.ink2}; }
+      .cmp .cmp-rowhead { text-align: left; font-weight: 600; color: ${C.ink}; white-space: nowrap; }
+      .cmp .cmp-us {
+        background: linear-gradient(180deg, #eef4ff, #f7faff);
+        position: relative;
+      }
+      .cmp thead .cmp-us { color: ${C.brand}; font-weight: 800; }
+      .cmp tbody tr:last-child td { border-bottom: 0; }
+      .cmp-crown { display: block; color: ${C.gold}; font-size: 13px; margin-bottom: 2px; }
+      .cmp-yes { color: ${C.good}; font-weight: 800; font-size: 17px; }
+      .cmp-no { color: #c2c8d2; font-weight: 700; }
+      .cmp-txt { color: ${C.ink2}; font-size: 13px; }
+
+      /* ---------- business: testimonials ---------- */
+      .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .quote {
+        background: #fff; border: 1px solid ${C.line}; border-radius: 18px; padding: 24px;
+        margin: 0; position: relative; height: 100%; display: flex; flex-direction: column;
+      }
+      .quote-mark {
+        font-family: ${DISPLAY}; font-size: 54px; line-height: 0.6; color: ${C.brand}; opacity: 0.25;
+      }
+      .quote blockquote {
+        margin: 10px 0 18px; font-size: 16px; line-height: 1.55; color: ${C.ink}; flex: 1;
+      }
+      .quote figcaption { display: flex; align-items: center; gap: 10px; }
+      .quote-emoji {
+        width: 40px; height: 40px; border-radius: 50%; background: #f2f6ff;
+        display: flex; align-items: center; justify-content: center; font-size: 20px;
+      }
+      .quote figcaption b { display: block; font-size: 14px; }
+      .quote figcaption small { color: ${C.ink2}; font-size: 12.5px; }
+      .quotes-note { font-size: 12px; color: ${C.ink2}; margin-top: 14px; text-align: center; }
+
+      /* ---------- business: FAQ ---------- */
+      .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+      .faq-item {
+        background: #fff; border: 1px solid ${C.line}; border-radius: 14px; padding: 4px 18px;
+        cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .faq-item.open { border-color: ${C.brand}; box-shadow: 0 8px 24px rgba(10, 92, 255, 0.08); }
+      .faq-q {
+        display: flex; align-items: center; justify-content: space-between; gap: 14px;
+        font-weight: 600; font-size: 16px; padding: 16px 0;
+      }
+      .faq-toggle { color: ${C.brand}; font-size: 22px; font-weight: 700; flex: 0 0 auto; }
+      .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .faq-item.open .faq-a { max-height: 260px; }
+      .faq-a p { color: ${C.ink2}; font-size: 14.5px; line-height: 1.6; margin: 0 0 16px; }
 
       /* ---------- modals ---------- */
       .modal-backdrop {
@@ -1956,6 +2258,11 @@ function PassStyles() {
       @media (max-width: 900px) {
         .featured-row { grid-template-columns: 1fr; }
         .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+        .assure-grid { grid-template-columns: repeat(2, 1fr); }
+        .reach-grid { grid-template-columns: repeat(2, 1fr); }
+        .flow { grid-template-columns: repeat(2, 1fr); }
+        .flow-arrow { display: none; }
+        .quotes { grid-template-columns: 1fr; }
         .mypass-grid { grid-template-columns: 1fr; }
         .mypass-card-col { align-items: stretch; }
         .wallet-actions { width: 100%; }
@@ -1988,7 +2295,11 @@ function PassStyles() {
       }
       @media (max-width: 420px) {
         .benefit-grid { grid-template-columns: 1fr; }
+        .assure-grid { grid-template-columns: 1fr; }
+        .flow { grid-template-columns: 1fr; }
         .dash-stats { grid-template-columns: 1fr; }
+        .reach-grid { grid-template-columns: repeat(2, 1fr); }
+        .free-badge { margin-left: 0; }
       }
     `}</style>
   );
