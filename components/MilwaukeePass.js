@@ -8,7 +8,10 @@ import {
   PARTNER_BENEFITS,
   AUDIENCE,
   PARTNER_ASSURANCES,
-  VALUE_FLOW,
+  PROVEN_STATS,
+  PROVEN_SOURCES,
+  PROVEN_NOTE,
+  ACQUISITION_FLOW,
   PARTNER_COMPARISON,
   PARTNER_TESTIMONIALS,
   PARTNER_FAQ,
@@ -693,27 +696,53 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
         </div>
       </section>
 
-      {/* PILLAR 2 — THE VALUE TO YOU: the flow */}
+      {/* PILLAR 2 — THE VALUE TO YOU: proven consumer behavior */}
       <section className="section">
-        <SectionHead kicker="The value to your business · how you win" title="A perk today. A regular for years." />
-        <div className="flow">
-          {VALUE_FLOW.map((f, i) => (
-            <Reveal key={f.step} delay={i * 90} style={{ minWidth: 0 }}>
-              <div className="flow-step">
-                <span className="flow-ico"><Icon name={f.icon} size={24} stroke={1.9} /></span>
-                <div className="flow-body">
-                  <h3>{f.step}</h3>
-                  <p>{f.detail}</p>
-                </div>
-                {i < VALUE_FLOW.length - 1 && <span className="flow-arrow">→</span>}
+        <SectionHead
+          kicker="The value to your business · proven behavior"
+          title="Built around proven consumer behavior"
+          sub="The Annual Pass isn't a bet on an untested idea. It's built on how people already spend — locally, and in response to rewards."
+        />
+        <div className="proven">
+          {PROVEN_STATS.map((s, i) => (
+            <Reveal key={s.l} delay={i * 70} style={{ minWidth: 0 }}>
+              <div className="proven-tile">
+                <div className="proven-v">{s.v}</div>
+                <div className="proven-l">{s.l}</div>
               </div>
             </Reveal>
           ))}
         </div>
-        <div className="flow-math">
-          <b>The math:</b> a <b>$14</b> appetizer that turns a first-timer into a regular who spends
-          <b> $60+</b> a visit, brings friends, and comes back all year — pays for itself the first
-          night.
+        <p className="proven-note">{PROVEN_NOTE}</p>
+        <p className="proven-src">{PROVEN_SOURCES}</p>
+      </section>
+
+      {/* PILLAR 2 — THE VALUE TO YOU: turning behavior into customers */}
+      <section className="section">
+        <SectionHead
+          kicker="The value to your business · how you win"
+          title="Behavior you can turn into customers"
+          sub="The Milwaukee Annual Pass turns those behaviors into measurable customer acquisition."
+        />
+        <div className="model-copy">
+          <p>
+            Instead of offering a public discount to everyone, participating businesses create{" "}
+            <b>one controlled, exclusive benefit</b> available only to verified Annual Pass members.
+          </p>
+          <p>
+            <b>You control the offer. We bring the audience. The platform tracks the redemption.</b>{" "}
+            You gain the opportunity to turn that visit into a paying customer — and a repeat one.
+          </p>
+        </div>
+        <div className="pipeline">
+          {ACQUISITION_FLOW.map((step, i) => (
+            <Reveal key={step} delay={i * 80} style={{ minWidth: 0 }}>
+              <div className="pipe-step">
+                <span className="pipe-node">{step}</span>
+                {i < ACQUISITION_FLOW.length - 1 && <span className="pipe-arrow">→</span>}
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -1502,30 +1531,36 @@ function PassStyles() {
       .assure-tile h3 { font-family: ${DISPLAY}; font-size: 19px; margin: 12px 0 6px; }
       .assure-tile p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.5; }
 
-      /* ---------- business: value flow ---------- */
-      .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-      .flow-step {
-        position: relative; background: #fff; border: 1px solid ${C.line}; border-radius: 16px;
-        padding: 20px; display: flex; flex-direction: column; gap: 10px; height: 100%;
+      /* ---------- business: proven behavior stats ---------- */
+      .proven { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+      .proven-tile {
+        background: #fff; border: 1px solid ${C.line}; border-radius: 16px;
+        padding: 22px 18px; height: 100%; text-align: center;
+        border-top: 3px solid ${C.brand};
       }
-      .flow-ico {
-        width: 46px; height: 46px; border-radius: 12px;
-        background: linear-gradient(135deg, #eaf1ff, #dbe7ff); color: ${C.brand};
-        display: flex; align-items: center; justify-content: center;
+      .proven-v {
+        font-family: ${DISPLAY}; font-size: clamp(30px, 4vw, 44px); line-height: 1;
+        color: ${C.brand}; letter-spacing: 0.01em;
       }
-      .flow-body h3 { font-family: ${DISPLAY}; font-size: 18px; margin: 0 0 4px; }
-      .flow-body p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.45; }
-      .flow-arrow {
-        position: absolute; right: -13px; top: 50%; transform: translateY(-50%);
-        color: ${C.brand}; font-size: 22px; font-weight: 700; z-index: 2; background: ${C.bg};
-        border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+      .proven-l { margin-top: 10px; font-size: 13px; color: ${C.ink2}; line-height: 1.45; }
+      .proven-note { margin: 18px 0 0; font-size: 12.5px; color: ${C.ink2}; font-style: italic; line-height: 1.5; }
+      .proven-src { margin: 8px 0 0; font-size: 11.5px; color: #9aa2b1; line-height: 1.5; }
+
+      /* ---------- business: acquisition pipeline ---------- */
+      .model-copy { max-width: 720px; }
+      .model-copy p { font-size: 16px; line-height: 1.6; color: ${C.ink}; margin: 0 0 14px; }
+      .model-copy p:last-child { margin-bottom: 0; }
+      .pipeline {
+        display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+        margin-top: 24px;
       }
-      .flow-math {
-        margin-top: 20px; background: #eef7f1; border: 1px solid #cfead9; border-radius: 14px;
-        padding: 18px 20px; font-size: 15.5px; line-height: 1.55; color: ${C.ink};
+      .pipe-step { display: flex; align-items: center; gap: 10px; }
+      .pipe-node {
+        background: ${C.ink}; color: #fff; border-radius: 999px;
+        font-family: ${BODY}; font-weight: 700; font-size: 13.5px;
+        padding: 11px 18px; white-space: nowrap;
       }
-      .flow-math b { color: ${C.good}; }
-      .flow-math b:first-child { color: ${C.ink}; }
+      .pipe-arrow { color: ${C.brand}; font-size: 20px; font-weight: 700; }
 
       /* ---------- business: comparison table ---------- */
       .cmp-wrap { overflow-x: auto; border: 1px solid ${C.line}; border-radius: 18px; background: #fff; }
@@ -1639,8 +1674,7 @@ function PassStyles() {
         .benefit-grid { grid-template-columns: repeat(2, 1fr); }
         .assure-grid { grid-template-columns: repeat(2, 1fr); }
         .reach-grid { grid-template-columns: repeat(2, 1fr); }
-        .flow { grid-template-columns: repeat(2, 1fr); }
-        .flow-arrow { display: none; }
+        .proven { grid-template-columns: repeat(3, 1fr); }
         .quotes { grid-template-columns: 1fr; }
         .steps { grid-template-columns: 1fr; }
         .samples { grid-template-columns: repeat(2, 1fr); }
@@ -1658,7 +1692,7 @@ function PassStyles() {
       @media (max-width: 420px) {
         .benefit-grid { grid-template-columns: 1fr; }
         .assure-grid { grid-template-columns: 1fr; }
-        .flow { grid-template-columns: 1fr; }
+        .proven { grid-template-columns: repeat(2, 1fr); }
         .dash-stats { grid-template-columns: 1fr; }
         .reach-grid { grid-template-columns: repeat(2, 1fr); }
         .free-badge { margin-left: 0; }
