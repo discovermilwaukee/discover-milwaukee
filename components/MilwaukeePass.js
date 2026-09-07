@@ -73,6 +73,64 @@ function makeCode() {
   return "MKE-" + Math.floor(10000 + Math.random() * 90000);
 }
 
+// Derive up to two initials from a business name for monogram media.
+function monogram(name) {
+  if (!name) return "";
+  const words = name
+    .replace(/&/g, " ")
+    .split(/\s+/)
+    .filter((w) => /[A-Za-z0-9]/.test(w));
+  if (words.length === 0) return name.slice(0, 2).toUpperCase();
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[1][0]).toUpperCase();
+}
+
+// ---- inline line-icon set (no emoji) --------------------------------------
+const ICON_PATHS = {
+  search: "M11 4a7 7 0 105.29 12.11l3.3 3.3 1.41-1.41-3.3-3.3A7 7 0 0011 4zm0 2a5 5 0 110 10 5 5 0 010-10z",
+  mappin: "M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 4.5A2.5 2.5 0 1112 11.5 2.5 2.5 0 0112 6.5z",
+  star: "M12 2.5l2.9 6.06 6.6.72-4.9 4.48 1.34 6.5L12 17.02 5.06 20.26l1.34-6.5L1.5 9.28l6.6-.72L12 2.5z",
+  card: "M3 6a2 2 0 012-2h14a2 2 0 012 2v2H3V6zm0 4h18v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8zm3 5h6v2H6v-2z",
+  user: "M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 6v1h18v-1c0-3.5-4-6-9-6z",
+  ticket: "M4 6a2 2 0 00-2 2v2a2 2 0 010 4v2a2 2 0 002 2h16a2 2 0 002-2v-2a2 2 0 010-4V8a2 2 0 00-2-2H4zm11 1v10M9 7v2M9 11v2M9 15v2",
+  plus: "M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z",
+  refresh: "M12 5V2L7 6l5 4V7a5 5 0 11-5 5H5a7 7 0 107-7z",
+  list: "M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z",
+  contactless: "M8.5 6.5a8 8 0 010 11M12 4a12 12 0 010 16M5 9a4 4 0 010 6",
+  dollar: "M12 2v20M8 17a4 4 0 004 3c2.2 0 4-1.3 4-3.2 0-2.2-2-3-4-3.6s-4-1.4-4-3.6C8 5.8 9.8 4.5 12 4.5A4 4 0 0116 7",
+  plug: "M9 2v6M15 2v6M7 8h10v3a5 5 0 01-10 0V8zm5 8v6",
+  target: "M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 12m-5 0a5 5 0 1010 0 5 5 0 10-10 0M12 12m-1 0a1 1 0 102 0 1 1 0 10-2 0",
+  calendar: "M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1z",
+  compass: "M12 3a9 9 0 100 18 9 9 0 000-18zm3.5 5.5l-2 5-5 2 2-5 5-2z",
+  users: "M9 11a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-7 2-7 5v1h10M17 13a3.5 3.5 0 100-7M16 19h6v-1c0-2.2-2-4-5-4.5",
+  speaker: "M3 10v4h4l5 4V6L7 10H3zm13-3a6 6 0 010 10M18.5 4.5a10 10 0 010 15",
+  chart: "M4 20V4M4 20h16M8 20v-6M12 20V8M16 20v-9M20 20v-4",
+  sliders: "M4 8h9M17 8h3M4 16h3M11 16h9M15 6v4M8 14v4",
+  receipt: "M6 2h12v20l-2-1.5L14 22l-2-1.5L10 22l-2-1.5L6 22V2zm3 5h6M9 11h6M9 15h4",
+};
+
+function Icon({ name, size = 24, stroke = 2, className, style }) {
+  const d = ICON_PATHS[name];
+  if (!d) return null;
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      style={style}
+    >
+      <path d={d} />
+    </svg>
+  );
+}
+
 // ---- hooks ----------------------------------------------------------------
 function useIsMobile() {
   const [m, setM] = useState(false);
@@ -212,7 +270,7 @@ function PassCard({ member, redeemedCount, savingsTotal, compact }) {
           <div className="passcard-brand">DISCOVER MILWAUKEE</div>
           <div className="passcard-title">Annual Pass</div>
         </div>
-        <div className="passcard-chip">✦</div>
+        <div className="passcard-chip"><Icon name="contactless" size={22} stroke={2.2} /></div>
       </div>
 
       <div className="passcard-name">{member.name}</div>
@@ -272,8 +330,18 @@ function CardMedia({ partner, height = 150, rounded = 16 }) {
             "radial-gradient(120px 120px at 80% 20%, rgba(255,255,255,.28), transparent), radial-gradient(160px 160px at 10% 90%, rgba(0,0,0,.18), transparent)",
         }}
       />
-      <span style={{ fontSize: height > 130 ? 62 : 40, filter: "drop-shadow(0 6px 12px rgba(0,0,0,.25))" }}>
-        {partner.emoji}
+      <span
+        style={{
+          fontFamily: DISPLAY,
+          fontSize: height > 130 ? 46 : 32,
+          lineHeight: 1,
+          letterSpacing: ".02em",
+          color: "#fff",
+          textShadow: "0 6px 14px rgba(0,0,0,.28)",
+          zIndex: 1,
+        }}
+      >
+        {monogram(partner.name)}
       </span>
       <span
         style={{
@@ -539,18 +607,18 @@ export default function MilwaukeePass() {
       {mode === "members" && (
         <nav className="bottomnav" aria-label="Sections">
           {[
-            { id: "explore", label: "Explore", icon: "🔎" },
-            { id: "map", label: "Map", icon: "📍" },
-            { id: "featured", label: "Featured", icon: "⭐" },
-            { id: "mypass", label: "My Pass", icon: "🎟️" },
-            { id: "profile", label: "Profile", icon: "👤" },
+            { id: "explore", label: "Explore", icon: "search" },
+            { id: "map", label: "Map", icon: "mappin" },
+            { id: "featured", label: "Featured", icon: "star" },
+            { id: "mypass", label: "My Pass", icon: "ticket" },
+            { id: "profile", label: "Profile", icon: "user" },
           ].map((t) => (
             <button
               key={t.id}
               className={mobileTab === t.id ? "on" : ""}
               onClick={() => scrollTo(t.id)}
             >
-              <span className="bn-ico">{t.icon}</span>
+              <span className="bn-ico"><Icon name={t.icon} size={22} /></span>
               <span className="bn-lbl">{t.label}</span>
             </button>
           ))}
@@ -705,13 +773,13 @@ function MembersView(props) {
               className={exploreView === "list" ? "on" : ""}
               onClick={() => setExploreView("list")}
             >
-              ☰ List
+              <Icon name="list" size={16} /> List
             </button>
             <button
               className={exploreView === "map" ? "on" : ""}
               onClick={() => setExploreView("map")}
             >
-              📍 Map
+              <Icon name="mappin" size={16} /> Map
             </button>
           </div>
         </div>
@@ -767,9 +835,9 @@ function MembersView(props) {
               savingsTotal={savingsUsed}
             />
             <div className="wallet-actions">
-              <button className="wallet-btn">＋ Add to Apple Wallet</button>
+              <button className="wallet-btn"><Icon name="plus" size={16} /> Add to Apple Wallet</button>
               <button className="wallet-btn ghost" onClick={resetDemo}>
-                ↺ Reset demo
+                <Icon name="refresh" size={16} /> Reset demo
               </button>
             </div>
           </div>
@@ -803,7 +871,7 @@ function MembersView(props) {
               <ul className="redeemed-list">
                 {redeemedList.map((x) => (
                   <li key={x.partner.id} onClick={() => onOpen(x.partner)}>
-                    <span className="rl-emoji">{x.partner.emoji}</span>
+                    <span className="rl-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(x.partner.category)[0]}, ${gradientFor(x.partner.category)[1]})` }}>{monogram(x.partner.name)}</span>
                     <span className="rl-main">
                       <b>{x.partner.name}</b>
                       <small>{x.partner.benefit}</small>
@@ -862,7 +930,7 @@ function MembersView(props) {
 
           {waitStatus === "done" ? (
             <div className="wait-done">
-              🎉 You&apos;re on the list! We&apos;ll email you the moment the Pass goes live.
+              You&apos;re on the list! We&apos;ll email you the moment the Pass goes live.
             </div>
           ) : (
             <form className="waitform" onSubmit={submitWaitlist}>
@@ -911,7 +979,7 @@ function PartnerCard({ partner, redeemed, onOpen, onRedeem }) {
           <span className="save-pill sm">Save {formatMoney(partner.savings)}</span>
         </div>
         <p className="pcard-desc">{partner.description}</p>
-        <div className="pcard-benefit">🎟️ {partner.benefit}</div>
+        <div className="pcard-benefit"><Icon name="ticket" size={16} /> {partner.benefit}</div>
         <div className="pcard-actions">
           <button className="mini ghost" onClick={onOpen}>
             Details
@@ -964,13 +1032,13 @@ function MapView({ partners, activePin, setPin, onOpen }) {
             onClick={() => setPin(p.id)}
             aria-label={p.name}
           >
-            <span className="pin-emoji">{p.emoji}</span>
+            <span className="pin-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(p.category)[0]}, ${gradientFor(p.category)[1]})` }}>{monogram(p.name)}</span>
           </button>
         ))}
       </div>
       {active && (
         <div className="map-detail">
-          <span className="md-emoji">{active.emoji}</span>
+          <span className="md-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(active.category)[0]}, ${gradientFor(active.category)[1]})` }}>{monogram(active.name)}</span>
           <div className="md-main">
             <b>{active.name}</b>
             <small>{active.benefit}</small>
@@ -1018,7 +1086,7 @@ function PartnerModal({ partner, redeemed, onClose, onRedeem }) {
 
           <div className="benefit-box">
             <div className="benefit-box-lbl">Member benefit</div>
-            <div className="benefit-box-main">🎟️ {partner.benefit}</div>
+            <div className="benefit-box-main"><Icon name="ticket" size={18} /> {partner.benefit}</div>
             <div className="benefit-box-cost">
               You pay: <b>{partner.memberCost}</b>
               <span className="strike">Retail {formatMoney(partner.retailValue)}</span>
@@ -1072,13 +1140,13 @@ function RedeemModal({ redeem, member, onConfirm, onClose }) {
       <div className="modal redeem" onClick={(e) => e.stopPropagation()}>
         {step === "confirm" ? (
           <>
-            <div className="redeem-emoji">{partner.emoji}</div>
+            <div className="redeem-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(partner.category)[0]}, ${gradientFor(partner.category)[1]})` }}>{monogram(partner.name)}</div>
             <h3 className="redeem-title">Redeem at {partner.name}?</h3>
             <div className="benefit-box tight">
-              <div className="benefit-box-main">🎟️ {partner.benefit}</div>
+              <div className="benefit-box-main"><Icon name="ticket" size={18} /> {partner.benefit}</div>
             </div>
             <p className="redeem-warn">
-              ⚠️ Only tap confirm <b>in front of the staff member</b>. This marks the perk as used
+              Only tap confirm <b>in front of the staff member</b>. This marks the perk as used
               for your membership year.
             </p>
             <div className="redeem-actions">
@@ -1169,7 +1237,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
             <div className="hero-trust light-trust">
               <span>✓ Free to join</span>
               <span>✓ No POS integration</span>
-              <span>✓ Cancel anytime</span>
+              <span>✓ Live all year</span>
             </div>
           </Reveal>
         </div>
@@ -1209,7 +1277,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
           {PARTNER_ASSURANCES.map((a, i) => (
             <Reveal key={a.title} delay={(i % 4) * 70}>
               <div className="assure-tile">
-                <span className="assure-emoji">{a.emoji}</span>
+                <span className="assure-ico"><Icon name={a.icon} size={26} stroke={1.9} /></span>
                 <h3>{a.title}</h3>
                 <p>{a.desc}</p>
               </div>
@@ -1225,7 +1293,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
           {VALUE_FLOW.map((f, i) => (
             <Reveal key={f.step} delay={i * 90} style={{ minWidth: 0 }}>
               <div className="flow-step">
-                <span className="flow-emoji">{f.emoji}</span>
+                <span className="flow-ico"><Icon name={f.icon} size={24} stroke={1.9} /></span>
                 <div className="flow-body">
                   <h3>{f.step}</h3>
                   <p>{f.detail}</p>
@@ -1249,7 +1317,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
           {benefits.map((b, i) => (
             <Reveal key={b.title} delay={(i % 4) * 70}>
               <div className="benefit-tile">
-                <span className="bt-emoji">{b.emoji}</span>
+                <span className="bt-ico"><Icon name={b.icon} size={24} stroke={1.9} /></span>
                 <h3>{b.title}</h3>
                 <p>{b.desc}</p>
               </div>
@@ -1297,7 +1365,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
           <div className="dash-head">
             <div>
               <div className="dash-name">{dashboard.name}</div>
-              <div className="dash-offer">🎟️ {dashboard.offer}</div>
+              <div className="dash-offer"><Icon name="ticket" size={16} /> {dashboard.offer}</div>
             </div>
             <span className="dash-tag">{dashboard.tag}</span>
           </div>
@@ -1345,7 +1413,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
                 <div className="quote-mark">&ldquo;</div>
                 <blockquote>{t.quote}</blockquote>
                 <figcaption>
-                  <span className="quote-emoji">{t.emoji}</span>
+                  <span className="quote-avatar">{t.initials}</span>
                   <span>
                     <b>{t.name}</b>
                     <small>{t.business}</small>
@@ -1363,7 +1431,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         <SectionHead kicker="Getting started" title="Live in three simple steps" />
         <div className="steps">
           {[
-            { n: "1", t: "Post your offer", d: "Pick a perk that turns first-timers into regulars. It's free to list and you can change it anytime." },
+            { n: "1", t: "Post your offer", d: "Pick a perk that turns first-timers into regulars. It's free to list and runs for the full calendar year." },
             { n: "2", t: "Members redeem", d: "They show a confirmation screen at the counter — no POS integration, nothing to install." },
             { n: "3", t: "Watch it grow", d: "Track redemptions, new customers, and attributed spend right in your dashboard." },
           ].map((s, i) => (
@@ -1403,7 +1471,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
       {/* CTA */}
       <section className="section">
         <div className="biz-cta">
-          <span className="scarcity">⚡ Limited partner spots per category</span>
+          <span className="scarcity">Limited partner spots per category</span>
           <h2>Claim your spot before a competitor does.</h2>
           <p>
             It&apos;s free to join and takes minutes to set up. Tell us about your business and
@@ -1412,7 +1480,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
           <button className="btn btn-white lg" onClick={onLead}>
             Become a partner — free
           </button>
-          <div className="cta-trust">No fee · No POS · Cancel anytime</div>
+          <div className="cta-trust">No fee · No POS · A full calendar year of exposure</div>
         </div>
       </section>
     </>
@@ -1810,6 +1878,7 @@ function PassStyles() {
       .viewtoggle button {
         border: 0; background: transparent; font-family: ${BODY}; font-weight: 600; font-size: 13px;
         color: ${C.ink2}; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+        display: inline-flex; align-items: center; gap: 6px;
       }
       .viewtoggle button.on { background: #fff; color: ${C.ink}; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
 
@@ -1851,7 +1920,9 @@ function PassStyles() {
       .pcard-benefit {
         font-size: 13.5px; font-weight: 600; background: #f2f6ff; color: #16408f;
         padding: 9px 11px; border-radius: 10px;
+        display: flex; align-items: center; gap: 7px;
       }
+      .pcard-benefit svg { flex: none; }
       .pcard-actions { display: flex; gap: 8px; margin-top: auto; }
       .mini {
         flex: 1; border-radius: 10px; font-family: ${BODY}; font-weight: 600; font-size: 13.5px;
@@ -1890,20 +1961,23 @@ function PassStyles() {
         cursor: pointer; transition: transform 0.15s;
       }
       .pin:hover { transform: translate(-50%, -110%) scale(1.08); z-index: 3; }
-      .pin-emoji {
+      .pin-mono {
         display: flex; align-items: center; justify-content: center;
-        width: 40px; height: 40px; border-radius: 50% 50% 50% 4px;
-        background: #fff; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-        font-size: 20px; transform: rotate(45deg);
+        width: 38px; height: 38px; border-radius: 50%;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+        font-family: ${DISPLAY}; font-size: 14px; letter-spacing: .02em; color: #fff;
         border: 2px solid #fff;
       }
-      .pin-emoji > * { transform: rotate(-45deg); }
-      .pin-on .pin-emoji { background: ${C.brand}; box-shadow: 0 8px 20px rgba(10, 92, 255, 0.5); }
+      .pin-on .pin-mono { box-shadow: 0 0 0 3px rgba(10, 92, 255, 0.35), 0 8px 20px rgba(10, 92, 255, 0.5); }
       .map-detail {
         display: flex; align-items: center; gap: 12px; padding: 14px 16px;
         border-top: 1px solid ${C.line};
       }
-      .md-emoji { font-size: 28px; }
+      .md-mono {
+        display: flex; align-items: center; justify-content: center;
+        width: 46px; height: 46px; border-radius: 12px; flex: none;
+        font-family: ${DISPLAY}; font-size: 18px; color: #fff;
+      }
       .md-main { flex: 1; display: flex; flex-direction: column; }
       .md-main small { color: ${C.ink2}; font-size: 13px; }
       .md-right { display: flex; align-items: center; gap: 10px; }
@@ -1916,6 +1990,7 @@ function PassStyles() {
       .wallet-btn {
         border: 0; border-radius: 12px; padding: 13px; font-family: ${BODY}; font-weight: 600;
         font-size: 14px; cursor: pointer; background: ${C.wallet}; color: #fff;
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       }
       .wallet-btn.ghost { background: #fff; color: ${C.ink2}; border: 1px solid ${C.line}; }
       .tracker { background: #fff; border: 1px solid ${C.line}; border-radius: 18px; padding: 22px; }
@@ -1945,7 +2020,11 @@ function PassStyles() {
         background: ${C.bg}; border-radius: 12px; cursor: pointer; transition: background 0.15s;
       }
       .redeemed-list li:hover { background: #eef2f7; }
-      .rl-emoji { font-size: 22px; }
+      .rl-mono {
+        display: flex; align-items: center; justify-content: center; flex: none;
+        width: 40px; height: 40px; border-radius: 11px;
+        font-family: ${DISPLAY}; font-size: 15px; color: #fff;
+      }
       .rl-main { flex: 1; display: flex; flex-direction: column; }
       .rl-main small { color: ${C.ink2}; font-size: 12.5px; }
       .rl-right { text-align: right; display: flex; flex-direction: column; }
@@ -1995,15 +2074,20 @@ function PassStyles() {
 
       /* ---------- business ---------- */
       .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-      .benefit-tile { background: #fff; border: 1px solid ${C.line}; border-radius: 16px; padding: 20px; height: 100%; }
-      .bt-emoji { font-size: 30px; }
+      .benefit-tile { background: #fff; border: 1px solid ${C.line}; border-radius: 16px; padding: 20px; height: 100%; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+      .benefit-tile:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(10,92,255,.10); border-color: #cfd9f7; }
+      .bt-ico {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 46px; height: 46px; border-radius: 13px;
+        background: linear-gradient(135deg, #eaf1ff, #dbe7ff); color: ${C.brand};
+      }
       .benefit-tile h3 { font-family: ${DISPLAY}; font-size: 18px; margin: 12px 0 6px; }
       .benefit-tile p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.5; }
 
       .dash { background: #fff; border: 1px solid ${C.line}; border-radius: 20px; padding: 24px; }
       .dash-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
       .dash-name { font-family: ${DISPLAY}; font-size: 26px; }
-      .dash-offer { color: ${C.ink2}; font-weight: 600; font-size: 14px; margin-top: 4px; }
+      .dash-offer { color: ${C.ink2}; font-weight: 600; font-size: 14px; margin-top: 4px; display: inline-flex; align-items: center; gap: 7px; }
       .dash-tag {
         background: #eef2f7; color: ${C.ink2}; font-weight: 700; font-size: 11px;
         letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; white-space: nowrap;
@@ -2081,7 +2165,11 @@ function PassStyles() {
         background: #fff; border: 1px solid ${C.line}; border-radius: 16px; padding: 22px; height: 100%;
         border-top: 3px solid ${C.good};
       }
-      .assure-emoji { font-size: 30px; }
+      .assure-ico {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 46px; height: 46px; border-radius: 13px;
+        background: linear-gradient(135deg, #e6f7ee, #d6f2e2); color: ${C.good};
+      }
       .assure-tile h3 { font-family: ${DISPLAY}; font-size: 19px; margin: 12px 0 6px; }
       .assure-tile p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.5; }
 
@@ -2091,9 +2179,10 @@ function PassStyles() {
         position: relative; background: #fff; border: 1px solid ${C.line}; border-radius: 16px;
         padding: 20px; display: flex; flex-direction: column; gap: 10px; height: 100%;
       }
-      .flow-emoji {
-        width: 46px; height: 46px; border-radius: 12px; background: #f2f6ff;
-        display: flex; align-items: center; justify-content: center; font-size: 24px;
+      .flow-ico {
+        width: 46px; height: 46px; border-radius: 12px;
+        background: linear-gradient(135deg, #eaf1ff, #dbe7ff); color: ${C.brand};
+        display: flex; align-items: center; justify-content: center;
       }
       .flow-body h3 { font-family: ${DISPLAY}; font-size: 18px; margin: 0 0 4px; }
       .flow-body p { color: ${C.ink2}; font-size: 13.5px; margin: 0; line-height: 1.45; }
@@ -2141,9 +2230,11 @@ function PassStyles() {
         margin: 10px 0 18px; font-size: 16px; line-height: 1.55; color: ${C.ink}; flex: 1;
       }
       .quote figcaption { display: flex; align-items: center; gap: 10px; }
-      .quote-emoji {
-        width: 40px; height: 40px; border-radius: 50%; background: #f2f6ff;
-        display: flex; align-items: center; justify-content: center; font-size: 20px;
+      .quote-avatar {
+        width: 42px; height: 42px; border-radius: 50%; flex: none;
+        background: linear-gradient(135deg, ${C.brand}, #4c8bff); color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-family: ${DISPLAY}; font-size: 15px; letter-spacing: .02em;
       }
       .quote figcaption b { display: block; font-size: 14px; }
       .quote figcaption small { color: ${C.ink2}; font-size: 12.5px; }
@@ -2196,8 +2287,10 @@ function PassStyles() {
         background: #f2f6ff; border-radius: 14px; padding: 16px; margin: 16px 0;
       }
       .benefit-box.tight { margin: 14px 0; }
+      .benefit-box.tight .benefit-box-main { justify-content: center; }
       .benefit-box-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: ${C.brand}; }
-      .benefit-box-main { font-size: 17px; font-weight: 600; margin-top: 4px; }
+      .benefit-box-main { font-size: 17px; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 8px; }
+      .benefit-box-main svg { flex: none; color: ${C.brand}; }
       .benefit-box-cost { margin-top: 8px; font-size: 14px; color: ${C.ink2}; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
       .benefit-box-cost b { color: ${C.ink}; font-size: 16px; }
       .strike { text-decoration: line-through; opacity: 0.6; }
@@ -2207,7 +2300,12 @@ function PassStyles() {
 
       /* redeem */
       .modal.redeem { max-width: 420px; padding: 26px; text-align: center; }
-      .redeem-emoji { font-size: 52px; }
+      .redeem-mono {
+        width: 68px; height: 68px; border-radius: 18px; margin: 0 auto;
+        display: flex; align-items: center; justify-content: center;
+        font-family: ${DISPLAY}; font-size: 26px; color: #fff;
+        box-shadow: 0 10px 24px rgba(0,0,0,.18);
+      }
       .redeem-title { font-family: ${DISPLAY}; font-size: 26px; margin: 10px 0; }
       .redeem-warn {
         background: #fff6e5; color: #7a5a00; border-radius: 12px; padding: 12px 14px;
@@ -2290,7 +2388,7 @@ function PassStyles() {
           font-family: ${BODY}; color: ${C.ink2}; padding: 6px 2px;
         }
         .bottomnav button.on { color: ${C.brand}; }
-        .bn-ico { font-size: 19px; }
+        .bn-ico { display: inline-flex; align-items: center; justify-content: center; }
         .bn-lbl { font-size: 10.5px; font-weight: 600; }
       }
       @media (max-width: 420px) {
