@@ -1,12 +1,9 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
 import {
   MEMBER,
   PRICE,
-  CATEGORIES,
   PARTNERS,
-  SEED_REDEMPTIONS,
-  FEATURED,
   PARTNER_DASHBOARD,
   PARTNER_BENEFITS,
   AUDIENCE,
@@ -53,25 +50,8 @@ const CATEGORY_GRADIENTS = {
 };
 const gradientFor = (cat) => CATEGORY_GRADIENTS[cat] || ["#3a4252", "#6b7688"];
 
-const REDEEM_KEY = "mke_pass_redeemed_v1";
-
 const formatMoney = (n) =>
   "$" + Number(n).toLocaleString("en-US", { maximumFractionDigits: 0 });
-
-function timeAgo(ts) {
-  const secs = Math.max(1, Math.floor((Date.now() - ts) / 1000));
-  const days = Math.floor(secs / 86400);
-  if (days >= 1) return days === 1 ? "1 day ago" : `${days} days ago`;
-  const hrs = Math.floor(secs / 3600);
-  if (hrs >= 1) return hrs === 1 ? "1 hour ago" : `${hrs} hours ago`;
-  const mins = Math.floor(secs / 60);
-  if (mins >= 1) return mins === 1 ? "1 minute ago" : `${mins} minutes ago`;
-  return "just now";
-}
-
-function makeCode() {
-  return "MKE-" + Math.floor(10000 + Math.random() * 90000);
-}
 
 // Derive up to two initials from a business name for monogram media.
 function monogram(name) {
@@ -198,68 +178,6 @@ function Reveal({ children, delay = 0, style }) {
   );
 }
 
-// ---- decorative bits ------------------------------------------------------
-function FauxQR({ size = 120, seed = "MKE" }) {
-  // Deterministic pseudo-QR grid from a seed string.
-  const n = 11;
-  const cells = useMemo(() => {
-    let h = 0;
-    for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
-    const arr = [];
-    for (let i = 0; i < n * n; i++) {
-      h = (h * 1103515245 + 12345) & 0x7fffffff;
-      arr.push((h >> 6) & 1);
-    }
-    return arr;
-  }, [seed]);
-  const isFinder = (r, c) =>
-    (r < 3 && c < 3) || (r < 3 && c > n - 4) || (r > n - 4 && c < 3);
-  const px = size / n;
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
-      <rect width={size} height={size} fill="#fff" />
-      {cells.map((v, i) => {
-        const r = Math.floor(i / n);
-        const c = i % n;
-        if (isFinder(r, c)) return null;
-        return v ? (
-          <rect key={i} x={c * px} y={r * px} width={px} height={px} fill="#0e1116" />
-        ) : null;
-      })}
-      {[[0, 0], [0, n - 3], [n - 3, 0]].map(([r, c], k) => (
-        <g key={k}>
-          <rect x={c * px} y={r * px} width={px * 3} height={px * 3} fill="#0e1116" />
-          <rect x={c * px + px * 0.5} y={r * px + px * 0.5} width={px * 2} height={px * 2} fill="#fff" />
-          <rect x={c * px + px} y={r * px + px} width={px} height={px} fill="#0e1116" />
-        </g>
-      ))}
-    </svg>
-  );
-}
-
-function Barcode({ code }) {
-  const bars = useMemo(() => {
-    let h = 7;
-    for (let i = 0; i < code.length; i++) h = (h * 31 + code.charCodeAt(i)) >>> 0;
-    const arr = [];
-    for (let i = 0; i < 44; i++) {
-      h = (h * 1103515245 + 12345) & 0x7fffffff;
-      arr.push(1 + ((h >> 4) % 4));
-    }
-    return arr;
-  }, [code]);
-  return (
-    <div style={{ display: "flex", alignItems: "flex-end", gap: 1, height: 46 }}>
-      {bars.map((w, i) => (
-        <span
-          key={i}
-          style={{ width: w, height: "100%", background: i % 2 ? "#0e1116" : "transparent" }}
-        />
-      ))}
-    </div>
-  );
-}
-
 // ---- the digital pass card ------------------------------------------------
 function PassCard({ member, redeemedCount, savingsTotal, compact }) {
   return (
@@ -368,18 +286,7 @@ function CardMedia({ partner, height = 150, rounded = 16 }) {
 
 // ===========================================================================
 export default function MilwaukeePass() {
-  const isMobile = useIsMobile();
   const [mode, setMode] = useState("members"); // 'members' | 'business'
-  const [category, setCategory] = useState("All");
-  const [selected, setSelected] = useState(null); // partner detail modal
-  const [exploreView, setExploreView] = useState("list"); // 'list' | 'map'
-  const [mapPin, setMapPin] = useState(null);
-  const [mobileTab, setMobileTab] = useState("explore");
-
-  // redemption flow
-  const [redeem, setRedeem] = useState(null); // {step:'confirm'|'success', partner, code, at}
-  const [redemptions, setRedemptions] = useState({}); // { [id]: {code, at} }
-  const [hydrated, setHydrated] = useState(false);
 
   // lead + waitlist
   const [leadOpen, setLeadOpen] = useState(false);
@@ -387,95 +294,14 @@ export default function MilwaukeePass() {
   const [waitEmail, setWaitEmail] = useState("");
   const [waitStatus, setWaitStatus] = useState("");
 
-  // ---- localStorage hydrate/persist ----
-  useEffect(() => {
-    let stored = null;
-    try {
-      stored = JSON.parse(localStorage.getItem(REDEEM_KEY) || "null");
-    } catch (e) {
-      stored = null;
-    }
-    if (stored && typeof stored === "object" && Object.keys(stored).length) {
-      setRedemptions(stored);
-    } else {
-      const seeded = {};
-      SEED_REDEMPTIONS.forEach((s) => {
-        seeded[s.id] = {
-          code: makeCode(),
-          at: Date.now() - s.daysAgo * 86400000,
-        };
-      });
-      setRedemptions(seeded);
-      try {
-        localStorage.setItem(REDEEM_KEY, JSON.stringify(seeded));
-      } catch (e) {}
-    }
-    setHydrated(true);
-  }, []);
-
-  const persist = useCallback((next) => {
-    setRedemptions(next);
-    try {
-      localStorage.setItem(REDEEM_KEY, JSON.stringify(next));
-    } catch (e) {}
-  }, []);
-
-  // ---- derived ----
-  const partnerById = useMemo(() => {
-    const m = {};
-    PARTNERS.forEach((p) => (m[p.id] = p));
-    return m;
-  }, []);
-
   const totalPotential = useMemo(
     () => PARTNERS.reduce((s, p) => s + p.savings, 0),
     []
   );
 
-  const filtered = useMemo(
-    () => (category === "All" ? PARTNERS : PARTNERS.filter((p) => p.category === category)),
-    [category]
-  );
-
-  const redeemedList = useMemo(() => {
-    return Object.entries(redemptions)
-      .map(([id, r]) => ({ partner: partnerById[id], ...r }))
-      .filter((x) => x.partner)
-      .sort((a, b) => b.at - a.at);
-  }, [redemptions, partnerById]);
-
-  const savingsUsed = useMemo(
-    () => redeemedList.reduce((s, x) => s + x.partner.savings, 0),
-    [redeemedList]
-  );
-
   // ---- value counter (animated) ----
   const [counterRef, counterSeen] = useInView({ threshold: 0.4 });
   const counterVal = useCountUp(totalPotential, counterSeen);
-
-  // ---- redemption actions ----
-  const openRedeemConfirm = (partner) => {
-    setRedeem({ step: "confirm", partner });
-  };
-  const confirmRedeem = () => {
-    if (!redeem?.partner) return;
-    const p = redeem.partner;
-    const existing = redemptions[p.id];
-    const code = existing?.code || makeCode();
-    const at = Date.now();
-    const next = { ...redemptions, [p.id]: { code, at } };
-    persist(next);
-    setRedeem({ step: "success", partner: p, code, at });
-  };
-  const closeRedeem = () => setRedeem(null);
-
-  const resetDemo = () => {
-    const seeded = {};
-    SEED_REDEMPTIONS.forEach((s) => {
-      seeded[s.id] = { code: makeCode(), at: Date.now() - s.daysAgo * 86400000 };
-    });
-    persist(seeded);
-  };
 
   const submitLead = (e) => {
     e.preventDefault();
@@ -488,15 +314,6 @@ export default function MilwaukeePass() {
     setWaitStatus("sending");
     setTimeout(() => setWaitStatus("done"), 900);
   };
-
-  // ---- smooth scroll for bottom nav ----
-  const scrollTo = (id) => {
-    setMobileTab(id);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const isRedeemed = (id) => !!redemptions[id];
 
   // =========================================================================
   return (
@@ -527,29 +344,11 @@ export default function MilwaukeePass() {
 
       {mode === "members" ? (
         <MembersView
-          isMobile={isMobile}
-          hydrated={hydrated}
           member={MEMBER}
           price={PRICE}
           totalPotential={totalPotential}
           counterRef={counterRef}
           counterVal={counterVal}
-          categories={CATEGORIES}
-          category={category}
-          setCategory={setCategory}
-          filtered={filtered}
-          featured={FEATURED}
-          partnerById={partnerById}
-          exploreView={exploreView}
-          setExploreView={setExploreView}
-          mapPin={mapPin}
-          setMapPin={setMapPin}
-          isRedeemed={isRedeemed}
-          onOpen={setSelected}
-          onRedeem={openRedeemConfirm}
-          redeemedList={redeemedList}
-          savingsUsed={savingsUsed}
-          resetDemo={resetDemo}
           waitEmail={waitEmail}
           setWaitEmail={setWaitEmail}
           waitStatus={waitStatus}
@@ -557,10 +356,10 @@ export default function MilwaukeePass() {
         />
       ) : (
         <BusinessView
-          isMobile={isMobile}
           benefits={PARTNER_BENEFITS}
           dashboard={PARTNER_DASHBOARD}
           price={PRICE}
+          totalPotential={totalPotential}
           onLead={() => {
             setLeadStatus("");
             setLeadOpen(true);
@@ -570,30 +369,6 @@ export default function MilwaukeePass() {
 
       <SiteFooter />
 
-      {/* partner detail modal */}
-      {selected && (
-        <PartnerModal
-          partner={selected}
-          redeemed={redemptions[selected.id]}
-          onClose={() => setSelected(null)}
-          onRedeem={() => {
-            const p = selected;
-            setSelected(null);
-            openRedeemConfirm(p);
-          }}
-        />
-      )}
-
-      {/* redemption flow modal */}
-      {redeem && (
-        <RedeemModal
-          redeem={redeem}
-          member={MEMBER}
-          onConfirm={confirmRedeem}
-          onClose={closeRedeem}
-        />
-      )}
-
       {/* business lead modal */}
       {leadOpen && (
         <LeadModal
@@ -601,28 +376,6 @@ export default function MilwaukeePass() {
           onSubmit={submitLead}
           onClose={() => setLeadOpen(false)}
         />
-      )}
-
-      {/* mobile bottom nav */}
-      {mode === "members" && (
-        <nav className="bottomnav" aria-label="Sections">
-          {[
-            { id: "explore", label: "Explore", icon: "search" },
-            { id: "map", label: "Map", icon: "mappin" },
-            { id: "featured", label: "Featured", icon: "star" },
-            { id: "mypass", label: "My Pass", icon: "ticket" },
-            { id: "profile", label: "Profile", icon: "user" },
-          ].map((t) => (
-            <button
-              key={t.id}
-              className={mobileTab === t.id ? "on" : ""}
-              onClick={() => scrollTo(t.id)}
-            >
-              <span className="bn-ico"><Icon name={t.icon} size={22} /></span>
-              <span className="bn-lbl">{t.label}</span>
-            </button>
-          ))}
-        </nav>
       )}
 
       <PassStyles />
@@ -641,35 +394,30 @@ function DemoBanner() {
 }
 
 // ---------------------------------------------------------------------------
+// One curated example per major category — a taste, not a directory.
+const SAMPLE_IDS = [
+  "rivergate-kitchen", // Food & Drink
+  "cedar-hollow-gardens", // Attractions
+  "wildwood-zoo", // Family
+  "lakeside-gallery", // Museums
+  "greenside-golf", // Experiences
+  "stillwater-float", // Wellness
+];
+
 function MembersView(props) {
   const {
-    isMobile,
     member,
     price,
     totalPotential,
     counterRef,
     counterVal,
-    categories,
-    category,
-    setCategory,
-    filtered,
-    featured,
-    partnerById,
-    exploreView,
-    setExploreView,
-    mapPin,
-    setMapPin,
-    isRedeemed,
-    onOpen,
-    onRedeem,
-    redeemedList,
-    savingsUsed,
-    resetDemo,
     waitEmail,
     setWaitEmail,
     waitStatus,
     submitWaitlist,
   } = props;
+
+  const samples = SAMPLE_IDS.map((id) => PARTNERS.find((p) => p.id === id)).filter(Boolean);
 
   return (
     <>
@@ -685,21 +433,21 @@ function MembersView(props) {
                 A whole city of perks.
               </h1>
               <p className="hero-sub">
-                The <b>Milwaukee Annual Pass</b> unlocks members-only discounts, free
-                admissions, and buy-one-get-one deals at the city&apos;s best attractions,
-                restaurants, and experiences — all year long.
+                The <b>Milwaukee Annual Pass</b> is one simple membership that unlocks
+                members-only discounts, free admissions, and buy-one-get-one deals at the
+                city&apos;s best restaurants, attractions, and experiences — all year long.
               </p>
               <div className="hero-cta">
                 <a href="#pricing" className="btn btn-primary">
                   Get the Pass · {formatMoney(price)}/yr
                 </a>
-                <a href="#explore" className="btn btn-ghost">
-                  Browse perks
+                <a href="#perks" className="btn btn-ghost">
+                  See sample perks
                 </a>
               </div>
               <div className="hero-trust">
-                <span>✓ {PARTNERS.length}+ local partners</span>
-                <span>✓ {formatMoney(totalPotential)}+ in value</span>
+                <span>✓ One flat yearly price</span>
+                <span>✓ {formatMoney(totalPotential)}+ in perks</span>
                 <span>✓ 100% local</span>
               </div>
             </Reveal>
@@ -707,11 +455,7 @@ function MembersView(props) {
           <div className="hero-card">
             <Reveal delay={120}>
               <div className="hero-card-float">
-                <PassCard
-                  member={member}
-                  redeemedCount={redeemedList.length}
-                  savingsTotal={savingsUsed}
-                />
+                <PassCard member={member} redeemedCount={8} savingsTotal={214} />
               </div>
             </Reveal>
           </div>
@@ -722,170 +466,44 @@ function MembersView(props) {
       <section ref={counterRef} className="valueband">
         <div className="valueband-inner">
           <div className="counter">{formatMoney(counterVal)}+</div>
-          <div className="counter-lbl">in potential annual value for a {formatMoney(price)} pass</div>
+          <div className="counter-lbl">in real perks across the city, for one {formatMoney(price)} pass</div>
           <div className="counter-note">
-            That&apos;s {Math.round(totalPotential / price)}× the price back — if you use just a
-            handful of perks, the Pass pays for itself.
+            Use just a handful of perks a year and the Pass more than pays for itself.
           </div>
         </div>
       </section>
 
-      {/* FEATURED */}
-      <section id="featured" className="section">
-        <SectionHead kicker="Featured this week" title="Fresh picks for members" />
-        <div className="featured-row">
-          {featured.map((f, i) => {
-            const p = partnerById[f.partnerId];
-            if (!p) return null;
-            return (
-              <Reveal key={f.partnerId} delay={i * 90} style={{ minWidth: 0 }}>
-                <button className="featured-card" onClick={() => onOpen(p)}>
-                  <div className="featured-media">
-                    <CardMedia partner={p} height={168} rounded={0} />
-                    <span className="ribbon">{f.ribbon}</span>
+      {/* SAMPLE PERKS */}
+      <section id="perks" className="section">
+        <SectionHead
+          kicker="A taste of what's inside"
+          title="Sample perks from around the city"
+        />
+        <div className="samples">
+          {samples.map((p, i) => (
+            <Reveal key={p.id} delay={i * 70} style={{ minWidth: 0 }}>
+              <div className="sample-card">
+                <CardMedia partner={p} height={132} rounded={0} />
+                <div className="sample-body">
+                  <span className="sample-cat">{p.category}</span>
+                  <h3>{p.name}</h3>
+                  <div className="sample-benefit">
+                    <Icon name="ticket" size={16} /> {p.benefit}
                   </div>
-                  <div className="featured-body">
-                    <span className="tagline">{f.tag}</span>
-                    <h3>{p.name}</h3>
-                    <p>{p.benefit}</p>
-                    <div className="featured-foot">
-                      <span className="save-pill">Save {formatMoney(p.savings)}</span>
-                      <span className="arrow">View →</span>
-                    </div>
+                  <div className="sample-foot">
+                    <span className="save-pill sm">Save {formatMoney(p.savings)}</span>
+                    <span className="sample-cost">You pay {p.memberCost}</span>
                   </div>
-                </button>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* EXPLORE */}
-      <section id="explore" className="section">
-        <div className="explore-head">
-          <SectionHead
-            kicker="The perks"
-            title="Explore what your Pass unlocks"
-            noMargin
-          />
-          <div className="viewtoggle">
-            <button
-              className={exploreView === "list" ? "on" : ""}
-              onClick={() => setExploreView("list")}
-            >
-              <Icon name="list" size={16} /> List
-            </button>
-            <button
-              className={exploreView === "map" ? "on" : ""}
-              onClick={() => setExploreView("map")}
-            >
-              <Icon name="mappin" size={16} /> Map
-            </button>
-          </div>
-        </div>
-
-        {/* category filter rail */}
-        <div className="catrail">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`chip ${category === cat ? "chip-on" : ""}`}
-              onClick={() => setCategory(cat)}
-            >
-              {cat}
-            </button>
+                </div>
+              </div>
+            </Reveal>
           ))}
         </div>
-
-        {exploreView === "list" ? (
-          <div className="grid">
-            {filtered.map((p, i) => (
-              <Reveal key={p.id} delay={Math.min(i, 8) * 45} style={{ minWidth: 0 }}>
-                <PartnerCard
-                  partner={p}
-                  redeemed={isRedeemed(p.id)}
-                  onOpen={() => onOpen(p)}
-                  onRedeem={() => onRedeem(p)}
-                />
-              </Reveal>
-            ))}
-          </div>
-        ) : (
-          <MapView
-            id="map"
-            partners={filtered}
-            activePin={mapPin}
-            setPin={setMapPin}
-            onOpen={onOpen}
-          />
-        )}
-      </section>
-
-      {/* hidden anchor target for bottom-nav "map" when in list mode */}
-      {exploreView === "list" && <div id="map" style={{ position: "relative", top: -80 }} />}
-
-      {/* MY PASS / savings tracker */}
-      <section id="mypass" className="section">
-        <SectionHead kicker="Your membership" title="My Pass" />
-        <div className="mypass-grid">
-          <div className="mypass-card-col" id="profile">
-            <PassCard
-              member={member}
-              redeemedCount={redeemedList.length}
-              savingsTotal={savingsUsed}
-            />
-            <div className="wallet-actions">
-              <button className="wallet-btn"><Icon name="plus" size={16} /> Add to Apple Wallet</button>
-              <button className="wallet-btn ghost" onClick={resetDemo}>
-                <Icon name="refresh" size={16} /> Reset demo
-              </button>
-            </div>
-          </div>
-
-          <div className="tracker">
-            <div className="tracker-top">
-              <div>
-                <div className="tracker-big">{formatMoney(savingsUsed)}</div>
-                <div className="tracker-lbl">saved so far this year</div>
-              </div>
-              <div className="tracker-badge">
-                {savingsUsed >= price ? "Pass paid off ✓" : `${formatMoney(price - savingsUsed)} to break even`}
-              </div>
-            </div>
-            <div className="progress">
-              <div
-                className="progress-fill"
-                style={{ width: `${Math.min(100, (savingsUsed / price) * 100)}%` }}
-              />
-              <span className="progress-mark" title="Break-even" />
-            </div>
-            <div className="progress-scale">
-              <span>{formatMoney(0)}</span>
-              <span>Pass cost {formatMoney(price)}</span>
-            </div>
-
-            <h4 className="tracker-h4">Perks you&apos;ve redeemed</h4>
-            {redeemedList.length === 0 ? (
-              <p className="muted">No perks redeemed yet — tap any card to redeem your first.</p>
-            ) : (
-              <ul className="redeemed-list">
-                {redeemedList.map((x) => (
-                  <li key={x.partner.id} onClick={() => onOpen(x.partner)}>
-                    <span className="rl-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(x.partner.category)[0]}, ${gradientFor(x.partner.category)[1]})` }}>{monogram(x.partner.name)}</span>
-                    <span className="rl-main">
-                      <b>{x.partner.name}</b>
-                      <small>{x.partner.benefit}</small>
-                    </span>
-                    <span className="rl-right">
-                      <b>+{formatMoney(x.partner.savings)}</b>
-                      <small>{timeAgo(x.at)}</small>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
+        <p className="samples-note">
+          Plus {PARTNERS.length - samples.length}+ more perks across dining, family, museums,
+          wellness, sports, shopping, and seasonal events — with new partners added all year.
+          <span className="samples-fine"> Sample listings shown for illustration.</span>
+        </p>
       </section>
 
       {/* HOW IT WORKS */}
@@ -894,8 +512,8 @@ function MembersView(props) {
         <div className="steps">
           {[
             { n: "1", t: "Get your Pass", d: "Join online and your digital membership card lands in your phone instantly." },
-            { n: "2", t: "Find a perk", d: "Browse partners by category or map, and pick a deal you want to use." },
-            { n: "3", t: "Show & save", d: "Tap redeem, show the confirmation screen at the counter, and enjoy." },
+            { n: "2", t: "Pick a perk", d: "Open your Pass, choose a deal you want, and tap to redeem." },
+            { n: "3", t: "Show & save", d: "Show the confirmation screen at the counter and enjoy your perk." },
           ].map((s, i) => (
             <Reveal key={s.n} delay={i * 90}>
               <div className="step">
@@ -957,256 +575,27 @@ function MembersView(props) {
 }
 
 // ---------------------------------------------------------------------------
-function SectionHead({ kicker, title, noMargin }) {
+function SectionHead({ kicker, title, sub, noMargin }) {
   return (
     <div className="sechead" style={noMargin ? { marginBottom: 0 } : undefined}>
       <span className="sechead-kicker">{kicker}</span>
       <h2 className="sechead-title">{title}</h2>
+      {sub && <p className="sechead-sub">{sub}</p>}
     </div>
   );
 }
 
-function PartnerCard({ partner, redeemed, onOpen, onRedeem }) {
-  return (
-    <div className={`pcard ${redeemed ? "pcard--done" : ""}`}>
-      <button className="pcard-media" onClick={onOpen} aria-label={`View ${partner.name}`}>
-        <CardMedia partner={partner} height={140} rounded={0} />
-        {redeemed && <span className="redeemed-flag">✓ Redeemed</span>}
-      </button>
-      <div className="pcard-body">
-        <div className="pcard-top">
-          <h3>{partner.name}</h3>
-          <span className="save-pill sm">Save {formatMoney(partner.savings)}</span>
-        </div>
-        <p className="pcard-desc">{partner.description}</p>
-        <div className="pcard-benefit"><Icon name="ticket" size={16} /> {partner.benefit}</div>
-        <div className="pcard-actions">
-          <button className="mini ghost" onClick={onOpen}>
-            Details
-          </button>
-          <button className="mini primary" onClick={onRedeem} disabled={redeemed}>
-            {redeemed ? "Redeemed" : "Redeem"}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-function MapView({ partners, activePin, setPin, onOpen }) {
-  // Normalize coords to a bounding box for the mock map.
-  const box = useMemo(() => {
-    const lats = partners.map((p) => p.coords[0]);
-    const lngs = partners.map((p) => p.coords[1]);
-    return {
-      minLat: Math.min(...lats),
-      maxLat: Math.max(...lats),
-      minLng: Math.min(...lngs),
-      maxLng: Math.max(...lngs),
-    };
-  }, [partners]);
-
-  const pos = (p) => {
-    const { minLat, maxLat, minLng, maxLng } = box;
-    const x = maxLng === minLng ? 50 : ((p.coords[1] - minLng) / (maxLng - minLng)) * 84 + 8;
-    const y = maxLat === minLat ? 50 : (1 - (p.coords[0] - minLat) / (maxLat - minLat)) * 78 + 10;
-    return { left: `${x}%`, top: `${y}%` };
-  };
-
-  const active = partners.find((p) => p.id === activePin);
-
-  return (
-    <div className="mapwrap">
-      <div className="mapcanvas">
-        {/* faux streets + lake */}
-        <div className="map-lake" />
-        <div className="map-grid" />
-        <div className="map-river" />
-        <span className="map-label map-label--lake">Lake Michigan</span>
-        {partners.map((p) => (
-          <button
-            key={p.id}
-            className={`pin ${activePin === p.id ? "pin-on" : ""}`}
-            style={pos(p)}
-            onClick={() => setPin(p.id)}
-            aria-label={p.name}
-          >
-            <span className="pin-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(p.category)[0]}, ${gradientFor(p.category)[1]})` }}>{monogram(p.name)}</span>
-          </button>
-        ))}
-      </div>
-      {active && (
-        <div className="map-detail">
-          <span className="md-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(active.category)[0]}, ${gradientFor(active.category)[1]})` }}>{monogram(active.name)}</span>
-          <div className="md-main">
-            <b>{active.name}</b>
-            <small>{active.benefit}</small>
-          </div>
-          <div className="md-right">
-            <span className="save-pill sm">Save {formatMoney(active.savings)}</span>
-            <button className="mini primary" onClick={() => onOpen(active)}>
-              View
-            </button>
-          </div>
-        </div>
-      )}
-      {!active && <div className="map-hint">Tap a pin to see the perk.</div>}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-function PartnerModal({ partner, redeemed, onClose, onRedeem }) {
-  useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal sheet" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-x" onClick={onClose} aria-label="Close">
-          ✕
-        </button>
-        <CardMedia partner={partner} height={190} rounded={0} />
-        <div className="modal-body">
-          <div className="modal-top">
-            <div>
-              <h3 className="modal-title">{partner.name}</h3>
-              <p className="modal-desc">{partner.description}</p>
-            </div>
-            <span className="save-pill">Save {formatMoney(partner.savings)}</span>
-          </div>
-
-          <div className="benefit-box">
-            <div className="benefit-box-lbl">Member benefit</div>
-            <div className="benefit-box-main"><Icon name="ticket" size={18} /> {partner.benefit}</div>
-            <div className="benefit-box-cost">
-              You pay: <b>{partner.memberCost}</b>
-              <span className="strike">Retail {formatMoney(partner.retailValue)}</span>
-            </div>
-          </div>
-
-          <dl className="meta">
-            <div>
-              <dt>Location</dt>
-              <dd>{partner.address}</dd>
-            </div>
-            <div>
-              <dt>Usage</dt>
-              <dd>{partner.usageLimit}</dd>
-            </div>
-            <div>
-              <dt>Terms</dt>
-              <dd>{partner.terms}</dd>
-            </div>
-          </dl>
-
-          <button className="btn btn-primary full" onClick={onRedeem} disabled={redeemed}>
-            {redeemed ? "✓ Already redeemed" : "Redeem this perk"}
-          </button>
-          {redeemed && (
-            <p className="muted center">
-              Code {redeemed.code} · redeemed {timeAgo(redeemed.at)}
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-function RedeemModal({ redeem, member, onConfirm, onClose }) {
-  const { step, partner, code } = redeem;
-  useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal redeem" onClick={(e) => e.stopPropagation()}>
-        {step === "confirm" ? (
-          <>
-            <div className="redeem-mono" style={{ background: `linear-gradient(135deg, ${gradientFor(partner.category)[0]}, ${gradientFor(partner.category)[1]})` }}>{monogram(partner.name)}</div>
-            <h3 className="redeem-title">Redeem at {partner.name}?</h3>
-            <div className="benefit-box tight">
-              <div className="benefit-box-main"><Icon name="ticket" size={18} /> {partner.benefit}</div>
-            </div>
-            <p className="redeem-warn">
-              Only tap confirm <b>in front of the staff member</b>. This marks the perk as used
-              for your membership year.
-            </p>
-            <div className="redeem-actions">
-              <button className="btn btn-ghost" onClick={onClose}>
-                Cancel
-              </button>
-              <button className="btn btn-primary" onClick={onConfirm}>
-                Confirm redemption
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="success">
-            <div className="check-ring">
-              <svg viewBox="0 0 52 52" width="72" height="72">
-                <circle className="check-c" cx="26" cy="26" r="24" fill="none" />
-                <path className="check-k" fill="none" d="M14 27l8 8 16-18" />
-              </svg>
-            </div>
-            <h3 className="redeem-title">Perk redeemed!</h3>
-            <p className="success-sub">Show this screen to the staff at {partner.name}.</p>
-
-            <div className="ticket">
-              <div className="ticket-head">
-                <span>DISCOVER MILWAUKEE · ANNUAL PASS</span>
-                <span className="ticket-live">
-                  <span className="dot" /> VALID
-                </span>
-              </div>
-              <div className="ticket-benefit">{partner.benefit}</div>
-              <div className="ticket-code">{code}</div>
-              <Barcode code={code} />
-              <div className="ticket-foot">
-                <span>{member.name} · {member.number}</span>
-                <span>{new Date().toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}</span>
-              </div>
-            </div>
-
-            <button className="btn btn-primary full" onClick={onClose}>
-              Done
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
 function CompareCell({ v }) {
   if (v === true) return <span className="cmp-yes">✓</span>;
   if (v === false) return <span className="cmp-no">—</span>;
   return <span className="cmp-txt">{v}</span>;
 }
 
-function BusinessView({ benefits, dashboard, price, onLead }) {
+function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
   const [chartRef, chartSeen] = useInView({ threshold: 0.3 });
   const [audRef, audSeen] = useInView({ threshold: 0.4 });
-  const maxV = Math.max(...dashboard.monthly.map((m) => m.v));
   const [openFaq, setOpenFaq] = useState(0);
+  const maxV = Math.max(...dashboard.monthly.map((m) => m.v));
 
   return (
     <>
@@ -1222,16 +611,16 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
               Zero cost to you.
             </h1>
             <p className="hero-sub light">
-              Get your business in front of the locals who decide where Milwaukee goes — inside a
-              membership they open again and again. You only ever give a perk to a real customer who
-              walks in. No fee. No ad spend. Nothing to lose.
+              The Milwaukee Annual Pass is a membership locals buy to save all year at local
+              businesses. You list one perk — free — and it puts your business in front of thousands
+              of engaged locals. You only ever give a perk to a real customer who walks in.
             </p>
             <div className="hero-cta">
               <button className="btn btn-white" onClick={onLead}>
                 Claim your free spot
               </button>
-              <a href="#dashboard" className="btn btn-ghost light">
-                See the dashboard
+              <a href="#what" className="btn btn-ghost light">
+                How it works
               </a>
             </div>
             <div className="hero-trust light-trust">
@@ -1243,10 +632,44 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         </div>
       </section>
 
-      {/* AUDIENCE REACH */}
+      {/* PILLAR 1 — WHAT IT IS */}
+      <section id="what" className="section">
+        <SectionHead kicker="Start here" title="What the Milwaukee Annual Pass is" />
+        <div className="define">
+          <div className="define-lead">
+            <p>
+              The Milwaukee Annual Pass is a <b>{formatMoney(price)}-a-year membership</b> that
+              locals buy from Discover Milwaukee. One pass unlocks a full year of members-only perks
+              — discounts, free admissions, and buy-one-get-one deals — at local businesses across
+              the city.
+            </p>
+            <p>
+              <b>Your business lists one perk, for free.</b> It lives inside the Pass all year. When
+              a member walks in and shows their redemption screen, you honor the perk in person.
+              That&apos;s the whole model — no fee, no software, no risk.
+            </p>
+          </div>
+          <div className="define-cards">
+            <div className="define-card">
+              <span className="define-role">The member</span>
+              <p>Pays {formatMoney(price)} once, then saves all year at the local spots they love.</p>
+            </div>
+            <div className="define-card">
+              <span className="define-role">Discover Milwaukee</span>
+              <p>Promotes the Pass to our local audience and sends those members through your door.</p>
+            </div>
+            <div className="define-card highlight">
+              <span className="define-role">Your business</span>
+              <p>Appears in the Pass free, and only ever gives a perk to a real customer who shows up.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PILLAR 2 — THE VALUE TO YOU: audience */}
       <section ref={audRef} className="reachband">
         <div className="reachband-inner">
-          <span className="reach-kicker">The audience you tap into</span>
+          <span className="reach-kicker">The value to your business · the audience</span>
           <h2 className="reach-title">You&apos;re not starting from zero.</h2>
           <p className="reach-sub">
             Discover Milwaukee already reaches the people you want walking through your door.
@@ -1270,25 +693,9 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         </div>
       </section>
 
-      {/* NOTHING TO LOSE / ASSURANCES */}
+      {/* PILLAR 2 — THE VALUE TO YOU: the flow */}
       <section className="section">
-        <SectionHead kicker="Why it's a no-brainer" title="Nothing to lose. A lot to gain." />
-        <div className="assure-grid">
-          {PARTNER_ASSURANCES.map((a, i) => (
-            <Reveal key={a.title} delay={(i % 4) * 70}>
-              <div className="assure-tile">
-                <span className="assure-ico"><Icon name={a.icon} size={26} stroke={1.9} /></span>
-                <h3>{a.title}</h3>
-                <p>{a.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* VALUE FLOW — how you win */}
-      <section className="section">
-        <SectionHead kicker="How you actually win" title="A perk today. A regular for years." />
+        <SectionHead kicker="The value to your business · how you win" title="A perk today. A regular for years." />
         <div className="flow">
           {VALUE_FLOW.map((f, i) => (
             <Reveal key={f.step} delay={i * 90} style={{ minWidth: 0 }}>
@@ -1310,7 +717,7 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         </div>
       </section>
 
-      {/* BENEFITS */}
+      {/* PILLAR 3 — WHAT YOU GET: benefits */}
       <section className="section">
         <SectionHead kicker="What you get" title="Everything a partner unlocks" />
         <div className="benefit-grid">
@@ -1326,41 +733,9 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
         </div>
       </section>
 
-      {/* COMPARISON */}
-      <section className="section">
-        <SectionHead kicker="How it compares" title="Better than the marketing you're already paying for" />
-        <div className="cmp-wrap">
-          <table className="cmp">
-            <thead>
-              <tr>
-                <th className="cmp-rowhead"></th>
-                {PARTNER_COMPARISON.columns.map((c, i) => (
-                  <th key={c} className={i === 0 ? "cmp-us" : ""}>
-                    {i === 0 && <span className="cmp-crown">★</span>}
-                    {c}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {PARTNER_COMPARISON.rows.map((r) => (
-                <tr key={r.label}>
-                  <td className="cmp-rowhead">{r.label}</td>
-                  {r.vals.map((v, i) => (
-                    <td key={i} className={i === 0 ? "cmp-us" : ""}>
-                      <CompareCell v={v} />
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* DASHBOARD */}
+      {/* PILLAR 3 — WHAT YOU GET: dashboard */}
       <section id="dashboard" className="section">
-        <SectionHead kicker="Partner dashboard" title="See exactly what you're getting" />
+        <SectionHead kicker="What you get · your dashboard" title="See exactly what you're getting" />
         <div className="dash">
           <div className="dash-head">
             <div>
@@ -1401,6 +776,57 @@ function BusinessView({ benefits, dashboard, price, onLead }) {
           </div>
           <p className="dash-note">Sample analytics for illustration.</p>
         </div>
+      </section>
+
+      {/* PILLAR 4 — WHY IT'S A SMART MOVE: assurances */}
+      <section className="section">
+        <SectionHead
+          kicker="Why it's a smart move · no risk"
+          title="Nothing to lose, a whole year to gain"
+          sub="No fee, no hardware, no cannibalized sales. The Pass is built so partnering is all upside."
+        />
+        <div className="assure-grid">
+          {PARTNER_ASSURANCES.map((a, i) => (
+            <Reveal key={a.title} delay={i * 80} style={{ minWidth: 0 }}>
+              <div className="assure-tile">
+                <span className="assure-ico"><Icon name={a.icon} size={22} /></span>
+                <h3>{a.title}</h3>
+                <p>{a.desc}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* PILLAR 4 — WHY IT'S A SMART MOVE: comparison */}
+      <section className="section">
+        <SectionHead
+          kicker="Why it's a smart move · how it compares"
+          title="A better deal than the marketing you're already buying"
+        />
+        <div className="cmp-wrap">
+          <table className="cmp">
+            <thead>
+              <tr>
+                <th />
+                {PARTNER_COMPARISON.columns.map((c, i) => (
+                  <th key={c} className={i === 0 ? "cmp-us" : ""}>{c}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {PARTNER_COMPARISON.rows.map((r) => (
+                <tr key={r.label}>
+                  <td className="cmp-rowhead">{r.label}</td>
+                  {r.vals.map((v, i) => (
+                    <td key={i} className={i === 0 ? "cmp-us" : ""}><CompareCell v={v} /></td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="cmp-note">Illustrative comparison for this demo.</p>
       </section>
 
       {/* TESTIMONIALS */}
@@ -1600,6 +1026,96 @@ function PassStyles() {
         margin: 6px 0 0;
         letter-spacing: 0.01em;
       }
+      .sechead-sub {
+        font-family: ${BODY};
+        font-size: 15px;
+        color: ${C.ink2};
+        line-height: 1.55;
+        margin: 12px 0 0;
+        max-width: 620px;
+      }
+
+      /* ---------- sample perks (members) ---------- */
+      .samples {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .sample-card {
+        background: #fff;
+        border: 1px solid ${C.line};
+        border-radius: 18px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-shadow: 0 6px 20px rgba(20,24,40,0.05);
+      }
+      .sample-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+      .sample-cat {
+        font-family: ${BODY};
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: ${C.brand};
+      }
+      .sample-body h3 { font-family: ${DISPLAY}; font-size: 22px; margin: 0; letter-spacing: 0.01em; }
+      .sample-benefit {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: ${C.ink};
+        line-height: 1.45;
+      }
+      .sample-foot {
+        margin-top: auto;
+        padding-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .sample-cost { font-family: ${BODY}; font-size: 13px; font-weight: 600; color: ${C.ink2}; }
+      .samples-note {
+        margin: 22px auto 0;
+        max-width: 680px;
+        text-align: center;
+        font-size: 14.5px;
+        color: ${C.ink2};
+        line-height: 1.6;
+      }
+      .samples-fine { display: block; margin-top: 6px; font-size: 12px; color: #9aa2b1; }
+
+      /* ---------- what it is (business) ---------- */
+      .define { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 34px; align-items: start; }
+      .define-lead p { font-size: 16px; line-height: 1.6; color: ${C.ink}; margin: 0 0 16px; }
+      .define-lead p:last-child { margin-bottom: 0; }
+      .define-cards { display: flex; flex-direction: column; gap: 12px; }
+      .define-card {
+        background: #fff;
+        border: 1px solid ${C.line};
+        border-radius: 14px;
+        padding: 16px 18px;
+      }
+      .define-card.highlight {
+        border-color: ${C.brand};
+        box-shadow: 0 0 0 1px ${C.brand} inset;
+        background: #f2f6ff;
+      }
+      .define-role {
+        display: block;
+        font-family: ${BODY};
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: ${C.brand};
+        margin-bottom: 6px;
+      }
+      .define-card p { margin: 0; font-size: 14.5px; line-height: 1.5; color: ${C.ink2}; }
+      .cmp-note { font-size: 12px; color: ${C.ink2}; margin-top: 12px; text-align: center; }
 
       /* ---------- demo banner ---------- */
       .demobanner {
@@ -1832,38 +1348,6 @@ function PassStyles() {
       .counter-lbl { font-size: 16px; color: #c7cede; margin-top: 6px; }
       .counter-note { font-size: 14px; color: #9aa4b8; margin-top: 12px; max-width: 520px; margin-left: auto; margin-right: auto; }
 
-      /* ---------- featured ---------- */
-      .featured-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
-      .featured-card {
-        text-align: left;
-        border: 1px solid ${C.line};
-        background: ${C.card};
-        border-radius: 18px;
-        overflow: hidden;
-        cursor: pointer;
-        padding: 0;
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
-      .featured-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12); }
-      .featured-media { position: relative; }
-      .ribbon {
-        position: absolute; top: 12px; right: 12px;
-        background: ${C.gold}; color: #3a2c05;
-        font-family: ${BODY}; font-weight: 700; font-size: 10.5px;
-        letter-spacing: 0.06em; text-transform: uppercase;
-        padding: 5px 10px; border-radius: 999px;
-      }
-      .featured-body { padding: 16px; }
-      .tagline { font-size: 12px; font-weight: 700; color: ${C.brand}; letter-spacing: 0.05em; text-transform: uppercase; }
-      .featured-body h3 { font-family: ${DISPLAY}; font-size: 22px; margin: 6px 0 4px; }
-      .featured-body p { font-size: 14px; color: ${C.ink2}; margin: 0 0 12px; }
-      .featured-foot { display: flex; align-items: center; justify-content: space-between; }
-      .arrow { font-weight: 600; color: ${C.brand}; font-size: 14px; }
-
       /* ---------- save pill ---------- */
       .save-pill {
         background: #e7f7ee; color: ${C.good};
@@ -1872,164 +1356,9 @@ function PassStyles() {
       }
       .save-pill.sm { font-size: 11.5px; padding: 4px 9px; }
 
-      /* ---------- explore ---------- */
-      .explore-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-      .viewtoggle { display: inline-flex; background: #eceef2; border-radius: 10px; padding: 3px; }
-      .viewtoggle button {
-        border: 0; background: transparent; font-family: ${BODY}; font-weight: 600; font-size: 13px;
-        color: ${C.ink2}; padding: 8px 14px; border-radius: 8px; cursor: pointer;
-        display: inline-flex; align-items: center; gap: 6px;
-      }
-      .viewtoggle button.on { background: #fff; color: ${C.ink}; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-
-      .catrail {
-        display: flex; gap: 9px; overflow-x: auto; padding: 4px 2px 14px;
-        scrollbar-width: none; -webkit-overflow-scrolling: touch;
-      }
-      .catrail::-webkit-scrollbar { display: none; }
-      .chip {
-        flex: 0 0 auto; border: 1px solid ${C.line}; background: #fff;
-        font-family: ${BODY}; font-weight: 600; font-size: 13.5px; color: ${C.ink2};
-        padding: 9px 16px; border-radius: 999px; cursor: pointer; transition: all 0.18s; white-space: nowrap;
-      }
-      .chip:hover { border-color: ${C.brand}; color: ${C.brand}; }
-      .chip-on { background: ${C.ink}; color: #fff; border-color: ${C.ink}; }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-        gap: 18px;
-      }
-
-      /* ---------- partner card ---------- */
-      .pcard {
-        border: 1px solid ${C.line}; background: ${C.card}; border-radius: 16px; overflow: hidden;
-        display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;
-      }
-      .pcard:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1); }
-      .pcard--done { opacity: 0.94; }
-      .pcard-media { position: relative; border: 0; padding: 0; cursor: pointer; display: block; }
-      .redeemed-flag {
-        position: absolute; top: 10px; right: 10px; background: ${C.good}; color: #fff;
-        font-weight: 700; font-size: 11px; padding: 5px 10px; border-radius: 999px;
-      }
-      .pcard-body { padding: 15px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
-      .pcard-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-      .pcard-top h3 { font-family: ${DISPLAY}; font-size: 19px; margin: 0; line-height: 1.05; }
-      .pcard-desc { font-size: 13.5px; color: ${C.ink2}; margin: 0; }
-      .pcard-benefit {
-        font-size: 13.5px; font-weight: 600; background: #f2f6ff; color: #16408f;
-        padding: 9px 11px; border-radius: 10px;
-        display: flex; align-items: center; gap: 7px;
-      }
-      .pcard-benefit svg { flex: none; }
-      .pcard-actions { display: flex; gap: 8px; margin-top: auto; }
-      .mini {
-        flex: 1; border-radius: 10px; font-family: ${BODY}; font-weight: 600; font-size: 13.5px;
-        padding: 10px; cursor: pointer; border: 1px solid ${C.line}; transition: all 0.15s;
-      }
-      .mini.ghost { background: #fff; color: ${C.ink}; }
-      .mini.ghost:hover { border-color: ${C.ink}; }
-      .mini.primary { background: ${C.brand}; color: #fff; border-color: ${C.brand}; }
-      .mini.primary:disabled { background: #e7f7ee; color: ${C.good}; border-color: #cfead9; cursor: default; }
-
-      /* ---------- map ---------- */
-      .mapwrap { border: 1px solid ${C.line}; border-radius: 18px; overflow: hidden; background: #fff; }
-      .mapcanvas {
-        position: relative; height: 440px;
-        background: #dfe7ef;
-        overflow: hidden;
-      }
-      .map-lake {
-        position: absolute; right: 0; top: 0; bottom: 0; width: 26%;
-        background: linear-gradient(120deg, #9cc4e6, #7fb0d8);
-      }
-      .map-river {
-        position: absolute; left: 46%; top: 0; bottom: 0; width: 3.5%;
-        background: #9cc4e6; transform: skewX(-8deg);
-      }
-      .map-grid {
-        position: absolute; inset: 0;
-        background-image: linear-gradient(#c7d2de 1px, transparent 1px),
-          linear-gradient(90deg, #c7d2de 1px, transparent 1px);
-        background-size: 46px 46px; opacity: 0.7;
-      }
-      .map-label { position: absolute; font-family: ${BODY}; font-weight: 600; font-size: 12px; color: #4a6b86; }
-      .map-label--lake { right: 5%; top: 46%; transform: rotate(90deg); letter-spacing: 0.1em; }
-      .pin {
-        position: absolute; transform: translate(-50%, -100%); border: 0; background: transparent;
-        cursor: pointer; transition: transform 0.15s;
-      }
-      .pin:hover { transform: translate(-50%, -110%) scale(1.08); z-index: 3; }
-      .pin-mono {
-        display: flex; align-items: center; justify-content: center;
-        width: 38px; height: 38px; border-radius: 50%;
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-        font-family: ${DISPLAY}; font-size: 14px; letter-spacing: .02em; color: #fff;
-        border: 2px solid #fff;
-      }
-      .pin-on .pin-mono { box-shadow: 0 0 0 3px rgba(10, 92, 255, 0.35), 0 8px 20px rgba(10, 92, 255, 0.5); }
-      .map-detail {
-        display: flex; align-items: center; gap: 12px; padding: 14px 16px;
-        border-top: 1px solid ${C.line};
-      }
-      .md-mono {
-        display: flex; align-items: center; justify-content: center;
-        width: 46px; height: 46px; border-radius: 12px; flex: none;
-        font-family: ${DISPLAY}; font-size: 18px; color: #fff;
-      }
-      .md-main { flex: 1; display: flex; flex-direction: column; }
-      .md-main small { color: ${C.ink2}; font-size: 13px; }
-      .md-right { display: flex; align-items: center; gap: 10px; }
-      .map-hint { text-align: center; padding: 14px; color: ${C.ink2}; font-size: 14px; }
-
-      /* ---------- my pass / tracker ---------- */
-      .mypass-grid { display: grid; grid-template-columns: 340px 1fr; gap: 26px; align-items: start; }
-      .mypass-card-col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-      .wallet-actions { display: flex; flex-direction: column; gap: 8px; width: 340px; max-width: 100%; }
-      .wallet-btn {
-        border: 0; border-radius: 12px; padding: 13px; font-family: ${BODY}; font-weight: 600;
-        font-size: 14px; cursor: pointer; background: ${C.wallet}; color: #fff;
-        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      }
-      .wallet-btn.ghost { background: #fff; color: ${C.ink2}; border: 1px solid ${C.line}; }
-      .tracker { background: #fff; border: 1px solid ${C.line}; border-radius: 18px; padding: 22px; }
-      .tracker-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-      .tracker-big { font-family: ${DISPLAY}; font-size: 42px; line-height: 1; color: ${C.good}; }
-      .tracker-lbl { font-size: 13.5px; color: ${C.ink2}; }
-      .tracker-badge {
-        background: #eef2f7; color: ${C.ink}; font-weight: 600; font-size: 12.5px;
-        padding: 7px 12px; border-radius: 999px; white-space: nowrap;
-      }
-      .progress {
-        position: relative; height: 12px; background: #eef2f7; border-radius: 999px;
-        margin: 18px 0 6px; overflow: hidden;
-      }
-      .progress-fill {
-        height: 100%; border-radius: 999px;
-        background: linear-gradient(90deg, ${C.brand}, ${C.good});
-        transition: width 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
-      }
-      .progress-scale { display: flex; justify-content: space-between; font-size: 12px; color: ${C.ink2}; }
-      .tracker-h4 { font-family: ${DISPLAY}; font-size: 18px; margin: 20px 0 10px; }
+      /* ---------- misc ---------- */
       .muted { color: ${C.ink2}; font-size: 14px; }
       .muted.center { text-align: center; }
-      .redeemed-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-      .redeemed-list li {
-        display: flex; align-items: center; gap: 12px; padding: 11px 12px;
-        background: ${C.bg}; border-radius: 12px; cursor: pointer; transition: background 0.15s;
-      }
-      .redeemed-list li:hover { background: #eef2f7; }
-      .rl-mono {
-        display: flex; align-items: center; justify-content: center; flex: none;
-        width: 40px; height: 40px; border-radius: 11px;
-        font-family: ${DISPLAY}; font-size: 15px; color: #fff;
-      }
-      .rl-main { flex: 1; display: flex; flex-direction: column; }
-      .rl-main small { color: ${C.ink2}; font-size: 12.5px; }
-      .rl-right { text-align: right; display: flex; flex-direction: column; }
-      .rl-right b { color: ${C.good}; }
-      .rl-right small { color: ${C.ink2}; font-size: 12px; }
 
       /* ---------- steps ---------- */
       .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -2272,62 +1601,18 @@ function PassStyles() {
         animation: pop 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
       @keyframes pop { from { transform: translateY(24px) scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
-      .modal.sheet { overflow: hidden; }
-      .modal.sheet .modal-body { padding: 20px; }
       .modal-x {
         position: absolute; top: 12px; right: 12px; z-index: 2;
         width: 34px; height: 34px; border-radius: 50%; border: 0;
         background: rgba(255, 255, 255, 0.9); font-size: 15px; cursor: pointer;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       }
-      .modal-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
       .modal-title { font-family: ${DISPLAY}; font-size: 26px; margin: 0; }
       .modal-desc { color: ${C.ink2}; font-size: 14.5px; margin: 4px 0 0; }
-      .benefit-box {
-        background: #f2f6ff; border-radius: 14px; padding: 16px; margin: 16px 0;
-      }
-      .benefit-box.tight { margin: 14px 0; }
-      .benefit-box.tight .benefit-box-main { justify-content: center; }
-      .benefit-box-lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: ${C.brand}; }
-      .benefit-box-main { font-size: 17px; font-weight: 600; margin-top: 4px; display: flex; align-items: center; gap: 8px; }
-      .benefit-box-main svg { flex: none; color: ${C.brand}; }
-      .benefit-box-cost { margin-top: 8px; font-size: 14px; color: ${C.ink2}; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
-      .benefit-box-cost b { color: ${C.ink}; font-size: 16px; }
-      .strike { text-decoration: line-through; opacity: 0.6; }
-      .meta { display: flex; flex-direction: column; gap: 12px; margin: 4px 0 18px; }
-      .meta dt { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: ${C.ink2}; }
-      .meta dd { margin: 3px 0 0; font-size: 14px; }
-
-      /* redeem */
-      .modal.redeem { max-width: 420px; padding: 26px; text-align: center; }
-      .redeem-mono {
-        width: 68px; height: 68px; border-radius: 18px; margin: 0 auto;
-        display: flex; align-items: center; justify-content: center;
-        font-family: ${DISPLAY}; font-size: 26px; color: #fff;
-        box-shadow: 0 10px 24px rgba(0,0,0,.18);
-      }
-      .redeem-title { font-family: ${DISPLAY}; font-size: 26px; margin: 10px 0; }
-      .redeem-warn {
-        background: #fff6e5; color: #7a5a00; border-radius: 12px; padding: 12px 14px;
-        font-size: 13.5px; line-height: 1.5; text-align: left;
-      }
-      .redeem-actions { display: flex; gap: 10px; margin-top: 18px; }
-      .redeem-actions .btn { flex: 1; }
-      .success-sub { color: ${C.ink2}; font-size: 14.5px; margin: 0 0 18px; }
       .check-ring { display: flex; justify-content: center; margin-bottom: 6px; }
       .check-c { stroke: ${C.good}; stroke-width: 3; stroke-dasharray: 151; stroke-dashoffset: 151; animation: draw 0.5s ease forwards; }
       .check-k { stroke: ${C.good}; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 48; stroke-dashoffset: 48; animation: draw 0.4s 0.4s ease forwards; }
       @keyframes draw { to { stroke-dashoffset: 0; } }
-      .ticket {
-        border: 2px dashed ${C.line}; border-radius: 16px; padding: 18px; margin: 6px 0 18px;
-        text-align: left; background: linear-gradient(180deg, #fff, #fbfcfe);
-      }
-      .ticket-head { display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; letter-spacing: 0.08em; color: ${C.ink2}; font-weight: 700; }
-      .ticket-live { display: flex; align-items: center; gap: 5px; color: ${C.good}; }
-      .ticket-live .dot { width: 7px; height: 7px; border-radius: 50%; background: ${C.good}; box-shadow: 0 0 8px ${C.good}; }
-      .ticket-benefit { font-weight: 600; font-size: 15px; margin: 12px 0 8px; }
-      .ticket-code { font-family: ${DISPLAY}; font-size: 30px; letter-spacing: 0.08em; margin-bottom: 12px; }
-      .ticket-foot { display: flex; justify-content: space-between; font-size: 11px; color: ${C.ink2}; margin-top: 12px; gap: 10px; }
 
       /* lead */
       .modal.lead { padding: 26px; }
@@ -2349,47 +1634,26 @@ function PassStyles() {
       .passfoot-inner p { max-width: 560px; margin: 12px auto; font-size: 13.5px; line-height: 1.6; }
       .passfoot-links a { color: #7fb0ff; text-decoration: none; font-weight: 600; }
 
-      /* ---------- bottom nav (mobile) ---------- */
-      .bottomnav { display: none; }
-
       /* ---------- responsive ---------- */
       @media (max-width: 900px) {
-        .featured-row { grid-template-columns: 1fr; }
         .benefit-grid { grid-template-columns: repeat(2, 1fr); }
         .assure-grid { grid-template-columns: repeat(2, 1fr); }
         .reach-grid { grid-template-columns: repeat(2, 1fr); }
         .flow { grid-template-columns: repeat(2, 1fr); }
         .flow-arrow { display: none; }
         .quotes { grid-template-columns: 1fr; }
-        .mypass-grid { grid-template-columns: 1fr; }
-        .mypass-card-col { align-items: stretch; }
-        .wallet-actions { width: 100%; }
         .steps { grid-template-columns: 1fr; }
+        .samples { grid-template-columns: repeat(2, 1fr); }
+        .define { grid-template-columns: 1fr; gap: 24px; }
       }
       @media (max-width: 767px) {
         .hero-inner { grid-template-columns: 1fr; text-align: center; }
         .hero-copy .eyebrow, .hero-cta, .hero-trust { justify-content: center; }
         .hero-sub { margin-left: auto; margin-right: auto; }
         .hero-card { margin-top: 10px; }
-        .featured-row { grid-template-columns: 1fr; }
         .dash-stats { grid-template-columns: repeat(2, 1fr); }
-        .explore-head { flex-direction: column; align-items: stretch; }
         .waitform { flex-direction: column; }
         .section { padding: 34px 16px 34px; }
-        body { padding-bottom: 68px; }
-        .bottomnav {
-          display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-          background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(10px);
-          border-top: 1px solid ${C.line}; padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
-        }
-        .bottomnav button {
-          flex: 1; border: 0; background: transparent; cursor: pointer;
-          display: flex; flex-direction: column; align-items: center; gap: 2px;
-          font-family: ${BODY}; color: ${C.ink2}; padding: 6px 2px;
-        }
-        .bottomnav button.on { color: ${C.brand}; }
-        .bn-ico { display: inline-flex; align-items: center; justify-content: center; }
-        .bn-lbl { font-size: 10.5px; font-weight: 600; }
       }
       @media (max-width: 420px) {
         .benefit-grid { grid-template-columns: 1fr; }
@@ -2398,6 +1662,7 @@ function PassStyles() {
         .dash-stats { grid-template-columns: 1fr; }
         .reach-grid { grid-template-columns: repeat(2, 1fr); }
         .free-badge { margin-left: 0; }
+        .samples { grid-template-columns: 1fr; }
       }
     `}</style>
   );
