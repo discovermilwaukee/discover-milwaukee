@@ -12,6 +12,7 @@ import {
   PROVEN_SOURCES,
   PROVEN_NOTE,
   ACQUISITION_FLOW,
+  ESTIMATOR_PRESETS,
   PARTNER_COMPARISON,
   PARTNER_TESTIMONIALS,
   PARTNER_FAQ,
@@ -161,6 +162,69 @@ function useCountUp(target, run, ms = 1100) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [target, run, ms]);
+  return val;
+}
+
+// Split a display stat like "$2.5B", "37.1M", "235K+", "79.2%" into parts so we
+// can animate just the number and keep the prefix/suffix intact.
+function parseStat(str) {
+  const m = String(str).match(/^([^\d.-]*)([\d,.]+)(.*)$/);
+  if (!m) return { prefix: "", num: null, suffix: String(str), decimals: 0 };
+  const numRaw = m[2].replace(/,/g, "");
+  const decimals = (numRaw.split(".")[1] || "").length;
+  return { prefix: m[1], num: parseFloat(numRaw), suffix: m[3], decimals };
+}
+
+function fmtNum(n, decimals) {
+  const fixed = n.toFixed(decimals);
+  const [intPart, frac] = fixed.split(".");
+  const withCommas = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return frac != null ? `${withCommas}.${frac}` : withCommas;
+}
+
+// Count-up that preserves currency prefixes, unit suffixes, and decimals.
+function AnimatedStat({ value, run, ms = 1300 }) {
+  const { prefix, num, suffix, decimals } = useMemo(() => parseStat(value), [value]);
+  const [display, setDisplay] = useState(
+    num == null ? String(value) : `${prefix}${fmtNum(0, decimals)}${suffix}`
+  );
+  useEffect(() => {
+    if (num == null || !run) return;
+    let raf;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / ms);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setDisplay(`${prefix}${fmtNum(num * eased, decimals)}${suffix}`);
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [num, run, ms, prefix, suffix, decimals]);
+  return <>{display}</>;
+}
+
+// Eases toward a moving target -- used so estimator outputs glide as sliders move.
+function useTween(target, ms = 550) {
+  const [val, setVal] = useState(target);
+  const fromRef = useRef(target);
+  const rafRef = useRef(null);
+  useEffect(() => {
+    cancelAnimationFrame(rafRef.current);
+    const from = fromRef.current;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / ms);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const cur = from + (target - from) * eased;
+      fromRef.current = cur;
+      setVal(cur);
+      if (p < 1) rafRef.current = requestAnimationFrame(tick);
+      else fromRef.current = target;
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [target, ms]);
   return val;
 }
 
@@ -594,11 +658,125 @@ function CompareCell({ v }) {
   return <span className="cmp-txt">{v}</span>;
 }
 
+function ImpactEstimator({ onLead }) {
+  const [presetKey, setPresetKey] = useState(ESTIMATOR_PRESETS[0].key);
+  const [redemptions, setRedemptions] = useState(ESTIMATOR_PRESETS[0].redemptions);
+  const [ticket, setTicket] = useState(ESTIMATOR_PRESETS[0].ticket);
+
+  const choose = (p) => {
+    setPresetKey(p.key);
+    setRedemptions(p.redemptions);
+    setTicket(p.ticket);
+  };
+
+  const annualVisits = redemptions * 12;
+  const annualSpend = redemptions * ticket * 12;
+  const visitsTween = useTween(annualVisits);
+  const spendTween = useTween(annualSpend);
+
+  return (
+    <section className="section">
+      <SectionHead
+        kicker="The value to your business · run your own numbers"
+        title="Estimate your year in the Pass"
+        sub="Set the numbers that fit your business. Every projection is simple math on the values you choose -- not a promise or an average."
+      />
+      <div className="est">
+        <div className="est-controls">
+          <div className="est-presets" role="tablist" aria-label="Business type">
+            {ESTIMATOR_PRESETS.map((p) => (
+              <button
+                key={p.key}
+                type="button"
+                role="tab"
+                aria-selected={presetKey === p.key}
+                className={presetKey === p.key ? "on" : ""}
+                onClick={() => choose(p)}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+
+          <label className="est-field">
+            <span className="est-field-top">
+              <span>Members who redeem / month</span>
+              <b>{redemptions}</b>
+            </span>
+            <input
+              type="range"
+              min="5"
+              max="150"
+              step="5"
+              value={redemptions}
+              aria-label="Members who redeem per month"
+              onChange={(e) => setRedemptions(Number(e.target.value))}
+            />
+          </label>
+
+          <label className="est-field">
+            <span className="est-field-top">
+              <span>Average spend per visit</span>
+              <b>{formatMoney(ticket)}</b>
+            </span>
+            <input
+              type="range"
+              min="10"
+              max="200"
+              step="5"
+              value={ticket}
+              aria-label="Average spend per visit"
+              onChange={(e) => setTicket(Number(e.target.value))}
+            />
+          </label>
+        </div>
+
+        <div className="est-out">
+          <div className="est-metric">
+            <div className="est-v">{fmtNum(Math.round(visitsTween), 0)}</div>
+            <div className="est-l">Member visits a year</div>
+          </div>
+          <div className="est-metric est-metric--hero">
+            <div className="est-v">{formatMoney(Math.round(spendTween))}</div>
+            <div className="est-l">Attributed spend a year</div>
+          </div>
+          <button type="button" className="btn btn-dark est-cta" onClick={onLead}>
+            Claim your free spot
+          </button>
+        </div>
+      </div>
+      <p className="est-note">
+        Illustrative estimate based entirely on the numbers you set &mdash; redemptions &times;
+        average ticket &times; 12 months. Not a guarantee of results.
+      </p>
+    </section>
+  );
+}
+
 function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
   const [chartRef, chartSeen] = useInView({ threshold: 0.3 });
   const [audRef, audSeen] = useInView({ threshold: 0.4 });
+  const [provenRef, provenSeen] = useInView({ threshold: 0.35 });
   const [openFaq, setOpenFaq] = useState(0);
-  const maxV = Math.max(...dashboard.monthly.map((m) => m.v));
+  const [chartView, setChartView] = useState("monthly");
+
+  // Curate benefits to distinct value props -- "No POS" lives in assurances and
+  // "repeat exposure" is covered by acquisition + the funnel, so we drop both here.
+  const benefitTiles = useMemo(
+    () => benefits.filter((b) => b.icon !== "receipt" && b.icon !== "refresh"),
+    [benefits]
+  );
+
+  const cumulative = useMemo(
+    () =>
+      dashboard.monthly.reduce((acc, m, i) => {
+        acc.push({ m: m.m, v: (i ? acc[i - 1].v : 0) + m.v });
+        return acc;
+      }, []),
+    [dashboard.monthly]
+  );
+  const chartData = chartView === "monthly" ? dashboard.monthly : cumulative;
+  const maxV = Math.max(...chartData.map((m) => m.v));
 
   return (
     <>
@@ -669,7 +847,30 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
         </div>
       </section>
 
-      {/* PILLAR 2 — THE VALUE TO YOU: audience */}
+      {/* PILLAR 2a — THE VALUE TO YOU: the market already exists */}
+      <section ref={provenRef} className="section">
+        <SectionHead
+          kicker="The value to your business · proven behavior"
+          title="Built around proven consumer behavior"
+          sub="The Annual Pass isn't a bet on an untested idea. It's built on how people already spend — locally, and in response to rewards."
+        />
+        <div className="proven">
+          {PROVEN_STATS.map((s, i) => (
+            <Reveal key={s.l} delay={i * 70} style={{ minWidth: 0 }}>
+              <div className="proven-tile">
+                <div className="proven-v">
+                  <AnimatedStat value={s.v} run={provenSeen} ms={1200 + i * 120} />
+                </div>
+                <div className="proven-l">{s.l}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <p className="proven-note">{PROVEN_NOTE}</p>
+        <p className="proven-src">{PROVEN_SOURCES}</p>
+      </section>
+
+      {/* PILLAR 2b — THE VALUE TO YOU: we already reach that market */}
       <section ref={audRef} className="reachband">
         <div className="reachband-inner">
           <span className="reach-kicker">The value to your business · the audience</span>
@@ -688,7 +889,9 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
                   transition: `all .6s ease ${i * 90}ms`,
                 }}
               >
-                <div className="reach-v">{a.v}</div>
+                <div className="reach-v">
+                  <AnimatedStat value={a.v} run={audSeen} ms={1200 + i * 120} />
+                </div>
                 <div className="reach-l">{a.l}</div>
               </div>
             ))}
@@ -696,28 +899,7 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
         </div>
       </section>
 
-      {/* PILLAR 2 — THE VALUE TO YOU: proven consumer behavior */}
-      <section className="section">
-        <SectionHead
-          kicker="The value to your business · proven behavior"
-          title="Built around proven consumer behavior"
-          sub="The Annual Pass isn't a bet on an untested idea. It's built on how people already spend — locally, and in response to rewards."
-        />
-        <div className="proven">
-          {PROVEN_STATS.map((s, i) => (
-            <Reveal key={s.l} delay={i * 70} style={{ minWidth: 0 }}>
-              <div className="proven-tile">
-                <div className="proven-v">{s.v}</div>
-                <div className="proven-l">{s.l}</div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="proven-note">{PROVEN_NOTE}</p>
-        <p className="proven-src">{PROVEN_SOURCES}</p>
-      </section>
-
-      {/* PILLAR 2 — THE VALUE TO YOU: turning behavior into customers */}
+      {/* PILLAR 2c — THE VALUE TO YOU: how you capture it */}
       <section className="section">
         <SectionHead
           kicker="The value to your business · how you win"
@@ -746,12 +928,15 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
         </div>
       </section>
 
+      {/* PILLAR 2d — THE VALUE TO YOU: run your own numbers */}
+      <ImpactEstimator onLead={onLead} />
+
       {/* PILLAR 3 — WHAT YOU GET: benefits */}
       <section className="section">
         <SectionHead kicker="What you get" title="Everything a partner unlocks" />
         <div className="benefit-grid">
-          {benefits.map((b, i) => (
-            <Reveal key={b.title} delay={(i % 4) * 70}>
+          {benefitTiles.map((b, i) => (
+            <Reveal key={b.title} delay={(i % 3) * 70}>
               <div className="benefit-tile">
                 <span className="bt-ico"><Icon name={b.icon} size={24} stroke={1.9} /></span>
                 <h3>{b.title}</h3>
@@ -785,9 +970,31 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
           </div>
 
           <div className="dash-chart" ref={chartRef}>
-            <div className="dchart-head">Redemptions by month</div>
+            <div className="dchart-head">
+              <span>{chartView === "monthly" ? "Redemptions by month" : "Redemptions, running total"}</span>
+              <div className="dchart-toggle" role="tablist" aria-label="Chart view">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={chartView === "monthly"}
+                  className={chartView === "monthly" ? "on" : ""}
+                  onClick={() => setChartView("monthly")}
+                >
+                  Monthly
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={chartView === "cumulative"}
+                  className={chartView === "cumulative" ? "on" : ""}
+                  onClick={() => setChartView("cumulative")}
+                >
+                  Cumulative
+                </button>
+              </div>
+            </div>
             <div className="bars">
-              {dashboard.monthly.map((m, i) => (
+              {chartData.map((m, i) => (
                 <div key={m.m} className="barcol">
                   <div
                     className="bar"
@@ -905,21 +1112,25 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
       <section className="section">
         <SectionHead kicker="Questions?" title="The honest answers" />
         <div className="faq">
-          {PARTNER_FAQ.map((f, i) => (
-            <div
-              key={f.q}
-              className={`faq-item ${openFaq === i ? "open" : ""}`}
-              onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
-            >
-              <div className="faq-q">
-                <span>{f.q}</span>
-                <span className="faq-toggle">{openFaq === i ? "−" : "+"}</span>
+          {PARTNER_FAQ.map((f, i) => {
+            const open = openFaq === i;
+            return (
+              <div key={f.q} className={`faq-item ${open ? "open" : ""}`}>
+                <button
+                  type="button"
+                  className="faq-q"
+                  aria-expanded={open}
+                  onClick={() => setOpenFaq(open ? -1 : i)}
+                >
+                  <span>{f.q}</span>
+                  <span className="faq-toggle" aria-hidden="true">{open ? "−" : "+"}</span>
+                </button>
+                <div className="faq-a">
+                  <p>{f.a}</p>
+                </div>
               </div>
-              <div className="faq-a">
-                <p>{f.a}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -1236,6 +1447,8 @@ function PassStyles() {
       }
       .btn-ghost.light { background: rgba(255, 255, 255, 0.12); color: #fff; border-color: rgba(255,255,255,0.3); }
       .btn-white { background: #fff; color: ${C.ink}; }
+      .btn-dark { background: ${C.ink}; color: #fff; }
+      .btn-dark:hover { box-shadow: 0 10px 26px rgba(14, 17, 22, 0.28); }
       .btn.full { width: 100%; }
       .btn.lg { padding: 16px 30px; font-size: 16px; }
 
@@ -1431,7 +1644,7 @@ function PassStyles() {
       .price-fine { font-size: 12px; color: ${C.ink2}; margin-top: 12px; }
 
       /* ---------- business ---------- */
-      .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
       .benefit-tile { background: #fff; border: 1px solid ${C.line}; border-radius: 16px; padding: 20px; height: 100%; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
       .benefit-tile:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(10,92,255,.10); border-color: #cfd9f7; }
       .bt-ico {
@@ -1456,7 +1669,21 @@ function PassStyles() {
       .dstat-l { font-size: 13px; color: ${C.ink2}; margin-top: 4px; }
       .dstat-t { font-size: 12px; color: ${C.good}; font-weight: 600; margin-top: 4px; }
       .dash-chart { margin-top: 22px; }
-      .dchart-head { font-family: ${BODY}; font-weight: 600; font-size: 14px; color: ${C.ink2}; margin-bottom: 12px; }
+      .dchart-head {
+        font-family: ${BODY}; font-weight: 600; font-size: 14px; color: ${C.ink2}; margin-bottom: 12px;
+        display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      }
+      .dchart-toggle {
+        display: inline-flex; background: ${C.bg}; border: 1px solid ${C.line};
+        border-radius: 999px; padding: 3px;
+      }
+      .dchart-toggle button {
+        border: 0; background: none; cursor: pointer; font-family: ${BODY}; font-weight: 700;
+        font-size: 12px; letter-spacing: 0.02em; color: ${C.ink2};
+        padding: 6px 14px; border-radius: 999px; transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+      }
+      .dchart-toggle button.on { background: #fff; color: ${C.brand}; box-shadow: 0 2px 8px rgba(10,92,255,0.14); }
+      .dchart-toggle button:focus-visible { outline: 2px solid ${C.brand}; outline-offset: 2px; }
       .bars { display: flex; align-items: flex-end; gap: 14px; height: 180px; padding-top: 20px; }
       .barcol { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
       .bar {
@@ -1561,6 +1788,61 @@ function PassStyles() {
         padding: 11px 18px; white-space: nowrap;
       }
       .pipe-arrow { color: ${C.brand}; font-size: 20px; font-weight: 700; }
+      .pipe-node { transition: transform .18s ease, box-shadow .18s ease; }
+      .pipe-node:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(14,17,22,.18); }
+
+      /* ---------- business: impact estimator ---------- */
+      .est {
+        display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 22px;
+        background: #fff; border: 1px solid ${C.line}; border-radius: 22px;
+        padding: 26px; box-shadow: 0 18px 50px rgba(14,17,22,.06);
+      }
+      .est-controls { display: flex; flex-direction: column; gap: 22px; }
+      .est-presets {
+        display: inline-flex; flex-wrap: wrap; gap: 6px; background: ${C.bg};
+        border: 1px solid ${C.line}; border-radius: 14px; padding: 5px;
+      }
+      .est-presets button {
+        flex: 1 1 auto; border: 0; background: none; cursor: pointer;
+        font-family: ${BODY}; font-weight: 700; font-size: 13px; color: ${C.ink2};
+        padding: 9px 14px; border-radius: 10px; white-space: nowrap;
+        transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+      }
+      .est-presets button.on { background: #fff; color: ${C.brand}; box-shadow: 0 3px 10px rgba(10,92,255,0.14); }
+      .est-presets button:focus-visible { outline: 2px solid ${C.brand}; outline-offset: 2px; }
+      .est-field { display: flex; flex-direction: column; gap: 12px; }
+      .est-field-top {
+        display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+        font-size: 14px; font-weight: 600; color: ${C.ink2};
+      }
+      .est-field-top b { font-family: ${DISPLAY}; font-size: 26px; color: ${C.ink}; }
+      .est-field input[type="range"] {
+        -webkit-appearance: none; appearance: none; width: 100%; height: 6px;
+        border-radius: 999px; background: ${C.line}; cursor: pointer;
+      }
+      .est-field input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%;
+        background: ${C.brand}; border: 3px solid #fff; box-shadow: 0 3px 10px rgba(10,92,255,0.4); cursor: pointer;
+      }
+      .est-field input[type="range"]::-moz-range-thumb {
+        width: 22px; height: 22px; border-radius: 50%; border: 3px solid #fff;
+        background: ${C.brand}; box-shadow: 0 3px 10px rgba(10,92,255,0.4); cursor: pointer;
+      }
+      .est-field input[type="range"]:focus-visible { outline: 2px solid ${C.brand}; outline-offset: 4px; }
+      .est-out {
+        display: flex; flex-direction: column; justify-content: center; gap: 14px;
+        background: linear-gradient(160deg, #0b1b3a, #0a5cff 220%);
+        border-radius: 18px; padding: 26px; color: #fff;
+      }
+      .est-metric { text-align: left; }
+      .est-v { font-family: ${DISPLAY}; font-size: clamp(34px, 6vw, 54px); line-height: 1; }
+      .est-metric--hero .est-v {
+        background: linear-gradient(120deg, #7fb0ff, #4cf0a0);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .est-l { font-size: 13px; color: #c7cede; margin-top: 6px; font-weight: 600; letter-spacing: 0.02em; }
+      .est-cta { margin-top: 6px; align-self: flex-start; }
+      .est-note { margin: 14px 0 0; font-size: 12px; color: ${C.ink2}; font-style: italic; line-height: 1.5; }
 
       /* ---------- business: comparison table ---------- */
       .cmp-wrap { overflow-x: auto; border: 1px solid ${C.line}; border-radius: 18px; background: #fff; }
@@ -1608,13 +1890,16 @@ function PassStyles() {
       .faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
       .faq-item {
         background: #fff; border: 1px solid ${C.line}; border-radius: 14px; padding: 4px 18px;
-        cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+        transition: border-color 0.2s, box-shadow 0.2s;
       }
       .faq-item.open { border-color: ${C.brand}; box-shadow: 0 8px 24px rgba(10, 92, 255, 0.08); }
       .faq-q {
         display: flex; align-items: center; justify-content: space-between; gap: 14px;
+        font-family: inherit; color: inherit; text-align: left; width: 100%;
+        background: none; border: 0; cursor: pointer;
         font-weight: 600; font-size: 16px; padding: 16px 0;
       }
+      .faq-q:focus-visible { outline: 2px solid ${C.brand}; outline-offset: 3px; border-radius: 6px; }
       .faq-toggle { color: ${C.brand}; font-size: 22px; font-weight: 700; flex: 0 0 auto; }
       .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
       .faq-item.open .faq-a { max-height: 260px; }
@@ -1679,6 +1964,7 @@ function PassStyles() {
         .steps { grid-template-columns: 1fr; }
         .samples { grid-template-columns: repeat(2, 1fr); }
         .define { grid-template-columns: 1fr; gap: 24px; }
+        .est { grid-template-columns: 1fr; }
       }
       @media (max-width: 767px) {
         .hero-inner { grid-template-columns: 1fr; text-align: center; }
