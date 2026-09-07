@@ -658,6 +658,241 @@ function CompareCell({ v }) {
   return <span className="cmp-txt">{v}</span>;
 }
 
+// Cinematic promo scenes -- copy + figures are all verified (see PROVEN_STATS
+// / AUDIENCE) so nothing here invents an Annual-Pass performance claim.
+const PROMO_SCENES = [
+  { id: "spend", type: "stat", overline: "Milwaukee · 2025", stat: "$2.5B", cap: "spent by visitors across the county — in a single year.", dur: 3800 },
+  { id: "aud", type: "duo", overline: "And they look to us", statA: "235K+", labA: "engaged local followers", statB: "37.1M", labB: "views last year", cap: "Discover Milwaukee is where the city decides where to go.", dur: 4000 },
+  { id: "loyal", type: "stat", overline: "What the data shows", stat: "72%", cap: "are more likely to spend with the brands they're loyal to.", note: "Deloitte, 2025", dur: 3800 },
+  { id: "offer", type: "lines", overline: "Your move", l1: "List one perk.", l2: "It's free.", cap: "No fee. No POS. Live all year.", dur: 3600 },
+  { id: "flow", type: "flow", overline: "And one visit compounds", cap: "The platform tracks every redemption.", dur: 4600 },
+  { id: "close", type: "close", overline: "The Milwaukee Annual Pass", l1: "Your city.", l2: "Your customers.", cap: "Join free and get your offer in front of Milwaukee.", dur: 6000 },
+];
+
+function PromoFilm({ onLead }) {
+  const stageRef = useRef(null);
+  const [scene, setScene] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [pausedByUser, setPausedByUser] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const on = () => setReduced(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.5 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (reduced) return;
+    if (!inView) setPlaying(false);
+    else if (!pausedByUser) setPlaying(true);
+  }, [inView, reduced, pausedByUser]);
+
+  useEffect(() => {
+    if (!playing || reduced) return;
+    const t = setTimeout(() => setScene((s) => (s + 1) % PROMO_SCENES.length), PROMO_SCENES[scene].dur);
+    return () => clearTimeout(t);
+  }, [playing, scene, reduced]);
+
+  const toggle = () => {
+    if (playing) {
+      setPlaying(false);
+      setPausedByUser(true);
+    } else {
+      setPlaying(true);
+      setPausedByUser(false);
+    }
+  };
+  const replay = () => {
+    setScene(0);
+    setPausedByUser(false);
+    setPlaying(true);
+  };
+  const jump = (i) => {
+    setScene(i);
+    setPausedByUser(false);
+    setPlaying(true);
+  };
+
+  if (reduced) {
+    return (
+      <section className="promo">
+        <div className="pf-stage pf-stage--static" ref={stageRef}>
+          <span className="pf-brand">Discover Milwaukee</span>
+          <div className="pf-scene">
+            <span className="pf-overline">The Milwaukee Annual Pass</span>
+            <h2 className="pf-huge">
+              Your city.<br />
+              <span className="pf-grad">Your customers.</span>
+            </h2>
+            <p className="pf-cap">
+              A $2.5B visitor market and 235K+ engaged locals — reached free. Join and get your offer
+              in front of Milwaukee.
+            </p>
+            <button type="button" className="btn btn-white pf-cta" onClick={onLead}>
+              Claim your free spot
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const s = PROMO_SCENES[scene];
+
+  return (
+    <section className="promo">
+      <div
+        className="pf-stage"
+        ref={stageRef}
+        role="group"
+        aria-roledescription="promotional animation"
+        aria-label="Discover Milwaukee Annual Pass promo: a $2.5 billion visitor market and 235,000+ engaged locals, reached free."
+      >
+        <div className="pf-bg" aria-hidden="true">
+          <span className="pf-aurora pf-aurora--a" />
+          <span className="pf-aurora pf-aurora--b" />
+          <span className="pf-sweep" />
+          <span className="pf-grain" />
+          <span className="pf-vignette" />
+        </div>
+
+        <span className="pf-brand">Discover Milwaukee</span>
+        <button type="button" className="pf-skip" onClick={() => jump(PROMO_SCENES.length - 1)}>
+          Skip →
+        </button>
+
+        <div className="pf-scene" key={s.id}>
+          {s.type === "stat" && (
+            <>
+              <span className="pf-overline">{s.overline}</span>
+              <div className="pf-huge pf-grad pf-pop">
+                <AnimatedStat value={s.stat} run ms={1500} />
+              </div>
+              <p className="pf-cap">{s.cap}</p>
+              {s.note && <span className="pf-note">{s.note}</span>}
+            </>
+          )}
+
+          {s.type === "duo" && (
+            <>
+              <span className="pf-overline">{s.overline}</span>
+              <div className="pf-duo">
+                <div className="pf-duo-item">
+                  <div className="pf-big pf-grad pf-pop"><AnimatedStat value={s.statA} run ms={1500} /></div>
+                  <div className="pf-duo-l">{s.labA}</div>
+                </div>
+                <span className="pf-duo-x" aria-hidden="true">·</span>
+                <div className="pf-duo-item">
+                  <div className="pf-big pf-grad pf-pop" style={{ animationDelay: "120ms" }}>
+                    <AnimatedStat value={s.statB} run ms={1600} />
+                  </div>
+                  <div className="pf-duo-l">{s.labB}</div>
+                </div>
+              </div>
+              <p className="pf-cap">{s.cap}</p>
+            </>
+          )}
+
+          {s.type === "lines" && (
+            <>
+              <span className="pf-overline">{s.overline}</span>
+              <h2 className="pf-huge">
+                <span className="pf-line" style={{ animationDelay: "60ms" }}>{s.l1}</span>
+                <br />
+                <span className="pf-line pf-grad" style={{ animationDelay: "320ms" }}>{s.l2}</span>
+              </h2>
+              <p className="pf-cap">{s.cap}</p>
+            </>
+          )}
+
+          {s.type === "flow" && (
+            <>
+              <span className="pf-overline">{s.overline}</span>
+              <div className="pf-flow">
+                {ACQUISITION_FLOW.map((step, i) => (
+                  <span key={step} className="pf-flow-step">
+                    <span className="pf-chip" style={{ animationDelay: `${i * 180}ms` }}>{step}</span>
+                    {i < ACQUISITION_FLOW.length - 1 && (
+                      <span className="pf-chip-arrow" style={{ animationDelay: `${i * 180 + 90}ms` }}>→</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+              <p className="pf-cap">{s.cap}</p>
+            </>
+          )}
+
+          {s.type === "close" && (
+            <>
+              <span className="pf-overline">{s.overline}</span>
+              <h2 className="pf-huge">
+                <span className="pf-line">{s.l1}</span>
+                <br />
+                <span className="pf-line pf-grad" style={{ animationDelay: "180ms" }}>{s.l2}</span>
+              </h2>
+              <p className="pf-cap">{s.cap}</p>
+              <button type="button" className="btn btn-white pf-cta" onClick={onLead}>
+                Claim your free spot
+              </button>
+            </>
+          )}
+        </div>
+
+        <div className="pf-controls">
+          <button
+            type="button"
+            className="pf-ctrl"
+            onClick={toggle}
+            aria-label={playing ? "Pause promo" : "Play promo"}
+          >
+            {playing ? "❚❚" : "▶"}
+          </button>
+          <div className="pf-track" role="group" aria-label="Promo scenes">
+            {PROMO_SCENES.map((sc, i) => (
+              <button
+                key={sc.id}
+                type="button"
+                className="pf-seg"
+                aria-label={`Go to scene ${i + 1}`}
+                onClick={() => jump(i)}
+              >
+                <span
+                  className="pf-seg-fill"
+                  style={
+                    i < scene
+                      ? { width: "100%" }
+                      : i === scene
+                      ? {
+                          animation: `pfFill ${sc.dur}ms linear forwards`,
+                          animationPlayState: playing ? "running" : "paused",
+                        }
+                      : { width: "0%" }
+                  }
+                />
+              </button>
+            ))}
+          </div>
+          <button type="button" className="pf-ctrl" onClick={replay} aria-label="Replay promo">
+            ↻
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ImpactEstimator({ onLead }) {
   const [presetKey, setPresetKey] = useState(ESTIMATOR_PRESETS[0].key);
   const [redemptions, setRedemptions] = useState(ESTIMATOR_PRESETS[0].redemptions);
@@ -780,6 +1015,9 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
 
   return (
     <>
+      {/* PROMO FILM */}
+      <PromoFilm onLead={onLead} />
+
       {/* HERO */}
       <section className="hero hero--biz">
         <div className="hero-inner biz">
@@ -1844,6 +2082,110 @@ function PassStyles() {
       .est-cta { margin-top: 6px; align-self: flex-start; }
       .est-note { margin: 14px 0 0; font-size: 12px; color: ${C.ink2}; font-style: italic; line-height: 1.5; }
 
+      /* ---------- business: promo film ---------- */
+      .promo { max-width: 1120px; margin: 0 auto; padding: 20px 20px 4px; }
+      .pf-stage {
+        position: relative; overflow: hidden; border-radius: 24px;
+        aspect-ratio: 16 / 9; width: 100%;
+        background: radial-gradient(120% 120% at 50% -10%, #16233f 0%, #0a1122 55%, #060a15 100%);
+        box-shadow: 0 30px 80px rgba(6, 10, 21, 0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+        display: flex; align-items: center; justify-content: center;
+        color: #fff; text-align: center;
+      }
+      .pf-stage--static { aspect-ratio: auto; padding: 56px 24px; }
+
+      .pf-bg { position: absolute; inset: 0; z-index: 0; }
+      .pf-aurora {
+        position: absolute; width: 60%; height: 90%; border-radius: 50%;
+        filter: blur(70px); opacity: 0.55; will-change: transform;
+      }
+      .pf-aurora--a { top: -20%; left: -10%; background: radial-gradient(circle, #1f5cff, transparent 68%); animation: pfDriftA 14s ease-in-out infinite; }
+      .pf-aurora--b { bottom: -25%; right: -8%; background: radial-gradient(circle, #12b48f, transparent 68%); animation: pfDriftB 17s ease-in-out infinite; }
+      .pf-sweep {
+        position: absolute; top: -60%; left: -30%; width: 40%; height: 220%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent);
+        transform: rotate(18deg); animation: pfSweep 7s ease-in-out infinite;
+      }
+      .pf-grain {
+        position: absolute; inset: 0; opacity: 0.06; mix-blend-mode: overlay; pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      .pf-vignette { position: absolute; inset: 0; background: radial-gradient(130% 90% at 50% 45%, transparent 55%, rgba(0,0,0,0.55)); }
+
+      .pf-brand {
+        position: absolute; top: 20px; left: 24px; z-index: 3;
+        font-family: ${BODY}; font-weight: 800; font-size: 12px; letter-spacing: 0.18em;
+        text-transform: uppercase; color: rgba(255,255,255,0.72);
+      }
+      .pf-skip {
+        position: absolute; top: 16px; right: 18px; z-index: 3; border: 0; cursor: pointer;
+        background: rgba(255,255,255,0.10); color: #fff; font-family: ${BODY}; font-weight: 700;
+        font-size: 12px; letter-spacing: 0.04em; padding: 7px 13px; border-radius: 999px;
+        backdrop-filter: blur(6px); transition: background 0.2s;
+      }
+      .pf-skip:hover { background: rgba(255,255,255,0.2); }
+
+      .pf-scene {
+        position: relative; z-index: 2; width: 100%; padding: 0 8%;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+        animation: pfSceneIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+      .pf-overline {
+        font-family: ${BODY}; font-weight: 700; font-size: clamp(11px, 1.6vw, 14px);
+        letter-spacing: 0.22em; text-transform: uppercase; color: #8fb6ff;
+      }
+      .pf-huge { font-family: ${DISPLAY}; font-size: clamp(48px, 12vw, 140px); line-height: 0.94; margin: 0; letter-spacing: 0.01em; }
+      .pf-big { font-family: ${DISPLAY}; font-size: clamp(40px, 8vw, 92px); line-height: 1; }
+      .pf-grad {
+        background: linear-gradient(115deg, #8fb6ff 10%, #4cf0a0 90%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .pf-cap { font-family: ${BODY}; font-size: clamp(14px, 2.4vw, 22px); color: #d6def0; max-width: 700px; margin: 0; line-height: 1.4; }
+      .pf-note { font-family: ${BODY}; font-size: 12px; color: #8b93a6; letter-spacing: 0.04em; }
+      .pf-pop { animation: pfPop 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) both; }
+      .pf-line { display: inline-block; animation: pfLineIn 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+      .pf-duo { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 5vw, 54px); flex-wrap: wrap; }
+      .pf-duo-item { display: flex; flex-direction: column; gap: 6px; }
+      .pf-duo-l { font-family: ${BODY}; font-size: clamp(12px, 1.8vw, 16px); color: #aab4c9; letter-spacing: 0.02em; }
+      .pf-duo-x { font-family: ${DISPLAY}; font-size: clamp(30px, 6vw, 60px); color: rgba(255,255,255,0.25); }
+
+      .pf-flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+      .pf-flow-step { display: inline-flex; align-items: center; gap: 8px; }
+      .pf-chip {
+        display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+        color: #fff; font-family: ${BODY}; font-weight: 700; font-size: clamp(12px, 1.9vw, 16px);
+        padding: 9px 16px; border-radius: 999px; backdrop-filter: blur(6px);
+        animation: pfChipIn 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+      }
+      .pf-chip-arrow { color: #4cf0a0; font-size: clamp(14px, 2vw, 20px); font-weight: 700; animation: pfChipIn 0.6s ease both; }
+      .pf-cta { margin-top: 8px; }
+
+      .pf-controls {
+        position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+        display: flex; align-items: center; gap: 12px; padding: 16px 20px;
+        background: linear-gradient(0deg, rgba(6,10,21,0.6), transparent);
+      }
+      .pf-ctrl {
+        flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22);
+        background: rgba(255,255,255,0.10); color: #fff; cursor: pointer; font-size: 12px; line-height: 1;
+        display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s;
+      }
+      .pf-ctrl:hover { background: rgba(255,255,255,0.22); }
+      .pf-track { flex: 1 1 auto; display: flex; gap: 6px; }
+      .pf-seg { flex: 1 1 0; height: 4px; padding: 0; border: 0; cursor: pointer; background: rgba(255,255,255,0.2); border-radius: 999px; overflow: hidden; }
+      .pf-seg-fill { display: block; width: 0%; height: 100%; background: linear-gradient(90deg, #8fb6ff, #4cf0a0); border-radius: 999px; }
+      .pf-stage :focus-visible { outline: 2px solid #8fb6ff; outline-offset: 3px; }
+
+      @keyframes pfSceneIn { from { opacity: 0; transform: translateY(22px) scale(0.99); filter: blur(6px); } to { opacity: 1; transform: none; filter: blur(0); } }
+      @keyframes pfPop { from { opacity: 0; transform: translateY(16px) scale(0.9); } to { opacity: 1; transform: none; } }
+      @keyframes pfLineIn { from { opacity: 0; transform: translateY(120%); } to { opacity: 1; transform: none; } }
+      @keyframes pfChipIn { from { opacity: 0; transform: translateY(14px) scale(0.9); } to { opacity: 1; transform: none; } }
+      @keyframes pfFill { from { width: 0%; } to { width: 100%; } }
+      @keyframes pfDriftA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(12%, 8%) scale(1.12); } }
+      @keyframes pfDriftB { 0%,100% { transform: translate(0,0) scale(1.05); } 50% { transform: translate(-10%, -8%) scale(1); } }
+      @keyframes pfSweep { 0% { left: -40%; } 55%,100% { left: 130%; } }
+
       /* ---------- business: comparison table ---------- */
       .cmp-wrap { overflow-x: auto; border: 1px solid ${C.line}; border-radius: 18px; background: #fff; }
       .cmp { width: 100%; border-collapse: collapse; min-width: 620px; }
@@ -1974,6 +2316,8 @@ function PassStyles() {
         .dash-stats { grid-template-columns: repeat(2, 1fr); }
         .waitform { flex-direction: column; }
         .section { padding: 34px 16px 34px; }
+        .pf-stage { aspect-ratio: 3 / 4; }
+        .pf-scene { padding: 0 6%; }
       }
       @media (max-width: 420px) {
         .benefit-grid { grid-template-columns: 1fr; }
