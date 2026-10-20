@@ -353,7 +353,7 @@ export default function MediaKitPage() {
             Discover Milwaukee is the city&apos;s most-followed independent local platform. For brands — local or national — it&apos;s the fastest way into an engaged, ready-to-spend Milwaukee audience.
           </p>
           <Link
-            href="/partner?apply=1"
+            href="/partner"
             style={{ display: "inline-block", padding: "16px 40px", backgroundColor: c.green1, color: c.cream, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "16px", textTransform: "uppercase", letterSpacing: "1px" }}
           >
             Start a Partnership →
@@ -455,7 +455,7 @@ export default function MediaKitPage() {
           ) : (
             <p style={{ color: c.tan, fontSize: "15px", margin: 0 }}>
               From neighborhood gems to household names — see the full roster on our{" "}
-              <Link href="/partner?apply=1" style={{ color: c.blue2, fontWeight: 600 }}>partner page</Link>.
+              <Link href="/partner" style={{ color: c.blue2, fontWeight: 600 }}>partner page</Link>.
             </p>
           )}
         </div>
@@ -619,7 +619,7 @@ export default function MediaKitPage() {
             Tell us your goals and budget in the intake form — we&apos;ll come back with a tailored recommendation.
           </p>
           <Link
-            href="/partner?apply=1"
+            href="/partner"
             style={{ display: "inline-block", padding: "18px 44px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "17px", textTransform: "uppercase", letterSpacing: "1px" }}
           >
             Start a Partnership →
