@@ -2191,7 +2191,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
   }, []);
   
   // Partner Intake Form state
-  const [showPartnerForm, setShowPartnerForm] = useState(false);
+  // /partner opens straight into the intake form (the pitch view stays reachable via "Back to Partner Info")
+  const [showPartnerForm, setShowPartnerForm] = useState(initialPage === "partner");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   // Deep-link: /partner?apply=1 opens the intake form directly (media-kit & article CTAs)
@@ -2208,7 +2209,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
     if (page === "partner") trackEvent("partner_page_view", { via: router.query.apply ? "deep_link" : "nav" });
   }, [page]);
   useEffect(() => {
-    if (showPartnerForm) trackEvent("partner_form_opened", { via: router.query.apply ? "deep_link" : "cta" });
+    if (showPartnerForm) trackEvent("partner_form_opened", { via: router.query.apply ? "deep_link" : "direct" });
   }, [showPartnerForm]);
   const [partnerForm, setPartnerForm] = useState({
     fullName: "",
@@ -2402,7 +2403,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
     setPage(p.toLowerCase());
     setSelectedEvent(null);
     setSelectedPost(null);
-    setShowPartnerForm(false);
+    setShowPartnerForm(p.toLowerCase() === "partner");
     setFormSubmitted(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
