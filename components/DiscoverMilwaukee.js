@@ -6,6 +6,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { GUIDE_CATEGORIES } from "../lib/guides";
+import { trackEvent } from "../lib/analytics";
 import Nav from "./Nav";
 
 // Display typeface for home-page headlines (loaded in _document.js). Falls back
@@ -2199,6 +2200,16 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       setShowPartnerForm(true);
     }
   }, [router.query.apply, page]);
+
+  // Partner funnel analytics: page viewed -> form opened -> form submitted.
+  // (The SPA swaps views client-side without always changing the URL, so a
+  // plain pageview can undercount /partner; these custom events are the source of truth.)
+  useEffect(() => {
+    if (page === "partner") trackEvent("partner_page_view", { via: router.query.apply ? "deep_link" : "nav" });
+  }, [page]);
+  useEffect(() => {
+    if (showPartnerForm) trackEvent("partner_form_opened", { via: router.query.apply ? "deep_link" : "cta" });
+  }, [showPartnerForm]);
   const [partnerForm, setPartnerForm] = useState({
     fullName: "",
     emailAddress: "",
@@ -2362,10 +2373,17 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       
       if (response.ok) {
         setFormSubmitted(true);
+        trackEvent("partner_form_submitted", {
+          budget: partnerForm.budget ? Number(partnerForm.budget) : 0,
+          interests: partnerForm.partnershipInterest.length,
+          heardAbout: partnerForm.heardAbout || "unspecified"
+        });
       } else {
+        trackEvent("partner_form_error", { status: response.status });
         alert("There was an error submitting the form. Please try again.");
       }
     } catch (error) {
+      trackEvent("partner_form_error", { status: "network" });
       alert("There was an error submitting the form. Please try again.");
     }
   };

@@ -3,13 +3,17 @@ import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Analytics } from '@vercel/analytics/react';
 
 // =============================================================================
 // ANALYTICS CONFIGURATION
-// TODO: Replace with your actual Google Analytics 4 Measurement ID
-// Get yours at: https://analytics.google.com/ -> Admin -> Data Streams -> Web
+// - Vercel Web Analytics: always on (enabled on the Vercel project; no key needed)
+// - Microsoft Clarity: heatmaps / scroll maps / recordings. Set NEXT_PUBLIC_CLARITY_ID
+//   (Vercel -> Project -> Settings -> Environment Variables) to turn on.
+// - Google Analytics 4: optional. Set NEXT_PUBLIC_GA_ID to turn on.
 // =============================================================================
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || '';
 
 // =============================================================================
 // GLOBAL SEO STRUCTURED DATA
@@ -172,7 +176,23 @@ export default function App({ Component, pageProps }) {
         </>
       )}
 
+      {/* Microsoft Clarity - heatmaps, scroll maps, session recordings */}
+      {CLARITY_ID && (
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${CLARITY_ID}");
+          `}
+        </Script>
+      )}
+
       <Component {...pageProps} />
+
+      {/* Vercel Web Analytics - page views + custom events (see lib/analytics.js) */}
+      <Analytics />
     </>
   );
 }
