@@ -2208,6 +2208,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
     partnershipInterest: [],
     notes: "",
     heardAbout: "",
+    heardAboutDetail: "",
     city: ""
   });
 
@@ -2353,6 +2354,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           budget: partnerForm.budget ? `$${Number(partnerForm.budget).toLocaleString("en-US")}` : "Not provided",
           partnershipInterest: partnerForm.partnershipInterest.length > 0 ? partnerForm.partnershipInterest.join(", ") : "None selected",
           heardAbout: partnerForm.heardAbout || "Not specified",
+          heardAboutDetail: partnerForm.heardAbout && partnerForm.heardAboutDetail ? partnerForm.heardAboutDetail : "Not provided",
           city: partnerForm.city || "Not specified",
           notes: partnerForm.notes || "Not provided"
         })
@@ -4333,8 +4335,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <div>
                         <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>How did you hear about Discover Milwaukee?</label>
-                        <select value={partnerForm.heardAbout} onChange={(e) => handlePartnerFormChange("heardAbout", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
+                        <select value={partnerForm.heardAbout} onChange={(e) => setPartnerForm(prev => ({ ...prev, heardAbout: e.target.value, heardAboutDetail: "" }))} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
                           <option value="">Select option</option>
+                          <option value="Google">Google</option>
                           <option value="Instagram">Instagram</option>
                           <option value="Facebook">Facebook</option>
                           <option value="TikTok">TikTok</option>
@@ -4343,6 +4346,26 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           <option value="Other">Other</option>
                         </select>
                       </div>
+
+                      {partnerForm.heardAbout && (() => {
+                        const src = partnerForm.heardAbout;
+                        const isSocial = src === "Instagram" || src === "Facebook" || src === "TikTok";
+                        const followUp = isSocial
+                          ? { label: `Was there a specific ${src} post that brought you here?`, placeholder: "Paste the post link, or describe it (e.g. \"the best patios reel\")" }
+                          : src === "Google"
+                          ? { label: "What did you search for?", placeholder: "e.g. \"Milwaukee influencer marketing\"" }
+                          : src === "Referral"
+                          ? { label: "Who referred you?", placeholder: "A name or business is plenty" }
+                          : src === "Past partnership"
+                          ? { label: "Which past partnership?", placeholder: "e.g. a campaign, event, or year" }
+                          : { label: "Tell us a bit more", placeholder: "Where did you come across us?" };
+                        return (
+                          <div style={{ paddingLeft: "16px", borderLeft: `3px solid ${c.beige}` }}>
+                            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>{followUp.label} <span style={{ color: c.tan, fontWeight: "400" }}>(optional)</span></label>
+                            <input type="text" value={partnerForm.heardAboutDetail} onChange={(e) => handlePartnerFormChange("heardAboutDetail", e.target.value)} placeholder={followUp.placeholder} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                          </div>
+                        );
+                      })()}
                       
                       <div>
                         <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>City or primary location</label>
