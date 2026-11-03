@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { GUIDE_CATEGORIES } from "../lib/guides";
 import { trackEvent } from "../lib/analytics";
+import { mergeExtras } from "../lib/partnerExtras";
 import Nav from "./Nav";
 
 // Display typeface for home-page headlines (loaded in _document.js). Falls back
@@ -2260,11 +2261,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         const text = await response.text();
         const parsedPartners = parsePartnersData(text);
         
-        if (parsedPartners && parsedPartners.length > 0) {
-          // Sort by order field
-          parsedPartners.sort((a, b) => a.order - b.order);
-          setPartners(parsedPartners);
-          console.log(`Loaded ${parsedPartners.length} partners from Google Sheets`);
+        const mergedPartners = mergeExtras(parsedPartners || []);
+        if (mergedPartners.length > 0) {
+          setPartners(mergedPartners);
+          console.log(`Loaded ${mergedPartners.length} partners (sheet + code extras)`);
         }
       } catch (error) {
         console.error("Failed to fetch partners from Google Sheets:", error);
