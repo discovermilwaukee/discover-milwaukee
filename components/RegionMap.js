@@ -3,7 +3,7 @@ import { COUNTIES, VIEWBOX, project } from "../lib/regionMapData";
 
 // Category colors + display order for the legend/dots. Keyed by the guide's
 // section ids so a dot's color follows its section.
-const CATEGORY = {
+const DEFAULT_CATEGORY = {
   "apple-orchards": { label: "Apple Orchards", color: "#C0392B" },
   "pumpkin-patches": { label: "Pumpkin Patches", color: "#E67E22" },
   "haunted-houses": { label: "Haunted Houses", color: "#6C3483" },
@@ -11,7 +11,6 @@ const CATEGORY = {
   "food-drink": { label: "Food & Drink", color: "#1F7A4D" },
   "day-trips": { label: "Day Trips", color: "#0B77BD" },
 };
-const ORDER = Object.keys(CATEGORY);
 
 const c = { green1: "#2C5235", cream: "#F7F1E7", beige: "#EBDFC1", ink: "#20291F", tan: "#9E7F4B" };
 const BODY = "'Jost', system-ui, -apple-system, sans-serif";
@@ -74,7 +73,10 @@ function arrowFor(dx, dy) {
   return ARROWS[Math.round(a / 45) % 8];
 }
 
-export default function RegionMap({ items = [] }) {
+export default function RegionMap({ items = [], categories }) {
+  // `categories` lets seasonal guides pass their own section→{label,color} map; defaults to the fall set.
+  const CATEGORY = categories || DEFAULT_CATEGORY;
+  const ORDER = Object.keys(CATEGORY);
   const [hovered, setHovered] = useState(null); // dot slug (mouse/focus)
   const [pinned, setPinned] = useState(null); // dot slug (tap)
   const [hoveredCounty, setHoveredCounty] = useState(null); // county name (mouse/focus)
