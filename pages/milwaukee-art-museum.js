@@ -309,14 +309,14 @@ export default function MilwaukeeArtMuseum() {
   return (
     <>
       <Head>
-        <title>Milwaukee Art Museum 2026 Guide | Hours, Calatrava Wings</title>
-        <meta name="description" content="Milwaukee Art Museum 2026: verified hours, tickets, exhibits, Calatrava Brise Soleil times, Lakeshore Café, parking, and June 12–14 Lakefront Festival." />
+        <title>Milwaukee Art Museum Tickets, Hours & Parking (2026 Guide)</title>
+        <meta name="description" content="Milwaukee Art Museum tickets ($27 adults, kids 12 & under free, free Thursdays 4–8 p.m.), hours (closed Tuesdays), Calatrava wings schedule, parking, café and exhibits." />
         <meta name="keywords" content="milwaukee art museum, MAM milwaukee, calatrava wings milwaukee, burke brise soleil, milwaukee art museum hours, milwaukee art museum tickets, milwaukee art museum admission, quadracci pavilion, lakefront festival of art 2026, cafe calatrava, lakeshore cafe, milwaukee museums, things to do milwaukee" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/milwaukee-art-museum" />
 
         <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
-        <meta property="og:title" content="Milwaukee Art Museum 2026 Guide | Hours, Calatrava Wings" key="og:title" />
-        <meta property="og:description" content="Verified 2026 visitor guide to the Milwaukee Art Museum — hours, tickets, Brise Soleil flap times, exhibitions, parking, and the June 12–14 Lakefront Festival of Art." key="og:description" />
+        <meta property="og:title" content="Milwaukee Art Museum Tickets, Hours & Parking (2026 Guide)" key="og:title" />
+        <meta property="og:description" content="Verified visitor guide to the Milwaukee Art Museum — ticket prices, free Thursday evenings, hours, Brise Soleil flap times, parking, café and exhibitions." key="og:description" />
         <meta property="og:url" content="https://www.discover-milwaukee.com/milwaukee-art-museum" key="og:url" />
         <meta property="og:type" content="article" key="og:type" />
         <meta property="og:image" content="https://www.discover-milwaukee.com/images/milwaukee-art-museum-og.svg" key="og:image" />
@@ -324,13 +324,13 @@ export default function MilwaukeeArtMuseum() {
         <meta property="og:image:height" content="630" key="og:image:height" />
         <meta property="og:image:alt" content="Milwaukee Art Museum — Calatrava wings, 30,000 works, lakefront icon. Verified 2026 visitor guide." key="og:image:alt" />
         <meta property="article:published_time" content="2026-06-07T00:00:00-05:00" key="article:published_time" />
-        <meta property="article:modified_time" content="2026-06-07T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:modified_time" content="2026-11-02T00:00:00-06:00" key="article:modified_time" />
         <meta property="article:author" content="Discover Milwaukee" key="article:author" />
         <meta property="article:section" content="Museums & Attractions" key="article:section" />
 
         <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
-        <meta name="twitter:title" content="Milwaukee Art Museum 2026 Guide | Hours, Calatrava Wings" key="twitter:title" />
-        <meta name="twitter:description" content="Verified 2026 visitor guide — hours, tickets, Brise Soleil flap times, exhibitions, parking, and the Lakefront Festival of Art." key="twitter:description" />
+        <meta name="twitter:title" content="Milwaukee Art Museum Tickets, Hours & Parking (2026 Guide)" key="twitter:title" />
+        <meta name="twitter:description" content="Ticket prices, free Thursday evenings, hours, Brise Soleil flap times, parking, café and exhibitions — verified against mam.org." key="twitter:description" />
         <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/milwaukee-art-museum-og.svg" key="twitter:image" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.museum) }} />
@@ -345,10 +345,10 @@ export default function MilwaukeeArtMuseum() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 7, 2026 · VERIFIED AGAINST MAM.ORG</p>
-            <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>The Milwaukee Art Museum</h1>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 2, 2026 · VERIFIED AGAINST MAM.ORG</p>
+            <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Milwaukee Art Museum: Tickets, Hours & Parking</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
-              The definitive 2026 visitor guide to <strong>MAM</strong> — Santiago Calatrava's lakefront icon, the <strong>Burke Brise Soleil</strong> wings, 30,000+ works across three landmark buildings, and the <strong>Lakefront Festival of Art (June 12–14)</strong>. Hours, tickets, flap times, parking, café, and exhibitions, all audited against mam.org in June 2026.
+              The definitive visitor guide to <strong>MAM</strong> — Santiago Calatrava's lakefront icon, the <strong>Burke Brise Soleil</strong> wings, 30,000+ works across three landmark buildings, and the annual <strong>Lakefront Festival of Art</strong> each June. Hours, tickets, flap times, parking, café, and exhibitions, audited against mam.org.
             </p>
           </div>
         </header>
@@ -364,18 +364,8 @@ export default function MilwaukeeArtMuseum() {
         </nav>
 
         <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
-          <NewsletterCTA />
-
-
-          <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
-            <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Heads up:</strong> MAM is closed <strong>Tuesdays</strong> (not Mondays — a common mix-up with other Milwaukee museums). The Burke Brise Soleil only flaps when winds are under ~23 mph sustained — high-wind days, the wings stay locked closed for safety. Call (414) 224-3200 the morning of your visit if conditions look gusty.
-            </p>
-          </div>
-
-
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Quick Answers: Tickets, Hours & Wings</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
               <dd style={{ color: "#444", margin: 0 }}>Milwaukee Art Museum</dd>
@@ -396,6 +386,14 @@ export default function MilwaukeeArtMuseum() {
               Cross-reference verified <time dateTime="2026-06-08">2026-06-08</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
+
+          <NewsletterCTA />
+
+          <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
+            <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
+              <strong>Heads up:</strong> MAM is closed <strong>Tuesdays</strong> (not Mondays — a common mix-up with other Milwaukee museums). The Burke Brise Soleil only flaps when winds are under ~23 mph sustained — high-wind days, the wings stay locked closed for safety. Call (414) 224-3200 the morning of your visit if conditions look gusty.
+            </p>
+          </div>
 
           <section id="photos" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px" }}>

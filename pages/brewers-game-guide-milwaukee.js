@@ -150,12 +150,12 @@ const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#key-facts", "#faq"] },
-    headline: "Milwaukee Brewers Game Day Guide 2026: Parking, Food, Bars & Tips",
-    description: "The complete 2026 Milwaukee Brewers game-day guide — American Family Field parking prices, tailgating, food, bars with shuttles, the Sausage Race, family tips and FAQs.",
+    headline: "Brewers Game Day: Gates Open, Parking Times & Prices (2026)",
+    description: "When gates and parking lots open at American Family Field, 2026 parking prices, free shuttle bars, tailgating rules, bag policy, food, the Sausage Race, family tips and FAQs.",
     author: { "@type": "Organization", name: "Discover Milwaukee", url: "https://www.discover-milwaukee.com" },
     publisher: { "@type": "Organization", name: "Discover Milwaukee" },
     datePublished: "2026-06-04",
-    dateModified: "2026-06-05",
+    dateModified: "2026-11-02",
     mainEntityOfPage: "https://www.discover-milwaukee.com/brewers-game-guide-milwaukee",
     image: "https://www.discover-milwaukee.com/images/brewers-game-guide-og.svg",
   },
@@ -234,14 +234,14 @@ export default function BrewersGameGuideMilwaukee() {
   return (
     <>
       <Head>
-        <title>Milwaukee Brewers Game Day Guide 2026: Parking, Food & Tips</title>
-        <meta name="description" content="The 2026 Milwaukee Brewers game-day guide: American Family Field parking prices, tailgating, food, bars with shuttles, the Sausage Race & family tips." />
+        <title>Brewers Game Day: Gates Open, Parking Times & Prices (2026)</title>
+        <meta name="description" content="When gates and parking lots open at American Family Field, 2026 parking prices ($15–$40), free shuttle bars, tailgating rules, bag policy, food and the Sausage Race." />
         <meta name="keywords" content="brewers game guide milwaukee, american family field parking, milwaukee brewers tickets, brewers parking, bars near american family field, brewers shuttle, miller park parking, brewers tailgating" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/brewers-game-guide-milwaukee" />
 
         <meta property="og:site_name" content="Discover Milwaukee" key="og:site_name" />
-        <meta property="og:title" content="Milwaukee Brewers Game Day Guide 2026: Parking, Food & Tips" key="og:title" />
-        <meta property="og:description" content="Everything for a Brewers game at American Family Field — 2026 parking prices, tailgating, food, bars with shuttles, and the Sausage Race." key="og:description" />
+        <meta property="og:title" content="Brewers Game Day: Gates Open, Parking Times & Prices (2026)" key="og:title" />
+        <meta property="og:description" content="Gates open 90 minutes before first pitch, lots open 3 hours before. 2026 parking prices, shuttle bars, tailgating rules, food and the Sausage Race." key="og:description" />
         <meta property="og:url" content="https://www.discover-milwaukee.com/brewers-game-guide-milwaukee" key="og:url" />
         <meta property="og:type" content="article" key="og:type" />
         <meta property="og:image" content="https://www.discover-milwaukee.com/images/brewers-game-guide-og.svg" key="og:image" />
@@ -249,7 +249,7 @@ export default function BrewersGameGuideMilwaukee() {
         <meta property="og:image:height" content="630" key="og:image:height" />
         <meta property="og:image:alt" content="Milwaukee Brewers Game Day Guide 2026 — Parking, Food & Tips at American Family Field." key="og:image:alt" />
         <meta property="article:published_time" content="2026-06-04T00:00:00-05:00" key="article:published_time" />
-        <meta property="article:modified_time" content="2026-06-05T00:00:00-05:00" key="article:modified_time" />
+        <meta property="article:modified_time" content="2026-11-02T00:00:00-06:00" key="article:modified_time" />
         <meta property="article:author" content="Discover Milwaukee" key="article:author" />
         <meta property="article:section" content="Sports" key="article:section" />
 
@@ -271,7 +271,7 @@ export default function BrewersGameGuideMilwaukee() {
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · 2026 SEASON GUIDE</p>
+            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 2, 2026 · 2026 SEASON GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Milwaukee Brewers Game Day Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               <strong>Everything you need for a Brewers game at American Family Field</strong> — 2026 parking, tailgating, food, the bars locals shuttle from, and what to know about the Sausage Race.
@@ -299,31 +299,36 @@ export default function BrewersGameGuideMilwaukee() {
         </nav>
 
         <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
-          <NewsletterCTA />
+          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
+            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Quick Answers: Gates, Parking & Prices</h2>
+            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Gates open</dt>
+              <dd style={{ color: "#444", margin: 0 }}><strong>90 minutes before first pitch.</strong> Bernie&apos;s Slide Experience and the Selig Experience are worth getting in early for.</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Parking lots open</dt>
+              <dd style={{ color: "#444", margin: 0 }}><strong>3 hours before first pitch</strong> for most games; <strong>2.5 hours</strong> for weekday 6:15 / 6:40 p.m. starts. Tailgating must wrap up 30 minutes after first pitch.</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Parking prices (advance)</dt>
+              <dd style={{ color: "#444", margin: 0 }}>General: $15 Mon–Thu · $20 Fri–Sun · $30 Opening Day. Preferred: $25 / $30 / $40. Cubs games use the weekend tier. Drive-up is $5–$10 more.</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Free shuttle bars</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Kelly&apos;s Bleachers, McGinn&apos;s and Jackson&apos;s Blue Ribbon Pub on Bluemound; Steny&apos;s Tavern in Walker&apos;s Point (first shuttle 1 hour before first pitch).</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Bag policy</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Clear bags up to 12&quot; × 12&quot; × 6&quot;, small non-clear bags up to 9&quot; × 5&quot; × 2&quot;. No backpacks (diaper bags excepted).</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Outside food</dt>
+              <dd style={{ color: "#444", margin: 0 }}>Personal-sized food is allowed, plus sealed non-alcoholic drinks of 32 oz or less. No glass, cans or alcohol.</dd>
+              <dt style={{ color: c.green1, fontWeight: "700" }}>Address · Capacity</dt>
+              <dd style={{ color: "#444", margin: 0 }}>1 Brewers Way, Milwaukee, WI 53214 · 41,900 seats</dd>
+            </dl>
+            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+              Policies and prices are from the 2026 season (verified <time dateTime="2026-06-10">June 10, 2026</time> against the Brewers&apos; ballpark pages). Re-confirm before the 2027 home opener.
+            </p>
+          </section>
 
+          <NewsletterCTA />
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
               <strong>Heads up:</strong> Parking prices, shuttle bars, and theme nights shift through the season. Confirm with the Brewers and your shuttle bar before you go. Cubs games always run at the higher weekend parking tier.
             </p>
-          </div>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
-            <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
-              <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
-              <dd style={{ color: "#444", margin: 0 }}>Milwaukee Brewers Game Day Guide</dd>
-              <dt style={{ color: c.green1, fontWeight: "700" }}>Featured</dt>
-              <dd style={{ color: "#444", margin: 0 }}>8 game day verified across Milwaukee</dd>
-              <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
-              <dd style={{ color: "#444", margin: 0 }}>Standing Room / Cheapest, Terrace Reserved, Loge Outfield / Bleachers, Field Outfield / Field Box, Field Infield / Diamond Box</dd>
-              <dt style={{ color: c.green1, fontWeight: "700" }}>Coverage</dt>
-              <dd style={{ color: "#444", margin: 0 }}>Spans multiple Milwaukee neighborhoods — see body for details</dd>
-              <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
-              <dd style={{ color: "#444", margin: 0 }}>Game day in Milwaukee</dd>
-            </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
-              Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
-            </p>
-          </section>
+          </div>
 
 
 
