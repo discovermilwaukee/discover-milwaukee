@@ -85,6 +85,13 @@ const REELS = [
     ],
   },
   {
+    group: "Storytelling",
+    items: [
+      { src: "/reels/brewers-world-series-run.mp4", title: "Brewers: Road to the World Series", views: 1100000 },
+      { src: "/reels/brewers-world-series-champions.mp4", title: "Brewers: World Series Champions", views: 350000 },
+    ],
+  },
+  {
     group: "Series",
     items: [
       { src: "/reels/this-weekend-in-milwaukee.mp4", title: "This Weekend in Milwaukee", views: 160000 },
