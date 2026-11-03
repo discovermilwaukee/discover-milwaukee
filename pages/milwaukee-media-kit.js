@@ -79,6 +79,7 @@ const REELS = [
     items: [
       { src: "/reels/red-bull.mp4", title: "Red Bull", views: 111000 },
       { src: "/reels/sunnyd-seltzers.mp4", title: "SunnyD Seltzers", views: 40000 },
+      { src: "/reels/fox-one.mp4", title: "FOX One", views: 40000 },
       { src: "/reels/daylenes-supper-club.mp4", title: "Daylene’s Supper Club", views: 119000 },
       { src: "/reels/oak-creek-grand-opening.mp4", title: "Grand Opening · Oak Creek", views: 106000 },
     ],
