@@ -415,8 +415,8 @@ export default function BestRamenMilwaukee() {
               <Link href="/best-thai-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Best Thai Food →
               </Link>
-              <Link href="/best-asian-food-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Asian Cuisine →
+              <Link href="/best-sushi-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+                Best Sushi →
               </Link>
             </div>
           </section>

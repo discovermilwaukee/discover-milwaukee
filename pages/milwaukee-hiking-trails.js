@@ -513,8 +513,8 @@ export default function MilwaukeeHikingTrails() {
               <Link href="/free-things-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Free Things to Do →
               </Link>
-              <Link href="/milwaukee-beaches" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Beaches Guide →
+              <Link href="/milwaukee-waterfront" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+                Waterfront Guide →
               </Link>
             </div>
           </section>
