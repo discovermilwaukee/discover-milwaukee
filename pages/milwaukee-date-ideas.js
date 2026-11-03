@@ -1026,6 +1026,12 @@ export default function MilwaukeeDateIdeas() {
                 <Link href="/things-to-do-milwaukee" style={{ color: colors.orange }}>
                   complete things to do guide
                 </Link>
+                <Link href="/new-years-eve-milwaukee" style={{ color: colors.orange }}>
+                  New Year's Eve →
+                </Link>
+                <Link href="/winter-guide-milwaukee" style={{ color: colors.orange }}>
+                  Winter Date Ideas →
+                </Link>
                 .
               </p>
             </div>

@@ -558,6 +558,12 @@ export default function ThingsToDoWithKidsMilwaukee() {
               <Link href="/rainy-day-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Rainy Day Fun →
               </Link>
+              <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+                Ice Skating →
+              </Link>
+              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+                Christmas Events →
+              </Link>
               <Link href="/milwaukee-festivals" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Festivals →
               </Link>
