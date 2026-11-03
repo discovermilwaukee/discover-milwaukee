@@ -51,6 +51,13 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        // Retired 2026-11-02: the hand-edited weekend page went stale (last update April 2026).
+        // The live events calendar is the canonical "what's happening" surface.
+        source: '/this-weekend-milwaukee',
+        destination: '/events',
+        permanent: true,
+      },
     ];
   },
   
