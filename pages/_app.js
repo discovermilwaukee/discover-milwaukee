@@ -139,7 +139,7 @@ export default function App({ Component, pageProps }) {
         <meta property="og:image:alt" content="Discover Milwaukee - Your Guide to MKE" key="og:image:alt" />
 
         {/* Favicon defaults */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
 
         {/* Global Structured Data */}
         <script
