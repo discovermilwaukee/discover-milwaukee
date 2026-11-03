@@ -24,15 +24,15 @@ const c = {
 
 const HEADLINE_STATS = [
   { v: "37.1M", l: "Views in 2025" },
-  { v: "235K+", l: "Followers" },
+  { v: "254K+", l: "Followers" },
   { v: "79.2%", l: "Aged 18–44" },
   { v: "#38", l: "U.S. media market" },
 ];
 
 const FOLLOWERS = [
-  { n: "Instagram", v: "151K" },
-  { n: "Facebook", v: "41K" },
-  { n: "TikTok", v: "43K" },
+  { n: "Instagram", v: "157K" },
+  { n: "Facebook", v: "50K" },
+  { n: "TikTok", v: "47K" },
 ];
 
 const VIEWS = [
@@ -150,7 +150,7 @@ const faqSchema = {
       name: "What is in the Discover Milwaukee media kit?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Audience reach and demographics, per-platform following (Instagram, TikTok, Facebook), partnership package types, content formats, and the brands we have worked with. Discover Milwaukee reached 37.1 million views in 2025 with 235,000+ followers, 79.2% aged 18–44.",
+        text: "Audience reach and demographics, per-platform following (Instagram, TikTok, Facebook), partnership package types, content formats, and the brands we have worked with. Discover Milwaukee reached 37.1 million views in 2025 with 254,000+ followers, 79.2% aged 18–44.",
       },
     },
     {
@@ -158,7 +158,7 @@ const faqSchema = {
       name: "How big is Discover Milwaukee's following?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "235,000+ followers across Instagram (151K), Facebook (41K), and TikTok (43K), reaching 37.1 million views in 2025.",
+        text: "254,000+ followers across Instagram (157K), Facebook (50K), and TikTok (47K), reaching 37.1 million views in 2025.",
       },
     },
     {
@@ -203,7 +203,7 @@ const serviceSchema = {
   serviceType: "Influencer marketing, sponsored content and advertising",
   url: `${SITE}/milwaukee-media-kit`,
   description:
-    "Media kit for brands and agencies: 37.1M annual views, 235K+ followers across Instagram, TikTok and Facebook, 79.2% aged 18–44. Sponsored content, influencer marketing and event partnerships in the Milwaukee market.",
+    "Media kit for brands and agencies: 37.1M annual views, 254K+ followers across Instagram, TikTok and Facebook, 79.2% aged 18–44. Sponsored content, influencer marketing and event partnerships in the Milwaukee market.",
   provider: {
     "@type": "Organization",
     name: "Discover Milwaukee",
@@ -327,7 +327,7 @@ export default function MediaKitPage() {
         <title>Milwaukee Media Kit | Advertising & Marketing in Milwaukee, WI</title>
         <meta
           name="description"
-          content="Discover Milwaukee's media kit for brands & agencies: 37.1M annual views, 235K+ followers across Instagram, TikTok & Facebook, 79% aged 18–44. Advertising, influencer marketing, sponsored content & event partnerships across Milwaukee and Wisconsin."
+          content="Discover Milwaukee's media kit for brands & agencies: 37.1M annual views, 254K+ followers across Instagram, TikTok & Facebook, 79% aged 18–44. Advertising, influencer marketing, sponsored content & event partnerships across Milwaukee and Wisconsin."
         />
         <meta name="keywords" content="advertising in Milwaukee, marketing in Milwaukee, Milwaukee media kit, Milwaukee influencer marketing, Wisconsin advertising, Milwaukee advertising, how to advertise in Milwaukee" />
         <link rel="canonical" href={`${SITE}/milwaukee-media-kit`} />
@@ -335,7 +335,7 @@ export default function MediaKitPage() {
         <meta property="og:title" content="Milwaukee Media Kit | Advertise With Discover Milwaukee" />
         <meta
           property="og:description"
-          content="37.1M annual views. 235K+ followers. 79% aged 18–44. Reach the Milwaukee market through the city's most trusted local platform."
+          content="37.1M annual views. 254K+ followers. 79% aged 18–44. Reach the Milwaukee market through the city's most trusted local platform."
         />
         <meta property="og:url" content={`${SITE}/milwaukee-media-kit`} />
         <meta property="og:image" content={`${SITE}/logo.png`} />
@@ -404,7 +404,7 @@ export default function MediaKitPage() {
             ))}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "14px 0 0" }}>
               <span style={{ fontSize: "15px", fontWeight: 700, color: c.green1 }}>Total</span>
-              <span style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "30px", color: c.green1 }}>235K+</span>
+              <span style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "30px", color: c.green1 }}>254K+</span>
             </div>
           </div>
 
