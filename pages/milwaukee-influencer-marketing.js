@@ -12,12 +12,12 @@ const BODY = "'Jost', system-ui, -apple-system, sans-serif";
 const c = {
   green1: "#2C5235",
   green2: "#547F4B",
-  blue2: "#0B77BD",
+  blue2: "#0B77BD", blue2Dark: "#0A71B3",
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -140,15 +140,16 @@ export default function MilwaukeeInfluencerMarketing() {
       <Nav />
 
       {/* HERO */}
+      <main id="main-content" tabIndex={-1}>
       <header style={{ backgroundColor: c.cream, padding: "64px 16px 40px", borderBottom: `3px solid ${c.yellow}` }}>
         <div style={{ maxWidth: "760px", margin: "0 auto" }}>
-          <p style={{ color: c.orange, fontSize: "13px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 14px" }}>
+          <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 14px" }}>
             For Brands & Agencies
           </p>
           <h1 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(34px, 6vw, 60px)", lineHeight: 1.04, textTransform: "uppercase", color: c.green1, letterSpacing: "0.5px", margin: "0 0 18px" }}>
             Milwaukee Influencer Marketing
           </h1>
-          <p style={{ color: c.blue2, fontSize: "clamp(17px, 2.4vw, 21px)", fontWeight: 600, lineHeight: 1.5, margin: 0 }}>
+          <p style={{ color: c.blue2Dark, fontSize: "clamp(17px, 2.4vw, 21px)", fontWeight: 600, lineHeight: 1.5, margin: 0 }}>
             How local and national brands reach the Milwaukee market — and why a trusted local voice does it better than a national ad buy.
           </p>
         </div>
@@ -161,7 +162,7 @@ export default function MilwaukeeInfluencerMarketing() {
             <div key={s.l} style={{ textAlign: "center" }}>
               <div style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(30px, 4.5vw, 46px)", color: c.yellow, lineHeight: 1 }}>{s.v}</div>
               <div style={{ color: c.beige, fontSize: "13px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.5px", marginTop: "8px" }}>{s.l}</div>
-              <div style={{ color: c.green2, fontSize: "11px", marginTop: "4px" }}>{s.src}</div>
+              <div style={{ color: "#A2C49B", fontSize: "11px", marginTop: "4px" }}>{s.src}</div>
             </div>
           ))}
         </div>
@@ -199,13 +200,13 @@ export default function MilwaukeeInfluencerMarketing() {
         </P>
         <P>
           For a running list of who is creating in this market, see our{" "}
-          <Link href="/milwaukee-influencers" style={{ color: c.blue2, fontWeight: 600 }}>ranked guide to Milwaukee influencers and creators</Link>.
+          <Link href="/milwaukee-influencers" style={{ color: c.blue2Dark, fontWeight: 600 }}>ranked guide to Milwaukee influencers and creators</Link>.
         </P>
 
         <H2>Working with Discover Milwaukee</H2>
         <P>
           Discover Milwaukee is the city&apos;s most-followed independent local platform, built by two Milwaukee natives since 2018. It reaches 37.1 million views a year across Instagram, TikTok, and Facebook, with 235,000+ followers and an audience that is 79.2% aged 18–44 — the young professionals, couples, and friend groups who fill rooms and tabs across the city. You can read more{" "}
-          <Link href="/about" style={{ color: c.blue2, fontWeight: 600 }}>about who we are</Link>.
+          <Link href="/about" style={{ color: c.blue2Dark, fontWeight: 600 }}>about who we are</Link>.
         </P>
 
         {/* FAQ */}
@@ -226,7 +227,7 @@ export default function MilwaukeeInfluencerMarketing() {
             Tell us your goals in the partner intake form — or view the full media kit first.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "14px" }}>
-            <Link href="/partner?apply=1" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
+            <Link href="/partner?apply=1" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
               Start a Partnership →
             </Link>
             <Link href="/milwaukee-media-kit" style={{ display: "inline-block", padding: "15px 32px", backgroundColor: "transparent", color: c.cream, border: `2px solid ${c.yellow}`, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "15px", textTransform: "uppercase", letterSpacing: "1px" }}>
@@ -235,12 +236,13 @@ export default function MilwaukeeInfluencerMarketing() {
           </div>
         </div>
 
-        <p style={{ color: c.tan, fontSize: "13px", lineHeight: 1.6, marginTop: "28px" }}>
+        <p style={{ color: c.tanDark, fontSize: "13px", lineHeight: 1.6, marginTop: "28px" }}>
           Sources: U.S. Census Bureau (2024 population, income, and age estimates); Nielsen DMA rankings (2024–25); VISIT Milwaukee (2024 tourism economic impact); Influencer Marketing Hub (2025 Benchmark Report). Audience figures are Discover Milwaukee&apos;s own 2025 analytics.
         </p>
       </article>
 
       <NewsletterCTA />
+      </main>
       <Footer />
     </div>
   );

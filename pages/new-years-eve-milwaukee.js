@@ -22,8 +22,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -47,7 +47,8 @@ const MAP_CATEGORIES = {"parties": {"label": "NYE Parties & Galas", "color": "#6
 const MAP_EXCLUDE = ["logistics"];
 
 const timeline = [{"period": "Dec 31 — morning & midday", "items": ["Betty Brinn 'New Year's Eve at Noon' (2025: 9 a.m.–2 p.m., ball drop at 12) — tickets sell out weeks ahead", "Potawatomi 'Noon Year's Eve' prize drawings (2025: 10:30 a.m.–1:30 p.m.)", "Harlem Globetrotters, Fiserv Forum, 12:00 p.m. game", "Bavarian Bierhaus Kid Boogie Down (2025: 11 a.m.–2 p.m.)", "Slice of Ice opens (2025-26 holiday hours from 10 a.m.); Pettit public skate from noon", "Milwaukee Public Museum 'Greatest Hits' activities, 10 a.m.–5 p.m."]}, {"period": "Dec 31 — afternoon (sunset 4:26 p.m.)", "items": ["Saint Kate's The Bar opens its free NYE at 3 p.m. with live music", "Lakefront Brewery Swedish New Year 3:30–7 p.m., countdown at 5 p.m.", "Bavarian Bierhaus 5 p.m. 'Munich midnight' toast", "Harlem Globetrotters 5:00 p.m. game; Greg Warren 5:00 p.m. show at the Improv", "Early prix fixe seatings: Mason Street Grill, Harbor House, Bacchus and Ristorante Bartolotta from 4 p.m.; Lake Park Bistro and The Studio from 5 p.m.", "Wild Lights 'Zoo Year's Eve' 5:30–9 p.m."]}, {"period": "Dec 31 — evening", "items": ["Seven Lions / Stellar Spark NYE at The Rave, 7 p.m.", "Blu at the Pfister seatings from 7 p.m.; Saint Kate omakase 7 p.m.; Ring In 2027 (45+) Brookfield 7 p.m.", "Iron Horse 'Leather & Lace' doors 8 p.m. (VIP 7 p.m.); Water Street crawl check-in 8–10 p.m.; Mo's crawl check-in 6–9 p.m.", "Miller Lite Free Rides on MCTS from 8 p.m. (if 2026 edition is announced as in 2025)", "Spafford at Vivarium: doors 8 p.m., three sets from 9 p.m.", "Deer District fireworks, if they return: 10 p.m. in 2025, 8 p.m. in 2023–24"]}, {"period": "Midnight & after", "items": ["Champagne toasts at Saint Kate's The Bar (balloon drop), Iron Horse, Blu, Water Street countdown venue", "Wisconsin's statewide bar closing hours do not apply the night of Dec 31 — individual bars set their own last call", "The Hop stops around midnight; MCTS extended routes ran to 4 a.m. in 2025 — or use a SafeRide bar, cab or rideshare", "Late food: Real Chili Downtown to 2:30 a.m. (Thu); call George Webb locations for hours"]}, {"period": "Jan 1, 2027 — New Year's Day", "items": ["Polar Bear Plunge at Bradford Beach, noon (free, unofficial; MFD rescue crews on scene)", "Breakfast: Uncle Wolfie's from 8 a.m.; Cafe Benelux from 7 a.m.; Saint Kate brunch 8 a.m.–1 p.m.", "First Day Hikes at state parks (2027 list TBA); Havenwoods and Wehr trails open regardless", "Open: Domes (9–4), Public Museum, Discovery World, Harley-Davidson Museum, Pettit skate noon–10 p.m. Closed: Art Museum, Zoo, Betty Brinn, libraries", "Greg Warren at the Improv, 7 p.m.; Bucks vs. 76ers at Fiserv Forum, 7 p.m. CT", "Last night of the Milwaukee Holiday Lights Festival downtown"]}];
-const TIMELINE_COLORS = ["#547F4B", "#D06828", "#0B77BD", "#9E7F4B", "#6C3483"];
+// Darkened brand shades so each heading meets 4.5:1 contrast on white.
+const TIMELINE_COLORS = ["#547F4B", "#AB5521", "#0B77BD", "#83693E", "#6C3483"];
 
 const faqs = [{"question": "Is there a New Year's Eve fireworks show in Milwaukee?", "answer": "There is no city-run New Year's Eve fireworks show. Since 2023 the Bucks' Deer District has hosted a free, privately presented display (We Energies Foundation) as part of its 'Cheer District' season — at 8 p.m. in 2023 and 2024, and planned for 10 p.m. after the Bucks game in 2025. A 2026 show had not been announced as of early November; check deerdistrict.com in late November. If it returns, the plaza outside Fiserv Forum and the Trade Hotel are the viewing spots."}, {"question": "Where can I celebrate New Year's Eve in Milwaukee with kids?", "answer": "The classic is Betty Brinn Children's Museum's 'New Year's Eve at Noon' (2025: 9 a.m.–2 p.m., $20/$10, noon ball drop; tickets sell out weeks ahead). Other early countdowns: Lakefront Brewery's Swedish New Year (5 p.m. countdown), the Bavarian Bierhaus's 5 p.m. 'Munich midnight' toast, the Zoo's Wild Lights 'Zoo Year's Eve' (5:30–9 p.m., $60 family 4-pack), the Harlem Globetrotters at Fiserv Forum (noon and 5 p.m.), and public skating at the Pettit (noon–9 p.m.) or Slice of Ice."}, {"question": "What time is the Polar Bear Plunge at Bradford Beach?", "answer": "Noon on New Year's Day. It is a free, unorganized tradition with no sponsor or registration — people gather late morning and run into Lake Michigan when the horn sounds at 12. The Milwaukee Fire Department stations divers and a safety line; officials warn that the ice shelf at the water's edge is the main hazard. It is not the Special Olympics Polar Plunge, which is a separate February/March fundraiser."}, {"question": "Are buses free on New Year's Eve in Milwaukee?", "answer": "They have been every year since 1988 through the Molson Coors/Miller Lite Free Rides program. On Dec 31, 2025 all MCTS routes were free from 8 p.m. until end of service, with CONNECT 1, 14, 24, 30, PurpleLine, BlueLine and GreenLine (plus parts of 18 and 21) running until 4 a.m. The 2026 edition had not been announced as of Nov 2; MCTS typically posts it around Dec 10. The Hop streetcar is always free but stops around midnight on weeknights."}, {"question": "What is the best New Year's Eve dinner in Milwaukee?", "answer": "For a splurge with confirmed 2026 service: Lupi & Iris (2025 four-course from $155), Bacchus or Harbor House (2025 three-course from $130), Mason Street Grill at the Pfister (2025 prix fixe $84, bar until 1 a.m.) or the 14-seat omakase at Saint Kate ($175). For value, MOVIDA's unlimited tapas was $55 in 2025 and Le Reve in Tosa was $90–$100. Menus and prices for 2026 were mostly still TBA in early November; the Bartolotta restaurants have posted NYE hours but not menus."}, {"question": "What's open in Milwaukee on New Year's Day?", "answer": "Closed: Milwaukee Art Museum, Milwaukee County Zoo, Betty Brinn Children's Museum, Schlitz Audubon and all Milwaukee Public Library branches. Open or on holiday hours (confirm by phone): Mitchell Park Domes (9 a.m.–4 p.m.), Milwaukee Public Museum, Discovery World, Harley-Davidson Museum, the Pettit (public skate noon–10 p.m.), Slice of Ice (10 a.m.–11 p.m. last season), Havenwoods State Forest and Wehr Nature Center trails. The Bucks host the 76ers at 7 p.m. CT and it is the final night of the Holiday Lights Festival."}, {"question": "How late can bars stay open on New Year's Eve in Wisconsin?", "answer": "Wisconsin's statewide closing hours (2 a.m. weeknights, 2:30 a.m. weekends) do not apply the night of Dec 31 into Jan 1 — state alcohol law (Wis. Stat. ch. 125) carves out a New Year's exception, so bars may legally stay open all night. Most Milwaukee bars still pick their own last call, and some municipalities add restrictions, so check with the venue."}, {"question": "Do the Bucks or Admirals play on New Year's Eve or New Year's Day?", "answer": "The Bucks are away at Atlanta on Dec 31 and home against Philadelphia on Friday, Jan 1, 2027 (7 p.m. CT). The Admirals are away at Grand Rapids on Dec 31 and have no game Jan 1; their next home game is Jan 2 vs. Grand Rapids. Fiserv Forum's Dec 31 event is the Harlem Globetrotters at noon and 5 p.m."}, {"question": "Which New Year's Eve concerts and shows are confirmed for Dec 31, 2026?", "answer": "As of early November: Seven Lions at the 24th annual Stellar Spark NYE at The Rave (7 p.m.), Spafford's three-set New Year's Eve at Vivarium (doors 8 p.m.), and comedian Greg Warren at the Milwaukee Improv (5 and 7:30 p.m.). The Pabst, Riverside, Turner Hall, Miller High Life Theatre, Marcus Center and MSO had no Dec 31 listing; the MSO's New Year's-themed Salute to Vienna is Dec 29. More club announcements usually land in late November."}, {"question": "How cold is it in Milwaukee on New Year's Eve, and what time does it get dark?", "answer": "NOAA's 1991–2020 normals for Dec 31 at Mitchell Airport are a high of 32.5°F and a low of 19.4°F, and December averages 10.4 inches of snow. Sunset on Dec 31, 2026 is 4:26 p.m., so any outdoor plans — lights, skating, fireworks — are in the dark by 5. Lake wind downtown and at Bradford Beach makes it feel colder."}];
 
@@ -137,7 +138,7 @@ export default function NewYearsEveMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={item.typical ? c.tan : c.orange} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
+          {item.badge && <Tag bg={item.typical ? c.tanDark : c.orangeDark} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
         </div>
       </div>
@@ -155,8 +156,8 @@ export default function NewYearsEveMilwaukee() {
         </div>
       )}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-        {item.address && <span style={{ fontSize: "13px", color: "#8a8a8a", fontFamily: BODY }}>{item.address}</span>}
-        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>Website ↗</a>}
+        {item.address && <span style={{ fontSize: "13px", color: "#6d6d6d", fontFamily: BODY }}>{item.address}</span>}
+        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}><span className="sr-only">{item.name} </span>Website <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </div>
   );
@@ -198,9 +199,10 @@ export default function NewYearsEveMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.blue2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #074D7B 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>NYE 2026 → 2027</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>NYE 2026 → 2027</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               New Year's Eve in Milwaukee
             </h1>
@@ -217,19 +219,19 @@ export default function NewYearsEveMilwaukee() {
               {mapItems.length > 0 && <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>}
               {SECTIONS.map((s, i) => (
                 <React.Fragment key={s.id}>
-                  {(i > 0 || mapItems.length > 0) && <span style={{ color: c.beige }}>|</span>}
+                  {(i > 0 || mapItems.length > 0) && <span aria-hidden="true" style={{ color: c.beige }}>|</span>}
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>December 31, 2026 and January 1, 2027 ({allItems.length} verified picks)</dd>
@@ -240,7 +242,7 @@ export default function NewYearsEveMilwaukee() {
                 </React.Fragment>
               ))}
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against each organizer&apos;s or venue&apos;s own published information. Confirmed 2026–27 dates are labeled; anything else is marked as typical timing. Dates, hours and pricing change — always confirm before you go.
             </p>
           </section>
@@ -249,7 +251,7 @@ export default function NewYearsEveMilwaukee() {
 
           {mapItems.length > 0 && (
             <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
               <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Mapped Across Southeastern Wisconsin</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every mappable spot in this guide plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
               <RegionMap items={mapItems} categories={MAP_CATEGORIES} />
@@ -258,7 +260,7 @@ export default function NewYearsEveMilwaukee() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -287,10 +289,10 @@ export default function NewYearsEveMilwaukee() {
               <Link href="/winter-guide-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Winter in Milwaukee →
               </Link>
-              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Christmas in Milwaukee →
               </Link>
-              <Link href="/milwaukee-nightlife" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/milwaukee-nightlife" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Milwaukee Nightlife →
               </Link>
               <Link href="/best-cocktail-bars-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -299,10 +301,10 @@ export default function NewYearsEveMilwaukee() {
               <Link href="/milwaukee-hotels" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Where to Stay →
               </Link>
-              <Link href="/late-night-food-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/late-night-food-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Late-Night Food →
               </Link>
-              <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 New Year's Day Brunch →
               </Link>
               <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -321,13 +323,14 @@ export default function NewYearsEveMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get NYE Updates</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>New parties and dinners are announced through December — we add them as they are confirmed.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

@@ -321,8 +321,8 @@ function CardMedia({ partner, height = 150, rounded = 16 }) {
           fontSize: height > 130 ? 46 : 32,
           lineHeight: 1,
           letterSpacing: ".02em",
-          color: "#fff",
-          textShadow: "0 6px 14px rgba(0,0,0,.28)",
+          color: "#20291f",
+          textShadow: "0 1px 0 rgba(255,255,255,.35)",
           zIndex: 1,
         }}
       >
@@ -338,8 +338,8 @@ function CardMedia({ partner, height = 150, rounded = 16 }) {
           fontWeight: 600,
           letterSpacing: ".08em",
           textTransform: "uppercase",
-          color: "#fff",
-          background: "rgba(0,0,0,.22)",
+          color: "#20291f",
+          background: "rgba(255,255,255,.88)",
           padding: "4px 9px",
           borderRadius: 999,
           backdropFilter: "blur(4px)",
@@ -385,6 +385,7 @@ export default function MilwaukeePass() {
   // =========================================================================
   return (
     <div style={{ fontFamily: BODY, color: C.ink, background: C.bg, minHeight: "100vh" }}>
+      <main id="main-content" tabIndex={-1}>
       <DemoBanner />
 
       {/* mode toggle */}
@@ -433,6 +434,7 @@ export default function MilwaukeePass() {
           }}
         />
       )}
+      </main>
 
       <SiteFooter />
 
@@ -513,9 +515,9 @@ function MembersView(props) {
                 </a>
               </div>
               <div className="hero-trust">
-                <span>✓ One flat yearly price</span>
-                <span>✓ {formatMoney(totalPotential)}+ in perks</span>
-                <span>✓ 100% local</span>
+                <span><span aria-hidden="true">✓ </span>One flat yearly price</span>
+                <span><span aria-hidden="true">✓ </span>{formatMoney(totalPotential)}+ in perks</span>
+                <span><span aria-hidden="true">✓ </span>100% local</span>
               </div>
             </Reveal>
           </div>
@@ -607,10 +609,10 @@ function MembersView(props) {
             spots. No per-visit fees, ever.
           </p>
           <ul className="price-list">
-            <li>✓ Unlimited access to every member perk</li>
-            <li>✓ New partners added all year</li>
-            <li>✓ Digital card — always in your pocket</li>
-            <li>✓ Supports local Milwaukee businesses</li>
+            <li><span aria-hidden="true">✓ </span>Unlimited access to every member perk</li>
+            <li><span aria-hidden="true">✓ </span>New partners added all year</li>
+            <li><span aria-hidden="true">✓ </span>Digital card — always in your pocket</li>
+            <li><span aria-hidden="true">✓ </span>Supports local Milwaukee businesses</li>
           </ul>
 
           {waitStatus === "done" ? (
@@ -1043,9 +1045,9 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
               </a>
             </div>
             <div className="hero-trust light-trust">
-              <span>✓ Free to join</span>
-              <span>✓ No POS integration</span>
-              <span>✓ Live all year</span>
+              <span><span aria-hidden="true">✓ </span>Free to join</span>
+              <span><span aria-hidden="true">✓ </span>No POS integration</span>
+              <span><span aria-hidden="true">✓ </span>Live all year</span>
             </div>
           </Reveal>
         </div>
@@ -1278,11 +1280,11 @@ function BusinessView({ benefits, dashboard, price, totalPotential, onLead }) {
           kicker="Why it's a smart move · how it compares"
           title="A better deal than the marketing you're already buying"
         />
-        <div className="cmp-wrap">
+        <div className="cmp-wrap" tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways">
           <table className="cmp">
             <thead>
               <tr>
-                <th />
+                <td />
                 {PARTNER_COMPARISON.columns.map((c, i) => (
                   <th key={c} className={i === 0 ? "cmp-us" : ""}>{c}</th>
                 ))}
@@ -1405,7 +1407,7 @@ function LeadModal({ status, onSubmit, onClose }) {
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal lead" onClick={(e) => e.stopPropagation()}>
+      <div className="modal lead" role="dialog" aria-modal="true" aria-label="Become a partner" onClick={(e) => e.stopPropagation()}>
         <button className="modal-x" onClick={onClose} aria-label="Close">
           ✕
         </button>
@@ -1469,7 +1471,7 @@ function SiteFooter() {
           are illustrative samples, not live commitments.
         </p>
         <div className="passfoot-links">
-          <Link href="/">← Back to Discover Milwaukee</Link>
+          <Link href="/"><span aria-hidden="true">← </span>Back to Discover Milwaukee</Link>
         </div>
       </div>
     </footer>
@@ -1564,7 +1566,7 @@ function PassStyles() {
         color: ${C.ink2};
         line-height: 1.6;
       }
-      .samples-fine { display: block; margin-top: 6px; font-size: 12px; color: #9aa2b1; }
+      .samples-fine { display: block; margin-top: 6px; font-size: 12px; color: #667084; }
 
       /* ---------- what it is (business) ---------- */
       .define { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 34px; align-items: start; }
@@ -1715,7 +1717,7 @@ function PassStyles() {
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: ${C.brand};
+        color: #0a50e0;
         background: #e7efff;
         padding: 6px 12px;
         border-radius: 999px;
@@ -1786,7 +1788,7 @@ function PassStyles() {
         50% { left: 120%; }
       }
       .passcard-row { display: flex; justify-content: space-between; align-items: flex-start; }
-      .passcard-brand { font-family: ${BODY}; font-size: 10.5px; letter-spacing: 0.2em; opacity: 0.8; }
+      .passcard-brand { font-family: ${BODY}; font-size: 10.5px; letter-spacing: 0.2em; opacity: 0.95; }
       .passcard-title { font-family: ${DISPLAY}; font-size: 26px; letter-spacing: 0.01em; }
       .passcard-chip {
         width: 40px; height: 30px; border-radius: 7px;
@@ -1797,7 +1799,7 @@ function PassStyles() {
       .passcard-name { font-family: ${BODY}; font-weight: 600; font-size: 19px; margin-top: 26px; }
       .passcard-num { font-family: ${BODY}; letter-spacing: 0.16em; font-size: 15px; opacity: 0.9; margin-top: 2px; }
       .passcard-foot { display: flex; gap: 18px; margin-top: 22px; }
-      .passcard-lbl { font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+      .passcard-lbl { font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.95; }
       .passcard-val { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
       .passcard-val .dot {
         width: 7px; height: 7px; border-radius: 50%; background: #4cf0a0;
@@ -1830,7 +1832,7 @@ function PassStyles() {
 
       /* ---------- save pill ---------- */
       .save-pill {
-        background: #e7f7ee; color: ${C.good};
+        background: #e7f7ee; color: #0e7d3e;
         font-weight: 700; font-size: 13px;
         padding: 6px 12px; border-radius: 999px; white-space: nowrap;
       }
@@ -1905,7 +1907,7 @@ function PassStyles() {
       .dstat { background: ${C.bg}; border-radius: 14px; padding: 16px; }
       .dstat-v { font-family: ${DISPLAY}; font-size: 30px; line-height: 1; }
       .dstat-l { font-size: 13px; color: ${C.ink2}; margin-top: 4px; }
-      .dstat-t { font-size: 12px; color: ${C.good}; font-weight: 600; margin-top: 4px; }
+      .dstat-t { font-size: 12px; color: #0e8140; font-weight: 600; margin-top: 4px; }
       .dash-chart { margin-top: 22px; }
       .dchart-head {
         font-family: ${BODY}; font-weight: 600; font-size: 14px; color: ${C.ink2}; margin-bottom: 12px;
@@ -1945,7 +1947,7 @@ function PassStyles() {
         font-weight: 700; font-size: 12.5px; letter-spacing: 0.05em;
         padding: 7px 14px; border-radius: 999px; margin-bottom: 16px;
       }
-      .cta-trust { margin-top: 16px; font-size: 13px; color: #b8c6e6; font-weight: 600; letter-spacing: 0.02em; }
+      .cta-trust { margin-top: 16px; font-size: 13px; color: #cbd6ef; font-weight: 600; letter-spacing: 0.02em; }
 
       /* ---------- business: free badge + hero trust ---------- */
       .free-badge {
@@ -2009,7 +2011,7 @@ function PassStyles() {
       }
       .proven-l { margin-top: 10px; font-size: 13px; color: ${C.ink2}; line-height: 1.45; }
       .proven-note { margin: 18px 0 0; font-size: 12.5px; color: ${C.ink2}; font-style: italic; line-height: 1.5; }
-      .proven-src { margin: 8px 0 0; font-size: 11.5px; color: #9aa2b1; line-height: 1.5; }
+      .proven-src { margin: 8px 0 0; font-size: 11.5px; color: #667084; line-height: 1.5; }
 
       /* ---------- business: acquisition pipeline ---------- */
       .model-copy { max-width: 720px; }

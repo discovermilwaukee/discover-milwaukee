@@ -9,7 +9,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -180,6 +180,7 @@ export default function About() {
       <Nav />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         {/* Hero Section */}
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "80px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px" }}>SINCE 2018</p>
@@ -192,7 +193,7 @@ export default function About() {
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
 
           {/* Intro */}
           <section style={{ marginBottom: "60px" }}>
@@ -257,7 +258,7 @@ export default function About() {
                     borderRadius: "50%",
                     border: `3px solid ${c.cream}`
                   }} />
-                  <span style={{ color: c.orange, fontSize: "14px", fontWeight: "700" }}>{milestone.year}</span>
+                  <span style={{ color: c.orangeDark, fontSize: "14px", fontWeight: "700" }}>{milestone.year}</span>
                   <p style={{ color: c.green1, fontSize: "16px", fontWeight: "600", margin: "4px 0 0 0" }}>{milestone.event}</p>
                 </div>
               ))}
@@ -281,7 +282,7 @@ export default function About() {
                   "The culture that makes this city different"
                 ].map((item, i) => (
                   <li key={i} style={{ color: c.cream, fontSize: "17px", marginBottom: "12px", display: "flex", alignItems: "center", gap: "12px" }}>
-                    <span style={{ color: c.yellow }}>→</span> {item}
+                    <span aria-hidden="true" style={{ color: c.yellow }}>→</span> {item}
                   </li>
                 ))}
               </ul>
@@ -302,9 +303,9 @@ export default function About() {
 
             <div style={{ backgroundColor: "white", borderRadius: "16px", padding: "28px", border: `2px solid ${c.orange}`, marginBottom: "24px" }}>
               <p style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "16px" }}>
-                We are <span style={{ color: c.orange }}>not</span> a tourism board.<br />
-                We do <span style={{ color: c.orange }}>not</span> receive public funding.<br />
-                We are <span style={{ color: c.orange }}>not</span> backed by a larger institution.
+                We are <span style={{ color: c.orangeDark }}>not</span> a tourism board.<br />
+                We do <span style={{ color: c.orangeDark }}>not</span> receive public funding.<br />
+                We are <span style={{ color: c.orangeDark }}>not</span> backed by a larger institution.
               </p>
               <p style={{ color: c.green1, fontSize: "17px", fontWeight: "600", margin: 0 }}>
                 Everything you see—every post, every guide, every recommendation—is built by us.
@@ -321,7 +322,7 @@ export default function About() {
                 "Stay connected to the community, not removed from it"
               ].map((item, i) => (
                 <li key={i} style={{ color: c.green1, fontSize: "16px", marginBottom: "10px", display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                  <span style={{ color: c.yellow, fontSize: "18px" }}>✓</span> {item}
+                  <span aria-hidden="true" style={{ color: c.yellow, fontSize: "18px" }}>✓</span> {item}
                 </li>
               ))}
             </ul>
@@ -336,7 +337,7 @@ export default function About() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
               {values.map((value, i) => (
                 <div key={i} style={{ backgroundColor: "white", borderRadius: "16px", padding: "24px", border: `1px solid ${c.beige}` }}>
-                  <span style={{ fontSize: "32px", display: "block", marginBottom: "12px" }}>{value.icon}</span>
+                  <span aria-hidden="true" style={{ fontSize: "32px", display: "block", marginBottom: "12px" }}>{value.icon}</span>
                   <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "8px" }}>{value.title}</h3>
                   <p style={{ color: "#666", fontSize: "15px", lineHeight: 1.6, margin: 0 }}>{value.description}</p>
                 </div>
@@ -365,7 +366,7 @@ export default function About() {
 
           {/* Milwaukee Influencers */}
           <section id="milwaukee-influencers" style={{ marginBottom: "60px" }}>
-            <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>WISCONSIN'S #1 LOCAL PLATFORM</p>
+            <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>WISCONSIN'S #1 LOCAL PLATFORM</p>
             <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee's Leading Local Influencers</h2>
             <p style={{ color: "#555", fontSize: "17px", lineHeight: 1.8, marginBottom: "20px" }}>
               Over the past seven years, Jordan and Todd have become two of Wisconsin's most recognized local influencers—not by chasing trends or gaming algorithms, but by consistently showing up for Milwaukee.
@@ -385,7 +386,7 @@ export default function About() {
                   "We actually respond. Our community knows we're accessible and real."
                 ].map((item, i) => (
                   <li key={i} style={{ color: "#555", fontSize: "16px", marginBottom: "12px", display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                    <span style={{ color: c.yellow, fontSize: "18px" }}>→</span> {item}
+                    <span aria-hidden="true" style={{ color: c.yellow, fontSize: "18px" }}>→</span> {item}
                   </li>
                 ))}
               </ul>
@@ -467,6 +468,7 @@ export default function About() {
             </div>
           </section>
 
+        </div>
         </main>
 
         {/* Footer */}

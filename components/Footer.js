@@ -58,7 +58,7 @@ export default function Footer() {
         <nav aria-label="Guide directory" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "28px", borderTop: `1px solid ${c.green2}`, paddingTop: "28px" }}>
           {GROUPS.map((group) => (
             <div key={group.group}>
-              <h2 style={{ color: c.yellow, fontSize: "13px", fontWeight: 900, letterSpacing: "1.5px", textTransform: "uppercase", margin: "0 0 14px" }}>
+              <h2 style={{ color: "#F1AF38", fontSize: "13px", fontWeight: 900, letterSpacing: "1.5px", textTransform: "uppercase", margin: "0 0 14px" }}>
                 {group.group}
               </h2>
               {group.categories.map((cat) => (

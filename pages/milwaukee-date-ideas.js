@@ -12,7 +12,7 @@ const colors = {
   green2: '#2d5a4a',
   cream: '#faf8f5',
   beige: '#e8e4dc',
-  orange: '#f4a261',
+  orange: '#f4a261', orangeDark: '#ac520c',
   yellow: '#f4d03f',
 };
 
@@ -165,7 +165,7 @@ export default function MilwaukeeDateIdeas() {
 
       <Nav />
       <Breadcrumbs />
-      <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
+      <main id="main-content" tabIndex={-1} style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
           <NewsletterCTA />
 
         {/* Hero Section */}
@@ -256,7 +256,7 @@ export default function MilwaukeeDateIdeas() {
             Looking for more dining options? Check out our{' '}
             <Link
               href="/best-restaurants-milwaukee"
-              style={{ color: colors.orange, fontWeight: '600' }}
+              style={{ color: colors.orangeDark, fontWeight: '600' }}
             >
               guide to Milwaukee's best restaurants
             </Link>
@@ -276,7 +276,7 @@ export default function MilwaukeeDateIdeas() {
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
               <span
                 style={{
-                  color: colors.orange,
+                  color: "#a14d0b",
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
@@ -567,7 +567,7 @@ export default function MilwaukeeDateIdeas() {
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
               <span
                 style={{
-                  color: colors.orange,
+                  color: colors.orangeDark,
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
@@ -829,7 +829,7 @@ export default function MilwaukeeDateIdeas() {
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
               <span
                 style={{
-                  color: colors.orange,
+                  color: "#a14d0b",
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
@@ -878,7 +878,7 @@ export default function MilwaukeeDateIdeas() {
                   <Link
                     href="/milwaukee-coffee-shops"
                     style={{
-                      color: colors.orange,
+                      color: colors.orangeDark,
                       fontWeight: '600',
                       textDecoration: 'none',
                     }}
@@ -1002,7 +1002,7 @@ export default function MilwaukeeDateIdeas() {
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
               <span
                 style={{
-                  color: colors.orange,
+                  color: colors.orangeDark,
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
@@ -1023,13 +1023,13 @@ export default function MilwaukeeDateIdeas() {
               <p style={{ color: colors.green2, maxWidth: '600px', margin: '20px auto 0' }}>
                 Milwaukee's lakefront location and extensive park system make it perfect for active,
                 outdoorsy couples. For more outdoor activities, see our{' '}
-                <Link href="/things-to-do-milwaukee" style={{ color: colors.orange }}>
+                <Link href="/things-to-do-milwaukee" style={{ color: colors.orangeDark, textDecoration: "underline" }}>
                   complete things to do guide
                 </Link>
-                <Link href="/new-years-eve-milwaukee" style={{ color: colors.orange }}>
+                <Link href="/new-years-eve-milwaukee" style={{ color: colors.orangeDark, textDecoration: "underline" }}>
                   New Year's Eve →
                 </Link>
-                <Link href="/winter-guide-milwaukee" style={{ color: colors.orange }}>
+                <Link href="/winter-guide-milwaukee" style={{ color: colors.orangeDark, textDecoration: "underline" }}>
                   Winter Date Ideas →
                 </Link>
                 .
@@ -1447,7 +1447,7 @@ export default function MilwaukeeDateIdeas() {
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
               <span
                 style={{
-                  color: colors.orange,
+                  color: "#a14d0b",
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
@@ -1593,7 +1593,7 @@ export default function MilwaukeeDateIdeas() {
                   }}
                 >
                   <h3 style={{ color: colors.green1, margin: 0, fontSize: '1.5rem' }}>Fall</h3>
-                  <p style={{ color: colors.green2, margin: '5px 0 0', fontSize: '0.9rem' }}>
+                  <p style={{ color: "#264c3f", margin: '5px 0 0', fontSize: '0.9rem' }}>
                     September - November
                   </p>
                 </div>
@@ -1689,7 +1689,7 @@ export default function MilwaukeeDateIdeas() {
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
               <span
                 style={{
-                  color: colors.orange,
+                  color: colors.orangeDark,
                   fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
@@ -1732,7 +1732,7 @@ export default function MilwaukeeDateIdeas() {
                     }}
                   >
                     {faq.name}
-                    <span style={{ fontSize: '1.5rem', color: colors.orange }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: '1.5rem', color: colors.orangeDark }}>+</span>
                   </summary>
                   <p
                     style={{
@@ -1960,10 +1960,9 @@ export default function MilwaukeeDateIdeas() {
           </div>
         </section>
 
-        {/* Footer */}
-        <RelatedGuides />
-      <Footer />
       </main>
+      <RelatedGuides />
+      <Footer />
 
       <style jsx>{`
         details[open] summary span {

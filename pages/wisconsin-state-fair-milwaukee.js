@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -276,9 +276,10 @@ export default function WisconsinStateFairMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 7, 2026 · VERIFIED AGAINST WISTATEFAIR.COM</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 7, 2026 · VERIFIED AGAINST WISTATEFAIR.COM</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Wisconsin State Fair 2026: The Complete Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto" }}>
               <strong>Thursday, August 6 – Sunday, August 16, 2026</strong> at Wisconsin State Fair Park in West Allis — the fair's <strong>175th anniversary</strong>. Verified ticket prices, parking, free concerts, cream puffs, daily discount days, the SpinCity midway, animal barns and every theme day for the 11-day run.
@@ -286,7 +287,7 @@ export default function WisconsinStateFairMilwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -296,7 +297,7 @@ export default function WisconsinStateFairMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -308,7 +309,7 @@ export default function WisconsinStateFairMilwaukee() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Event</dt>
               <dd style={{ color: "#444", margin: 0 }}>2026 Wisconsin State Fair (175th anniversary)</dd>
@@ -327,7 +328,7 @@ export default function WisconsinStateFairMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Main Stage 2026 highlights</dt>
               <dd style={{ color: "#444", margin: 0 }}>Nelly, Wynonna & Etheridge, for KING+COUNTRY, John Mulaney, AJR, The Beach Boys</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -351,7 +352,7 @@ export default function WisconsinStateFairMilwaukee() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Grandstand Avenue from the SkyGlider overhead trolley.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. Credits: Michael Barera (CC-BY-SA-4.0); Michael Barera (CC-BY-SA-4.0); Corey Coyle (CC-BY-3.0); Michael Barera (CC-BY-SA-4.0).
             </p>
           </section>
@@ -362,7 +363,7 @@ export default function WisconsinStateFairMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -444,7 +445,7 @@ export default function WisconsinStateFairMilwaukee() {
             {iconicFoods.map((f) => (
               <div key={f.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 16px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{f.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>{f.vendor}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "1px" }}>{f.vendor}</p>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{f.note}</p>
               </div>
             ))}
@@ -504,7 +505,7 @@ export default function WisconsinStateFairMilwaukee() {
               <div key={d.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px 18px", marginBottom: "10px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "6px" }}>
                   <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: 0 }}>{d.day} — {d.name}</h3>
-                  <span style={{ backgroundColor: c.orange, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{d.time}</span>
+                  <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{d.time}</span>
                 </div>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{d.deal}</p>
               </div>
@@ -516,27 +517,27 @@ export default function WisconsinStateFairMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>SpinCity is the fair&apos;s midway — rides, games and the new 230-foot America 250 Wheel. Wristbands are the right call if you plan to ride more than four or five times; otherwise pay-per-ride tickets are sold individually.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>WEEKDAY WRISTBAND (ONSITE)</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>WEEKDAY WRISTBAND (ONSITE)</p>
                 <p style={{ fontSize: "20px", color: c.green1, margin: "0 0 4px", fontWeight: "800" }}>$45</p>
                 <p style={{ fontSize: "13px", color: "#444", margin: 0, lineHeight: 1.5 }}>Mon–Fri single-day, unlimited rides 11 a.m.–7 p.m. Sold at SpinCity onsite.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>ANY-DAY WRISTBAND (ONLINE ONLY)</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>ANY-DAY WRISTBAND (ONLINE ONLY)</p>
                 <p style={{ fontSize: "20px", color: c.green1, margin: "0 0 4px", fontWeight: "800" }}>Online only</p>
                 <p style={{ fontSize: "13px", color: "#444", margin: 0, lineHeight: 1.5 }}>Use any single day Mon–Sun, unlimited rides 11 a.m.–7 p.m. NOT sold during the fair — buy in advance at wistatefair.com.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>RIDE & GAME TICKETS</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>RIDE & GAME TICKETS</p>
                 <p style={{ fontSize: "20px", color: c.green1, margin: "0 0 4px", fontWeight: "800" }}>Pay per ride</p>
                 <p style={{ fontSize: "13px", color: "#444", margin: 0, lineHeight: 1.5 }}>Individual ticket strips sold at SpinCity ticket booths — the move if you&apos;re only riding a couple of things or have a mix of ages.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>REDEMPTION</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>REDEMPTION</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "700", lineHeight: 1.5 }}>Voucher holders must redeem at the SpinCity Redemption Booth on the Grand Walkway by 5 p.m.</p>
               </div>
             </div>
             <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "14px", borderRadius: "10px", marginTop: "16px" }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "6px", letterSpacing: "1.5px" }}>FOR FAMILIES WITH YOUNG KIDS</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "6px", letterSpacing: "1.5px" }}>FOR FAMILIES WITH YOUNG KIDS</p>
               <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Wristbands only cover rides — not games. If your kids are 3–6, pay-per-ride tickets are often the better value than a wristband. The Compeer Financial Discovery Barnyard (no extra fee, included with admission) is usually a bigger hit at that age than the midway.</p>
             </div>
           </section>
@@ -591,7 +592,7 @@ export default function WisconsinStateFairMilwaukee() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px" }}>
                 {rentals.map((r) => (
                   <div key={r.item} style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "10px", textAlign: "center" }}>
-                    <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>{r.item}</p>
+                    <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>{r.item}</p>
                     <p style={{ fontSize: "20px", color: c.green1, fontWeight: "800", margin: 0 }}>{r.price}</p>
                   </div>
                 ))}
@@ -647,7 +648,7 @@ export default function WisconsinStateFairMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -664,10 +665,10 @@ export default function WisconsinStateFairMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do With Kids</Link>
               <Link href="/events" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>This Weekend in MKE</Link>
-              <Link href="/events" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Events Guide</Link>
+              <Link href="/events" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Events Guide</Link>
               <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Happy Hour</Link>
               <Link href="/summerfest-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Summerfest Guide</Link>
-              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Breweries</Link>
+              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Breweries</Link>
             </div>
           </section>
 
@@ -676,6 +677,7 @@ export default function WisconsinStateFairMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>State Fair changes, event picks, food openings and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

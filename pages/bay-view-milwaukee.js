@@ -13,8 +13,8 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
-  yellow: "#f4d03f",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
+  yellow: "#f4d03f", yellowDark: "#886e08",
 };
 
 // Bay View spots organized by category
@@ -234,14 +234,14 @@ export default function BayViewMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {spot.priceRange && <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>}
+          {spot.priceRange && <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>}
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.type}</span>
         </div>
       </div>
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{spot.description}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.mustTry}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -249,7 +249,7 @@ export default function BayViewMilwaukee() {
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.vibe}</p>
         </div>
       </div>
-      <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{spot.address}, Milwaukee, WI</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{spot.address}, Milwaukee, WI</p>
     </div>
   );
 
@@ -276,7 +276,7 @@ export default function BayViewMilwaukee() {
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{bar.vibe}</p>
         </div>
       </div>
-      <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{bar.address}, Milwaukee, WI</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{bar.address}, Milwaukee, WI</p>
     </div>
   );
 
@@ -321,9 +321,10 @@ export default function BayViewMilwaukee() {
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         {/* Hero Section */}
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>NEIGHBORHOOD GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>NEIGHBORHOOD GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.1 }}>
               Bay View
             </h1>
@@ -342,31 +343,31 @@ export default function BayViewMilwaukee() {
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>JUMP TO</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href="#overview" style={{ color: c.green2, fontSize: "14px" }}>Overview</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#restaurants" style={{ color: c.green2, fontSize: "14px" }}>Restaurants</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#bars" style={{ color: c.green2, fontSize: "14px" }}>Bars</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#coffee" style={{ color: c.green2, fontSize: "14px" }}>Coffee</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#vintage" style={{ color: c.green2, fontSize: "14px" }}>Vintage Shopping</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#outdoors" style={{ color: c.green2, fontSize: "14px" }}>South Shore Park</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#street-art" style={{ color: c.green2, fontSize: "14px" }}>Street Art</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
             </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
 
           {/* Overview Section */}          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Bay View Milwaukee Guide</dd>
@@ -375,7 +376,7 @@ export default function BayViewMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
               <dd style={{ color: "#444", margin: 0 }}>Exploring this Milwaukee neighborhood</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -396,8 +397,8 @@ export default function BayViewMilwaukee() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: c.orange, padding: "16px", borderRadius: "12px", textAlign: "center" }}>
-                <p style={{ color: "white", fontSize: "24px", fontWeight: "800", margin: 0 }}>Hip</p>
-                <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "12px", margin: 0 }}>Creative Energy</p>
+                <p style={{ color: "#1a3d34", fontSize: "24px", fontWeight: "800", margin: 0 }}>Hip</p>
+                <p style={{ color: "#1a3d34", fontSize: "12px", margin: 0 }}>Creative Energy</p>
               </div>
               <div style={{ backgroundColor: c.green2, padding: "16px", borderRadius: "12px", textAlign: "center" }}>
                 <p style={{ color: "white", fontSize: "24px", fontWeight: "800", margin: 0 }}>Walkable</p>
@@ -405,7 +406,7 @@ export default function BayViewMilwaukee() {
               </div>
               <div style={{ backgroundColor: c.yellow, padding: "16px", borderRadius: "12px", textAlign: "center" }}>
                 <p style={{ color: c.green1, fontSize: "24px", fontWeight: "800", margin: 0 }}>Lakefront</p>
-                <p style={{ color: "rgba(26,61,52,0.7)", fontSize: "12px", margin: 0 }}>South Shore Park</p>
+                <p style={{ color: "#1a3d34", fontSize: "12px", margin: 0 }}>South Shore Park</p>
               </div>
               <div style={{ backgroundColor: c.green1, padding: "16px", borderRadius: "12px", textAlign: "center" }}>
                 <p style={{ color: c.cream, fontSize: "24px", fontWeight: "800", margin: 0 }}>Artsy</p>
@@ -459,8 +460,8 @@ export default function BayViewMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", padding: "20px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
                   <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "8px" }}>{shop.name}</h3>
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "12px" }}>{shop.description}</p>
-                  <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", margin: 0 }}>{shop.highlight}</p>
-                  <p style={{ color: "#888", fontSize: "12px", marginTop: "8px", marginBottom: 0 }}>{shop.address}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", margin: 0 }}>{shop.highlight}</p>
+                  <p style={{ color: "#6d6d6d", fontSize: "12px", marginTop: "8px", marginBottom: 0 }}>{shop.address}</p>
                 </div>
               ))}
             </div>
@@ -477,13 +478,13 @@ export default function BayViewMilwaukee() {
                 <div key={i} style={{ backgroundColor: c.cream, padding: "20px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
                   <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "8px" }}>{shop.name}</h3>
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "8px" }}>{shop.description}</p>
-                  <p style={{ color: "#888", fontSize: "12px", margin: 0 }}>{shop.address}</p>
+                  <p style={{ color: "#6d6d6d", fontSize: "12px", margin: 0 }}>{shop.address}</p>
                 </div>
               ))}
             </div>
             <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "20px", borderRadius: "12px", marginTop: "20px" }}>
               <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-                <span style={{ color: c.orange, fontWeight: "700" }}>Pro tip:</span> Hit the shops on a weekday morning for the best selection. Weekend afternoons get crowded with serious vintage hunters.
+                <span style={{ color: c.orangeDark, fontWeight: "700" }}>Pro tip:</span> Hit the shops on a weekday morning for the best selection. Weekend afternoons get crowded with serious vintage hunters.
               </p>
             </div>
           </section>
@@ -498,7 +499,7 @@ export default function BayViewMilwaukee() {
               <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", marginBottom: "16px" }}>South Shore Park Highlights</h3>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
                 <div>
-                  <h4 style={{ color: c.orange, fontSize: "14px", fontWeight: "700", marginBottom: "8px" }}>SOUTH SHORE BEACH</h4>
+                  <h4 style={{ color: c.orangeDark, fontSize: "14px", fontWeight: "700", marginBottom: "8px" }}>SOUTH SHORE BEACH</h4>
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>One of Milwaukee's best urban beaches. Swim, sunbathe, or just watch the sailboats. Less crowded than Bradford Beach with more of a neighborhood feel.</p>
                 </div>
                 <div>
@@ -510,7 +511,7 @@ export default function BayViewMilwaukee() {
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>The Oak Leaf Trail runs right through, connecting Bay View to downtown and points south. Perfect for running, biking, or a lakefront walk.</p>
                 </div>
                 <div>
-                  <h4 style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", marginBottom: "8px" }}>PAVILION & EVENTS</h4>
+                  <h4 style={{ color: c.yellowDark, fontSize: "14px", fontWeight: "700", marginBottom: "8px" }}>PAVILION & EVENTS</h4>
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>The historic pavilion hosts summer concerts and community events. Check the county parks calendar for what's happening during your visit.</p>
                 </div>
               </div>
@@ -544,22 +545,22 @@ export default function BayViewMilwaukee() {
           {/* Kinnickinnic Ave Feature */}
           <section style={{ marginBottom: "48px" }}>
             <div style={{ backgroundColor: c.orange, padding: "32px", borderRadius: "16px" }}>
-              <h2 style={{ color: "white", fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>The KK Ave Experience</h2>
-              <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>
+              <h2 style={{ color: "#1a3d34", fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>The KK Ave Experience</h2>
+              <p style={{ color: "#1a3d34", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>
                 Kinnickinnic Avenue is the spine of Bay View. A walkable two-mile stretch from Lincoln Avenue south, this is where the neighborhood's best restaurants, shops, and bars cluster. Park once and spend an entire day wandering.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
                 <div style={{ backgroundColor: "rgba(255,255,255,0.2)", padding: "16px", borderRadius: "10px" }}>
-                  <p style={{ color: "white", fontWeight: "700", marginBottom: "4px" }}>Morning</p>
-                  <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", margin: 0 }}>Colectivo coffee, vintage shopping</p>
+                  <p style={{ color: "#1a3d34", fontWeight: "700", marginBottom: "4px" }}>Morning</p>
+                  <p style={{ color: "#1a3d34", fontSize: "14px", margin: 0 }}>Colectivo coffee, vintage shopping</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(255,255,255,0.2)", padding: "16px", borderRadius: "10px" }}>
-                  <p style={{ color: "white", fontWeight: "700", marginBottom: "4px" }}>Afternoon</p>
-                  <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", margin: 0 }}>Lunch at Honeypie, more browsing</p>
+                  <p style={{ color: "#1a3d34", fontWeight: "700", marginBottom: "4px" }}>Afternoon</p>
+                  <p style={{ color: "#1a3d34", fontSize: "14px", margin: 0 }}>Lunch at Honeypie, more browsing</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(255,255,255,0.2)", padding: "16px", borderRadius: "10px" }}>
-                  <p style={{ color: "white", fontWeight: "700", marginBottom: "4px" }}>Evening</p>
-                  <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", margin: 0 }}>Odd Duck dinner, Sugar Maple beers</p>
+                  <p style={{ color: "#1a3d34", fontWeight: "700", marginBottom: "4px" }}>Evening</p>
+                  <p style={{ color: "#1a3d34", fontSize: "14px", margin: 0 }}>Odd Duck dinner, Sugar Maple beers</p>
                 </div>
               </div>
             </div>
@@ -575,7 +576,7 @@ export default function BayViewMilwaukee() {
               <Link href="/walkers-point-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Walker's Point →
               </Link>
-              <Link href="/east-side-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+              <Link href="/east-side-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 East Side →
               </Link>
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.yellow, color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
@@ -608,6 +609,7 @@ export default function BayViewMilwaukee() {
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         {/* Footer */}

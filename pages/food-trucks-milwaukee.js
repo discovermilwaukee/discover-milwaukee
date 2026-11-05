@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -212,7 +212,7 @@ export default function FoodTrucksMilwaukee() {
         <h3 style={{ fontSize: "1.4rem", color: c.green1, margin: 0 }}>{truck.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <span style={{ backgroundColor: c.beige, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1 }}>{truck.style}</span>
-          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#fff" }}>{truck.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#1a3d34" }}>{truck.priceRange}</span>
         </div>
       </div>
       <p style={{ color: "#444", lineHeight: "1.7", marginBottom: "16px" }}>{truck.description}</p>
@@ -249,6 +249,7 @@ export default function FoodTrucksMilwaukee() {
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
+          <main id="main-content" tabIndex={-1}>
           <header style={{ marginBottom: "40px" }}>
             <h1 style={{ fontSize: "2.5rem", color: c.green1, marginBottom: "16px", lineHeight: "1.2" }}>Best Food Trucks in Milwaukee: Your Complete Guide</h1>
             <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.8", marginBottom: "16px" }}>
@@ -257,7 +258,7 @@ export default function FoodTrucksMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               Whether you're hunting down lunch downtown, looking for catering for your next event, or just craving something different, this guide covers the best food trucks Milwaukee has to offer—plus where to find them.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: July 2026 | All trucks verified active</p>
+            <p style={{ fontSize: "0.9rem", color: "#6d6d6d", marginTop: "12px" }}>Last updated: July 2026 | All trucks verified active</p>
           </header>
           <NewsletterCTA />
 
@@ -271,7 +272,7 @@ export default function FoodTrucksMilwaukee() {
           {/* At-a-Glance table — quick reference */}
           <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <h2 id="at-a-glance-heading" style={{ fontSize: "1.6rem", color: c.green1, marginBottom: "16px" }}>Milwaukee Food Trucks at a Glance</h2>
-            <div style={{ overflowX: "auto" }}>
+            <div tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways" style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
                 <thead>
                   <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
@@ -327,7 +328,7 @@ export default function FoodTrucksMilwaukee() {
               {locations.map((loc, index) => (
                 <div key={index} style={{ padding: "16px", backgroundColor: c.cream, borderRadius: "8px" }}>
                   <h3 style={{ color: c.green1, marginBottom: "4px" }}>{loc.name}</h3>
-                  <p style={{ color: c.orange, fontSize: "0.9rem", marginBottom: "8px" }}>{loc.schedule}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "0.9rem", marginBottom: "8px" }}>{loc.schedule}</p>
                   <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.6" }}>{loc.description}</p>
                 </div>
               ))}
@@ -359,12 +360,13 @@ export default function FoodTrucksMilwaukee() {
             <h2 style={{ color: "#fff", marginBottom: "12px" }}>More Milwaukee Food Guides</h2>
             <p style={{ color: c.beige, marginBottom: "20px" }}>Explore more of Milwaukee's culinary scene</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/best-tacos-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Tacos</Link>
-              <Link href="/best-restaurants-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Restaurants</Link>
-              <Link href="/milwaukee-breweries" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Breweries</Link>
+              <Link href="/best-tacos-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Tacos</Link>
+              <Link href="/best-restaurants-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Restaurants</Link>
+              <Link href="/milwaukee-breweries" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Breweries</Link>
             </div>
           </section>
 
+          </main>
           <RelatedGuides />
       <Footer />
         </div>

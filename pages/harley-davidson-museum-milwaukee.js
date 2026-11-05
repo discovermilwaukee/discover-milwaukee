@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -281,9 +281,10 @@ export default function HarleyDavidsonMuseumMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 7, 2026 · VERIFIED 2026 GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 7, 2026 · VERIFIED 2026 GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Harley-Davidson Museum, Milwaukee</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               The definitive 2026 visitor guide to the <strong>Harley-Davidson Museum</strong> — 450+ motorcycles across two floors, the 1903 Serial Number One, the Tank Wall, the Engine Room, free Thursday Bike Nights, and MOTOR Bar's riverfront patio. Every hour, price, and exhibit on this page was verified against the museum's own website and recent Milwaukee press in June 2026.
@@ -291,7 +292,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -301,7 +302,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -313,7 +314,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
               <dd style={{ color: "#444", margin: 0 }}>Harley-Davidson Museum</dd>
@@ -330,7 +331,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Parking</dt>
               <dd style={{ color: "#444", margin: 0 }}>Free (H Lot and D Lot, west of 6th St)</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-08">2026-06-08</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -354,7 +355,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Vintage Harleys lined up across the main gallery floor in chronological order.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. Credits: Tedder (CC-BY-3.0); Dori (CC-BY-SA-3.0); Danemroberts (CC-BY-SA-3.0); Danemroberts (CC-BY-SA-3.0).
             </p>
           </section>
@@ -365,7 +366,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -383,7 +384,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
               {admissionTiers.map((t, i) => (
                 <div key={t.tier} style={{ padding: "14px 18px", display: "grid", gridTemplateColumns: "2fr 1fr 2fr", gap: "10px", alignItems: "center", borderTop: i === 0 ? "none" : `1px solid ${c.beige}`, fontSize: "14px", color: c.green1 }}>
                   <div style={{ fontWeight: "700" }}>{t.tier}</div>
-                  <div style={{ fontWeight: "700", color: c.orange }}>{t.price}</div>
+                  <div style={{ fontWeight: "700", color: c.orangeDark }}>{t.price}</div>
                   <div style={{ color: "#555" }}>{t.notes}</div>
                 </div>
               ))}
@@ -412,11 +413,11 @@ export default function HarleyDavidsonMuseumMilwaukee() {
                 <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "12px" }}>{ex.description}</p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "10px" }}>
                   <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase" }}>Why It Matters</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase" }}>Why It Matters</p>
                     <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{ex.why}</p>
                   </div>
                   <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "10px", borderRadius: "8px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase" }}>Insider Tip</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase" }}>Insider Tip</p>
                     <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{ex.tip}</p>
                   </div>
                 </div>
@@ -438,27 +439,27 @@ export default function HarleyDavidsonMuseumMilwaukee() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "16px" }}>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Saturday BBQ & Brews</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Saturday BBQ & Brews</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "600" }}>Year-round at MOTOR. Smoked BBQ, 12 rotating local & regional taps, live acoustic music. Starts at 5:30 p.m. (4:30 p.m. Nov–Dec).</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Friday Fish Fry</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Friday Fish Fry</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "600" }}>Wisconsin tradition at MOTOR — beer-battered cod, every Friday year-round.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>S.T.E.A.M. of Motorcycles</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>S.T.E.A.M. of Motorcycles</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "600" }}>Family workshops — June 13 and August 22, 2026. Hands-on engineering for kids.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>America's 250th</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>America's 250th</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "600" }}>Exhibits in Action programming — July 11, 2026. Curator-led talks tied to the U.S. Semiquincentennial.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>First Responders Weekend</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>First Responders Weekend</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "600" }}>October 2, 2026 — discounts and recognition for police, fire, EMS.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Skulloween & Holiday</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Skulloween & Holiday</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "600" }}>Skulloween Oct 29 · Breakfast with Santa Dec 6, 13, 20 · Handmade Holidays workshops Dec 5, 12, 19.</p>
               </div>
             </div>
@@ -475,7 +476,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "22px", marginBottom: "16px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "8px" }}>
                 <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>MOTOR Bar & Restaurant</h3>
-                <span style={{ backgroundColor: c.orange, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>RIVERFRONT PATIO</span>
+                <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>RIVERFRONT PATIO</span>
               </div>
               <p style={{ color: c.yellow, backgroundColor: c.green1, display: "inline-block", padding: "4px 12px", borderRadius: "6px", fontSize: "12px", fontWeight: "700", marginBottom: "12px" }}>Sun–Wed 11 a.m.–8 p.m. · Thu–Sat 11 a.m.–9 p.m.</p>
               <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "14px" }}>
@@ -483,7 +484,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "10px", marginBottom: "12px" }}>
                 <div style={{ backgroundColor: "rgba(244,162,97,0.12)", padding: "10px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase" }}>Happy Hour</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase" }}>Happy Hour</p>
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>3–6 p.m. seven days a week — call (414) 287-2778 to confirm current drink and food specials.</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(45,90,74,0.08)", padding: "10px", borderRadius: "8px" }}>
@@ -491,11 +492,11 @@ export default function HarleyDavidsonMuseumMilwaukee() {
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Smoked BBQ platter, the Friday Fish Fry, and a beer from the Saturday rotating-tap list. The riverfront patio is the seat to ask for in summer.</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "10px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase" }}>Reservations</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase" }}>Reservations</p>
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Parties of 8 or fewer: Toast or OpenTable. Groups 20–50: complete the group dining form on motorrestaurant.com.</p>
                 </div>
               </div>
-              <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>📍 401 W Canal St, Milwaukee, WI 53203 · (414) 287-2778</p>
+              <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0 }}><span aria-hidden="true">📍 </span>401 W Canal St, Milwaukee, WI 53203 · (414) 287-2778</p>
             </div>
 
             <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "22px", marginBottom: "16px" }}>
@@ -528,35 +529,35 @@ export default function HarleyDavidsonMuseumMilwaukee() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Parking — Cars</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Parking — Cars</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Free. Two car lots — H Lot and D Lot — on the west side of 6th Street. ~500 spaces. Accessible parking throughout.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Parking — Motorcycles</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Parking — Motorcycles</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Free. Motorcycles can pull directly onto campus and park in front of the museum — first come, first served. ~1,000 motorcycle spaces on the grounds.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Accessibility</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Accessibility</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>All floors, dining, and restrooms ADA accessible. Wheelchairs, power chairs, scooters welcome. Complimentary wheelchairs first-come, first-served at guest services. Service animals permitted per ADA.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Photography</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Photography</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Personal photography is welcome throughout the galleries. The Tank Wall is the iconic shot — best light is early morning.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Strollers & Kids</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Strollers & Kids</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Stroller-friendly. Kids under 5 free, 5–17 are $11. Engine Room interactives and Experience Gallery sit-on bikes are the kid magnets.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Best Time to Visit</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Best Time to Visit</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Weekday mornings are quietest. Thursdays in summer get busy after 4 p.m. as Bike Night arrivals roll in. Weekends in July–August are the peak.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Getting There</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Getting There</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>I-94 exit 6th & Canal. ~15 minutes from MKE Mitchell International. ~10-minute walk over the 6th Street Bascule Bridge from Walker's Point. ~15 minutes from the Historic Third Ward / Public Market on foot.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>How Long to Plan</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>How Long to Plan</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>2–3 hours for the museum. Add 60–90 min for MOTOR. Add 45 min for the H-D Shop and outdoor Davidson Park. Many visitors make it a half-day.</p>
               </div>
             </div>
@@ -569,27 +570,27 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px" }}>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>The Iron Horse Hotel</h3>
-                <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~9 min walk · 500 W Florida St</p>
+                <p style={{ fontSize: "11px", color: c.orangeDark, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~9 min walk · 500 W Florida St</p>
                 <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>The Harley-themed boutique hotel — pool, shuffleboard, and a pub-style bar with happy hour Mon–Fri 4–6 p.m. The natural stay if you're in town for a Harley pilgrimage.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>MobCraft Beer</h3>
-                <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~10 min walk · 505 S 5th St</p>
+                <p style={{ fontSize: "11px", color: c.orangeDark, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~10 min walk · 505 S 5th St</p>
                 <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>Crowdsourced craft brewery in the heart of Walker's Point — ~0.1 mile from the Iron Horse Hotel. Taproom with frequent food trucks.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>Camino</h3>
-                <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~10 min walk · 434 S 2nd St</p>
+                <p style={{ fontSize: "11px", color: c.orangeDark, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~10 min walk · 434 S 2nd St</p>
                 <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>American craft-beer gastropub with 20 rotating taps — pierogi alongside burgers, poutine and brunch. Excellent Friday fish fry. Ride-friendly.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>Bryant's Cocktail Lounge</h3>
-                <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~15 min walk / quick rideshare · 1579 S 9th St</p>
+                <p style={{ fontSize: "11px", color: c.orangeDark, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~15 min walk / quick rideshare · 1579 S 9th St</p>
                 <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>Milwaukee's oldest cocktail lounge (1938). No printed menu — tell the bartender what you want. Closed Mondays. A great evening cap.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                 <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>Movida at Hotel Madrid</h3>
-                <p style={{ fontSize: "11px", color: c.orange, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~12 min walk · 600 S 6th St</p>
+                <p style={{ fontSize: "11px", color: c.orangeDark, fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>~12 min walk · 600 S 6th St</p>
                 <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.6 }}>Spanish tapas with $1 jamón croquetas at the bar during HH (Mon–Fri 4–6). Rooftop in season. One of the best food-deal HHs in the city.</p>
               </div>
             </div>
@@ -600,10 +601,10 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/walkers-point-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Walker's Point Guide</Link>
               <Link href="/best-brewery-tours-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Brewery Tours</Link>
-              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do in MKE</Link>
+              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do in MKE</Link>
               <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Happy Hour</Link>
               <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>MKE Breweries</Link>
-              <Link href="/milwaukee-bars" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>All Milwaukee Bars</Link>
+              <Link href="/milwaukee-bars" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>All Milwaukee Bars</Link>
             </div>
           </section>
 
@@ -616,7 +617,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -633,6 +634,7 @@ export default function HarleyDavidsonMuseumMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>New restaurants, exhibits, events and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

@@ -12,7 +12,7 @@ const colors = {
   green2: '#2d5a4a',
   cream: '#faf8f5',
   beige: '#e8e4dc',
-  orange: '#f4a261',
+  orange: '#f4a261', orangeDark: '#ac520c',
   yellow: '#f4d03f',
 };
 
@@ -429,7 +429,7 @@ export default function MilwaukeeBreweries() {
       <Nav />
       <Breadcrumbs />
 
-      <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
+      <main id="main-content" tabIndex={-1} style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
           <NewsletterCTA />
 
         {/* Hero Section */}
@@ -498,11 +498,11 @@ export default function MilwaukeeBreweries() {
             Today, Milwaukee's craft beer renaissance honors that legacy while pushing boundaries. From
             the polka-filled tours at <strong>Lakefront Brewery</strong> to barrel-aged sours at{' '}
             <strong>1840 Brewing</strong>, there's a brewery for every palate. Whether you're planning a{' '}
-            <Link href="/walkers-point-milwaukee" style={{ color: colors.orange, fontWeight: '600' }}>
+            <Link href="/walkers-point-milwaukee" style={{ color: colors.orangeDark, fontWeight: '600' }}>
               Walker's Point brewery crawl
             </Link>{' '}
             or seeking the perfect{' '}
-            <Link href="/best-patios-milwaukee" style={{ color: colors.orange, fontWeight: '600' }}>
+            <Link href="/best-patios-milwaukee" style={{ color: colors.orangeDark, fontWeight: '600' }}>
               brewery patio
             </Link>
             , this guide has you covered.
@@ -568,7 +568,7 @@ export default function MilwaukeeBreweries() {
                   </h3>
                   <p
                     style={{
-                      color: colors.orange,
+                      color: colors.orangeDark,
                       fontWeight: '600',
                       fontSize: '0.95rem',
                       marginBottom: '15px',
@@ -591,7 +591,7 @@ export default function MilwaukeeBreweries() {
                     </p>
                     <p style={{ fontSize: '0.9rem', color: colors.green2 }}>
                       <strong>Must try:</strong>{' '}
-                      <span style={{ color: colors.orange, fontWeight: '600' }}>{brewery.mustTry}</span>
+                      <span style={{ color: "#a14d0b", fontWeight: '600' }}>{brewery.mustTry}</span>
                     </p>
                   </div>
                 </article>
@@ -643,7 +643,7 @@ export default function MilwaukeeBreweries() {
                   </h3>
                   <p
                     style={{
-                      color: colors.orange,
+                      color: colors.orangeDark,
                       fontWeight: '600',
                       fontSize: '0.9rem',
                       marginBottom: '12px',
@@ -745,7 +745,7 @@ export default function MilwaukeeBreweries() {
               </h2>
               <p style={{ color: colors.green2, fontSize: '1.1rem' }}>
                 Sip your craft beer in the fresh Milwaukee air. See our complete{' '}
-                <Link href="/best-patios-milwaukee" style={{ color: colors.orange, fontWeight: '600' }}>
+                <Link href="/best-patios-milwaukee" style={{ color: colors.orangeDark, fontWeight: '600' }}>
                   Milwaukee patio guide
                 </Link>{' '}
                 for more outdoor drinking spots.
@@ -774,7 +774,7 @@ export default function MilwaukeeBreweries() {
                   <span
                     style={{
                       backgroundColor: colors.orange,
-                      color: '#fff',
+                      color: '#1a3d34',
                       width: '35px',
                       height: '35px',
                       borderRadius: '50%',
@@ -891,14 +891,14 @@ export default function MilwaukeeBreweries() {
                   border: `2px solid ${colors.orange}`,
                 }}
               >
-                <h3 style={{ color: colors.orange, marginBottom: '12px' }}>Walker's Point</h3>
+                <h3 style={{ color: colors.orangeDark, marginBottom: '12px' }}>Walker's Point</h3>
                 <p style={{ color: colors.green2, fontSize: '0.95rem', lineHeight: '1.6' }}>
                   MobCraft, Indeed, 1840, Urban Harvest, Broken Bat, Vennture
                 </p>
                 <Link
                   href="/walkers-point-milwaukee"
                   style={{
-                    color: colors.orange,
+                    color: colors.orangeDark,
                     fontWeight: '600',
                     fontSize: '0.9rem',
                     marginTop: '10px',
@@ -990,7 +990,7 @@ export default function MilwaukeeBreweries() {
                     }}
                   >
                     {faq.question}
-                    <span style={{ color: colors.orange, fontSize: '1.5rem' }}>+</span>
+                    <span aria-hidden="true" style={{ color: colors.orangeDark, fontSize: '1.5rem' }}>+</span>
                   </summary>
                   <div style={{ padding: '0 25px 25px 25px' }}>
                     <p style={{ color: colors.green2, lineHeight: '1.7' }}>{faq.answer}</p>
@@ -1044,7 +1044,7 @@ export default function MilwaukeeBreweries() {
                 href="/best-patios-milwaukee"
                 style={{
                   backgroundColor: colors.orange,
-                  color: '#fff',
+                  color: '#1a3d34',
                   padding: '15px 30px',
                   borderRadius: '30px',
                   textDecoration: 'none',
@@ -1072,10 +1072,9 @@ export default function MilwaukeeBreweries() {
           </div>
         </section>
 
-        {/* Footer */}
-        <RelatedGuides />
-      <Footer />
       </main>
+      <RelatedGuides />
+      <Footer />
     </>
   );
 }

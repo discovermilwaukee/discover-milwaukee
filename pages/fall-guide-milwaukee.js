@@ -23,8 +23,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -1019,8 +1019,9 @@ export default function FallGuideMilwaukee() {
     <span style={{ backgroundColor: bg, color, padding: "4px 12px", borderRadius: "999px", fontSize: "12px", fontWeight: "600", fontFamily: BODY, letterSpacing: "0.3px" }}>{children}</span>
   );
 
-  const ItemLink = ({ href, label }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>{label}</a>
+  // "Website ↗" alone is meaningless in a list of links, so screen readers also get the place name.
+  const ItemLink = ({ href, label, name }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>{name && <span className="sr-only">{name} </span>}{label.replace(" ↗", "")} <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
   );
 
   const ItemCard = ({ item }) => {
@@ -1030,7 +1031,7 @@ export default function FallGuideMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={c.orange} color="#fff">{item.badge}</Tag>}
+          {item.badge && <Tag bg={c.orangeDark} color="#fff">{item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
           {item.type && <Tag bg={c.yellow} color={c.ink}>{item.type}</Tag>}
         </div>
@@ -1038,7 +1039,7 @@ export default function FallGuideMilwaukee() {
       <p style={{ color: "#4a4a4a", fontSize: "15px", lineHeight: 1.75, marginBottom: "16px", fontFamily: BODY }}>{item.description}</p>
       {item.bestFor && (
         <div style={{ backgroundColor: c.cream, padding: "12px 14px", borderRadius: "10px", border: `1px solid ${c.beige}` }}>
-          <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", letterSpacing: "1px", fontFamily: BODY }}>BEST FOR</p>
+          <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", letterSpacing: "1px", fontFamily: BODY }}>BEST FOR</p>
           <p style={{ fontSize: "14px", color: c.ink, margin: 0, fontFamily: BODY }}>{item.bestFor}</p>
         </div>
       )}
@@ -1047,12 +1048,12 @@ export default function FallGuideMilwaukee() {
           <p style={{ fontSize: "13px", color: c.ink, margin: 0, fontFamily: BODY }}><strong>Pro tip:</strong> {item.proTip}</p>
         </div>
       )}
-      {item.address && <p style={{ fontSize: "13px", color: "#8a8a8a", marginTop: "12px", marginBottom: 0, fontFamily: BODY }}>{item.address}</p>}
+      {item.address && <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0, fontFamily: BODY }}>{item.address}</p>}
       {links && (links.website || links.instagram || links.facebook) && (
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-          {links.website && <ItemLink href={links.website} label="Website ↗" />}
-          {links.instagram && <ItemLink href={links.instagram} label="Instagram ↗" />}
-          {links.facebook && <ItemLink href={links.facebook} label="Facebook ↗" />}
+          {links.website && <ItemLink href={links.website} label="Website ↗" name={item.name} />}
+          {links.instagram && <ItemLink href={links.instagram} label="Instagram ↗" name={item.name} />}
+          {links.facebook && <ItemLink href={links.facebook} label="Facebook ↗" name={item.name} />}
         </div>
       )}
     </div>
@@ -1092,9 +1093,10 @@ export default function FallGuideMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.orange} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #743A16 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>The Complete Fall 2026 Guide</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>The Complete Fall 2026 Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Fall in Milwaukee
             </h1>
@@ -1111,21 +1113,21 @@ export default function FallGuideMilwaukee() {
               <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>
               {SECTIONS.map((s) => (
                 <React.Fragment key={s.id}>
-                  <span style={{ color: c.beige }}>|</span>
+                  <span aria-hidden="true" style={{ color: c.beige }}>|</span>
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title.replace(" Near Milwaukee", "").replace(" from Milwaukee", "")}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>Fall 2026 in Milwaukee &amp; surrounding counties ({allItems.length} verified picks)</dd>
@@ -1136,7 +1138,7 @@ export default function FallGuideMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Season</dt>
               <dd style={{ color: "#444", margin: 0 }}>September through early November</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against official sources. Confirmed 2026 dates are labeled; everything else lists typical annual timing. Fall dates, hours, and pricing change year to year and with the weather — always confirm before you go.
             </p>
           </section>
@@ -1149,7 +1151,7 @@ export default function FallGuideMilwaukee() {
           </section>
 
           <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-            <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+            <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
             <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Fall in Southeastern Wisconsin, Mapped</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every longer-term fall spot in this guide — orchards, pumpkin patches, haunted houses, foliage hikes, breweries, and day trips — plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
             <RegionMap items={mapItems} />
@@ -1157,7 +1159,7 @@ export default function FallGuideMilwaukee() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -1190,10 +1192,10 @@ export default function FallGuideMilwaukee() {
               <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Christmas in Milwaukee →
               </Link>
-              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Milwaukee Breweries →
               </Link>
-              <Link href="/day-trips-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/day-trips-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Day Trips →
               </Link>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -1212,13 +1214,14 @@ export default function FallGuideMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Fall Event Alerts</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Oktoberfests, pumpkin patches, haunted houses, and peak-color updates — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

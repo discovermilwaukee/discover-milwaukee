@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -431,9 +431,10 @@ export default function BestFrozenCustardMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · VERIFIED AGAINST EVERY VENUE&apos;S OWN WEBSITE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · VERIFIED AGAINST EVERY VENUE&apos;S OWN WEBSITE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Best Frozen Custard in Milwaukee — 2026 Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "700px", margin: "0 auto" }}>
               Milwaukee is the unofficial <strong>Frozen Custard Capital of the World</strong>. Here are the <strong>10 stands</strong> that earn it — the four pillars (Kopp&apos;s, Leon&apos;s, Gilles, Oscar&apos;s), the neighborhood stands worth knowing, and an honest read on Culver&apos;s. Verified June 2026.
@@ -441,7 +442,7 @@ export default function BestFrozenCustardMilwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -451,7 +452,7 @@ export default function BestFrozenCustardMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -463,7 +464,7 @@ export default function BestFrozenCustardMilwaukee() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Best frozen custard in Milwaukee</dd>
@@ -480,7 +481,7 @@ export default function BestFrozenCustardMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Milwaukee's claim</dt>
               <dd style={{ color: "#444", margin: 0 }}>Unofficial Frozen Custard Capital of the World</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -504,7 +505,7 @@ export default function BestFrozenCustardMilwaukee() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The dense, low-overrun texture that defines frozen custard.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. Credits: Michael Barera (CC-BY-SA-4.0), Eugene Kim (CC-BY-2.0), Eugene Kim (CC-BY-2.0), stu_spivack (CC-BY-SA-2.0). Gilles Frozen Custard is featured in the text but has no Wikimedia Commons photograph available as of June 2026.
             </p>
           </section>
@@ -515,7 +516,7 @@ export default function BestFrozenCustardMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -527,7 +528,7 @@ export default function BestFrozenCustardMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>This isn&apos;t marketing. Frozen custard is a legally distinct product from ice cream — and that legal definition is also why it tastes so different.</p>
 
             <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "20px", marginBottom: "16px" }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>The Legal Standard</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>The Legal Standard</p>
               <p style={{ color: "#333", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>
                 Under the FDA&apos;s standard of identity for ice cream (21 CFR 135.110), a product can only be labeled <strong>frozen custard</strong>, <strong>French ice cream</strong> or <strong>French custard ice cream</strong> if it contains <strong>at least 1.4% egg yolk solids by weight</strong>. Regular ice cream has no egg yolk minimum and most commercial brands use little to none. That single ingredient — egg yolk — is the foundation of the difference.
               </p>
@@ -535,27 +536,27 @@ export default function BestFrozenCustardMilwaukee() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "16px" }}>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>EGG YOLKS</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>EGG YOLKS</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Custard ≥1.4% egg yolk solids · ice cream typically 0%. Egg yolks add richness, structure and that signature silken mouthfeel.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>OVERRUN (AIR)</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>OVERRUN (AIR)</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Custard whips in very little air (~20% overrun). Commercial ice cream can run 50–100%+. Less air = denser, creamier, heavier feel.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>SERVE TEMPERATURE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>SERVE TEMPERATURE</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Custard is served ~5°F warmer than ice cream. That&apos;s why it stays smooth instead of crystallizing — and why it sticks to a cone better.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>MADE FRESH</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>MADE FRESH</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Authentic stands run continuous-batch freezers and remake custard multiple times a day. Ice cream is typically hardened and stored.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>BUTTERFAT</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>BUTTERFAT</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Both must meet the FDA&apos;s 10% milkfat minimum, but most custard stands run materially higher — combined with egg yolks, that&apos;s the richness.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>WHY MILWAUKEE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>WHY MILWAUKEE</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Wisconsin is the country&apos;s leading dairy state; Milwaukee&apos;s German immigrant baking and dessert culture took to egg-rich frozen custard early. Stands have been an everyday neighborhood institution here since the 1930s.</p>
               </div>
             </div>
@@ -611,7 +612,7 @@ export default function BestFrozenCustardMilwaukee() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "10px" }}>
                   <h3 style={{ color: c.green1, fontSize: "24px", fontWeight: "900", margin: 0 }}>{p.name}</h3>
                   <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-                    <span style={{ backgroundColor: c.orange, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{p.priceRange}</span>
+                    <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{p.priceRange}</span>
                     <span style={{ backgroundColor: c.green2, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>Since {p.founded}</span>
                     {p.yearRound && <span style={{ backgroundColor: c.green1, color: c.yellow, padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>Year-Round</span>}
                   </div>
@@ -622,7 +623,7 @@ export default function BestFrozenCustardMilwaukee() {
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, marginBottom: "14px" }}>{p.history}</p>
 
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Signature</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Signature</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{p.signature}</p>
                 </div>
 
@@ -632,7 +633,7 @@ export default function BestFrozenCustardMilwaukee() {
                 </div>
 
                 <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Insider Tip</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Insider Tip</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{p.insiderTip}</p>
                 </div>
 
@@ -641,12 +642,12 @@ export default function BestFrozenCustardMilwaukee() {
                   {p.locations.map((loc) => (
                     <div key={loc.address} style={{ marginBottom: "6px" }}>
                       <p style={{ fontSize: "13px", color: c.green1, fontWeight: "700", margin: 0 }}>{loc.label}</p>
-                      <p style={{ fontSize: "12px", color: "#555", margin: 0 }}>📍 {loc.address} {loc.phone && <span>· {loc.phone}</span>}</p>
+                      <p style={{ fontSize: "12px", color: "#555", margin: 0 }}><span aria-hidden="true">📍 </span>{loc.address} {loc.phone && <span>· {loc.phone}</span>}</p>
                     </div>
                   ))}
                 </div>
 
-                <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>Today&apos;s flavor: <a href={`https://${p.flavorUrl}`} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontWeight: "700" }}>{p.flavorUrl}</a></p>
+                <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0 }}>Today&apos;s flavor: <a href={`https://${p.flavorUrl}`} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontWeight: "700" }}>{p.flavorUrl}</a></p>
               </div>
             ))}
           </section>
@@ -658,10 +659,10 @@ export default function BestFrozenCustardMilwaukee() {
             {neighborhoodStands.map((s) => (
               <div key={s.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px 18px", marginBottom: "12px" }}>
                 <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", margin: "0 0 6px" }}>{s.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>{s.locations}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>{s.locations}</p>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.6, margin: "0 0 8px" }}>{s.description}</p>
-                <p style={{ fontSize: "12px", color: "#777", margin: "0 0 4px" }}>Today&apos;s flavor: <a href={`https://${s.flavorUrl}`} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontWeight: "700" }}>{s.flavorUrl}</a></p>
-                <p style={{ fontSize: "12px", color: "#777", margin: 0, fontStyle: "italic" }}>{s.note}</p>
+                <p style={{ fontSize: "12px", color: "#6d6d6d", margin: "0 0 4px" }}>Today&apos;s flavor: <a href={`https://${s.flavorUrl}`} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontWeight: "700" }}>{s.flavorUrl}</a></p>
+                <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0, fontStyle: "italic" }}>{s.note}</p>
               </div>
             ))}
           </section>
@@ -715,7 +716,7 @@ export default function BestFrozenCustardMilwaukee() {
             {nearAttractions.map((n) => (
               <div key={n.attraction} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 18px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{n.attraction}</h3>
-                <p style={{ color: c.orange, fontSize: "13px", fontWeight: "700", margin: "0 0 6px" }}>{n.pick}</p>
+                <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "700", margin: "0 0 6px" }}>{n.pick}</p>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{n.why}</p>
               </div>
             ))}
@@ -727,27 +728,27 @@ export default function BestFrozenCustardMilwaukee() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>CASH VS. CARD</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>CASH VS. CARD</p>
                 <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "500" }}>Leon&apos;s has historically been cash-only — bring small bills (call (414) 383-1784 if you need current policy). Kopp&apos;s, Gilles, Oscar&apos;s, Murf&apos;s, Robert&apos;s and Culver&apos;s take cards. ATMs are usually nearby.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>TIPPING</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>TIPPING</p>
                 <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "500" }}>Tip jars at the walk-up window — a couple of dollars on a multi-cone order is the local convention. Custard stands aren&apos;t sit-down service; nobody expects a 20% tip the way they would at a restaurant.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>WALK-UP VS. DRIVE-THRU</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>WALK-UP VS. DRIVE-THRU</p>
                 <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "500" }}>Leon&apos;s is windows only — no drive-through, no indoor seating, you eat outside or in your car. Kopp&apos;s, Gilles, Oscar&apos;s and Murf&apos;s have indoor seating and most have drive-throughs. Culver&apos;s has standard fast-casual seating + drive-through.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>DISH VS. CONE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>DISH VS. CONE</p>
                 <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "500" }}>A &ldquo;dish&rdquo; (cup) shows off the texture better than a cone — locals often order a dish for the Flavor of the Day so they can taste the dense custard without the cone&apos;s sweetness in the way.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>LINES</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>LINES</p>
                 <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "500" }}>Friday and Saturday nights between 7 and 9 p.m., and after Brewers games, are peak. Lines move fast — the windows are staffed to handle volume. Don&apos;t order at the window if you haven&apos;t picked yet.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>WINTER ORDER</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>WINTER ORDER</p>
                 <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5, fontWeight: "500" }}>Yes, Wisconsinites order custard outside in winter at Leon&apos;s walk-up window. Yes, you can too — that&apos;s part of the experience. If indoor seating matters in January, Gilles, Kopp&apos;s, Oscar&apos;s and Robert&apos;s all have it.</p>
               </div>
             </div>
@@ -758,10 +759,10 @@ export default function BestFrozenCustardMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/best-ice-cream-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Ice Cream in MKE</Link>
               <Link href="/best-fish-fry-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Fish Fry</Link>
-              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Date Ideas</Link>
+              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Date Ideas</Link>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do With Kids</Link>
               <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Happy Hour</Link>
-              <Link href="/wisconsin-state-fair-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Wisconsin State Fair</Link>
+              <Link href="/wisconsin-state-fair-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Wisconsin State Fair</Link>
             </div>
           </section>
 
@@ -774,7 +775,7 @@ export default function BestFrozenCustardMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -791,6 +792,7 @@ export default function BestFrozenCustardMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>New food openings, custard flavor highlights, weekend picks and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

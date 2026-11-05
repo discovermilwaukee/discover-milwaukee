@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -356,7 +356,7 @@ export default function MilwaukeeFestivals() {
             top: "-12px",
             right: "20px",
             backgroundColor: c.orange,
-            color: "white",
+            color: "#1a3d34",
             padding: "6px 14px",
             borderRadius: "20px",
             fontSize: "11px",
@@ -389,7 +389,7 @@ export default function MilwaukeeFestivals() {
             alignItems: "center",
             gap: "6px"
           }}>
-            <span style={{ fontSize: "12px" }}>📅</span> {festival.dates}
+            <span aria-hidden="true" style={{ fontSize: "12px" }}>📅</span> {festival.dates}
           </span>
           <span style={{
             backgroundColor: c.green2,
@@ -402,7 +402,7 @@ export default function MilwaukeeFestivals() {
             alignItems: "center",
             gap: "6px"
           }}>
-            <span style={{ fontSize: "12px" }}>📍</span> {festival.venue}
+            <span aria-hidden="true" style={{ fontSize: "12px" }}>📍</span> {festival.venue}
           </span>
         </div>
         <p style={{ color: "#444", fontSize: "15px", lineHeight: 1.75, marginBottom: "18px" }}>{festival.description}</p>
@@ -413,7 +413,7 @@ export default function MilwaukeeFestivals() {
           marginBottom: "16px",
           borderLeft: `4px solid ${c.orange}`
         }}>
-          <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "6px", letterSpacing: "1px", textTransform: "uppercase" }}>Don't Miss</p>
+          <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "6px", letterSpacing: "1px", textTransform: "uppercase" }}>Don't Miss</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500" }}>{festival.highlight}</p>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
@@ -464,7 +464,7 @@ export default function MilwaukeeFestivals() {
         </div>
         <span style={{
           backgroundColor: monthColors[month],
-          color: month === "fall" ? c.green1 : "white",
+          color: month === "fall" || month === "june" ? c.green1 : "white",
           padding: "8px 16px",
           borderRadius: "20px",
           fontSize: "14px",
@@ -498,9 +498,10 @@ export default function MilwaukeeFestivals() {
         <Nav />
       <Breadcrumbs />
 
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>THE CITY OF FESTIVALS</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>THE CITY OF FESTIVALS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 52px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Milwaukee Festivals 2026
             </h1>
@@ -520,24 +521,24 @@ export default function MilwaukeeFestivals() {
           <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
             <p style={{ fontSize: "12px", fontWeight: "700", color: c.green1, margin: 0, letterSpacing: "1px" }}>JUMP TO</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-              <a href="#june" style={{ backgroundColor: c.orange, color: "white", padding: "10px 18px", borderRadius: "25px", textDecoration: "none", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px", transition: "transform 0.2s" }}>
-                <span>☀️</span> June
+              <a href="#june" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "10px 18px", borderRadius: "25px", textDecoration: "none", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px", transition: "transform 0.2s" }}>
+                <span aria-hidden="true">☀️</span> June
               </a>
               <a href="#july" style={{ backgroundColor: c.green1, color: "white", padding: "10px 18px", borderRadius: "25px", textDecoration: "none", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px", transition: "transform 0.2s" }}>
-                <span>🎆</span> July
+                <span aria-hidden="true">🎆</span> July
               </a>
               <a href="#august" style={{ backgroundColor: c.green2, color: "white", padding: "10px 18px", borderRadius: "25px", textDecoration: "none", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px", transition: "transform 0.2s" }}>
-                <span>🌽</span> August
+                <span aria-hidden="true">🌽</span> August
               </a>
               <a href="#fall" style={{ backgroundColor: c.yellow, color: c.green1, padding: "10px 18px", borderRadius: "25px", textDecoration: "none", fontSize: "13px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "6px", transition: "transform 0.2s" }}>
-                <span>🍂</span> Fall
+                <span aria-hidden="true">🍂</span> Fall
               </a>
               <a href="#faq" style={{ backgroundColor: c.beige, color: c.green1, padding: "10px 18px", borderRadius: "25px", textDecoration: "none", fontSize: "13px", fontWeight: "600", transition: "transform 0.2s" }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
 
@@ -551,8 +552,8 @@ export default function MilwaukeeFestivals() {
                 textAlign: "center",
                 boxShadow: "0 4px 16px rgba(244,162,97,0.3)"
               }}>
-                <p style={{ fontSize: "36px", fontWeight: "900", color: "white", marginBottom: "4px" }}>23</p>
-                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.9)", margin: 0, fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px" }}>Festivals Listed</p>
+                <p style={{ fontSize: "36px", fontWeight: "900", color: c.green1, marginBottom: "4px" }}>23</p>
+                <p style={{ fontSize: "12px", color: c.green1, margin: 0, fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px" }}>Festivals Listed</p>
               </div>
               <div style={{
                 background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`,
@@ -562,17 +563,17 @@ export default function MilwaukeeFestivals() {
                 boxShadow: "0 4px 16px rgba(26,61,52,0.3)"
               }}>
                 <p style={{ fontSize: "36px", fontWeight: "900", color: "white", marginBottom: "4px" }}>800+</p>
-                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.9)", margin: 0, fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px" }}>Summerfest Acts</p>
+                <p style={{ fontSize: "12px", color: "white", margin: 0, fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px" }}>Summerfest Acts</p>
               </div>
               <div style={{
-                background: `linear-gradient(135deg, ${c.green2} 0%, #4a8a6a 100%)`,
+                background: `linear-gradient(135deg, ${c.green2} 0%, #458062 100%)`,
                 padding: "24px 20px",
                 borderRadius: "16px",
                 textAlign: "center",
                 boxShadow: "0 4px 16px rgba(45,90,74,0.3)"
               }}>
                 <p style={{ fontSize: "36px", fontWeight: "900", color: "white", marginBottom: "4px" }}>7</p>
-                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.9)", margin: 0, fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px" }}>Cultural Fests</p>
+                <p style={{ fontSize: "12px", color: "white", margin: 0, fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px" }}>Cultural Fests</p>
               </div>
               <div style={{
                 background: `linear-gradient(135deg, ${c.yellow} 0%, #f0c040 100%)`,
@@ -591,7 +592,7 @@ export default function MilwaukeeFestivals() {
           <section style={{ backgroundColor: "white", padding: "28px", borderRadius: "16px", marginBottom: "48px", border: `2px solid ${c.green1}`, position: "relative", overflow: "hidden" }}>
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "4px", background: `linear-gradient(90deg, ${c.orange}, ${c.yellow}, ${c.green2}, ${c.green1})` }}></div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-              <span style={{ fontSize: "28px" }}>🌍</span>
+              <span aria-hidden="true" style={{ fontSize: "28px" }}>🌍</span>
               <h2 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>Milwaukee's Famous Cultural Festivals</h2>
             </div>
             <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "20px" }}>
@@ -601,7 +602,7 @@ export default function MilwaukeeFestivals() {
               {festivalHighlights.ethnicFestivals.map((name, i) => (
                 <span key={i} style={{
                   backgroundColor: i === 0 ? c.orange : c.green1,
-                  color: c.cream,
+                  color: i === 0 ? c.green1 : c.cream,
                   padding: "8px 16px",
                   borderRadius: "20px",
                   fontSize: "13px",
@@ -667,19 +668,20 @@ export default function MilwaukeeFestivals() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
               <Link href="/events" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Events Calendar</Link>
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do</Link>
-              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Breweries</Link>
+              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Breweries</Link>
               <Link href="/best-restaurants-milwaukee" style={{ display: "block", backgroundColor: c.yellow, color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Restaurants</Link>
             </div>
           </section>
 
           {/* Newsletter CTA */}
           <section style={{ backgroundColor: c.orange, padding: "32px", borderRadius: "16px", textAlign: "center" }}>
-            <h2 style={{ color: "white", fontSize: "24px", fontWeight: "900", marginBottom: "12px" }}>Never Miss a Festival</h2>
-            <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "16px", marginBottom: "20px" }}>Get festival announcements, lineup reveals, and ticket deals every Wednesday.</p>
-            <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: "white", color: c.orange, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>
+            <h2 style={{ color: "#1a3d34", fontSize: "24px", fontWeight: "900", marginBottom: "12px" }}>Never Miss a Festival</h2>
+            <p style={{ color: "#1a3d34", fontSize: "16px", marginBottom: "20px" }}>Get festival announcements, lineup reveals, and ticket deals every Wednesday.</p>
+            <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: "white", color: c.orangeDark, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

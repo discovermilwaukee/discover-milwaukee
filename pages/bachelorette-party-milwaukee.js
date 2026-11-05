@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -131,7 +131,7 @@ export default function BacheloretteMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.category}</span>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function BacheloretteMilwaukee() {
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{spot.activityStyle}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", marginBottom: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.mustTry}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -148,10 +148,10 @@ export default function BacheloretteMilwaukee() {
         </div>
       </div>
       <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-        <p style={{ fontSize: "12px", fontWeight: "700", color: "#b8860b", marginBottom: "4px" }}>INSIDER TIP</p>
+        <p style={{ fontSize: "12px", fontWeight: "700", color: "#886208", marginBottom: "4px" }}>INSIDER TIP</p>
         <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.insiderTip}</p>
       </div>
-      <p style={{ fontSize: "13px", color: "#888", margin: 0 }}>📍 {spot.address}</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", margin: 0 }}><span aria-hidden="true">📍 </span>{spot.address}</p>
     </div>
   );
 
@@ -191,21 +191,22 @@ export default function BacheloretteMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · GROUP-TESTED PICKS</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · GROUP-TESTED PICKS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>The Ultimate Milwaukee Bachelorette Party Guide</h1>
             <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "620px", margin: "0 auto" }}>Pedal taverns, mini-golf brewery tours, letterpress cocktail workshops, Pfister spa mornings and the dance bars locals actually go to. A weekend the bride will actually remember — and the maid of honor can actually book.</p>
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Confirm hours, group capacity and bachelorette policies with each venue before you book. Planning the other side? See our <Link href="/bachelor-party-milwaukee" style={{ color: c.green2 }}>Milwaukee bachelor party guide</Link>. Pair this with <Link href="/best-brunch-milwaukee" style={{ color: c.green2 }}>Milwaukee's best brunch</Link>, the <Link href="/best-cocktail-bars-milwaukee" style={{ color: c.green2 }}>best cocktail bars</Link>, and <Link href="/milwaukee-hotels" style={{ color: c.green2 }}>where to stay</Link>.
+              <strong>Note:</strong> Confirm hours, group capacity and bachelorette policies with each venue before you book. Planning the other side? See our <Link href="/bachelor-party-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>Milwaukee bachelor party guide</Link>. Pair this with <Link href="/best-brunch-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>Milwaukee's best brunch</Link>, the <Link href="/best-cocktail-bars-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>best cocktail bars</Link>, and <Link href="/milwaukee-hotels" style={{ color: c.green2, textDecoration: "underline" }}>where to stay</Link>.
             </p>
           </div>
 
@@ -239,7 +240,7 @@ export default function BacheloretteMilwaukee() {
             <div style={{ backgroundColor: "white", borderRadius: "16px", padding: "24px", border: `1px solid ${c.beige}` }}>
               {sampleItinerary.map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: "16px", padding: "12px 0", borderBottom: i === sampleItinerary.length - 1 ? "none" : `1px solid ${c.beige}` }}>
-                  <div style={{ minWidth: "140px", color: c.orange, fontWeight: "700", fontSize: "14px" }}>{item.time}</div>
+                  <div style={{ minWidth: "140px", color: c.orangeDark, fontWeight: "700", fontSize: "14px" }}>{item.time}</div>
                   <div style={{ color: c.green1, fontSize: "15px", lineHeight: 1.6 }}>{item.activity}</div>
                 </div>
               ))}
@@ -251,7 +252,7 @@ export default function BacheloretteMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Brunch</Link>
               <Link href="/best-cocktail-bars-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Cocktail Bars</Link>
-              <Link href="/milwaukee-hotels" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Hotels</Link>
+              <Link href="/milwaukee-hotels" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Hotels</Link>
             </div>
           </section>
 
@@ -270,6 +271,7 @@ export default function BacheloretteMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>New restaurants, events, and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

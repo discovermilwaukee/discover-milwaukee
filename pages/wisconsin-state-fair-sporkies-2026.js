@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -307,9 +307,10 @@ export default function SporkiesDrinkies2026() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · THE COMPLETE FINALISTS GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · THE COMPLETE FINALISTS GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Wisconsin State Fair Sporkies & Drinkies 2026</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               8 Sporkies finalists · 4 Drinkies finalists · Verified June 2026. Every vendor, every dish, every drink, and where to find each one on the fairgrounds during the 175th Wisconsin State Fair, August 6–16.
@@ -317,7 +318,7 @@ export default function SporkiesDrinkies2026() {
           </div>
         </header>
 
-        <nav style={{
+        <nav aria-label="On this page" style={{
           position: "sticky",
           top: 0,
           zIndex: 50,
@@ -351,7 +352,7 @@ export default function SporkiesDrinkies2026() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -363,7 +364,7 @@ export default function SporkiesDrinkies2026() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Event</dt>
               <dd style={{ color: "#444", margin: 0 }}>Wisconsin State Fair Sporkies & Drinkies 2026</dd>
@@ -378,7 +379,7 @@ export default function SporkiesDrinkies2026() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Cost</dt>
               <dd style={{ color: "#444", margin: 0 }}>Free with fair admission (each item priced individually)</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -391,7 +392,7 @@ export default function SporkiesDrinkies2026() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "12px" }}>
               {overviewStats.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "15px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -434,12 +435,12 @@ export default function SporkiesDrinkies2026() {
                 }}>
                   <img src={s.image} alt={`${s.name} — Wisconsin State Fair Sporkies 2026 finalist by ${s.vendor}`} loading="lazy" width="600" height="375" style={{ width: "100%", aspectRatio: "16 / 10", objectFit: "cover", backgroundColor: c.beige, display: "block" }} />
                   <div style={{ padding: "18px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{s.tag}</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{s.tag}</p>
                     <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{s.name}</h3>
                     <p style={{ color: c.green2, fontSize: "13px", fontWeight: "700", margin: "0 0 10px" }}>{s.vendor}</p>
                     <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.6, margin: "0 0 12px" }}>{s.blurb}</p>
                     <div style={{ backgroundColor: c.cream, padding: "10px 12px", borderRadius: "8px", marginBottom: "10px" }}>
-                      <p style={{ fontSize: "10px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>In the Build</p>
+                      <p style={{ fontSize: "10px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>In the Build</p>
                       <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{s.ingredients}</p>
                     </div>
                     <p style={{ fontSize: "12px", color: "#666", margin: 0, lineHeight: 1.5 }}><strong style={{ color: c.green1 }}>Find it:</strong> {s.location}</p>
@@ -466,12 +467,12 @@ export default function SporkiesDrinkies2026() {
                 }}>
                   <img src={d.image} alt={`${d.name} — Wisconsin State Fair Drinkies 2026 finalist by ${d.vendor}`} loading="lazy" width="600" height="375" style={{ width: "100%", aspectRatio: "16 / 10", objectFit: "cover", backgroundColor: c.beige, display: "block" }} />
                   <div style={{ padding: "18px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{d.tag}</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{d.tag}</p>
                     <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{d.name}</h3>
                     <p style={{ color: c.green2, fontSize: "13px", fontWeight: "700", margin: "0 0 10px" }}>{d.vendor}</p>
                     <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.6, margin: "0 0 12px" }}>{d.blurb}</p>
                     <div style={{ backgroundColor: c.cream, padding: "10px 12px", borderRadius: "8px", marginBottom: "10px" }}>
-                      <p style={{ fontSize: "10px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>In the Glass</p>
+                      <p style={{ fontSize: "10px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>In the Glass</p>
                       <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{d.ingredients}</p>
                     </div>
                     <p style={{ fontSize: "12px", color: "#666", margin: 0, lineHeight: 1.5 }}><strong style={{ color: c.green1 }}>Find it:</strong> {d.location}</p>
@@ -489,7 +490,7 @@ export default function SporkiesDrinkies2026() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px" }}>
               {judgingNotes.map((j) => (
                 <div key={j.title} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <h4 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", margin: "0 0 8px" }}>{j.title}</h4>
+                  <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", margin: "0 0 8px" }}>{j.title}</h3>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>{j.body}</p>
                 </div>
               ))}
@@ -561,7 +562,7 @@ export default function SporkiesDrinkies2026() {
                 padding: "16px 18px",
                 marginBottom: "12px",
               }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{w.year}</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", margin: "0 0 6px", textTransform: "uppercase" }}>{w.year}</p>
                 <p style={{ color: c.green1, fontSize: "15px", margin: "0 0 6px", fontWeight: "700" }}>Sporkies: {w.spork}</p>
                 <p style={{ color: "#555", fontSize: "14px", margin: 0, lineHeight: 1.6 }}>Drinkies / Note: {w.drinkie}</p>
               </div>
@@ -582,7 +583,7 @@ export default function SporkiesDrinkies2026() {
                 padding: "16px 18px",
                 marginBottom: "12px",
               }}>
-                <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h4>
+                <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.65, margin: 0 }}>{t.body}</p>
               </div>
             ))}
@@ -623,9 +624,9 @@ export default function SporkiesDrinkies2026() {
                     }}
                   >
                     <span>{f.q}</span>
-                    <span style={{
+                    <span aria-hidden="true" style={{
                       fontSize: "20px",
-                      color: c.orange,
+                      color: c.orangeDark,
                       flexShrink: 0,
                       transform: isOpen ? "rotate(45deg)" : "rotate(0)",
                       transition: "transform 0.15s",
@@ -647,7 +648,7 @@ export default function SporkiesDrinkies2026() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/wisconsin-state-fair-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Wisconsin State Fair Guide</Link>
               <Link href="/summerfest-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Summerfest 2026</Link>
-              <Link href="/best-fish-fry-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Fish Fry</Link>
+              <Link href="/best-fish-fry-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Fish Fry</Link>
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.yellow, color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", textAlign: "center" }}>Things To Do</Link>
             </div>
           </section>
@@ -659,6 +660,7 @@ export default function SporkiesDrinkies2026() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

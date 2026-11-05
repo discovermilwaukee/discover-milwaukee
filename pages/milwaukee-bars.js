@@ -14,7 +14,7 @@ const c = {
   beige: "#e8e4dc",
   orange: "#f4a261",
   yellow: "#f4d03f",
-  tan: "#8b7355",
+  tan: "#8b7355", tanDark: "#846d51",
 };
 
 // SVG Icons (replacing emojis)
@@ -109,7 +109,7 @@ const BAR_CATEGORIES = [
     id: "rooftop-bars",
     title: "Rooftop Bars",
     icon: "Building",
-    color: "#F7786B",
+    color: "#D01D0B",
     tagline: "Skyline views & elevated drinking",
     description: "Milwaukee's skyline is underrated, and these rooftops prove it. From sophisticated hotel bars to casual game-day patios, find your perfect perch above the city.",
     featured: [
@@ -125,7 +125,7 @@ const BAR_CATEGORIES = [
     id: "sports-bars",
     title: "Sports Bars",
     icon: "Trophy",
-    color: "#34A853",
+    color: "#26793C",
     tagline: "Game day, every day",
     description: "Bucks, Brewers, Packers—Milwaukee takes its sports seriously. These bars have the screens, the energy, and the fellow fans to make every game feel like you're at the stadium.",
     featured: [
@@ -141,7 +141,7 @@ const BAR_CATEGORIES = [
     id: "breweries",
     title: "Breweries & Taprooms",
     icon: "Hop",
-    color: "#DAA520",
+    color: "#866514",
     tagline: "Cream City craft beer",
     description: "The city that Miller built has embraced craft beer with open arms. From historic tours at Lakefront to experimental brews in Walker's Point, Milwaukee's brewery scene is thriving.",
     featured: [
@@ -157,7 +157,7 @@ const BAR_CATEGORIES = [
     id: "adventure-bars",
     title: "Adventure Bars",
     icon: "Target",
-    color: "#FF6B35",
+    color: "#C53500",
     tagline: "Drinks + activities",
     description: "Why just drink when you can bowl, throw axes, play arcade games, or mini golf? These bars combine entertainment with your beverages for a memorable night out.",
     featured: [
@@ -573,44 +573,13 @@ export default function MilwaukeeBars() {
         <style>{`html { scroll-behavior: smooth; }`}</style>
       </Head>
 
-      {/* Skip to content link for accessibility */}
-      <a
-        href="#main-content"
-        style={{
-          position: "absolute",
-          left: "-9999px",
-          top: "auto",
-          width: "1px",
-          height: "1px",
-          overflow: "hidden",
-        }}
-        onFocus={(e) => {
-          e.target.style.left = "16px";
-          e.target.style.top = "16px";
-          e.target.style.width = "auto";
-          e.target.style.height = "auto";
-          e.target.style.padding = "12px 24px";
-          e.target.style.backgroundColor = c.green1;
-          e.target.style.color = "#fff";
-          e.target.style.zIndex = "9999";
-          e.target.style.borderRadius = "8px";
-        }}
-        onBlur={(e) => {
-          e.target.style.left = "-9999px";
-          e.target.style.width = "1px";
-          e.target.style.height = "1px";
-        }}
-      >
-        Skip to main content
-      </a>
-
       <Nav />
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: "'Poppins', system-ui, sans-serif" }}>
         {/* Breadcrumb */}
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 24px" }}>
-          <nav aria-label="Breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
+          <nav aria-label="Page breadcrumb" style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px" }}>
             <Link href="/" style={{ color: c.green2, textDecoration: "none", cursor: "pointer" }}>Home</Link>
             <Icons.ChevronRight />
             <Link href="/explore" style={{ color: c.green2, textDecoration: "none", cursor: "pointer" }}>Explore</Link>
@@ -620,6 +589,7 @@ export default function MilwaukeeBars() {
         </div>
 
         {/* Hero */}
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #0d1f1a 100%)`, padding: "60px 24px 80px", textAlign: "center", position: "relative", overflow: "hidden" }}>
           {/* SEO-optimized hero image - visually integrated but crawlable */}
           <img
@@ -651,14 +621,14 @@ export default function MilwaukeeBars() {
             </p>
 
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="#categories" style={{ backgroundColor: c.orange, color: "#fff", padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseEnter={(e) => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 4px 12px rgba(244,162,97,0.4)"; }} onMouseLeave={(e) => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>Browse by Type</a>
+              <a href="#categories" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }} onMouseEnter={(e) => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 4px 12px rgba(244,162,97,0.4)"; }} onMouseLeave={(e) => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}>Browse by Type</a>
               <a href="#trails" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", border: `2px solid rgba(255,255,255,0.3)`, cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.2)"} onMouseLeave={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.1)"}>Bar Trails</a>
               <a href="#neighborhoods" style={{ backgroundColor: "rgba(255,255,255,0.1)", color: c.cream, padding: "14px 28px", borderRadius: "30px", textDecoration: "none", fontWeight: "700", fontSize: "15px", border: `2px solid rgba(255,255,255,0.3)`, cursor: "pointer", transition: "background-color 0.2s" }} onMouseEnter={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.2)"} onMouseLeave={(e) => e.target.style.backgroundColor = "rgba(255,255,255,0.1)"}>By Neighborhood</a>
             </div>
           </div>
         </header>
 
-        <main id="main-content" style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "60px 24px" }}>
           <NewsletterCTA />
 
 
@@ -672,7 +642,7 @@ export default function MilwaukeeBars() {
             ].map((item, i) => (
               <div key={i} style={{ backgroundColor: "#fff", padding: "24px 16px", borderRadius: "12px", textAlign: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
                 <p style={{ fontSize: "28px", fontWeight: "900", color: c.green1, marginBottom: "4px" }}>{item.stat}</p>
-                <p style={{ fontSize: "13px", color: c.tan, fontWeight: "600" }}>{item.label}</p>
+                <p style={{ fontSize: "13px", color: c.tanDark, fontWeight: "600" }}>{item.label}</p>
               </div>
             ))}
           </section>
@@ -694,7 +664,7 @@ export default function MilwaukeeBars() {
               {/* Visual map grid - main nightlife districts */}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "12px", maxWidth: "800px", margin: "0 auto" }}>
                 {NEIGHBORHOODS.slice(0, 9).map((hood, i) => {
-                  const colors = ["#8B4513", "#6B5B95", "#F7786B", "#34A853", "#DAA520", "#FF6B35", "#4A90A4", "#9B59B6", "#E67E22"];
+                  const colors = ["#8B4513", "#6B5B95", "#D01D0B", "#26793C", "#866514", "#C53500", "#3A7181", "#914CAD", "#A25612"];
                   return (
                     <a
                       key={hood.name}
@@ -724,7 +694,7 @@ export default function MilwaukeeBars() {
                   );
                 })}
               </div>
-              <p style={{ textAlign: "center", marginTop: "20px", fontSize: "13px", color: "#888" }}>
+              <p style={{ textAlign: "center", marginTop: "20px", fontSize: "13px", color: "#6d6d6d" }}>
                 Click any district to jump to neighborhood details below
               </p>
             </div>
@@ -819,7 +789,7 @@ export default function MilwaukeeBars() {
                           <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "12px 0", borderBottom: i < cat.featured.length - 1 ? `1px solid ${c.beige}` : "none" }}>
                             <div>
                               <p style={{ fontWeight: "700", color: c.green1, marginBottom: "2px", fontSize: "14px" }}>{bar.name}</p>
-                              <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>{bar.claim}</p>
+                              <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0 }}>{bar.claim}</p>
                             </div>
                             <span style={{ fontSize: "11px", backgroundColor: c.beige, padding: "4px 10px", borderRadius: "20px", color: c.green2, fontWeight: "600", whiteSpace: "nowrap" }}>{bar.neighborhood}</span>
                           </div>
@@ -885,7 +855,7 @@ export default function MilwaukeeBars() {
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
                     <h3 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, margin: 0, lineHeight: 1.3 }}>{trail.title}</h3>
-                    <span style={{ backgroundColor: c.orange, color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700", whiteSpace: "nowrap" }}>{trail.stops} stops</span>
+                    <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700", whiteSpace: "nowrap" }}>{trail.stops} stops</span>
                   </div>
                   <p style={{ color: "#666", fontSize: "14px", marginBottom: "16px" }}>{trail.description}</p>
                   <div style={{ marginBottom: "16px" }}>
@@ -894,12 +864,12 @@ export default function MilwaukeeBars() {
                         <span style={{ width: "24px", height: "24px", backgroundColor: c.green1, color: "#fff", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "700", flexShrink: 0 }}>{bar.order}</span>
                         <div>
                           <p style={{ fontWeight: "600", color: c.green1, margin: 0, fontSize: "14px" }}>{bar.name}</p>
-                          <p style={{ fontSize: "12px", color: c.tan, margin: 0 }}>{bar.type}</p>
+                          <p style={{ fontSize: "12px", color: c.tanDark, margin: 0 }}>{bar.type}</p>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div style={{ display: "flex", gap: "16px", fontSize: "13px", color: "#777" }}>
+                  <div style={{ display: "flex", gap: "16px", fontSize: "13px", color: "#6d6d6d" }}>
                     <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Icons.Clock /> {trail.duration}</span>
                     <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Icons.MapPin /> {trail.neighborhoods.join(", ")}</span>
                   </div>
@@ -937,7 +907,7 @@ export default function MilwaukeeBars() {
                       <span style={{
                         fontSize: "13px",
                         backgroundColor: c.orange,
-                        color: "#fff",
+                        color: "#1a3d34",
                         padding: "4px 12px",
                         borderRadius: "20px",
                         fontWeight: "700"
@@ -1004,7 +974,7 @@ export default function MilwaukeeBars() {
                 { title: "Friday Fish Fry", desc: "A Wisconsin tradition. Many bars serve fish fry on Fridays—some are legendary." },
               ].map((item, i) => (
                 <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "12px", padding: "20px" }}>
-                  <h3 style={{ color: c.orange, fontSize: "15px", fontWeight: "700", marginBottom: "8px" }}>{item.title}</h3>
+                  <h3 style={{ color: "#f5ab70", fontSize: "15px", fontWeight: "700", marginBottom: "8px" }}>{item.title}</h3>
                   <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
                 </div>
               ))}
@@ -1029,10 +999,10 @@ export default function MilwaukeeBars() {
             <h2 style={{ fontSize: "22px", fontWeight: "900", color: c.green1, marginBottom: "20px" }}>More Milwaukee Guides</h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "12px" }}>
               {[
-                { title: "Best Restaurants", href: "/best-restaurants-milwaukee", color: c.orange },
+                { title: "Best Restaurants", href: "/best-restaurants-milwaukee", color: "#AC520C" },
                 { title: "Coffee Shops", href: "/milwaukee-coffee-shops", color: c.green2 },
-                { title: "Date Night Ideas", href: "/milwaukee-date-ideas", color: "#9B59B6" },
-                { title: "Happy Hour Deals", href: "/best-happy-hour-milwaukee", color: "#E74C3C" },
+                { title: "Date Night Ideas", href: "/milwaukee-date-ideas", color: "#914CAD" },
+                { title: "Happy Hour Deals", href: "/best-happy-hour-milwaukee", color: "#CB2A19" },
               ].map((guide, i) => (
                 <Link
                   key={i}
@@ -1098,6 +1068,7 @@ export default function MilwaukeeBars() {
               <Icons.ArrowRight />
             </Link>
           </section>
+        </div>
         </main>
 
         {/* Footer */}

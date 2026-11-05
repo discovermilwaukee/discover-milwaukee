@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -403,9 +403,10 @@ export default function SummerfestMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · THE COMPLETE GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · THE COMPLETE GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Summerfest 2026 Milwaukee: The Complete Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               The world's largest music festival lives in Milwaukee. Full 2026 guide — every confirmed show, every stage, every vendor, every way to get in free, plus the parking, accessibility and gate-strategy details locals actually use.
@@ -413,7 +414,7 @@ export default function SummerfestMilwaukee() {
           </div>
         </header>
 
-        <nav style={{
+        <nav aria-label="On this page" style={{
           position: "sticky",
           top: 0,
           zIndex: 50,
@@ -447,7 +448,7 @@ export default function SummerfestMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -459,7 +460,7 @@ export default function SummerfestMilwaukee() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Event</dt>
               <dd style={{ color: "#444", margin: 0 }}>Summerfest — the world's largest music festival</dd>
@@ -474,7 +475,7 @@ export default function SummerfestMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>BMO Pavilion 2026 highlights</dt>
               <dd style={{ color: "#444", margin: 0 }}>Charlie Wilson, David Lee Roth, The Roots, Russell Dickerson, Ella Mai, Buju Banton w/ Stephen Marley</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-05">2026-06-05</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -487,7 +488,7 @@ export default function SummerfestMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "12px" }}>
               {overviewStats.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "15px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -547,7 +548,7 @@ export default function SummerfestMilwaukee() {
                   alignItems: "flex-start",
                 }}>
                   <div style={{ flex: "0 0 110px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, textTransform: "uppercase" }}>{show.date}</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, textTransform: "uppercase" }}>{show.date}</p>
                     <p style={{ fontSize: "12px", color: c.green2, marginTop: "4px", margin: "4px 0 0", fontWeight: "600" }}>{show.venue}</p>
                   </div>
                   <div style={{ flex: "1 1 240px", minWidth: 0 }}>
@@ -574,7 +575,7 @@ export default function SummerfestMilwaukee() {
                   padding: "20px",
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-                    <span style={{ fontSize: "24px" }}>{s.icon}</span>
+                    <span aria-hidden="true" style={{ fontSize: "24px" }}>{s.icon}</span>
                     <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: 0, lineHeight: 1.25 }}>{s.name}</h3>
                   </div>
                   <p style={{ color: c.green2, fontSize: "12px", fontWeight: "700", letterSpacing: "0.5px", margin: "0 0 10px", textTransform: "uppercase" }}>{s.tag}</p>
@@ -583,7 +584,7 @@ export default function SummerfestMilwaukee() {
               ))}
             </div>
             <div style={{ marginTop: "24px", backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "18px", borderRadius: "12px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "8px", letterSpacing: "1px", textTransform: "uppercase" }}>Also on the grounds in 2026</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "8px", letterSpacing: "1px", textTransform: "uppercase" }}>Also on the grounds in 2026</p>
               <p style={{ color: c.green1, fontSize: "15px", lineHeight: 1.7, margin: 0 }}>{secondaryStages.join(" · ")}</p>
             </div>
           </section>
@@ -604,13 +605,13 @@ export default function SummerfestMilwaukee() {
                   padding: "18px",
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
-                    <span style={{ fontSize: "26px" }}>{f.emoji}</span>
+                    <span aria-hidden="true" style={{ fontSize: "26px" }}>{f.emoji}</span>
                     <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: 0 }}>{f.name}</h4>
                   </div>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 10px", textTransform: "uppercase" }}>{f.location}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 10px", textTransform: "uppercase" }}>{f.location}</p>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: "0 0 10px" }}>{f.description}</p>
                   <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
                     <p style={{ fontSize: "13px", color: c.green1, margin: 0 }}>{f.mustTry}</p>
                   </div>
                 </div>
@@ -622,7 +623,7 @@ export default function SummerfestMilwaukee() {
               {returningFood.map((f) => (
                 <div key={f.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "16px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-                    <span style={{ fontSize: "24px" }}>{f.emoji}</span>
+                    <span aria-hidden="true" style={{ fontSize: "24px" }}>{f.emoji}</span>
                     <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: 0 }}>{f.name}</h4>
                   </div>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>{f.description}</p>
@@ -655,7 +656,7 @@ export default function SummerfestMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "32px" }}>
               {ticketTiers.map((t) => (
                 <div key={t.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{t.name}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{t.name}</p>
                   <p style={{ fontSize: "22px", fontWeight: "900", color: c.green1, margin: "0 0 4px" }}>{t.price}</p>
                   <p style={{ fontSize: "13px", color: "#666", margin: 0 }}>{t.note}</p>
                 </div>
@@ -700,7 +701,7 @@ export default function SummerfestMilwaukee() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px", marginBottom: "16px" }}>
                 {shuttles.map((s) => (
                   <div key={s.name} style={{ backgroundColor: c.cream, padding: "14px", borderRadius: "10px", border: `1px solid ${c.beige}` }}>
-                    <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>{s.name}</p>
+                    <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>{s.name}</p>
                     <p style={{ fontSize: "14px", color: c.green1, margin: "0 0 4px", fontWeight: "600" }}>{s.address}</p>
                     <p style={{ fontSize: "12px", color: "#666", margin: 0 }}>{s.note}</p>
                   </div>
@@ -741,13 +742,13 @@ export default function SummerfestMilwaukee() {
             <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", marginBottom: "12px", marginTop: "16px" }}>Bag Policy 2026</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px", marginBottom: "32px" }}>
               <div style={{ backgroundColor: "white", border: `2px solid ${c.green2}`, borderRadius: "12px", padding: "18px" }}>
-                <p style={{ fontSize: "12px", fontWeight: "700", color: c.green2, marginBottom: "10px", letterSpacing: "1px", textTransform: "uppercase" }}>✓ Allowed</p>
+                <p style={{ fontSize: "12px", fontWeight: "700", color: c.green2, marginBottom: "10px", letterSpacing: "1px", textTransform: "uppercase" }}><span aria-hidden="true">✓ </span>Allowed</p>
                 <ul style={{ margin: 0, paddingLeft: "20px", color: "#444", fontSize: "14px", lineHeight: 1.7 }}>
                   {bagAllowed.map((item, i) => <li key={i} style={{ marginBottom: "6px" }}>{item}</li>)}
                 </ul>
               </div>
               <div style={{ backgroundColor: "white", border: `2px solid #c44`, borderRadius: "12px", padding: "18px" }}>
-                <p style={{ fontSize: "12px", fontWeight: "700", color: "#c44", marginBottom: "10px", letterSpacing: "1px", textTransform: "uppercase" }}>✗ Prohibited</p>
+                <p style={{ fontSize: "12px", fontWeight: "700", color: "#c44", marginBottom: "10px", letterSpacing: "1px", textTransform: "uppercase" }}><span aria-hidden="true">✗ </span>Prohibited</p>
                 <ul style={{ margin: 0, paddingLeft: "20px", color: "#444", fontSize: "14px", lineHeight: 1.7 }}>
                   {bagProhibited.map((item, i) => <li key={i} style={{ marginBottom: "6px" }}>{item}</li>)}
                 </ul>
@@ -789,7 +790,7 @@ export default function SummerfestMilwaukee() {
                 padding: "16px 18px",
                 marginBottom: "12px",
               }}>
-                <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h4>
+                <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.65, margin: 0 }}>{t.body}</p>
               </div>
             ))}
@@ -830,9 +831,9 @@ export default function SummerfestMilwaukee() {
                     }}
                   >
                     <span>{f.q}</span>
-                    <span style={{
+                    <span aria-hidden="true" style={{
                       fontSize: "20px",
-                      color: c.orange,
+                      color: c.orangeDark,
                       flexShrink: 0,
                       transform: isOpen ? "rotate(45deg)" : "rotate(0)",
                       transition: "transform 0.15s",
@@ -854,7 +855,7 @@ export default function SummerfestMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/milwaukee-festivals" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Festivals</Link>
               <Link href="/summer-live-music-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Summer Live Music</Link>
-              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do</Link>
+              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do</Link>
             </div>
           </section>
 
@@ -865,6 +866,7 @@ export default function SummerfestMilwaukee() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

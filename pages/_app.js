@@ -189,6 +189,9 @@ export default function App({ Component, pageProps }) {
         </Script>
       )}
 
+      {/* First stop for keyboard and screen reader users: jump past the navigation. */}
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+
       <Component {...pageProps} />
 
       {/* Vercel Web Analytics - page views + custom events (see lib/analytics.js) */}

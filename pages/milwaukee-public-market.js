@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -329,7 +329,7 @@ export default function MilwaukeePublicMarket() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.category}</span>
         </div>
       </div>
@@ -337,7 +337,7 @@ export default function MilwaukeePublicMarket() {
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{spot.vendorStyle}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", marginBottom: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.mustTry}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -346,10 +346,10 @@ export default function MilwaukeePublicMarket() {
         </div>
       </div>
       <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-        <p style={{ fontSize: "12px", fontWeight: "700", color: "#b8860b", marginBottom: "4px" }}>INSIDER TIP</p>
+        <p style={{ fontSize: "12px", fontWeight: "700", color: "#886208", marginBottom: "4px" }}>INSIDER TIP</p>
         <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.insiderTip}</p>
       </div>
-      <p style={{ fontSize: "13px", color: "#888", margin: 0 }}>📍 {spot.address}</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", margin: 0 }}><span aria-hidden="true">📍 </span>{spot.address}</p>
     </div>
   );
 
@@ -390,9 +390,10 @@ export default function MilwaukeePublicMarket() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · 30+ VENDORS</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · 30+ VENDORS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Milwaukee Public Market
             </h1>
@@ -402,39 +403,39 @@ export default function MilwaukeePublicMarket() {
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
 
           <section style={{ marginBottom: "32px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>ADDRESS</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>ADDRESS</p>
                 <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>400 N Water St</p>
                 <p style={{ color: "#666", fontSize: "13px", margin: 0 }}>Historic Third Ward</p>
               </div>
               <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>HOURS</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>HOURS</p>
                 <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>Mon–Sat 10a–8p</p>
                 <p style={{ color: "#666", fontSize: "13px", margin: 0 }}>Sun 10a–6p</p>
               </div>
               <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>SEATING</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>SEATING</p>
                 <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>Mezzanine upstairs</p>
                 <p style={{ color: "#666", fontSize: "13px", margin: 0 }}>Eat-in seating</p>
               </div>
               <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>PARKING</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>PARKING</p>
                 <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>Paid lots</p>
                 <p style={{ color: "#666", fontSize: "13px", margin: 0 }}>Water/St Paul/Erie</p>
               </div>
               <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>VENDORS</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>VENDORS</p>
                 <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>30+ stalls</p>
                 <p style={{ color: "#666", fontSize: "13px", margin: 0 }}>Food, drink, gifts</p>
               </div>
               <div style={{ backgroundColor: "white", padding: "16px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>OPENED</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: 0, marginBottom: "6px" }}>OPENED</p>
                 <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>2005</p>
                 <p style={{ color: "#666", fontSize: "13px", margin: 0 }}>Year-round, indoor</p>
               </div>
@@ -443,7 +444,7 @@ export default function MilwaukeePublicMarket() {
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "48px" }}>
             <p style={{ color: c.green1, fontSize: "14px", fontWeight: "600", margin: 0 }}>
-              <strong>Note:</strong> Vendors and hours rotate — always confirm current hours and stalls on milwaukeepublicmarket.org before a trip. The Market sits inside the <Link href="/third-ward-milwaukee" style={{ color: c.green2 }}>Historic Third Ward</Link>, an easy walk to <Link href="/best-restaurants-milwaukee" style={{ color: c.green2 }}>Milwaukee's best restaurants</Link> and <Link href="/milwaukee-shopping" style={{ color: c.green2 }}>downtown shopping</Link>.
+              <strong>Note:</strong> Vendors and hours rotate — always confirm current hours and stalls on milwaukeepublicmarket.org before a trip. The Market sits inside the <Link href="/third-ward-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>Historic Third Ward</Link>, an easy walk to <Link href="/best-restaurants-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>Milwaukee's best restaurants</Link> and <Link href="/milwaukee-shopping" style={{ color: c.green2, textDecoration: "underline" }}>downtown shopping</Link>.
             </p>
           </div>
 
@@ -463,7 +464,7 @@ export default function MilwaukeePublicMarket() {
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Wisconsin Classics</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              The stalls that anchor the Public Market to Wisconsin — cheese, sausage, oysters from the Great Lakes seafood counter, and Bavarian pretzels. Pair with our guide to <Link href="/best-cheese-curds-milwaukee" style={{ color: c.green2 }}>Milwaukee's best cheese curds</Link>.
+              The stalls that anchor the Public Market to Wisconsin — cheese, sausage, oysters from the Great Lakes seafood counter, and Bavarian pretzels. Pair with our guide to <Link href="/best-cheese-curds-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>Milwaukee's best cheese curds</Link>.
             </p>
             {vendors.wisconsin.map((spot, i) => <VendorCard key={i} spot={spot} />)}
           </section>
@@ -479,7 +480,7 @@ export default function MilwaukeePublicMarket() {
           <section style={{ marginBottom: "48px" }}>
             <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Sweets & Drinks</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Coffee, wine, frozen margaritas, hand-dipped chocolates, artisan breads and a wall of spices. See our full <Link href="/best-coffee-milwaukee" style={{ color: c.green2 }}>Milwaukee coffee guide</Link> for more of the Anodyne story.
+              Coffee, wine, frozen margaritas, hand-dipped chocolates, artisan breads and a wall of spices. See our full <Link href="/best-coffee-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>Milwaukee coffee guide</Link> for more of the Anodyne story.
             </p>
             {vendors.sweetsDrinks.map((spot, i) => <VendorCard key={i} spot={spot} />)}
           </section>
@@ -536,7 +537,7 @@ export default function MilwaukeePublicMarket() {
             </div>
             <div style={{ backgroundColor: "white", padding: "20px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
               <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "6px" }}>Pair it with</h3>
-              <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>The Market sits in the middle of the Third Ward. Before or after, walk Broadway for boutiques and galleries, or down to the Riverwalk — see <Link href="/third-ward-milwaukee" style={{ color: c.green2 }}>our Third Ward guide</Link> and <Link href="/things-to-do-milwaukee" style={{ color: c.green2 }}>things to do in Milwaukee</Link>.</p>
+              <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>The Market sits in the middle of the Third Ward. Before or after, walk Broadway for boutiques and galleries, or down to the Riverwalk — see <Link href="/third-ward-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>our Third Ward guide</Link> and <Link href="/things-to-do-milwaukee" style={{ color: c.green2, textDecoration: "underline" }}>things to do in Milwaukee</Link>.</p>
             </div>
           </section>
 
@@ -545,7 +546,7 @@ export default function MilwaukeePublicMarket() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/third-ward-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Third Ward Guide</Link>
               <Link href="/best-restaurants-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Restaurants</Link>
-              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do</Link>
+              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do</Link>
             </div>
           </section>
 
@@ -566,6 +567,7 @@ export default function MilwaukeePublicMarket() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

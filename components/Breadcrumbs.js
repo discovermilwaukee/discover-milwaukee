@@ -9,7 +9,7 @@ const c = {
   green1: "#2C5235",
   cream: "#F7F1E7",
   beige: "#EBDFC1",
-  tan: "#9E7F4B",
+  tan: "#9E7F4B", tanDark: "#83693E",
 };
 
 export default function Breadcrumbs() {
@@ -50,7 +50,7 @@ export default function Breadcrumbs() {
         <span aria-hidden="true" style={{ color: c.tan }}>
           ›
         </span>
-        <span style={{ color: c.tan }} aria-current="page">
+        <span style={{ color: c.tanDark }} aria-current="page">
           {guide.title}
         </span>
       </div>

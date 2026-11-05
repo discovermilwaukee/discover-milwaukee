@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -518,9 +518,10 @@ export default function BestMatchaMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · VERIFIED AGAINST EVERY VENUE&apos;S OWN WEBSITE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 10, 2026 · VERIFIED AGAINST EVERY VENUE&apos;S OWN WEBSITE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Best Matcha in Milwaukee — 2026 Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "720px", margin: "0 auto" }}>
               Milwaukee&apos;s matcha scene exploded in late 2025 and 2026. A dedicated tea house opened in Bay View. A streetwear brand launched a matcha-forward café on the East Side. Two pop-up matcha specialists — one Milwaukee-based, one Sheboygan-based with regular city dates — built devoted followings. And Milwaukee is the headquarters of <strong>Rishi Tea</strong> — the company supplying matcha to half the cafes you&apos;ll visit. Here are the <strong>22+ spots</strong> that earn the list. Verified <time dateTime="2026-06-11">June 11, 2026</time>.
@@ -528,7 +529,7 @@ export default function BestMatchaMilwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -538,7 +539,7 @@ export default function BestMatchaMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -549,7 +550,7 @@ export default function BestMatchaMilwaukee() {
           </div>
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Best matcha in Milwaukee — cafés, lattes, boba and pastries</dd>
@@ -568,7 +569,7 @@ export default function BestMatchaMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Verified date</dt>
               <dd style={{ color: "#444", margin: 0 }}><time dateTime="2026-06-11">June 11, 2026</time></dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified against each venue&apos;s own website + Milwaukee press (OnMilwaukee, Urban Milwaukee, Milwaukee Magazine, BizTimes, Milwaukee Record, TMJ4).
             </p>
           </section>
@@ -592,7 +593,7 @@ export default function BestMatchaMilwaukee() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>Matcha pastry — culinary-grade matcha worked into baked goods.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. See accompanying yaml manifest for full attribution and license info.
             </p>
           </section>
@@ -603,7 +604,7 @@ export default function BestMatchaMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -615,7 +616,7 @@ export default function BestMatchaMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>If you&apos;ve only had blended matcha lattes at chain coffee shops, you don&apos;t actually know what matcha tastes like. This is the short version of what to look for.</p>
 
             <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "20px", marginBottom: "16px" }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>What matcha actually is</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>What matcha actually is</p>
               <p style={{ color: "#333", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>
                 Matcha is finely stone-ground powder made from <strong>shade-grown</strong> green tea leaves (Camellia sinensis). The leaves are covered for about three weeks before harvest, which boosts chlorophyll and L-theanine and turns them deep jade green. After harvest, stems and veins are removed, leaves are dried into <em>tencha</em>, and tencha is ground on a stone mill into a fine, talc-textured powder. Because you whisk matcha into water rather than steeping and discarding the leaf, you consume the whole leaf in suspension — so matcha delivers far more L-theanine, chlorophyll and antioxidants per cup than steeped green tea.
               </p>
@@ -623,27 +624,27 @@ export default function BestMatchaMilwaukee() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "16px" }}>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>CEREMONIAL GRADE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>CEREMONIAL GRADE</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Youngest, top-tier shade-grown leaves; bright jade green; fine stone-ground particle. Meant to be whisked into water and consumed straight (usucha thin, koicha thick). Sweet, vegetal, umami, no real bitterness. $25–$60+ for a 30g tin.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>PREMIUM / CAFÉ GRADE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>PREMIUM / CAFÉ GRADE</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Mid-tier. Optimized for high-end matcha lattes and blends. Less pricey than ceremonial, still good color and flavor. What most serious specialty coffee shops use for lattes.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>CULINARY GRADE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>CULINARY GRADE</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Older / lower-tier leaves, coarser grind. For baking, smoothies, ice cream, mass-market lattes. Real matcha, just designed to hold flavor when mixed with sugar, milk and other ingredients.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>ORIGIN MATTERS</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>ORIGIN MATTERS</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>The signature Japanese matcha regions: <strong>Uji</strong> (Kyoto) — the historic heart, often considered the gold standard; <strong>Nishio</strong> (Aichi) — large volume, consistent quality; <strong>Shizuoka</strong> — Japan&apos;s largest tea region; <strong>Kyushu</strong> (Fukuoka, Yame, Kagoshima) — volcanic soil, vibrant green. Love Cafe&apos;s Shizuoka sourcing and Rishi&apos;s Kyushu sourcing are both noteworthy.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>BREWING TEMPERATURE</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>BREWING TEMPERATURE</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>160–175°F. <strong>Never boiling.</strong> Water above ~185°F scorches the matcha and the result tastes bitter and astringent. If a café is pouring straight from a kettle without cooling, the matcha will suffer — politely ask them to use water that&apos;s been off the boil for a minute.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>THE WHISK (CHASEN)</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>THE WHISK (CHASEN)</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>A chasen is a Japanese whisk hand-carved from a single piece of bamboo into 80–120 tines, made in Takayama, Nara for 500+ years. The chasen creates the fine froth on top of properly prepared matcha. An electric frother is a workable substitute for a latte — but for straight matcha in a bowl, a chasen is the difference between &quot;tea drink&quot; and matcha.</p>
               </div>
             </div>
@@ -662,7 +663,7 @@ export default function BestMatchaMilwaukee() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "10px" }}>
                   <h3 style={{ color: c.green1, fontSize: "24px", fontWeight: "900", margin: 0 }}>{p.name}</h3>
                   <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-                    <span style={{ backgroundColor: c.orange, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{p.neighborhood}</span>
+                    <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{p.neighborhood}</span>
                   </div>
                 </div>
 
@@ -672,7 +673,7 @@ export default function BestMatchaMilwaukee() {
                 <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.7, marginBottom: "14px", fontStyle: "italic" }}>{p.owners}</p>
 
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>The Matcha Program</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>The Matcha Program</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{p.matchaProgram}</p>
                 </div>
 
@@ -682,7 +683,7 @@ export default function BestMatchaMilwaukee() {
                 </div>
 
                 <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Insider Tip</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Insider Tip</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{p.insiderTip}</p>
                 </div>
 
@@ -692,11 +693,11 @@ export default function BestMatchaMilwaukee() {
                 </div>
 
                 <div style={{ marginBottom: "10px" }}>
-                  <p style={{ fontSize: "12px", color: "#555", margin: "0 0 4px" }}>📍 {p.address}</p>
-                  <p style={{ fontSize: "12px", color: "#555", margin: "0 0 4px" }}>📞 {p.phone}</p>
+                  <p style={{ fontSize: "12px", color: "#555", margin: "0 0 4px" }}><span aria-hidden="true">📍 </span>{p.address}</p>
+                  <p style={{ fontSize: "12px", color: "#555", margin: "0 0 4px" }}><span aria-hidden="true">📞 </span>{p.phone}</p>
                 </div>
 
-                <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>Web: <a href={`https://${p.url}`} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontWeight: "700" }}>{p.url}</a></p>
+                <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0 }}>Web: <a href={`https://${p.url}`} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontWeight: "700" }}>{p.url}</a></p>
               </div>
             ))}
           </section>
@@ -708,18 +709,18 @@ export default function BestMatchaMilwaukee() {
             {matchaLatteShops.map((s) => (
               <div key={s.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px 18px", marginBottom: "12px" }}>
                 <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", margin: "0 0 6px" }}>{s.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>{s.neighborhood}</p>
-                <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.6, margin: "0 0 8px" }}>📍 {s.address}</p>
-                {s.phone && s.phone !== "—" && <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.6, margin: "0 0 8px" }}>📞 {s.phone}</p>}
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>{s.neighborhood}</p>
+                <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.6, margin: "0 0 8px" }}><span aria-hidden="true">📍 </span>{s.address}</p>
+                {s.phone && s.phone !== "—" && <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.6, margin: "0 0 8px" }}><span aria-hidden="true">📞 </span>{s.phone}</p>}
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px", marginBottom: "8px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>The Matcha</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>The Matcha</p>
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{s.matcha}</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(45,90,74,0.08)", padding: "10px", borderRadius: "8px", marginBottom: "8px" }}>
                   <p style={{ fontSize: "11px", fontWeight: "700", color: c.green2, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>What to Order</p>
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{s.order}</p>
                 </div>
-                <p style={{ fontSize: "12px", color: "#777", margin: 0, fontStyle: "italic" }}>{s.note}</p>
+                <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0, fontStyle: "italic" }}>{s.note}</p>
               </div>
             ))}
           </section>
@@ -734,7 +735,7 @@ export default function BestMatchaMilwaukee() {
             {bubbleTea.map((b) => (
               <div key={b.name} style={{ backgroundColor: "rgba(244,208,63,0.1)", border: `1px solid rgba(244,208,63,0.25)`, borderRadius: "12px", padding: "16px 18px", marginBottom: "12px" }}>
                 <h3 style={{ color: c.yellow, fontSize: "18px", fontWeight: "800", margin: "0 0 6px" }}>{b.name}</h3>
-                <p style={{ color: c.beige, fontSize: "13px", margin: "0 0 6px" }}>📍 {b.address}</p>
+                <p style={{ color: c.beige, fontSize: "13px", margin: "0 0 6px" }}><span aria-hidden="true">📍 </span>{b.address}</p>
                 <p style={{ color: c.cream, fontSize: "13px", lineHeight: 1.6, margin: "0 0 8px" }}>{b.matcha}</p>
                 <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", margin: "0 0 4px" }}>Order: <span style={{ color: c.cream, fontWeight: 500 }}>{b.order}</span></p>
                 <p style={{ fontSize: "11px", color: c.beige, margin: 0, fontStyle: "italic", opacity: 0.8 }}>{b.note}</p>
@@ -749,9 +750,9 @@ export default function BestMatchaMilwaukee() {
             {pastries.map((p) => (
               <div key={p.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 18px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{p.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}>📍 {p.address}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}><span aria-hidden="true">📍 </span>{p.address}</p>
                 <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.6, margin: "0 0 6px" }}>{p.matcha}</p>
-                <p style={{ color: "#777", fontSize: "12px", margin: 0, fontStyle: "italic" }}>{p.note}</p>
+                <p style={{ color: "#6d6d6d", fontSize: "12px", margin: 0, fontStyle: "italic" }}>{p.note}</p>
               </div>
             ))}
           </section>
@@ -763,7 +764,7 @@ export default function BestMatchaMilwaukee() {
             {grocery.map((g) => (
               <div key={g.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 18px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{g.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}>📍 {g.address}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}><span aria-hidden="true">📍 </span>{g.address}</p>
                 <p style={{ color: "#444", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>{g.note}</p>
               </div>
             ))}
@@ -775,7 +776,7 @@ export default function BestMatchaMilwaukee() {
             {neighborhoodGuide.map((n) => (
               <div key={n.hood} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 18px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{n.hood}</h3>
-                <p style={{ color: c.orange, fontSize: "13px", fontWeight: "700", margin: "0 0 6px" }}>{n.pick}</p>
+                <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "700", margin: "0 0 6px" }}>{n.pick}</p>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{n.why}</p>
               </div>
             ))}
@@ -788,7 +789,7 @@ export default function BestMatchaMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
               {tastingVocab.map((t) => (
                 <div key={t.word} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{t.word}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{t.word}</p>
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{t.meaning}</p>
                 </div>
               ))}
@@ -800,10 +801,10 @@ export default function BestMatchaMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/best-coffee-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Coffee in MKE</Link>
               <Link href="/best-bakeries-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Bakeries</Link>
-              <Link href="/best-doughnuts-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Doughnuts</Link>
+              <Link href="/best-doughnuts-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Doughnuts</Link>
               <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Date Ideas</Link>
               <Link href="/best-frozen-custard-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Frozen Custard</Link>
-              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Happy Hour</Link>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Happy Hour</Link>
             </div>
           </section>
 
@@ -816,7 +817,7 @@ export default function BestMatchaMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -833,6 +834,7 @@ export default function BestMatchaMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>New café openings, matcha pop-up drops, weekend picks and insider food tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />
