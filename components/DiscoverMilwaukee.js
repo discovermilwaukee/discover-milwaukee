@@ -13,10 +13,10 @@ import { onActivate, trapTab } from "../lib/a11y";
 
 // Display typeface for home-page headlines (loaded in _document.js). Falls back
 // to system-ui everywhere it isn't applied, so guide pages are untouched.
-const DISPLAY_FONT = "'Anton', system-ui, -apple-system, sans-serif";
+const DISPLAY_FONT = "'Anton', 'Anton Fallback', system-ui, -apple-system, sans-serif";
 // Brand type system (free substitutes for the paid brand fonts).
 // Scoped to the home page via an inline wrapper so guide pages are untouched.
-const BODY_FONT = "'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif";
+const BODY_FONT = "'Jost', 'Jost Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif";
 const SCRIPT_FONT = "'Damion', 'Brush Script MT', cursive";
 
 // Custom hook for responsive breakpoints
@@ -3774,12 +3774,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {/* EVENTS */}
       {page === "events" && !selectedEvent && !showEventForm && (
         <div style={{ fontFamily: BODY_FONT }}>
-          <section style={{ backgroundColor: c.cream, padding: isMobile ? "48px 16px 36px" : "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
+          {/* Sizes that differ by screen width live in CSS (pg-hero-* in globals.css), not in
+              isMobile, so the server-rendered page is already the right size on phones. */}
+          <section className="pg-hero" style={{ backgroundColor: c.cream, borderBottom: `1px solid ${c.beige}` }}>
             <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.orangeDark, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>WHAT'S HAPPENING</p>
-              <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "40px" : "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Milwaukee Events</h1>
-              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2Dark, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Your Social Calendar, Handled.</p>
-              <p style={{ color: c.green2Dark, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto 24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
+              <p className="pg-hero-kicker" style={{ color: c.orangeDark, fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>WHAT'S HAPPENING</p>
+              <h1 className="pg-hero-title" style={{ fontFamily: DISPLAY_FONT, fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Milwaukee Events</h1>
+              <p className="pg-hero-sub" style={{ color: c.blue2Dark, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Your Social Calendar, Handled.</p>
+              <p className="pg-hero-lede" style={{ color: c.green2Dark, lineHeight: 1.6, maxWidth: "580px", margin: "0 auto 24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
               {/* Sponsor */}
               <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", backgroundColor: c.white, padding: "12px 24px", borderRadius: "50px", border: `1px solid ${c.beige}` }}>
                 <span style={{ color: c.tanDark, fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
@@ -3832,7 +3834,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       <span style={{ flex: 1, height: "1px", backgroundColor: c.beige }} />
                     </div>
                     {events.length > 0 ? (
-                      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "16px" }}>
+                      <div className="ev-grid">
                         {events.map(e => {
                           const EventIcon = eventCategoryIcons[e.category] || LineIcons.Calendar;
                           const accent = eventCategoryColors[e.category] || c.green1;

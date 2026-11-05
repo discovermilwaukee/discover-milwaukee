@@ -232,6 +232,97 @@ video, iframe {
   box-shadow: 0 12px 28px rgba(240, 166, 35, 0.45);
 }
 
+/* ---------------------------------------------------------------------------
+   Size-matched stand-ins for the brand web fonts. While Anton and Jost are still
+   downloading, text is drawn in a local font scaled to take up the same width
+   and line height, so nothing wraps differently or moves when the real font
+   arrives. Values measured against the Google Fonts files (Anton v27, Jost v20).
+--------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Anton Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial"), local("ArialMT"), local("Roboto");
+  size-adjust: 71.45%;
+  ascent-override: 164.63%;
+  descent-override: 46.06%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Jost Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial"), local("ArialMT"), local("Roboto");
+  size-adjust: 95.71%;
+  ascent-override: 111.80%;
+  descent-override: 39.18%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Jost Fallback";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Arial"), local("ArialMT"), local("Roboto");
+  size-adjust: 99.71%;
+  ascent-override: 107.31%;
+  descent-override: 37.61%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Jost Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Roboto Bold");
+  size-adjust: 95.63%;
+  ascent-override: 111.89%;
+  descent-override: 39.21%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Jost Fallback";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Roboto Bold");
+  size-adjust: 98.51%;
+  ascent-override: 108.62%;
+  descent-override: 38.07%;
+  line-gap-override: 0%;
+}
+
+/* ---------------------------------------------------------------------------
+   Screen-size layout that has to be right in the server-rendered HTML.
+   These used to be decided in JavaScript after load (isMobile), which made the
+   header and hero resize and the page jump on phones. Breakpoint matches the
+   JS check (window.innerWidth < 768).
+--------------------------------------------------------------------------- */
+.nav-banner { font-size: 14px; }
+.nav-logo { font-size: 22px; }
+.nav-desktop { display: flex; }
+.nav-mobile { display: none; }
+
+.pg-hero { padding: 76px 16px 52px; }
+.pg-hero-kicker { font-size: 12px; }
+.pg-hero-title { font-size: 68px; }
+.pg-hero-sub { font-size: 19px; }
+.pg-hero-lede { font-size: 18px; }
+
+.ev-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+@media (max-width: 767px) {
+  .nav-banner { font-size: 12px; }
+  .nav-logo { font-size: 16px; }
+  .nav-desktop { display: none; }
+  .nav-mobile { display: flex; }
+
+  .pg-hero { padding: 48px 16px 36px; }
+  .pg-hero-kicker { font-size: 11px; }
+  .pg-hero-title { font-size: 40px; }
+  .pg-hero-sub { font-size: 16px; }
+  .pg-hero-lede { font-size: 16px; }
+
+  .ev-grid { grid-template-columns: 1fr; }
+}
+
 /* Selection styling */
 ::selection {
   background-color: #2C5235;
