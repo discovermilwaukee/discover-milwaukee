@@ -1019,9 +1019,9 @@ export default function FallGuideMilwaukee() {
     <span style={{ backgroundColor: bg, color, padding: "4px 12px", borderRadius: "999px", fontSize: "12px", fontWeight: "600", fontFamily: BODY, letterSpacing: "0.3px" }}>{children}</span>
   );
 
-  // "Website ↗" alone is meaningless in a list of links, so screen readers also get the place name.
+  // "Website ↗" alone is meaningless in a list of links, so the link's label carries the place name.
   const ItemLink = ({ href, label, name }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>{name && <span className="sr-only">{name} </span>}{label.replace(" ↗", "")} <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`${name ? name + " " : ""}${label.replace(" ↗", "")} (opens in a new tab)`} style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>{label.replace(" ↗", "")} <span aria-hidden="true">↗</span></a>
   );
 
   const ItemCard = ({ item }) => {
