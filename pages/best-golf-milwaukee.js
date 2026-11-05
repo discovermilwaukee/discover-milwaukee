@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -262,7 +262,7 @@ export default function BestGolfMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.access}</span>
+          <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.access}</span>
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.area}</span>
         </div>
       </div>
@@ -270,7 +270,7 @@ export default function BestGolfMilwaukee() {
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{spot.overview}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", marginBottom: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>SIGNATURE / KNOWN FOR</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>SIGNATURE / KNOWN FOR</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.signature}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -279,10 +279,10 @@ export default function BestGolfMilwaukee() {
         </div>
       </div>
       <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-        <p style={{ fontSize: "12px", fontWeight: "700", color: "#b8860b", marginBottom: "4px" }}>INSIDER TIP</p>
+        <p style={{ fontSize: "12px", fontWeight: "700", color: "#886208", marginBottom: "4px" }}>INSIDER TIP</p>
         <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.insiderTip}</p>
       </div>
-      <p style={{ fontSize: "13px", color: "#888", margin: 0 }}>📍 {spot.address}</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", margin: 0 }}><span aria-hidden="true">📍 </span>{spot.address}</p>
     </div>
   );
 
@@ -307,9 +307,10 @@ export default function BestGolfMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JULY 2026</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JULY 2026</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Golf in Milwaukee
             </h1>
@@ -319,7 +320,7 @@ export default function BestGolfMilwaukee() {
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
           {/* Key Facts — lead answer block */}
@@ -332,7 +333,7 @@ export default function BestGolfMilwaukee() {
           {/* At-a-Glance table — quick reference */}
           <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee Golf Courses at a Glance</h2>
-            <div style={{ overflowX: "auto" }}>
+            <div tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways" style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                 <thead>
                   <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
@@ -399,7 +400,7 @@ export default function BestGolfMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do</Link>
               <Link href="/day-trips-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Day Trips</Link>
-              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Happy Hour</Link>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Happy Hour</Link>
             </div>
           </section>
 
@@ -420,6 +421,7 @@ export default function BestGolfMilwaukee() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

@@ -17,11 +17,11 @@ const c = {
 };
 
 const CATEGORIES = {
-  food: { label: "Food & Drink", color: "#e76f51" },
-  lifestyle: { label: "Lifestyle & Family", color: "#2a9d8f" },
+  food: { label: "Food & Drink", color: "#d2411d" },
+  lifestyle: { label: "Lifestyle & Family", color: "#238276" },
   sports: { label: "Sports", color: "#264653" },
   music: { label: "Music & Nightlife", color: "#9d4edd" },
-  arts: { label: "Arts & Culture", color: "#e9c46a" },
+  arts: { label: "Arts & Culture", color: "#946f16" },
   news: { label: "Personalities & Media", color: "#457b9d" },
 };
 
@@ -213,7 +213,7 @@ const structuredData = {
   },
 };
 
-function PlatformLink({ href, label }) {
+function PlatformLink({ href, label, name }) {
   return (
     <a
       href={href}
@@ -233,7 +233,9 @@ function PlatformLink({ href, label }) {
         backgroundColor: "#fff",
       }}
     >
+      {name && <span className="sr-only">{name} on </span>}
       {label}
+      <span className="sr-only"> (opens in a new tab)</span>
     </a>
   );
 }
@@ -300,8 +302,8 @@ function CreatorCard({ cr }) {
         </span>
         <p style={{ margin: "0 0 12px", fontSize: "14px", lineHeight: 1.5, color: "#3a4a44" }}>{cr.bio}</p>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <PlatformLink href={igUrl(cr.ig)} label="Instagram" />
-          {cr.tt ? <PlatformLink href={ttUrl(cr.tt)} label="TikTok" /> : null}
+          <PlatformLink href={igUrl(cr.ig)} label="Instagram" name={cr.name} />
+          {cr.tt ? <PlatformLink href={ttUrl(cr.tt)} label="TikTok" name={cr.name} /> : null}
         </div>
       </div>
     </div>
@@ -361,6 +363,7 @@ export default function MilwaukeeInfluencers() {
       <Nav />
       <Breadcrumbs />
 
+      <main id="main-content" tabIndex={-1}>
       <header
         style={{
           background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`,
@@ -393,7 +396,7 @@ export default function MilwaukeeInfluencers() {
         </div>
       </header>
 
-      <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
         <NewsletterCTA />
 
         <section id="key-facts" style={{ margin: "8px 0 32px" }}>
@@ -441,13 +444,13 @@ export default function MilwaukeeInfluencers() {
                       <td style={{ padding: "8px 10px" }}>{CATEGORIES[cr.category].label}</td>
                       <td style={{ padding: "8px 10px" }}>{TIER_SHORT[tierFor(cr.rank)]}</td>
                       <td style={{ padding: "8px 10px" }}>
-                        <a href={igUrl(cr.ig)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2 }}>
+                        <a href={igUrl(cr.ig)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, textDecoration: "underline" }}>
                           Instagram
                         </a>
                         {cr.tt ? (
                           <>
                             {" · "}
-                            <a href={ttUrl(cr.tt)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2 }}>
+                            <a href={ttUrl(cr.tt)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, textDecoration: "underline" }}>
                               TikTok
                             </a>
                           </>
@@ -545,6 +548,7 @@ export default function MilwaukeeInfluencers() {
             .
           </p>
         </section>
+      </div>
       </main>
 
       <RelatedGuides />

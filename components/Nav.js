@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GUIDE_CATEGORIES } from "../lib/guides";
+import { trapTab } from "../lib/a11y";
 
 const c = {
   green1: "#2C5235",
@@ -9,7 +10,12 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
+  // Darker / lighter variants of the brand yellow and tan for text, so small type
+  // meets 4.5:1 contrast on cream (Dark) and on the dark green (Light).
+  yellowDark: "#94620A",
+  yellowLight: "#F1AF38",
   tan: "#9E7F4B",
+  tanDark: "#83693E",
 };
 
 // Group the taxonomy into its 4 top-level buckets, preserving order
@@ -24,7 +30,7 @@ const GUIDE_GROUPS = GUIDE_CATEGORIES.reduce((acc, cat) => {
 }, []);
 
 const SearchIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8"></circle>
     <path d="m21 21-4.35-4.35"></path>
   </svg>
@@ -37,10 +43,19 @@ export default function Nav({ onSearchClick }) {
   const [guidesOpen, setGuidesOpen] = useState(false);
   const [navSearchOpen, setNavSearchOpen] = useState(false);
   const [navSearch, setNavSearch] = useState("");
+  const lastFocus = useRef(null);
   const openSearch = () => {
     setMobileMenuOpen(false);
     if (onSearchClick) onSearchClick();
-    else setNavSearchOpen(true);
+    else {
+      lastFocus.current = typeof document !== "undefined" ? document.activeElement : null;
+      setNavSearchOpen(true);
+    }
+  };
+  // Close the search dialog and hand focus back to whatever opened it.
+  const closeSearch = () => {
+    setNavSearchOpen(false);
+    if (lastFocus.current && lastFocus.current.focus) lastFocus.current.focus();
   };
   const closeTimer = useRef(null);
 
@@ -75,6 +90,19 @@ export default function Nav({ onSearchClick }) {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
+  // Escape closes whichever layer is open (search dialog, Guides menu, mobile menu).
+  useEffect(() => {
+    if (!navSearchOpen && !guidesOpen && !mobileMenuOpen) return undefined;
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      if (navSearchOpen) closeSearch();
+      else if (guidesOpen) setGuidesOpen(false);
+      else setMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [navSearchOpen, guidesOpen, mobileMenuOpen]);
+
   const currentPage = router.pathname.replace("/", "") || "home";
 
   const navItems = [
@@ -95,7 +123,7 @@ export default function Nav({ onSearchClick }) {
       </header>
 
       {/* Nav */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.cream, borderBottom: `3px solid ${c.yellow}`, boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
+      <nav aria-label="Main" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.cream, borderBottom: `3px solid ${c.yellow}`, boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 16px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "70px" }}>
           <Link href="/" style={{ cursor: "pointer", display: "flex", alignItems: "center", textDecoration: "none" }}>
             <span style={{ fontSize: isMobile ? "16px" : "22px", fontWeight: "900", color: c.green1, letterSpacing: "1px", textTransform: "uppercase" }}>DISCOVER MILWAUKEE</span>
@@ -110,6 +138,7 @@ export default function Nav({ onSearchClick }) {
                   type="button"
                   aria-haspopup="true"
                   aria-expanded={guidesOpen}
+                  aria-controls="guides-menu"
                   onClick={() => (guidesOpen ? setGuidesOpen(false) : openGuides())}
                   style={{
                     background: "none",
@@ -118,7 +147,7 @@ export default function Nav({ onSearchClick }) {
                     display: "flex",
                     alignItems: "center",
                     gap: "4px",
-                    color: guidesOpen ? c.yellow : c.green1,
+                    color: guidesOpen ? c.yellowDark : c.green1,
                     fontSize: "14px",
                     fontWeight: "600",
                     textTransform: "uppercase",
@@ -128,7 +157,7 @@ export default function Nav({ onSearchClick }) {
                   }}
                 >
                   Guides
-                  <span style={{ fontSize: "10px", transform: guidesOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>▾</span>
+                  <span aria-hidden="true" style={{ fontSize: "10px", transform: guidesOpen ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>▾</span>
                 </button>
               </div>
 
@@ -138,8 +167,9 @@ export default function Nav({ onSearchClick }) {
                   <Link
                     key={item.label}
                     href={item.href}
+                    aria-current={isActive ? "page" : undefined}
                     style={{
-                      color: isActive ? c.yellow : c.green1,
+                      color: isActive ? c.yellowDark : c.green1,
                       fontSize: "14px",
                       fontWeight: "600",
                       cursor: "pointer",
@@ -159,7 +189,7 @@ export default function Nav({ onSearchClick }) {
                 href="/milwaukee-media-kit"
                 style={{
                   backgroundColor: currentPage === "milwaukee-media-kit" ? c.yellow : c.green1,
-                  color: currentPage === "milwaukee-media-kit" ? c.green1 : c.cream,
+                  color: currentPage === "milwaukee-media-kit" ? "#20291F" : c.cream,
                   padding: "10px 20px",
                   borderRadius: "50px",
                   border: "none",
@@ -216,12 +246,16 @@ export default function Nav({ onSearchClick }) {
 
               {/* Hamburger */}
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-menu"
                 style={{ background: "none", border: "none", cursor: "pointer", padding: "8px" }}
               >
-                <div style={{ width: "24px", height: "2px", backgroundColor: c.green1, marginBottom: "6px", transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
-                <div style={{ width: "24px", height: "2px", backgroundColor: c.green1, marginBottom: "6px", opacity: mobileMenuOpen ? 0 : 1, transition: "all 0.3s" }} />
-                <div style={{ width: "24px", height: "2px", backgroundColor: c.green1, transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
+                <span aria-hidden="true" style={{ display: "block", width: "24px", height: "2px", backgroundColor: c.green1, marginBottom: "6px", transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+                <span aria-hidden="true" style={{ display: "block", width: "24px", height: "2px", backgroundColor: c.green1, marginBottom: "6px", opacity: mobileMenuOpen ? 0 : 1, transition: "all 0.3s" }} />
+                <span aria-hidden="true" style={{ display: "block", width: "24px", height: "2px", backgroundColor: c.green1, transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
               </button>
             </div>
           )}
@@ -230,6 +264,7 @@ export default function Nav({ onSearchClick }) {
         {/* Guides Mega-Menu Panel (desktop) */}
         {!isMobile && guidesOpen && (
           <div
+            id="guides-menu"
             onMouseEnter={openGuides}
             onMouseLeave={scheduleCloseGuides}
             style={{
@@ -246,7 +281,7 @@ export default function Nav({ onSearchClick }) {
             <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "28px 16px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "28px" }}>
               {GUIDE_GROUPS.map((group) => (
                 <div key={group.group}>
-                  <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase", margin: "0 0 14px" }}>
+                  <p style={{ color: c.yellowDark, fontSize: "12px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase", margin: "0 0 14px" }}>
                     {group.group}
                   </p>
                   {group.categories.map((cat) => (
@@ -256,7 +291,7 @@ export default function Nav({ onSearchClick }) {
                         onClick={() => setGuidesOpen(false)}
                         style={{ display: "flex", alignItems: "center", gap: "6px", color: c.green1, fontSize: "13px", fontWeight: "700", textDecoration: "none", marginBottom: "6px" }}
                       >
-                        <span>{cat.icon}</span>{cat.title}
+                        <span aria-hidden="true">{cat.icon}</span>{cat.title}
                       </Link>
                       <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
                         {cat.guides.slice(0, 4).map((g) => (
@@ -264,7 +299,7 @@ export default function Nav({ onSearchClick }) {
                             key={g.href}
                             href={g.href}
                             onClick={() => setGuidesOpen(false)}
-                            style={{ color: c.tan, fontSize: "12px", textDecoration: "none" }}
+                            style={{ color: c.tanDark, fontSize: "12px", textDecoration: "none" }}
                           >
                             {g.title}
                           </Link>
@@ -280,7 +315,7 @@ export default function Nav({ onSearchClick }) {
 
         {/* Mobile Menu Dropdown */}
         {isMobile && mobileMenuOpen && (
-          <div style={{ backgroundColor: c.cream, borderTop: `1px solid ${c.beige}`, padding: "16px" }}>
+          <div id="mobile-menu" style={{ backgroundColor: c.cream, borderTop: `1px solid ${c.beige}`, padding: "16px" }}>
             {navItems.map((item) => {
               const isActive = item.href === "/" ? currentPage === "home" || currentPage === "" : currentPage === item.href.replace("/", "");
               return (
@@ -288,10 +323,11 @@ export default function Nav({ onSearchClick }) {
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActive ? "page" : undefined}
                   style={{
                     display: "block",
                     padding: "14px 16px",
-                    color: isActive ? c.yellow : c.green1,
+                    color: isActive ? c.yellowLight : c.green1,
                     fontSize: "16px",
                     fontWeight: "600",
                     cursor: "pointer",
@@ -309,7 +345,7 @@ export default function Nav({ onSearchClick }) {
             <div style={{ borderTop: `1px solid ${c.beige}`, marginTop: "4px", paddingTop: "4px" }}>
               {GUIDE_GROUPS.map((group) => (
                 <div key={group.group}>
-                  <p style={{ color: c.yellow, fontSize: "11px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase", margin: "12px 16px 4px" }}>
+                  <p style={{ color: c.yellowDark, fontSize: "11px", fontWeight: "900", letterSpacing: "1px", textTransform: "uppercase", margin: "12px 16px 4px" }}>
                     {group.group}
                   </p>
                   {group.categories.map((cat) => (
@@ -319,7 +355,7 @@ export default function Nav({ onSearchClick }) {
                       onClick={() => setMobileMenuOpen(false)}
                       style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 16px", color: c.green1, fontSize: "15px", fontWeight: "600", textDecoration: "none" }}
                     >
-                      <span>{cat.icon}</span>{cat.title}
+                      <span aria-hidden="true">{cat.icon}</span>{cat.title}
                     </Link>
                   ))}
                 </div>
@@ -350,7 +386,7 @@ export default function Nav({ onSearchClick }) {
                 gap: "8px",
               }}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="7" width="18" height="13" rx="2"></rect>
                 <path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"></path>
                 <path d="M3 12.5h18"></path>
@@ -364,7 +400,7 @@ export default function Nav({ onSearchClick }) {
       {/* Search Modal (guide search — used on pages without the full DiscoverMilwaukee modal) */}
       {navSearchOpen && (
         <div
-          onClick={() => setNavSearchOpen(false)}
+          onClick={closeSearch}
           style={{
             position: "fixed",
             inset: 0,
@@ -377,6 +413,10 @@ export default function Nav({ onSearchClick }) {
           }}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Search guides"
+            onKeyDown={trapTab}
             onClick={(e) => e.stopPropagation()}
             style={{
               backgroundColor: c.cream,
@@ -389,36 +429,37 @@ export default function Nav({ onSearchClick }) {
             }}
           >
             <div style={{ padding: "20px", borderBottom: `1px solid ${c.beige}`, display: "flex", alignItems: "center", gap: "12px" }}>
-              <span style={{ color: c.tan, display: "flex" }}><SearchIcon /></span>
+              <span style={{ color: c.tanDark, display: "flex" }}><SearchIcon /></span>
               <input
-                type="text"
+                type="search"
                 autoFocus
+                aria-label="Search guides"
                 placeholder="Search guides (e.g., tacos, dive bars, Third Ward...)"
                 value={navSearch}
                 onChange={(e) => setNavSearch(e.target.value)}
-                style={{ flex: 1, border: "none", outline: "none", fontSize: "18px", backgroundColor: "transparent", color: c.green1 }}
+                style={{ flex: 1, border: "none", fontSize: "18px", backgroundColor: "transparent", color: c.green1, padding: "6px 8px", borderRadius: "8px" }}
               />
               <button
                 type="button"
-                onClick={() => setNavSearchOpen(false)}
+                onClick={closeSearch}
                 aria-label="Close search"
-                style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", fontSize: "20px", color: c.tan }}
+                style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", fontSize: "20px", color: c.tanDark }}
               >
                 ✕
               </button>
             </div>
-            <div style={{ padding: "16px 20px", maxHeight: "50vh", overflowY: "auto" }}>
+            <div aria-live="polite" style={{ padding: "16px 20px", maxHeight: "50vh", overflowY: "auto" }}>
               {!navSearch.trim() ? (
-                <p style={{ color: c.tan, fontSize: "14px", textAlign: "center", padding: "20px" }}>
+                <p style={{ color: c.tanDark, fontSize: "14px", textAlign: "center", padding: "20px" }}>
                   Start typing to search all {GUIDE_CATEGORIES.reduce((sum, cat) => sum + cat.guides.length, 0)}+ guides.
                 </p>
               ) : navSearchResults.length === 0 ? (
-                <p style={{ color: c.tan, fontSize: "14px", textAlign: "center", padding: "20px" }}>
+                <p style={{ color: c.tanDark, fontSize: "14px", textAlign: "center", padding: "20px" }}>
                   No guides found for &quot;{navSearch}&quot;. Try another search term.
                 </p>
               ) : (
                 <>
-                  <p style={{ color: c.tan, fontSize: "13px", margin: "0 0 12px" }}>
+                  <p style={{ color: c.tanDark, fontSize: "13px", margin: "0 0 12px" }}>
                     {navSearchResults.length} result{navSearchResults.length !== 1 ? "s" : ""} found
                   </p>
                   {navSearchResults.map((g) => (
@@ -428,10 +469,10 @@ export default function Nav({ onSearchClick }) {
                       onClick={() => { setNavSearchOpen(false); setNavSearch(""); }}
                       style={{ display: "flex", alignItems: "center", gap: "10px", padding: "12px", borderRadius: "12px", textDecoration: "none", color: c.green1 }}
                     >
-                      <span style={{ fontSize: "18px" }}>{g.icon}</span>
+                      <span aria-hidden="true" style={{ fontSize: "18px" }}>{g.icon}</span>
                       <span>
                         <span style={{ display: "block", fontSize: "14px", fontWeight: "700" }}>{g.title}</span>
-                        <span style={{ display: "block", fontSize: "12px", color: c.tan }}>{g.category}</span>
+                        <span style={{ display: "block", fontSize: "12px", color: c.tanDark }}>{g.category}</span>
                       </span>
                     </Link>
                   ))}

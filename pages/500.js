@@ -19,9 +19,9 @@ export default function Custom500() {
       <Nav />
 
       {/* 500 Content */}
-      <div style={{ padding: "80px 16px", textAlign: "center" }}>
+      <main id="main-content" tabIndex={-1} style={{ padding: "80px 16px", textAlign: "center" }}>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <span style={{ fontSize: "120px", display: "block", marginBottom: "20px" }}>🔧</span>
+          <span aria-hidden="true" style={{ fontSize: "120px", display: "block", marginBottom: "20px" }}>🔧</span>
           <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>TECHNICAL DIFFICULTIES</p>
           <h1 style={{ fontSize: "48px", fontWeight: "900", color: c.cream, marginBottom: "20px", textTransform: "uppercase", lineHeight: 1.1 }}>Something Broke</h1>
           <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, marginBottom: "40px" }}>
@@ -67,11 +67,11 @@ export default function Custom500() {
           <div style={{ marginTop: "60px", padding: "24px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "16px" }}>
             <p style={{ color: c.cream, fontSize: "15px", marginBottom: "8px", fontWeight: "600" }}>Still broken?</p>
             <p style={{ color: c.beige, fontSize: "14px" }}>
-              Let us know at <a href="mailto:contact@discover-milwaukee.com" style={{ color: c.yellow }}>contact@discover-milwaukee.com</a>
+              Let us know at <a href="mailto:contact@discover-milwaukee.com" style={{ color: c.yellow, textDecoration: "underline" }}>contact@discover-milwaukee.com</a>
             </p>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

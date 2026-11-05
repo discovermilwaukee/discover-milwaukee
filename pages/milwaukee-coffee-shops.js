@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -371,7 +371,7 @@ export default function MilwaukeeCoffeeShops() {
       </div>
 
       {shop.roastStyle && (
-        <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", marginBottom: "8px" }}>
+        <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", marginBottom: "8px" }}>
           Roast Style: {shop.roastStyle}
         </p>
       )}
@@ -382,7 +382,7 @@ export default function MilwaukeeCoffeeShops() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", marginBottom: "16px" }}>
           {shop.knownFor && (
             <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>KNOWN FOR</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>KNOWN FOR</p>
               <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{shop.knownFor}</p>
             </div>
           )}
@@ -419,7 +419,7 @@ export default function MilwaukeeCoffeeShops() {
       )}
 
       {shop.address && (
-        <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{shop.address}</p>
+        <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{shop.address}</p>
       )}
     </div>
   );
@@ -433,8 +433,8 @@ export default function MilwaukeeCoffeeShops() {
       border: `1px solid ${c.beige}`,
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
-        <h4 style={{ color: c.green1, fontSize: "20px", fontWeight: "700", margin: 0 }}>{spot.name}</h4>
-        <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.neighborhood}</span>
+        <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "700", margin: 0 }}>{spot.name}</h3>
+        <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.neighborhood}</span>
       </div>
 
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{spot.why}</p>
@@ -458,7 +458,7 @@ export default function MilwaukeeCoffeeShops() {
         </div>
       </div>
 
-      <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{spot.address}</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{spot.address}</p>
     </div>
   );
 
@@ -471,12 +471,12 @@ export default function MilwaukeeCoffeeShops() {
       border: `1px solid ${c.beige}`,
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "8px" }}>
-        <h4 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>{spot.name}</h4>
+        <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>{spot.name}</h3>
         <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 10px", borderRadius: "16px", fontSize: "11px", fontWeight: "600" }}>{spot.neighborhood}</span>
       </div>
       <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "12px" }}>{spot.description}</p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-        <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 10px", borderRadius: "12px", fontSize: "11px" }}>{spot.vibeType}</span>
+        <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 10px", borderRadius: "12px", fontSize: "11px" }}>{spot.vibeType}</span>
         <span style={{ backgroundColor: c.beige, color: c.green1, padding: "4px 10px", borderRadius: "12px", fontSize: "11px" }}>Best for: {spot.bestFor}</span>
       </div>
     </div>
@@ -491,7 +491,7 @@ export default function MilwaukeeCoffeeShops() {
       border: `1px solid ${c.beige}`,
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "8px" }}>
-        <h4 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>{spot.name}</h4>
+        <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>{spot.name}</h3>
         <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 10px", borderRadius: "16px", fontSize: "11px", fontWeight: "600" }}>{spot.neighborhood}</span>
       </div>
       <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "12px" }}>{spot.why}</p>
@@ -517,8 +517,8 @@ export default function MilwaukeeCoffeeShops() {
       border: `1px solid ${c.beige}`,
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-        <h4 style={{ color: c.green1, fontSize: "20px", fontWeight: "700", margin: 0 }}>{area.name}</h4>
-        <Link href={area.link} style={{ color: c.orange, fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>
+        <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "700", margin: 0 }}>{area.name}</h3>
+        <Link href={area.link} style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>
           Explore {area.name} →
         </Link>
       </div>
@@ -527,7 +527,7 @@ export default function MilwaukeeCoffeeShops() {
           <div key={idx} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px", backgroundColor: "white", borderRadius: "8px", border: `1px solid ${c.beige}` }}>
             <div>
               <p style={{ fontSize: "15px", fontWeight: "600", color: c.green1, margin: 0 }}>{shop.name}</p>
-              <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>{shop.vibe}</p>
+              <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0 }}>{shop.vibe}</p>
             </div>
             <span style={{ backgroundColor: c.beige, color: c.green2, padding: "4px 8px", borderRadius: "8px", fontSize: "10px", fontWeight: "600" }}>{shop.type}</span>
           </div>
@@ -542,7 +542,7 @@ export default function MilwaukeeCoffeeShops() {
       paddingBottom: isLast ? 0 : "20px",
       marginBottom: isLast ? 0 : "20px"
     }}>
-      <h4 style={{ color: c.green1, fontSize: "17px", fontWeight: "700", marginBottom: "8px" }}>{faq.question}</h4>
+      <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "700", marginBottom: "8px" }}>{faq.question}</h3>
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>{faq.answer}</p>
     </div>
   );
@@ -573,7 +573,7 @@ export default function MilwaukeeCoffeeShops() {
       <Nav />
       <Breadcrumbs />
 
-      <main style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+      <main id="main-content" tabIndex={-1} style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
           <NewsletterCTA />
 
         {/* Hero Section */}
@@ -583,7 +583,7 @@ export default function MilwaukeeCoffeeShops() {
           textAlign: "center",
         }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "600", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "600", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>
               Milwaukee Coffee Guide 2026
             </p>
             <h1 style={{ color: "white", fontSize: "clamp(32px, 6vw, 52px)", fontWeight: "800", lineHeight: 1.1, marginBottom: "20px" }}>
@@ -648,7 +648,7 @@ export default function MilwaukeeCoffeeShops() {
         {/* Local Roasters Section */}
         <section id="roasters" style={{ padding: "40px 20px 60px", maxWidth: "900px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>The Heart of Milwaukee Coffee</p>
+            <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>The Heart of Milwaukee Coffee</p>
             <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "800", marginBottom: "12px" }}>Local Roasters</h2>
             <p style={{ color: "#666", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
               These homegrown roasters define Milwaukee's coffee identity. Each brings something different to the cup.
@@ -664,7 +664,7 @@ export default function MilwaukeeCoffeeShops() {
         <section id="working" style={{ backgroundColor: "white", padding: "60px 20px" }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Remote Work Ready</p>
+              <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Remote Work Ready</p>
               <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "800", marginBottom: "12px" }}>Best Coffee Shops for Working</h2>
               <p style={{ color: "#666", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
                 Fast WiFi, plenty of outlets, good seating, and excellent coffee. These spots welcome laptops.
@@ -680,7 +680,7 @@ export default function MilwaukeeCoffeeShops() {
         {/* Best Vibes Section */}
         <section id="vibes" style={{ padding: "60px 20px", maxWidth: "900px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Atmosphere Matters</p>
+            <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Atmosphere Matters</p>
             <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "800", marginBottom: "12px" }}>Best Coffee Shop Vibes</h2>
             <p style={{ color: "#666", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
               Sometimes you want more than good coffee. These spots deliver atmosphere, ambiance, and aesthetic.
@@ -696,7 +696,7 @@ export default function MilwaukeeCoffeeShops() {
         <section id="food" style={{ backgroundColor: "white", padding: "60px 20px" }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>More Than Just Coffee</p>
+              <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>More Than Just Coffee</p>
               <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "800", marginBottom: "12px" }}>Best Food + Coffee Combos</h2>
               <p style={{ color: "#666", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
                 When you need a real meal with your caffeine. These spots take food as seriously as coffee.
@@ -712,7 +712,7 @@ export default function MilwaukeeCoffeeShops() {
         {/* By Neighborhood Section */}
         <section id="neighborhoods" style={{ padding: "60px 20px", maxWidth: "900px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Explore by Area</p>
+            <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Explore by Area</p>
             <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "800", marginBottom: "12px" }}>Coffee by Neighborhood</h2>
             <p style={{ color: "#666", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>
               Each Milwaukee neighborhood has its own coffee character. Find what's near you.
@@ -755,7 +755,7 @@ export default function MilwaukeeCoffeeShops() {
         {/* FAQ Section */}
         <section id="faqs" style={{ padding: "60px 20px", maxWidth: "800px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Common Questions</p>
+            <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", letterSpacing: "2px", marginBottom: "8px", textTransform: "uppercase" }}>Common Questions</p>
             <h2 style={{ color: c.green1, fontSize: "32px", fontWeight: "800", marginBottom: "12px" }}>Milwaukee Coffee FAQs</h2>
           </div>
 
@@ -810,7 +810,7 @@ export default function MilwaukeeCoffeeShops() {
             <Link href="/newsletter" style={{
               display: "inline-block",
               backgroundColor: c.orange,
-              color: "white",
+              color: "#1a3d34",
               padding: "14px 32px",
               borderRadius: "8px",
               fontSize: "16px",
@@ -822,10 +822,9 @@ export default function MilwaukeeCoffeeShops() {
           </div>
         </section>
 
-        {/* Footer */}
-        <RelatedGuides />
-      <Footer />
       </main>
+      <RelatedGuides />
+      <Footer />
     </>
   );
 }

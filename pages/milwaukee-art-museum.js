@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -342,9 +342,10 @@ export default function MilwaukeeArtMuseum() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 4, 2026 · VERIFIED AGAINST MAM.ORG</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 4, 2026 · VERIFIED AGAINST MAM.ORG</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Milwaukee Art Museum: Tickets, Hours & Parking</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               The definitive visitor guide to <strong>MAM</strong> — Santiago Calatrava's lakefront icon, the <strong>Burke Brise Soleil</strong> wings, 35,000+ works across three landmark buildings, and the annual <strong>Lakefront Festival of Art</strong> each June. Hours, tickets, flap times, parking, café, and exhibitions, audited against mam.org.
@@ -352,7 +353,7 @@ export default function MilwaukeeArtMuseum() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -362,9 +363,9 @@ export default function MilwaukeeArtMuseum() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Quick Answers: Tickets, Hours & Wings</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Quick Answers: Tickets, Hours & Wings</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
               <dd style={{ color: "#444", margin: 0 }}>Milwaukee Art Museum</dd>
@@ -381,7 +382,7 @@ export default function MilwaukeeArtMuseum() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Brise Soleil specs</dt>
               <dd style={{ color: "#444", margin: 0 }}>90-ton, 72-fin wings with a 217-foot wingspan, designed by Santiago Calatrava</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-11-04">2026-11-04</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -413,7 +414,7 @@ export default function MilwaukeeArtMuseum() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The back face of the Quadracci Pavilion.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. Credits: Nicholas Hartmann (CC-BY-SA-4.0); Carol M. Highsmith (CC0); Sailko (CC-BY-3.0); Uriel-carmen (CC-BY-SA-3.0).
             </p>
           </section>
@@ -424,7 +425,7 @@ export default function MilwaukeeArtMuseum() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>{s.value}</p>
                 </div>
               ))}
@@ -438,14 +439,14 @@ export default function MilwaukeeArtMuseum() {
             <div style={{ display: "grid", gap: "12px", marginBottom: "20px" }}>
               {briseSoleil.map((b) => (
                 <div key={b.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px 18px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>{b.label}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>{b.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{b.value}</p>
                 </div>
               ))}
             </div>
 
             <div style={{ backgroundColor: "rgba(244,208,63,0.18)", padding: "18px 20px", borderRadius: "12px", marginBottom: "20px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: "#b8860b", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Best Viewing & Photo Spots</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: "#886208", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Best Viewing & Photo Spots</p>
               <ul style={{ margin: 0, paddingLeft: "20px", color: c.green1, fontSize: "14px", lineHeight: 1.7 }}>
                 {briseViewing.map((v) => <li key={v}>{v}</li>)}
               </ul>
@@ -489,7 +490,7 @@ export default function MilwaukeeArtMuseum() {
                   {admissionTiers.map((t, i) => (
                     <tr key={t.tier} style={{ borderTop: `1px solid ${c.beige}`, backgroundColor: i % 2 === 0 ? "white" : c.cream }}>
                       <td style={{ padding: "12px 14px", color: c.green1, fontWeight: 700, fontSize: "14px" }}>{t.tier}</td>
-                      <td style={{ padding: "12px 14px", color: c.orange, fontWeight: 700, fontSize: "14px" }}>{t.price}</td>
+                      <td style={{ padding: "12px 14px", color: c.orangeDark, fontWeight: 700, fontSize: "14px" }}>{t.price}</td>
                       <td style={{ padding: "12px 14px", color: "#555", fontSize: "13px", lineHeight: 1.5 }}>{t.note}</td>
                     </tr>
                   ))}
@@ -498,7 +499,7 @@ export default function MilwaukeeArtMuseum() {
             </div>
 
             <div style={{ backgroundColor: "rgba(244,162,97,0.12)", padding: "16px 18px", borderRadius: "12px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "6px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Free / Discounted Days</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "6px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Free / Discounted Days</p>
               <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>
                 <strong>Pay-what-you-wish</strong> every Thursday 4–8 p.m. (walk-up only, no online tickets needed). <strong>Bank of America cardholders</strong> get free admission the first full weekend of every month through the Museums on Us program — just show your B of A debit or credit card and photo ID at the admissions desk.
               </p>
@@ -512,7 +513,7 @@ export default function MilwaukeeArtMuseum() {
               {buildings.map((b) => (
                 <div key={b.name} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "20px 22px", borderRadius: "14px" }}>
                   <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 4px" }}>{b.name}</h3>
-                  <p style={{ color: c.orange, fontSize: "13px", fontWeight: "700", margin: "0 0 10px", letterSpacing: "0.5px" }}>{b.architect}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "700", margin: "0 0 10px", letterSpacing: "0.5px" }}>{b.architect}</p>
                   <p style={{ color: "#444", fontSize: "14px", margin: 0, lineHeight: 1.7 }}>{b.desc}</p>
                 </div>
               ))}
@@ -540,7 +541,7 @@ export default function MilwaukeeArtMuseum() {
                 <div key={ex.title} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "18px 20px", borderRadius: "12px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "8px" }}>
                     <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: 0 }}>{ex.title}</h3>
-                    <span style={{ backgroundColor: c.orange, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700", whiteSpace: "nowrap" }}>{ex.dates}</span>
+                    <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700", whiteSpace: "nowrap" }}>{ex.dates}</span>
                   </div>
                   <p style={{ color: "#444", fontSize: "14px", margin: 0, lineHeight: 1.7 }}>{ex.desc}</p>
                 </div>
@@ -553,19 +554,19 @@ export default function MilwaukeeArtMuseum() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>The on-site restaurant in the Quadracci Pavilion — formerly Café Calatrava; currently branded the Lakeshore Café. Floor-to-ceiling lakefront windows, Wisconsin-leaning menu, Valentine Coffee Roasters drip and espresso.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>Café hours</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>Café hours</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Wed–Sun 10 a.m.–4:30 p.m. · Closed Mon–Tue · Kitchen 11 a.m.–3 p.m.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>What to order</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>What to order</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>Valentine espresso · seasonal Wisconsin plates · local beer · house-made sweets · seasonal lakefront patio service</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>The seats to ask for</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>The seats to ask for</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>The lake-facing tables — and the patio when weather allows. Members get 10% off all dining purchases.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>Admission needed?</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.2px", marginBottom: "6px", textTransform: "uppercase" }}>Admission needed?</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.5 }}>No — café access does not require Museum admission. You can come for coffee and the lakefront view alone.</p>
               </div>
             </div>
@@ -589,7 +590,7 @@ export default function MilwaukeeArtMuseum() {
             </div>
 
             <div style={{ backgroundColor: "rgba(244,162,97,0.12)", padding: "16px 18px", borderRadius: "12px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "6px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Math check</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "6px", textTransform: "uppercase", letterSpacing: "1.2px" }}>Math check</p>
               <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>
                 A $115 Family/Dual membership pays for itself in three visits for two adults ($27 × 2 × 3 = $162). The $250 Art Advocate level adds reciprocal admission at 500+ museums — one 2-day out-of-town museum trip in Chicago or Minneapolis can effectively cover the upgrade.
               </p>
@@ -643,7 +644,7 @@ export default function MilwaukeeArtMuseum() {
               {lakefrontPairings.map((p) => (
                 <div key={p.name} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "16px 18px", borderRadius: "12px" }}>
                   <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{p.name}</h3>
-                  <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", letterSpacing: "0.5px" }}>{p.dist}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", letterSpacing: "0.5px" }}>{p.dist}</p>
                   <p style={{ color: "#555", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{p.note}</p>
                 </div>
               ))}
@@ -656,10 +657,10 @@ export default function MilwaukeeArtMuseum() {
               <Link href="/milwaukee-museums" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>All Milwaukee Museums</Link>
               <Link href="/milwaukee-public-museum" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Public Museum</Link>
               <Link href="/arts-culture-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Arts & Culture</Link>
-              <Link href="/milwaukee-waterfront" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Lakefront Guide</Link>
+              <Link href="/milwaukee-waterfront" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Lakefront Guide</Link>
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do</Link>
               <Link href="/rainy-day-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Rainy Day Ideas</Link>
-              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Date Ideas</Link>
+              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Date Ideas</Link>
               <Link href="/first-time-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>First Time in MKE</Link>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>With Kids</Link>
             </div>
@@ -674,7 +675,7 @@ export default function MilwaukeeArtMuseum() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -691,6 +692,7 @@ export default function MilwaukeeArtMuseum() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>Museum openings, exhibition launches, lakefront festivals, and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

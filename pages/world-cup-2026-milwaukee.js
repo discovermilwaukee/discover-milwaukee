@@ -11,7 +11,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -390,9 +390,10 @@ export default function WorldCup2026Milwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 11, 2026 · TOURNAMENT UNDERWAY · VERIFIED VENUES</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 11, 2026 · TOURNAMENT UNDERWAY · VERIFIED VENUES</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Where to Watch the World Cup in Milwaukee — 2026 Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "720px", margin: "0 auto" }}>
               The 48-team tournament runs <strong>June 11 – July 19, 2026</strong>. Milwaukee is not a host city — but the soccer-pub scene here is real. Here&apos;s where to watch, with every kickoff in Central Time. Verified June 2026 against each venue&apos;s own website and Milwaukee press.
@@ -400,7 +401,7 @@ export default function WorldCup2026Milwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -410,10 +411,10 @@ export default function WorldCup2026Milwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
 
           <aside aria-labelledby="newsletter-cta-heading" style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, color: c.cream, padding: "24px 28px", borderRadius: "16px", marginBottom: "28px", border: `2px solid ${c.orange}` }}>
-            <p style={{ color: c.orange, fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}>📬 The weekly Milwaukee scoop</p>
+            <p style={{ color: c.orangeLight, fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}><span aria-hidden="true">📬 </span>The weekly Milwaukee scoop</p>
             <h2 id="newsletter-cta-heading" style={{ color: c.cream, fontSize: "20px", fontWeight: "900", margin: "0 0 8px", lineHeight: 1.25 }}>Discover what&apos;s happening in Milwaukee</h2>
             <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.55, margin: "0 0 14px" }}>Join 10,000+ Milwaukee insiders. The best events, new restaurant openings, hidden gems, and local favorites — delivered free every Wednesday.</p>
             <form onSubmit={handleSubscribe} style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
@@ -437,12 +438,12 @@ export default function WorldCup2026Milwaukee() {
               </button>
             </form>
             {subscribeStatus === "success" && (
-              <p style={{ color: c.yellow, fontSize: "13px", margin: "10px 0 0", fontWeight: "600" }}>✓ You&apos;re in. Check your inbox to confirm.</p>
+              <p style={{ color: c.yellow, fontSize: "13px", margin: "10px 0 0", fontWeight: "600" }}><span aria-hidden="true">✓ </span>You&apos;re in. Check your inbox to confirm.</p>
             )}
             {subscribeStatus === "error" && (
               <p style={{ color: "#ffb3b3", fontSize: "13px", margin: "10px 0 0" }}>Something went wrong — try again, or sign up at <Link href="/newsletter" style={{ color: c.yellow, textDecoration: "underline" }}>discover-milwaukee.com/newsletter</Link>.</p>
             )}
-            <p style={{ color: c.beige, fontSize: "11px", margin: "12px 0 0", opacity: 0.7 }}>Powered by Beehiiv. No spam, ever.</p>
+            <p style={{ color: c.beige, fontSize: "11px", margin: "12px 0 0", opacity: 0.9 }}>Powered by Beehiiv. No spam, ever.</p>
           </aside>
 
           <div style={{ backgroundColor: c.yellow, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
@@ -453,7 +454,7 @@ export default function WorldCup2026Milwaukee() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Tournament</dt>
               <dd style={{ color: "#444", margin: 0 }}>2026 FIFA World Cup</dd>
@@ -472,7 +473,7 @@ export default function WorldCup2026Milwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Final</dt>
               <dd style={{ color: "#444", margin: 0 }}>Sunday July 19, 2 p.m. CT, MetLife Stadium</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-11">2026-06-11</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -512,7 +513,7 @@ export default function WorldCup2026Milwaukee() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The American Outlaws — the U.S. supporters&apos; group at a pre-match tailgate.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. Credits: Estadio Azteca aerial (CC-BY-SA-4.0); Estadio Azteca exterior — Carlos Valenzuela (CC-BY-SA-4.0); 2010 FIFA World Cup fans — Octagon (CC-BY-3.0); MetLife Stadium 2022 — Thecoolone1223 (CC-BY-4.0); USMNT Starting XI vs Belgium — Bryan Berlin (CC-BY-SA-4.0); Christian Pulisic vs Belgium — Bryan Berlin (CC-BY-SA-4.0); USMNT vs Trinidad &amp; Tobago — Erik Drost (CC-BY-2.0); American Outlaws tailgate — Garrett3000 (CC-BY-SA-3.0).
             </p>
           </section>
@@ -523,7 +524,7 @@ export default function WorldCup2026Milwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -533,7 +534,7 @@ export default function WorldCup2026Milwaukee() {
           <section id="schedule" style={{ marginBottom: "56px", scrollMarginTop: "80px" }}>
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Key 2026 Match Times in Central Time</h2>
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>Every marquee match for Milwaukee fans — kickoff times converted to Central Time, with where to watch in the city. Knockout-round Central Time kickoffs will be confirmed by FIFA as brackets fill out; check ESPN&apos;s match schedule for live updates.</p>
-            <div style={{ overflowX: "auto" }}>
+            <div tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways" style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", backgroundColor: "white", borderRadius: "12px", overflow: "hidden", border: `1px solid ${c.beige}` }}>
                 <thead>
                   <tr style={{ backgroundColor: c.green1 }}>
@@ -549,7 +550,7 @@ export default function WorldCup2026Milwaukee() {
                     <tr key={m.date + m.match} style={{ backgroundColor: i % 2 === 0 ? c.cream : "white" }}>
                       <td style={{ padding: "10px 12px", fontSize: "12px", color: c.green1, fontWeight: "700", verticalAlign: "top" }}>{m.date}</td>
                       <td style={{ padding: "10px 12px", fontSize: "12px", color: c.green1, verticalAlign: "top" }}>{m.match}<br /><span style={{ color: "#666", fontWeight: 400 }}>{m.venue}</span></td>
-                      <td style={{ padding: "10px 12px", fontSize: "12px", color: c.orange, fontWeight: "700", verticalAlign: "top" }}>{m.ct}</td>
+                      <td style={{ padding: "10px 12px", fontSize: "12px", color: c.orangeDark, fontWeight: "700", verticalAlign: "top" }}>{m.ct}</td>
                       <td style={{ padding: "10px 12px", fontSize: "12px", color: "#444", verticalAlign: "top" }}>{m.channel}</td>
                       <td style={{ padding: "10px 12px", fontSize: "12px", color: "#444", verticalAlign: "top" }}>{m.milwaukee}</td>
                     </tr>
@@ -571,14 +572,14 @@ export default function WorldCup2026Milwaukee() {
                   <span style={{ backgroundColor: c.green2, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{p.neighborhood}</span>
                 </div>
 
-                <p style={{ fontSize: "13px", color: "#555", margin: "0 0 12px" }}>📍 {p.address} · {p.phone}</p>
+                <p style={{ fontSize: "13px", color: "#555", margin: "0 0 12px" }}><span aria-hidden="true">📍 </span>{p.address} · {p.phone}</p>
 
                 <p style={{ color: c.yellow, backgroundColor: c.green1, display: "inline-block", padding: "4px 12px", borderRadius: "6px", fontSize: "12px", fontWeight: "700", marginBottom: "12px" }}>{p.hours}</p>
 
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, marginBottom: "12px" }}>{p.why}</p>
 
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "10px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Who They Support</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Who They Support</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{p.supports}</p>
                 </div>
 
@@ -593,7 +594,7 @@ export default function WorldCup2026Milwaukee() {
                 </div>
 
                 <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "12px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Insider Tip</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Insider Tip</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.6 }}>{p.insiderTip}</p>
                 </div>
               </div>
@@ -607,7 +608,7 @@ export default function WorldCup2026Milwaukee() {
             {byCountry.map((t) => (
               <div key={t.team} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "18px 20px", marginBottom: "14px" }}>
                 <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "900", margin: "0 0 6px" }}>{t.team}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>{t.group}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 8px", textTransform: "uppercase", letterSpacing: "1px" }}>{t.group}</p>
                 <p style={{ color: "#333", fontSize: "13px", margin: "0 0 10px", lineHeight: 1.6, fontWeight: 600 }}>{t.schedule}</p>
                 <p style={{ color: "#444", fontSize: "14px", margin: 0, lineHeight: 1.7 }}>{t.where}</p>
               </div>
@@ -621,7 +622,7 @@ export default function WorldCup2026Milwaukee() {
             {sportsBars.map((s) => (
               <div key={s.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 18px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{s.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}>📍 {s.address} — {s.neighborhood}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}><span aria-hidden="true">📍 </span>{s.address} — {s.neighborhood}</p>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{s.note}</p>
               </div>
             ))}
@@ -641,7 +642,7 @@ export default function WorldCup2026Milwaukee() {
             {beerGardens.map((bg) => (
               <div key={bg.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "14px 18px", marginBottom: "10px" }}>
                 <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{bg.name}</h3>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}>📍 {bg.address}</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}><span aria-hidden="true">📍 </span>{bg.address}</p>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{bg.note}</p>
               </div>
             ))}
@@ -653,19 +654,19 @@ export default function WorldCup2026Milwaukee() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "12px", marginBottom: "16px" }}>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>NOMAD WORLD PUB — 6:30 A.M.</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>NOMAD WORLD PUB — 6:30 A.M.</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>Saturday and Sunday 6:30 a.m. opens are standard year-round. For weekday early-morning World Cup matches, confirm with the pub — they have committed to &quot;every match.&quot;</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>THE HIGHBURY — 6:30 A.M.</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>THE HIGHBURY — 6:30 A.M.</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>20+ years of opening at 6:30 a.m. for big early-morning matches. Owner Joe Katz has spiked coffee ready. Confirm a specific match opening at (414) 294-4400.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>RED LION PUB — 6:45 A.M. SAT</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>RED LION PUB — 6:45 A.M. SAT</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>Saturday-morning international matches: doors at 6:45 a.m. is the longstanding policy. Full English breakfast available. Closed Mon–Tue.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px" }}>THREE LIONS — 9 A.M. SAT/SUN</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px" }}>THREE LIONS — 9 A.M. SAT/SUN</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "500", lineHeight: 1.6 }}>Standard weekend opening is 9 a.m. — earlier openings for big match days are common but should be confirmed. Call (414) 763-6992.</p>
               </div>
             </div>
@@ -685,7 +686,7 @@ export default function WorldCup2026Milwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/milwaukee-sports-bars" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Sports Bars</Link>
               <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Happy Hour</Link>
-              <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Patios</Link>
+              <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Best Patios</Link>
               <Link href="/walkers-point-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Walker&apos;s Point Guide</Link>
             </div>
           </section>
@@ -699,7 +700,7 @@ export default function WorldCup2026Milwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -716,6 +717,7 @@ export default function WorldCup2026Milwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>Tournament viewing tips, new openings, weekend picks and insider tips every Wednesday through the World Cup and beyond.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

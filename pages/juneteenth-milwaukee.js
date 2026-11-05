@@ -340,9 +340,10 @@ export default function JuneteenthMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.ink} 0%, ${c.green} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.gold, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 15, 2026 · 55TH ANNUAL · VERIFIED</p>
+            <p style={{ color: "#eac06b", fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 15, 2026 · 55TH ANNUAL · VERIFIED</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Juneteenth in Milwaukee — Your 2026 Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "720px", margin: "0 auto" }}>
               Milwaukee throws one of the oldest and longest-running Juneteenth celebrations in America. The 55th annual <strong>Juneteenth Day parade &amp; street festival</strong> takes over King Drive on <strong>Friday, June 19, 2026</strong>. Here&apos;s everything — the route, the day, citywide events, museums, and Black-owned spots to support.
@@ -350,7 +351,7 @@ export default function JuneteenthMilwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.ink, borderBottom: `2px solid ${c.green}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.ink, borderBottom: `2px solid ${c.green}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(217,155,31,0.15)", border: `1px solid rgba(217,155,31,0.35)`, display: "inline-block", flexShrink: 0 }}>
@@ -360,10 +361,10 @@ export default function JuneteenthMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
 
           <aside aria-labelledby="newsletter-cta-heading" style={{ background: `linear-gradient(135deg, ${c.ink} 0%, ${c.green} 100%)`, color: c.cream, padding: "24px 28px", borderRadius: "16px", marginBottom: "28px", border: `2px solid ${c.gold}` }}>
-            <p style={{ color: c.gold, fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}>📬 The weekly Milwaukee scoop</p>
+            <p style={{ color: "#eac06b", fontSize: "11px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px" }}><span aria-hidden="true">📬 </span>The weekly Milwaukee scoop</p>
             <h2 id="newsletter-cta-heading" style={{ color: c.cream, fontSize: "20px", fontWeight: "900", margin: "0 0 8px", lineHeight: 1.25 }}>Discover what&apos;s happening in Milwaukee</h2>
             <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.55, margin: "0 0 14px" }}>Join 10,000+ Milwaukee insiders. The best events, new restaurant openings, hidden gems, and local favorites — delivered free every Wednesday.</p>
             <form onSubmit={handleSubscribe} style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
@@ -387,12 +388,12 @@ export default function JuneteenthMilwaukee() {
               </button>
             </form>
             {subscribeStatus === "success" && (
-              <p style={{ color: c.gold, fontSize: "13px", margin: "10px 0 0", fontWeight: "600" }}>✓ You&apos;re in. Check your inbox to confirm.</p>
+              <p style={{ color: c.gold, fontSize: "13px", margin: "10px 0 0", fontWeight: "600" }}><span aria-hidden="true">✓ </span>You&apos;re in. Check your inbox to confirm.</p>
             )}
             {subscribeStatus === "error" && (
               <p style={{ color: "#ffb3b3", fontSize: "13px", margin: "10px 0 0" }}>Something went wrong — try again, or sign up at <Link href="/newsletter" style={{ color: c.gold, textDecoration: "underline" }}>discover-milwaukee.com/newsletter</Link>.</p>
             )}
-            <p style={{ color: c.beige, fontSize: "11px", margin: "12px 0 0", opacity: 0.7 }}>Powered by Beehiiv. No spam, ever.</p>
+            <p style={{ color: c.beige, fontSize: "11px", margin: "12px 0 0", opacity: 0.9 }}>Powered by Beehiiv. No spam, ever.</p>
           </aside>
 
           <div style={{ backgroundColor: c.gold, padding: "20px", borderRadius: "12px", marginBottom: "40px" }}>
@@ -421,7 +422,7 @@ export default function JuneteenthMilwaukee() {
               <dt style={{ color: c.green, fontWeight: "700" }}>Holiday</dt>
               <dd style={{ color: "#444", margin: 0 }}>Federal holiday; Milwaukee County offices &amp; libraries closed</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Verified <time dateTime="2026-06-15">2026-06-15</time> against juneteenthmilwaukee.com, Northcott Neighborhood House, venue sites and Milwaukee press.
             </p>
           </section>
@@ -453,7 +454,7 @@ export default function JuneteenthMilwaukee() {
                 <p style={{ fontSize: "14px", color: c.ink, margin: 0, lineHeight: 1.7 }}>From <strong>9 a.m. to 4 p.m.</strong>, King Drive (roughly between W. Concordia Avenue and W. Center Street) becomes a multi-block festival with <strong>400+ vendors</strong>, food, live music and stages, games, and community-resource booths. It&apos;s free, family-friendly, and draws tens of thousands of people over the course of the day.</p>
               </div>
               <div style={{ backgroundColor: "rgba(217,155,31,0.14)", padding: "14px", borderRadius: "8px", marginBottom: "14px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "1px" }}>The Four Zones</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "1px" }}>The Four Zones</p>
                 <ul style={{ fontSize: "14px", color: c.ink, margin: 0, paddingLeft: "18px", lineHeight: 1.7 }}>
                   <li><strong>Kids Zone (5–12):</strong> carnival rides, petting zoo, pony rides at the MLK Jr. Elementary School playground.</li>
                   <li><strong>Teen Zone (12–17):</strong> a basketball tournament against the Milwaukee Police Department, Double Dutch, hula hoop, spoken word and music.</li>
@@ -501,7 +502,7 @@ export default function JuneteenthMilwaukee() {
               <div key={e.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "18px 20px", marginBottom: "14px" }}>
                 <h3 style={{ color: c.green, fontSize: "20px", fontWeight: "900", margin: "0 0 6px" }}>{e.name}</h3>
                 <p style={{ color: c.red, fontSize: "13px", fontWeight: "700", margin: "0 0 4px" }}>{e.date}</p>
-                <p style={{ color: "#555", fontSize: "13px", margin: "0 0 4px" }}>📍 {e.venue}</p>
+                <p style={{ color: "#555", fontSize: "13px", margin: "0 0 4px" }}><span aria-hidden="true">📍 </span>{e.venue}</p>
                 <p style={{ color: "#333", fontSize: "12px", margin: "0 0 10px", fontWeight: 600 }}>{e.cost}</p>
                 <p style={{ color: "#444", fontSize: "14px", margin: 0, lineHeight: 1.7 }}>{e.note}</p>
               </div>
@@ -515,7 +516,7 @@ export default function JuneteenthMilwaukee() {
             {museums.map((m) => (
               <div key={m.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "16px", padding: "20px 22px", marginBottom: "16px" }}>
                 <h3 style={{ color: c.green, fontSize: "22px", fontWeight: "900", margin: "0 0 6px" }}>{m.name}</h3>
-                <p style={{ fontSize: "13px", color: "#555", margin: "0 0 8px" }}>📍 {m.address} · {m.phone}</p>
+                <p style={{ fontSize: "13px", color: "#555", margin: "0 0 8px" }}><span aria-hidden="true">📍 </span>{m.address} · {m.phone}</p>
                 <p style={{ color: c.cream, backgroundColor: c.green, display: "inline-block", padding: "4px 12px", borderRadius: "6px", fontSize: "12px", fontWeight: "700", marginBottom: "6px" }}>{m.hours}</p>
                 <p style={{ fontSize: "12px", color: "#333", margin: "0 0 10px", fontWeight: 600 }}>{m.cost}</p>
                 <p style={{ color: "#444", fontSize: "14px", margin: 0, lineHeight: 1.7 }}>{m.why}</p>
@@ -551,7 +552,7 @@ export default function JuneteenthMilwaukee() {
                   <h3 style={{ color: c.green, fontSize: "17px", fontWeight: "800", margin: "0 0 4px" }}>{b.name}</h3>
                   <span style={{ backgroundColor: c.green, color: "white", padding: "2px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{b.cuisine}</span>
                 </div>
-                <p style={{ color: c.red, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}>📍 {b.address}</p>
+                <p style={{ color: c.red, fontSize: "12px", fontWeight: "700", margin: "0 0 6px" }}><span aria-hidden="true">📍 </span>{b.address}</p>
                 <p style={{ color: "#444", fontSize: "13px", margin: 0, lineHeight: 1.6 }}>{b.note}</p>
               </div>
             ))}
@@ -611,7 +612,7 @@ export default function JuneteenthMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.red, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.red, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -628,6 +629,7 @@ export default function JuneteenthMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>Events, new openings, weekend picks and insider tips — delivered free every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.gold, color: c.ink, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

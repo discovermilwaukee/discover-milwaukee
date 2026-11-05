@@ -2,13 +2,14 @@
 // All navigation works: Home, Explore, Events, Newsletter, Partner
 // Events powered by Google Sheets - see GOOGLE_SHEETS_CONFIG below
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { GUIDE_CATEGORIES } from "../lib/guides";
 import { trackEvent } from "../lib/analytics";
 import { mergeExtras } from "../lib/partnerExtras";
 import Nav from "./Nav";
+import { onActivate, trapTab } from "../lib/a11y";
 
 // Display typeface for home-page headlines (loaded in _document.js). Falls back
 // to system-ui everywhere it isn't applied, so guide pages are untouched.
@@ -629,16 +630,16 @@ const parseNeighborhoodsData = (responseText) => {
 
 // BRAND COLORS
 const lightColors = {
-  green1: "#2C5235", green2: "#547F4B", blue1: "#1E52A1", blue2: "#0B77BD", blue3: "#58ADC3",
-  yellow: "#F0A623", orange: "#D06828", cream: "#F7F1E7", beige: "#EBDFC1", tan: "#9E7F4B",
+  green1: "#2C5235", green2: "#547F4B", green2Dark: "#4F7746", blue1: "#1E52A1", blue2: "#0B77BD", blue2Dark: "#0A71B3", blue3: "#58ADC3", blue3Dark: "#317587",
+  yellow: "#F0A623", yellowDark: "#94620A", orange: "#D06828", orangeDark: "#AB5521", cream: "#F7F1E7", beige: "#EBDFC1", tan: "#9E7F4B", tanDark: "#83693E",
   white: "#FFFFFF", black: "#000000",
   // UI specific
   navBg: "#F7F1E7", navText: "#2C5235", cardBg: "#FFFFFF", bodyBg: "#F7F1E7"
 };
 
 const darkColors = {
-  green1: "#1a2f1f", green2: "#2d4a32", blue1: "#1E52A1", blue2: "#0B77BD", blue3: "#58ADC3",
-  yellow: "#F0A623", orange: "#D06828", cream: "#1a1a1a", beige: "#2a2a2a", tan: "#9E7F4B",
+  green1: "#1a2f1f", green2: "#2d4a32", green2Dark: "#4f7746", blue1: "#1E52A1", blue2: "#0B77BD", blue2Dark: "#0A71B3", blue3: "#58ADC3", blue3Dark: "#317587",
+  yellow: "#F0A623", yellowDark: "#94620A", orange: "#D06828", orangeDark: "#AB5521", cream: "#1a1a1a", beige: "#2a2a2a", tan: "#9E7F4B", tanDark: "#83693E",
   white: "#1f1f1f", black: "#FFFFFF",
   // UI specific
   navBg: "#1a1a1a", navText: "#F7F1E7", cardBg: "#252525", bodyBg: "#121212"
@@ -2048,21 +2049,21 @@ Colectivo (any location), Anodyne, Interval`
 
 // ICONS
 const Icons = {
-  Instagram: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg>,
-  TikTok: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>,
-  Facebook: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>,
-  Clock: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>,
-  MapPin: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
-  Search: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>,
-  ChevronLeft: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15,18 9,12 15,6"/></svg>,
-  ChevronRight: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9,18 15,12 9,6"/></svg>,
+  Instagram: () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg>,
+  TikTok: () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>,
+  Facebook: () => <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>,
+  Clock: () => <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>,
+  MapPin: () => <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+  Search: () => <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>,
+  ChevronLeft: () => <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15,18 9,12 15,6"/></svg>,
+  ChevronRight: () => <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9,18 15,12 9,6"/></svg>,
 };
 
 // -----------------------------------------------------------------------------
 // LINE ICON SET (home page) — one cohesive family that replaces every emoji.
 // Editorial line art: 24px grid, 1.6px stroke, currentColor, round joins.
 // -----------------------------------------------------------------------------
-const lineProps = (size) => ({ width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" });
+const lineProps = (size) => ({ "aria-hidden": true, focusable: "false", width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" });
 const LineIcons = {
   Compass: ({ size = 24 } = {}) => <svg {...lineProps(size)}><circle cx="12" cy="12" r="9"/><path d="M16.2 7.8l-2.1 5.3-5.3 2.1 2.1-5.3z"/></svg>,
   Utensils: ({ size = 24 } = {}) => <svg {...lineProps(size)}><path d="M6 3v6a2.2 2.2 0 0 0 4.4 0V3"/><path d="M8.2 11v10"/><path d="M16.5 3c-1.4 1-2.2 3.2-2.2 6 0 2.2.9 3.6 2.2 4.2V21"/></svg>,
@@ -2670,6 +2671,44 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
     };
   }, [globalSearch, events, exploreArticles]);
 
+  // ---- Accessibility -------------------------------------------------------
+  // Search dialog: remember what opened it so focus can return there on close.
+  const searchReturnFocus = useRef(null);
+  const openSearchModal = () => {
+    searchReturnFocus.current = typeof document !== "undefined" ? document.activeElement : null;
+    setShowSearchModal(true);
+  };
+  const closeSearchModal = () => {
+    setShowSearchModal(false);
+    if (searchReturnFocus.current && searchReturnFocus.current.focus) searchReturnFocus.current.focus();
+  };
+  useEffect(() => {
+    if (!showSearchModal) return undefined;
+    const onKey = (e) => { if (e.key === "Escape") closeSearchModal(); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [showSearchModal]);
+
+  // Views swap in place without a page load. Move focus to the top of the new
+  // content so keyboard and screen reader users land where sighted users look.
+  const firstViewRender = useRef(true);
+  useEffect(() => {
+    if (firstViewRender.current) { firstViewRender.current = false; return; }
+    const el = document.getElementById("main-content");
+    if (el) el.focus({ preventScroll: true });
+  }, [page, selectedEvent, selectedPost, showEventForm, showPartnerForm, eventFormSubmitted, formSubmitted]);
+
+  // Spoken confirmation for form results (the visual confirmation replaces the form).
+  const liveMessage = formSubmitted
+    ? "Thanks for reaching out. Your partnership request was sent."
+    : eventFormSubmitted
+    ? "Event submitted. Thanks for sharing it with us."
+    : subscribeStatus === "success"
+    ? "You're subscribed. Check your inbox to confirm."
+    : subscribeStatus === "error"
+    ? "Sorry, the signup did not go through. Please try again."
+    : "";
+
   // Get current page SEO
   const currentSeo = PAGE_SEO[page] || PAGE_SEO.home;
   const structuredData = getStructuredData(page, events, exploreArticles);
@@ -2689,8 +2728,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           justifyContent: "center", 
           paddingTop: "100px",
           padding: isMobile ? "60px 16px" : "100px 16px"
-        }} onClick={() => setShowSearchModal(false)}>
-          <div style={{ 
+        }} onClick={closeSearchModal}>
+          <div role="dialog" aria-modal="true" aria-label="Search" onKeyDown={trapTab} style={{ 
             backgroundColor: darkMode ? colors.cardBg : colors.white, 
             borderRadius: "20px", 
             width: "100%", 
@@ -2700,9 +2739,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           }} onClick={e => e.stopPropagation()}>
             <div style={{ padding: "20px", borderBottom: `1px solid ${darkMode ? "#333" : colors.beige}` }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <Icons.Search style={{ color: colors.tan }} />
+                <Icons.Search style={{ color: colors.tanDark }} />
                 <input 
-                  type="text" 
+                  type="search" 
+                  aria-label="Search events, guides and neighborhoods"
                   placeholder="Search events, guides, neighborhoods..." 
                   value={globalSearch}
                   onChange={e => setGlobalSearch(e.target.value)}
@@ -2710,23 +2750,24 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   style={{ 
                     flex: 1, 
                     border: "none", 
-                    outline: "none", 
+                    padding: "6px 8px",
+                    borderRadius: "8px",
                     fontSize: "18px", 
                     backgroundColor: "transparent",
                     color: darkMode ? colors.black : colors.green1
                   }} 
                 />
-                <button onClick={() => setShowSearchModal(false)} style={{ background: "none", border: "none", cursor: "pointer", padding: "8px" }}>
-                  <span style={{ fontSize: "20px", color: colors.tan }}>✕</span>
+                <button type="button" aria-label="Close search" onClick={closeSearchModal} style={{ background: "none", border: "none", cursor: "pointer", padding: "8px" }}>
+                  <span aria-hidden="true" style={{ fontSize: "20px", color: colors.tanDark }}>✕</span>
                 </button>
               </div>
             </div>
-            <div style={{ padding: "20px", maxHeight: "50vh", overflowY: "auto" }}>
+            <div aria-live="polite" style={{ padding: "20px", maxHeight: "50vh", overflowY: "auto" }}>
               {globalSearch.trim() ? (
                 <>
                   {globalSearchResults.guides.length > 0 && (
                     <div style={{ marginBottom: "24px" }}>
-                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>GUIDES</p>
+                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellowDark, letterSpacing: "2px", marginBottom: "12px" }}>GUIDES</p>
                       {globalSearchResults.guides.map((guide) => (
                         <a
                           key={guide.href}
@@ -2746,22 +2787,25 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           onMouseOver={e => e.currentTarget.style.backgroundColor = darkMode ? "rgba(255,255,255,0.1)" : colors.beige}
                           onMouseOut={e => e.currentTarget.style.backgroundColor = darkMode ? "rgba(255,255,255,0.05)" : colors.cream}
                         >
-                          <span style={{ fontSize: "24px" }}>{guide.icon}</span>
+                          <span aria-hidden="true" style={{ fontSize: "24px" }}>{guide.icon}</span>
                           <div style={{ flex: 1 }}>
                             <p style={{ fontWeight: "700", color: darkMode ? colors.black : colors.green1, marginBottom: "2px" }}>{guide.title}</p>
-                            <p style={{ fontSize: "13px", color: colors.tan, margin: 0 }}>{guide.desc}</p>
+                            <p style={{ fontSize: "13px", color: colors.tanDark, margin: 0 }}>{guide.desc}</p>
                           </div>
-                          <span style={{ backgroundColor: guide.categoryColor, color: colors.white, padding: "4px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "600", whiteSpace: "nowrap" }}>{guide.category}</span>
+                          <span style={{ backgroundColor: colors.green1, color: colors.cream, padding: "4px 10px", borderRadius: "50px", fontSize: "10px", fontWeight: "600", whiteSpace: "nowrap" }}>{guide.category}</span>
                         </a>
                       ))}
                     </div>
                   )}
                   {globalSearchResults.events.length > 0 && (
                     <div style={{ marginBottom: "24px" }}>
-                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>EVENTS</p>
+                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellowDark, letterSpacing: "2px", marginBottom: "12px" }}>EVENTS</p>
                       {globalSearchResults.events.map((event, i) => (
                         <div 
                           key={event.id || i} 
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={onActivate(() => { setSelectedEvent(event); navigateTo("events"); setShowSearchModal(false); setGlobalSearch(""); })}
                           onClick={() => { setSelectedEvent(event); navigateTo("events"); setShowSearchModal(false); setGlobalSearch(""); }}
                           style={{ 
                             padding: "12px", 
@@ -2775,17 +2819,20 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           onMouseOut={e => e.currentTarget.style.backgroundColor = darkMode ? "rgba(255,255,255,0.05)" : colors.cream}
                         >
                           <p style={{ fontWeight: "700", color: darkMode ? colors.black : colors.green1, marginBottom: "4px" }}>{event.title}</p>
-                          <p style={{ fontSize: "13px", color: colors.tan }}>{event.venueName} • {event.category}</p>
+                          <p style={{ fontSize: "13px", color: colors.tanDark }}>{event.venueName} • {event.category}</p>
                         </div>
                       ))}
                     </div>
                   )}
                   {globalSearchResults.articles.length > 0 && (
                     <div>
-                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellow, letterSpacing: "2px", marginBottom: "12px" }}>ARTICLES</p>
+                      <p style={{ fontSize: "12px", fontWeight: "700", color: colors.yellowDark, letterSpacing: "2px", marginBottom: "12px" }}>ARTICLES</p>
                       {globalSearchResults.articles.map((article, i) => (
                         <div 
                           key={article.id || i} 
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={onActivate(() => { setSelectedPost(article); navigateTo("explore"); setShowSearchModal(false); setGlobalSearch(""); })}
                           onClick={() => { setSelectedPost(article); navigateTo("explore"); setShowSearchModal(false); setGlobalSearch(""); }}
                           style={{ 
                             padding: "12px", 
@@ -2799,22 +2846,22 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           onMouseOut={e => e.currentTarget.style.backgroundColor = darkMode ? "rgba(255,255,255,0.05)" : colors.cream}
                         >
                           <p style={{ fontWeight: "700", color: darkMode ? colors.black : colors.green1, marginBottom: "4px" }}>{article.title}</p>
-                          <p style={{ fontSize: "13px", color: colors.tan }}>{article.type} {article.neighborhood ? `• ${article.neighborhood}` : ""}</p>
+                          <p style={{ fontSize: "13px", color: colors.tanDark }}>{article.type} {article.neighborhood ? `• ${article.neighborhood}` : ""}</p>
                         </div>
                       ))}
                     </div>
                   )}
                   {globalSearchResults.events.length === 0 && globalSearchResults.articles.length === 0 && globalSearchResults.guides.length === 0 && (
                     <div style={{ textAlign: "center", padding: "40px 20px" }}>
-                      <span style={{ display: "flex", justifyContent: "center", marginBottom: "16px", color: colors.tan }}><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+                      <span style={{ display: "flex", justifyContent: "center", marginBottom: "16px", color: colors.tanDark }}><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
                       <p style={{ color: darkMode ? colors.black : colors.green1, fontWeight: "700", marginBottom: "8px" }}>No results found</p>
-                      <p style={{ color: colors.tan, fontSize: "14px" }}>Try searching for something else</p>
+                      <p style={{ color: colors.tanDark, fontSize: "14px" }}>Try searching for something else</p>
                     </div>
                   )}
                 </>
               ) : (
                 <div style={{ textAlign: "center", padding: "40px 20px" }}>
-                  <p style={{ color: colors.tan, fontSize: "14px" }}>Start typing to search...</p>
+                  <p style={{ color: colors.tanDark, fontSize: "14px" }}>Start typing to search...</p>
                 </div>
               )}
             </div>
@@ -2906,7 +2953,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         ))}
       </Head>
       
-      <Nav onSearchClick={() => setShowSearchModal(true)} />
+      <Nav onSearchClick={openSearchModal} />
+
+      <div className="sr-only" role="status" aria-live="polite">{liveMessage}</div>
+
+      <main id="main-content" tabIndex={-1}>
 
       {/* HOME */}
       {page === "home" && (
@@ -2917,7 +2968,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               {/* Nameplate: real brand mark + kicker */}
               <div className="dm-fade-up" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: isMobile ? "22px" : "30px" }}>
                 <img src="/images/discover-milwaukee-logo.png" alt="Discover Milwaukee" width="96" height="96" style={{ width: isMobile ? "72px" : "96px", height: "auto" }} />
-                <p style={{ color: c.tan, fontSize: isMobile ? "10px" : "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2018</p>
+                <p style={{ color: c.tanDark, fontSize: isMobile ? "10px" : "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2018</p>
               </div>
 
               {/* Masthead headline — Anton with a Damion script accent */}
@@ -2927,7 +2978,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </h1>
 
               {/* Subdeck */}
-              <p className="dm-fade-up dm-delay-2" style={{ color: c.green2, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "20px auto 0" : "26px auto 0", maxWidth: "560px" }}>
+              <p className="dm-fade-up dm-delay-2" style={{ color: c.green2Dark, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "20px auto 0" : "26px auto 0", maxWidth: "560px" }}>
                 The hidden gems, the local favorites, and the openings worth your Saturday — chosen by people who actually live here and delivered in one five-minute email each week.
               </p>
 
@@ -2940,12 +2991,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 ) : (
                   <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "10px" }}>
                     <input type="email" placeholder="you@email.com" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "16px 18px", borderRadius: "10px", border: `1px solid ${c.beige}`, backgroundColor: c.white, fontSize: "15px", color: c.green1, fontFamily: BODY_FONT }} />
-                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                       {subscribeStatus === "loading" ? "Joining…" : "Get the Guide"}
                     </button>
                   </form>
                 )}
-                <p style={{ color: c.tan, fontSize: "12.5px", marginTop: "12px", letterSpacing: "0.3px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
+                <p style={{ color: c.tanDark, fontSize: "12.5px", marginTop: "12px", letterSpacing: "0.3px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
               </div>
 
               {/* Trust strip — canonical stats, hairline dividers */}
@@ -2959,7 +3010,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     {i > 0 && <span aria-hidden="true" style={{ width: "1px", height: isMobile ? "44px" : "56px", backgroundColor: c.beige }} />}
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                       <span style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: isMobile ? "36px" : "52px", lineHeight: 1 }}>{s.n}</span>
-                      <span style={{ color: c.tan, fontSize: isMobile ? "12px" : "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "8px" }}>{s.l}</span>
+                      <span style={{ color: c.tanDark, fontSize: isMobile ? "12px" : "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "8px" }}>{s.l}</span>
                     </div>
                   </React.Fragment>
                 ))}
@@ -2975,8 +3026,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <div key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                     <span style={{ color: c.blue2, flexShrink: 0, marginTop: "1px" }}><item.Icon size={26} /></span>
                     <div>
-                      <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px", fontFamily: BODY_FONT }}>{item.title}</h3>
-                      <p style={{ color: c.tan, fontSize: "13.5px", lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
+                      <h2 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px", fontFamily: BODY_FONT }}>{item.title}</h2>
+                      <p style={{ color: c.tanDark, fontSize: "13.5px", lineHeight: 1.5, margin: 0 }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -2984,10 +3035,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
               {/* Brands & partners CTA — prominent inquiry panel */}
               <div style={{ margin: isMobile ? "40px auto 0" : "56px auto 0", maxWidth: "640px", backgroundColor: c.green1, borderRadius: "16px", padding: isMobile ? "30px 22px" : "40px 44px", textAlign: "center" }}>
-                <p style={{ color: c.yellow, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>For Brands &amp; Partners</p>
-                <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "26px" : "36px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05, margin: "0 0 14px" }}>Reach 37.1M+ views a year</h3>
+                <p style={{ color: "#F1AF38", fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>For Brands &amp; Partners</p>
+                <h2 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "26px" : "36px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05, margin: "0 0 14px" }}>Reach 37.1M+ views a year</h2>
                 <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, margin: "0 auto 26px", maxWidth: "460px" }}>Put your brand in front of Milwaukee's most engaged local audience. Let's talk about working together.</p>
-                <button onClick={() => { window.location.href = "/milwaukee-media-kit"; }} className="dm-cta" style={{ padding: isMobile ? "16px 30px" : "18px 40px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "50px", fontSize: isMobile ? "16px" : "17px", cursor: "pointer", fontFamily: BODY_FONT }}>
+                <button onClick={() => { window.location.href = "/milwaukee-media-kit"; }} className="dm-cta" style={{ padding: isMobile ? "16px 30px" : "18px 40px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "50px", fontSize: isMobile ? "16px" : "17px", cursor: "pointer", fontFamily: BODY_FONT }}>
                   Inquire About Partnering →
                 </button>
               </div>
@@ -3000,12 +3051,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               {/* Editorial section header */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "20px", borderBottom: `1px solid ${c.beige}`, paddingBottom: "20px", marginBottom: "36px" }}>
                 <div>
-                  <p style={{ color: c.orange, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>The Agenda</p>
+                  <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>The Agenda</p>
                   <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: 0 }}>This Week in Milwaukee</h2>
                 </div>
                 {/* Sponsor */}
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
-                  <span style={{ color: c.tan, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
+                  <span style={{ color: c.tanDark, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
                   <a href="https://nicoletlaw.com" target="_blank" rel="noopener noreferrer sponsored" style={{ display: "flex", alignItems: "center" }}>
                     <img src="/images/nicolet-law-logo.png" alt="Nicolet Law - Accident & Injury Lawyers" style={{ height: "28px", width: "auto" }} />
                   </a>
@@ -3034,12 +3085,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     <div key={event.id || i} onClick={() => { setSelectedEvent(event); navigateTo("events"); }} className="dm-card" style={{ backgroundColor: c.cream, borderRadius: "12px", padding: "22px", cursor: "pointer", border: `1px solid ${c.beige}` }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
                         <span style={{ color: c.green1 }}><EventIcon size={30} /></span>
-                        <span style={{ color: c.tan, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "4px" }}>{event.category}</span>
+                        <span style={{ color: c.tanDark, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "4px" }}>{event.category}</span>
                       </div>
-                      <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "12px", lineHeight: 1.3, fontFamily: BODY_FONT }}>{event.title}</h3>
+                      <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "12px", lineHeight: 1.3, fontFamily: BODY_FONT }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedEvent(event); navigateTo("events"); }}>{event.title}</button></h3>
                       <div style={{ display: "flex", flexDirection: "column", gap: "3px", borderTop: `1px solid ${c.beige}`, paddingTop: "12px" }}>
-                        <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600" }}>{dateStr} · {timeStr}</p>
-                        <p style={{ color: c.tan, fontSize: "12px" }}>{event.venueName}</p>
+                        <p style={{ color: c.green2Dark, fontSize: "13px", fontWeight: "600" }}>{dateStr} · {timeStr}</p>
+                        <p style={{ color: c.tanDark, fontSize: "12px" }}>{event.venueName}</p>
                       </div>
                     </div>
                   );
@@ -3058,9 +3109,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               {/* Editorial section header */}
               <div style={{ borderBottom: `1px solid ${c.beige}`, paddingBottom: "20px", marginBottom: "32px" }}>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>99 Local Guides</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>99 Local Guides</p>
                 <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: "0 0 10px" }}>Explore Milwaukee</h2>
-                <p style={{ color: c.tan, fontSize: "16px", margin: 0 }}>In-depth guides written by locals, updated for 2026.</p>
+                <p style={{ color: c.tanDark, fontSize: "16px", margin: 0 }}>In-depth guides written by locals, updated for 2026.</p>
               </div>
 
               {/* Category Quick Links */}
@@ -3105,7 +3156,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <a key={i} href={guide.href} className="dm-card" style={{ backgroundColor: c.white, borderRadius: "12px", padding: "22px 20px", textDecoration: "none", border: `1px solid ${c.beige}`, display: "block" }}>
                     <span style={{ color: c.green1, display: "block", marginBottom: "14px" }}><guide.Icon size={30} /></span>
                     <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "4px", fontFamily: BODY_FONT }}>{guide.title}</h3>
-                    <p style={{ color: c.tan, fontSize: "13px", margin: 0 }}>{guide.desc}</p>
+                    <p style={{ color: c.tanDark, fontSize: "13px", margin: 0 }}>{guide.desc}</p>
                   </a>
                 ))}
               </div>
@@ -3122,7 +3173,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
               {/* Neighborhood Links */}
               <div style={{ borderTop: `1px solid ${c.beige}`, paddingTop: "28px" }}>
-                <p style={{ color: c.tan, fontSize: "12px", fontWeight: "600", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "2px" }}>Explore by Neighborhood</p>
+                <p style={{ color: c.tanDark, fontSize: "12px", fontWeight: "600", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "2px" }}>Explore by Neighborhood</p>
                 <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "10px" }}>
                   {[
                     { title: "Third Ward", href: "/third-ward-milwaukee" },
@@ -3135,7 +3186,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     { title: "South Side", href: "/south-side-milwaukee" },
                   ].map((hood, i) => (
                     <a key={i} href={hood.href} style={{ backgroundColor: c.white, color: c.green1, padding: "13px 16px", borderRadius: "8px", border: `1px solid ${c.beige}`, textDecoration: "none", fontSize: "14px", fontWeight: "600", display: "flex", justifyContent: "space-between", alignItems: "center", transition: "all 0.2s", fontFamily: BODY_FONT }} onMouseOver={e => { e.currentTarget.style.backgroundColor = c.green1; e.currentTarget.style.color = c.cream; }} onMouseOut={e => { e.currentTarget.style.backgroundColor = c.white; e.currentTarget.style.color = c.green1; }}>
-                      <span>{hood.title}</span><span style={{ color: c.yellow }}>→</span>
+                      <span>{hood.title}</span><span aria-hidden="true" style={{ color: c.yellow }}>→</span>
                     </a>
                   ))}
                 </div>
@@ -3147,7 +3198,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: isMobile ? "54px 16px" : "80px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "40px" }}>
-                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px", textTransform: "uppercase" }}>Trusted Across Milwaukee</p>
+                <p style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px", textTransform: "uppercase" }}>Trusted Across Milwaukee</p>
                 <h2 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The City Is Already Watching</h2>
                 <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", maxWidth: "560px", margin: "0 auto", lineHeight: 1.6 }}>37.1 million views a year from locals who use us to decide where to actually go.</p>
               </div>
@@ -3166,7 +3217,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </div>
                 ))}
               </div>
-              <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", opacity: 0.7, marginBottom: "44px" }}>Views per year across our channels. *Facebook projected from 11/25 onward.</p>
+              <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", opacity: 0.9, marginBottom: "44px" }}>Views per year across our channels. *Facebook projected from 11/25 onward.</p>
 
               {/* Secondary conversion — lock in a subscriber */}
               <div style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "16px", padding: isMobile ? "28px 22px" : "44px", textAlign: "center", maxWidth: "680px", margin: "0 auto" }}>
@@ -3179,12 +3230,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 ) : (
                   <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "10px", maxWidth: "460px", margin: "0 auto" }}>
                     <input type="email" placeholder="you@email.com" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "16px 18px", borderRadius: "10px", border: "none", fontSize: "15px", fontFamily: BODY_FONT, color: c.green1 }} />
-                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: c.green1, fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                    <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                       {subscribeStatus === "loading" ? "Joining…" : "Get the Guide"}
                     </button>
                   </form>
                 )}
-                <p style={{ color: c.beige, fontSize: "12px", opacity: 0.8, marginTop: "14px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
+                <p style={{ color: c.beige, fontSize: "12px", opacity: 0.9, marginTop: "14px" }}>Free forever · Every Wednesday · One-click unsubscribe</p>
               </div>
             </div>
           </section>
@@ -3196,7 +3247,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <a key={x.l} href={x.href} onClick={(e) => { e.preventDefault(); navigateTo(x.p); }} className="dm-card" style={{ backgroundColor: c.cream, borderRadius: "12px", padding: isMobile ? "22px" : "28px", cursor: "pointer", textDecoration: "none", display: "block", border: `1px solid ${c.beige}` }}>
                     <span style={{ color: c.green1, display: "block", marginBottom: "14px" }}><x.Icon size={30} /></span>
                     <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "6px", fontFamily: BODY_FONT }}>{x.l}</h3>
-                    <p style={{ color: c.tan, fontSize: "14px", margin: 0 }}>{x.d}</p>
+                    <p style={{ color: c.tanDark, fontSize: "14px", margin: 0 }}>{x.d}</p>
                   </a>
                 ))}
               </div>
@@ -3207,7 +3258,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               >
                 <span style={{ color: c.yellow, display: "flex" }}><LineIcons.Briefcase size={26} /></span>
                 <h3 style={{ color: c.cream, fontSize: "18px", fontWeight: "700", margin: 0, fontFamily: BODY_FONT }}>Partner With Us</h3>
-                <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "600" }}>→</span>
+                <span aria-hidden="true" style={{ color: c.yellow, fontSize: "14px", fontWeight: "600" }}>→</span>
               </a>
             </div>
           </section>
@@ -3219,10 +3270,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         <div style={{ fontFamily: BODY_FONT }}>
           <section style={{ backgroundColor: c.cream, padding: isMobile ? "48px 16px 36px" : "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
             <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.orange, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>YOUR MILWAUKEE ENCYCLOPEDIA</p>
+              <p style={{ color: c.orangeDark, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>YOUR MILWAUKEE ENCYCLOPEDIA</p>
               <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "40px" : "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Explore Milwaukee</h1>
-              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Guides, Lists & Local Knowledge</p>
-              <p style={{ color: c.green2, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto" }}>The definitive resource for things to do, places to eat, and neighborhoods to explore in Milwaukee. Written by locals, updated regularly.</p>
+              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2Dark, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Guides, Lists & Local Knowledge</p>
+              <p style={{ color: c.green2Dark, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto" }}>The definitive resource for things to do, places to eat, and neighborhoods to explore in Milwaukee. Written by locals, updated regularly.</p>
             </div>
           </section>
           
@@ -3230,23 +3281,23 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: isMobile ? "32px 16px" : "48px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
-                <p style={{ color: c.orange, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "10px" }}>Start Here</p>
+                <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "10px" }}>Start Here</p>
                 <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "28px" : "40px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0 }}>Essential Milwaukee Guides</h2>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "20px", marginBottom: "20px" }}>
                 {exploreArticles.filter(p => p.isPillar).slice(0, 4).map((p, i) => {
-                  const bg = [c.green1, c.blue1, c.orange, c.green2][i % 4];
+                  const bg = [c.green1, c.blue1, c.orangeDark, c.green2Dark][i % 4];
                   return (
                   <div key={p.id} onClick={() => setSelectedPost(p)} style={{ backgroundColor: bg, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", flexDirection: "column", minHeight: isMobile ? "auto" : "200px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
                       <span style={{ color: c.cream }}><LineIcons.BookOpen size={28} /></span>
                       <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: c.cream, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
                     </div>
-                    <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "400", marginBottom: "10px", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}>{p.title}</h3>
-                    <p style={{ color: "rgba(247,241,231,0.9)", fontSize: "14px", lineHeight: 1.5, flex: 1 }}>{p.excerpt}</p>
+                    <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "400", marginBottom: "10px", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(p); }}>{p.title}</button></h3>
+                    <p style={{ color: c.cream, fontSize: "14px", lineHeight: 1.5, flex: 1 }}>{p.excerpt}</p>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "16px" }}>
-                      <span style={{ color: "rgba(247,241,231,0.7)", fontSize: "12px" }}>{p.readTimeMinutes} min read</span>
-                      <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "700" }}>Read Full Guide →</span>
+                      <span style={{ color: c.cream, fontSize: "12px" }}>{p.readTimeMinutes} min read</span>
+                      <span style={{ color: c.cream, fontSize: "14px", fontWeight: "700" }}>Read Full Guide →</span>
                     </div>
                   </div>
                   );
@@ -3254,14 +3305,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
               {/* Fifth pillar as full width */}
               {exploreArticles.filter(p => p.isPillar)[4] && (
-                <div onClick={() => setSelectedPost(exploreArticles.filter(p => p.isPillar)[4])} style={{ backgroundColor: c.blue2, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px" }}>
+                <div onClick={() => setSelectedPost(exploreArticles.filter(p => p.isPillar)[4])} style={{ backgroundColor: c.blue2Dark, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px" }}>
                   <span style={{ color: c.cream, flexShrink: 0 }}><LineIcons.BookOpen size={isMobile ? 32 : 44} /></span>
                   <div style={{ flex: 1 }}>
-                    <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: c.cream, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
-                    <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "400", margin: "10px 0", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}>{exploreArticles.filter(p => p.isPillar)[4].title}</h3>
-                    <p style={{ color: "rgba(247,241,231,0.9)", fontSize: "14px", lineHeight: 1.5 }}>{exploreArticles.filter(p => p.isPillar)[4].excerpt}</p>
+                    <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: "#FFFFFF", padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
+                    <h3 style={{ fontFamily: DISPLAY_FONT, color: "#FFFFFF", fontSize: isMobile ? "20px" : "26px", fontWeight: "400", margin: "10px 0", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(exploreArticles.filter(p => p.isPillar)[4]); }}>{exploreArticles.filter(p => p.isPillar)[4].title}</button></h3>
+                    <p style={{ color: c.cream, fontSize: "14px", lineHeight: 1.5 }}>{exploreArticles.filter(p => p.isPillar)[4].excerpt}</p>
                   </div>
-                  <span style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", whiteSpace: "nowrap" }}>Read Guide →</span>
+                  <span style={{ color: c.cream, fontSize: "14px", fontWeight: "700", whiteSpace: "nowrap" }}>Read Guide →</span>
                 </div>
               )}
             </div>
@@ -3275,6 +3326,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             const isFirstOfGroup = catIndex === 0 || GUIDE_CATEGORIES[catIndex - 1].group !== category.group;
             const meta = catMeta(category.id);
             const accent = c[meta.ck];
+            // Same hue, darkened: used wherever text sits on, or is drawn in, the accent color.
+            const accentAA = c[meta.ck + "Dark"] || accent;
 
             return (
               <React.Fragment key={category.id}>
@@ -3285,7 +3338,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 }}>
                   <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", gap: "12px" }}>
                     <span style={{ height: "3px", width: "32px", flex: "0 0 32px", backgroundColor: c.yellow, borderRadius: "2px" }} />
-                    <h2 style={{ fontSize: isMobile ? "13px" : "15px", fontWeight: "900", color: c.green2, letterSpacing: "2px", textTransform: "uppercase", margin: 0, whiteSpace: "nowrap" }}>
+                    <h2 style={{ fontSize: isMobile ? "13px" : "15px", fontWeight: "900", color: c.green2Dark, letterSpacing: "2px", textTransform: "uppercase", margin: 0, whiteSpace: "nowrap" }}>
                       {category.group}
                     </h2>
                     <span style={{ height: "3px", flex: 1, backgroundColor: c.beige, borderRadius: "2px" }} />
@@ -3321,13 +3374,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "22px" : "30px", fontWeight: "400", color: c.green1, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px", lineHeight: 1.05 }}>
                           {category.title}
                         </h2>
-                        <p style={{ color: c.tan, fontSize: "14px", margin: 0 }}>
+                        <p style={{ color: c.tanDark, fontSize: "14px", margin: 0 }}>
                           {category.description}
                         </p>
                       </div>
                     </div>
                     <span style={{
-                      backgroundColor: accent,
+                      backgroundColor: accentAA,
                       color: c.cream,
                       padding: "6px 14px",
                       borderRadius: "50px",
@@ -3375,7 +3428,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         <h3 style={{ color: c.green1, fontSize: "14px", fontWeight: "700", marginBottom: "4px", lineHeight: 1.3 }}>
                           {guide.title}
                         </h3>
-                        <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{guide.desc}</p>
+                        <p style={{ color: c.tanDark, fontSize: "12px", margin: 0 }}>{guide.desc}</p>
                       </a>
                     ))}
                   </div>
@@ -3384,28 +3437,30 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {hasMore && (
                     <div style={{ textAlign: "center" }}>
                       <button
+                        type="button"
+                        aria-expanded={!!isExpanded}
                         onClick={() => toggleCategory(category.id)}
                         style={{
                           padding: "10px 24px",
                           backgroundColor: "transparent",
-                          color: accent,
+                          color: accentAA,
                           borderRadius: "50px",
-                          border: `2px solid ${accent}`,
+                          border: `2px solid ${accentAA}`,
                           cursor: "pointer",
                           fontWeight: "700",
                           fontSize: "13px",
                           transition: "all 0.2s"
                         }}
                         onMouseOver={e => {
-                          e.currentTarget.style.backgroundColor = accent;
+                          e.currentTarget.style.backgroundColor = accentAA;
                           e.currentTarget.style.color = c.cream;
                         }}
                         onMouseOut={e => {
                           e.currentTarget.style.backgroundColor = "transparent";
-                          e.currentTarget.style.color = accent;
+                          e.currentTarget.style.color = accentAA;
                         }}
                       >
-                        {isExpanded ? "Show Less" : `See All ${category.guides.length} Guides`} {isExpanded ? "↑" : "↓"}
+                        {isExpanded ? "Show Less" : `See All ${category.guides.length} Guides`} <span aria-hidden="true">{isExpanded ? "↑" : "↓"}</span>
                       </button>
                     </div>
                   )}
@@ -3429,7 +3484,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <Icons.Search />
                 </span>
                 <input
-                  type="text"
+                  type="search"
+                  aria-label="Search guides"
                   placeholder="Search guides (e.g., tacos, dive bars, Third Ward...)"
                   value={exploreSearch}
                   onChange={e => setExploreSearch(e.target.value)}
@@ -3446,6 +3502,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
 
               {/* Search Results */}
+              <div aria-live="polite">
               {exploreSearch && (
                 <div style={{ marginTop: "24px", textAlign: "left" }}>
                   {(() => {
@@ -3454,7 +3511,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       cat.guides.filter(g =>
                         g.title.toLowerCase().includes(searchLower) ||
                         g.desc.toLowerCase().includes(searchLower)
-                      ).map(g => ({ ...g, category: cat.title, categoryColor: c[catMeta(cat.id).ck] }))
+                      ).map(g => ({ ...g, category: cat.title, categoryColor: c[catMeta(cat.id).ck + "Dark"] || c[catMeta(cat.id).ck] }))
                     );
 
                     if (matchingGuides.length === 0) {
@@ -3473,7 +3530,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         maxHeight: "300px",
                         overflowY: "auto"
                       }}>
-                        <p style={{ color: c.tan, fontSize: "13px", marginBottom: "12px" }}>
+                        <p style={{ color: c.tanDark, fontSize: "13px", marginBottom: "12px" }}>
                           {matchingGuides.length} result{matchingGuides.length !== 1 ? "s" : ""} found
                         </p>
                         {matchingGuides.map(guide => (
@@ -3496,10 +3553,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           >
                             <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: guide.categoryColor, flexShrink: 0 }} />
                             <div style={{ flex: 1 }}>
-                              <h4 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "2px" }}>
+                              <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "700", marginBottom: "2px" }}>
                                 {guide.title}
-                              </h4>
-                              <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{guide.desc}</p>
+                              </h3>
+                              <p style={{ color: c.tanDark, fontSize: "12px", margin: 0 }}>{guide.desc}</p>
                             </div>
                             <span style={{
                               backgroundColor: guide.categoryColor,
@@ -3518,6 +3575,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   })()}
                 </div>
               )}
+              </div>
             </div>
           </section>
 
@@ -3547,7 +3605,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     <p style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: "34px", fontWeight: "400", marginBottom: "4px", lineHeight: 1 }}>
                       {cat.guides.length}
                     </p>
-                    <p style={{ color: c.tan, fontSize: "12px", margin: 0 }}>{cat.title}</p>
+                    <p style={{ color: c.tanDark, fontSize: "12px", margin: 0 }}>{cat.title}</p>
                   </div>
                   );
                 })}
@@ -3567,7 +3625,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <Icons.ChevronLeft /> Back to Explore
               </button>
               <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                <span style={{ fontSize: "48px" }}>{selectedPost.icon}</span>
+                <span aria-hidden="true" style={{ fontSize: "48px" }}>{selectedPost.icon}</span>
                 <div>
                   <span style={{ backgroundColor: "rgba(255,255,255,0.2)", color: c.white, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", textTransform: "uppercase" }}>{selectedPost.isPillar ? "Pillar Guide" : selectedPost.type}</span>
                   {selectedPost.lastUpdated && <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", marginLeft: "12px" }}>Updated {selectedPost.lastUpdated}</span>}
@@ -3576,8 +3634,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <h1 style={{ color: c.white, fontSize: "36px", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>{selectedPost.title}</h1>
               <p style={{ color: "rgba(255,255,255,0.9)", fontSize: "18px", lineHeight: 1.6, marginBottom: "16px" }}>{selectedPost.excerpt}</p>
               <div style={{ display: "flex", gap: "16px", color: "rgba(255,255,255,0.7)", fontSize: "13px" }}>
-                <span>📖 {selectedPost.readTimeMinutes} min read</span>
-                {selectedPost.tags && <span>🏷️ {selectedPost.tags.slice(0, 3).join(", ")}</span>}
+                <span><span aria-hidden="true">📖 </span>{selectedPost.readTimeMinutes} min read</span>
+                {selectedPost.tags && <span><span aria-hidden="true">🏷️ </span><span className="sr-only">Topics: </span>{selectedPost.tags.slice(0, 3).join(", ")}</span>}
               </div>
             </div>
           </div>
@@ -3658,7 +3716,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     // Handle bold text in paragraphs
                     if (paragraph.includes('**')) {
                       return (
-                        <p key={idx} style={{ marginBottom: "16px", color: c.tan }}>
+                        <p key={idx} style={{ marginBottom: "16px", color: c.tanDark }}>
                           {paragraph.split('**').map((part, j) => 
                             j % 2 === 1 ? <strong key={j} style={{ fontWeight: "700", color: c.green1 }}>{part}</strong> : part
                           )}
@@ -3666,7 +3724,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       );
                     }
                     // Regular paragraphs
-                    return <p key={idx} style={{ marginBottom: "16px", color: c.tan }}>{paragraph}</p>;
+                    return <p key={idx} style={{ marginBottom: "16px", color: c.tanDark }}>{paragraph}</p>;
                   })}
                 </div>
               ) : (
@@ -3681,9 +3739,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "16px" }}>
                   {exploreArticles.filter(p => p.slug === selectedPost.parentSlug || p.parentSlug === selectedPost.parentSlug).filter(p => p.id !== selectedPost.id).slice(0, 4).map(p => (
                     <div key={p.id} onClick={() => { setSelectedPost(p); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ backgroundColor: c.white, borderRadius: "12px", padding: "16px", cursor: "pointer", display: "flex", gap: "12px", alignItems: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
-                      <span style={{ fontSize: "28px" }}>{p.icon}</span>
+                      <span aria-hidden="true" style={{ fontSize: "28px" }}>{p.icon}</span>
                       <div>
-                        <h4 style={{ color: c.green1, fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>{p.title}</h4>
+                        <h4 style={{ color: c.green1, fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}>{p.title}</button></h4>
                         <span style={{ color: c.tan, fontSize: "12px" }}>{p.readTimeMinutes} min read</span>
                       </div>
                     </div>
@@ -3698,12 +3756,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <p style={{ color: c.beige, fontSize: "14px", marginBottom: "20px" }}>Join our weekly newsletter for the best events, new restaurants, and local favorites.</p>
               {subscribeStatus === "success" ? (
                 <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "14px 24px", maxWidth: "400px", margin: "0 auto" }}>
-                  <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox.</p>
+                  <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", margin: 0 }}><span aria-hidden="true">✓ </span>You're in! Check your inbox.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "400px", margin: "0 auto" }}>
-                  <input type="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "14px 18px", borderRadius: "50px", border: "none", fontSize: "14px" }} />
-                  <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "14px 24px", backgroundColor: c.yellow, color: c.green1, fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                  <input type="email" aria-label="Email address" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "14px 18px", borderRadius: "50px", border: "none", fontSize: "14px" }} />
+                  <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "14px 24px", backgroundColor: c.yellow, color: "#294D32", fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                     {subscribeStatus === "loading" ? "..." : "Subscribe"}
                   </button>
                 </form>
@@ -3718,13 +3776,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         <div style={{ fontFamily: BODY_FONT }}>
           <section style={{ backgroundColor: c.cream, padding: isMobile ? "48px 16px 36px" : "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
             <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.orange, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>WHAT'S HAPPENING</p>
+              <p style={{ color: c.orangeDark, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>WHAT'S HAPPENING</p>
               <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "40px" : "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Milwaukee Events</h1>
-              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Your Social Calendar, Handled.</p>
-              <p style={{ color: c.green2, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto 24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
+              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2Dark, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Your Social Calendar, Handled.</p>
+              <p style={{ color: c.green2Dark, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto 24px" }}>Stop scrolling through Facebook events. We curate the stuff actually worth leaving your couch for.</p>
               {/* Sponsor */}
               <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", backgroundColor: c.white, padding: "12px 24px", borderRadius: "50px", border: `1px solid ${c.beige}` }}>
-                <span style={{ color: c.tan, fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
+                <span style={{ color: c.tanDark, fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>Presented by</span>
                 <a href="https://nicoletlaw.com" target="_blank" rel="noopener noreferrer sponsored" style={{ display: "flex", alignItems: "center" }}>
                   <img src="/images/nicolet-law-logo.png" alt="Nicolet Law - Accident & Injury Lawyers" style={{ height: "32px", width: "auto" }} />
                 </a>
@@ -3734,20 +3792,20 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: "24px 16px", backgroundColor: c.cream, borderBottom: `1px solid ${c.beige}` }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap", marginBottom: "16px" }}>
-                <button onClick={goToPrevWeek} style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: c.white, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.ChevronLeft /></button>
-                <span style={{ color: c.green1, fontWeight: "700", fontSize: "15px", minWidth: "200px", textAlign: "center" }}>Week of {formatDate(selectedWeek, "short")} – {formatDate(getSunday(selectedWeek), "short")}</span>
-                <button onClick={goToNextWeek} style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: c.white, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.ChevronRight /></button>
-                <button onClick={goToThisWeek} style={{ padding: "8px 16px", borderRadius: "50px", backgroundColor: c.yellow, color: c.green1, border: "none", fontWeight: "600", fontSize: "13px", cursor: "pointer" }}>This Week</button>
+                <button type="button" aria-label="Previous week" onClick={goToPrevWeek} style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: c.white, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.ChevronLeft /></button>
+                <span aria-live="polite" style={{ color: c.green1, fontWeight: "700", fontSize: "15px", minWidth: "200px", textAlign: "center" }}>Week of {formatDate(selectedWeek, "short")} – {formatDate(getSunday(selectedWeek), "short")}</span>
+                <button type="button" aria-label="Next week" onClick={goToNextWeek} style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: c.white, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.ChevronRight /></button>
+                <button onClick={goToThisWeek} style={{ padding: "8px 16px", borderRadius: "50px", backgroundColor: c.yellow, color: "#294D32", border: "none", fontWeight: "600", fontSize: "13px", cursor: "pointer" }}>This Week</button>
               </div>
               <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
                 <div style={{ flex: 1, maxWidth: "320px", position: "relative" }}>
                   <span style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: c.tan }}><Icons.Search /></span>
-                  <input type="text" placeholder="Search events..." value={eventsSearch} onChange={e => setEventsSearch(e.target.value)} style={{ width: "100%", padding: "12px 16px 12px 44px", borderRadius: "50px", border: `2px solid ${c.beige}`, fontSize: "14px" }} />
+                  <input type="search" aria-label="Search events" placeholder="Search events..." value={eventsSearch} onChange={e => setEventsSearch(e.target.value)} style={{ width: "100%", padding: "12px 16px 12px 44px", borderRadius: "50px", border: `2px solid ${c.beige}`, fontSize: "14px" }} />
                 </div>
               </div>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                 {categories.map(cat => (
-                  <button key={cat} onClick={() => setEventsCategory(cat)} style={{ padding: "8px 14px", borderRadius: "50px", border: "none", backgroundColor: eventsCategory === cat ? c.green1 : c.white, color: eventsCategory === cat ? c.cream : c.green1, fontWeight: "600", fontSize: "12px", cursor: "pointer" }}>{cat}</button>
+                  <button key={cat} type="button" aria-pressed={eventsCategory === cat} onClick={() => setEventsCategory(cat)} style={{ padding: "8px 14px", borderRadius: "50px", border: "none", backgroundColor: eventsCategory === cat ? c.green1 : c.white, color: eventsCategory === cat ? c.cream : c.green1, fontWeight: "600", fontSize: "12px", cursor: "pointer" }}>{cat}</button>
                 ))}
               </div>
             </div>
@@ -3768,9 +3826,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 return Object.values(eventsByDay).map(({ date, events }) => (
                   <div key={date.toDateString()} style={{ marginBottom: "32px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-                      <span style={{ backgroundColor: isSameDay(date, new Date()) ? c.orange : c.green1, color: c.cream, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px" }}>{formatDate(date, "day")}</span>
-                      {isSameDay(date, new Date()) && <span style={{ color: c.orange, fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>Today</span>}
-                      <span style={{ color: c.tan, fontSize: "12px", fontWeight: "600" }}>{events.length} {events.length === 1 ? "event" : "events"}</span>
+                      <h2 style={{ backgroundColor: isSameDay(date, new Date()) ? c.orangeDark : c.green1, color: c.cream, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.5, margin: 0 }}>{formatDate(date, "day")}</h2>
+                      {isSameDay(date, new Date()) && <span style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>Today</span>}
+                      <span style={{ color: c.tanDark, fontSize: "12px", fontWeight: "600" }}>{events.length} {events.length === 1 ? "event" : "events"}</span>
                       <span style={{ flex: 1, height: "1px", backgroundColor: c.beige }} />
                     </div>
                     {events.length > 0 ? (
@@ -3783,15 +3841,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "14px" }}>
                                 <span style={{ color: accent }}><EventIcon size={28} /></span>
                                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                  {e.featured && <span style={{ color: c.orange, fontSize: "9px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>Featured</span>}
-                                  <span style={{ color: c.tan, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>{e.category}</span>
+                                  {e.featured && <span style={{ color: c.orangeDark, fontSize: "9px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>Featured</span>}
+                                  <span style={{ color: c.tanDark, fontSize: "10px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px" }}>{e.category}</span>
                                 </div>
                               </div>
-                              <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "8px", lineHeight: 1.3, fontFamily: BODY_FONT }}>{e.title}</h3>
-                              <p style={{ color: c.tan, fontSize: "13px", lineHeight: 1.45, marginBottom: "14px" }}>{e.shortDescription}</p>
+                              <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "8px", lineHeight: 1.3, fontFamily: BODY_FONT }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedEvent(e); }}>{e.title}</button></h3>
+                              <p style={{ color: c.tanDark, fontSize: "13px", lineHeight: 1.45, marginBottom: "14px" }}>{e.shortDescription}</p>
                               <div style={{ display: "flex", flexDirection: "column", gap: "5px", borderTop: `1px solid ${c.beige}`, paddingTop: "12px" }}>
-                                <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}><Icons.Clock />{e.allDay ? "All Day" : formatDate(e.startDateTime, "time")}<span style={{ color: c.tan, fontWeight: "500" }}>· {e.costType === "free" ? "Free" : "Ticketed"}</span></p>
-                                <p style={{ color: c.tan, fontSize: "12px", display: "flex", alignItems: "center", gap: "6px" }}><Icons.MapPin />{e.venueName}</p>
+                                <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "6px" }}><Icons.Clock />{e.allDay ? "All Day" : formatDate(e.startDateTime, "time")}<span style={{ color: c.tanDark, fontWeight: "500" }}>· {e.costType === "free" ? "Free" : "Ticketed"}</span></p>
+                                <p style={{ color: c.tanDark, fontSize: "12px", display: "flex", alignItems: "center", gap: "6px" }}><Icons.MapPin />{e.venueName}</p>
                               </div>
                             </div>
                           );
@@ -3799,7 +3857,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       </div>
                     ) : (
                       <div style={{ backgroundColor: c.white, borderRadius: "12px", padding: "24px", textAlign: "center", border: `1px solid ${c.beige}` }}>
-                        <p style={{ color: c.tan, fontSize: "14px" }}>No events added yet for this day.</p>
+                        <p style={{ color: c.tanDark, fontSize: "14px" }}>No events added yet for this day.</p>
                       </div>
                     )}
                   </div>
@@ -3809,10 +3867,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </section>
           <section style={{ padding: isMobile ? "48px 16px" : "72px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.yellow, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "14px", textTransform: "uppercase" }}>Get On The Calendar</p>
+              <p style={{ color: "#F1AF38", fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "14px", textTransform: "uppercase" }}>Get On The Calendar</p>
               <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.cream, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>Have an Event to Share?</h2>
               <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", lineHeight: 1.6, marginBottom: "28px" }}>Hosting something the city should know about? Get it in front of 37.1M+ views.</p>
-              <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="dm-cta" style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 40px", color: c.green1, fontWeight: "700", borderRadius: "50px", border: "none", cursor: "pointer", fontSize: isMobile ? "15px" : "16px" }}>Submit Your Event →</button>
+              <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="dm-cta" style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 40px", color: "#20291F", fontWeight: "700", borderRadius: "50px", border: "none", cursor: "pointer", fontSize: isMobile ? "15px" : "16px" }}>Submit Your Event →</button>
             </div>
           </section>
         </div>
@@ -3828,29 +3886,29 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <Icons.ChevronLeft /> Back to Events
                 </button>
                 <div style={{ textAlign: "center", marginBottom: "40px" }}>
-                  <span style={{ fontSize: "48px", display: "block", marginBottom: "16px" }}>📅</span>
+                  <span aria-hidden="true" style={{ fontSize: "48px", display: "block", marginBottom: "16px" }}>📅</span>
                   <h1 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "12px", textTransform: "uppercase" }}>Submit Your Event</h1>
-                  <p style={{ color: c.tan, fontSize: "16px", maxWidth: "500px", margin: "0 auto" }}>Get your event in front of Milwaukee's most engaged audience. We review submissions daily.</p>
+                  <p style={{ color: c.tanDark, fontSize: "16px", maxWidth: "500px", margin: "0 auto" }}>Get your event in front of Milwaukee's most engaged audience. We review submissions daily.</p>
                 </div>
 
                 <form onSubmit={handleEventSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                   {/* Contact Info */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>👤</span> Your Information
+                      <span aria-hidden="true">👤</span> Your Information
                     </h2>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Your Name *</label>
-                        <input type="text" required value={eventForm.submitterName} onChange={(e) => handleEventFormChange("submitterName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-submitterName" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Your Name *</label>
+                        <input id="ev-submitterName" type="text" required value={eventForm.submitterName} onChange={(e) => handleEventFormChange("submitterName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Email *</label>
-                        <input type="email" required value={eventForm.submitterEmail} onChange={(e) => handleEventFormChange("submitterEmail", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-submitterEmail" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Email *</label>
+                        <input id="ev-submitterEmail" type="email" required value={eventForm.submitterEmail} onChange={(e) => handleEventFormChange("submitterEmail", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                       <div style={{ gridColumn: "span 2" }}>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Phone (optional)</label>
-                        <input type="tel" value={eventForm.submitterPhone} onChange={(e) => handleEventFormChange("submitterPhone", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-submitterPhone" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Phone (optional)</label>
+                        <input id="ev-submitterPhone" type="tel" value={eventForm.submitterPhone} onChange={(e) => handleEventFormChange("submitterPhone", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                     </div>
                   </div>
@@ -3858,21 +3916,21 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* Event Details */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>🎉</span> Event Details
+                      <span aria-hidden="true">🎉</span> Event Details
                     </h2>
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Event Title *</label>
-                        <input type="text" required value={eventForm.title} onChange={(e) => handleEventFormChange("title", e.target.value)} placeholder="e.g., Third Ward Art Walk" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-title" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Event Title *</label>
+                        <input id="ev-title" type="text" required value={eventForm.title} onChange={(e) => handleEventFormChange("title", e.target.value)} placeholder="e.g., Third Ward Art Walk" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                         <div>
-                          <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Venue Name *</label>
-                          <input type="text" required value={eventForm.venueName} onChange={(e) => handleEventFormChange("venueName", e.target.value)} placeholder="e.g., Fiserv Forum" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                          <label htmlFor="ev-venueName" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Venue Name *</label>
+                          <input id="ev-venueName" type="text" required value={eventForm.venueName} onChange={(e) => handleEventFormChange("venueName", e.target.value)} placeholder="e.g., Fiserv Forum" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                         </div>
                         <div>
-                          <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Neighborhood *</label>
-                          <select required value={eventForm.neighborhood} onChange={(e) => handleEventFormChange("neighborhood", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
+                          <label htmlFor="ev-neighborhood" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Neighborhood *</label>
+                          <select id="ev-neighborhood" required value={eventForm.neighborhood} onChange={(e) => handleEventFormChange("neighborhood", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
                             <option value="">Select neighborhood</option>
                             <option value="Third Ward">Third Ward</option>
                             <option value="Walker's Point">Walker's Point</option>
@@ -3886,8 +3944,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         </div>
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Venue Address (optional)</label>
-                        <input type="text" value={eventForm.venueAddress} onChange={(e) => handleEventFormChange("venueAddress", e.target.value)} placeholder="123 N Water St, Milwaukee, WI" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-venueAddress" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Venue Address (optional)</label>
+                        <input id="ev-venueAddress" type="text" value={eventForm.venueAddress} onChange={(e) => handleEventFormChange("venueAddress", e.target.value)} placeholder="123 N Water St, Milwaukee, WI" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                     </div>
                   </div>
@@ -3895,7 +3953,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* Date & Time */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>🕐</span> Date & Time
+                      <span aria-hidden="true">🕐</span> Date & Time
                     </h2>
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <label style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
@@ -3904,23 +3962,23 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       </label>
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                         <div>
-                          <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Start Date *</label>
-                          <input type="date" required value={eventForm.startDate} onChange={(e) => handleEventFormChange("startDate", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                          <label htmlFor="ev-startDate" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Start Date *</label>
+                          <input id="ev-startDate" type="date" required value={eventForm.startDate} onChange={(e) => handleEventFormChange("startDate", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                         </div>
                         {!eventForm.allDay && (
                           <div>
-                            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Start Time *</label>
-                            <input type="time" required={!eventForm.allDay} value={eventForm.startTime} onChange={(e) => handleEventFormChange("startTime", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                            <label htmlFor="ev-startTime" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Start Time *</label>
+                            <input id="ev-startTime" type="time" required={!eventForm.allDay} value={eventForm.startTime} onChange={(e) => handleEventFormChange("startTime", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                           </div>
                         )}
                         <div>
-                          <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>End Date (if multi-day)</label>
-                          <input type="date" value={eventForm.endDate} onChange={(e) => handleEventFormChange("endDate", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                          <label htmlFor="ev-endDate" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>End Date (if multi-day)</label>
+                          <input id="ev-endDate" type="date" value={eventForm.endDate} onChange={(e) => handleEventFormChange("endDate", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                         </div>
                         {!eventForm.allDay && (
                           <div>
-                            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>End Time</label>
-                            <input type="time" value={eventForm.endTime} onChange={(e) => handleEventFormChange("endTime", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                            <label htmlFor="ev-endTime" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>End Time</label>
+                            <input id="ev-endTime" type="time" value={eventForm.endTime} onChange={(e) => handleEventFormChange("endTime", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                           </div>
                         )}
                       </div>
@@ -3930,12 +3988,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* Category & Cost */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>🏷️</span> Category & Cost
+                      <span aria-hidden="true">🏷️</span> Category & Cost
                     </h2>
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Category *</label>
-                        <select required value={eventForm.category} onChange={(e) => handleEventFormChange("category", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
+                        <label htmlFor="ev-category" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Category *</label>
+                        <select id="ev-category" required value={eventForm.category} onChange={(e) => handleEventFormChange("category", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
                           <option value="">Select category</option>
                           <option value="Food & Drink">Food & Drink</option>
                           <option value="Live Music">Live Music</option>
@@ -3950,8 +4008,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         </select>
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>Tags (select all that apply)</label>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                        <span id="ev-tags-label" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>Tags (select all that apply)</span>
+                        <div role="group" aria-labelledby="ev-tags-label" style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                           {["free", "21+", "kid-friendly", "date night", "outdoor", "indoor", "charity"].map((tag) => (
                             <label key={tag} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 14px", backgroundColor: eventForm.tags.includes(tag) ? c.beige : c.cream, borderRadius: "8px", cursor: "pointer", border: `2px solid ${eventForm.tags.includes(tag) ? c.green1 : c.beige}`, transition: "all 0.2s" }}>
                               <input type="checkbox" checked={eventForm.tags.includes(tag)} onChange={() => handleEventTagChange(tag)} style={{ width: "16px", height: "16px", accentColor: c.green1 }} />
@@ -3962,15 +4020,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       </div>
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                         <div>
-                          <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Cost Type *</label>
-                          <select required value={eventForm.costType} onChange={(e) => handleEventFormChange("costType", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
+                          <label htmlFor="ev-costType" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Cost Type *</label>
+                          <select id="ev-costType" required value={eventForm.costType} onChange={(e) => handleEventFormChange("costType", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
                             <option value="free">Free</option>
                             <option value="paid">Paid</option>
                           </select>
                         </div>
                         <div>
-                          <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Cost Details *</label>
-                          <input type="text" required value={eventForm.costDetails} onChange={(e) => handleEventFormChange("costDetails", e.target.value)} placeholder={eventForm.costType === "free" ? "Free" : "e.g., $15, $25-50"} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                          <label htmlFor="ev-costDetails" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Cost Details *</label>
+                          <input id="ev-costDetails" type="text" required value={eventForm.costDetails} onChange={(e) => handleEventFormChange("costDetails", e.target.value)} placeholder={eventForm.costType === "free" ? "Free" : "e.g., $15, $25-50"} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                         </div>
                       </div>
                     </div>
@@ -3979,39 +4037,39 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* Description */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>📝</span> Description
+                      <span aria-hidden="true">📝</span> Description
                     </h2>
                     <div>
-                      <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Short Description *</label>
-                      <p style={{ fontSize: "12px", color: c.tan, marginBottom: "10px" }}>1-2 sentences that capture what makes this event worth attending.</p>
-                      <textarea required value={eventForm.shortDescription} onChange={(e) => handleEventFormChange("shortDescription", e.target.value)} rows={3} placeholder="e.g., Free gallery walk featuring local artists, wine tastings, and good vibes." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
+                      <label htmlFor="ev-shortDescription" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Short Description *</label>
+                      <p style={{ fontSize: "12px", color: c.tanDark, marginBottom: "10px" }}>1-2 sentences that capture what makes this event worth attending.</p>
+                      <textarea id="ev-shortDescription" required value={eventForm.shortDescription} onChange={(e) => handleEventFormChange("shortDescription", e.target.value)} rows={3} placeholder="e.g., Free gallery walk featuring local artists, wine tastings, and good vibes." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
                     </div>
                   </div>
 
                   {/* Links */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>🔗</span> Links (Optional)
+                      <span aria-hidden="true">🔗</span> Links (Optional)
                     </h2>
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Event Website or Info Page</label>
-                        <input type="url" value={eventForm.website} onChange={(e) => handleEventFormChange("website", e.target.value)} placeholder="https://..." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-website" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Event Website or Info Page</label>
+                        <input id="ev-website" type="url" value={eventForm.website} onChange={(e) => handleEventFormChange("website", e.target.value)} placeholder="https://..." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Ticket Link</label>
-                        <input type="url" value={eventForm.ticketLink} onChange={(e) => handleEventFormChange("ticketLink", e.target.value)} placeholder="https://..." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="ev-ticketLink" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Ticket Link</label>
+                        <input id="ev-ticketLink" type="url" value={eventForm.ticketLink} onChange={(e) => handleEventFormChange("ticketLink", e.target.value)} placeholder="https://..." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Anything else we should know?</label>
-                        <textarea value={eventForm.notes} onChange={(e) => handleEventFormChange("notes", e.target.value)} rows={3} placeholder="Special instructions, recurring event info, etc." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
+                        <label htmlFor="ev-notes" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Anything else we should know?</label>
+                        <textarea id="ev-notes" value={eventForm.notes} onChange={(e) => handleEventFormChange("notes", e.target.value)} rows={3} placeholder="Special instructions, recurring event info, etc." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
                       </div>
                     </div>
                   </div>
 
                   {/* Submit */}
                   <div style={{ textAlign: "center", padding: "20px 0" }}>
-                    <p style={{ fontSize: "13px", color: c.tan, marginBottom: "20px" }}>We review submissions daily and will reach out if we need more info.</p>
+                    <p style={{ fontSize: "13px", color: c.tanDark, marginBottom: "20px" }}>We review submissions daily and will reach out if we need more info.</p>
                     <button type="submit" style={{ padding: "18px 48px", backgroundColor: c.green1, color: c.cream, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: "16px", textTransform: "uppercase" }}>
                       Submit Event
                     </button>
@@ -4022,7 +4080,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               /* Success State */
               <div style={{ textAlign: "center", padding: "80px 20px" }}>
                 <div style={{ width: "80px", height: "80px", borderRadius: "50%", backgroundColor: c.green1, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-                  <span style={{ fontSize: "40px", color: c.cream }}>✓</span>
+                  <span aria-hidden="true" style={{ fontSize: "40px", color: c.cream }}>✓</span>
                 </div>
                 <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "16px", textTransform: "uppercase" }}>Event Submitted!</h2>
                 <p style={{ color: c.tan, fontSize: "17px", lineHeight: 1.6, maxWidth: "500px", margin: "0 auto 32px" }}>Thanks for sharing your event with us. We'll review it and add it to our calendar if it's a good fit for our audience.</p>
@@ -4044,7 +4102,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </button>
             <div style={{ backgroundColor: c.green1, borderRadius: "20px", padding: "40px", marginBottom: "28px" }}>
               <div style={{ display: "flex", gap: "10px", marginBottom: "16px", flexWrap: "wrap" }}>
-                <span style={{ backgroundColor: c.yellow, color: c.green1, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase" }}>{selectedEvent.category}</span>
+                <span style={{ backgroundColor: c.yellow, color: "#294D32", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase" }}>{selectedEvent.category}</span>
                 <span style={{ backgroundColor: selectedEvent.costType === "free" ? c.green2 : "rgba(255,255,255,0.2)", color: c.white, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700" }}>{selectedEvent.costDetails || (selectedEvent.costType === "free" ? "Free" : "Ticketed")}</span>
               </div>
               <h1 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", marginBottom: "18px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>{selectedEvent.title}</h1>
@@ -4070,22 +4128,22 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {/* NEWSLETTER */}
       {page === "newsletter" && (
         <>
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: isMobile ? "50px 16px" : "80px 16px" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #355130 100%)`, padding: isMobile ? "50px 16px" : "80px 16px" }}>
             <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>THE INSIDE SCOOP</p>
+              <p style={{ color: "#F1AF38", fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>THE INSIDE SCOOP</p>
               <h1 style={{ fontSize: isMobile ? "32px" : "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase", lineHeight: 1.1 }}>The Discover Milwaukee Newsletter</h1>
-              <p style={{ fontSize: isMobile ? "18px" : "20px", color: c.yellow, fontWeight: "600", marginBottom: "20px" }}>Milwaukee's Best Stuff. In Your Inbox. Every Wednesday.</p>
+              <p style={{ fontSize: isMobile ? "18px" : "20px", color: "#F1AF38", fontWeight: "600", marginBottom: "20px" }}>Milwaukee's Best Stuff. In Your Inbox. Every Wednesday.</p>
               <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto 32px" }}>Look, we get it. Your inbox is a warzone. But this one's different. No fluff. No filler. Just the stuff actually worth knowing about in Milwaukee, delivered once a week.</p>
               
               {/* Email Signup Form at Top */}
               {subscribeStatus === "success" ? (
                 <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "18px 28px", maxWidth: "500px", margin: "0 auto" }}>
-                  <p style={{ color: c.yellow, fontSize: "16px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox to confirm.</p>
+                  <p style={{ color: c.yellow, fontSize: "16px", fontWeight: "700", margin: 0 }}><span aria-hidden="true">✓ </span>You're in! Check your inbox to confirm.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "500px", margin: "0 auto" }}>
-                  <input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "18px 24px", borderRadius: "50px", border: "none", fontSize: "16px" }} />
-                  <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "18px 32px", backgroundColor: c.yellow, color: c.green1, fontWeight: "bold", fontSize: "16px", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                  <input type="email" aria-label="Email address" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "18px 24px", borderRadius: "50px", border: "none", fontSize: "16px" }} />
+                  <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "18px 32px", backgroundColor: c.yellow, color: "#294D32", fontWeight: "bold", fontSize: "16px", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                     {subscribeStatus === "loading" ? "..." : "Subscribe Free"}
                   </button>
                 </form>
@@ -4107,10 +4165,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   { i: "❌", t: "Boring Corporate Content", d: "No stock photos. No PR fluff." }
                 ].map((item, idx) => (
                   <div key={idx} style={{ backgroundColor: c.white, borderRadius: "14px", padding: "20px", display: "flex", gap: "14px" }}>
-                    <span style={{ fontSize: "22px" }}>{item.i}</span>
+                    <span role="img" aria-label={item.i === "✅" ? "Included:" : "Not included:"} style={{ fontSize: "22px" }}>{item.i}</span>
                     <div>
                       <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "4px" }}>{item.t}</h3>
-                      <p style={{ color: c.tan, fontSize: "13px" }}>{item.d}</p>
+                      <p style={{ color: c.tanDark, fontSize: "13px" }}>{item.d}</p>
                     </div>
                   </div>
                 ))}
@@ -4130,7 +4188,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   { icon: "⚡", title: "Quick Read", desc: "Get the highlights in 5 minutes or less." }
                 ].map((item, i) => (
                   <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "14px", padding: isMobile ? "16px" : "24px", textAlign: "center" }}>
-                    <span style={{ fontSize: isMobile ? "28px" : "32px", display: "block", marginBottom: "12px" }}>{item.icon}</span>
+                    <span aria-hidden="true" style={{ fontSize: isMobile ? "28px" : "32px", display: "block", marginBottom: "12px" }}>{item.icon}</span>
                     <h3 style={{ color: c.cream, fontSize: "16px", fontWeight: "700", marginBottom: "8px" }}>{item.title}</h3>
                     <p style={{ color: c.beige, fontSize: "13px", lineHeight: 1.5 }}>{item.desc}</p>
                   </div>
@@ -4160,17 +4218,17 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", marginBottom: "32px" }}>One email. Once a week. Everything worth knowing about Milwaukee.</p>
               {subscribeStatus === "success" ? (
                 <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", maxWidth: "460px", margin: "0 auto 16px" }}>
-                  <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>✓ You're in! Check your inbox to confirm.</p>
+                  <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}><span aria-hidden="true">✓ </span>You're in! Check your inbox to confirm.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "460px", margin: "0 auto 16px" }}>
-                  <input type="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "16px 20px", borderRadius: "50px", border: "none", fontSize: "15px" }} />
-                  <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "16px 28px", backgroundColor: c.yellow, color: c.green1, fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
+                  <input type="email" aria-label="Email address" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "16px 20px", borderRadius: "50px", border: "none", fontSize: "15px" }} />
+                  <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "16px 28px", backgroundColor: c.yellow, color: "#294D32", fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                     {subscribeStatus === "loading" ? "..." : "Subscribe Free"}
                   </button>
                 </form>
               )}
-              <p style={{ color: c.blue3, fontSize: "13px" }}>Delivered every Wednesday. No spam. Unsubscribe anytime.</p>
+              <p style={{ color: "#A3D2DE", fontSize: "13px" }}>Delivered every Wednesday. No spam. Unsubscribe anytime.</p>
             </div>
           </section>
         </>
@@ -4181,7 +4239,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         <section style={{ padding: isMobile ? "40px 16px" : "80px 16px", backgroundColor: c.green1 }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: isMobile ? "32px" : "48px" }}>
-              <p style={{ color: c.yellow, fontSize: isMobile ? "12px" : "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>GROW WITH US</p>
+              <p style={{ color: "#F1AF38", fontSize: isMobile ? "12px" : "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>GROW WITH US</p>
               <h1 style={{ fontSize: isMobile ? "28px" : "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase" }}>Partner With Discover Milwaukee</h1>
               <p style={{ fontSize: isMobile ? "16px" : "18px", color: c.beige, maxWidth: "650px", margin: "0 auto" }}>Get your brand in front of the Milwaukee locals who actually show up.</p>
             </div>
@@ -4191,20 +4249,20 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
             {/* TOP CTA — reachable without scrolling */}
             <div style={{ textAlign: "center", marginBottom: isMobile ? "36px" : "56px" }}>
-              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 44px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "15px" : "17px", textTransform: "uppercase", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
+              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 44px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "15px" : "17px", textTransform: "uppercase", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
                 Start Your Partnership →
               </button>
               <p style={{ color: c.beige, fontSize: "13px", marginTop: "12px" }}>Takes about a minute · No commitment</p>
               <p style={{ marginTop: "16px", fontSize: "14px" }}>
-                <a href="/milwaukee-media-kit" style={{ color: c.yellow, fontWeight: "700", textDecoration: "none", margin: "0 10px" }}>View the Media Kit</a>
-                <a href="/milwaukee-influencer-marketing" style={{ color: c.yellow, fontWeight: "700", textDecoration: "none", margin: "0 10px" }}>Milwaukee Marketing Guide</a>
+                <a href="/milwaukee-media-kit" style={{ color: "#F1AF38", fontWeight: "700", textDecoration: "none", margin: "0 10px" }}>View the Media Kit</a>
+                <a href="/milwaukee-influencer-marketing" style={{ color: "#F1AF38", fontWeight: "700", textDecoration: "none", margin: "0 10px" }}>Milwaukee Marketing Guide</a>
               </p>
             </div>
 
             {/* BRANDS WE'VE WORKED WITH */}
             <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
-                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>They Took the Leap. It Paid Off.</p>
+                <p style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>They Took the Leap. It Paid Off.</p>
                 <h2 style={{ color: c.cream, fontSize: isMobile ? "22px" : "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px" }}>Brands That Trust Us</h2>
                 <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "15px", maxWidth: "500px", margin: "0 auto" }}>From neighborhood gems to household names — here's who's shown up with us.</p>
               </div>
@@ -4282,12 +4340,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
             <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-                <span style={{ fontSize: "24px" }}>🚀</span>
+                <span aria-hidden="true" style={{ fontSize: "24px" }}>🚀</span>
                 <h2 style={{ color: c.cream, fontSize: isMobile ? "20px" : "24px", fontWeight: "900", textTransform: "uppercase" }}>The Reach</h2>
               </div>
-              <div style={{ textAlign: "center", padding: isMobile ? "24px" : "36px", background: `linear-gradient(135deg, ${c.yellow} 0%, ${c.orange} 100%)`, borderRadius: "20px", marginBottom: "24px" }}>
-                <div style={{ fontSize: isMobile ? "36px" : "56px", fontWeight: "900", color: c.green1 }}>37.1 MILLION</div>
-                <div style={{ fontSize: isMobile ? "14px" : "18px", color: c.green1, fontWeight: "700", letterSpacing: "2px" }}>VIEWS IN 2025</div>
+              <div style={{ textAlign: "center", padding: isMobile ? "24px" : "36px", background: `linear-gradient(135deg, ${c.yellow} 0%, #D87437 100%)`, borderRadius: "20px", marginBottom: "24px" }}>
+                <div style={{ fontSize: isMobile ? "36px" : "56px", fontWeight: "900", color: "#20291F" }}>37.1 MILLION</div>
+                <div style={{ fontSize: isMobile ? "14px" : "18px", color: "#20291F", fontWeight: "700", letterSpacing: "2px" }}>VIEWS IN 2025</div>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "10px" : "14px" }}>
                 {[{ n: "Instagram", v: "13.4M" }, { n: "Facebook", v: "19.5M*" }, { n: "TikTok", v: "4.2M" }, { n: "TOTAL", v: "37.1M" }].map(p => (
@@ -4297,14 +4355,14 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </div>
                 ))}
               </div>
-              <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", marginTop: "12px", opacity: 0.7 }}>*Projected based on numbers from 11/25 onward</p>
+              <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", marginTop: "12px", opacity: 0.9 }}>*Projected based on numbers from 11/25 onward</p>
               
               {/* Quick CTA Box */}
               <div 
                 onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                 style={{ 
                   marginTop: "24px",
-                  background: `linear-gradient(135deg, ${c.yellow} 0%, ${c.orange} 100%)`,
+                  background: `linear-gradient(135deg, ${c.yellow} 0%, #D87437 100%)`,
                   borderRadius: "16px", 
                   padding: isMobile ? "16px 20px" : "24px 32px", 
                   cursor: "pointer",
@@ -4319,20 +4377,20 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span style={{ fontSize: isMobile ? "24px" : "28px" }}>🚀</span>
+                  <span aria-hidden="true" style={{ fontSize: isMobile ? "24px" : "28px" }}>🚀</span>
                   <div>
-                    <h3 style={{ color: c.green1, fontSize: isMobile ? "16px" : "20px", fontWeight: "900", margin: 0 }}>I've Seen Enough, Let's Partner</h3>
-                    <p style={{ color: c.green1, fontSize: isMobile ? "12px" : "14px", margin: 0, opacity: 0.8 }}>Skip ahead and fill out our quick intake form</p>
+                    <h3 style={{ color: "#20291F", fontSize: isMobile ? "16px" : "20px", fontWeight: "900", margin: 0 }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}>I've Seen Enough, Let's Partner</button></h3>
+                    <p style={{ color: "#20291F", fontSize: isMobile ? "12px" : "14px", margin: 0 }}>Skip ahead and fill out our quick intake form</p>
                   </div>
                 </div>
-                <span style={{ color: c.green1, fontSize: "24px", fontWeight: "900", alignSelf: isMobile ? "flex-end" : "center" }}>→</span>
+                <span aria-hidden="true" style={{ color: "#20291F", fontSize: "24px", fontWeight: "900", alignSelf: isMobile ? "flex-end" : "center" }}>→</span>
               </div>
             </div>
 
             {/* WHY PARTNER WITH US — what partnering actually does */}
             <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
-                <p style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>What Partnering Actually Does</p>
+                <p style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>What Partnering Actually Does</p>
                 <h2 style={{ color: c.cream, fontSize: isMobile ? "24px" : "32px", fontWeight: "900", textTransform: "uppercase", marginBottom: "10px" }}>When We Post, Milwaukee Moves</h2>
                 <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>Not impressions. Not "engagement." Real people walking in, booking, and buying — that week.</p>
               </div>
@@ -4343,7 +4401,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   { icon: "💸", title: "They show up ready to spend", body: "Our audience is 79% ages 18–44 — locals who try new places, go out midweek, and spend money here. You're reaching the people who fill rooms and tabs." }
                 ].map((b, i) => (
                   <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
-                    <span style={{ fontSize: "28px" }}>{b.icon}</span>
+                    <span aria-hidden="true" style={{ fontSize: "28px" }}>{b.icon}</span>
                     <h3 style={{ color: c.cream, fontSize: isMobile ? "17px" : "18px", fontWeight: "900", margin: "14px 0 8px" }}>{b.title}</h3>
                     <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.7, margin: 0 }}>{b.body}</p>
                   </div>
@@ -4354,12 +4412,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "24px", marginBottom: isMobile ? "32px" : "48px" }}>
               <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                  <span style={{ fontSize: "20px" }}>👀</span>
+                  <span aria-hidden="true" style={{ fontSize: "20px" }}>👀</span>
                   <h3 style={{ color: c.cream, fontSize: isMobile ? "18px" : "20px", fontWeight: "900", textTransform: "uppercase" }}>Who You're Reaching</h3>
                 </div>
                 <div style={{ backgroundColor: c.yellow, borderRadius: "12px", padding: isMobile ? "14px" : "18px", marginBottom: "20px", textAlign: "center" }}>
                   <div style={{ fontSize: isMobile ? "32px" : "40px", fontWeight: "900", color: c.green1 }}>79.2%</div>
-                  <div style={{ color: c.green1, fontSize: "13px", fontWeight: "600" }}>AGES 18–44</div>
+                  <div style={{ color: "#294D32", fontSize: "13px", fontWeight: "600" }}>AGES 18–44</div>
                 </div>
                 <p style={{ color: c.cream, fontSize: "15px", marginBottom: "12px", fontWeight: "600" }}>Young professionals. Couples. Groups of friends.</p>
                 <ul style={{ color: c.beige, fontSize: "14px", lineHeight: 1.8, paddingLeft: "18px" }}>
@@ -4368,29 +4426,29 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
               <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                  <span style={{ fontSize: "20px" }}>🎯</span>
+                  <span aria-hidden="true" style={{ fontSize: "20px" }}>🎯</span>
                   <h3 style={{ color: c.cream, fontSize: isMobile ? "18px" : "20px", fontWeight: "900", textTransform: "uppercase" }}>What Makes Us Different</h3>
                 </div>
                 <p style={{ color: c.cream, fontSize: "15px", marginBottom: "20px", lineHeight: 1.6 }}>We don't do boring. We don't do stock photos. And we definitely don't do "Hey guys, check this out" energy.</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   {["Native content that blends into feeds", "Storytelling that feels real", "Massive local trust", "Multi-platform amplification", "Content people actually share"].map((p, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", gap: "10px", color: c.beige, fontSize: "14px" }}>
-                      <span style={{ color: c.yellow }}>✔</span>{p}
+                      <span aria-hidden="true" style={{ color: c.yellow }}>✔</span>{p}
                     </div>
                   ))}
                 </div>
                 <div style={{ marginTop: "20px", padding: "14px", backgroundColor: "rgba(240,166,35,0.15)", borderRadius: "10px", borderLeft: `3px solid ${c.yellow}` }}>
-                  <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", margin: 0 }}>When we post about a business, people show up.</p>
+                  <p style={{ color: "#F9D9A0", fontSize: "14px", fontWeight: "700", margin: 0 }}>When we post about a business, people show up.</p>
                 </div>
               </div>
             </div>
             <div style={{ textAlign: "center", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "28px 20px" : "40px", border: `2px solid ${c.yellow}` }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "12px", flexWrap: "wrap" }}>
-                <span style={{ fontSize: "24px" }}>🤝</span>
+                <span aria-hidden="true" style={{ fontSize: "24px" }}>🤝</span>
                 <h3 style={{ color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "900", textTransform: "uppercase" }}>Let's Do Something That Works</h3>
               </div>
               <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", marginBottom: "24px" }}>If you want your brand seen by the people shaping Milwaukee's culture, we should talk.</p>
-              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "14px 28px" : "18px 40px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "14px" : "16px", textTransform: "uppercase" }}>Let's Partner Up →</button>
+              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "14px 28px" : "18px 40px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "14px" : "16px", textTransform: "uppercase" }}>Let's Partner Up →</button>
             </div>
           </div>
         </section>
@@ -4411,7 +4469,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <>
                 <div style={{ textAlign: "center", marginBottom: isMobile ? "28px" : "40px" }}>
                   <h1 style={{ fontSize: isMobile ? "28px" : "36px", fontWeight: "900", color: c.green1, marginBottom: "16px", textTransform: "uppercase" }}>Let's Partner Up</h1>
-                  <p style={{ color: c.tan, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, maxWidth: "550px", margin: "0 auto" }}>Tell us a bit about your brand and what you're trying to accomplish. We'll follow up with the best-fit partnership options and current availability.</p>
+                  <p style={{ color: c.tanDark, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, maxWidth: "550px", margin: "0 auto" }}>Tell us a bit about your brand and what you're trying to accomplish. We'll follow up with the best-fit partnership options and current availability.</p>
                 </div>
 
                 <form onSubmit={handlePartnerSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
@@ -4419,28 +4477,28 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* About You Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>📋</span> About You
+                      <span aria-hidden="true">📋</span> About You
                     </h2>
 
                     <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "16px" }}>
                       <div style={{ gridColumn: isMobile ? "span 1" : "span 2" }}>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Full Name *</label>
-                        <input type="text" required value={partnerForm.fullName} onChange={(e) => handlePartnerFormChange("fullName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="pf-fullName" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Full Name *</label>
+                        <input id="pf-fullName" type="text" required value={partnerForm.fullName} onChange={(e) => handlePartnerFormChange("fullName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
 
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Company / Brand Name *</label>
-                        <input type="text" required value={partnerForm.companyName} onChange={(e) => handlePartnerFormChange("companyName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="pf-companyName" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Company / Brand Name *</label>
+                        <input id="pf-companyName" type="text" required value={partnerForm.companyName} onChange={(e) => handlePartnerFormChange("companyName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
 
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Email Address *</label>
-                        <input type="email" required value={partnerForm.emailAddress} onChange={(e) => handlePartnerFormChange("emailAddress", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="pf-emailAddress" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Email Address *</label>
+                        <input id="pf-emailAddress" type="email" required value={partnerForm.emailAddress} onChange={(e) => handlePartnerFormChange("emailAddress", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
 
                       <div style={{ gridColumn: isMobile ? "span 1" : "span 2" }}>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Social Media Handles <span style={{ color: c.tan, fontWeight: "400" }}>(optional)</span></label>
-                        <input type="text" value={partnerForm.socialHandles} onChange={(e) => handlePartnerFormChange("socialHandles", e.target.value)} placeholder="@instagram, @tiktok, etc." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="pf-socialHandles" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Social Media Handles <span style={{ color: c.tanDark, fontWeight: "400" }}>(optional)</span></label>
+                        <input id="pf-socialHandles" type="text" value={partnerForm.socialHandles} onChange={(e) => handlePartnerFormChange("socialHandles", e.target.value)} placeholder="@instagram, @tiktok, etc." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                     </div>
                   </div>
@@ -4448,25 +4506,25 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* Budget Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "6px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>💰</span> Budget
+                      <span aria-hidden="true">💰</span> Budget
                     </h2>
-                    <p style={{ fontSize: "13px", color: c.tan, marginBottom: "16px" }}>This helps us recommend the right partnership options for your goals.</p>
+                    <p style={{ fontSize: "13px", color: c.tanDark, marginBottom: "16px" }}>This helps us recommend the right partnership options for your goals.</p>
                     
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>What budget are you considering for promotion? *</label>
+                    <label htmlFor="pf-budget" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>What budget are you considering for promotion? *</label>
                     <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-                      <span style={{ position: "absolute", left: "16px", fontSize: "15px", fontWeight: "600", color: c.tan, pointerEvents: "none" }}>$</span>
-                      <input required type="number" min="0" step="1" inputMode="numeric" value={partnerForm.budget} onChange={(e) => handlePartnerFormChange("budget", e.target.value)} placeholder="Enter an amount" style={{ width: "100%", padding: "14px 16px 14px 30px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                      <span style={{ position: "absolute", left: "16px", fontSize: "15px", fontWeight: "600", color: c.tanDark, pointerEvents: "none" }}>$</span>
+                      <input id="pf-budget" required type="number" min="0" step="1" inputMode="numeric" value={partnerForm.budget} onChange={(e) => handlePartnerFormChange("budget", e.target.value)} placeholder="Enter an amount" style={{ width: "100%", padding: "14px 16px 14px 30px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                     </div>
                   </div>
 
                   {/* Partnership Interest Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>🤝</span> Partnership Interest
+                      <span aria-hidden="true">🤝</span> Partnership Interest
                     </h2>
                     
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>What type of partnership are you interested in? (Optional)</label>
-                    <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "10px" }}>
+                    <span id="pf-interest-label" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>What type of partnership are you interested in? (Optional)</span>
+                    <div role="group" aria-labelledby="pf-interest-label" style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "10px" }}>
                       {[
                         { label: "One-time feature" },
                         { label: "Ongoing partnership" },
@@ -4479,7 +4537,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           <input type="checkbox" checked={partnerForm.partnershipInterest.includes(opt.label)} onChange={() => handleCheckboxChange("partnershipInterest", opt.label)} style={{ width: "18px", height: "18px", accentColor: c.green1, marginTop: "1px", flexShrink: 0 }} />
                           <span style={{ fontSize: "14px", color: c.green1, fontWeight: "500" }}>
                             {opt.label}
-                            {opt.hint && <span style={{ display: "block", fontSize: "12px", color: c.tan, fontWeight: "400", marginTop: "2px" }}>{opt.hint}</span>}
+                            {opt.hint && <span style={{ display: "block", fontSize: "12px", color: c.tanDark, fontWeight: "400", marginTop: "2px" }}>{opt.hint}</span>}
                           </span>
                         </label>
                       ))}
@@ -4489,24 +4547,24 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   {/* Notes Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>📝</span> Tell Us More
+                      <span aria-hidden="true">📝</span> Tell Us More
                     </h2>
                     
-                    <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Anything else we should know? <span style={{ color: c.tan, fontWeight: "400" }}>(optional — but it helps us help you faster)</span></label>
-                    <p style={{ fontSize: "12px", color: c.tan, marginBottom: "10px" }}>A sentence or two on your goals, any offers or promotions, or key dates goes a long way toward us recommending the right fit. Skip it if you'd rather just talk.</p>
-                    <textarea value={partnerForm.notes} onChange={(e) => handlePartnerFormChange("notes", e.target.value)} rows={4} placeholder="Optional — tell us what you're hoping to accomplish." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
+                    <label htmlFor="pf-notes" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Anything else we should know? <span style={{ color: c.tanDark, fontWeight: "400" }}>(optional — but it helps us help you faster)</span></label>
+                    <p style={{ fontSize: "12px", color: c.tanDark, marginBottom: "10px" }}>A sentence or two on your goals, any offers or promotions, or key dates goes a long way toward us recommending the right fit. Skip it if you'd rather just talk.</p>
+                    <textarea id="pf-notes" value={partnerForm.notes} onChange={(e) => handlePartnerFormChange("notes", e.target.value)} rows={4} placeholder="Optional — tell us what you're hoping to accomplish." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, resize: "vertical", fontFamily: "inherit" }} />
                   </div>
 
                   {/* Optional Fields Section */}
                   <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
-                      <span>✨</span> A Few More Details (Optional)
+                      <span aria-hidden="true">✨</span> A Few More Details (Optional)
                     </h2>
                     
                     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>How did you hear about Discover Milwaukee?</label>
-                        <select value={partnerForm.heardAbout} onChange={(e) => setPartnerForm(prev => ({ ...prev, heardAbout: e.target.value, heardAboutDetail: "" }))} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
+                        <label htmlFor="pf-heardAbout" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>How did you hear about Discover Milwaukee?</label>
+                        <select id="pf-heardAbout" value={partnerForm.heardAbout} onChange={(e) => setPartnerForm(prev => ({ ...prev, heardAbout: e.target.value, heardAboutDetail: "" }))} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream, cursor: "pointer" }}>
                           <option value="">Select option</option>
                           <option value="Google">Google</option>
                           <option value="Instagram">Instagram</option>
@@ -4532,22 +4590,22 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           : { label: "Tell us a bit more", placeholder: "Where did you come across us?" };
                         return (
                           <div style={{ paddingLeft: "16px", borderLeft: `3px solid ${c.beige}` }}>
-                            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>{followUp.label} <span style={{ color: c.tan, fontWeight: "400" }}>(optional)</span></label>
-                            <input type="text" value={partnerForm.heardAboutDetail} onChange={(e) => handlePartnerFormChange("heardAboutDetail", e.target.value)} placeholder={followUp.placeholder} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                            <label htmlFor="pf-heardAboutDetail" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>{followUp.label} <span style={{ color: c.tan, fontWeight: "400" }}>(optional)</span></label>
+                            <input id="pf-heardAboutDetail" type="text" value={partnerForm.heardAboutDetail} onChange={(e) => handlePartnerFormChange("heardAboutDetail", e.target.value)} placeholder={followUp.placeholder} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                           </div>
                         );
                       })()}
                       
                       <div>
-                        <label style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>City or primary location</label>
-                        <input type="text" value={partnerForm.city} onChange={(e) => handlePartnerFormChange("city", e.target.value)} placeholder="Milwaukee, WI" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
+                        <label htmlFor="pf-city" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>City or primary location</label>
+                        <input id="pf-city" type="text" value={partnerForm.city} onChange={(e) => handlePartnerFormChange("city", e.target.value)} placeholder="Milwaukee, WI" style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
                     </div>
                   </div>
 
                   {/* Submit */}
                   <div style={{ textAlign: "center", padding: "20px 0" }}>
-                    <p style={{ fontSize: "13px", color: c.tan, marginBottom: "20px" }}>Limited sponsorship availability. Partnerships are intentionally capped to protect results.</p>
+                    <p style={{ fontSize: "13px", color: c.tanDark, marginBottom: "20px" }}>Limited sponsorship availability. Partnerships are intentionally capped to protect results.</p>
                     <button type="submit" style={{ padding: "18px 48px", backgroundColor: c.green1, color: c.cream, borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: "16px", textTransform: "uppercase" }}>
                       Request Partnership Options
                     </button>
@@ -4558,7 +4616,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               /* Success State */
               <div style={{ textAlign: "center", padding: "80px 20px" }}>
                 <div style={{ width: "80px", height: "80px", borderRadius: "50%", backgroundColor: c.green1, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-                  <span style={{ fontSize: "40px" }}>✓</span>
+                  <span aria-hidden="true" style={{ fontSize: "40px" }}>✓</span>
                 </div>
                 <h2 style={{ fontSize: "32px", fontWeight: "900", color: c.green1, marginBottom: "16px", textTransform: "uppercase" }}>Thanks for Reaching Out</h2>
                 <p style={{ color: c.tan, fontSize: "17px", lineHeight: 1.6, maxWidth: "500px", margin: "0 auto 32px" }}>We received your info and will follow up shortly with availability and recommended partnership options.</p>
@@ -4570,6 +4628,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </div>
         </section>
       )}
+
+      </main>
 
       {/* FOOTER */}
       <footer style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.green1, borderTop: `4px solid ${c.yellow}` }}>
@@ -4585,15 +4645,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 Your insider's guide to everything worth doing in Milwaukee. No fluff. Just the good stuff.
               </p>
               <div style={{ display: "flex", gap: "16px", justifyContent: isMobile ? "center" : "flex-start" }}>
-                <a href="https://instagram.com/discovermilwaukee" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige}><Icons.Instagram /></a>
-                <a href="https://tiktok.com/@discovermilwaukee" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige}><Icons.TikTok /></a>
-                <a href="https://www.facebook.com/p/discovermilwaukee-100069844392448/" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige}><Icons.Facebook /></a>
+                <a href="https://instagram.com/discovermilwaukee" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige} aria-label="Discover Milwaukee on Instagram (opens in a new tab)"><Icons.Instagram /></a>
+                <a href="https://tiktok.com/@discovermilwaukee" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige} aria-label="Discover Milwaukee on TikTok (opens in a new tab)"><Icons.TikTok /></a>
+                <a href="https://www.facebook.com/p/discovermilwaukee-100069844392448/" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige} aria-label="Discover Milwaukee on Facebook (opens in a new tab)"><Icons.Facebook /></a>
               </div>
             </div>
             
             {/* Explore Column */}
             <div>
-              <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Explore</h4>
+              <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Explore</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a href="/events" onClick={(e) => { e.preventDefault(); navigateTo("events"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Events Calendar</a>
                 <a href="/explore" onClick={(e) => { e.preventDefault(); navigateTo("explore"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>City Guides</a>
@@ -4605,7 +4665,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             
             {/* Company Column */}
             <div>
-              <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Company</h4>
+              <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Company</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a href="/about" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>About Us</a>
                 <a href="/partner" onClick={(e) => { e.preventDefault(); navigateTo("partner"); }} style={{ color: c.beige, fontSize: "14px", cursor: "pointer", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Partner With Us</a>
@@ -4616,7 +4676,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             
             {/* Legal Column */}
             <div>
-              <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Legal</h4>
+              <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase" }}>Legal</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 <a href="/privacy" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Privacy Policy</a>
                 <a href="/terms" style={{ color: c.beige, fontSize: "14px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Terms of Service</a>
@@ -4626,7 +4686,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
           {/* Visitor Guides - SEO Internal Links */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", marginBottom: "24px" }}>
-            <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Visitor Guides</h4>
+            <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Visitor Guides</h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "12px" : "24px", justifyContent: isMobile ? "center" : "flex-start" }}>
               <a href="/first-time-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>First Time Visitor</a>
               <a href="/weekend-in-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Weekend Itinerary</a>
@@ -4641,7 +4701,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
           {/* Popular Guides - SEO Internal Links */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", marginBottom: "24px" }}>
-            <h4 style={{ color: c.yellow, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Popular Guides</h4>
+            <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Popular Guides</h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "12px" : "24px", justifyContent: isMobile ? "center" : "flex-start" }}>
               <a href="/best-brunch-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Best Brunch</a>
               <a href="/best-patios-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Best Patios</a>
@@ -4667,7 +4727,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Bottom Bar */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", display: "flex", flexDirection: isMobile ? "column" : "row", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
             <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8 }}>© 2026 Discover Milwaukee. All rights reserved.</p>
-            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, display: "flex", alignItems: "center", gap: "6px" }}>Made with <LineIcons.BeerMug size={15} /> in Milwaukee, WI</p>
+            <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, display: "flex", alignItems: "center", gap: "6px" }}>Made with <LineIcons.BeerMug size={15} /><span className="sr-only">beer</span> in Milwaukee, WI</p>
           </div>
         </div>
       </footer>

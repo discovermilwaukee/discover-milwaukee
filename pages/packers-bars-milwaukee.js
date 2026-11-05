@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -201,7 +201,7 @@ export default function PackersBarsMilwaukee() {
         <h3 style={{ fontSize: "1.4rem", color: c.green1, margin: 0 }}>{bar.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <span style={{ backgroundColor: c.beige, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1 }}>{bar.neighborhood}</span>
-          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#fff" }}>{bar.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#1a3d34" }}>{bar.priceRange}</span>
         </div>
       </div>
       <p style={{ fontSize: "0.95rem", color: c.green2, marginBottom: "8px", fontStyle: "italic" }}>{bar.vibe}</p>
@@ -241,6 +241,7 @@ export default function PackersBarsMilwaukee() {
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
+          <main id="main-content" tabIndex={-1}>
           <header style={{ marginBottom: "40px" }}>
             <h1 style={{ fontSize: "2.5rem", color: c.green1, marginBottom: "16px", lineHeight: "1.2" }}>Best Packers Bars in Milwaukee: Where to Watch Green Bay</h1>
             <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.8", marginBottom: "16px" }}>
@@ -249,10 +250,10 @@ export default function PackersBarsMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               Whether you're a lifelong shareholder or visiting from out of town, this guide covers the best spots to watch the Pack in Milwaukee. Go Pack Go.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026 | All bars verified open</p>
+            <p style={{ fontSize: "0.9rem", color: "#6d6d6d", marginTop: "12px" }}>Last updated: April 2026 | All bars verified open</p>
           </header>
           <NewsletterCTA />          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Best Packers Bars in Milwaukee</dd>
@@ -261,7 +262,7 @@ export default function PackersBarsMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
               <dd style={{ color: "#444", margin: 0 }}>Game day in Milwaukee</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -321,12 +322,13 @@ export default function PackersBarsMilwaukee() {
             <h2 style={{ color: "#fff", marginBottom: "12px" }}>More Milwaukee Nightlife</h2>
             <p style={{ color: "#e8f5e9", marginBottom: "20px" }}>Explore more of Milwaukee's bar scene</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/best-dive-bars-milwaukee" style={{ backgroundColor: "#ffd54f", color: "#2e7d32", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>Dive Bars</Link>
-              <Link href="/rooftop-bars-milwaukee" style={{ backgroundColor: "#ffd54f", color: "#2e7d32", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>Rooftop Bars</Link>
-              <Link href="/milwaukee-breweries" style={{ backgroundColor: "#ffd54f", color: "#2e7d32", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>Breweries</Link>
+              <Link href="/best-dive-bars-milwaukee" style={{ backgroundColor: "#ffd54f", color: "#276b2b", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>Dive Bars</Link>
+              <Link href="/rooftop-bars-milwaukee" style={{ backgroundColor: "#ffd54f", color: "#276b2b", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>Rooftop Bars</Link>
+              <Link href="/milwaukee-breweries" style={{ backgroundColor: "#ffd54f", color: "#276b2b", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>Breweries</Link>
             </div>
           </section>
 
+          </main>
           <RelatedGuides />
       <Footer />
         </div>

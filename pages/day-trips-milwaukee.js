@@ -222,7 +222,7 @@ export default function DayTripsMilwaukee() {
         <h3 style={{ fontSize: "1.4rem", color: c.green1, margin: 0 }}>{trip.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <span style={{ backgroundColor: c.beige, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1 }}>{trip.distance}</span>
-          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#fff" }}>{trip.type}</span>
+          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#1a3d34" }}>{trip.type}</span>
         </div>
       </div>
       <p style={{ fontSize: "0.95rem", color: c.green2, marginBottom: "8px", fontStyle: "italic" }}>Best season: {trip.bestSeason}</p>
@@ -263,6 +263,7 @@ export default function DayTripsMilwaukee() {
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
+          <main id="main-content" tabIndex={-1}>
           <header style={{ marginBottom: "40px" }}>
             <h1 style={{ fontSize: "2.5rem", color: c.green1, marginBottom: "16px", lineHeight: "1.2" }}>15 Best Day Trips from Milwaukee: Your Complete Escape Guide</h1>
             <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.8", marginBottom: "16px" }}>
@@ -271,7 +272,7 @@ export default function DayTripsMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               This guide covers the best day trips organized by distance, from 30-minute escapes to destinations worth the longer drive. Each offers something Milwaukee can't—and that's what makes them worth the trip.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026</p>
+            <p style={{ fontSize: "0.9rem", color: "#6d6d6d", marginTop: "12px" }}>Last updated: April 2026</p>
           </header>
           <NewsletterCTA />
 
@@ -313,12 +314,13 @@ export default function DayTripsMilwaukee() {
             <h2 style={{ color: "#fff", marginBottom: "12px" }}>Plan Your Milwaukee Visit</h2>
             <p style={{ color: c.beige, marginBottom: "20px" }}>Explore more of what Milwaukee and Wisconsin offer</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/things-to-do-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Things to Do</Link>
-              <Link href="/weekend-in-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Weekend Guide</Link>
-              <Link href="/outdoor-weekend-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Outdoor Activities</Link>
+              <Link href="/things-to-do-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Things to Do</Link>
+              <Link href="/weekend-in-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Weekend Guide</Link>
+              <Link href="/outdoor-weekend-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Outdoor Activities</Link>
             </div>
           </section>
 
+          </main>
           <RelatedGuides />
       <Footer />
         </div>

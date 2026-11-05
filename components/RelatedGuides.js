@@ -7,10 +7,10 @@ import { getRelatedGuides } from "../lib/guides";
 // tags keep the links crawlable in the static prerender.
 const c = {
   green1: "#2C5235",
-  yellow: "#F0A623",
+  yellow: "#F0A623", yellowDark: "#94620A",
   cream: "#F7F1E7",
   beige: "#EBDFC1",
-  tan: "#9E7F4B",
+  tan: "#9E7F4B", tanDark: "#83693E",
   white: "#FFFFFF",
 };
 
@@ -27,7 +27,7 @@ export default function RelatedGuides() {
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <p
           style={{
-            color: c.yellow,
+            color: c.yellowDark,
             fontSize: "12px",
             fontWeight: 900,
             letterSpacing: "1px",
@@ -69,7 +69,7 @@ export default function RelatedGuides() {
                 <span style={{ display: "block", color: c.green1, fontWeight: 700, fontSize: "15px" }}>
                   {g.title}
                 </span>
-                <span style={{ display: "block", color: c.tan, fontSize: "12px" }}>{g.desc}</span>
+                <span style={{ display: "block", color: c.tanDark, fontSize: "12px" }}>{g.desc}</span>
               </span>
             </a>
           ))}

@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -330,7 +330,7 @@ export default function SummerLiveMusicMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.neighborhood}</span>
         </div>
       </div>
@@ -338,7 +338,7 @@ export default function SummerLiveMusicMilwaukee() {
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{spot.description}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", marginBottom: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>KNOWN FOR</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>KNOWN FOR</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.knownFor}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -347,10 +347,10 @@ export default function SummerLiveMusicMilwaukee() {
         </div>
       </div>
       <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-        <p style={{ fontSize: "12px", fontWeight: "700", color: "#b8860b", marginBottom: "4px" }}>INSIDER TIP</p>
+        <p style={{ fontSize: "12px", fontWeight: "700", color: "#886208", marginBottom: "4px" }}>INSIDER TIP</p>
         <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.insiderTip}</p>
       </div>
-      <p style={{ fontSize: "13px", color: "#888", margin: 0 }}>📍 {spot.address}</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", margin: 0 }}><span aria-hidden="true">📍 </span>{spot.address}</p>
     </div>
   );
 
@@ -375,9 +375,10 @@ export default function SummerLiveMusicMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>SUMMER 2026</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>SUMMER 2026</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Live Music in Milwaukee This Summer
             </h1>
@@ -387,7 +388,7 @@ export default function SummerLiveMusicMilwaukee() {
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
 
@@ -442,7 +443,7 @@ export default function SummerLiveMusicMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/live-music-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Live Music Milwaukee</Link>
               <Link href="/milwaukee-festivals" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Festivals</Link>
-              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do</Link>
+              <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things To Do</Link>
             </div>
           </section>
 
@@ -463,6 +464,7 @@ export default function SummerLiveMusicMilwaukee() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

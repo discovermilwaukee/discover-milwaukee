@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -269,9 +269,10 @@ export default function BrewersGameGuideMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 2, 2026 · 2026 SEASON GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 2, 2026 · 2026 SEASON GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Milwaukee Brewers Game Day Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               <strong>Everything you need for a Brewers game at American Family Field</strong> — 2026 parking, tailgating, food, the bars locals shuttle from, and what to know about the Sausage Race.
@@ -279,7 +280,7 @@ export default function BrewersGameGuideMilwaukee() {
           </div>
         </header>
 
-        <nav style={{
+        <nav aria-label="On this page" style={{
           position: "sticky",
           top: 0,
           zIndex: 50,
@@ -298,9 +299,9 @@ export default function BrewersGameGuideMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Quick Answers: Gates, Parking & Prices</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Quick Answers: Gates, Parking & Prices</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Gates open</dt>
               <dd style={{ color: "#444", margin: 0 }}><strong>90 minutes before first pitch.</strong> Bernie&apos;s Slide Experience and the Selig Experience are worth getting in early for.</dd>
@@ -317,7 +318,7 @@ export default function BrewersGameGuideMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Address · Capacity</dt>
               <dd style={{ color: "#444", margin: 0 }}>1 Brewers Way, Milwaukee, WI 53214 · 41,900 seats</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Policies and prices are from the 2026 season (verified <time dateTime="2026-06-10">June 10, 2026</time> against the Brewers&apos; ballpark pages). Re-confirm before the 2027 home opener.
             </p>
           </section>
@@ -338,7 +339,7 @@ export default function BrewersGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "12px" }}>
               {overviewStats.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "15px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -356,28 +357,28 @@ export default function BrewersGameGuideMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>Opening Day, division, game times, and the theme nights worth planning around.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px", marginBottom: "20px" }}>
               <div style={{ backgroundColor: "white", border: `2px solid ${c.orange}`, borderRadius: "14px", padding: "18px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Opening Day 2026</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Opening Day 2026</p>
                 <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 8px" }}>Thu Mar 26, 1:10 p.m.</h3>
                 <p style={{ color: "#555", fontSize: "14px", margin: 0, lineHeight: 1.6 }}>Brewers vs. Chicago White Sox at American Family Field. Parking + tickets are priciest on this date — buy in advance.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Division</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Division</p>
                 <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 8px" }}>NL Central</h3>
                 <p style={{ color: "#555", fontSize: "14px", margin: 0, lineHeight: 1.6 }}>Cubs, Cardinals, Reds and Pirates are the divisional rivals. Cubs series always run the highest parking + ticket prices.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Standard Game Times</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Standard Game Times</p>
                 <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 8px" }}>6:40 / 12:40 / 1:10</h3>
                 <p style={{ color: "#555", fontSize: "14px", margin: 0, lineHeight: 1.6 }}>Most regular-season Mon–Fri night games start at 6:40 p.m. Day games are at 12:40 or 1:10 p.m.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Memorial Day</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>Memorial Day</p>
                 <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: "0 0 8px" }}>Mon May 25 · 1:10 p.m.</h3>
                 <p style={{ color: "#555", fontSize: "14px", margin: 0, lineHeight: 1.6 }}>Brewers vs. St. Louis Cardinals. The annual Memorial Day matinee.</p>
               </div>
             </div>
             <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "18px", borderRadius: "12px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "8px", letterSpacing: "1px", textTransform: "uppercase" }}>2026 Theme Nights Worth Planning Around</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "8px", letterSpacing: "1px", textTransform: "uppercase" }}>2026 Theme Nights Worth Planning Around</p>
               <p style={{ color: c.green1, fontSize: "15px", lineHeight: 1.7, margin: 0 }}>
                 <strong>New for 2026:</strong> Naruto Night · Hello Kitty Night · Boy Band Night · Paw Patrol Day. <strong>Returning fan favorites:</strong> Bark at the Park (Tue May 12) · Star Wars Night · Bobblehead games throughout the season. Each requires a special theme-night ticket — see the Brewers' theme-nights page for dates.
               </p>
@@ -390,7 +391,7 @@ export default function BrewersGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "24px" }}>
               {ticketTiers.map((t) => (
                 <div key={t.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{t.name}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{t.name}</p>
                   <p style={{ fontSize: "20px", fontWeight: "900", color: c.green1, margin: "0 0 4px" }}>{t.price}</p>
                   <p style={{ fontSize: "13px", color: "#666", margin: 0, lineHeight: 1.55 }}>{t.note}</p>
                 </div>
@@ -414,7 +415,7 @@ export default function BrewersGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "24px" }}>
               {parkingTiers.map((p) => (
                 <div key={p.lot} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{p.lot}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{p.lot}</p>
                   <p style={{ fontSize: "22px", fontWeight: "900", color: c.green1, margin: "0 0 4px" }}>{p.price}</p>
                   <p style={{ fontSize: "13px", color: "#666", margin: 0, lineHeight: 1.55 }}>{p.note}</p>
                 </div>
@@ -433,7 +434,7 @@ export default function BrewersGameGuideMilwaukee() {
               </ul>
             </div>
             <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "18px", borderRadius: "12px" }}>
-              <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", marginBottom: "8px" }}>📍 Lot opening times</h3>
+              <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", marginBottom: "8px" }}><span aria-hidden="true">📍 </span>Lot opening times</h3>
               <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>
                 Parking lots open <strong>three hours before first pitch</strong> for most games. The exception: weekday games with a 6:15 p.m. or 6:40 p.m. first pitch open <strong>2.5 hours before first pitch</strong>. Gates at the ballpark itself open <strong>90 minutes</strong> before first pitch.
               </p>
@@ -445,19 +446,19 @@ export default function BrewersGameGuideMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>American Family Field sits in the Menomonee Valley west of downtown — there is no walk-from-downtown option. Your three real choices: drive + lot, bar-shuttle, or rideshare.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px", marginBottom: "24px" }}>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "18px" }}>
-                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}>🚌 MCTS Bus</h3>
+                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}><span aria-hidden="true">🚌 </span>MCTS Bus</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>MCTS routes serve the AmFam Field area. Check the MCTS RideMCTS app for the closest route from your hotel — fares are cashless (tap card, Apple Pay, Google Pay).</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "18px" }}>
-                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}>🍻 Bar Shuttles</h3>
+                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}><span aria-hidden="true">🍻 </span>Bar Shuttles</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>The locals' move. Kelly's Bleachers, Steny's Tavern, McGinn's and Jackson's Blue Ribbon all run game-day shuttles — see the Bars section below for conditions.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "18px" }}>
-                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}>🚗 Rideshare</h3>
+                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}><span aria-hidden="true">🚗 </span>Rideshare</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>Dedicated rideshare drop-off and pickup zones operate at the ballpark. Surge pricing spikes the moment the game ends — walk a block off-grounds before requesting if you want a cheaper post-game ride.</p>
               </div>
               <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "18px" }}>
-                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}>🚶 Walking from Downtown?</h3>
+                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", marginBottom: "8px" }}><span aria-hidden="true">🚶 </span>Walking from Downtown?</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>No. The ballpark is roughly 3 miles west of downtown across freeway-heavy ground. The Hank Aaron State Trail does connect via the Menomonee Valley for cyclists, and bike racks are available at the ballpark.</p>
               </div>
             </div>
@@ -470,10 +471,10 @@ export default function BrewersGameGuideMilwaukee() {
               {food.map((f) => (
                 <div key={f.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
                   <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{f.name}</h3>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>📍 {f.location} · {f.priceRange}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}><span aria-hidden="true">📍 </span>{f.location} · {f.priceRange}</p>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: "10px 0" }}>{f.description}</p>
                   <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px", marginBottom: "8px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
                     <p style={{ fontSize: "13px", color: c.green1, margin: 0 }}>{f.mustTry}</p>
                   </div>
                   <p style={{ color: "#666", fontSize: "12px", fontStyle: "italic", margin: "6px 0 4px" }}>{f.vibe}</p>
@@ -505,7 +506,7 @@ export default function BrewersGameGuideMilwaukee() {
               {filteredBars.map((b) => (
                 <div key={b.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderLeft: `5px solid ${c.orange}`, borderRadius: "14px", padding: "18px" }}>
                   <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{b.name}</h3>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}>📍 {b.location} · {b.priceRange}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 4px", textTransform: "uppercase" }}><span aria-hidden="true">📍 </span>{b.location} · {b.priceRange}</p>
                   <p style={{ fontSize: "12px", color: "#666", margin: "0 0 10px" }}>{b.address}</p>
                   <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "10px", borderRadius: "8px", marginBottom: "10px" }}>
                     <p style={{ fontSize: "11px", fontWeight: "700", color: c.green2, marginBottom: "4px" }}>GAME-DAY DEAL</p>
@@ -527,10 +528,10 @@ export default function BrewersGameGuideMilwaukee() {
               {traditions.map((t) => (
                 <div key={t.name} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
                   <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: "0 0 4px", lineHeight: 1.25 }}>{t.name}</h3>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 10px", textTransform: "uppercase" }}>📍 {t.location}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 10px", textTransform: "uppercase" }}><span aria-hidden="true">📍 </span>{t.location}</p>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: "0 0 10px" }}>{t.description}</p>
                   <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px", marginBottom: "8px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST DO</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST DO</p>
                     <p style={{ fontSize: "13px", color: c.green1, margin: 0 }}>{t.mustTry}</p>
                   </div>
                   <p style={{ color: c.green2, fontSize: "12px", margin: 0, fontWeight: "600" }}><strong>Tip:</strong> {t.insiderTip}</p>
@@ -545,7 +546,7 @@ export default function BrewersGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px" }}>
               {familyTips.map((f) => (
                 <div key={f.title} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <h4 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", margin: "0 0 8px" }}>{f.title}</h4>
+                  <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", margin: "0 0 8px" }}>{f.title}</h3>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>{f.body}</p>
                 </div>
               ))}
@@ -557,7 +558,7 @@ export default function BrewersGameGuideMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>The moves locals use to make a Brewers game cheaper, faster, and easier than the tourist version.</p>
             {insiderTips.map((t) => (
               <div key={t.title} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderLeft: `5px solid ${c.green2}`, borderRadius: "12px", padding: "16px 18px", marginBottom: "12px" }}>
-                <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h4>
+                <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.65, margin: 0 }}>{t.body}</p>
               </div>
             ))}
@@ -572,7 +573,7 @@ export default function BrewersGameGuideMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.q}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -589,7 +590,7 @@ export default function BrewersGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/packers-bars-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Packers Bars</Link>
               <Link href="/bucks-game-guide-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Bucks Game Day Guide</Link>
-              <Link href="/milwaukee-bars" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Bars</Link>
+              <Link href="/milwaukee-bars" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Bars</Link>
             </div>
           </section>
 
@@ -600,6 +601,7 @@ export default function BrewersGameGuideMilwaukee() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

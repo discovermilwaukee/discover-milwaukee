@@ -12,7 +12,7 @@ const colors = {
   green2: '#2d5a4a',
   cream: '#faf8f5',
   beige: '#e8e4dc',
-  orange: '#f4a261',
+  orange: '#f4a261', orangeDark: '#ac520c',
   yellow: '#f4d03f',
 };
 
@@ -439,7 +439,7 @@ export default function MilwaukeeNightlife() {
 
       <Nav />
       <Breadcrumbs />
-      <main style={{ backgroundColor: colors.cream, color: colors.green1 }}>
+      <main id="main-content" tabIndex={-1} style={{ backgroundColor: colors.cream, color: colors.green1 }}>
           <NewsletterCTA />
 
         {/* Hero Section */}
@@ -552,7 +552,7 @@ export default function MilwaukeeNightlife() {
             Whether you're seeking a perfect Old Fashioned (we make them with brandy here), a cheap
             beer with genuine local character, or a night dancing until close, this guide has you
             covered. Check out our{' '}
-            <Link href="/events" style={{ color: colors.orange, fontWeight: '600' }}>
+            <Link href="/events" style={{ color: colors.orangeDark, fontWeight: '600' }}>
               upcoming events calendar
             </Link>{' '}
             for live shows and special nights.
@@ -982,7 +982,7 @@ export default function MilwaukeeNightlife() {
             >
               From arena shows to intimate clubs, Milwaukee's live music scene punches above its
               weight. Check our{' '}
-              <Link href="/events" style={{ color: colors.orange, fontWeight: '600' }}>
+              <Link href="/events" style={{ color: colors.orangeDark, fontWeight: '600' }}>
                 events calendar
               </Link>{' '}
               for upcoming shows.
@@ -1194,7 +1194,7 @@ export default function MilwaukeeNightlife() {
                   >
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
                       {crawl.link ? (
-                        <Link href={crawl.link} style={{ color: colors.yellow }}>
+                        <Link href={crawl.link} style={{ color: colors.yellow, textDecoration: "underline" }}>
                           {crawl.neighborhood}
                         </Link>
                       ) : (
@@ -1389,10 +1389,9 @@ export default function MilwaukeeNightlife() {
           </div>
         </section>
 
-        {/* Footer Note */}
-        <RelatedGuides />
-      <Footer />
       </main>
+      <RelatedGuides />
+      <Footer />
     </>
   );
 }

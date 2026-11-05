@@ -13,12 +13,12 @@ const BODY = "'Jost', system-ui, -apple-system, sans-serif";
 const c = {
   green1: "#2C5235",
   green2: "#547F4B",
-  blue2: "#0B77BD",
+  blue2: "#0B77BD", blue2Dark: "#0A71B3",
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -79,7 +79,7 @@ const REELS = [
     items: [
       { src: "/reels/red-bull.mp4", title: "Red Bull", views: 111000 },
       { src: "/reels/sunnyd-seltzers.mp4", title: "SunnyD Seltzers", views: 40000 },
-      { src: "/reels/fox-one.mp4", title: "FOX One", views: 40000 },
+      { src: "/reels/fox-one.mp4", title: "FOX One", views: 40000, captions: "/reels/fox-one.en.vtt" },
       { src: "/reels/daylenes-supper-club.mp4", title: "Daylene’s Supper Club", views: 119000 },
       { src: "/reels/oak-creek-grand-opening.mp4", title: "Grand Opening · Oak Creek", views: 106000 },
     ],
@@ -230,7 +230,7 @@ const breadcrumbSchema = {
   ],
 };
 
-function Kicker({ children, color = c.orange }) {
+function Kicker({ children, color = c.orangeDark }) {
   return (
     <p style={{ color, fontSize: "13px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>
       {children}
@@ -240,7 +240,7 @@ function Kicker({ children, color = c.orange }) {
 
 function SoundIcon({ on }) {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
       {on ? (
         <>
@@ -254,17 +254,38 @@ function SoundIcon({ on }) {
   );
 }
 
-function ReelCard({ src, title, views }) {
+function PlayPauseIcon({ paused }) {
+  return (
+    <svg aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+      {paused ? <polygon points="6 4 20 12 6 20 6 4" /> : <path d="M6 4h4v16H6zM14 4h4v16h-4z" />}
+    </svg>
+  );
+}
+
+const reelControl = { display: "flex", alignItems: "center", gap: "5px", backgroundColor: "rgba(0,0,0,0.6)", color: "#fff", fontSize: "11px", fontWeight: 700, padding: "5px 9px", borderRadius: "50px", border: "none", cursor: "pointer", fontFamily: "inherit", lineHeight: 1.2 };
+
+// Each clip autoplays muted while on screen. Sound, pause and (where a clip has speech)
+// captions are real buttons, so the player works from the keyboard and with screen readers,
+// and anyone can stop the motion.
+function ReelCard({ src, title, views, captions }) {
   const ref = useRef(null);
   const [muted, setMuted] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const [showCaptions, setShowCaptions] = useState(false);
+  const userPaused = useRef(false);
 
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
+    // Visitors who ask their device for reduced motion get a still frame and a Play button.
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      userPaused.current = true;
+      setPaused(true);
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) v.play().catch(() => {});
+          if (e.isIntersecting && !userPaused.current) v.play().catch(() => {});
           else v.pause();
         });
       },
@@ -274,12 +295,43 @@ function ReelCard({ src, title, views }) {
     return () => io.disconnect();
   }, []);
 
+  // Captions stay hidden until asked for, so the muted preview looks the same as before.
+  useEffect(() => {
+    const v = ref.current;
+    if (!v || !v.textTracks || !v.textTracks.length) return;
+    v.textTracks[0].mode = showCaptions ? "showing" : "hidden";
+  }, [showCaptions]);
+
   const toggleSound = () => {
     const v = ref.current;
     if (!v) return;
     v.muted = !v.muted;
     setMuted(v.muted);
-    if (!v.muted) v.play().catch(() => {});
+    if (!v.muted) {
+      userPaused.current = false;
+      setPaused(false);
+      v.play().catch(() => {});
+    }
+  };
+
+  const togglePlay = () => {
+    const v = ref.current;
+    if (!v) return;
+    // Driven by what the visitor asked for, not by v.paused: clips also pause themselves when off screen.
+    if (userPaused.current) {
+      userPaused.current = false;
+      setPaused(false);
+      v.play().catch(() => {});
+    } else {
+      userPaused.current = true;
+      setPaused(true);
+      v.pause();
+    }
+  };
+
+  const stop = (fn) => (e) => {
+    e.stopPropagation();
+    fn();
   };
 
   return (
@@ -294,18 +346,32 @@ function ReelCard({ src, title, views }) {
         loop
         playsInline
         preload="metadata"
+        aria-label={`${title} video`}
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-      />
+      >
+        {captions && <track kind="captions" src={captions} srcLang="en" label="English" />}
+      </video>
       {views != null && (
-        <div style={{ position: "absolute", top: "12px", right: "12px", backgroundColor: c.yellow, color: c.green1, fontSize: "12px", fontWeight: 800, padding: "5px 10px", borderRadius: "50px" }}>
+        <div style={{ position: "absolute", top: "12px", right: "12px", backgroundColor: c.yellow, color: "#294D32", fontSize: "12px", fontWeight: 800, padding: "5px 10px", borderRadius: "50px" }}>
           {formatViews(views)} views
         </div>
       )}
-      <div style={{ position: "absolute", top: "12px", left: "12px", display: "flex", alignItems: "center", gap: "5px", backgroundColor: "rgba(0,0,0,0.55)", color: "#fff", fontSize: "11px", fontWeight: 700, padding: "5px 9px", borderRadius: "50px" }}>
-        <SoundIcon on={!muted} />
-        {muted ? "Tap for sound" : "Sound on"}
+      <div style={{ position: "absolute", top: "12px", left: "12px", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px", maxWidth: "62%" }}>
+        <button type="button" onClick={stop(toggleSound)} style={reelControl}>
+          <SoundIcon on={!muted} />
+          {muted ? "Tap for sound" : "Sound on"}
+          <span className="sr-only">: {title}</span>
+        </button>
+        <button type="button" onClick={stop(togglePlay)} aria-label={`${paused ? "Play" : "Pause"} video: ${title}`} style={{ ...reelControl, padding: "6px 8px" }}>
+          <PlayPauseIcon paused={paused} />
+        </button>
+        {captions && (
+          <button type="button" onClick={stop(() => setShowCaptions((s) => !s))} aria-pressed={showCaptions} aria-label={`CC, captions for ${title}`} style={{ ...reelControl, backgroundColor: showCaptions ? "#fff" : "rgba(0,0,0,0.6)", color: showCaptions ? "#000" : "#fff" }}>
+            CC
+          </button>
+        )}
       </div>
-      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "30px 14px 14px", background: "linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0))" }}>
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "30px 14px 14px", background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0) 100%)", pointerEvents: "none" }}>
         <p style={{ color: "#fff", fontSize: "14px", fontWeight: 700, margin: 0, lineHeight: 1.3 }}>{title}</p>
       </div>
     </div>
@@ -348,16 +414,17 @@ export default function MediaKitPage() {
       <Nav />
 
       {/* HERO */}
+      <main id="main-content" tabIndex={-1}>
       <header style={{ backgroundColor: c.cream, padding: "72px 16px 56px", borderBottom: `3px solid ${c.yellow}` }}>
         <div style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
           <Kicker>Media Kit · 2026</Kicker>
           <h1 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(40px, 7vw, 76px)", lineHeight: 1.02, textTransform: "uppercase", color: c.green1, letterSpacing: "0.5px", margin: "0 0 18px" }}>
             The Milwaukee Media Kit
           </h1>
-          <p style={{ color: c.blue2, fontSize: "clamp(17px, 2.4vw, 22px)", fontWeight: 600, maxWidth: "680px", margin: "0 auto 8px" }}>
+          <p style={{ color: c.blue2Dark, fontSize: "clamp(17px, 2.4vw, 22px)", fontWeight: 600, maxWidth: "680px", margin: "0 auto 8px" }}>
             Reach the people who decide where Milwaukee eats, drinks, and spends.
           </p>
-          <p style={{ color: c.tan, fontSize: "16px", maxWidth: "640px", margin: "0 auto 28px", lineHeight: 1.6 }}>
+          <p style={{ color: c.tanDark, fontSize: "16px", maxWidth: "640px", margin: "0 auto 28px", lineHeight: 1.6 }}>
             Discover Milwaukee is the city&apos;s most-followed independent local platform. For brands — local or national — it&apos;s the fastest way into an engaged, ready-to-spend Milwaukee audience.
           </p>
           <Link
@@ -379,7 +446,7 @@ export default function MediaKitPage() {
             </div>
           ))}
         </div>
-        <p style={{ color: c.yellow, textAlign: "center", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px", margin: "28px auto 0" }}>
+        <p style={{ color: "#F1AF38", textAlign: "center", fontSize: "13px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px", margin: "28px auto 0" }}>
           100% Organic — No Boosted Posts, No Paid Reach
         </p>
       </section>
@@ -420,13 +487,13 @@ export default function MediaKitPage() {
               <span style={{ fontSize: "15px", fontWeight: 700, color: c.green1 }}>Total</span>
               <span style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "30px", color: c.green1 }}>37.1M</span>
             </div>
-            <p style={{ color: c.tan, fontSize: "11px", marginTop: "12px", marginBottom: 0 }}>*Facebook projected from 11/25 onward.</p>
+            <p style={{ color: c.tanDark, fontSize: "11px", marginTop: "12px", marginBottom: 0 }}>*Facebook projected from 11/25 onward.</p>
           </div>
 
           <div style={{ backgroundColor: c.yellow, borderRadius: "16px", padding: "28px", display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center" }}>
             <div style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "56px", color: c.green1, lineHeight: 1 }}>79.2%</div>
-            <div style={{ color: c.green1, fontSize: "14px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginTop: "6px" }}>Aged 18–44</div>
-            <p style={{ color: c.green1, fontSize: "14px", lineHeight: 1.6, marginTop: "16px", marginBottom: 0 }}>
+            <div style={{ color: "#294D32", fontSize: "14px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginTop: "6px" }}>Aged 18–44</div>
+            <p style={{ color: "#294D32", fontSize: "14px", lineHeight: 1.6, marginTop: "16px", marginBottom: 0 }}>
               Young professionals, couples, and groups of friends who try new places, go out midweek, and spend locally.
             </p>
           </div>
@@ -473,7 +540,7 @@ export default function MediaKitPage() {
       <section style={{ backgroundColor: c.green1, padding: "64px 16px" }}>
         <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <Kicker color={c.yellow}>What Partnering Actually Does</Kicker>
+            <Kicker color="#F1AF38">What Partnering Actually Does</Kicker>
             <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.cream, margin: "0 0 14px" }}>
               When We Post, Milwaukee Moves
             </h2>
@@ -484,7 +551,7 @@ export default function MediaKitPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
             {MOVES.map((b) => (
               <div key={b.title} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "16px", padding: "28px", border: "1px solid rgba(255,255,255,0.12)" }}>
-                <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "20px", textTransform: "uppercase", color: c.yellow, margin: "0 0 10px", lineHeight: 1.15 }}>{b.title}</h3>
+                <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "20px", textTransform: "uppercase", color: "#F4C062", margin: "0 0 10px", lineHeight: 1.15 }}>{b.title}</h3>
                 <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.7, margin: 0 }}>{b.body}</p>
               </div>
             ))}
@@ -508,7 +575,7 @@ export default function MediaKitPage() {
             <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
               {DIFFERENTIATORS.map((d) => (
                 <li key={d} style={{ display: "flex", gap: "10px", padding: "11px 0", borderBottom: `1px solid ${c.beige}`, fontSize: "15px", fontWeight: 600, color: c.ink }}>
-                  <span style={{ color: c.orange, fontWeight: 700 }}>—</span>{d}
+                  <span style={{ color: c.orangeDark, fontWeight: 700 }}>—</span>{d}
                 </li>
               ))}
             </ul>
@@ -523,7 +590,7 @@ export default function MediaKitPage() {
       <section style={{ backgroundColor: c.green1, padding: "64px 16px" }}>
         <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "44px" }}>
-            <Kicker color={c.yellow}>See the Work</Kicker>
+            <Kicker color="#F1AF38">See the Work</Kicker>
             <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.cream, margin: 0 }}>
               Campaigns We&apos;ve Shot
             </h2>
@@ -534,14 +601,14 @@ export default function MediaKitPage() {
           {REELS.map((cat) => (
             <div key={cat.group} style={{ marginBottom: "52px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "22px" }}>
-                <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(20px, 3vw, 26px)", textTransform: "uppercase", color: c.yellow, margin: 0, whiteSpace: "nowrap" }}>
+                <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(20px, 3vw, 26px)", textTransform: "uppercase", color: "#F1AF38", margin: 0, whiteSpace: "nowrap" }}>
                   {cat.group}
                 </h3>
                 <span style={{ flex: 1, height: "2px", backgroundColor: "rgba(255,255,255,0.15)" }} />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))", gap: "18px" }}>
                 {cat.items.map((r) => (
-                  <ReelCard key={r.src} src={r.src} title={r.title} views={r.views} />
+                  <ReelCard key={r.src} src={r.src} title={r.title} views={r.views} captions={r.captions} />
                 ))}
               </div>
             </div>
@@ -559,7 +626,7 @@ export default function MediaKitPage() {
           <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 4.5vw, 44px)", textTransform: "uppercase", color: c.green1, margin: 0 }}>
             Partnership Packages
           </h2>
-          <p style={{ color: c.tan, fontSize: "16px", maxWidth: "560px", margin: "12px auto 0", lineHeight: 1.6 }}>
+          <p style={{ color: c.tanDark, fontSize: "16px", maxWidth: "560px", margin: "12px auto 0", lineHeight: 1.6 }}>
             Every partnership is tailored to your goals and budget. Tell us what you&apos;re after and we&apos;ll build the right mix.
           </p>
         </div>
@@ -571,11 +638,11 @@ export default function MediaKitPage() {
             </div>
           ))}
           <div style={{ backgroundColor: c.green1, borderRadius: "14px", padding: "26px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-            <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "21px", textTransform: "uppercase", color: c.yellow, margin: "0 0 10px" }}>Content Formats</h3>
+            <h3 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "21px", textTransform: "uppercase", color: "#F1AF38", margin: "0 0 10px" }}>Content Formats</h3>
             <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
               {FORMATS.map((f) => (
                 <li key={f} style={{ color: c.cream, fontSize: "14px", lineHeight: 1.9, display: "flex", gap: "8px" }}>
-                  <span style={{ color: c.yellow }}>—</span>
+                  <span style={{ color: "#F1AF38" }}>—</span>
                   {f}
                 </li>
               ))}
@@ -587,14 +654,14 @@ export default function MediaKitPage() {
       {/* WHY MILWAUKEE strip */}
       <section style={{ backgroundColor: c.beige, padding: "56px 16px" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
-          <Kicker color={c.green2}>Why Milwaukee</Kicker>
+          <Kicker color="#476B3F">Why Milwaukee</Kicker>
           <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(24px, 3.6vw, 36px)", textTransform: "uppercase", color: c.green1, margin: "0 0 14px" }}>
             A Market Worth Buying
           </h2>
           <p style={{ color: c.ink, fontSize: "16px", lineHeight: 1.7, margin: "0 0 20px" }}>
             A metro of more than 1.5 million people, the 38th-largest media market in the country, and a local audience that trusts local voices. See how brands win here.
           </p>
-          <Link href="/milwaukee-influencer-marketing" style={{ color: c.blue2, fontWeight: 700, fontSize: "16px", textDecoration: "none" }}>
+          <Link href="/milwaukee-influencer-marketing" style={{ color: "#0966A2", fontWeight: 700, fontSize: "16px", textDecoration: "none" }}>
             Read: Marketing in the Milwaukee Market →
           </Link>
         </div>
@@ -619,7 +686,7 @@ export default function MediaKitPage() {
       {/* CTA */}
       <section style={{ backgroundColor: c.green1, padding: "72px 16px", textAlign: "center" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
-          <Kicker color={c.yellow}>Let&apos;s Talk</Kicker>
+          <Kicker color="#F1AF38">Let&apos;s Talk</Kicker>
           <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(30px, 5vw, 48px)", textTransform: "uppercase", color: c.cream, margin: "0 0 16px" }}>
             Put Your Brand in Front of Milwaukee
           </h2>
@@ -628,7 +695,7 @@ export default function MediaKitPage() {
           </p>
           <Link
             href="/partner"
-            style={{ display: "inline-block", padding: "18px 44px", backgroundColor: c.yellow, color: c.green1, borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "17px", textTransform: "uppercase", letterSpacing: "1px" }}
+            style={{ display: "inline-block", padding: "18px 44px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", textDecoration: "none", fontWeight: 700, fontSize: "17px", textTransform: "uppercase", letterSpacing: "1px" }}
           >
             Start a Partnership →
           </Link>
@@ -636,6 +703,7 @@ export default function MediaKitPage() {
       </section>
 
       <NewsletterCTA />
+      </main>
       <Footer />
     </div>
   );

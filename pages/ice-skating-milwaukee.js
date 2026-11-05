@@ -22,8 +22,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -46,7 +46,8 @@ const MAP_CATEGORIES = {"downtown": {"label": "Downtown & Signature Rinks", "col
 const MAP_EXCLUDE = ["tips"];
 
 const timeline = [{"period": "November 2026", "items": ["Indoor rinks in full swing: Pettit public skate Nov 3–6 and ongoing ($10 adults); Eble and Naga-Waukee weekday noon sessions ($7).", "Pettit Skating School Session 2 classes start as early as Nov 3; Eble adult intro class runs Tuesdays Nov 10–Dec 8.", "Slice of Ice 2026–27 opening date not yet announced; county says it typically opens Thanksgiving weekend–first week of December (opened Dec 13 in 2024, Dec 19 in 2025).", "Brown Deer's tent rink opened in late November last season."]}, {"period": "December 2026", "items": ["Slice of Ice expected to open; watch for the opening-day free-rental window (3–6 p.m. in 2025).", "Past December hours at Slice of Ice: Sun–Thu 11 a.m.–9 p.m., Fri–Sat 11 a.m.–11 p.m.; Dec 24 11 a.m.–6 p.m.; Dec 25 4–11 p.m.; Dec 26–Jan 3 10 a.m.–11 p.m. (incl. New Year's Eve).", "Indoor arenas add winter-break public skate sessions (Wilson, Eble, Mullett).", "Natural rinks (Humboldt, Lake Park, Konkel, Fox Point, Klode) open only after a sustained hard freeze; late December is the usual first opening."]}, {"period": "January–early February 2027 (peak)", "items": ["Best odds for natural ice at all county and village rinks; 6-inch lagoon rule in effect.", "Slice of Ice Jan–Feb hours (past seasons): Sun 11–6, Mon–Thu 11–8, Fri–Sat 11–10; rentals from 2 p.m. weekdays.", "Wauwatosa Curling Club Adaptive Open Bonspiel Jan 23–24, 2027; Shorewood Chill festival at Lake Bluff rink in early February."]}, {"period": "Mid-February–March 2027", "items": ["Natural rinks close with the first thaw (in 2026 most closed Feb 9–19); Fox Point closed Feb 10, Slice of Ice Feb 19, Center Street by Mar 1.", "Slice of Ice runs through February, into March only if weather allows.", "Wauwatosa Curling Club Valentine Open Feb 12–14, 2027; indoor rinks continue year-round."]}];
-const TIMELINE_COLORS = ["#547F4B", "#D06828", "#0B77BD", "#9E7F4B", "#6C3483"];
+// Darkened brand shades so each heading meets 4.5:1 contrast on white.
+const TIMELINE_COLORS = ["#547F4B", "#AB5521", "#0B77BD", "#83693E", "#6C3483"];
 
 const faqs = [{"question": "Is Slice of Ice at Red Arrow Park free?", "answer": "Yes — admission is free if you bring your own skates. You only pay for rentals ($11 adults, $9 youth 17 and under in 2025–26), skate helpers ($1 plus a refundable $5 deposit) or sharpening ($7). 2026–27 rates have not been posted yet."}, {"question": "When does Red Arrow Park ice skating open for 2026?", "answer": "Milwaukee County Parks had not announced the 2026–27 opening date as of Nov 2, 2026. The county says the rink typically opens around Thanksgiving weekend or the first week of December; it opened Dec 19 in 2025 and Dec 13 in 2024 (and as late as Jan 5 in the warm winter of 2024). Check the county parks site or social media for the announcement."}, {"question": "How much are skate rentals at Red Arrow Park?", "answer": "In the 2025–26 season rentals were $11 for adults and $9 for youth 17 and under, with $5 rentals for pre-scheduled school and non-profit groups. Opening day included free rentals from 3–6 p.m. Expect similar pricing for 2026–27, pending the county's announcement."}, {"question": "Can you ice skate at the Pettit Center?", "answer": "Yes. The Pettit National Ice Center holds public skating on its 400-meter Olympic Oval, mostly weeknight evenings (around 7–9 p.m.) plus some daytime and Friday-night sessions. Admission is $10 adults, $9 seniors and teens, $8 youth 4–12, free for 3 and under; skate rental is $5. Check thepettit.com/public-skating because times shift around training and events."}, {"question": "Where can I ice skate outdoors in Milwaukee?", "answer": "Slice of Ice at Red Arrow Park is the refrigerated downtown rink. Weather-dependent natural rinks on Milwaukee County's official list include Humboldt Park Lagoon, Lake Park, Center Street Park, Washington Park Lagoon, Hales Corners Park, Scout Lake and Sheridan Park. Nearby suburbs add Konkel Park (Greenfield), Longacre Park (Fox Point), Klode Park (Whitefish Bay), Lake Bluff (Shorewood) and Brown Deer's covered rink."}, {"question": "Does Milwaukee County Parks still flood outdoor rinks?", "answer": "Not directly. The county operates Slice of Ice (refrigerated) and the indoor Wilson Ice Arena, but its outdoor lagoon and land rinks are now maintained by third parties — park Friends groups, the Urban Ecology Center and volunteers — once county staff confirm at least 6 inches of ice. The county's list currently names seven such sites; contact each group for conditions."}, {"question": "Where can kids learn to skate in Milwaukee?", "answer": "The Pettit Skating School (Learn to Skate USA, $99 per session; fall classes started Nov 3, 2026) is the largest program. Milwaukee County's Wilson Ice Arena, Waukesha County's Eble and Naga-Waukee arenas, and Hartland's Mullett Ice Center also run Learn to Skate classes, and Eble hosts an adult/senior intro class Tuesdays Nov 10–Dec 8, 2026."}, {"question": "Is there ice skating in the Deer District?", "answer": "No. There is no public rink in the Deer District or on the Fiserv Forum plaza for 2026–27; the plaza's winter programming is a holiday market. The closest ice is Slice of Ice at Red Arrow Park, about a 10-minute walk east on Kilbourn Avenue."}, {"question": "What are the cheapest indoor rinks near Milwaukee?", "answer": "Wilson Ice Arena ($6.75 adults, $5 juniors/seniors, $3.75 rental) on Milwaukee's south side and Waukesha County's Eble (Brookfield) and Naga-Waukee (Delafield) arenas ($7, $6 seniors/military, $3 rental). All three concentrate public skate at weekday noon with one weekend session."}, {"question": "Where can I try curling in Milwaukee?", "answer": "The Milwaukee Curling Club in Cedarburg (founded 1845) runs $40 Learn to Curl sessions — the fall 2026 dates were Oct 2–4, with more added through the season and a Sunday-evening new-member league. The Wauwatosa Curling Club at Hart Park holds public 'Try Curling' nights on multiple dates and hosts an Adaptive Open Bonspiel Jan 23–24, 2027."}];
 
@@ -136,7 +137,7 @@ export default function IceSkatingMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={item.typical ? c.tan : c.orange} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
+          {item.badge && <Tag bg={item.typical ? c.tanDark : c.orangeDark} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
         </div>
       </div>
@@ -154,8 +155,8 @@ export default function IceSkatingMilwaukee() {
         </div>
       )}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-        {item.address && <span style={{ fontSize: "13px", color: "#8a8a8a", fontFamily: BODY }}>{item.address}</span>}
-        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>Website ↗</a>}
+        {item.address && <span style={{ fontSize: "13px", color: "#6d6d6d", fontFamily: BODY }}>{item.address}</span>}
+        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}><span className="sr-only">{item.name} </span>Website <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </div>
   );
@@ -197,9 +198,10 @@ export default function IceSkatingMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.blue2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #074D7B 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>2026–27 Season Guide</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>2026–27 Season Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Ice Skating in Milwaukee
             </h1>
@@ -216,19 +218,19 @@ export default function IceSkatingMilwaukee() {
               {mapItems.length > 0 && <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>}
               {SECTIONS.map((s, i) => (
                 <React.Fragment key={s.id}>
-                  {(i > 0 || mapItems.length > 0) && <span style={{ color: c.beige }}>|</span>}
+                  {(i > 0 || mapItems.length > 0) && <span aria-hidden="true" style={{ color: c.beige }}>|</span>}
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>Late November 2026 through early March 2027 (outdoor rinks weather-dependent) ({allItems.length} verified picks)</dd>
@@ -239,7 +241,7 @@ export default function IceSkatingMilwaukee() {
                 </React.Fragment>
               ))}
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against each organizer&apos;s or venue&apos;s own published information. Confirmed 2026–27 dates are labeled; anything else is marked as typical timing. Dates, hours and pricing change — always confirm before you go.
             </p>
           </section>
@@ -248,7 +250,7 @@ export default function IceSkatingMilwaukee() {
 
           {mapItems.length > 0 && (
             <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
               <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Mapped Across Southeastern Wisconsin</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every mappable spot in this guide plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
               <RegionMap items={mapItems} categories={MAP_CATEGORIES} />
@@ -257,7 +259,7 @@ export default function IceSkatingMilwaukee() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -286,10 +288,10 @@ export default function IceSkatingMilwaukee() {
               <Link href="/winter-guide-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Winter in Milwaukee →
               </Link>
-              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Christmas in Milwaukee →
               </Link>
-              <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Things to Do with Kids →
               </Link>
               <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -298,10 +300,10 @@ export default function IceSkatingMilwaukee() {
               <Link href="/downtown-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Downtown Guide →
               </Link>
-              <Link href="/best-coffee-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/best-coffee-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Best Coffee →
               </Link>
-              <Link href="/new-years-eve-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/new-years-eve-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 New Year's Eve →
               </Link>
               <Link href="/free-things-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -320,13 +322,14 @@ export default function IceSkatingMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Rink Openings & Snow-Day Ideas</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Opening dates, free-skate days and winter plans — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -240,7 +240,7 @@ export default function LiveMusicMilwaukee() {
         <h3 style={{ fontSize: "1.4rem", color: c.green1, margin: 0 }}>{venue.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <span style={{ backgroundColor: c.beige, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1 }}>{venue.neighborhood}</span>
-          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#fff" }}>{venue.capacity}</span>
+          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#1a3d34" }}>{venue.capacity}</span>
         </div>
       </div>
       <p style={{ fontSize: "0.95rem", color: c.green2, marginBottom: "8px", fontStyle: "italic" }}>{venue.style}</p>
@@ -279,6 +279,7 @@ export default function LiveMusicMilwaukee() {
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
+          <main id="main-content" tabIndex={-1}>
           <header style={{ marginBottom: "40px" }}>
             <h1 style={{ fontSize: "2.5rem", color: c.green1, marginBottom: "16px", lineHeight: "1.2" }}>Milwaukee Live Music Guide: Venues, Clubs & Concerts</h1>
             <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.8", marginBottom: "16px" }}>
@@ -287,7 +288,7 @@ export default function LiveMusicMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               From arena shows at Fiserv Forum to discovering your next favorite band at Cactus Club, this guide covers every corner of Milwaukee's music scene. Whether you're chasing major headliners or supporting local artists, the city delivers.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: July 2026 | All venues verified active</p>
+            <p style={{ fontSize: "0.9rem", color: "#6d6d6d", marginTop: "12px" }}>Last updated: July 2026 | All venues verified active</p>
           </header>
           <NewsletterCTA />
 
@@ -301,7 +302,7 @@ export default function LiveMusicMilwaukee() {
           {/* At-a-Glance table — quick reference */}
           <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <h2 id="at-a-glance-heading" style={{ fontSize: "1.6rem", color: c.green1, marginBottom: "16px" }}>Milwaukee Music Venues at a Glance</h2>
-            <div style={{ overflowX: "auto" }}>
+            <div tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways" style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
                 <thead>
                   <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
@@ -357,7 +358,7 @@ export default function LiveMusicMilwaukee() {
               {festivals.map((fest, index) => (
                 <div key={index} style={{ padding: "16px", backgroundColor: c.cream, borderRadius: "8px" }}>
                   <h3 style={{ color: c.green1, marginBottom: "4px" }}>{fest.name}</h3>
-                  <p style={{ color: c.orange, fontSize: "0.9rem", marginBottom: "8px" }}>{fest.dates}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "0.9rem", marginBottom: "8px" }}>{fest.dates}</p>
                   <p style={{ color: "#555", fontSize: "0.95rem", lineHeight: "1.6" }}>{fest.description}</p>
                 </div>
               ))}
@@ -378,12 +379,13 @@ export default function LiveMusicMilwaukee() {
             <h2 style={{ color: "#fff", marginBottom: "12px" }}>More Milwaukee Entertainment</h2>
             <p style={{ color: c.beige, marginBottom: "20px" }}>Discover more ways to experience Milwaukee's nightlife</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/milwaukee-nightlife" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Nightlife Guide</Link>
-              <Link href="/milwaukee-festivals" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Festivals</Link>
-              <Link href="/events" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Events</Link>
+              <Link href="/milwaukee-nightlife" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Nightlife Guide</Link>
+              <Link href="/milwaukee-festivals" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Festivals</Link>
+              <Link href="/events" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Events</Link>
             </div>
           </section>
 
+          </main>
           <RelatedGuides />
       <Footer />
         </div>

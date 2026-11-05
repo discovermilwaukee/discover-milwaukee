@@ -14,13 +14,13 @@ const BODY = "'Jost', system-ui, -apple-system, sans-serif";
 
 const c = {
   green1: "#2C5235",
-  green2: "#547F4B",
+  green2: "#547F4B", green2Dark: "#4F7746",
   blue2: "#0B77BD",
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -402,7 +402,7 @@ export default function BestPatiosMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{patio.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {patio.priceRange && <Tag bg={c.orange} color="#fff">{patio.priceRange}</Tag>}
+          {patio.priceRange && <Tag bg={c.orangeDark} color="#fff">{patio.priceRange}</Tag>}
           <Tag bg={c.green2} color="#fff">{patio.neighborhood}</Tag>
           {patio.type && <Tag bg={c.yellow} color={c.ink}>{patio.type}</Tag>}
         </div>
@@ -412,13 +412,13 @@ export default function BestPatiosMilwaukee() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
           {patio.bestFor && (
             <div style={{ backgroundColor: c.cream, padding: "12px 14px", borderRadius: "10px", border: `1px solid ${c.beige}` }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", letterSpacing: "1px", fontFamily: BODY }}>BEST FOR</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", letterSpacing: "1px", fontFamily: BODY }}>BEST FOR</p>
               <p style={{ fontSize: "14px", color: c.ink, margin: 0, fontFamily: BODY }}>{patio.bestFor}</p>
             </div>
           )}
           {patio.vibe && (
             <div style={{ backgroundColor: c.cream, padding: "12px 14px", borderRadius: "10px", border: `1px solid ${c.beige}` }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.green2, marginBottom: "4px", letterSpacing: "1px", fontFamily: BODY }}>THE VIBE</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.green2Dark, marginBottom: "4px", letterSpacing: "1px", fontFamily: BODY }}>THE VIBE</p>
               <p style={{ fontSize: "14px", color: c.ink, margin: 0, fontFamily: BODY }}>{patio.vibe}</p>
             </div>
           )}
@@ -426,7 +426,7 @@ export default function BestPatiosMilwaukee() {
       )}
       {patio.hours && (
         <p style={{ fontSize: "13px", color: c.green2, marginTop: "12px", marginBottom: 0, fontFamily: BODY, fontWeight: 600 }}>
-          <span style={{ color: c.tan }}>Hours:</span> {patio.hours}
+          <span style={{ color: c.tanDark }}>Hours:</span> {patio.hours}
         </p>
       )}
       {patio.proTip && (
@@ -434,7 +434,7 @@ export default function BestPatiosMilwaukee() {
           <p style={{ fontSize: "13px", color: c.ink, margin: 0, fontFamily: BODY }}><strong>Pro tip:</strong> {patio.proTip}</p>
         </div>
       )}
-      {patio.address && <p style={{ fontSize: "13px", color: "#8a8a8a", marginTop: "12px", marginBottom: 0, fontFamily: BODY }}>{patio.address}</p>}
+      {patio.address && <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0, fontFamily: BODY }}>{patio.address}</p>}
     </div>
   );
 
@@ -465,9 +465,10 @@ export default function BestPatiosMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.green2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #355130 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>Summer 2026 Guide</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>Summer 2026 Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Best Patios in Milwaukee
             </h1>
@@ -482,22 +483,22 @@ export default function BestPatiosMilwaukee() {
             <p style={{ fontSize: "12px", fontWeight: "700", color: c.green1, marginBottom: "12px", letterSpacing: "1.5px", fontFamily: BODY }}>EXPLORE BY TYPE</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
               <a href="#rooftops" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Rooftop Bars</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#waterfront" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Waterfront</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#neighborhood" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Neighborhood Patios</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#beer-gardens" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Beer Gardens</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Best Patios in Milwaukee ({allPatios.length} spots)</dd>
@@ -508,14 +509,14 @@ export default function BestPatiosMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Peak season</dt>
               <dd style={{ color: "#444", margin: 0 }}>May–September; beer gardens roughly May–October</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Addresses and status verified <time dateTime="2026-08-03">Aug 3, 2026</time> against each venue&apos;s own listings and Milwaukee press. Hours are seasonal and weather-dependent — confirm before you go.
             </p>
           </section>
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((patio, i) => <PatioCard key={i} patio={patio} />)}
@@ -535,10 +536,10 @@ export default function BestPatiosMilwaukee() {
               <Link href="/best-restaurants-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Best Restaurants →
               </Link>
-              <Link href="/new-restaurants-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/new-restaurants-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 New Restaurants →
               </Link>
-              <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Best Brunch →
               </Link>
               <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -557,13 +558,14 @@ export default function BestPatiosMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Summer Event Alerts</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Patio openings, outdoor events, and Milwaukee summer fun — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

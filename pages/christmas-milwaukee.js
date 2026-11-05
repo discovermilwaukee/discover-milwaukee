@@ -22,8 +22,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -48,7 +48,8 @@ const MAP_CATEGORIES = {"holiday-lights": {"label": "Christmas Lights & Holiday 
 const MAP_EXCLUDE = ["shows"];
 
 const timeline = [{"period": "Mid–late November (season opens)", "items": ["Nov 13: Skylight's Big: The Musical and Milwaukee Chamber Theatre's A Gift of the Magi open in the Third Ward", "Nov 14: Pentatonix at Fiserv Forum; Madison's Holiday Fantasy in Lights switches on", "Nov 18: Christmas at the Pabst Mansion opening reception", "Nov 19: Milwaukee Holiday Lights Festival Kickoff Extravaganza, Pere Marquette Park (5:30pm pre-show, 6:30pm ceremony, fireworks)", "Nov 20: Wild Lights opens at the Zoo; MPM's Deck the Streets & Village begins; Cedarburg's first Festive Friday Eve; Holiday Folk Fair International opens (through Nov 22)", "Nov 21: Mitchell Park Domes Holiday Show and First Stage's Grinch open", "Nov 22: Grand Geneva Illumination Ceremony; first Wild Lights Drive-Thru Sunday"]}, {"period": "Thanksgiving weekend (Nov 26–29)", "items": ["Nov 27: Candy Cane Lane and Enchantment in the Park open; Lakefront Brewery Black Friday (8am); Pfister Tree Lighting with Santa (5pm); MSO's Grinch in Concert (through Nov 29); Sheboygan's Making Spirits Bright and Green Bay's Garden of Lights open", "Nov 28: Small Business Saturday—Milwaukee Makers Market at Discovery World with Storytime with Santa, Public Market Brew City Trunk Sale, Sherman Phoenix anniversary market, Saint Kate Holiday Marketplace (Nov 28–29); first Pfister Breakfast with Santa; East Troy Christmas Trains begin", "Nov 29: Father Christmas Sundays begin at the Pabst Mansion"]}, {"period": "Early December (Dec 1–13)", "items": ["Dec 2: Milwaukee Rep's A Christmas Carol opens at the Pabst Theater; free Festival City Symphony Jingle Bell Jamboree", "Dec 3: Free admission at MPM (Kohl's Thank You Thursday); Osthoff tree lighting", "Dec 4: Christmas in the Ward tree lighting and fireworks (6pm/6:45pm); Bel Canto's Christmas at the Basilica (Dec 4–6); Old World Christmas Market opens in Elkhart Lake (Dec 4–13); Cedarburg Santa's Workshop Friday Eve", "Dec 5: Milwaukee Ballet's Nutcracker opens (through Dec 26); Harry Potter in Concert at the Riverside (Dec 5–6); Lake Geneva Electric Christmas Parade; Zoo Family Free Day; Public Market Santa Cavalcade; Old World Wisconsin Home for the Holidays (Dec 5–6, 12–13); Krampusnacht pre-party", "Dec 6: Hover Craft at the Pritzlaff; Milwaukee Krampusnacht (parade 7pm); Mannheim Steamroller at Miller High Life Theatre; Waukesha Christmas Parade; Boerner Holiday Gift Fair", "Dec 9–13: Santa at Wild Lights; Cheers! Wild Lights 21+ (Dec 10); Black Nativity (Dec 10–13); Florentine Carols & Classics (Dec 10)", "Dec 12–13: MSO Holiday Pops weekend one with Brunch with Santa; Saint Kate Breakfast with Santa; MPM European Village Alive! (Dec 12); Pfister Holiday Tea begins (Dec 12–31)"]}, {"period": "Mid-December (Dec 14–23)", "items": ["Dec 16–23: Santa returns to Wild Lights nightly (school-break week sells out first)", "Dec 17: Nutcracker sensory-friendly performance", "Dec 18–20: MSO Holiday Pops weekend two; It's a Wonderful Life opens at the Oriental (Dec 18–24); last Cedarburg Festive Friday Eve (Dec 18); final East Troy Christmas Trains (Dec 19–20); Commodore Breakfast with Santa and last Pfister Santa breakfast (Dec 20); Makers Market holiday edition at Discovery World (Dec 20); Fireside's A Christmas Story closes (Dec 20)", "Dec 23: Last chance for Shop the Ward deals in the Third Ward"]}, {"period": "Christmas Eve to New Year's Eve (Dec 24–31)", "items": ["Dec 24: Nutcracker 1pm matinee; A Christmas Carol's final performances; Father Christmas at the Pabst Mansion 10am–1pm; Domes open 9am–2pm, MPM until 3pm; Candy Cane Lane and Enchantment in the Park's final nights (Dec 24/25); It's a Wonderful Life 3:30 & 6:30pm at the Oriental", "Dec 25: Christmas Day brunch at the Pfister; Christmas dinner at Saint Kate's The Studio; Potawatomi's restaurants; Osthoff Christmas brunch; most restaurants (including all Bartolotta flagships) closed; Holiday Lights parks and Candy Cane Lane lit", "Dec 26: Trans-Siberian Orchestra at Fiserv Forum (3pm & 7:30pm); Nutcracker closing day; Zoo Frosty Free Week begins (Dec 26–30); Hallmark(ish) Parody Musical at the Marcus Center (Dec 26–30); Wild Lights resumes nightly through Dec 31", "Dec 27: Big: The Musical and First Stage's Grinch close", "Dec 31: Zoo Year's Eve at Wild Lights; New Year's Eve in Blu at the Pfister; Saint Kate NYE dinner and omakase; Bartolotta NYE dinners; Holiday Lights Festival lit through Jan 1"]}];
-const TIMELINE_COLORS = ["#547F4B", "#D06828", "#0B77BD", "#9E7F4B", "#6C3483"];
+// Darkened brand shades so each heading meets 4.5:1 contrast on white.
+const TIMELINE_COLORS = ["#547F4B", "#AB5521", "#0B77BD", "#83693E", "#6C3483"];
 
 const faqs = [{"question": "Is there a Christkindlmarket in Milwaukee in 2026?", "answer": "No. The Christkindlmarket Milwaukee at Fiserv Forum ran only in 2018 and 2019 and has not returned, and no German-style Christmas market in the city was confirmed for 2026 (the Bavarian Bierhaus's 2026 calendar lists none). The closest authentic alternative is the Old World Christmas Market at The Osthoff Resort in Elkhart Lake, Dec 4–13, 2026 ($8, about an hour north); in town, the Holiday Folk Fair's International Bazaar (Nov 20–22) and Deer District's holiday market (2026 dates pending) fill the gap."}, {"question": "When do the Milwaukee Holiday Lights turn on in 2026?", "answer": "The Milwaukee Holiday Lights Festival kicks off Thursday, Nov 19, 2026 at Pere Marquette Park with a 5:30pm pre-show, a 6:30pm ceremony (broadcast on WISN 12) and fireworks, and the displays in Cathedral Square, Zeidler Union Square, Pere Marquette and Red Arrow parks stay lit nightly through Jan 1, 2027. It's free; Jingle Bus tours are $8 once 2026 dates are announced."}, {"question": "Where can I see Christmas lights near Milwaukee?", "answer": "Downtown's four Holiday Lights Festival parks (free, Nov 19–Jan 1); Candy Cane Lane in West Allis (free, MACC Fund donations, Nov 27–Dec 25); Wild Lights at the Milwaukee County Zoo (select nights Nov 20–Dec 31, early-bird $15) plus three $40-per-car drive-thru Sundays; and Enchantment in the Park in West Bend (nightly Nov 27–Dec 24, $20 suggested per vehicle). Within about an hour: Sheboygan's free Making Spirits Bright drive-through and Grand Geneva's two-million-light display; Madison's free Holiday Fantasy in Lights and Green Bay's Garden of Lights are worth the longer drive. Country Christmas in Pewaukee could not be confirmed for 2026."}, {"question": "What's open on Christmas Day 2026 in Milwaukee?", "answer": "Few restaurants. Confirmed Christmas Day options are the Pfister Hotel's Christmas Celebration Brunch and Christmas dinner at Saint Kate's The Studio (from 4pm); Potawatomi Casino Hotel's restaurants operate year-round (confirm holiday hours). All four Bartolotta flagships (Harbor House, Lake Park Bistro, Bacchus, Ristorante Bartolotta) are closed Dec 25. For things to do, Candy Cane Lane, Enchantment in the Park and the downtown lights are lit on Christmas night, while Wild Lights, the Domes, MPM and Discovery World are closed Dec 25."}, {"question": "Where can I see The Nutcracker in Milwaukee in 2026?", "answer": "Milwaukee Ballet performs 'The Nutcracker: Drosselmeyer's Imaginarium' in Uihlein Hall at the Marcus Performing Arts Center Dec 5–26, 2026, with a sensory-friendly performance Dec 17, a 'My First Ballet' relaxed performance Dec 22 and a Christmas Eve 1pm matinee. Weekend performances feature the Milwaukee Ballet Orchestra live; some weeknights use recorded music."}, {"question": "What free Christmas things can I do in Milwaukee?", "answer": "The Milwaukee Holiday Lights Festival and its Nov 19 kickoff fireworks; Candy Cane Lane (donation optional); the Pfister's tree lighting Nov 27; Christmas in the Ward's tree lighting and fireworks Dec 4; Festival City Symphony's free Jingle Bell Jamboree Dec 2; free admission at the Milwaukee Public Museum on Dec 3 and at the Zoo on Dec 5 and Dec 26–30 (Frosty Free Week); Cathedral Square's 100 decorated trees; the Public Market's Santa Cavalcade Dec 5; and free markets including Holiday Marketplace at Saint Kate, Milwaukee Makers Market and Cedarburg's Festive Friday Eves."}, {"question": "Is the Milwaukee Holiday Parade happening in 2026?", "answer": "No downtown Milwaukee Holiday Parade is scheduled for 2026—the organizer's websites are offline and Milwaukee Downtown's event calendar lists none. Suburban alternatives include the Waukesha Christmas Parade (Sun Dec 6, 4pm), the West Bend Christmas Parade (Nov 29, preceding Enchantment in the Park's 6pm opening) and the East Troy Christmas Parade Train (Dec 5). Lake Geneva's Electric Christmas Parade is Sat Dec 5 at 5pm."}, {"question": "Where can kids see Santa in Milwaukee in 2026?", "answer": "Confirmed Santa events include Breakfast with Santa at the Pfister (Nov 28–29, Dec 5–6, 12–13, 19–20; $84/$45), Storytime with Santa at Discovery World (Nov 28 and Dec 20, with admission), Santa nights at Wild Lights (Dec 9–12 and 16–23), Father Christmas Sundays at the Pabst Mansion (Nov 29–Dec 20), Santa at Christmas in the Ward (Dec 4), Saint Kate's Breakfast with Santa (Dec 12–13), the East Troy Railroad Christmas Trains (weekends Nov 28–Dec 20) and the Commodore in Hartland (Dec 20). Mall Santa sets at Mayfair, Bayshore, Brookfield Square and Southridge had not posted 2026 dates as of early November."}, {"question": "Are there Christmas pop-up bars in Milwaukee in 2026?", "answer": "Yes. Miracle on 2nd Street returns to the Tin Widow in Walker's Point (listed on Miracle's official 2026 roster; it traditionally opens the Friday after Thanksgiving and runs to early January). Sippin' Santa is NOT returning to PufferFish in 2026—Milwaukee is absent from its official 2026 locations list. Also on the calendar: Lakefront Brewery's Black Friday release (Nov 27), Milwaukee Krampusnacht in the Brewery District (Dec 6), the Zoo's 21+ Cheers! Wild Lights (Dec 10), Holiday Tea in Blu at the Pfister (Dec 12–31) and At Random's winter Magic Forest patio in Bay View (dates pending)."}, {"question": "Are Trans-Siberian Orchestra and Mannheim Steamroller coming to Milwaukee in 2026?", "answer": "Yes to both. Trans-Siberian Orchestra plays Fiserv Forum on Saturday, Dec 26, 2026 (3pm and 7:30pm) with its 30th-anniversary 'Ghosts of Christmas Eve' tour, and Mannheim Steamroller Christmas plays the Miller High Life Theatre on Sunday, Dec 6, 2026 at 3pm—a venue change from past Riverside/Marcus Center stops."}];
 
@@ -138,7 +139,7 @@ export default function ChristmasMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={item.typical ? c.tan : c.orange} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
+          {item.badge && <Tag bg={item.typical ? c.tanDark : c.orangeDark} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
         </div>
       </div>
@@ -156,8 +157,8 @@ export default function ChristmasMilwaukee() {
         </div>
       )}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-        {item.address && <span style={{ fontSize: "13px", color: "#8a8a8a", fontFamily: BODY }}>{item.address}</span>}
-        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>Website ↗</a>}
+        {item.address && <span style={{ fontSize: "13px", color: "#6d6d6d", fontFamily: BODY }}>{item.address}</span>}
+        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}><span className="sr-only">{item.name} </span>Website <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </div>
   );
@@ -199,9 +200,10 @@ export default function ChristmasMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.blue2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #074D7B 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>The Complete Holiday 2026 Guide</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>The Complete Holiday 2026 Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Christmas in Milwaukee
             </h1>
@@ -218,19 +220,19 @@ export default function ChristmasMilwaukee() {
               {mapItems.length > 0 && <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>}
               {SECTIONS.map((s, i) => (
                 <React.Fragment key={s.id}>
-                  {(i > 0 || mapItems.length > 0) && <span style={{ color: c.beige }}>|</span>}
+                  {(i > 0 || mapItems.length > 0) && <span aria-hidden="true" style={{ color: c.beige }}>|</span>}
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>Late November through December 31, 2026 ({allItems.length} verified picks)</dd>
@@ -241,7 +243,7 @@ export default function ChristmasMilwaukee() {
                 </React.Fragment>
               ))}
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against each organizer&apos;s or venue&apos;s own published information. Confirmed 2026–27 dates are labeled; anything else is marked as typical timing. Dates, hours and pricing change — always confirm before you go.
             </p>
           </section>
@@ -250,7 +252,7 @@ export default function ChristmasMilwaukee() {
 
           {mapItems.length > 0 && (
             <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
               <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Mapped Across Southeastern Wisconsin</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every mappable spot in this guide plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
               <RegionMap items={mapItems} categories={MAP_CATEGORIES} />
@@ -259,7 +261,7 @@ export default function ChristmasMilwaukee() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -288,10 +290,10 @@ export default function ChristmasMilwaukee() {
               <Link href="/winter-guide-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Winter in Milwaukee →
               </Link>
-              <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Ice Skating Guide →
               </Link>
-              <Link href="/new-years-eve-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/new-years-eve-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 New Year's Eve →
               </Link>
               <Link href="/thanksgiving-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -300,10 +302,10 @@ export default function ChristmasMilwaukee() {
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Things to Do with Kids →
               </Link>
-              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Holiday Date Ideas →
               </Link>
-              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Happy Hours →
               </Link>
               <Link href="/milwaukee-shopping" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -322,13 +324,14 @@ export default function ChristmasMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Holiday Event Alerts</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Light-up nights, market openings, Santa dates and pop-up bar news — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -268,9 +268,10 @@ export default function BestHappyHourMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 2, 2026 · 31 VERIFIED SPOTS</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED NOVEMBER 2, 2026 · 31 VERIFIED SPOTS</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Best Happy Hour in Milwaukee</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               <strong>31 verified spots</strong> across every neighborhood — exact days, times, drink and food prices. Filter by day of week, neighborhood, or what you're looking for (cocktails, rooftop, late-night, hotel bar, oysters). Every spot was re-verified against the venue's own website in November 2026 in two independent passes; where a venue doesn't publish a price, we say so instead of guessing.
@@ -278,7 +279,7 @@ export default function BestHappyHourMilwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -288,7 +289,7 @@ export default function BestHappyHourMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -300,7 +301,7 @@ export default function BestHappyHourMilwaukee() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Best happy hours in Milwaukee</dd>
@@ -317,7 +318,7 @@ export default function BestHappyHourMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Best late-night</dt>
               <dd style={{ color: "#444", margin: 0 }}>BelAir Water St (Thu–Sat 9–11 p.m.), Bryant's (11 p.m.–close Sun & Tue–Thu)</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               All 31 spots re-verified <time dateTime="2026-11-02">2026-11-02</time> against each venue&apos;s own website and Milwaukee press, in two independent passes.
             </p>
           </section>
@@ -338,7 +339,7 @@ export default function BestHappyHourMilwaukee() {
                 { label: "Best pure value", value: "Black Sheep ($3 drafts), Steny's (Mon $1 off everything), Miller Time ($4 taps), Lupi & Iris ($4 beers), Gathering Place ($2 off pours)" },
               ].map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -350,7 +351,7 @@ export default function BestHappyHourMilwaukee() {
             <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "20px" }}>Filter by day of week, neighborhood, or type. Tap a pill to filter; tap again or pick "All" to clear.</p>
 
             <div style={{ marginBottom: "18px" }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>Day</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>Day</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                 {DAYS.map((d) => {
                   const active = dayFilter === d.id;
@@ -364,7 +365,7 @@ export default function BestHappyHourMilwaukee() {
             </div>
 
             <div style={{ marginBottom: "18px" }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>Neighborhood</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>Neighborhood</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                 {REGIONS.map((r) => {
                   const active = regionFilter === r.id;
@@ -378,7 +379,7 @@ export default function BestHappyHourMilwaukee() {
             </div>
 
             <div style={{ marginBottom: "24px" }}>
-              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>Type</p>
+              <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "8px", textTransform: "uppercase" }}>Type</p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                 {TAGS.map((t) => {
                   const active = tagFilter === t.id;
@@ -403,7 +404,7 @@ export default function BestHappyHourMilwaukee() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "10px" }}>
                     <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
                     <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-                      <span style={{ backgroundColor: c.orange, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{spot.priceRange}</span>
+                      <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{spot.priceRange}</span>
                       <span style={{ backgroundColor: c.green2, color: "white", padding: "3px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700" }}>{spot.neighborhood}</span>
                     </div>
                   </div>
@@ -411,7 +412,7 @@ export default function BestHappyHourMilwaukee() {
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "12px" }}>{spot.description}</p>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "10px", marginBottom: "10px" }}>
                     <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px" }}>
-                      <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase" }}>Drink Specials</p>
+                      <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase" }}>Drink Specials</p>
                       <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{spot.drinkSpecials}</p>
                     </div>
                     <div style={{ backgroundColor: "rgba(45,90,74,0.08)", padding: "10px", borderRadius: "8px" }}>
@@ -420,10 +421,10 @@ export default function BestHappyHourMilwaukee() {
                     </div>
                   </div>
                   <div style={{ backgroundColor: "rgba(244,208,63,0.1)", padding: "10px", borderRadius: "8px", marginBottom: "10px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase" }}>Insider Tip</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase" }}>Insider Tip</p>
                     <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{spot.insiderTip}</p>
                   </div>
-                  <p style={{ fontSize: "12px", color: "#777", margin: 0 }}>📍 {spot.address}</p>
+                  <p style={{ fontSize: "12px", color: "#6d6d6d", margin: 0 }}><span aria-hidden="true">📍 </span>{spot.address}</p>
                 </div>
               ))
             )}
@@ -469,13 +470,13 @@ export default function BestHappyHourMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/rooftop-bars-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Rooftop Bars</Link>
               <Link href="/best-cocktail-bars-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Cocktail Bars</Link>
-              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Breweries</Link>
+              <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Breweries</Link>
               <Link href="/best-dive-bars-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Dive Bars</Link>
               <Link href="/milwaukee-bars" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>All Bars</Link>
-              <Link href="/best-brewery-tours-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Brewery Tours</Link>
+              <Link href="/best-brewery-tours-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Brewery Tours</Link>
               <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Patios & Outdoor</Link>
               <Link href="/milwaukee-nightlife" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Nightlife</Link>
-              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Date Ideas</Link>
+              <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Date Ideas</Link>
             </div>
           </section>
 
@@ -501,7 +502,7 @@ export default function BestHappyHourMilwaukee() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -518,6 +519,7 @@ export default function BestHappyHourMilwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>Happy hour updates, new restaurants, events, and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

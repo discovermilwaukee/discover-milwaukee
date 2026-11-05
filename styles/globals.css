@@ -27,23 +27,63 @@ html, body {
 
 /* Improve focus visibility for accessibility (indirect SEO benefit) */
 :focus-visible {
-  outline: 2px solid #F0A623;
+  /* Two-tone ring: the dark line shows on light backgrounds, the gold halo on dark ones. */
+  outline: 2px solid #1a3d34 !important;
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px #F0A623 !important;
+}
+
+/* The skip link target takes focus programmatically; it should not draw a ring around the whole page. */
+#main-content:focus,
+#main-content:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Skip to content link for accessibility */
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 0;
-  background: #2C5235;
-  color: white;
-  padding: 8px;
-  z-index: 100;
+  top: -60px;
+  left: 8px;
+  background: #1a3d34;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 700;
+  z-index: 200;
 }
 
 .skip-link:focus {
   top: 0;
+}
+
+/* Visually hidden, still read by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* A card's title rendered as a real button, so the card can be opened from the keyboard
+   without losing its heading. Looks exactly like the plain heading text. */
+.card-title-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  cursor: pointer;
 }
 
 a {

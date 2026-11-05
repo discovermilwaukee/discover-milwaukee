@@ -22,8 +22,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -47,7 +47,8 @@ const MAP_CATEGORIES = {"restaurants": {"label": "Restaurants Open on Thanksgivi
 const MAP_EXCLUDE = ["open-closed"];
 
 const timeline = [{"period": "Wed Nov 25 — Thanksgiving Eve", "items": ["Packers at L.A. Rams, 7 p.m. CT (Netflix) — the Packers' only game of Thanksgiving week, so every sports bar is a watch party", "Bucks vs. Nets at Fiserv Forum, 7 p.m. (NBA Cup group play)", "Thanksgiving Tea at Blu, 11 a.m.–2 p.m.; Hike for Health at Wehr Nature Center, 10:30 a.m.", "Turkey Trot packet pickup at American Family Field, 2–6 p.m.", "Nod to Bob at Linneman's (doors 6), Chicken Wire Empire Friendsgiving at The Cooperage (7), Kelly Kellz at the Improv (6:30 & 9), two shows at The Rave, free Robert Allen Jr. Trio at Bar 360 (5)", "Last pickup day for Festival Foods heat-and-serve meals; Bunzel's and Honeypie pickups continue through Nov 28 (both closed Thursday)"]}, {"period": "Thu Nov 26 — Thanksgiving Day", "items": ["Festival Foods Turkey Trot, 8 a.m. at American Family Field; suburban trots in Oconomowoc, Kenosha, Thiensville (9 a.m.) and Cedarburg (10 a.m.)", "Sunrise 6:58 a.m., sunset 4:20 p.m.; normal high 43°F / low 29°F", "NFL: Bears at Lions noon CT (CBS), Eagles at Cowboys 3:30 p.m. (Fox), Chiefs at Bills 7:20 p.m. (NBC) — no Packers", "Dining: Pfister Bountiful Brunch 11–4:30, Golden Mast 11–4:30, Ingleside noon–5, Saint Kate Studio 1–7, Mason Street Grill 1–8, ChopHouse 3–9, Dream Dance $60 feast, Iron Horse buffet 10–2 (confirm)", "Closed: Art Museum, Public Museum, Zoo, Domes, Discovery World, libraries, Mayfair; Woodman's closes 2 p.m.; Potawatomi open 24/7", "Wehr Nature Center trails open dawn to dusk (building closed)"]}, {"period": "Fri Nov 27 — Black Friday", "items": ["Lakefront Brewery Black Friday release, doors 8 a.m.", "Mayfair opens 8 a.m.–9 p.m.; museums, Zoo (9:30–2:30) and Domes reopen regular hours; libraries stay closed", "Candy Cane Lane opening night, 6–10 p.m.; Wild Lights at the Zoo 5:30–9 p.m.; Holiday Lights Festival downtown", "MSO Grinch in Concert 7:30 p.m.; First Stage Grinch 1 & 4 p.m.", "NFL: Broncos at Steelers 2 p.m. CT (Prime Video); Bucks at Detroit, Admirals at Chicago (both away)", "Pettit public skating noon–10 p.m.; free DJ Goose show at Potawatomi's Bar 360, 9 p.m."]}, {"period": "Sat–Sun Nov 28–29 — Small Business Saturday & weekend", "items": ["Sat: Milwaukee Makers Market at Discovery World 10–4 with Storytime with Santa 11–1:30; Small Business Saturday in the Third Ward", "Sat: Bucks vs. Thunder at Fiserv Forum (evening) and Admirals vs. Rockford at Panther Arena 6 p.m. — Pubs 'N Pucks pub crawl", "Sat: MSO Grinch 7:30 p.m.; First Stage Grinch 11, 2 & 5; Wild Lights 5:30–9; Candy Cane Lane 5–10; libraries reopen 9 a.m.", "Sun: MSO Grinch matinee 2:30 p.m.; First Stage 1 & 4; Candy Cane Lane 5–9; Wild Lights dark; no Packers game (next up: at New Orleans Sun Dec 6)"]}];
-const TIMELINE_COLORS = ["#547F4B", "#D06828", "#0B77BD", "#9E7F4B", "#6C3483"];
+// Darkened brand shades so each heading meets 4.5:1 contrast on white.
+const TIMELINE_COLORS = ["#547F4B", "#AB5521", "#0B77BD", "#83693E", "#6C3483"];
 
 const faqs = [{"question": "What restaurants are open on Thanksgiving in Milwaukee?", "answer": "Confirmed 2026 Thanksgiving Day service includes Mason Street Grill (1–8 p.m.), the Pfister's Bountiful Brunch ($119 adults, 11–4:30), Thanksgiving Tea at Blu, The Studio at Saint Kate (brunch from 8 a.m.; prix fixe dinner 1–7 p.m.), Milwaukee ChopHouse (3–9 p.m.), Dream Dance Steakhouse at Potawatomi ($60 turducken feast), the Golden Mast in Okauchee ($49, 11–4:30) and The Ingleside Hotel buffet in Pewaukee ($48, noon–5). Most require reservations, several via Tock with prepayment. Lupi & Iris is closed Nov 26, and Bartolotta's had not posted any 2026 Thanksgiving dine-in service as of early November."}, {"question": "Where is the Milwaukee Turkey Trot?", "answer": "The Festival Foods Turkey Trot Milwaukee starts at 8 a.m. sharp on Thanksgiving at American Family Field (1 Brewers Way), with a timed 5-mile, a 2-mile walk/run and a Dog Jog. Adults are $35 through Nov 22 and $40 race week; youth $15; dogs $5. A separate Wisconsin Runs 5K/8K starts at the lakefront (Veterans Park) at about 9 a.m."}, {"question": "Is the Milwaukee Public Market open on Thanksgiving?", "answer": "As of Nov 2 the Public Market had not posted Thanksgiving Day hours — its site lists only regular hours (Mon–Sat 10 a.m.–8 p.m., Sun 10–6). Call 414-336-1111 before going on Nov 26. It runs regular hours Black Friday and hosts a sold-out Small Business Saturday trunk sale on Nov 28."}, {"question": "Do the Packers play on Thanksgiving 2026?", "answer": "No. The 2026 Thanksgiving Day games are Bears at Lions (noon CT, CBS), Eagles at Cowboys (3:30 p.m., Fox) and Chiefs at Bills (7:20 p.m., NBC), with Broncos at Steelers on Black Friday (2 p.m., Prime Video). The Packers play the night before — Wednesday, Nov 25 at the Los Angeles Rams, 7 p.m. CT on Netflix — then are off until Sunday, Dec 6 at New Orleans."}, {"question": "Where can I watch the Packers on Thanksgiving week in Milwaukee?", "answer": "The Packers' game is Wednesday night, Nov 25 (at the Rams, 7 p.m. CT, streaming on Netflix), which lands squarely on Thanksgiving Eve, the busiest bar night of the year. Expect Deer District bars (the Bucks tip off against Brooklyn at 7 p.m. next door), Walker's Point, Brady Street and neighborhood sports bars to show it; arrive early for a seat and confirm your bar carries Netflix streams."}, {"question": "What's open on Black Friday in Milwaukee?", "answer": "Nearly everything reopens Nov 27: Mayfair Mall 8 a.m.–9 p.m., the Art Museum and Public Museum 10–5, the Zoo 9:30–2:30 (Wild Lights 5:30–9 p.m.), the Domes 9–5, Discovery World 9–4, and the Pettit's public skate noon–10 p.m. Lakefront Brewery's Black Friday beer release opens at 8 a.m., and Candy Cane Lane lights up for the first time at 6 p.m. Milwaukee Public Library branches stay closed Friday and reopen Saturday."}, {"question": "When does Candy Cane Lane open?", "answer": "Candy Cane Lane in West Allis (S. 92nd–96th St. between Montana and Oklahoma) opens Friday, Nov 27, 2026 and runs nightly through Dec 25: Fri 6–10 p.m., Sat 5–10, Sun 5–9, Mon–Thu 6–9. It is free; donations go to the MACC Fund."}, {"question": "Is Thanksgiving Eve a big bar night in Milwaukee?", "answer": "Yes — the Wednesday before Thanksgiving is one of the busiest bar nights of the year, with students and expats back in town and no work Thursday. In 2026 it also has the Packers at the Rams (7 p.m. CT) and a Bucks home game at 7 p.m., so Deer District, Walker's Point, Brady Street and Bay View will be packed. Plan a rideshare (surge pricing peaks around bar time) or a designated driver; MCTS had not posted its Thanksgiving schedule as of Nov 2, so check ridemcts.com for Wednesday late-night and Thursday holiday service."}, {"question": "Is the Milwaukee County Zoo open on Thanksgiving?", "answer": "No. The zoo's FAQ lists Thanksgiving Day, Christmas Day and New Year's Day as its only closures. It reopens Black Friday on winter weekday hours (9:30 a.m.–2:30 p.m.), and Wild Lights runs Friday and Saturday evenings of Thanksgiving weekend (dark Sunday)."}, {"question": "Where can I order a Thanksgiving dinner or pies to go in Milwaukee?", "answer": "Confirmed 2026 pre-orders include Bunzel's fully cooked dinners ($119.99–$279.99, pickup Nov 23–28), Honeypie's 11-inch Thanksgiving pies (pickup at Palomino in Bay View Nov 22–28), Outpost Natural Foods holiday meals (ordering opened Nov 2), Festival Foods heat-and-serve meals (order by Nov 23, pickup Nov 24–25), Whole Foods catering (order by Nov 23), O&H Danish Bakery Thanksgiving kringle and Ray's Butcher Shoppe turkeys at $2.99/lb. Bartolotta's had no Thanksgiving to-go offer posted for 2026."}];
 
@@ -137,7 +138,7 @@ export default function ThanksgivingMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={item.typical ? c.tan : c.orange} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
+          {item.badge && <Tag bg={item.typical ? c.tanDark : c.orangeDark} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
         </div>
       </div>
@@ -155,8 +156,8 @@ export default function ThanksgivingMilwaukee() {
         </div>
       )}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-        {item.address && <span style={{ fontSize: "13px", color: "#8a8a8a", fontFamily: BODY }}>{item.address}</span>}
-        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>Website ↗</a>}
+        {item.address && <span style={{ fontSize: "13px", color: "#6d6d6d", fontFamily: BODY }}>{item.address}</span>}
+        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}><span className="sr-only">{item.name} </span>Website <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </div>
   );
@@ -198,9 +199,10 @@ export default function ThanksgivingMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.blue2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #074D7B 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>Thanksgiving Week 2026 · Nov 25–29</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>Thanksgiving Week 2026 · Nov 25–29</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Thanksgiving in Milwaukee
             </h1>
@@ -217,19 +219,19 @@ export default function ThanksgivingMilwaukee() {
               {mapItems.length > 0 && <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>}
               {SECTIONS.map((s, i) => (
                 <React.Fragment key={s.id}>
-                  {(i > 0 || mapItems.length > 0) && <span style={{ color: c.beige }}>|</span>}
+                  {(i > 0 || mapItems.length > 0) && <span aria-hidden="true" style={{ color: c.beige }}>|</span>}
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>Wednesday, Nov. 25 through Sunday, Nov. 29, 2026 ({allItems.length} verified picks)</dd>
@@ -240,7 +242,7 @@ export default function ThanksgivingMilwaukee() {
                 </React.Fragment>
               ))}
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against each organizer&apos;s or venue&apos;s own published information. Confirmed 2026–27 dates are labeled; anything else is marked as typical timing. Dates, hours and pricing change — always confirm before you go.
             </p>
           </section>
@@ -249,7 +251,7 @@ export default function ThanksgivingMilwaukee() {
 
           {mapItems.length > 0 && (
             <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
               <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Mapped Across Southeastern Wisconsin</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every mappable spot in this guide plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
               <RegionMap items={mapItems} categories={MAP_CATEGORIES} />
@@ -258,7 +260,7 @@ export default function ThanksgivingMilwaukee() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -287,10 +289,10 @@ export default function ThanksgivingMilwaukee() {
               <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Christmas in Milwaukee →
               </Link>
-              <Link href="/winter-guide-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/winter-guide-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Winter in Milwaukee →
               </Link>
-              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Happy Hours →
               </Link>
               <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -299,10 +301,10 @@ export default function ThanksgivingMilwaukee() {
               <Link href="/best-fish-fry-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Friday Fish Fry →
               </Link>
-              <Link href="/packers-bars-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/packers-bars-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Packers Bars →
               </Link>
-              <Link href="/milwaukee-shopping" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/milwaukee-shopping" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Black Friday Shopping →
               </Link>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -321,13 +323,14 @@ export default function ThanksgivingMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Holiday Week Updates</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Thanksgiving menus, Black Friday events and holiday light openings — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

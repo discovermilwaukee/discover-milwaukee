@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -310,7 +310,7 @@ export default function BestChineseMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {spot.priceRange && <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>}
+          {spot.priceRange && <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.priceRange}</span>}
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{spot.neighborhood}</span>
           {spot.style && <span style={{ backgroundColor: c.yellow, color: c.green1, padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700" }}>{spot.style}</span>}
         </div>
@@ -320,7 +320,7 @@ export default function BestChineseMilwaukee() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
           {spot.mustTry && (
             <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
               <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{spot.mustTry}</p>
             </div>
           )}
@@ -337,7 +337,7 @@ export default function BestChineseMilwaukee() {
           <p style={{ fontSize: "13px", color: c.green1, margin: 0 }}><strong>Insider tip:</strong> {spot.insiderTip}</p>
         </div>
       )}
-      {spot.address && <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{spot.address}</p>}
+      {spot.address && <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{spot.address}</p>}
     </div>
   );
 
@@ -368,9 +368,10 @@ export default function BestChineseMilwaukee() {
         <Nav />
       <Breadcrumbs />
 
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green2} 0%, ${c.green1} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>CHINESE CUISINE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>CHINESE CUISINE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Chinese Restaurants in Milwaukee
             </h1>
@@ -385,29 +386,29 @@ export default function BestChineseMilwaukee() {
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>EXPLORE BY TYPE</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href="#best-overall" style={{ color: c.green2, fontSize: "14px" }}>Best Overall</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#authentic" style={{ color: c.green2, fontSize: "14px" }}>Authentic Chinese</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#dim-sum" style={{ color: c.green2, fontSize: "14px" }}>Dim Sum & Dumplings</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#takeout" style={{ color: c.green2, fontSize: "14px" }}>Takeout Favorites</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Best Chinese Restaurants in Milwaukee</dd>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Top picks</dt>
               <dd style={{ color: "#444", margin: 0 }}>DanDan, Momo Mee, Sze Chuan Restaurant, Fortune Restaurant, Jing's</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -455,7 +456,7 @@ export default function BestChineseMilwaukee() {
               <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Best Patios →
               </Link>
-              <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+              <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Best Brunch →
               </Link>
             </div>
@@ -478,6 +479,7 @@ export default function BestChineseMilwaukee() {
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

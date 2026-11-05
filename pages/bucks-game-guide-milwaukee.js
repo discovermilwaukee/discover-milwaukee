@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -318,9 +318,10 @@ export default function BucksGameGuideMilwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · GAME DAY GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JUNE 4, 2026 · GAME DAY GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Milwaukee Bucks Game Day Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               <strong>Everything for a Bucks game at Fiserv Forum and the Deer District</strong> — parking, the shuttle bars locals use, food inside the arena, and where to eat and drink before and after.
@@ -328,7 +329,7 @@ export default function BucksGameGuideMilwaukee() {
           </div>
         </header>
 
-        <nav style={{
+        <nav aria-label="On this page" style={{
           position: "sticky",
           top: 0,
           zIndex: 50,
@@ -362,7 +363,7 @@ export default function BucksGameGuideMilwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -371,7 +372,7 @@ export default function BucksGameGuideMilwaukee() {
               <strong>Heads up:</strong> Shuttle schedules, parking prices, and Deer District programming shift by opponent and event. Confirm with each bar's socials and the Bucks app on game day before you head out.
             </p>
           </div>          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Milwaukee Bucks Game Day Guide</dd>
@@ -384,7 +385,7 @@ export default function BucksGameGuideMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
               <dd style={{ color: "#444", margin: 0 }}>Game day in Milwaukee</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -399,7 +400,7 @@ export default function BucksGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: "12px" }}>
               {overviewStats.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "15px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -418,7 +419,7 @@ export default function BucksGameGuideMilwaukee() {
               The outdoor plaza that wraps the north side of Fiserv Forum — the most distinctive thing about a Bucks game-day in Milwaukee, and the closest the city gets to a stadium-scale outdoor sports moment.
             </p>
             <div style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, padding: "22px", borderRadius: "16px", marginBottom: "16px" }}>
-              <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", marginBottom: "10px" }}>📍 What it is</h3>
+              <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", marginBottom: "10px" }}><span aria-hidden="true">📍 </span>What it is</h3>
               <p style={{ color: "#444", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>
                 A free, open-to-the-public outdoor plaza in the blocks bounded by Highland, Vel R. Phillips and Juneau Avenues, anchored by a giant video board on the north face of the arena. Built by the Bucks ownership group alongside Fiserv Forum and now home to restaurants, bars, residential and office buildings around the perimeter.
               </p>
@@ -451,7 +452,7 @@ export default function BucksGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "24px" }}>
               {ticketTiers.map((t) => (
                 <div key={t.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{t.name}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{t.name}</p>
                   <p style={{ fontSize: "22px", fontWeight: "900", color: c.green1, margin: "0 0 4px" }}>{t.price}</p>
                   <p style={{ fontSize: "13px", color: "#666", margin: 0 }}>{t.note}</p>
                 </div>
@@ -473,7 +474,7 @@ export default function BucksGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px", marginBottom: "24px" }}>
               {parkingLots.map((lot) => (
                 <div key={lot.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{lot.name}</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 6px", textTransform: "uppercase" }}>{lot.name}</p>
                   <p style={{ fontSize: "20px", fontWeight: "900", color: c.green1, margin: "0 0 8px" }}>{lot.price}</p>
                   <p style={{ fontSize: "13px", color: "#555", margin: 0, lineHeight: 1.5 }}>{lot.note}</p>
                 </div>
@@ -533,14 +534,14 @@ export default function BucksGameGuideMilwaukee() {
                     <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{bar.name}</h3>
                     <span style={{ color: c.green2, fontSize: "13px", fontWeight: "700" }}>· {bar.location} · {bar.priceRange}</span>
                   </div>
-                  <p style={{ fontSize: "13px", color: c.orange, fontWeight: "700", letterSpacing: "0.5px", margin: "0 0 8px", textTransform: "uppercase" }}>📍 {bar.address}</p>
+                  <p style={{ fontSize: "13px", color: c.orangeDark, fontWeight: "700", letterSpacing: "0.5px", margin: "0 0 8px", textTransform: "uppercase" }}><span aria-hidden="true">📍 </span>{bar.address}</p>
                   <div style={{ backgroundColor: c.cream, padding: "10px 14px", borderRadius: "8px", marginBottom: "12px" }}>
                     <p style={{ color: c.green1, fontSize: "14px", fontWeight: "700", margin: 0 }}>The shuttle deal: {bar.special}</p>
                   </div>
                   <p style={{ color: "#444", fontSize: "15px", lineHeight: 1.7, margin: "0 0 12px" }}>{bar.description}</p>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "10px", marginBottom: "10px" }}>
                     <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "10px", borderRadius: "8px" }}>
-                      <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "4px", textTransform: "uppercase" }}>Must Try</p>
+                      <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px", textTransform: "uppercase" }}>Must Try</p>
                       <p style={{ fontSize: "13px", color: c.green1, margin: 0 }}>{bar.mustTry}</p>
                     </div>
                     <div style={{ backgroundColor: "rgba(45,90,74,0.08)", padding: "10px", borderRadius: "8px" }}>
@@ -570,10 +571,10 @@ export default function BucksGameGuideMilwaukee() {
               {transit.map((t) => (
                 <div key={t.name} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
-                    <span style={{ fontSize: "26px" }}>{t.icon}</span>
+                    <span aria-hidden="true" style={{ fontSize: "26px" }}>{t.icon}</span>
                     <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "800", margin: 0 }}>{t.name}</h3>
                   </div>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1px", margin: "0 0 10px", textTransform: "uppercase" }}>Fare: {t.fare}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1px", margin: "0 0 10px", textTransform: "uppercase" }}>Fare: {t.fare}</p>
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>{t.description}</p>
                 </div>
               ))}
@@ -589,7 +590,7 @@ export default function BucksGameGuideMilwaukee() {
               {insideFood.map((f) => (
                 <div key={f.name} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "14px", padding: "18px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-                    <span style={{ fontSize: "26px" }}>{f.emoji}</span>
+                    <span aria-hidden="true" style={{ fontSize: "26px" }}>{f.emoji}</span>
                     <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: 0 }}>{f.name}</h3>
                   </div>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>{f.description}</p>
@@ -621,12 +622,12 @@ export default function BucksGameGuideMilwaukee() {
                   <h3 style={{ color: c.green1, fontSize: "20px", fontWeight: "800", margin: 0 }}>{spot.name}</h3>
                   <span style={{ color: c.green2, fontSize: "13px", fontWeight: "700" }}>· {spot.neighborhood} · {spot.priceRange}</span>
                 </div>
-                <p style={{ fontSize: "12px", color: c.orange, fontWeight: "700", letterSpacing: "0.5px", margin: "0 0 8px", textTransform: "uppercase" }}>📍 {spot.address}</p>
+                <p style={{ fontSize: "12px", color: c.orangeDark, fontWeight: "700", letterSpacing: "0.5px", margin: "0 0 8px", textTransform: "uppercase" }}><span aria-hidden="true">📍 </span>{spot.address}</p>
                 <p style={{ color: c.green2, fontSize: "13px", fontWeight: "700", margin: "0 0 10px", fontStyle: "italic" }}>{spot.special}</p>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.7, margin: "0 0 10px" }}>{spot.description}</p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "8px", marginBottom: "10px" }}>
                   <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "8px 10px", borderRadius: "8px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, marginBottom: "2px", textTransform: "uppercase" }}>Must Try</p>
+                    <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, marginBottom: "2px", textTransform: "uppercase" }}>Must Try</p>
                     <p style={{ fontSize: "12px", color: c.green1, margin: 0 }}>{spot.mustTry}</p>
                   </div>
                   <div style={{ backgroundColor: "rgba(45,90,74,0.08)", padding: "8px 10px", borderRadius: "8px" }}>
@@ -649,7 +650,7 @@ export default function BucksGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px" }}>
               {bucksTraditions.map((t) => (
                 <div key={t.title} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
-                  <h4 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", margin: "0 0 8px" }}>{t.title}</h4>
+                  <h3 style={{ color: c.green1, fontSize: "15px", fontWeight: "800", margin: "0 0 8px" }}>{t.title}</h3>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.6, margin: 0 }}>{t.body}</p>
                 </div>
               ))}
@@ -695,7 +696,7 @@ export default function BucksGameGuideMilwaukee() {
                 padding: "16px 18px",
                 marginBottom: "12px",
               }}>
-                <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h4>
+                <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{t.title}</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.65, margin: 0 }}>{t.body}</p>
               </div>
             ))}
@@ -736,9 +737,9 @@ export default function BucksGameGuideMilwaukee() {
                     }}
                   >
                     <span>{f.q}</span>
-                    <span style={{
+                    <span aria-hidden="true" style={{
                       fontSize: "20px",
-                      color: c.orange,
+                      color: c.orangeDark,
                       flexShrink: 0,
                       transform: isOpen ? "rotate(45deg)" : "rotate(0)",
                       transition: "transform 0.15s",
@@ -760,7 +761,7 @@ export default function BucksGameGuideMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "12px" }}>
               <Link href="/brewers-game-guide-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Brewers Game Guide</Link>
               <Link href="/packers-bars-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Packers Bars Milwaukee</Link>
-              <Link href="/milwaukee-sports-bars" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Sports Bars</Link>
+              <Link href="/milwaukee-sports-bars" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Sports Bars</Link>
             </div>
           </section>
 
@@ -771,6 +772,7 @@ export default function BucksGameGuideMilwaukee() {
               Subscribe Free
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

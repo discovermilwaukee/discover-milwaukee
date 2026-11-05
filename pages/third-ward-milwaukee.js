@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -281,14 +281,14 @@ export default function ThirdWardMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{restaurant.name}</h3>
         <div style={{ display: "flex", gap: "8px" }}>
-          <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{restaurant.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{restaurant.priceRange}</span>
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{restaurant.cuisine}</span>
         </div>
       </div>
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{restaurant.description}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{restaurant.mustTry}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -302,7 +302,7 @@ export default function ThirdWardMilwaukee() {
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{restaurant.insiderTip}</p>
         </div>
       )}
-      <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{restaurant.address}</p>
+      <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{restaurant.address}</p>
     </div>
   );
 
@@ -363,9 +363,10 @@ export default function ThirdWardMilwaukee() {
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         {/* Hero Section */}
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>MILWAUKEE NEIGHBORHOOD GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>MILWAUKEE NEIGHBORHOOD GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 52px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Historic Third Ward
             </h1>
@@ -379,15 +380,15 @@ export default function ThirdWardMilwaukee() {
         <div style={{ backgroundColor: "white", borderBottom: `1px solid ${c.beige}`, padding: "16px 24px" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "24px" }}>
             <div style={{ textAlign: "center" }}>
-              <p style={{ fontSize: "12px", color: "#888", margin: "0 0 4px 0" }}>VIBE</p>
+              <p style={{ fontSize: "12px", color: "#6d6d6d", margin: "0 0 4px 0" }}>VIBE</p>
               <p style={{ fontSize: "14px", color: c.green1, fontWeight: "700", margin: 0 }}>Upscale & Trendy</p>
             </div>
             <div style={{ textAlign: "center" }}>
-              <p style={{ fontSize: "12px", color: "#888", margin: "0 0 4px 0" }}>BEST FOR</p>
+              <p style={{ fontSize: "12px", color: "#6d6d6d", margin: "0 0 4px 0" }}>BEST FOR</p>
               <p style={{ fontSize: "14px", color: c.green1, fontWeight: "700", margin: 0 }}>Shopping, Dining, Date Night</p>
             </div>
             <div style={{ textAlign: "center" }}>
-              <p style={{ fontSize: "12px", color: "#888", margin: "0 0 4px 0" }}>WALKABILITY</p>
+              <p style={{ fontSize: "12px", color: "#6d6d6d", margin: "0 0 4px 0" }}>WALKABILITY</p>
               <p style={{ fontSize: "14px", color: c.green1, fontWeight: "700", margin: 0 }}>Excellent</p>
             </div>
           </div>
@@ -399,31 +400,31 @@ export default function ThirdWardMilwaukee() {
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>QUICK LINKS</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href="#overview" style={{ color: c.green2, fontSize: "14px" }}>Overview</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#restaurants" style={{ color: c.green2, fontSize: "14px" }}>Restaurants</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#public-market" style={{ color: c.green2, fontSize: "14px" }}>Public Market</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#shopping" style={{ color: c.green2, fontSize: "14px" }}>Shopping</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#nightlife" style={{ color: c.green2, fontSize: "14px" }}>Nightlife</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#galleries" style={{ color: c.green2, fontSize: "14px" }}>Art Galleries</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#parking" style={{ color: c.green2, fontSize: "14px" }}>Parking</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
             </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
 
           {/* Overview Section */}          <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Topic</dt>
               <dd style={{ color: "#444", margin: 0 }}>Third Ward Milwaukee Guide</dd>
@@ -434,7 +435,7 @@ export default function ThirdWardMilwaukee() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Best for</dt>
               <dd style={{ color: "#444", margin: 0 }}>Exploring this Milwaukee neighborhood</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-06-10">2026-06-10</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -463,8 +464,8 @@ export default function ThirdWardMilwaukee() {
                 <p style={{ color: c.cream, fontSize: "12px", margin: 0 }}>Restaurants & Cafés</p>
               </div>
               <div style={{ backgroundColor: c.orange, padding: "16px", borderRadius: "12px", textAlign: "center" }}>
-                <p style={{ color: "white", fontSize: "24px", fontWeight: "900", margin: "0 0 4px 0" }}>15+</p>
-                <p style={{ color: "white", fontSize: "12px", margin: 0 }}>Art Galleries</p>
+                <p style={{ color: "#1a3d34", fontSize: "24px", fontWeight: "900", margin: "0 0 4px 0" }}>15+</p>
+                <p style={{ color: "#1a3d34", fontSize: "12px", margin: 0 }}>Art Galleries</p>
               </div>
             </div>
           </section>
@@ -501,19 +502,19 @@ export default function ThirdWardMilwaukee() {
               <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "12px" }}>Must-Visit Vendors</h4>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", marginBottom: "20px" }}>
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>St. Paul Fish Company</p>
+                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>St. Paul Fish Company</p>
                   <p style={{ fontSize: "13px", color: "#555", margin: 0 }}>Best oysters and lobster rolls in Milwaukee. Period.</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>West Allis Cheese & Sausage</p>
+                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>West Allis Cheese & Sausage</p>
                   <p style={{ fontSize: "13px", color: "#555", margin: 0 }}>Wisconsin cheese curds at their finest. Fresh and squeaky.</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>Anodyne Coffee</p>
+                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>Anodyne Coffee</p>
                   <p style={{ fontSize: "13px", color: "#555", margin: 0 }}>Milwaukee's favorite local roaster. Great espresso drinks.</p>
                 </div>
                 <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>Kehr's Candies</p>
+                  <p style={{ fontSize: "14px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>Kehr's Candies</p>
                   <p style={{ fontSize: "13px", color: "#555", margin: 0 }}>Handmade chocolates and caramels since 1930.</p>
                 </div>
               </div>
@@ -562,7 +563,7 @@ export default function ThirdWardMilwaukee() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
                     <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>{spot.name}</h3>
                   </div>
-                  <span style={{ display: "inline-block", backgroundColor: c.orange, color: "white", padding: "3px 8px", borderRadius: "6px", fontSize: "11px", fontWeight: "600", marginBottom: "10px" }}>{spot.type}</span>
+                  <span style={{ display: "inline-block", backgroundColor: c.orange, color: "#1a3d34", padding: "3px 8px", borderRadius: "6px", fontSize: "11px", fontWeight: "600", marginBottom: "10px" }}>{spot.type}</span>
                   <p style={{ color: "#666", fontSize: "14px", lineHeight: 1.6, marginBottom: "8px" }}>{spot.description}</p>
                   <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600", margin: 0 }}>Vibe: {spot.vibe}</p>
                 </div>
@@ -587,7 +588,7 @@ export default function ThirdWardMilwaukee() {
             <div style={{ backgroundColor: c.green2, padding: "20px", borderRadius: "12px" }}>
               <h4 style={{ color: c.yellow, fontSize: "16px", fontWeight: "700", marginBottom: "8px" }}>Third Friday Gallery Night</h4>
               <p style={{ color: c.cream, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
-                Every third Friday of the month, Third Ward galleries open their doors for free, often with new exhibitions, refreshments, and artist meet-and-greets. It's a quintessential Milwaukee experience—start around 5pm and gallery-hop until 9pm. Check <Link href="/events" style={{ color: c.yellow }}>our events calendar</Link> for dates.
+                Every third Friday of the month, Third Ward galleries open their doors for free, often with new exhibitions, refreshments, and artist meet-and-greets. It's a quintessential Milwaukee experience—start around 5pm and gallery-hop until 9pm. Check <Link href="/events" style={{ color: c.yellow, textDecoration: "underline" }}>our events calendar</Link> for dates.
               </p>
             </div>
           </section>
@@ -601,7 +602,7 @@ export default function ThirdWardMilwaukee() {
             <div style={{ backgroundColor: "white", padding: "24px", borderRadius: "16px", border: `1px solid ${c.beige}` }}>
               <div style={{ display: "grid", gap: "16px" }}>
                 <div style={{ borderBottom: `1px solid ${c.beige}`, paddingBottom: "16px" }}>
-                  <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "8px" }}>Street Parking</h4>
+                  <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", marginBottom: "8px" }}>Street Parking</h3>
                   <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
                     Metered spots throughout the neighborhood. Rates vary; most areas are free on Sundays. Use the ParkMKE app for easy payment. Spots fill fast on weekends—arrive before noon for best selection.
                   </p>
@@ -641,7 +642,7 @@ export default function ThirdWardMilwaukee() {
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Things to Do →
               </Link>
-              <Link href="/events" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+              <Link href="/events" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Events Calendar →
               </Link>
               <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.yellow, color: c.green1, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
@@ -674,6 +675,7 @@ export default function ThirdWardMilwaukee() {
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         {/* Footer */}

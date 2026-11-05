@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -100,9 +100,10 @@ export default function ArtsCultureMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>ARTS GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>ARTS GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Arts & Culture in Milwaukee
             </h1>
@@ -112,7 +113,7 @@ export default function ArtsCultureMilwaukee() {
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
           <section style={{ marginBottom: "48px" }}>
@@ -128,10 +129,10 @@ export default function ArtsCultureMilwaukee() {
                 </div>
                 <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{m.description}</p>
                 <div style={{ backgroundColor: `${c.orange}15`, padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>DON'T MISS</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>DON'T MISS</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{m.highlight}</p>
                 </div>
-                <p style={{ color: "#777", fontSize: "13px", margin: 0 }}>Tip: {m.tip}</p>
+                <p style={{ color: "#6d6d6d", fontSize: "13px", margin: 0 }}>Tip: {m.tip}</p>
               </div>
             ))}
           </section>
@@ -148,7 +149,7 @@ export default function ArtsCultureMilwaukee() {
                   <span style={{ color: c.green2, fontSize: "12px", fontWeight: "600" }}>Est. {t.built}</span>
                 </div>
                 <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "8px" }}>{t.description}</p>
-                <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", margin: 0 }}>{t.vibe}</p>
+                <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", margin: 0 }}>{t.vibe}</p>
               </div>
             ))}
           </section>
@@ -162,10 +163,10 @@ export default function ArtsCultureMilwaukee() {
               <div key={i} style={{ backgroundColor: "white", padding: "20px", borderRadius: "12px", border: `1px solid ${c.beige}`, marginBottom: "12px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
                   <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", margin: 0 }}>{v.name}</h3>
-                  <span style={{ backgroundColor: c.orange, color: "white", fontSize: "11px", fontWeight: "700", padding: "4px 10px", borderRadius: "20px" }}>{v.type}</span>
+                  <span style={{ backgroundColor: c.orange, color: "#1a3d34", fontSize: "11px", fontWeight: "700", padding: "4px 10px", borderRadius: "20px" }}>{v.type}</span>
                 </div>
                 <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "8px" }}>{v.description}</p>
-                <p style={{ color: "#777", fontSize: "13px", margin: 0 }}>{v.location}</p>
+                <p style={{ color: "#6d6d6d", fontSize: "13px", margin: 0 }}>{v.location}</p>
               </div>
             ))}
           </section>
@@ -176,7 +177,7 @@ export default function ArtsCultureMilwaukee() {
               {galleries.map((g, i) => (
                 <div key={i} style={{ paddingBottom: "16px", marginBottom: "16px", borderBottom: i < galleries.length - 1 ? `1px solid ${c.beige}` : "none" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
-                    <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", margin: 0 }}>{g.name}</h4>
+                    <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", margin: 0 }}>{g.name}</h3>
                     <span style={{ backgroundColor: c.beige, color: c.green1, fontSize: "11px", padding: "3px 8px", borderRadius: "4px" }}>{g.hood}</span>
                   </div>
                   <p style={{ color: "#666", fontSize: "14px", margin: 0 }}>{g.focus}</p>
@@ -203,7 +204,7 @@ export default function ArtsCultureMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
               <Link href="/things-to-do-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do →</Link>
               <Link href="/third-ward-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Third Ward →</Link>
-              <Link href="/bronzeville-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Bronzeville →</Link>
+              <Link href="/bronzeville-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Bronzeville →</Link>
             </div>
           </section>
 
@@ -214,6 +215,7 @@ export default function ArtsCultureMilwaukee() {
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

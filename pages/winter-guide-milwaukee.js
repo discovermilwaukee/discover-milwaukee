@@ -22,8 +22,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -47,7 +47,8 @@ const MAP_CATEGORIES = {"outdoors": {"label": "Outdoor Winter Fun", "color": "#0
 const MAP_EXCLUDE = ["events", "holiday-highlights"];
 
 const timeline = [{"period": "December 2026", "items": ["Dec. 1–5: Marquette hosts Wagner (Dec. 1) and Wisconsin (Dec. 5) at Fiserv Forum; Bucks host New York Dec. 2", "Dec. 2–24: Milwaukee Rep's A Christmas Carol at the Pabst Theater", "Dec. 3: Final free Kohl's Thank You Thursday at the Milwaukee Public Museum", "Dec. 4: Christmas in the Ward tree lighting, Catalano Square", "Dec. 5–26: Milwaukee Ballet's The Nutcracker", "Through Dec. 25: Candy Cane Lane in West Allis (opened Nov. 27)", "Dec. 3–31 select nights: Wild Lights at the Milwaukee County Zoo (Zoo Year's Eve Dec. 31)", "Dec. 13: Milwaukee Wave home opener, 3:05 p.m., UWM Panther Arena", "Mid-December (TBA): Slice of Ice typically opens; area ski hills (Little Switzerland, Sunburst, Alpine Valley, Wilmot) open as snowmaking allows", "Dec. 18–23: Bucks host Phoenix, Golden State and Minnesota", "Dec. 19–Jan. 2 (typical): Sunburst holiday tubing hours, 9:30 a.m.–9:30 p.m.", "Dec. 26–Jan. 1: Adventure Rock winter-break hours 9 a.m.–10 p.m.; Discovery World open Dec. 28–29", "Dec. 28–Jan. 3: MPM's 'Greatest Hits of Greatest Hits' farewell week; Dec. 29 Winter in the Tropics at the Domes"]}, {"period": "January 2027", "items": ["Jan. 1: Polar Bear Plunge at Bradford Beach (~noon); Bucks vs. Philadelphia; last night of the Holiday Lights Festival", "Jan. 3: Domes Holiday Show, MPM Deck the Streets and Planetarium Palooza all close", "Jan. 12–Feb. 7: John Proctor Is the Villain at Milwaukee Rep; MKE MVP cabaret opens Jan. 16", "Jan. 15–16: Winter Gallery Night MKE (free)", "Jan. 15–17 & 20–24: Milwaukee Boat Show, Wisconsin Expo Center", "Jan. 16–17: Wisconsin Free Fishing Weekend (ice fishing, no license needed)", "Jan. 18: Discovery World open for MLK Day", "Jan. 22–31: Milwaukee Ballet MKE MIX", "Jan. 28–30: Bucks host Miami and Atlanta; Marquette hosts Butler Jan. 30", "Lapham Peak lit trails (until 9 p.m. Mon–Sat) and county-groomed trails at Brown Deer/Whitnall hit peak season after storms"]}, {"period": "February 2027", "items": ["Feb. 2–28: Twelve Angry Men at Milwaukee Rep", "Feb. 3–7: Lake Geneva Winterfest & America's Snow Sculpting Invitational (free)", "Early February (TBA): Burnhearts Mitten Fest in Bay View (2026 was Sat., Feb. 7)", "Feb. 8–9: Bucks host Orlando and Sacramento back-to-back", "Feb. 12–14: PBS Wisconsin Garden & Green Living Expo, Madison", "Feb. 14: Valentine's Day and Super Bowl LXI on the same Sunday", "Feb. 20–21: Cedarburg Winter Festival (bed races, ice sculptures, soup contest); Marquette hosts UConn Feb. 20", "Feb. 25–27: Bucks vs. Washington (Feb. 25); Marquette vs. Villanova (Feb. 26); Admirals Country Music Night with Dustin Lynch postgame (Feb. 27); Raise a Glass Gala at the Domes (Feb. 27)", "Feb. 28: Zoo winter hours end; Rep's MKE MVP and Twelve Angry Men close; ski hills typically run into early/mid-March"]}];
-const TIMELINE_COLORS = ["#547F4B", "#D06828", "#0B77BD", "#9E7F4B", "#6C3483"];
+// Darkened brand shades so each heading meets 4.5:1 contrast on white.
+const TIMELINE_COLORS = ["#547F4B", "#AB5521", "#0B77BD", "#83693E", "#6C3483"];
 
 const faqs = [{"question": "What is there to do in Milwaukee in the winter?", "answer": "Plenty, indoors and out. Downtown has the Holiday Lights Festival (Nov. 19–Jan. 1), skating at Slice of Ice in Red Arrow Park and on the Olympic oval at the Pettit National Ice Center, plus Bucks, Marquette, Admirals and Wave games. Milwaukee County Parks run 12 free sledding hills and groomed ski trails at Brown Deer and Whitnall. Indoors, the Milwaukee Art Museum, the Mitchell Park Domes (80 degrees inside), the Harley-Davidson Museum, Discovery World and the Milwaukee Public Museum's final winter on Wells Street are the headliners, backed by brewery tours, supper clubs, Friday fish fries and historic cocktail lounges."}, {"question": "Is Milwaukee worth visiting in winter?", "answer": "Yes, especially Thanksgiving through New Year's, when downtown is lit for the Holiday Lights Festival, A Christmas Carol and The Nutcracker are on stage and hotel rates drop sharply from summer. January and February are quieter and colder but bring the Boat Show, Winter Gallery Night, Lake Geneva's snow-sculpting championship an hour away, Mitten Fest and the best deals of the year on rooms and restaurants. Pack for the cold and the city is very walkable between heated stops."}, {"question": "How cold does Milwaukee get in January?", "answer": "January is Milwaukee's coldest month. NOAA's 1991–2020 normals for Mitchell Airport put the average high at 30.9°F and the average low at 17.2°F, with a daily mean of 24.0°F. December averages 36.1°F/23.0°F and February 34.2°F/20.0°F. Sub-zero mornings happen most winters, and the all-time record low is −26°F. Lake Michigan moderates shoreline temperatures slightly but adds wind."}, {"question": "How much snow does Milwaukee get?", "answer": "The 1991–2020 normal annual snowfall at Mitchell Airport is about 48.7 inches, and January is the snowiest month at roughly 14.9 inches on average. Snow cover is not guaranteed in any given week, which is why Lapham Peak's snowmaking loop and the area's ski hills with snowmaking are the most reliable bets."}, {"question": "Where can I go sledding in Milwaukee?", "answer": "Milwaukee County Parks designates 12 sledding hills. Three are lit daily 4:30–8:30 p.m.: Currie Park (3535 N. Mayfair Rd.), Whitnall Park (5879 S. 92nd St.) and Humboldt Park (3000 S. Howell Ave.). Daytime-only hills include Brown Deer, Kletzsch, Wilson Recreation, Greene, Hales Corners, Indigenous Peoples' Park, LaFollette, McCarty and McGovern. All are free and open whenever there is adequate snow cover."}, {"question": "Where can I ski near Milwaukee?", "answer": "For downhill, the closest hills are Little Switzerland in Slinger (about 40 minutes, with two new quad chairlifts debuting in 2026–27), Sunburst in Kewaskum (also a huge tubing park), Alpine Valley in Elkhorn, Wilmot Mountain on the Illinois line (Epic Pass) and Grand Geneva's Mountain Top in Lake Geneva. For cross-country, Lapham Peak in Delafield has lit trails and snowmaking, the Southern Kettle Moraine has the McMiller and Nordic systems, and Milwaukee County grooms Brown Deer and Whitnall parks after 6 inches of snow. As of early November, 2026–27 opening dates had not been announced; most hills target late November to mid-December."}, {"question": "What indoor activities are there in Milwaukee in winter?", "answer": "Museums lead: the Milwaukee Art Museum (pay-what-you-wish Thursday nights, kids free), the Milwaukee Public Museum in its final season before moving in 2027, Discovery World, the Harley-Davidson Museum and the Pabst Mansion. The Mitchell Park Domes stay tropical year-round, the Public Market has 19 vendors and seven bars under one roof, and Lakefront Brewery and Best Place run indoor brewery tours. Add Adventure Rock climbing gyms, Up-Down arcade bar, AXE MKE, Potawatomi's restaurants and live music, and the Rep and Ballet's winter seasons."}, {"question": "When is Mitten Fest?", "answer": "Burnhearts Mitten Fest is traditionally held on a Saturday in early February outside Burnhearts bar at 2599 S. Logan Ave. in Bay View, noon to 8 p.m., with live music, specialty beers and food vendors, collecting donations for Hunger Task Force. The 2026 edition was Saturday, Feb. 7; the 2027 date had not been announced as of early November 2026."}, {"question": "Is the Polar Plunge on Jan. 1?", "answer": "Yes. Milwaukee's Polar Bear Plunge happens every New Year's Day at Bradford Beach (2400 N. Lincoln Memorial Dr.), with the main group running into Lake Michigan around noon. It is free, has no registration and no official organizer, and Milwaukee Fire Department divers and paramedics stand by. Arrive early for parking and bring a robe and boots."}, {"question": "What are the biggest winter events in Milwaukee in 2026–27?", "answer": "The Milwaukee Holiday Lights Festival (Nov. 19, 2026–Jan. 1, 2027), Candy Cane Lane (Nov. 27–Dec. 25), Wild Lights at the zoo, The Nutcracker (Dec. 5–26) and A Christmas Carol (Dec. 2–24) carry December. January brings the Polar Plunge, the Milwaukee Boat Show (Jan. 15–17 & 20–24) and Winter Gallery Night (Jan. 15–16). February features Lake Geneva Winterfest's snow-sculpting championship (Feb. 3–7), Mitten Fest (early February, TBA) and Cedarburg's Winter Festival (Feb. 20–21). It is also the last winter to visit the Milwaukee Public Museum on Wells Street before it closes in 2027."}];
 
@@ -137,7 +138,7 @@ export default function WinterGuideMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={item.typical ? c.tan : c.orange} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
+          {item.badge && <Tag bg={item.typical ? c.tanDark : c.orangeDark} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
         </div>
       </div>
@@ -155,8 +156,8 @@ export default function WinterGuideMilwaukee() {
         </div>
       )}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-        {item.address && <span style={{ fontSize: "13px", color: "#8a8a8a", fontFamily: BODY }}>{item.address}</span>}
-        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>Website ↗</a>}
+        {item.address && <span style={{ fontSize: "13px", color: "#6d6d6d", fontFamily: BODY }}>{item.address}</span>}
+        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}><span className="sr-only">{item.name} </span>Website <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </div>
   );
@@ -198,9 +199,10 @@ export default function WinterGuideMilwaukee() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.blue2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #074D7B 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>The Complete Winter 2026–27 Guide</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>The Complete Winter 2026–27 Guide</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Winter in Milwaukee
             </h1>
@@ -217,19 +219,19 @@ export default function WinterGuideMilwaukee() {
               {mapItems.length > 0 && <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>}
               {SECTIONS.map((s, i) => (
                 <React.Fragment key={s.id}>
-                  {(i > 0 || mapItems.length > 0) && <span style={{ color: c.beige }}>|</span>}
+                  {(i > 0 || mapItems.length > 0) && <span aria-hidden="true" style={{ color: c.beige }}>|</span>}
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>December 2026 through February 2027 ({allItems.length} verified picks)</dd>
@@ -240,7 +242,7 @@ export default function WinterGuideMilwaukee() {
                 </React.Fragment>
               ))}
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against each organizer&apos;s or venue&apos;s own published information. Confirmed 2026–27 dates are labeled; anything else is marked as typical timing. Dates, hours and pricing change — always confirm before you go.
             </p>
           </section>
@@ -249,7 +251,7 @@ export default function WinterGuideMilwaukee() {
 
           {mapItems.length > 0 && (
             <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
               <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Mapped Across Southeastern Wisconsin</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every mappable spot in this guide plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
               <RegionMap items={mapItems} categories={MAP_CATEGORIES} />
@@ -258,7 +260,7 @@ export default function WinterGuideMilwaukee() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -287,10 +289,10 @@ export default function WinterGuideMilwaukee() {
               <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Christmas in Milwaukee →
               </Link>
-              <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Ice Skating Guide →
               </Link>
-              <Link href="/new-years-eve-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/new-years-eve-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 New Year's Eve →
               </Link>
               <Link href="/thanksgiving-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -299,10 +301,10 @@ export default function WinterGuideMilwaukee() {
               <Link href="/best-fish-fry-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Best Fish Fry →
               </Link>
-              <Link href="/best-supper-clubs-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/best-supper-clubs-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Supper Clubs →
               </Link>
-              <Link href="/rainy-day-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/rainy-day-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Indoor Activities →
               </Link>
               <Link href="/milwaukee-date-ideas" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -321,13 +323,14 @@ export default function WinterGuideMilwaukee() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Winter Event Alerts</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Holiday lights, Mitten Fest, Polar Plunge and snow-day plans — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

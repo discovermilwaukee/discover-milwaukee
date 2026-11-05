@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a",
   yellow: "#f4d03f",
   ink: "#26302c",
 };
@@ -188,9 +188,10 @@ export default function I794Milwaukee() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 52px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "13px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>
+            <p style={{ color: c.orangeLight, fontSize: "13px", fontWeight: "700", letterSpacing: "3px", marginBottom: "16px", textTransform: "uppercase" }}>
               Opinion · July 14, 2026 · I-794 &amp; the Future of Milwaukee
             </p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5.2vw, 52px)", fontWeight: "900", marginBottom: "22px", lineHeight: 1.15 }}>
@@ -206,7 +207,7 @@ export default function I794Milwaukee() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }} aria-label="In this article">
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }} aria-label="In this article">
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {sections.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -216,7 +217,7 @@ export default function I794Milwaukee() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "760px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "760px", margin: "0 auto", padding: "40px 24px" }}>
           <figure style={{ margin: "0 0 28px" }}>
             <video
               autoPlay
@@ -282,6 +283,7 @@ export default function I794Milwaukee() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>New openings, weekend picks, neighborhood deep-dives and the stories shaping Milwaukee — free every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

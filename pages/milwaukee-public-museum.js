@@ -22,8 +22,8 @@ const c = {
   cream: "#F7F1E7",
   beige: "#EBDFC1",
   yellow: "#F0A623",
-  orange: "#D06828",
-  tan: "#9E7F4B",
+  orange: "#D06828", orangeDark: "#AB5521",
+  tan: "#9E7F4B", tanDark: "#83693E",
   ink: "#20291F",
 };
 
@@ -46,7 +46,8 @@ const MAP_CATEGORIES = {"nearby": {"label": "Nearby: Where to Eat & What to Pair
 const MAP_EXCLUDE = ["plan-your-visit", "must-see", "final-season", "future-museum"];
 
 const timeline = [{"period": "1851–1898: A school collection becomes a public museum", "items": ["1851 — The German-English Academy is founded in Milwaukee; principal Peter Engelmann's student field trips begin the collection.", "1857 — Engelmann organizes a natural history society to manage the growing collection.", "1882 — The Milwaukee Public Museum is officially chartered as 'a free public museum'.", "May 24, 1884 — MPM opens to the public in rented space in the Exposition Building.", "1890 — Taxidermist Carl Akeley completes the muskrat colony, regarded as the world's first complete museum habitat diorama.", "1898 — The museum moves into the shared library-museum building at 814 W. Wisconsin Ave. (today's Central Library)."]}, {"period": "1960–1976: The Wells Street era begins", "items": ["1960 — Ground is broken for a new museum on W. Wells St. between 8th and 9th Streets, designed by Eschweiler & Eschweiler.", "1962–63 — The Wells Street building is completed (sources give 1962 or 1963); exhibits remain in the old building until 1966.", "January 1965 — Streets of Old Milwaukee opens, one of the first walk-through dioramas in the world.", "1970 — The Pacific Islands hall opens.", "1976 — The City of Milwaukee sells the museum to Milwaukee County."]}, {"period": "1986–2015: Rainforest, dome and a nonprofit operator", "items": ["March 1986 — Fifteen MPM biologists and artists travel to Costa Rica to collect for the Rainforest exhibit.", "1992 — Milwaukee Public Museum, Inc., a nonprofit, takes over operations; the county keeps the building and collections.", "1990s — Additions are built for the Dome Theater & Planetarium and Discovery World.", "June 2007 — MPM acquires the Hebior Mammoth; the Samson gorilla re-creation debuts in 'Samson Remembered'.", "2015 — Crossroads of Civilization opens; the renovated Streets of Old Milwaukee reopens Dec 11."]}, {"period": "2017–2025: Planning the move", "items": ["2017 — MPM announces its intention to relocate after a study finds the building needs extensive, costly repairs.", "2021–22 — Accreditation is tabled over building conditions (2021) and restored in July 2022; the state commits $40 million and Milwaukee County $45 million.", "May 7, 2024 — Ceremonial groundbreaking at 6th and McKinley; construction begins that summer.", "May 6, 2025 — The new name, Nature & Culture Museum of Wisconsin, is announced.", "July 15, 2025 — The new building tops out at 100 feet.", "Nov 18, 2025 — MPM announces it will stay open all of 2026, with a last day of Jan 3, 2027."]}, {"period": "2026: The Greatest Hits farewell year", "items": ["Jan 10–Feb 14 — Ancient Civilizations; Feb 21 — the final Food & Froth; May 16 — the final Annual Gala.", "March 27 — A replica Haida canoe becomes the first exhibit piece moved into the new museum.", "March 14–Apr 17 Diorama-RAMA; May 7–June 6 Rainforest & Butterflies; July 11–Aug 6 Dino Days of Summer.", "August — Milwaukee County seeks developers for the Wells Street site (proposals due Oct 12).", "Oct 1–Dec 17 — Streets of Old Milwaukee & European Village Greatest Hit; Deck the Streets and Village runs Nov 20–Jan 3.", "Dec 3 — Final Kohl's Thank You Thursday; Dec 11 — last school field trips."]}, {"period": "2027: Closing and reopening", "items": ["Dec 28, 2026–Jan 3, 2027 — The Greatest Hits of Greatest Hits finale week and the last Planetarium Palooza shows.", "Sunday, Jan 3, 2027 — Last day of operation at 800 W. Wells St.", "Early 2027 — Remaining objects are deinstalled and moved; both museums are expected to be closed for a brief period.", "Spring 2027 (date not announced) — The Nature & Culture Museum of Wisconsin is slated to open at 1310 N. 6th St."]}];
-const TIMELINE_COLORS = ["#547F4B", "#D06828", "#0B77BD", "#9E7F4B", "#6C3483"];
+// Darkened brand shades so each heading meets 4.5:1 contrast on white.
+const TIMELINE_COLORS = ["#547F4B", "#AB5521", "#0B77BD", "#83693E", "#6C3483"];
 
 const faqs = [{"question": "Is the Milwaukee Public Museum closing?", "answer": "The building is closing, not the institution. The museum at 800 W. Wells St. closes after Sunday, Jan 3, 2027, and Milwaukee Public Museum moves to a new building at 6th and McKinley, where it will reopen in 2027 under a new name, the Nature & Culture Museum of Wisconsin. MPM says there will likely be a brief period when both buildings are closed during the move."}, {"question": "When does the Milwaukee Public Museum close?", "answer": "The last day of operation on Wells Street is Sunday, January 3, 2027, according to MPM's own announcement and website. Regular hours are 10 a.m. to 5 p.m.; no special final-day hours or ceremony have been published. (One news report gave Jan. 4, 2027 as the 'official' closing date — that is the first day it is shut.)"}, {"question": "When does the new Milwaukee museum open?", "answer": "No exact date has been announced. MPM's membership and campaign pages say the Nature & Culture Museum of Wisconsin is 'opening in spring 2027'; older pages say 'early 2027', and the museum's Oct. 1, 2026 press release says an official opening date 'is still being determined'."}, {"question": "What is the new Milwaukee Public Museum called?", "answer": "The Nature & Culture Museum of Wisconsin. The name was announced on May 6, 2025 and takes effect when the new building opens at the corner of N. 6th St. and W. McKinley Ave. (1310 N. 6th St.) in the Haymarket neighborhood next to the Deer District. The overall complex is called the Milwaukee Museum Center."}, {"question": "How much are Milwaukee Public Museum tickets?", "answer": "General admission is $25 for adults 18–64, $24 for teens 14–17, $21 for seniors 65+, $19 for youth 4–13 and $21 for military and college students; members and children 3 and under are free. Milwaukee County residents get $2 off. Admission includes one Planetarium program; Dome Theater giant films are $6 extra ($5 for members)."}, {"question": "Is the Milwaukee Public Museum free?", "answer": "Not normally, but it is free for everyone on Kohl's Thank You Thursdays. Two remain: Thursday, Nov 5, 2026 and Thursday, Dec 3, 2026, which is the final one; reserve up to seven days ahead because walk-ups are not guaranteed. Members and children 3 and under are always free, Museums for All (EBT) admission is $3, Wisconsin Tribal members are free throughout November 2026, and the Ground Floor Hebior Mammoth can be seen without a ticket."}, {"question": "What are the Milwaukee Public Museum hours?", "answer": "Wednesday through Monday, 10 a.m. to 5 p.m.; closed Tuesdays. The museum is closed Thanksgiving Day (Nov 26, 2026) and Christmas Day and closes at 3 p.m. on Christmas Eve. Members can enter an hour early, at 9 a.m., on Saturdays and Sundays."}, {"question": "Where do I park at the Milwaukee Public Museum?", "answer": "Use the MacArthur Square parking structure next to the museum, entered from N. James Lovell St. (7th St.); it has a Ground-level entrance straight into the museum. MPM members pay a $5 flat rate with validation at Member Services; MPM does not publish the public rate. Metered street parking is also available and is free on Sundays."}, {"question": "Will the Streets of Old Milwaukee move to the new museum?", "answer": "Not as it is. MPM says built-in exhibits cannot be moved intact, so the new museum will have a new walk-through streetscape gallery called Milwaukee Revealed, described as the 'spiritual successor' to the Streets. It will include a working Haymarket Candy Shop, the Apothecary's bottles and cabinetry, the penny-farthing bicycle and the Schloemer automobile. MPM has not published a comparable successor to the European Village."}, {"question": "How long does it take to go through the Milwaukee Public Museum?", "answer": "MPM does not publish a recommended time, and visits are not time-limited. There are three exhibit floors with more than 150,000 square feet of exhibits, plus 23-minute Planetarium programs and 45-minute giant films. As a planning estimate rather than an official figure, allow about half a day to see all three floors and a dome show."}, {"question": "Is the butterfly garden still open?", "answer": "Yes. The Puelicher Butterfly Vivarium on the First Floor is open and included with admission; MPM has announced no early closing date for it. Only the adjacent Butterflies Alive! play area has been permanently closed. A new rooftop Puelicher Butterfly Vivarium is planned for the Nature & Culture Museum of Wisconsin."}, {"question": "Is the planetarium still open?", "answer": "Yes. The Daniel M. Soref Dome Theater & Planetarium is running Planetarium Palooza — a rotating lineup of its 20 greatest shows — every open day from Nov 1, 2026 through the final day, Jan 3, 2027. One Planetarium program is included with admission (first come, first served); giant films cost $6, or $5 for members."}];
 
@@ -138,7 +139,7 @@ export default function MilwaukeePublicMuseum() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
         <h3 style={{ color: c.green1, fontSize: "26px", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0, lineHeight: 1.1 }}>{item.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {item.badge && <Tag bg={item.typical ? c.tan : c.orange} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
+          {item.badge && <Tag bg={item.typical ? c.tanDark : c.orangeDark} color="#fff">{item.typical ? `Typically: ${item.badge}` : item.badge}</Tag>}
           <Tag bg={c.green2} color="#fff">{item.where}</Tag>
         </div>
       </div>
@@ -156,8 +157,8 @@ export default function MilwaukeePublicMuseum() {
         </div>
       )}
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
-        {item.address && <span style={{ fontSize: "13px", color: "#8a8a8a", fontFamily: BODY }}>{item.address}</span>}
-        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}>Website ↗</a>}
+        {item.address && <span style={{ fontSize: "13px", color: "#6d6d6d", fontFamily: BODY }}>{item.address}</span>}
+        {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, fontSize: "13px", fontWeight: 600, fontFamily: BODY, textDecoration: "none", borderBottom: `1px solid ${c.beige}`, paddingBottom: "1px" }}><span className="sr-only">{item.name} </span>Website <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>}
       </div>
     </div>
   );
@@ -202,9 +203,10 @@ export default function MilwaukeePublicMuseum() {
       <Nav />
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh", fontFamily: BODY }}>
-        <header style={{ background: `linear-gradient(135deg, ${c.blue2} 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
+        <main id="main-content" tabIndex={-1}>
+        <header style={{ background: `linear-gradient(135deg, #074D7B 0%, ${c.green1} 100%)`, padding: "72px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.yellow, fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>Final Season on Wells Street</p>
+            <p style={{ color: "#F1AF38", fontSize: "13px", fontWeight: "700", letterSpacing: "4px", marginBottom: "16px", fontFamily: BODY, textTransform: "uppercase" }}>Final Season on Wells Street</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(40px, 7vw, 68px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "18px", lineHeight: 1.05, letterSpacing: "1px" }}>
               Milwaukee Public Museum
             </h1>
@@ -221,19 +223,19 @@ export default function MilwaukeePublicMuseum() {
               {mapItems.length > 0 && <a href="#map" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>Map</a>}
               {SECTIONS.map((s, i) => (
                 <React.Fragment key={s.id}>
-                  {(i > 0 || mapItems.length > 0) && <span style={{ color: c.beige }}>|</span>}
+                  {(i > 0 || mapItems.length > 0) && <span aria-hidden="true" style={{ color: c.beige }}>|</span>}
                   <a href={`#${s.id}`} style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>{s.title}</a>
                 </React.Fragment>
               ))}
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px", fontWeight: 600, fontFamily: BODY }}>FAQ</a>
             </div>
           </div>
         </div>
 
-        <main style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", padding: "48px 24px" }}>
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, padding: "24px 26px", borderRadius: "16px", marginBottom: "36px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 16px", fontFamily: BODY }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5, fontFamily: BODY }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Covers</dt>
               <dd style={{ color: "#444", margin: 0 }}>Final season on Wells Street, 2026–27 ({allItems.length} verified picks)</dd>
@@ -244,7 +246,7 @@ export default function MilwaukeePublicMuseum() {
                 </React.Fragment>
               ))}
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "16px 0 0", fontFamily: BODY }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "16px 0 0", fontFamily: BODY }}>
               Details verified <time dateTime={UPDATED}>{UPDATED_LABEL}</time> against each organizer&apos;s or venue&apos;s own published information. Confirmed 2026–27 dates are labeled; anything else is marked as typical timing. Dates, hours and pricing change — always confirm before you go.
             </p>
           </section>
@@ -253,7 +255,7 @@ export default function MilwaukeePublicMuseum() {
 
           {mapItems.length > 0 && (
             <section aria-labelledby="map-heading" style={{ marginBottom: "44px", scrollMarginTop: "80px" }} id="map">
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>Explore by Location</p>
               <h2 id="map-heading" style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>Mapped Across Southeastern Wisconsin</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px", fontFamily: BODY }}>Every mappable spot in this guide plotted across the seven counties of southeastern Wisconsin. Filter by category, then click any dot to jump to the full listing.</p>
               <RegionMap items={mapItems} categories={MAP_CATEGORIES} />
@@ -262,7 +264,7 @@ export default function MilwaukeePublicMuseum() {
 
           {SECTIONS.map((section) => (
             <section key={section.id} id={section.id} style={{ marginBottom: "52px", scrollMarginTop: "80px" }}>
-              <p style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
+              <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 6px", fontFamily: BODY }}>{section.kicker}</p>
               <h2 style={{ color: c.green1, fontSize: "clamp(28px, 4vw, 38px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.5px", lineHeight: 1.1 }}>{section.title}</h2>
               <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "26px", fontFamily: BODY }}>{section.blurb}</p>
               {section.list.map((item, i) => <ItemCard key={i} item={item} />)}
@@ -291,10 +293,10 @@ export default function MilwaukeePublicMuseum() {
               <Link href="/milwaukee-museums" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 All Milwaukee Museums →
               </Link>
-              <Link href="/milwaukee-art-museum" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/milwaukee-art-museum" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Milwaukee Art Museum →
               </Link>
-              <Link href="/milwaukee-county-zoo" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/milwaukee-county-zoo" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Milwaukee County Zoo →
               </Link>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -303,10 +305,10 @@ export default function MilwaukeePublicMuseum() {
               <Link href="/winter-guide-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Winter in Milwaukee →
               </Link>
-              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: "#FFFFFF", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Christmas in Milwaukee →
               </Link>
-              <Link href="/free-things-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
+              <Link href="/free-things-milwaukee" style={{ display: "block", backgroundColor: c.orangeDark, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
                 Free Things to Do →
               </Link>
               <Link href="/downtown-milwaukee" style={{ display: "block", backgroundColor: c.blue2, color: "#fff", padding: "18px", borderRadius: "12px", textDecoration: "none", fontWeight: "600", textAlign: "center", fontFamily: BODY }}>
@@ -325,13 +327,14 @@ export default function MilwaukeePublicMuseum() {
             ))}
           </section>
 
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
+          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #44673D 100%)`, padding: "40px 32px", borderRadius: "18px", textAlign: "center" }}>
             <h2 style={{ color: c.yellow, fontSize: "clamp(24px, 3.5vw, 32px)", fontFamily: DISPLAY, fontWeight: 400, textTransform: "uppercase", marginBottom: "12px", letterSpacing: "0.5px" }}>Get Museum Farewell Updates</h2>
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "22px", fontFamily: BODY }}>Final-season events, free days and new-museum news — straight to your inbox.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.ink, padding: "15px 36px", borderRadius: "999px", fontWeight: "700", textDecoration: "none", fontFamily: BODY, fontSize: "16px" }}>
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

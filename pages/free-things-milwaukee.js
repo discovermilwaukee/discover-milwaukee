@@ -12,7 +12,7 @@ const colors = {
   green2: '#2d5a4a',
   cream: '#faf8f5',
   beige: '#e8e4dc',
-  orange: '#f4a261',
+  orange: '#f4a261', orangeDark: '#ac520c',
   yellow: '#f4d03f',
 };
 
@@ -418,7 +418,7 @@ export default function FreeThingsMilwaukee() {
 
       <Nav />
       <Breadcrumbs />
-      <main style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
+      <main id="main-content" tabIndex={-1} style={{ backgroundColor: colors.cream, minHeight: '100vh' }}>
           <NewsletterCTA />
 
         {/* Hero Section */}
@@ -525,11 +525,11 @@ export default function FreeThingsMilwaukee() {
             </p>
             <p style={{ color: colors.green2, fontSize: '1.1rem', lineHeight: '1.8', marginBottom: 0 }}>
               Looking for more activities? Check out our complete guide to{' '}
-              <Link href="/things-to-do-milwaukee" style={{ color: colors.orange, fontWeight: '600' }}>
+              <Link href="/things-to-do-milwaukee" style={{ color: colors.orangeDark, fontWeight: '600' }}>
                 things to do in Milwaukee
               </Link>{' '}
               or discover the{' '}
-              <Link href="/best-patios-milwaukee" style={{ color: colors.orange, fontWeight: '600' }}>
+              <Link href="/best-patios-milwaukee" style={{ color: colors.orangeDark, fontWeight: '600' }}>
                 best patios in Milwaukee
               </Link>{' '}
               for outdoor dining.
@@ -576,7 +576,7 @@ export default function FreeThingsMilwaukee() {
                     style={{
                       backgroundColor: index === 0 ? colors.green1 : index % 3 === 1 ? colors.green2 : colors.orange,
                       padding: '25px',
-                      color: index % 3 === 2 ? colors.green1 : colors.cream,
+                      color: index === 0 || index % 3 === 1 ? colors.cream : colors.green1,
                     }}
                   >
                     {museum.featured && (
@@ -772,7 +772,7 @@ export default function FreeThingsMilwaukee() {
                       borderLeft: `4px solid ${colors.orange}`,
                     }}
                   >
-                    <h4 style={{ color: colors.green1, margin: '0 0 8px' }}>{garden.name}</h4>
+                    <h3 style={{ color: colors.green1, margin: '0 0 8px' }}>{garden.name}</h3>
                     <p style={{ color: colors.green2, margin: 0, fontSize: '0.95rem' }}>{garden.desc}</p>
                   </div>
                 ))}

@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -316,9 +316,10 @@ export default function MilwaukeeCountyZoo() {
       <Breadcrumbs />
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px 48px", textAlign: "center" }}>
           <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>VERIFIED NOVEMBER 4, 2026 · 2,400+ ANIMALS · 190 ACRES</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>VERIFIED NOVEMBER 4, 2026 · 2,400+ ANIMALS · 190 ACRES</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(34px, 5.5vw, 54px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.15 }}>Milwaukee County Zoo: The 2026 Visitor Guide</h1>
             <p style={{ color: c.beige, fontSize: "19px", lineHeight: 1.6, maxWidth: "680px", margin: "0 auto" }}>
               Everything you actually need before you go — <strong>verified hours</strong>, current <strong>flex-pricing tickets</strong>, every major exhibit and ride, animal demonstration times, the 2026 events calendar, and parking. Audited against milwaukeezoo.org and the Zoological Society of Milwaukee in November 2026.
@@ -326,7 +327,7 @@ export default function MilwaukeeCountyZoo() {
           </div>
         </header>
 
-        <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <nav aria-label="On this page" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.green1, borderBottom: `2px solid ${c.green2}`, padding: "12px 16px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
           <div style={{ display: "flex", gap: "8px", maxWidth: "1000px", margin: "0 auto", whiteSpace: "nowrap" }}>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} style={{ color: c.cream, textDecoration: "none", fontSize: "14px", fontWeight: "600", padding: "8px 14px", borderRadius: "8px", backgroundColor: "rgba(244,162,97,0.15)", border: `1px solid rgba(244,162,97,0.3)`, display: "inline-block", flexShrink: 0 }}>
@@ -336,7 +337,7 @@ export default function MilwaukeeCountyZoo() {
           </div>
         </nav>
 
-        <main style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
+        <div style={{ maxWidth: "880px", margin: "0 auto", padding: "40px 24px" }}>
           <NewsletterCTA />
 
 
@@ -348,7 +349,7 @@ export default function MilwaukeeCountyZoo() {
 
 
           <section id="key-facts" aria-labelledby="key-facts-heading" style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "20px 24px", borderRadius: "14px", marginBottom: "32px", scrollMarginTop: "80px" }}>
-            <h2 id="key-facts-heading" style={{ color: c.orange, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+            <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "700", letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
             <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "10px 18px", margin: 0, fontSize: "14px", lineHeight: 1.5 }}>
               <dt style={{ color: c.green1, fontWeight: "700" }}>Venue</dt>
               <dd style={{ color: "#444", margin: 0 }}>Milwaukee County Zoo</dd>
@@ -367,7 +368,7 @@ export default function MilwaukeeCountyZoo() {
               <dt style={{ color: c.green1, fontWeight: "700" }}>Notable</dt>
               <dd style={{ color: "#444", margin: 0 }}>Small Mammals Building permanently closed (last public day was Nov. 2, 2025); Belle is the sole elephant since April 2026</dd>
             </dl>
-            <p style={{ fontSize: "11px", color: "#999", margin: "14px 0 0" }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", margin: "14px 0 0" }}>
               Cross-reference verified <time dateTime="2026-11-04">2026-11-04</time> against each venue&apos;s own website and Milwaukee press.
             </p>
           </section>
@@ -391,7 +392,7 @@ export default function MilwaukeeCountyZoo() {
                 <figcaption style={{ fontSize: "12px", color: "#666", marginTop: "8px", lineHeight: 1.4 }}>The Safari Train winding through the zoo grounds.</figcaption>
               </figure>
             </div>
-            <p style={{ fontSize: "11px", color: "#999", marginTop: "16px", lineHeight: 1.5 }}>
+            <p style={{ fontSize: "11px", color: "#6d6d6d", marginTop: "16px", lineHeight: 1.5 }}>
               Photos via Wikimedia Commons. Credits: Michael Barera (CC-BY-SA-4.0); Antigrandiose (CC-BY-SA-3.0); Cburnett (CC-BY-SA-3.0); David W. Feldbruegge (CC-BY-2.0).
             </p>
           </section>
@@ -402,7 +403,7 @@ export default function MilwaukeeCountyZoo() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
               {atAGlance.map((s) => (
                 <div key={s.label} style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>{s.label}</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0, fontWeight: "600", lineHeight: 1.4 }}>{s.value}</p>
                 </div>
               ))}
@@ -444,7 +445,7 @@ export default function MilwaukeeCountyZoo() {
                 <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "800", margin: "0 0 10px" }}>{e.name}</h3>
                 <p style={{ color: "#444", fontSize: "14px", lineHeight: 1.6, margin: "0 0 10px" }}>{e.what}</p>
                 <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "10px 12px", borderRadius: "8px" }}>
-                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#b8860b", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Best Viewing Time</p>
+                  <p style={{ fontSize: "11px", fontWeight: "700", color: "#886208", marginBottom: "4px", textTransform: "uppercase", letterSpacing: "1px" }}>Best Viewing Time</p>
                   <p style={{ fontSize: "13px", color: c.green1, margin: 0, lineHeight: 1.5 }}>{e.best}</p>
                 </div>
               </div>
@@ -459,7 +460,7 @@ export default function MilwaukeeCountyZoo() {
               {rides.map((r) => (
                 <div key={r.name} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
                   <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 6px" }}>{r.name}</h3>
-                  <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", margin: "0 0 4px" }}>{r.price}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "14px", fontWeight: "700", margin: "0 0 4px" }}>{r.price}</p>
                   <p style={{ color: c.green2, fontSize: "12px", fontWeight: "600", marginBottom: "8px" }}>{r.when}</p>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.5, margin: 0 }}>{r.note}</p>
                 </div>
@@ -510,7 +511,7 @@ export default function MilwaukeeCountyZoo() {
               {memberships.map((m) => (
                 <div key={m.tier} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px" }}>
                   <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "800", margin: "0 0 4px" }}>{m.tier}</h3>
-                  <p style={{ color: c.orange, fontSize: "20px", fontWeight: "900", margin: "0 0 8px" }}>{m.price}</p>
+                  <p style={{ color: c.orangeDark, fontSize: "20px", fontWeight: "900", margin: "0 0 8px" }}>{m.price}</p>
                   <p style={{ color: "#555", fontSize: "13px", lineHeight: 1.5, margin: 0 }}>{m.who}</p>
                 </div>
               ))}
@@ -521,27 +522,27 @@ export default function MilwaukeeCountyZoo() {
             <h2 style={{ color: c.green1, fontSize: "30px", fontWeight: "900", marginBottom: "8px" }}>Parking, Accessibility, Strollers & Lockers</h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Parking</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Parking</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>$15 per vehicle plus service fee and tax ($20 for oversized vehicles, buses and RVs). The Zoo switched to license-plate-based parking on April 21, 2026 and no longer uses the drive-up entrance booths: park first, then scan a QR code in the lot and pay by Apple Pay, Google Pay or credit card (parking ambassadors and Text-to-Pay are available). Parking cannot be pre-purchased yet. Free for Zoo Pass members, who must still register their license plate on every visit. Picnic-area parking is complimentary for group events. The main lots fill on summer Saturdays — arrive before 10:30 a.m. on peak days.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Accessibility</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Accessibility</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>All main pathways are paved and ADA-accessible. Wheelchair rental $10. Mobility scooter rental $35 (limited supply — first come, first served). Service animals welcome; pet animals are not.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Strollers</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Strollers</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Stroller rental is $12.50 + tax (holds up to 2 children, 100 lb max) and wagons are $15.50 + tax, rented cashless at the U.S. Bank Gathering Place (kiosk inside in winter, Mobility Tent outside in summer). Bring your own if you prefer — paths are stroller-friendly.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Re-entry & Stamps</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Re-entry & Stamps</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Same-day re-entry is allowed — get a hand stamp from a team member at the Admissions entrance in the U.S. Bank Gathering Place if you need to go to your car for snacks, sunscreen or a stroller swap.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Outside Food</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>Outside Food</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>Picnics are welcome — bring food and non-alcoholic drinks. Picnic shelters can be reserved for groups; no outside alcohol or glass.</p>
               </div>
               <div style={{ backgroundColor: c.cream, border: `1px solid ${c.beige}`, padding: "16px", borderRadius: "12px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orange, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>How Long to Plan</p>
+                <p style={{ fontSize: "11px", fontWeight: "700", color: c.orangeDark, letterSpacing: "1.5px", marginBottom: "6px", textTransform: "uppercase" }}>How Long to Plan</p>
                 <p style={{ fontSize: "14px", color: c.green1, margin: 0, lineHeight: 1.5 }}>4–6 hours covers a complete adult-pace visit. With young kids and a Sky Safari, train and carousel ride, plan a full day. Winter visits often fit in 2.5–3 hours since outdoor exhibits are limited.</p>
               </div>
             </div>
@@ -577,7 +578,7 @@ export default function MilwaukeeCountyZoo() {
                 <div key={i} style={{ backgroundColor: "white", border: `1px solid ${c.beige}`, borderRadius: "12px", marginBottom: "10px", overflow: "hidden" }}>
                   <button onClick={() => setOpenFaq(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", textAlign: "left", backgroundColor: isOpen ? c.cream : "white", border: "none", padding: "16px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "700", color: c.green1 }}>
                     <span>{f.question}</span>
-                    <span style={{ fontSize: "20px", color: c.orange, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
+                    <span aria-hidden="true" style={{ fontSize: "20px", color: c.orangeDark, flexShrink: 0, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.15s", fontWeight: "300" }}>+</span>
                   </button>
                   {isOpen && (
                     <div style={{ padding: "0 18px 18px", color: "#444", fontSize: "14px", lineHeight: 1.7, borderTop: `1px solid ${c.beige}` }}>
@@ -594,8 +595,8 @@ export default function MilwaukeeCountyZoo() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
               <Link href="/things-to-do-with-kids-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Things to Do With Kids</Link>
               <Link href="/family-weekend-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Family Weekend Guide</Link>
-              <Link href="/milwaukee-museums" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Museums</Link>
-              <Link href="/milwaukee-public-museum" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Public Museum</Link>
+              <Link href="/milwaukee-museums" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Museums</Link>
+              <Link href="/milwaukee-public-museum" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Milwaukee Public Museum</Link>
               <Link href="/best-happy-hour-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Happy Hour Guide</Link>
             </div>
           </section>
@@ -605,6 +606,7 @@ export default function MilwaukeeCountyZoo() {
             <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>Family events, new restaurants, festival schedules and insider tips every Wednesday.</p>
             <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>Subscribe Free</Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />

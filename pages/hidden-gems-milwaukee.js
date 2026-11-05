@@ -245,7 +245,7 @@ export default function HiddenGemsMilwaukee() {
         <h3 style={{ fontSize: "1.4rem", color: c.green1, margin: 0 }}>{gem.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
           <span style={{ backgroundColor: c.beige, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1 }}>{gem.neighborhood}</span>
-          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#fff" }}>{gem.price}</span>
+          <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: "#1a3d34" }}>{gem.price}</span>
         </div>
       </div>
       <p style={{ fontSize: "0.95rem", color: c.green2, marginBottom: "8px", fontStyle: "italic" }}>{gem.type}</p>
@@ -284,6 +284,7 @@ export default function HiddenGemsMilwaukee() {
 
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "40px 20px" }}>
+          <main id="main-content" tabIndex={-1}>
           <header style={{ marginBottom: "40px" }}>
             <h1 style={{ fontSize: "2.5rem", color: c.green1, marginBottom: "16px", lineHeight: "1.2" }}>Milwaukee Hidden Gems: 18 Secret Spots Only Locals Know</h1>
             <p style={{ fontSize: "1.1rem", color: "#555", lineHeight: "1.8", marginBottom: "16px" }}>
@@ -292,7 +293,7 @@ export default function HiddenGemsMilwaukee() {
             <p style={{ fontSize: "1rem", color: "#666", lineHeight: "1.8" }}>
               This guide reveals the secret spots that make Milwaukee special. Some are literally hidden; others are simply overlooked. All are worth discovering. These are the places locals share with friends they actually like.
             </p>
-            <p style={{ fontSize: "0.9rem", color: "#888", marginTop: "12px" }}>Last updated: April 2026 | All locations verified open</p>
+            <p style={{ fontSize: "0.9rem", color: "#6d6d6d", marginTop: "12px" }}>Last updated: April 2026 | All locations verified open</p>
           </header>
           <NewsletterCTA />
 
@@ -340,12 +341,13 @@ export default function HiddenGemsMilwaukee() {
             <h2 style={{ color: "#fff", marginBottom: "12px" }}>Explore More Milwaukee</h2>
             <p style={{ color: c.beige, marginBottom: "20px" }}>Continue discovering the city</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/things-to-do-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Things to Do</Link>
-              <Link href="/free-things-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Free Activities</Link>
-              <Link href="/best-restaurants-milwaukee" style={{ backgroundColor: c.orange, color: "#fff", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Restaurants</Link>
+              <Link href="/things-to-do-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Things to Do</Link>
+              <Link href="/free-things-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Free Activities</Link>
+              <Link href="/best-restaurants-milwaukee" style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: "500" }}>Restaurants</Link>
             </div>
           </section>
 
+          </main>
           <RelatedGuides />
       <Footer />
         </div>

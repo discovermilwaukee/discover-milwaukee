@@ -204,7 +204,7 @@ export default function RegionMap({ items = [], categories }) {
       <div style={{ position: "relative", maxWidth: "560px", margin: "0 auto" }}>
         <svg
           viewBox={`0 0 ${W} ${H}`}
-          role="img"
+          role="group"
           aria-label="Raised relief map of southeastern Wisconsin counties with fall destinations marked"
           style={{ width: "100%", height: "auto", display: "block", borderRadius: "16px", border: `1px solid ${c.beige}`, touchAction: "manipulation" }}
           onClick={() => { setPinned(null); setSelectedCounty(null); }}
@@ -254,7 +254,7 @@ export default function RegionMap({ items = [], categories }) {
                 {/* Top face */}
                 <path d={co.d} fill={isActive ? "url(#rm-face-active)" : "url(#rm-face)"} stroke={c.tan} strokeWidth={isActive ? 3 : 2.2} strokeLinejoin="round" />
                 {/* Label */}
-                <text x={co.lx} y={co.ly} textAnchor="middle" style={{ fontFamily: BODY, fontSize: "26px", fontWeight: 700, letterSpacing: "0.5px", fill: isActive ? "#8A7752" : "#B9A98A", pointerEvents: "none", textTransform: "uppercase" }}>
+                <text x={co.lx} y={co.ly} textAnchor="middle" style={{ fontFamily: BODY, fontSize: "26px", fontWeight: 700, letterSpacing: "0.5px", fill: isActive ? "#6E5F42" : "#756546", pointerEvents: "none", textTransform: "uppercase" }}>
                   {co.name}
                 </text>
                 {/* Pins that ride with the county */}
@@ -326,7 +326,7 @@ export default function RegionMap({ items = [], categories }) {
         )}
       </div>
 
-      <p style={{ textAlign: "center", fontSize: "12px", color: "#999", margin: "12px 0 0" }}>
+      <p style={{ textAlign: "center", fontSize: "12px", color: "#6d6d6d", margin: "12px 0 0" }}>
         Hover or tap a county to raise it; hover or tap a dot for a quick look, then click to jump to the full listing. Arrows on the edge point toward farther day trips. Dot positions are approximate.
       </p>
     </div>

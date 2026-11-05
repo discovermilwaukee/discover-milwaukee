@@ -13,7 +13,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -244,7 +244,7 @@ export default function BestRestaurantsMilwaukee() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
         <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{restaurant.name}</h3>
         <div style={{ display: "flex", gap: "8px" }}>
-          <span style={{ backgroundColor: c.orange, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{restaurant.priceRange}</span>
+          <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{restaurant.priceRange}</span>
           <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{restaurant.neighborhood}</span>
         </div>
       </div>
@@ -252,7 +252,7 @@ export default function BestRestaurantsMilwaukee() {
       <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{restaurant.description}</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
         <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>MUST TRY</p>
+          <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>MUST TRY</p>
           <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{restaurant.mustTry}</p>
         </div>
         <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
@@ -261,7 +261,7 @@ export default function BestRestaurantsMilwaukee() {
         </div>
       </div>
       {restaurant.address && (
-        <p style={{ fontSize: "13px", color: "#777", marginTop: "12px", marginBottom: 0 }}>{restaurant.address}</p>
+        <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{restaurant.address}</p>
       )}
     </div>
   );
@@ -304,9 +304,10 @@ export default function BestRestaurantsMilwaukee() {
       <Breadcrumbs />
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         {/* Hero Section */}
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JULY 2026</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>UPDATED JULY 2026</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Best Restaurants in Milwaukee
             </h1>
@@ -322,20 +323,20 @@ export default function BestRestaurantsMilwaukee() {
             <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>QUICK LINKS</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <a href="#at-a-glance" style={{ color: c.green2, fontSize: "14px" }}>At a Glance</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#michelin-contenders" style={{ color: c.green2, fontSize: "14px" }}>Michelin Contenders</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#new-restaurants" style={{ color: c.green2, fontSize: "14px" }}>New in 2026</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#local-favorites" style={{ color: c.green2, fontSize: "14px" }}>Local Favorites</a>
-              <span style={{ color: c.beige }}>|</span>
+              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
               <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
             </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
           {/* Key Facts — lead answer block */}
@@ -348,7 +349,7 @@ export default function BestRestaurantsMilwaukee() {
           {/* At-a-Glance table — quick reference */}
           <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
             <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Best Milwaukee Restaurants at a Glance</h2>
-            <div style={{ overflowX: "auto" }}>
+            <div tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways" style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                 <thead>
                   <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
@@ -451,7 +452,7 @@ export default function BestRestaurantsMilwaukee() {
               <Link href="/best-brunch-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Best Brunch Spots →
               </Link>
-              <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
+              <Link href="/best-patios-milwaukee" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
                 Best Patios →
               </Link>
             </div>
@@ -476,6 +477,7 @@ export default function BestRestaurantsMilwaukee() {
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         {/* Footer with Enhanced Cross-Linking */}

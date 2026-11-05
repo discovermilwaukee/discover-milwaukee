@@ -12,7 +12,7 @@ const c = {
   green2: "#2d5a4a",
   cream: "#faf8f5",
   beige: "#e8e4dc",
-  orange: "#f4a261",
+  orange: "#f4a261", orangeLight: "#f7ba8a", orangeDark: "#ac520c",
   yellow: "#f4d03f",
 };
 
@@ -186,9 +186,10 @@ export default function BeerLoversMilwaukee() {
         <Nav />
       <Breadcrumbs />
 
+        <main id="main-content" tabIndex={-1}>
         <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "60px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orange, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>BEER GUIDE</p>
+            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>BEER GUIDE</p>
             <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
               Beer Lover's Milwaukee
             </h1>
@@ -198,7 +199,7 @@ export default function BeerLoversMilwaukee() {
           </div>
         </header>
 
-        <main style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
           <NewsletterCTA />
 
           <section style={{ marginBottom: "48px" }}>
@@ -221,14 +222,14 @@ export default function BeerLoversMilwaukee() {
                 </div>
                 <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{b.description}</p>
                 <div style={{ backgroundColor: `${c.orange}15`, padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
-                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orange, marginBottom: "4px" }}>SAMPLES</p>
+                  <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>SAMPLES</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{b.samples}</p>
                 </div>
                 <div style={{ backgroundColor: `${c.green2}15`, padding: "12px", borderRadius: "8px", marginBottom: "12px" }}>
                   <p style={{ fontSize: "12px", fontWeight: "700", color: c.green2, marginBottom: "4px" }}>INSIDER TIP</p>
                   <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{b.tip}</p>
                 </div>
-                <p style={{ fontSize: "13px", color: "#777", margin: 0 }}>{b.address}</p>
+                <p style={{ fontSize: "13px", color: "#6d6d6d", margin: 0 }}>{b.address}</p>
               </div>
             ))}
           </section>
@@ -245,9 +246,9 @@ export default function BeerLoversMilwaukee() {
                   <span style={{ color: c.green2, fontSize: "12px", fontWeight: "600" }}>{b.style}</span>
                 </div>
                 <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "10px" }}>{b.description}</p>
-                <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", marginBottom: "8px" }}>Try: {b.tryThis}</p>
-                <p style={{ color: "#777", fontSize: "12px", margin: 0 }}>{b.tip}</p>
-                <p style={{ fontSize: "12px", color: "#999", marginTop: "8px", marginBottom: 0 }}>{b.address}</p>
+                <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", marginBottom: "8px" }}>Try: {b.tryThis}</p>
+                <p style={{ color: "#6d6d6d", fontSize: "12px", margin: 0 }}>{b.tip}</p>
+                <p style={{ fontSize: "12px", color: "#6d6d6d", marginTop: "8px", marginBottom: 0 }}>{b.address}</p>
               </div>
             ))}
           </section>
@@ -265,7 +266,7 @@ export default function BeerLoversMilwaukee() {
                 </div>
                 <p style={{ color: c.green2, fontSize: "13px", fontWeight: "600", marginBottom: "8px" }}>{b.focus}</p>
                 <p style={{ color: "#555", fontSize: "14px", lineHeight: 1.6, marginBottom: "8px" }}>{b.description}</p>
-                <p style={{ color: c.orange, fontSize: "13px", fontWeight: "600", margin: 0 }}>Vibe: {b.vibe}</p>
+                <p style={{ color: c.orangeDark, fontSize: "13px", fontWeight: "600", margin: 0 }}>Vibe: {b.vibe}</p>
               </div>
             ))}
           </section>
@@ -280,9 +281,9 @@ export default function BeerLoversMilwaukee() {
                 <div key={i} style={{ display: "flex", gap: "16px", paddingBottom: "16px", marginBottom: "16px", borderBottom: i < tourItinerary.length - 1 ? `1px solid ${c.beige}` : "none" }}>
                   <div style={{ backgroundColor: c.green1, color: c.yellow, padding: "8px 12px", borderRadius: "8px", fontSize: "13px", fontWeight: "700", height: "fit-content" }}>{t.time}</div>
                   <div>
-                    <h4 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0" }}>{t.stop}</h4>
+                    <h3 style={{ color: c.green1, fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0" }}>{t.stop}</h3>
                     <p style={{ color: "#555", fontSize: "14px", margin: "0 0 4px 0" }}>{t.activity}</p>
-                    <p style={{ color: "#999", fontSize: "13px", margin: 0 }}>{t.duration}</p>
+                    <p style={{ color: "#6d6d6d", fontSize: "13px", margin: 0 }}>{t.duration}</p>
                   </div>
                 </div>
               ))}
@@ -294,7 +295,7 @@ export default function BeerLoversMilwaukee() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
               <Link href="/milwaukee-breweries" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>All Milwaukee Breweries →</Link>
               <Link href="/walkers-point-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Walker's Point →</Link>
-              <Link href="/milwaukee-nightlife" style={{ display: "block", backgroundColor: c.orange, color: "white", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Nightlife Guide →</Link>
+              <Link href="/milwaukee-nightlife" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>Nightlife Guide →</Link>
             </div>
           </section>
 
@@ -305,6 +306,7 @@ export default function BeerLoversMilwaukee() {
               Subscribe Free →
             </Link>
           </section>
+        </div>
         </main>
 
         <RelatedGuides />
