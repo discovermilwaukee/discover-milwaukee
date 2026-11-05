@@ -2718,7 +2718,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
     <div style={{ minHeight: "100vh", backgroundColor: darkMode ? colors.bodyBg : colors.cream, fontFamily: "system-ui, sans-serif", transition: "background-color 0.3s" }}>
       {/* Global Search Modal */}
       {showSearchModal && (
-        <div style={{ 
+        <div className="r-padding" style={{ 
           position: "fixed", 
           inset: 0, 
           backgroundColor: "rgba(0,0,0,0.8)", 
@@ -2727,7 +2727,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           alignItems: "flex-start", 
           justifyContent: "center", 
           paddingTop: "100px",
-          padding: isMobile ? "60px 16px" : "100px 16px"
+          "--r-padding-m": "60px 16px", "--r-padding-t": "100px 16px", "--r-padding-d": "100px 16px"
         }} onClick={closeSearchModal}>
           <div role="dialog" aria-modal="true" aria-label="Search" onKeyDown={trapTab} style={{ 
             backgroundColor: darkMode ? colors.cardBg : colors.white, 
@@ -2963,33 +2963,33 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {page === "home" && (
         <div style={{ fontFamily: BODY_FONT, backgroundColor: c.cream }}>
           {/* ===== EDITORIAL HERO / MASTHEAD ===== */}
-          <section style={{ position: "relative", overflow: "hidden", backgroundColor: c.cream, padding: isMobile ? "40px 16px 0" : "76px 16px 0" }}>
+          <section className="r-padding" style={{ position: "relative", overflow: "hidden", backgroundColor: c.cream, "--r-padding-m": "40px 16px 0", "--r-padding-t": "76px 16px 0", "--r-padding-d": "76px 16px 0" }}>
             <div style={{ maxWidth: "960px", margin: "0 auto", textAlign: "center" }}>
               {/* Nameplate: real brand mark + kicker */}
-              <div className="dm-fade-up" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: isMobile ? "22px" : "30px" }}>
-                <img src="/images/discover-milwaukee-logo.png" alt="Discover Milwaukee" width="96" height="96" style={{ width: isMobile ? "72px" : "96px", height: "auto" }} />
-                <p style={{ color: c.tanDark, fontSize: isMobile ? "10px" : "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2018</p>
+              <div className="dm-fade-up r-marginBottom" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", "--r-marginBottom-m": "22px", "--r-marginBottom-t": "30px", "--r-marginBottom-d": "30px" }}>
+                <img src="/images/discover-milwaukee-logo.png" alt="Discover Milwaukee" width="96" height="96" className="r-width" style={{ "--r-width-m": "72px", "--r-width-t": "96px", "--r-width-d": "96px", height: "auto" }} />
+                <p className="r-fontSize" style={{ color: c.tanDark, "--r-fontSize-m": "10px", "--r-fontSize-t": "12px", "--r-fontSize-d": "12px", fontWeight: "600", letterSpacing: "4px", textTransform: "uppercase", margin: 0 }}>The Original Milwaukee Insider · Est. 2018</p>
               </div>
 
               {/* Masthead headline — Anton with a Damion script accent */}
-              <h1 className="dm-fade-up dm-delay-1" style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "38px" : "70px", fontWeight: "400", color: c.green1, lineHeight: 1.03, letterSpacing: "0.5px", textTransform: "uppercase", margin: "0 auto", maxWidth: "840px" }}>
+              <h1 className="dm-fade-up dm-delay-1 r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "38px", "--r-fontSize-t": "70px", "--r-fontSize-d": "70px", fontWeight: "400", color: c.green1, lineHeight: 1.03, letterSpacing: "0.5px", textTransform: "uppercase", margin: "0 auto", maxWidth: "840px" }}>
                 The insider's guide to a city worth{" "}
-                <span style={{ fontFamily: SCRIPT_FONT, color: c.blue2, textTransform: "none", fontSize: isMobile ? "46px" : "84px", letterSpacing: 0 }}>knowing</span>
+                <span className="r-fontSize" style={{ fontFamily: SCRIPT_FONT, color: c.blue2, textTransform: "none", "--r-fontSize-m": "46px", "--r-fontSize-t": "84px", "--r-fontSize-d": "84px", letterSpacing: 0 }}>knowing</span>
               </h1>
 
               {/* Subdeck */}
-              <p className="dm-fade-up dm-delay-2" style={{ color: c.green2Dark, fontSize: isMobile ? "16px" : "19px", lineHeight: 1.6, margin: isMobile ? "20px auto 0" : "26px auto 0", maxWidth: "560px" }}>
+              <p className="dm-fade-up dm-delay-2 r-fontSize r-margin" style={{ color: c.green2Dark, "--r-fontSize-m": "16px", "--r-fontSize-t": "19px", "--r-fontSize-d": "19px", lineHeight: 1.6, "--r-margin-m": "20px auto 0", "--r-margin-t": "26px auto 0", "--r-margin-d": "26px auto 0", maxWidth: "560px" }}>
                 The hidden gems, the local favorites, and the openings worth your Saturday — chosen by people who actually live here and delivered in one five-minute email each week.
               </p>
 
               {/* Single email capture */}
-              <div className="dm-fade-up dm-delay-3" style={{ margin: isMobile ? "26px auto 0" : "30px auto 0", maxWidth: "480px" }}>
+              <div className="dm-fade-up dm-delay-3 r-margin" style={{ "--r-margin-m": "26px auto 0", "--r-margin-t": "30px auto 0", "--r-margin-d": "30px auto 0", maxWidth: "480px" }}>
                 {subscribeStatus === "success" ? (
                   <div style={{ backgroundColor: c.green1, borderRadius: "10px", padding: "18px 24px" }}>
                     <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>You're in. Check your inbox to confirm.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "10px" }}>
+                  <form onSubmit={handleSubscribe} className="r-flexDirection" style={{ display: "flex", "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row", gap: "10px" }}>
                     <input type="email" placeholder="you@email.com" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "16px 18px", borderRadius: "10px", border: `1px solid ${c.beige}`, backgroundColor: c.white, fontSize: "15px", color: c.green1, fontFamily: BODY_FONT }} />
                     <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                       {subscribeStatus === "loading" ? "Joining…" : "Get the Guide"}
@@ -3000,24 +3000,24 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
 
               {/* Trust strip — canonical stats, hairline dividers */}
-              <div className="dm-fade-up dm-delay-4" style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", gap: isMobile ? "22px" : "44px", margin: isMobile ? "30px auto 0" : "40px auto 0", padding: isMobile ? "24px 22px" : "28px 44px", borderTop: `2px solid ${c.yellow}`, borderBottom: `2px solid ${c.yellow}` }}>
+              <div className="dm-fade-up dm-delay-4 r-gap r-margin r-padding" style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", "--r-gap-m": "22px", "--r-gap-t": "44px", "--r-gap-d": "44px", "--r-margin-m": "30px auto 0", "--r-margin-t": "40px auto 0", "--r-margin-d": "40px auto 0", "--r-padding-m": "24px 22px", "--r-padding-t": "28px 44px", "--r-padding-d": "28px 44px", borderTop: `2px solid ${c.yellow}`, borderBottom: `2px solid ${c.yellow}` }}>
                 {[
                   { n: "37.1M+", l: "views a year" },
                   { n: "99", l: "local guides" },
                   { n: "8 yrs", l: "covering MKE" }
                 ].map((s, i) => (
                   <React.Fragment key={i}>
-                    {i > 0 && <span aria-hidden="true" style={{ width: "1px", height: isMobile ? "44px" : "56px", backgroundColor: c.beige }} />}
+                    {i > 0 && <span aria-hidden="true" className="r-height" style={{ width: "1px", "--r-height-m": "44px", "--r-height-t": "56px", "--r-height-d": "56px", backgroundColor: c.beige }} />}
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                      <span style={{ fontFamily: DISPLAY_FONT, color: c.green1, fontSize: isMobile ? "36px" : "52px", lineHeight: 1 }}>{s.n}</span>
-                      <span style={{ color: c.tanDark, fontSize: isMobile ? "12px" : "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "8px" }}>{s.l}</span>
+                      <span className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: c.green1, "--r-fontSize-m": "36px", "--r-fontSize-t": "52px", "--r-fontSize-d": "52px", lineHeight: 1 }}>{s.n}</span>
+                      <span className="r-fontSize" style={{ color: c.tanDark, "--r-fontSize-m": "12px", "--r-fontSize-t": "13px", "--r-fontSize-d": "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1.5px", marginTop: "8px" }}>{s.l}</span>
                     </div>
                   </React.Fragment>
                 ))}
               </div>
 
               {/* What you'll get — three points, custom line icons */}
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? "20px" : "28px", margin: isMobile ? "34px auto 0" : "48px auto 0", maxWidth: "780px", textAlign: "left" }}>
+              <div className="r-gridTemplateColumns r-gap r-margin" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(3, 1fr)", "--r-gridTemplateColumns-d": "repeat(3, 1fr)", "--r-gap-m": "20px", "--r-gap-t": "28px", "--r-gap-d": "28px", "--r-margin-m": "34px auto 0", "--r-margin-t": "48px auto 0", "--r-margin-d": "48px auto 0", maxWidth: "780px", textAlign: "left" }}>
                 {[
                   { Icon: LineIcons.Sparkle, title: "Curated, not cluttered", desc: "We filter the noise so you don't have to." },
                   { Icon: LineIcons.Pin, title: "Actually local", desc: "Written by people who live here and go to these places." },
@@ -3034,11 +3034,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
 
               {/* Brands & partners CTA — prominent inquiry panel */}
-              <div style={{ margin: isMobile ? "40px auto 0" : "56px auto 0", maxWidth: "640px", backgroundColor: c.green1, borderRadius: "16px", padding: isMobile ? "30px 22px" : "40px 44px", textAlign: "center" }}>
-                <p style={{ color: "#F1AF38", fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>For Brands &amp; Partners</p>
-                <h2 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "26px" : "36px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05, margin: "0 0 14px" }}>Reach 37.1M+ views a year</h2>
-                <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, margin: "0 auto 26px", maxWidth: "460px" }}>Put your brand in front of Milwaukee's most engaged local audience. Let's talk about working together.</p>
-                <button onClick={() => { window.location.href = "/milwaukee-media-kit"; }} className="dm-cta" style={{ padding: isMobile ? "16px 30px" : "18px 40px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "50px", fontSize: isMobile ? "16px" : "17px", cursor: "pointer", fontFamily: BODY_FONT }}>
+              <div className="r-margin r-padding" style={{ "--r-margin-m": "40px auto 0", "--r-margin-t": "56px auto 0", "--r-margin-d": "56px auto 0", maxWidth: "640px", backgroundColor: c.green1, borderRadius: "16px", "--r-padding-m": "30px 22px", "--r-padding-t": "40px 44px", "--r-padding-d": "40px 44px", textAlign: "center" }}>
+                <p className="r-fontSize" style={{ color: "#F1AF38", "--r-fontSize-m": "11px", "--r-fontSize-t": "12px", "--r-fontSize-d": "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>For Brands &amp; Partners</p>
+                <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: c.cream, "--r-fontSize-m": "26px", "--r-fontSize-t": "36px", "--r-fontSize-d": "36px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05, margin: "0 0 14px" }}>Reach 37.1M+ views a year</h2>
+                <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", lineHeight: 1.6, margin: "0 auto 26px", maxWidth: "460px" }}>Put your brand in front of Milwaukee's most engaged local audience. Let's talk about working together.</p>
+                <button onClick={() => { window.location.href = "/milwaukee-media-kit"; }} className="dm-cta r-padding r-fontSize" style={{ "--r-padding-m": "16px 30px", "--r-padding-t": "18px 40px", "--r-padding-d": "18px 40px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "50px", "--r-fontSize-m": "16px", "--r-fontSize-t": "17px", "--r-fontSize-d": "17px", cursor: "pointer", fontFamily: BODY_FONT }}>
                   Inquire About Partnering →
                 </button>
               </div>
@@ -3046,13 +3046,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </section>
 
           {/* PROMOTED EVENTS */}
-          <section style={{ padding: isMobile ? "56px 16px" : "84px 16px", backgroundColor: c.white }}>
+          <section className="r-padding" style={{ "--r-padding-m": "56px 16px", "--r-padding-t": "84px 16px", "--r-padding-d": "84px 16px", backgroundColor: c.white }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               {/* Editorial section header */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "20px", borderBottom: `1px solid ${c.beige}`, paddingBottom: "20px", marginBottom: "36px" }}>
                 <div>
                   <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>The Agenda</p>
-                  <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: 0 }}>This Week in Milwaukee</h2>
+                  <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "30px", "--r-fontSize-t": "46px", "--r-fontSize-d": "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: 0 }}>This Week in Milwaukee</h2>
                 </div>
                 {/* Sponsor */}
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
@@ -3062,7 +3062,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </a>
                 </div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "16px" : "24px" }}>
+              <div className="r-gridTemplateColumns r-gap" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(2, 1fr)", "--r-gridTemplateColumns-d": "repeat(4, 1fr)", "--r-gap-m": "16px", "--r-gap-t": "24px", "--r-gap-d": "24px" }}>
                 {(() => {
                   // Get this week's events, prioritizing featured ones
                   const thisWeekEvents = getThisWeekEvents(events);
@@ -3105,12 +3105,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </section>
 
           {/* POPULAR GUIDES - Internal Linking for SEO */}
-          <section style={{ padding: isMobile ? "56px 16px" : "84px 16px", backgroundColor: c.cream }}>
+          <section className="r-padding" style={{ "--r-padding-m": "56px 16px", "--r-padding-t": "84px 16px", "--r-padding-d": "84px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               {/* Editorial section header */}
               <div style={{ borderBottom: `1px solid ${c.beige}`, paddingBottom: "20px", marginBottom: "32px" }}>
                 <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "10px", textTransform: "uppercase" }}>99 Local Guides</p>
-                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: "0 0 10px" }}>Explore Milwaukee</h2>
+                <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "30px", "--r-fontSize-t": "46px", "--r-fontSize-d": "46px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1, margin: "0 0 10px" }}>Explore Milwaukee</h2>
                 <p style={{ color: c.tanDark, fontSize: "16px", margin: 0 }}>In-depth guides written by locals, updated for 2026.</p>
               </div>
 
@@ -3138,7 +3138,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
 
               {/* Featured Guides Grid */}
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : isTablet ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "12px" : "16px", marginBottom: "28px" }}>
+              <div className="r-gridTemplateColumns r-gap" style={{ display: "grid", "--r-gridTemplateColumns-m": "repeat(2, 1fr)", "--r-gridTemplateColumns-t": "repeat(3, 1fr)", "--r-gridTemplateColumns-d": "repeat(4, 1fr)", "--r-gap-m": "12px", "--r-gap-t": "16px", "--r-gap-d": "16px", marginBottom: "28px" }}>
                 {[
                   { title: "Things to Do", desc: "Complete activity guide", href: "/things-to-do-milwaukee", Icon: LineIcons.Compass },
                   { title: "Best Restaurants", desc: "Top dining spots", href: "/best-restaurants-milwaukee", Icon: LineIcons.Utensils },
@@ -3174,7 +3174,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               {/* Neighborhood Links */}
               <div style={{ borderTop: `1px solid ${c.beige}`, paddingTop: "28px" }}>
                 <p style={{ color: c.tanDark, fontSize: "12px", fontWeight: "600", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "2px" }}>Explore by Neighborhood</p>
-                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: "10px" }}>
+                <div className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "repeat(2, 1fr)", "--r-gridTemplateColumns-t": "repeat(4, 1fr)", "--r-gridTemplateColumns-d": "repeat(4, 1fr)", gap: "10px" }}>
                   {[
                     { title: "Third Ward", href: "/third-ward-milwaukee" },
                     { title: "Bay View", href: "/bay-view-milwaukee" },
@@ -3195,24 +3195,24 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </section>
 
           {/* SOCIAL PROOF — reach the city actually gives us */}
-          <section style={{ padding: isMobile ? "54px 16px" : "80px 16px", backgroundColor: c.green1 }}>
+          <section className="r-padding" style={{ "--r-padding-m": "54px 16px", "--r-padding-t": "80px 16px", "--r-padding-d": "80px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "40px" }}>
                 <p style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px", textTransform: "uppercase" }}>Trusted Across Milwaukee</p>
-                <h2 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The City Is Already Watching</h2>
-                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", maxWidth: "560px", margin: "0 auto", lineHeight: 1.6 }}>37.1 million views a year from locals who use us to decide where to actually go.</p>
+                <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: c.cream, "--r-fontSize-m": "30px", "--r-fontSize-t": "44px", "--r-fontSize-d": "44px", fontWeight: "400", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>The City Is Already Watching</h2>
+                <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "15px", "--r-fontSize-t": "17px", "--r-fontSize-d": "17px", maxWidth: "560px", margin: "0 auto", lineHeight: 1.6 }}>37.1 million views a year from locals who use us to decide where to actually go.</p>
               </div>
 
               {/* Reach breakdown — canonical numbers */}
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "12px" : "18px", marginBottom: "16px" }}>
+              <div className="r-gridTemplateColumns r-gap" style={{ display: "grid", "--r-gridTemplateColumns-m": "repeat(2, 1fr)", "--r-gridTemplateColumns-t": "repeat(4, 1fr)", "--r-gridTemplateColumns-d": "repeat(4, 1fr)", "--r-gap-m": "12px", "--r-gap-t": "18px", "--r-gap-d": "18px", marginBottom: "16px" }}>
                 {[
                   { n: "Instagram", v: "13.4M" },
                   { n: "Facebook", v: "19.5M*" },
                   { n: "TikTok", v: "4.2M" },
                   { n: "Total Reach", v: "37.1M" }
                 ].map((p, i) => (
-                  <div key={p.n} className={`dm-fade-up dm-delay-${i + 1}`} style={{ backgroundColor: p.n === "Total Reach" ? "rgba(240,166,35,0.12)" : "rgba(255,255,255,0.06)", borderRadius: "16px", padding: isMobile ? "18px" : "26px", textAlign: "center", border: p.n === "Total Reach" ? `2px solid ${c.yellow}` : "1px solid rgba(255,255,255,0.1)" }}>
-                    <div style={{ fontFamily: DISPLAY_FONT, color: p.n === "Total Reach" ? c.yellow : c.cream, fontSize: isMobile ? "26px" : "36px", lineHeight: 1 }}>{p.v}</div>
+                  <div key={p.n} className={`dm-fade-up dm-delay-${i + 1} r-padding`} style={{ backgroundColor: p.n === "Total Reach" ? "rgba(240,166,35,0.12)" : "rgba(255,255,255,0.06)", borderRadius: "16px", "--r-padding-m": "18px", "--r-padding-t": "26px", "--r-padding-d": "26px", textAlign: "center", border: p.n === "Total Reach" ? `2px solid ${c.yellow}` : "1px solid rgba(255,255,255,0.1)" }}>
+                    <div className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: p.n === "Total Reach" ? c.yellow : c.cream, "--r-fontSize-m": "26px", "--r-fontSize-t": "36px", "--r-fontSize-d": "36px", lineHeight: 1 }}>{p.v}</div>
                     <div style={{ color: c.beige, fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px", marginTop: "8px" }}>{p.n}</div>
                   </div>
                 ))}
@@ -3220,15 +3220,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               <p style={{ color: c.beige, fontSize: "11px", textAlign: "center", opacity: 0.9, marginBottom: "44px" }}>Views per year across our channels. *Facebook projected from 11/25 onward.</p>
 
               {/* Secondary conversion — lock in a subscriber */}
-              <div style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "16px", padding: isMobile ? "28px 22px" : "44px", textAlign: "center", maxWidth: "680px", margin: "0 auto" }}>
-                <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "26px" : "34px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Get the good stuff first</h3>
-                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "16px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "460px", marginLeft: "auto", marginRight: "auto" }}>Join the locals who get Milwaukee's best each week — new spots, events, and hidden gems in one five-minute email.</p>
+              <div className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "16px", "--r-padding-m": "28px 22px", "--r-padding-t": "44px", "--r-padding-d": "44px", textAlign: "center", maxWidth: "680px", margin: "0 auto" }}>
+                <h3 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: c.cream, "--r-fontSize-m": "26px", "--r-fontSize-t": "34px", "--r-fontSize-d": "34px", fontWeight: "400", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "10px" }}>Get the good stuff first</h3>
+                <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "15px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", lineHeight: 1.6, marginBottom: "24px", maxWidth: "460px", marginLeft: "auto", marginRight: "auto" }}>Join the locals who get Milwaukee's best each week — new spots, events, and hidden gems in one five-minute email.</p>
                 {subscribeStatus === "success" ? (
                   <div style={{ backgroundColor: "rgba(255,255,255,0.12)", borderRadius: "10px", padding: "16px 24px", maxWidth: "460px", margin: "0 auto" }}>
                     <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}>You're in. Check your inbox to confirm.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "10px", maxWidth: "460px", margin: "0 auto" }}>
+                  <form onSubmit={handleSubscribe} className="r-flexDirection" style={{ display: "flex", "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row", gap: "10px", maxWidth: "460px", margin: "0 auto" }}>
                     <input type="email" placeholder="you@email.com" value={email} onChange={e => setEmail(e.target.value)} required aria-label="Email address" style={{ flex: 1, padding: "16px 18px", borderRadius: "10px", border: "none", fontSize: "15px", fontFamily: BODY_FONT, color: c.green1 }} />
                     <button type="submit" disabled={subscribeStatus === "loading"} className="dm-cta" style={{ padding: "16px 30px", color: "#20291F", fontWeight: "700", border: "none", borderRadius: "10px", fontSize: "15px", whiteSpace: "nowrap", fontFamily: BODY_FONT, cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                       {subscribeStatus === "loading" ? "Joining…" : "Get the Guide"}
@@ -3240,11 +3240,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
           </section>
 
-          <section style={{ padding: isMobile ? "56px 16px" : "80px 16px", backgroundColor: c.white }}>
+          <section className="r-padding" style={{ "--r-padding-m": "56px 16px", "--r-padding-t": "80px 16px", "--r-padding-d": "80px 16px", backgroundColor: c.white }}>
             <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "16px", marginBottom: "16px" }}>
+              <div className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(3, 1fr)", "--r-gridTemplateColumns-d": "repeat(3, 1fr)", gap: "16px", marginBottom: "16px" }}>
                 {[{ l: "Explore", d: "Guides & local favorites", Icon: LineIcons.BookOpen, p: "explore", href: "/explore" }, { l: "Events", d: "What's happening this week", Icon: LineIcons.Calendar, p: "events", href: "/events" }, { l: "Newsletter", d: "Get the weekly scoop", Icon: LineIcons.Mail, p: "newsletter", href: "/newsletter" }].map(x => (
-                  <a key={x.l} href={x.href} onClick={(e) => { e.preventDefault(); navigateTo(x.p); }} className="dm-card" style={{ backgroundColor: c.cream, borderRadius: "12px", padding: isMobile ? "22px" : "28px", cursor: "pointer", textDecoration: "none", display: "block", border: `1px solid ${c.beige}` }}>
+                  <a key={x.l} href={x.href} onClick={(e) => { e.preventDefault(); navigateTo(x.p); }} className="dm-card r-padding" style={{ backgroundColor: c.cream, borderRadius: "12px", "--r-padding-m": "22px", "--r-padding-t": "28px", "--r-padding-d": "28px", cursor: "pointer", textDecoration: "none", display: "block", border: `1px solid ${c.beige}` }}>
                     <span style={{ color: c.green1, display: "block", marginBottom: "14px" }}><x.Icon size={30} /></span>
                     <h3 style={{ color: c.green1, fontSize: "18px", fontWeight: "700", marginBottom: "6px", fontFamily: BODY_FONT }}>{x.l}</h3>
                     <p style={{ color: c.tanDark, fontSize: "14px", margin: 0 }}>{x.d}</p>
@@ -3268,32 +3268,32 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {/* EXPLORE */}
       {page === "explore" && !selectedPost && (
         <div style={{ fontFamily: BODY_FONT }}>
-          <section style={{ backgroundColor: c.cream, padding: isMobile ? "48px 16px 36px" : "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
+          <section className="r-padding" style={{ backgroundColor: c.cream, "--r-padding-m": "48px 16px 36px", "--r-padding-t": "76px 16px 52px", "--r-padding-d": "76px 16px 52px", borderBottom: `1px solid ${c.beige}` }}>
             <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: c.orangeDark, fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>YOUR MILWAUKEE ENCYCLOPEDIA</p>
-              <h1 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "40px" : "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Explore Milwaukee</h1>
-              <p style={{ fontSize: isMobile ? "16px" : "19px", color: c.blue2Dark, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Guides, Lists & Local Knowledge</p>
-              <p style={{ color: c.green2Dark, fontSize: isMobile ? "16px" : "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto" }}>The definitive resource for things to do, places to eat, and neighborhoods to explore in Milwaukee. Written by locals, updated regularly.</p>
+              <p className="r-fontSize" style={{ color: c.orangeDark, "--r-fontSize-m": "11px", "--r-fontSize-t": "12px", "--r-fontSize-d": "12px", fontWeight: "600", letterSpacing: "4px", marginBottom: "16px", textTransform: "uppercase" }}>YOUR MILWAUKEE ENCYCLOPEDIA</p>
+              <h1 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "40px", "--r-fontSize-t": "68px", "--r-fontSize-d": "68px", fontWeight: "400", color: c.green1, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.02 }}>Explore Milwaukee</h1>
+              <p className="r-fontSize" style={{ "--r-fontSize-m": "16px", "--r-fontSize-t": "19px", "--r-fontSize-d": "19px", color: c.blue2Dark, fontWeight: "600", marginBottom: "18px", letterSpacing: "0.3px" }}>Guides, Lists & Local Knowledge</p>
+              <p className="r-fontSize" style={{ color: c.green2Dark, "--r-fontSize-m": "16px", "--r-fontSize-t": "18px", "--r-fontSize-d": "18px", lineHeight: 1.6, maxWidth: "580px", margin: "0 auto" }}>The definitive resource for things to do, places to eat, and neighborhoods to explore in Milwaukee. Written by locals, updated regularly.</p>
             </div>
           </section>
           
           {/* Pillar Pages Section */}
-          <section style={{ padding: isMobile ? "32px 16px" : "48px 16px", backgroundColor: c.cream }}>
+          <section className="r-padding" style={{ "--r-padding-m": "32px 16px", "--r-padding-t": "48px 16px", "--r-padding-d": "48px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
                 <p style={{ color: c.orangeDark, fontSize: "12px", fontWeight: "600", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "10px" }}>Start Here</p>
-                <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "28px" : "40px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0 }}>Essential Milwaukee Guides</h2>
+                <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "28px", "--r-fontSize-t": "40px", "--r-fontSize-d": "40px", fontWeight: "400", color: c.green1, textTransform: "uppercase", letterSpacing: "0.5px", margin: 0 }}>Essential Milwaukee Guides</h2>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "20px", marginBottom: "20px" }}>
+              <div className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(2, 1fr)", "--r-gridTemplateColumns-d": "repeat(2, 1fr)", gap: "20px", marginBottom: "20px" }}>
                 {exploreArticles.filter(p => p.isPillar).slice(0, 4).map((p, i) => {
                   const bg = [c.green1, c.blue1, c.orangeDark, c.green2Dark][i % 4];
                   return (
-                  <div key={p.id} onClick={() => setSelectedPost(p)} style={{ backgroundColor: bg, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", flexDirection: "column", minHeight: isMobile ? "auto" : "200px" }}>
+                  <div key={p.id} onClick={() => setSelectedPost(p)} className="r-padding r-minHeight" style={{ backgroundColor: bg, borderRadius: "16px", "--r-padding-m": "24px", "--r-padding-t": "32px", "--r-padding-d": "32px", cursor: "pointer", display: "flex", flexDirection: "column", "--r-minHeight-m": "auto", "--r-minHeight-t": "200px", "--r-minHeight-d": "200px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
                       <span style={{ color: c.cream }}><LineIcons.BookOpen size={28} /></span>
                       <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: c.cream, padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
                     </div>
-                    <h3 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "400", marginBottom: "10px", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(p); }}>{p.title}</button></h3>
+                    <h3 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: c.cream, "--r-fontSize-m": "20px", "--r-fontSize-t": "26px", "--r-fontSize-d": "26px", fontWeight: "400", marginBottom: "10px", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(p); }}>{p.title}</button></h3>
                     <p style={{ color: c.cream, fontSize: "14px", lineHeight: 1.5, flex: 1 }}>{p.excerpt}</p>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "16px" }}>
                       <span style={{ color: c.cream, fontSize: "12px" }}>{p.readTimeMinutes} min read</span>
@@ -3305,11 +3305,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               </div>
               {/* Fifth pillar as full width */}
               {exploreArticles.filter(p => p.isPillar)[4] && (
-                <div onClick={() => setSelectedPost(exploreArticles.filter(p => p.isPillar)[4])} style={{ backgroundColor: c.blue2Dark, borderRadius: "16px", padding: isMobile ? "24px" : "32px", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px" }}>
+                <div onClick={() => setSelectedPost(exploreArticles.filter(p => p.isPillar)[4])} className="r-padding" style={{ backgroundColor: c.blue2Dark, borderRadius: "16px", "--r-padding-m": "24px", "--r-padding-t": "32px", "--r-padding-d": "32px", cursor: "pointer", display: "flex", alignItems: "center", gap: "24px" }}>
                   <span style={{ color: c.cream, flexShrink: 0 }}><LineIcons.BookOpen size={isMobile ? 32 : 44} /></span>
                   <div style={{ flex: 1 }}>
                     <span style={{ border: "1px solid rgba(247,241,231,0.4)", color: "#FFFFFF", padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "1px" }}>Pillar Guide</span>
-                    <h3 style={{ fontFamily: DISPLAY_FONT, color: "#FFFFFF", fontSize: isMobile ? "20px" : "26px", fontWeight: "400", margin: "10px 0", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(exploreArticles.filter(p => p.isPillar)[4]); }}>{exploreArticles.filter(p => p.isPillar)[4].title}</button></h3>
+                    <h3 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: "#FFFFFF", "--r-fontSize-m": "20px", "--r-fontSize-t": "26px", "--r-fontSize-d": "26px", fontWeight: "400", margin: "10px 0", lineHeight: 1.1, textTransform: "uppercase", letterSpacing: "0.3px" }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setSelectedPost(exploreArticles.filter(p => p.isPillar)[4]); }}>{exploreArticles.filter(p => p.isPillar)[4].title}</button></h3>
                     <p style={{ color: c.cream, fontSize: "14px", lineHeight: 1.5 }}>{exploreArticles.filter(p => p.isPillar)[4].excerpt}</p>
                   </div>
                   <span style={{ color: c.cream, fontSize: "14px", fontWeight: "700", whiteSpace: "nowrap" }}>Read Guide →</span>
@@ -3332,13 +3332,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             return (
               <React.Fragment key={category.id}>
               {isFirstOfGroup && (
-                <div style={{
-                  padding: isMobile ? "28px 16px 0" : "44px 16px 0",
+                <div className="r-padding" style={{
+                  "--r-padding-m": "28px 16px 0", "--r-padding-t": "44px 16px 0", "--r-padding-d": "44px 16px 0",
                   backgroundColor: catIndex % 2 === 0 ? c.white : c.cream
                 }}>
                   <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", gap: "12px" }}>
                     <span style={{ height: "3px", width: "32px", flex: "0 0 32px", backgroundColor: c.yellow, borderRadius: "2px" }} />
-                    <h2 style={{ fontSize: isMobile ? "13px" : "15px", fontWeight: "900", color: c.green2Dark, letterSpacing: "2px", textTransform: "uppercase", margin: 0, whiteSpace: "nowrap" }}>
+                    <h2 className="r-fontSize" style={{ "--r-fontSize-m": "13px", "--r-fontSize-t": "15px", "--r-fontSize-d": "15px", fontWeight: "900", color: c.green2Dark, letterSpacing: "2px", textTransform: "uppercase", margin: 0, whiteSpace: "nowrap" }}>
                       {category.group}
                     </h2>
                     <span style={{ height: "3px", flex: 1, backgroundColor: c.beige, borderRadius: "2px" }} />
@@ -3347,8 +3347,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               )}
               <section
                 id={category.id}
-                style={{
-                  padding: isMobile ? "32px 16px" : "48px 16px",
+                className="r-padding" style={{
+                  "--r-padding-m": "32px 16px", "--r-padding-t": "48px 16px", "--r-padding-d": "48px 16px",
                   backgroundColor: catIndex % 2 === 0 ? c.white : c.cream,
                   scrollMarginTop: "90px"
                 }}
@@ -3371,7 +3371,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         <meta.Icon size={26} />
                       </span>
                       <div>
-                        <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "22px" : "30px", fontWeight: "400", color: c.green1, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px", lineHeight: 1.05 }}>
+                        <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "22px", "--r-fontSize-t": "30px", "--r-fontSize-d": "30px", fontWeight: "400", color: c.green1, marginBottom: "4px", textTransform: "uppercase", letterSpacing: "0.4px", lineHeight: 1.05 }}>
                           {category.title}
                         </h2>
                         <p style={{ color: c.tanDark, fontSize: "14px", margin: 0 }}>
@@ -3394,9 +3394,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </div>
 
                   {/* Guide Cards Grid */}
-                  <div style={{
+                  <div className="r-gridTemplateColumns" style={{
                     display: "grid",
-                    gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : isTablet ? "repeat(3, 1fr)" : "repeat(6, 1fr)",
+                    "--r-gridTemplateColumns-m": "repeat(2, 1fr)", "--r-gridTemplateColumns-t": "repeat(3, 1fr)", "--r-gridTemplateColumns-d": "repeat(6, 1fr)",
                     gap: "12px",
                     marginBottom: hasMore ? "20px" : "0"
                   }}>
@@ -3473,7 +3473,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Search Section */}
           <section style={{ padding: "48px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
-              <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "26px" : "38px", fontWeight: "400", color: c.cream, marginBottom: "12px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+              <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "26px", "--r-fontSize-t": "38px", "--r-fontSize-d": "38px", fontWeight: "400", color: c.cream, marginBottom: "12px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
                 Looking for Something Specific?
               </h2>
               <p style={{ color: c.beige, fontSize: "16px", marginBottom: "24px" }}>
@@ -3582,9 +3582,9 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           {/* Quick Stats */}
           <section style={{ padding: "40px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-              <div style={{
+              <div className="r-gridTemplateColumns" style={{
                 display: "grid",
-                gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(auto-fit, minmax(150px, 1fr))",
+                "--r-gridTemplateColumns-m": "repeat(2, 1fr)", "--r-gridTemplateColumns-t": "repeat(auto-fit, minmax(150px, 1fr))", "--r-gridTemplateColumns-d": "repeat(auto-fit, minmax(150px, 1fr))",
                 gap: "16px",
                 textAlign: "center"
               }}>
@@ -3736,7 +3736,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             {selectedPost.parentSlug && (
               <div style={{ marginTop: "48px" }}>
                 <h3 style={{ fontSize: "20px", fontWeight: "900", color: c.green1, marginBottom: "20px" }}>Related Guides</h3>
-                <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "16px" }}>
+                <div className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(2, 1fr)", "--r-gridTemplateColumns-d": "repeat(2, 1fr)", gap: "16px" }}>
                   {exploreArticles.filter(p => p.slug === selectedPost.parentSlug || p.parentSlug === selectedPost.parentSlug).filter(p => p.id !== selectedPost.id).slice(0, 4).map(p => (
                     <div key={p.id} onClick={() => { setSelectedPost(p); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ backgroundColor: c.white, borderRadius: "12px", padding: "16px", cursor: "pointer", display: "flex", gap: "12px", alignItems: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.06)" }}>
                       <span aria-hidden="true" style={{ fontSize: "28px" }}>{p.icon}</span>
@@ -3751,15 +3751,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             )}
             
             {/* Newsletter CTA */}
-            <div style={{ marginTop: "48px", backgroundColor: c.green1, borderRadius: "20px", padding: isMobile ? "24px" : "32px", textAlign: "center" }}>
-              <h3 style={{ color: c.cream, fontSize: isMobile ? "18px" : "22px", fontWeight: "900", marginBottom: "12px" }}>Get More Milwaukee Tips</h3>
+            <div className="r-padding" style={{ marginTop: "48px", backgroundColor: c.green1, borderRadius: "20px", "--r-padding-m": "24px", "--r-padding-t": "32px", "--r-padding-d": "32px", textAlign: "center" }}>
+              <h3 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "18px", "--r-fontSize-t": "22px", "--r-fontSize-d": "22px", fontWeight: "900", marginBottom: "12px" }}>Get More Milwaukee Tips</h3>
               <p style={{ color: c.beige, fontSize: "14px", marginBottom: "20px" }}>Join our weekly newsletter for the best events, new restaurants, and local favorites.</p>
               {subscribeStatus === "success" ? (
                 <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "14px 24px", maxWidth: "400px", margin: "0 auto" }}>
                   <p style={{ color: c.yellow, fontSize: "14px", fontWeight: "700", margin: 0 }}><span aria-hidden="true">✓ </span>You're in! Check your inbox.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "400px", margin: "0 auto" }}>
+                <form onSubmit={handleSubscribe} className="r-flexDirection" style={{ display: "flex", "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row", gap: "12px", maxWidth: "400px", margin: "0 auto" }}>
                   <input type="email" aria-label="Email address" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "14px 18px", borderRadius: "50px", border: "none", fontSize: "14px" }} />
                   <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "14px 24px", backgroundColor: c.yellow, color: "#294D32", fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                     {subscribeStatus === "loading" ? "..." : "Subscribe"}
@@ -3867,12 +3867,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               })()}
             </div>
           </section>
-          <section style={{ padding: isMobile ? "48px 16px" : "72px 16px", backgroundColor: c.green1 }}>
+          <section className="r-padding" style={{ "--r-padding-m": "48px 16px", "--r-padding-t": "72px 16px", "--r-padding-d": "72px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
-              <p style={{ color: "#F1AF38", fontSize: isMobile ? "11px" : "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "14px", textTransform: "uppercase" }}>Get On The Calendar</p>
-              <h2 style={{ fontFamily: DISPLAY_FONT, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", color: c.cream, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>Have an Event to Share?</h2>
-              <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", lineHeight: 1.6, marginBottom: "28px" }}>Hosting something the city should know about? Get it in front of 37.1M+ views.</p>
-              <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="dm-cta" style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 40px", color: "#20291F", fontWeight: "700", borderRadius: "50px", border: "none", cursor: "pointer", fontSize: isMobile ? "15px" : "16px" }}>Submit Your Event →</button>
+              <p className="r-fontSize" style={{ color: "#F1AF38", "--r-fontSize-m": "11px", "--r-fontSize-t": "12px", "--r-fontSize-d": "12px", fontWeight: "600", letterSpacing: "3px", marginBottom: "14px", textTransform: "uppercase" }}>Get On The Calendar</p>
+              <h2 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, "--r-fontSize-m": "30px", "--r-fontSize-t": "44px", "--r-fontSize-d": "44px", fontWeight: "400", color: c.cream, marginBottom: "14px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>Have an Event to Share?</h2>
+              <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "15px", "--r-fontSize-t": "17px", "--r-fontSize-d": "17px", lineHeight: 1.6, marginBottom: "28px" }}>Hosting something the city should know about? Get it in front of 37.1M+ views.</p>
+              <button onClick={() => { setShowEventForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="dm-cta r-padding r-fontSize" style={{ display: "inline-block", "--r-padding-m": "16px 32px", "--r-padding-t": "18px 40px", "--r-padding-d": "18px 40px", color: "#20291F", fontWeight: "700", borderRadius: "50px", border: "none", cursor: "pointer", "--r-fontSize-m": "15px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px" }}>Submit Your Event →</button>
             </div>
           </section>
         </div>
@@ -4107,7 +4107,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 <span style={{ backgroundColor: c.yellow, color: "#294D32", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase" }}>{selectedEvent.category}</span>
                 <span style={{ backgroundColor: selectedEvent.costType === "free" ? c.green2 : "rgba(255,255,255,0.2)", color: c.white, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700" }}>{selectedEvent.costDetails || (selectedEvent.costType === "free" ? "Free" : "Ticketed")}</span>
               </div>
-              <h1 style={{ fontFamily: DISPLAY_FONT, color: c.cream, fontSize: isMobile ? "30px" : "44px", fontWeight: "400", marginBottom: "18px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>{selectedEvent.title}</h1>
+              <h1 className="r-fontSize" style={{ fontFamily: DISPLAY_FONT, color: c.cream, "--r-fontSize-m": "30px", "--r-fontSize-t": "44px", "--r-fontSize-d": "44px", fontWeight: "400", marginBottom: "18px", textTransform: "uppercase", letterSpacing: "0.5px", lineHeight: 1.05 }}>{selectedEvent.title}</h1>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", color: c.beige, fontSize: "14px" }}>
                 <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><Icons.Clock />{selectedEvent.allDay ? "All Day" : `${formatDate(selectedEvent.startDateTime, "time")} - ${formatDate(selectedEvent.endDateTime, "time")}`}</span>
                 <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><Icons.MapPin />{selectedEvent.venueName}{selectedEvent.neighborhood ? `, ${selectedEvent.neighborhood}` : ""}</span>
@@ -4130,12 +4130,12 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       {/* NEWSLETTER */}
       {page === "newsletter" && (
         <>
-          <section style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #355130 100%)`, padding: isMobile ? "50px 16px" : "80px 16px" }}>
+          <section className="r-padding" style={{ background: `linear-gradient(135deg, ${c.green1} 0%, #355130 100%)`, "--r-padding-m": "50px 16px", "--r-padding-t": "80px 16px", "--r-padding-d": "80px 16px" }}>
             <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
               <p style={{ color: "#F1AF38", fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>THE INSIDE SCOOP</p>
-              <h1 style={{ fontSize: isMobile ? "32px" : "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase", lineHeight: 1.1 }}>The Discover Milwaukee Newsletter</h1>
-              <p style={{ fontSize: isMobile ? "18px" : "20px", color: "#F1AF38", fontWeight: "600", marginBottom: "20px" }}>Milwaukee's Best Stuff. In Your Inbox. Every Wednesday.</p>
-              <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto 32px" }}>Look, we get it. Your inbox is a warzone. But this one's different. No fluff. No filler. Just the stuff actually worth knowing about in Milwaukee, delivered once a week.</p>
+              <h1 className="r-fontSize" style={{ "--r-fontSize-m": "32px", "--r-fontSize-t": "40px", "--r-fontSize-d": "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase", lineHeight: 1.1 }}>The Discover Milwaukee Newsletter</h1>
+              <p className="r-fontSize" style={{ "--r-fontSize-m": "18px", "--r-fontSize-t": "20px", "--r-fontSize-d": "20px", color: "#F1AF38", fontWeight: "600", marginBottom: "20px" }}>Milwaukee's Best Stuff. In Your Inbox. Every Wednesday.</p>
+              <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto 32px" }}>Look, we get it. Your inbox is a warzone. But this one's different. No fluff. No filler. Just the stuff actually worth knowing about in Milwaukee, delivered once a week.</p>
               
               {/* Email Signup Form at Top */}
               {subscribeStatus === "success" ? (
@@ -4143,7 +4143,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <p style={{ color: c.yellow, fontSize: "16px", fontWeight: "700", margin: 0 }}><span aria-hidden="true">✓ </span>You're in! Check your inbox to confirm.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "500px", margin: "0 auto" }}>
+                <form onSubmit={handleSubscribe} className="r-flexDirection" style={{ display: "flex", "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row", gap: "12px", maxWidth: "500px", margin: "0 auto" }}>
                   <input type="email" aria-label="Email address" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "18px 24px", borderRadius: "50px", border: "none", fontSize: "16px" }} />
                   <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "18px 32px", backgroundColor: c.yellow, color: "#294D32", fontWeight: "bold", fontSize: "16px", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                     {subscribeStatus === "loading" ? "..." : "Subscribe Free"}
@@ -4154,10 +4154,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
           </section>
           
-          <section style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.cream }}>
+          <section className="r-padding" style={{ "--r-padding-m": "40px 16px", "--r-padding-t": "60px 16px", "--r-padding-d": "60px 16px", backgroundColor: c.cream }}>
             <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-              <h2 style={{ fontSize: isMobile ? "24px" : "28px", fontWeight: "900", color: c.green1, textAlign: "center", marginBottom: "32px" }}>What You'll Get (And What You Won't)</h2>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "16px" }}>
+              <h2 className="r-fontSize" style={{ "--r-fontSize-m": "24px", "--r-fontSize-t": "28px", "--r-fontSize-d": "28px", fontWeight: "900", color: c.green1, textAlign: "center", marginBottom: "32px" }}>What You'll Get (And What You Won't)</h2>
+              <div className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(2, 1fr)", "--r-gridTemplateColumns-d": "repeat(2, 1fr)", gap: "16px" }}>
                 {[
                   { i: "✅", t: "The Week's Best Events", d: "Curated picks for what's actually worth your time." },
                   { i: "✅", t: "New Restaurant & Bar Alerts", d: "Be the first to know what just opened." },
@@ -4181,24 +4181,24 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           <section style={{ padding: "60px 16px", backgroundColor: c.green1 }}>
             <div style={{ maxWidth: "800px", margin: "0 auto" }}>
               <h2 style={{ fontSize: "28px", fontWeight: "900", color: c.cream, textAlign: "center", marginBottom: "12px" }}>Why People Actually Read This One</h2>
-              <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", textAlign: "center", marginBottom: "32px", maxWidth: "600px", margin: "0 auto 32px" }}>We're not trying to be everything to everyone. Just the go-to source for people who want to know what's happening in Milwaukee without doing the research themselves.</p>
+              <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", textAlign: "center", marginBottom: "32px", maxWidth: "600px", margin: "0 auto 32px" }}>We're not trying to be everything to everyone. Just the go-to source for people who want to know what's happening in Milwaukee without doing the research themselves.</p>
               
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? "12px" : "20px", marginBottom: "40px" }}>
+              <div className="r-gridTemplateColumns r-gap" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(3, 1fr)", "--r-gridTemplateColumns-d": "repeat(3, 1fr)", "--r-gap-m": "12px", "--r-gap-t": "20px", "--r-gap-d": "20px", marginBottom: "40px" }}>
                 {[
                   { icon: "🎯", title: "Curated, Not Cluttered", desc: "We filter through the noise so you don't have to." },
                   { icon: "📍", title: "Actually Local", desc: "Written by people who live here and go to these places." },
                   { icon: "⚡", title: "Quick Read", desc: "Get the highlights in 5 minutes or less." }
                 ].map((item, i) => (
-                  <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "14px", padding: isMobile ? "16px" : "24px", textAlign: "center" }}>
-                    <span aria-hidden="true" style={{ fontSize: isMobile ? "28px" : "32px", display: "block", marginBottom: "12px" }}>{item.icon}</span>
+                  <div key={i} className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "14px", "--r-padding-m": "16px", "--r-padding-t": "24px", "--r-padding-d": "24px", textAlign: "center" }}>
+                    <span aria-hidden="true" className="r-fontSize" style={{ "--r-fontSize-m": "28px", "--r-fontSize-t": "32px", "--r-fontSize-d": "32px", display: "block", marginBottom: "12px" }}>{item.icon}</span>
                     <h3 style={{ color: c.cream, fontSize: "16px", fontWeight: "700", marginBottom: "8px" }}>{item.title}</h3>
                     <p style={{ color: c.beige, fontSize: "13px", lineHeight: 1.5 }}>{item.desc}</p>
                   </div>
                 ))}
               </div>
 
-              <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "16px", padding: isMobile ? "20px" : "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
-                <h3 style={{ color: c.cream, fontSize: isMobile ? "16px" : "18px", fontWeight: "700", marginBottom: "16px", textAlign: "center" }}>Here's What a Typical Issue Looks Like</h3>
+              <div className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "16px", "--r-padding-m": "20px", "--r-padding-t": "28px", "--r-padding-d": "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                <h3 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "16px", "--r-fontSize-t": "18px", "--r-fontSize-d": "18px", fontWeight: "700", marginBottom: "16px", textAlign: "center" }}>Here's What a Typical Issue Looks Like</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   {[
                     "🎉 This Week's Must-Do Events (5-7 picks)",
@@ -4207,23 +4207,23 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     "🆓 Free Thing to Do This Week",
                     "📸 Quick Hits from Instagram"
                   ].map((item, i) => (
-                    <div key={i} style={{ color: c.beige, fontSize: isMobile ? "14px" : "15px", padding: "12px 16px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>{item}</div>
+                    <div key={i} className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "15px", "--r-fontSize-d": "15px", padding: "12px 16px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>{item}</div>
                   ))}
                 </div>
               </div>
             </div>
           </section>
 
-          <section style={{ padding: isMobile ? "50px 16px" : "80px 16px", backgroundColor: c.blue1 }}>
+          <section className="r-padding" style={{ "--r-padding-m": "50px 16px", "--r-padding-t": "80px 16px", "--r-padding-d": "80px 16px", backgroundColor: c.blue1 }}>
             <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
-              <h2 style={{ fontSize: isMobile ? "26px" : "32px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase" }}>Stop Missing the Good Stuff</h2>
-              <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", marginBottom: "32px" }}>One email. Once a week. Everything worth knowing about Milwaukee.</p>
+              <h2 className="r-fontSize" style={{ "--r-fontSize-m": "26px", "--r-fontSize-t": "32px", "--r-fontSize-d": "32px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase" }}>Stop Missing the Good Stuff</h2>
+              <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", marginBottom: "32px" }}>One email. Once a week. Everything worth knowing about Milwaukee.</p>
               {subscribeStatus === "success" ? (
                 <div style={{ backgroundColor: "rgba(255,255,255,0.15)", borderRadius: "50px", padding: "16px 24px", maxWidth: "460px", margin: "0 auto 16px" }}>
                   <p style={{ color: c.yellow, fontSize: "15px", fontWeight: "700", margin: 0 }}><span aria-hidden="true">✓ </span>You're in! Check your inbox to confirm.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: "12px", maxWidth: "460px", margin: "0 auto 16px" }}>
+                <form onSubmit={handleSubscribe} className="r-flexDirection" style={{ display: "flex", "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row", gap: "12px", maxWidth: "460px", margin: "0 auto 16px" }}>
                   <input type="email" aria-label="Email address" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} required style={{ flex: 1, padding: "16px 20px", borderRadius: "50px", border: "none", fontSize: "15px" }} />
                   <button type="submit" disabled={subscribeStatus === "loading"} style={{ padding: "16px 28px", backgroundColor: c.yellow, color: "#294D32", fontWeight: "bold", border: "none", borderRadius: "50px", cursor: subscribeStatus === "loading" ? "wait" : "pointer", opacity: subscribeStatus === "loading" ? 0.7 : 1 }}>
                     {subscribeStatus === "loading" ? "..." : "Subscribe Free"}
@@ -4238,20 +4238,20 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
       {/* PARTNER */}
       {page === "partner" && !showPartnerForm && (
-        <section style={{ padding: isMobile ? "40px 16px" : "80px 16px", backgroundColor: c.green1 }}>
+        <section className="r-padding" style={{ "--r-padding-m": "40px 16px", "--r-padding-t": "80px 16px", "--r-padding-d": "80px 16px", backgroundColor: c.green1 }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: isMobile ? "32px" : "48px" }}>
-              <p style={{ color: "#F1AF38", fontSize: isMobile ? "12px" : "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>GROW WITH US</p>
-              <h1 style={{ fontSize: isMobile ? "28px" : "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase" }}>Partner With Discover Milwaukee</h1>
-              <p style={{ fontSize: isMobile ? "16px" : "18px", color: c.beige, maxWidth: "650px", margin: "0 auto" }}>Get your brand in front of the Milwaukee locals who actually show up.</p>
+            <div className="r-marginBottom" style={{ textAlign: "center", "--r-marginBottom-m": "32px", "--r-marginBottom-t": "48px", "--r-marginBottom-d": "48px" }}>
+              <p className="r-fontSize" style={{ color: "#F1AF38", "--r-fontSize-m": "12px", "--r-fontSize-t": "14px", "--r-fontSize-d": "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>GROW WITH US</p>
+              <h1 className="r-fontSize" style={{ "--r-fontSize-m": "28px", "--r-fontSize-t": "40px", "--r-fontSize-d": "40px", fontWeight: "900", color: c.cream, marginBottom: "16px", textTransform: "uppercase" }}>Partner With Discover Milwaukee</h1>
+              <p className="r-fontSize" style={{ "--r-fontSize-m": "16px", "--r-fontSize-t": "18px", "--r-fontSize-d": "18px", color: c.beige, maxWidth: "650px", margin: "0 auto" }}>Get your brand in front of the Milwaukee locals who actually show up.</p>
             </div>
-            <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "20px" : "32px", marginBottom: isMobile ? "32px" : "48px", border: "1px solid rgba(255,255,255,0.1)" }}>
-              <p style={{ color: c.cream, fontSize: isMobile ? "15px" : "17px", lineHeight: 1.7, textAlign: "center" }}>Discover Milwaukee isn't a billboard. We're where Milwaukee goes to decide where to eat, drink, hang out, and spend money. If your brand wants attention from real people, you're in the right place.</p>
+            <div className="r-padding r-marginBottom" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", "--r-padding-m": "20px", "--r-padding-t": "32px", "--r-padding-d": "32px", "--r-marginBottom-m": "32px", "--r-marginBottom-t": "48px", "--r-marginBottom-d": "48px", border: "1px solid rgba(255,255,255,0.1)" }}>
+              <p className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "15px", "--r-fontSize-t": "17px", "--r-fontSize-d": "17px", lineHeight: 1.7, textAlign: "center" }}>Discover Milwaukee isn't a billboard. We're where Milwaukee goes to decide where to eat, drink, hang out, and spend money. If your brand wants attention from real people, you're in the right place.</p>
             </div>
 
             {/* TOP CTA — reachable without scrolling */}
-            <div style={{ textAlign: "center", marginBottom: isMobile ? "36px" : "56px" }}>
-              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "16px 32px" : "18px 44px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "15px" : "17px", textTransform: "uppercase", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
+            <div className="r-marginBottom" style={{ textAlign: "center", "--r-marginBottom-m": "36px", "--r-marginBottom-t": "56px", "--r-marginBottom-d": "56px" }}>
+              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="r-padding r-fontSize" style={{ display: "inline-block", "--r-padding-m": "16px 32px", "--r-padding-t": "18px 44px", "--r-padding-d": "18px 44px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", "--r-fontSize-m": "15px", "--r-fontSize-t": "17px", "--r-fontSize-d": "17px", textTransform: "uppercase", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
                 Start Your Partnership →
               </button>
               <p style={{ color: c.beige, fontSize: "13px", marginTop: "12px" }}>Takes about a minute · No commitment</p>
@@ -4262,18 +4262,18 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
             </div>
 
             {/* BRANDS WE'VE WORKED WITH */}
-            <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
+            <div className="r-marginBottom" style={{ "--r-marginBottom-m": "32px", "--r-marginBottom-t": "48px", "--r-marginBottom-d": "48px" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
                 <p style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>They Took the Leap. It Paid Off.</p>
-                <h2 style={{ color: c.cream, fontSize: isMobile ? "22px" : "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px" }}>Brands That Trust Us</h2>
-                <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "15px", maxWidth: "500px", margin: "0 auto" }}>From neighborhood gems to household names — here's who's shown up with us.</p>
+                <h2 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "22px", "--r-fontSize-t": "28px", "--r-fontSize-d": "28px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px" }}>Brands That Trust Us</h2>
+                <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "15px", "--r-fontSize-d": "15px", maxWidth: "500px", margin: "0 auto" }}>From neighborhood gems to household names — here's who's shown up with us.</p>
               </div>
-              <div style={{ 
+              <div className="r-gap r-padding" style={{ 
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "center",
-                gap: isMobile ? "8px" : "12px",
-                padding: isMobile ? "12px" : "24px",
+                "--r-gap-m": "8px", "--r-gap-t": "12px", "--r-gap-d": "12px",
+                "--r-padding-m": "12px", "--r-padding-t": "24px", "--r-padding-d": "24px",
                 backgroundColor: "rgba(255,255,255,0.03)",
                 borderRadius: "16px",
                 border: "1px solid rgba(255,255,255,0.08)",
@@ -4286,15 +4286,15 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       href={partner.website || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ 
-                        width: isMobile ? "50px" : "80px",
-                        height: isMobile ? "50px" : "80px",
+                      className="r-width r-height r-borderRadius r-padding" style={{ 
+                        "--r-width-m": "50px", "--r-width-t": "80px", "--r-width-d": "80px",
+                        "--r-height-m": "50px", "--r-height-t": "80px", "--r-height-d": "80px",
                         backgroundColor: "rgba(255,255,255,0.95)", 
-                        borderRadius: isMobile ? "8px" : "10px", 
+                        "--r-borderRadius-m": "8px", "--r-borderRadius-t": "10px", "--r-borderRadius-d": "10px", 
                         display: "flex", 
                         alignItems: "center", 
                         justifyContent: "center",
-                        padding: isMobile ? "6px" : "8px",
+                        "--r-padding-m": "6px", "--r-padding-t": "8px", "--r-padding-d": "8px",
                         transition: "all 0.2s",
                         cursor: "pointer",
                         textDecoration: "none",
@@ -4310,7 +4310,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                           style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
                         />
                       ) : (
-                        <span style={{ color: c.green1, fontSize: isMobile ? "6px" : "10px", fontWeight: "700", textAlign: "center", padding: "2px" }}>{partner.name}</span>
+                        <span className="r-fontSize" style={{ color: c.green1, "--r-fontSize-m": "6px", "--r-fontSize-t": "10px", "--r-fontSize-d": "10px", fontWeight: "700", textAlign: "center", padding: "2px" }}>{partner.name}</span>
                       )}
                     </a>
                   ))
@@ -4318,11 +4318,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   Array.from({ length: isMobile ? 10 : 10 }, (_, i) => (
                     <div 
                       key={i} 
-                      style={{ 
-                        width: isMobile ? "50px" : "80px",
-                        height: isMobile ? "50px" : "80px",
+                      className="r-width r-height r-borderRadius" style={{ 
+                        "--r-width-m": "50px", "--r-width-t": "80px", "--r-width-d": "80px",
+                        "--r-height-m": "50px", "--r-height-t": "80px", "--r-height-d": "80px",
                         backgroundColor: "rgba(255,255,255,0.08)", 
-                        borderRadius: isMobile ? "8px" : "10px", 
+                        "--r-borderRadius-m": "8px", "--r-borderRadius-t": "10px", "--r-borderRadius-d": "10px", 
                         display: "flex", 
                         alignItems: "center", 
                         justifyContent: "center",
@@ -4333,26 +4333,26 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                       onMouseOver={e => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.transform = "scale(1.05)"; }}
                       onMouseOut={e => { e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.transform = "scale(1)"; }}
                     >
-                      <span style={{ color: "rgba(255,255,255,0.3)", fontSize: isMobile ? "6px" : "10px", fontWeight: "600" }}>LOGO</span>
+                      <span className="r-fontSize" style={{ color: "rgba(255,255,255,0.3)", "--r-fontSize-m": "6px", "--r-fontSize-t": "10px", "--r-fontSize-d": "10px", fontWeight: "600" }}>LOGO</span>
                     </div>
                   ))
                 )}
               </div>
               <p style={{ color: c.beige, fontSize: "13px", textAlign: "center", marginTop: "16px", fontStyle: "italic" }}>{partners.length > 0 ? `${partners.length} brands and counting.` : "Your logo could be here. Just saying."}</p>
             </div>
-            <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
+            <div className="r-marginBottom" style={{ "--r-marginBottom-m": "32px", "--r-marginBottom-t": "48px", "--r-marginBottom-d": "48px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
                 <span aria-hidden="true" style={{ fontSize: "24px" }}>🚀</span>
-                <h2 style={{ color: c.cream, fontSize: isMobile ? "20px" : "24px", fontWeight: "900", textTransform: "uppercase" }}>The Reach</h2>
+                <h2 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "20px", "--r-fontSize-t": "24px", "--r-fontSize-d": "24px", fontWeight: "900", textTransform: "uppercase" }}>The Reach</h2>
               </div>
-              <div style={{ textAlign: "center", padding: isMobile ? "24px" : "36px", background: `linear-gradient(135deg, ${c.yellow} 0%, #D87437 100%)`, borderRadius: "20px", marginBottom: "24px" }}>
-                <div style={{ fontSize: isMobile ? "36px" : "56px", fontWeight: "900", color: "#20291F" }}>37.1 MILLION</div>
-                <div style={{ fontSize: isMobile ? "14px" : "18px", color: "#20291F", fontWeight: "700", letterSpacing: "2px" }}>VIEWS IN 2025</div>
+              <div className="r-padding" style={{ textAlign: "center", "--r-padding-m": "24px", "--r-padding-t": "36px", "--r-padding-d": "36px", background: `linear-gradient(135deg, ${c.yellow} 0%, #D87437 100%)`, borderRadius: "20px", marginBottom: "24px" }}>
+                <div className="r-fontSize" style={{ "--r-fontSize-m": "36px", "--r-fontSize-t": "56px", "--r-fontSize-d": "56px", fontWeight: "900", color: "#20291F" }}>37.1 MILLION</div>
+                <div className="r-fontSize" style={{ "--r-fontSize-m": "14px", "--r-fontSize-t": "18px", "--r-fontSize-d": "18px", color: "#20291F", fontWeight: "700", letterSpacing: "2px" }}>VIEWS IN 2025</div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: isMobile ? "10px" : "14px" }}>
+              <div className="r-gridTemplateColumns r-gap" style={{ display: "grid", "--r-gridTemplateColumns-m": "repeat(2, 1fr)", "--r-gridTemplateColumns-t": "repeat(4, 1fr)", "--r-gridTemplateColumns-d": "repeat(4, 1fr)", "--r-gap-m": "10px", "--r-gap-t": "14px", "--r-gap-d": "14px" }}>
                 {[{ n: "Instagram", v: "13.4M" }, { n: "Facebook", v: "19.5M*" }, { n: "TikTok", v: "4.2M" }, { n: "TOTAL", v: "37.1M" }].map(p => (
-                  <div key={p.n} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "14px", padding: isMobile ? "14px" : "20px", textAlign: "center", border: p.n === "TOTAL" ? `2px solid ${c.yellow}` : "none" }}>
-                    <div style={{ color: p.n === "TOTAL" ? c.yellow : c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "900" }}>{p.v}</div>
+                  <div key={p.n} className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "14px", "--r-padding-m": "14px", "--r-padding-t": "20px", "--r-padding-d": "20px", textAlign: "center", border: p.n === "TOTAL" ? `2px solid ${c.yellow}` : "none" }}>
+                    <div className="r-fontSize" style={{ color: p.n === "TOTAL" ? c.yellow : c.cream, "--r-fontSize-m": "20px", "--r-fontSize-t": "26px", "--r-fontSize-d": "26px", fontWeight: "900" }}>{p.v}</div>
                     <div style={{ color: c.beige, fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>{p.n}</div>
                   </div>
                 ))}
@@ -4362,63 +4362,63 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
               {/* Quick CTA Box */}
               <div 
                 onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                style={{ 
+                className="r-padding r-flexDirection r-alignItems r-gap" style={{ 
                   marginTop: "24px",
                   background: `linear-gradient(135deg, ${c.yellow} 0%, #D87437 100%)`,
                   borderRadius: "16px", 
-                  padding: isMobile ? "16px 20px" : "24px 32px", 
+                  "--r-padding-m": "16px 20px", "--r-padding-t": "24px 32px", "--r-padding-d": "24px 32px", 
                   cursor: "pointer",
                   display: "flex",
-                  flexDirection: isMobile ? "column" : "row",
-                  alignItems: isMobile ? "flex-start" : "center",
+                  "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row",
+                  "--r-alignItems-m": "flex-start", "--r-alignItems-t": "center", "--r-alignItems-d": "center",
                   justifyContent: "space-between",
-                  gap: isMobile ? "12px" : "0",
+                  "--r-gap-m": "12px", "--r-gap-t": "0", "--r-gap-d": "0",
                   transition: "transform 0.2s, box-shadow 0.2s"
                 }}
                 onMouseOver={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.3)"; }}
                 onMouseOut={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span aria-hidden="true" style={{ fontSize: isMobile ? "24px" : "28px" }}>🚀</span>
+                  <span aria-hidden="true" className="r-fontSize" style={{ "--r-fontSize-m": "24px", "--r-fontSize-t": "28px", "--r-fontSize-d": "28px" }}>🚀</span>
                   <div>
-                    <h3 style={{ color: "#20291F", fontSize: isMobile ? "16px" : "20px", fontWeight: "900", margin: 0 }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}>I've Seen Enough, Let's Partner</button></h3>
-                    <p style={{ color: "#20291F", fontSize: isMobile ? "12px" : "14px", margin: 0 }}>Skip ahead and fill out our quick intake form</p>
+                    <h3 className="r-fontSize" style={{ color: "#20291F", "--r-fontSize-m": "16px", "--r-fontSize-t": "20px", "--r-fontSize-d": "20px", fontWeight: "900", margin: 0 }}><button type="button" className="card-title-btn" onClick={(ev) => { ev.stopPropagation(); setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}>I've Seen Enough, Let's Partner</button></h3>
+                    <p className="r-fontSize" style={{ color: "#20291F", "--r-fontSize-m": "12px", "--r-fontSize-t": "14px", "--r-fontSize-d": "14px", margin: 0 }}>Skip ahead and fill out our quick intake form</p>
                   </div>
                 </div>
-                <span aria-hidden="true" style={{ color: "#20291F", fontSize: "24px", fontWeight: "900", alignSelf: isMobile ? "flex-end" : "center" }}>→</span>
+                <span aria-hidden="true" className="r-alignSelf" style={{ color: "#20291F", fontSize: "24px", fontWeight: "900", "--r-alignSelf-m": "flex-end", "--r-alignSelf-t": "center", "--r-alignSelf-d": "center" }}>→</span>
               </div>
             </div>
 
             {/* WHY PARTNER WITH US — what partnering actually does */}
-            <div style={{ marginBottom: isMobile ? "32px" : "48px" }}>
+            <div className="r-marginBottom" style={{ "--r-marginBottom-m": "32px", "--r-marginBottom-t": "48px", "--r-marginBottom-d": "48px" }}>
               <div style={{ textAlign: "center", marginBottom: "28px" }}>
                 <p style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "3px", marginBottom: "8px", textTransform: "uppercase" }}>What Partnering Actually Does</p>
-                <h2 style={{ color: c.cream, fontSize: isMobile ? "24px" : "32px", fontWeight: "900", textTransform: "uppercase", marginBottom: "10px" }}>When We Post, Milwaukee Moves</h2>
-                <p style={{ color: c.beige, fontSize: isMobile ? "15px" : "17px", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>Not impressions. Not "engagement." Real people walking in, booking, and buying — that week.</p>
+                <h2 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "24px", "--r-fontSize-t": "32px", "--r-fontSize-d": "32px", fontWeight: "900", textTransform: "uppercase", marginBottom: "10px" }}>When We Post, Milwaukee Moves</h2>
+                <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "15px", "--r-fontSize-t": "17px", "--r-fontSize-d": "17px", maxWidth: "620px", margin: "0 auto", lineHeight: 1.6 }}>Not impressions. Not "engagement." Real people walking in, booking, and buying — that week.</p>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: isMobile ? "16px" : "24px" }}>
+              <div className="r-gridTemplateColumns r-gap" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "repeat(3, 1fr)", "--r-gridTemplateColumns-d": "repeat(3, 1fr)", "--r-gap-m": "16px", "--r-gap-t": "24px", "--r-gap-d": "24px" }}>
                 {[
                   { icon: "📈", title: "37 million views that go somewhere", body: "Reach only counts if it acts. Ours does — 37.1M views a year from locals who use us to decide where to actually go." },
                   { icon: "🤝", title: "You inherit the trust we've earned", body: "Milwaukee already takes our word for it. Feature with us and that credibility points at you from day one — no warming up a cold audience." },
                   { icon: "💸", title: "They show up ready to spend", body: "Our audience is 79% ages 18–44 — locals who try new places, go out midweek, and spend money here. You're reaching the people who fill rooms and tabs." }
                 ].map((b, i) => (
-                  <div key={i} style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <div key={i} className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", "--r-padding-m": "24px", "--r-padding-t": "28px", "--r-padding-d": "28px", border: "1px solid rgba(255,255,255,0.1)" }}>
                     <span aria-hidden="true" style={{ fontSize: "28px" }}>{b.icon}</span>
-                    <h3 style={{ color: c.cream, fontSize: isMobile ? "17px" : "18px", fontWeight: "900", margin: "14px 0 8px" }}>{b.title}</h3>
+                    <h3 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "17px", "--r-fontSize-t": "18px", "--r-fontSize-d": "18px", fontWeight: "900", margin: "14px 0 8px" }}>{b.title}</h3>
                     <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.7, margin: 0 }}>{b.body}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "24px", marginBottom: isMobile ? "32px" : "48px" }}>
-              <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
+            <div className="r-gridTemplateColumns r-marginBottom" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "1fr 1fr", "--r-gridTemplateColumns-d": "1fr 1fr", gap: "24px", "--r-marginBottom-m": "32px", "--r-marginBottom-t": "48px", "--r-marginBottom-d": "48px" }}>
+              <div className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", "--r-padding-m": "24px", "--r-padding-t": "32px", "--r-padding-d": "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
                   <span aria-hidden="true" style={{ fontSize: "20px" }}>👀</span>
-                  <h3 style={{ color: c.cream, fontSize: isMobile ? "18px" : "20px", fontWeight: "900", textTransform: "uppercase" }}>Who You're Reaching</h3>
+                  <h3 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "18px", "--r-fontSize-t": "20px", "--r-fontSize-d": "20px", fontWeight: "900", textTransform: "uppercase" }}>Who You're Reaching</h3>
                 </div>
-                <div style={{ backgroundColor: c.yellow, borderRadius: "12px", padding: isMobile ? "14px" : "18px", marginBottom: "20px", textAlign: "center" }}>
-                  <div style={{ fontSize: isMobile ? "32px" : "40px", fontWeight: "900", color: c.green1 }}>79.2%</div>
+                <div className="r-padding" style={{ backgroundColor: c.yellow, borderRadius: "12px", "--r-padding-m": "14px", "--r-padding-t": "18px", "--r-padding-d": "18px", marginBottom: "20px", textAlign: "center" }}>
+                  <div className="r-fontSize" style={{ "--r-fontSize-m": "32px", "--r-fontSize-t": "40px", "--r-fontSize-d": "40px", fontWeight: "900", color: c.green1 }}>79.2%</div>
                   <div style={{ color: "#294D32", fontSize: "13px", fontWeight: "600" }}>AGES 18–44</div>
                 </div>
                 <p style={{ color: c.cream, fontSize: "15px", marginBottom: "12px", fontWeight: "600" }}>Young professionals. Couples. Groups of friends.</p>
@@ -4426,10 +4426,10 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   <li>Try new places</li><li>Go out during the week</li><li>Show up when something looks cool</li><li>Spend money locally</li>
                 </ul>
               </div>
-              <div style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "24px" : "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
+              <div className="r-padding" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", "--r-padding-m": "24px", "--r-padding-t": "32px", "--r-padding-d": "32px", border: "1px solid rgba(255,255,255,0.1)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
                   <span aria-hidden="true" style={{ fontSize: "20px" }}>🎯</span>
-                  <h3 style={{ color: c.cream, fontSize: isMobile ? "18px" : "20px", fontWeight: "900", textTransform: "uppercase" }}>What Makes Us Different</h3>
+                  <h3 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "18px", "--r-fontSize-t": "20px", "--r-fontSize-d": "20px", fontWeight: "900", textTransform: "uppercase" }}>What Makes Us Different</h3>
                 </div>
                 <p style={{ color: c.cream, fontSize: "15px", marginBottom: "20px", lineHeight: 1.6 }}>We don't do boring. We don't do stock photos. And we definitely don't do "Hey guys, check this out" energy.</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -4444,13 +4444,13 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                 </div>
               </div>
             </div>
-            <div style={{ textAlign: "center", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", padding: isMobile ? "28px 20px" : "40px", border: `2px solid ${c.yellow}` }}>
+            <div className="r-padding" style={{ textAlign: "center", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", "--r-padding-m": "28px 20px", "--r-padding-t": "40px", "--r-padding-d": "40px", border: `2px solid ${c.yellow}` }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "12px", flexWrap: "wrap" }}>
                 <span aria-hidden="true" style={{ fontSize: "24px" }}>🤝</span>
-                <h3 style={{ color: c.cream, fontSize: isMobile ? "20px" : "26px", fontWeight: "900", textTransform: "uppercase" }}>Let's Do Something That Works</h3>
+                <h3 className="r-fontSize" style={{ color: c.cream, "--r-fontSize-m": "20px", "--r-fontSize-t": "26px", "--r-fontSize-d": "26px", fontWeight: "900", textTransform: "uppercase" }}>Let's Do Something That Works</h3>
               </div>
-              <p style={{ color: c.beige, fontSize: isMobile ? "14px" : "16px", marginBottom: "24px" }}>If you want your brand seen by the people shaping Milwaukee's culture, we should talk.</p>
-              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ display: "inline-block", padding: isMobile ? "14px 28px" : "18px 40px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", fontSize: isMobile ? "14px" : "16px", textTransform: "uppercase" }}>Let's Partner Up →</button>
+              <p className="r-fontSize" style={{ color: c.beige, "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", marginBottom: "24px" }}>If you want your brand seen by the people shaping Milwaukee's culture, we should talk.</p>
+              <button onClick={() => { setShowPartnerForm(true); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="r-padding r-fontSize" style={{ display: "inline-block", "--r-padding-m": "14px 28px", "--r-padding-t": "18px 40px", "--r-padding-d": "18px 40px", backgroundColor: c.yellow, color: "#294D32", borderRadius: "50px", border: "none", cursor: "pointer", fontWeight: "900", "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", textTransform: "uppercase" }}>Let's Partner Up →</button>
             </div>
           </div>
         </section>
@@ -4458,7 +4458,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
       {/* PARTNER INTAKE FORM */}
       {page === "partner" && showPartnerForm && (
-        <section style={{ padding: isMobile ? "32px 16px" : "60px 16px", backgroundColor: c.cream, minHeight: "100vh" }}>
+        <section className="r-padding" style={{ "--r-padding-m": "32px 16px", "--r-padding-t": "60px 16px", "--r-padding-d": "60px 16px", backgroundColor: c.cream, minHeight: "100vh" }}>
           <div style={{ maxWidth: "700px", margin: "0 auto" }}>
             <button
               onClick={() => setShowPartnerForm(false)}
@@ -4469,21 +4469,21 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
             {!formSubmitted ? (
               <>
-                <div style={{ textAlign: "center", marginBottom: isMobile ? "28px" : "40px" }}>
-                  <h1 style={{ fontSize: isMobile ? "28px" : "36px", fontWeight: "900", color: c.green1, marginBottom: "16px", textTransform: "uppercase" }}>Let's Partner Up</h1>
-                  <p style={{ color: c.tanDark, fontSize: isMobile ? "14px" : "16px", lineHeight: 1.6, maxWidth: "550px", margin: "0 auto" }}>Tell us a bit about your brand and what you're trying to accomplish. We'll follow up with the best-fit partnership options and current availability.</p>
+                <div className="r-marginBottom" style={{ textAlign: "center", "--r-marginBottom-m": "28px", "--r-marginBottom-t": "40px", "--r-marginBottom-d": "40px" }}>
+                  <h1 className="r-fontSize" style={{ "--r-fontSize-m": "28px", "--r-fontSize-t": "36px", "--r-fontSize-d": "36px", fontWeight: "900", color: c.green1, marginBottom: "16px", textTransform: "uppercase" }}>Let's Partner Up</h1>
+                  <p className="r-fontSize" style={{ color: c.tanDark, "--r-fontSize-m": "14px", "--r-fontSize-t": "16px", "--r-fontSize-d": "16px", lineHeight: 1.6, maxWidth: "550px", margin: "0 auto" }}>Tell us a bit about your brand and what you're trying to accomplish. We'll follow up with the best-fit partnership options and current availability.</p>
                 </div>
 
                 <form onSubmit={handlePartnerSubmit} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                   
                   {/* About You Section */}
-                  <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+                  <div className="r-padding" style={{ backgroundColor: c.white, borderRadius: "16px", "--r-padding-m": "20px", "--r-padding-t": "28px", "--r-padding-d": "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
                       <span aria-hidden="true">📋</span> About You
                     </h2>
 
-                    <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "16px" }}>
-                      <div style={{ gridColumn: isMobile ? "span 1" : "span 2" }}>
+                    <div className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "1fr 1fr", "--r-gridTemplateColumns-d": "1fr 1fr", gap: "16px" }}>
+                      <div className="r-gridColumn" style={{ "--r-gridColumn-m": "span 1", "--r-gridColumn-t": "span 2", "--r-gridColumn-d": "span 2" }}>
                         <label htmlFor="pf-fullName" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Full Name *</label>
                         <input id="pf-fullName" type="text" required value={partnerForm.fullName} onChange={(e) => handlePartnerFormChange("fullName", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
@@ -4498,7 +4498,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                         <input id="pf-emailAddress" type="email" required value={partnerForm.emailAddress} onChange={(e) => handlePartnerFormChange("emailAddress", e.target.value)} style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
 
-                      <div style={{ gridColumn: isMobile ? "span 1" : "span 2" }}>
+                      <div className="r-gridColumn" style={{ "--r-gridColumn-m": "span 1", "--r-gridColumn-t": "span 2", "--r-gridColumn-d": "span 2" }}>
                         <label htmlFor="pf-socialHandles" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "6px" }}>Social Media Handles <span style={{ color: c.tanDark, fontWeight: "400" }}>(optional)</span></label>
                         <input id="pf-socialHandles" type="text" value={partnerForm.socialHandles} onChange={(e) => handlePartnerFormChange("socialHandles", e.target.value)} placeholder="@instagram, @tiktok, etc." style={{ width: "100%", padding: "14px 16px", borderRadius: "10px", border: `2px solid ${c.beige}`, fontSize: "15px", backgroundColor: c.cream }} />
                       </div>
@@ -4506,7 +4506,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                   </div>
 
                   {/* Budget Section */}
-                  <div style={{ backgroundColor: c.white, borderRadius: "16px", padding: isMobile ? "20px" : "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
+                  <div className="r-padding" style={{ backgroundColor: c.white, borderRadius: "16px", "--r-padding-m": "20px", "--r-padding-t": "28px", "--r-padding-d": "28px", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                     <h2 style={{ fontSize: "18px", fontWeight: "800", color: c.green1, marginBottom: "6px", display: "flex", alignItems: "center", gap: "8px" }}>
                       <span aria-hidden="true">💰</span> Budget
                     </h2>
@@ -4526,7 +4526,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
                     </h2>
                     
                     <span id="pf-interest-label" style={{ display: "block", fontSize: "13px", fontWeight: "600", color: c.green1, marginBottom: "12px" }}>What type of partnership are you interested in? (Optional)</span>
-                    <div role="group" aria-labelledby="pf-interest-label" style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "10px" }}>
+                    <div role="group" aria-labelledby="pf-interest-label" className="r-gridTemplateColumns" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "1fr 1fr", "--r-gridTemplateColumns-d": "1fr 1fr", gap: "10px" }}>
                       {[
                         { label: "One-time feature" },
                         { label: "Ongoing partnership" },
@@ -4634,19 +4634,19 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
       </main>
 
       {/* FOOTER */}
-      <footer style={{ padding: isMobile ? "40px 16px" : "60px 16px", backgroundColor: c.green1, borderTop: `4px solid ${c.yellow}` }}>
+      <footer className="r-padding" style={{ "--r-padding-m": "40px 16px", "--r-padding-t": "60px 16px", "--r-padding-d": "60px 16px", backgroundColor: c.green1, borderTop: `4px solid ${c.yellow}` }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           {/* Main Footer Content */}
-          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "2fr 1fr 1fr 1fr", gap: isMobile ? "32px" : "40px", marginBottom: "40px", textAlign: isMobile ? "center" : "left" }}>
+          <div className="r-gridTemplateColumns r-gap r-textAlign" style={{ display: "grid", "--r-gridTemplateColumns-m": "1fr", "--r-gridTemplateColumns-t": "2fr 1fr 1fr 1fr", "--r-gridTemplateColumns-d": "2fr 1fr 1fr 1fr", "--r-gap-m": "32px", "--r-gap-t": "40px", "--r-gap-d": "40px", marginBottom: "40px", "--r-textAlign-m": "center", "--r-textAlign-t": "left", "--r-textAlign-d": "left" }}>
             {/* Brand Column */}
             <div>
               <a href="/" onClick={(e) => { e.preventDefault(); navigateTo("home"); }} style={{ cursor: "pointer", marginBottom: "12px", display: "inline-block", textDecoration: "none" }}>
-                <span style={{ fontSize: isMobile ? "18px" : "20px", fontWeight: "900", color: c.cream, letterSpacing: "1px", textTransform: "uppercase" }}>DISCOVER MILWAUKEE</span>
+                <span className="r-fontSize" style={{ "--r-fontSize-m": "18px", "--r-fontSize-t": "20px", "--r-fontSize-d": "20px", fontWeight: "900", color: c.cream, letterSpacing: "1px", textTransform: "uppercase" }}>DISCOVER MILWAUKEE</span>
               </a>
-              <p style={{ color: c.beige, fontSize: "14px", lineHeight: 1.6, marginBottom: "16px", maxWidth: "280px", margin: isMobile ? "0 auto 16px" : "0 0 16px" }}>
+              <p className="r-margin" style={{ color: c.beige, fontSize: "14px", lineHeight: 1.6, marginBottom: "16px", maxWidth: "280px", "--r-margin-m": "0 auto 16px", "--r-margin-t": "0 0 16px", "--r-margin-d": "0 0 16px" }}>
                 Your insider's guide to everything worth doing in Milwaukee. No fluff. Just the good stuff.
               </p>
-              <div style={{ display: "flex", gap: "16px", justifyContent: isMobile ? "center" : "flex-start" }}>
+              <div className="r-justifyContent" style={{ display: "flex", gap: "16px", "--r-justifyContent-m": "center", "--r-justifyContent-t": "flex-start", "--r-justifyContent-d": "flex-start" }}>
                 <a href="https://instagram.com/discovermilwaukee" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige} aria-label="Discover Milwaukee on Instagram (opens in a new tab)"><Icons.Instagram /></a>
                 <a href="https://tiktok.com/@discovermilwaukee" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige} aria-label="Discover Milwaukee on TikTok (opens in a new tab)"><Icons.TikTok /></a>
                 <a href="https://www.facebook.com/p/discovermilwaukee-100069844392448/" target="_blank" rel="noopener noreferrer" style={{ color: c.beige, transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.yellow} onMouseOut={e => e.currentTarget.style.color = c.beige} aria-label="Discover Milwaukee on Facebook (opens in a new tab)"><Icons.Facebook /></a>
@@ -4689,8 +4689,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
           {/* Visitor Guides - SEO Internal Links */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", marginBottom: "24px" }}>
-            <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Visitor Guides</h2>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "12px" : "24px", justifyContent: isMobile ? "center" : "flex-start" }}>
+            <h2 className="r-textAlign" style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", "--r-textAlign-m": "center", "--r-textAlign-t": "left", "--r-textAlign-d": "left" }}>Visitor Guides</h2>
+            <div className="r-gap r-justifyContent" style={{ display: "flex", flexWrap: "wrap", "--r-gap-m": "12px", "--r-gap-t": "24px", "--r-gap-d": "24px", "--r-justifyContent-m": "center", "--r-justifyContent-t": "flex-start", "--r-justifyContent-d": "flex-start" }}>
               <a href="/first-time-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>First Time Visitor</a>
               <a href="/weekend-in-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Weekend Itinerary</a>
               <a href="/romantic-weekend-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Romantic Getaway</a>
@@ -4704,8 +4704,8 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
 
           {/* Popular Guides - SEO Internal Links */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", marginBottom: "24px" }}>
-            <h2 style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", textAlign: isMobile ? "center" : "left" }}>Popular Guides</h2>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? "12px" : "24px", justifyContent: isMobile ? "center" : "flex-start" }}>
+            <h2 className="r-textAlign" style={{ color: "#F1AF38", fontSize: "12px", fontWeight: "700", letterSpacing: "2px", marginBottom: "16px", textTransform: "uppercase", "--r-textAlign-m": "center", "--r-textAlign-t": "left", "--r-textAlign-d": "left" }}>Popular Guides</h2>
+            <div className="r-gap r-justifyContent" style={{ display: "flex", flexWrap: "wrap", "--r-gap-m": "12px", "--r-gap-t": "24px", "--r-gap-d": "24px", "--r-justifyContent-m": "center", "--r-justifyContent-t": "flex-start", "--r-justifyContent-d": "flex-start" }}>
               <a href="/best-brunch-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Best Brunch</a>
               <a href="/best-patios-milwaukee" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Best Patios</a>
               <a href="/milwaukee-breweries" style={{ color: c.beige, fontSize: "13px", textDecoration: "none", transition: "color 0.2s" }} onMouseOver={e => e.currentTarget.style.color = c.cream} onMouseOut={e => e.currentTarget.style.color = c.beige}>Breweries</a>
@@ -4728,7 +4728,7 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
           </div>
 
           {/* Bottom Bar */}
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", display: "flex", flexDirection: isMobile ? "column" : "row", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
+          <div className="r-flexDirection" style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "24px", display: "flex", "--r-flexDirection-m": "column", "--r-flexDirection-t": "row", "--r-flexDirection-d": "row", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
             <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8 }}>© 2026 Discover Milwaukee. All rights reserved.</p>
             <p style={{ color: c.beige, fontSize: "13px", opacity: 0.8, display: "flex", alignItems: "center", gap: "6px" }}>Made with <LineIcons.BeerMug size={15} /><span className="sr-only">beer</span> in Milwaukee, WI</p>
           </div>

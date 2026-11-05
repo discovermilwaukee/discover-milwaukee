@@ -323,6 +323,62 @@ video, iframe {
   .ev-grid { grid-template-columns: 1fr; }
 }
 
+/* Generated utilities: each sets one property from per-element variables (--r-<prop>-m / -t / -d),
+   so phone, tablet and desktop values are all in the server-rendered HTML and CSS picks one.
+   !important because they stand in for what used to be inline styles. */
+.r-alignItems { align-items: var(--r-alignItems-d) !important; }
+.r-alignSelf { align-self: var(--r-alignSelf-d) !important; }
+.r-borderRadius { border-radius: var(--r-borderRadius-d) !important; }
+.r-flexDirection { flex-direction: var(--r-flexDirection-d) !important; }
+.r-fontSize { font-size: var(--r-fontSize-d) !important; }
+.r-gap { gap: var(--r-gap-d) !important; }
+.r-gridColumn { grid-column: var(--r-gridColumn-d) !important; }
+.r-gridTemplateColumns { grid-template-columns: var(--r-gridTemplateColumns-d) !important; }
+.r-height { height: var(--r-height-d) !important; }
+.r-justifyContent { justify-content: var(--r-justifyContent-d) !important; }
+.r-margin { margin: var(--r-margin-d) !important; }
+.r-marginBottom { margin-bottom: var(--r-marginBottom-d) !important; }
+.r-minHeight { min-height: var(--r-minHeight-d) !important; }
+.r-padding { padding: var(--r-padding-d) !important; }
+.r-textAlign { text-align: var(--r-textAlign-d) !important; }
+.r-width { width: var(--r-width-d) !important; }
+@media (max-width: 1023px) {
+  .r-alignItems { align-items: var(--r-alignItems-t) !important; }
+  .r-alignSelf { align-self: var(--r-alignSelf-t) !important; }
+  .r-borderRadius { border-radius: var(--r-borderRadius-t) !important; }
+  .r-flexDirection { flex-direction: var(--r-flexDirection-t) !important; }
+  .r-fontSize { font-size: var(--r-fontSize-t) !important; }
+  .r-gap { gap: var(--r-gap-t) !important; }
+  .r-gridColumn { grid-column: var(--r-gridColumn-t) !important; }
+  .r-gridTemplateColumns { grid-template-columns: var(--r-gridTemplateColumns-t) !important; }
+  .r-height { height: var(--r-height-t) !important; }
+  .r-justifyContent { justify-content: var(--r-justifyContent-t) !important; }
+  .r-margin { margin: var(--r-margin-t) !important; }
+  .r-marginBottom { margin-bottom: var(--r-marginBottom-t) !important; }
+  .r-minHeight { min-height: var(--r-minHeight-t) !important; }
+  .r-padding { padding: var(--r-padding-t) !important; }
+  .r-textAlign { text-align: var(--r-textAlign-t) !important; }
+  .r-width { width: var(--r-width-t) !important; }
+}
+@media (max-width: 767px) {
+  .r-alignItems { align-items: var(--r-alignItems-m) !important; }
+  .r-alignSelf { align-self: var(--r-alignSelf-m) !important; }
+  .r-borderRadius { border-radius: var(--r-borderRadius-m) !important; }
+  .r-flexDirection { flex-direction: var(--r-flexDirection-m) !important; }
+  .r-fontSize { font-size: var(--r-fontSize-m) !important; }
+  .r-gap { gap: var(--r-gap-m) !important; }
+  .r-gridColumn { grid-column: var(--r-gridColumn-m) !important; }
+  .r-gridTemplateColumns { grid-template-columns: var(--r-gridTemplateColumns-m) !important; }
+  .r-height { height: var(--r-height-m) !important; }
+  .r-justifyContent { justify-content: var(--r-justifyContent-m) !important; }
+  .r-margin { margin: var(--r-margin-m) !important; }
+  .r-marginBottom { margin-bottom: var(--r-marginBottom-m) !important; }
+  .r-minHeight { min-height: var(--r-minHeight-m) !important; }
+  .r-padding { padding: var(--r-padding-m) !important; }
+  .r-textAlign { text-align: var(--r-textAlign-m) !important; }
+  .r-width { width: var(--r-width-m) !important; }
+}
+
 /* Selection styling */
 ::selection {
   background-color: #2C5235;
