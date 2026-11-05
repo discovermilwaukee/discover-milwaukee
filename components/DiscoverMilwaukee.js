@@ -2938,8 +2938,11 @@ export function DiscoverMilwaukee({ initialPage = "home" }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Discover MKE" />
         
+        {/* Fetch the two fonts used at the top of these pages early, so the swap from the
+            size-matched fallback happens sooner. Fonts are self-hosted (see globals.css). */}
+        <link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/jost-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         {/* Preconnect for Performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://docs.google.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         

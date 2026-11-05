@@ -185,9 +185,12 @@ video, iframe {
    into guide pages. All animations are disabled by the prefers-reduced-motion
    block above.
 --------------------------------------------------------------------------- */
+/* Rise-in only. The hero used to start at opacity 0 and fade in, which meant the headline was
+   not painted (or counted as the page's largest element) until the web font arrived and forced
+   a repaint. Text is now visible from the first paint and simply slides up into place. */
 @keyframes dmFadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(24px); }
+  to   { transform: translateY(0); }
 }
 
 @keyframes dmFloat {
@@ -201,8 +204,7 @@ video, iframe {
 }
 
 .dm-fade-up {
-  opacity: 0;
-  animation: dmFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: dmFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .dm-delay-1 { animation-delay: 0.08s; }
 .dm-delay-2 { animation-delay: 0.16s; }
@@ -230,6 +232,61 @@ video, iframe {
 .dm-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(240, 166, 35, 0.45);
+}
+
+/* ---------------------------------------------------------------------------
+   Brand fonts, served from this site (public/fonts). Same files and character
+   ranges Google Fonts publishes; hosting them here avoids a second connection
+   and loads three small files instead of five. See public/fonts/README.txt.
+   Jost is a variable font: one file covers weights 400 to 700.
+--------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/anton-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/anton-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/jost-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(/fonts/jost-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Damion';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/damion-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Damion';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/damion-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* ---------------------------------------------------------------------------
