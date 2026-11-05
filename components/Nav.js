@@ -117,7 +117,7 @@ export default function Nav({ onSearchClick }) {
     <>
       {/* Banner */}
       <header role="banner">
-        <div style={{ backgroundColor: c.green1, color: c.cream, padding: "10px 16px", textAlign: "center", fontSize: isMobile ? "12px" : "14px" }}>
+        <div style={{ backgroundColor: c.green1, color: c.cream, padding: "10px 16px", textAlign: "center" }} className="nav-banner">
           Your Weekly Guide to Everything Milwaukee — Delivered Free
         </div>
       </header>
@@ -126,12 +126,12 @@ export default function Nav({ onSearchClick }) {
       <nav aria-label="Main" style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: c.cream, borderBottom: `3px solid ${c.yellow}`, boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 16px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "70px" }}>
           <Link href="/" style={{ cursor: "pointer", display: "flex", alignItems: "center", textDecoration: "none" }}>
-            <span style={{ fontSize: isMobile ? "16px" : "22px", fontWeight: "900", color: c.green1, letterSpacing: "1px", textTransform: "uppercase" }}>DISCOVER MILWAUKEE</span>
+            <span className="nav-logo" style={{ fontWeight: "900", color: c.green1, letterSpacing: "1px", textTransform: "uppercase" }}>DISCOVER MILWAUKEE</span>
           </Link>
 
-          {/* Desktop Nav */}
-          {!isMobile && (
-            <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+          {/* Desktop Nav — always rendered; shown or hidden by CSS so the header never changes
+              size when scripts load (see .nav-desktop / .nav-mobile in globals.css) */}
+            <div className="nav-desktop" style={{ alignItems: "center", gap: "24px" }}>
               {/* Guides mega-menu trigger */}
               <div onMouseEnter={openGuides} onMouseLeave={scheduleCloseGuides}>
                 <button
@@ -223,11 +223,9 @@ export default function Nav({ onSearchClick }) {
                 <SearchIcon />
               </button>
             </div>
-          )}
 
           {/* Mobile Nav Icons */}
-          {isMobile && (
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div className="nav-mobile" style={{ alignItems: "center", gap: "8px" }}>
               {/* Search Button */}
               <button
                 type="button"
@@ -258,7 +256,6 @@ export default function Nav({ onSearchClick }) {
                 <span aria-hidden="true" style={{ display: "block", width: "24px", height: "2px", backgroundColor: c.green1, transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
               </button>
             </div>
-          )}
         </div>
 
         {/* Guides Mega-Menu Panel (desktop) */}
