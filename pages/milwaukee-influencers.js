@@ -219,6 +219,7 @@ function PlatformLink({ href, label, name }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`${name ? name + " on " : ""}${label} (opens in a new tab)`}
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -233,9 +234,7 @@ function PlatformLink({ href, label, name }) {
         backgroundColor: "#fff",
       }}
     >
-      {name && <span className="sr-only">{name} on </span>}
       {label}
-      <span className="sr-only"> (opens in a new tab)</span>
     </a>
   );
 }
@@ -444,13 +443,13 @@ export default function MilwaukeeInfluencers() {
                       <td style={{ padding: "8px 10px" }}>{CATEGORIES[cr.category].label}</td>
                       <td style={{ padding: "8px 10px" }}>{TIER_SHORT[tierFor(cr.rank)]}</td>
                       <td style={{ padding: "8px 10px" }}>
-                        <a href={igUrl(cr.ig)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, textDecoration: "underline" }}>
+                        <a href={igUrl(cr.ig)} target="_blank" rel="noopener noreferrer" aria-label={`${cr.name} on Instagram (opens in a new tab)`} style={{ color: c.green2, textDecoration: "underline" }}>
                           Instagram
                         </a>
                         {cr.tt ? (
                           <>
                             {" · "}
-                            <a href={ttUrl(cr.tt)} target="_blank" rel="noopener noreferrer" style={{ color: c.green2, textDecoration: "underline" }}>
+                            <a href={ttUrl(cr.tt)} target="_blank" rel="noopener noreferrer" aria-label={`${cr.name} on TikTok (opens in a new tab)`} style={{ color: c.green2, textDecoration: "underline" }}>
                               TikTok
                             </a>
                           </>
