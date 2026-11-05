@@ -20,18 +20,13 @@ export default function Document() {
         <meta name="theme-color" content="#1a3d34" />
 
         {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://i.imgur.com" />
 
-        {/* Brand type system (all SIL OFL / free):
+        {/* Brand type system (all SIL OFL / free), self-hosted from /fonts and declared in
+            styles/globals.css — no request to Google Fonts:
             Anton = Interstate Condensed Black substitute (headlines)
             Jost  = Futura substitute (paragraph headers + body)
             Damion = exact brand accent script */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700&family=Damion&display=swap"
-        />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
 
         {/* DNS Prefetch */}
