@@ -283,8 +283,8 @@ export default function BayViewMilwaukee() {
   return (
     <>
       <Head>
-        <title>Bay View Milwaukee Neighborhood Guide 2026 | Restaurants, Bars & Things to Do</title>
-        <meta name="description" content="Explore Bay View, Milwaukee's hip artsy neighborhood. Best restaurants (Odd Duck, Honeypie, Birch), craft beer at Sugar Maple, vintage shopping on KK Ave, South Shore Park, and street art. Complete local guide." />
+        <title>Bay View, Milwaukee: Where to Eat, Drink & What to Do (2026)</title>
+        <meta name="description" content="A local guide to Bay View (also written Bayview), Milwaukee: the neighborhood's best restaurants, bars and coffee, shopping on KK Avenue, and South Shore Park." />
         <meta name="keywords" content="bay view milwaukee, bay view neighborhood, kinnickinnic avenue, KK ave milwaukee, bay view restaurants, odd duck milwaukee, sugar maple milwaukee, south shore park, milwaukee neighborhoods, bay view bars, bay view coffee shops" />
         <link rel="canonical" href="https://www.discover-milwaukee.com/bay-view-milwaukee" />
 

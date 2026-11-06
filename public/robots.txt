@@ -152,3 +152,4 @@ Disallow: /
 # Sitemaps
 # =============================================================================
 Sitemap: https://www.discover-milwaukee.com/sitemap.xml
+Sitemap: https://www.discover-milwaukee.com/events-sitemap.xml

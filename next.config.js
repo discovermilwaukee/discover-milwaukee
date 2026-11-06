@@ -58,13 +58,14 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-      {
-        // Retired 2026-11-02: the hand-edited weekend page went stale (last update April 2026).
-        // The live events calendar is the canonical "what's happening" surface.
-        source: '/this-weekend-milwaukee',
-        destination: '/events',
-        permanent: true,
-      },
+      // Old addresses that still appear in Google's index (seen in Search Console, Nov 2026).
+      // Each now points at the guide that replaced it instead of returning "not found".
+      { source: '/bay-view-milwaukee-neighborhood-guide-2026-restaurants-bars-things-to-do', destination: '/bay-view-milwaukee', permanent: true },
+      { source: '/riverwest-milwaukee-bohemian-artsy-authentic', destination: '/riverwest-milwaukee', permanent: true },
+      { source: '/sherman-park-milwaukee-guide-2026-historic-homes-soul', destination: '/sherman-park-milwaukee', permanent: true },
+      { source: '/50-best-date-ideas-in-milwaukee-romantic-things-to-do', destination: '/milwaukee-date-ideas', permanent: true },
+      { source: '/day-trip-guide/milwaukee-day-trip-guide', destination: '/day-trips-milwaukee', permanent: true },
+      { source: '/day-trips-milunker', destination: '/day-trips-milwaukee', permanent: true },
     ];
   },
   

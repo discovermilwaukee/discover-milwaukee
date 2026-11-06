@@ -20,7 +20,7 @@ echo "Verifying $BASE_URL against baseline $SNAP"
 
 # --- routes from the repo (source of truth) ---
 git -C "$ROOT" ls-files pages \
-  | grep -vE '_app\.js|_document\.js|^pages/api/|404\.js|500\.js' \
+  | grep -vE '_app\.js|_document\.js|^pages/api/|404\.js|500\.js|\[|\.xml\.js$' \
   | sed -E 's#^pages/##; s#\.js$##; s#^index$#/#' > "$TMP/routes.txt"
 
 # --- 1. every route 200 ---

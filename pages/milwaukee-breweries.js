@@ -291,6 +291,12 @@ const beerGardens = [
 
 const faqs = [
   {
+    // Count verified Nov 5, 2026. Source: Wisconsin Public Radio, Jan 14, 2025 (wpr.org/news/milwaukee-craft-breweries-closed-2024-national-trend).
+    // There is no official tally, so the answer says so.
+    question: 'How many breweries are in Milwaukee?',
+    answer: 'About 40. There is no official count, but the most recent local tally, reported by Wisconsin Public Radio in January 2025, found 40 craft breweries operating in the Greater Milwaukee area. Statewide, the Brewers Association counted 266 craft breweries in Wisconsin, 13th most in the nation. This guide covers the ones most worth a visit.',
+  },
+  {
     question: 'Why is Milwaukee called the beer capital?',
     answer: 'Milwaukee earned its title as America\'s beer capital in the 19th century when German immigrants established major breweries including Schlitz, Pabst, Miller, and Blatz. At its peak, Milwaukee had more than 80 breweries. Today, the craft beer renaissance continues this proud tradition with over 30 local breweries.',
   },
@@ -331,7 +337,7 @@ const articleSchema = {
     name: 'Discover Milwaukee',
   },
   datePublished: '2026-01-15',
-  dateModified: '2026-01-15',
+  dateModified: '2026-11-05',
   image: 'https://www.discover-milwaukee.com/images/milwaukee-breweries-guide.jpg',
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -479,6 +485,20 @@ export default function MilwaukeeBreweries() {
               From the German immigrants who built Schlitz, Pabst, and Miller to today's innovative craft
               brewers, Milwaukee's brewing heritage runs deep. Explore 30+ breweries in America's original
               beer city.
+            </p>
+          </div>
+        </section>
+
+        {/* Quick answer to the most-searched question about this topic */}
+        <section aria-labelledby="brewery-count-heading" style={{ padding: '40px 20px 0', maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ backgroundColor: '#fff', border: `1px solid ${colors.beige}`, borderLeft: `4px solid ${colors.green1}`, borderRadius: '12px', padding: '22px 24px' }}>
+            <h2 id="brewery-count-heading" style={{ fontSize: '1.25rem', color: colors.green1, margin: '0 0 8px' }}>
+              How many breweries are in Milwaukee?
+            </h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: colors.green1, margin: 0 }}>
+              <strong>About 40.</strong> There is no official count, but the most recent local tally, reported by Wisconsin
+              Public Radio in January 2025, found 40 craft breweries operating in the Greater Milwaukee area. Statewide, the
+              Brewers Association counted 266 craft breweries in Wisconsin, 13th most in the nation.
             </p>
           </div>
         </section>
