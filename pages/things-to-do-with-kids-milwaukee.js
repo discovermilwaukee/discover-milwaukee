@@ -1,12 +1,11 @@
-import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Breadcrumbs from "../components/Breadcrumbs";
 import RelatedGuides from "../components/RelatedGuides";
-
 import NewsletterCTA from "../components/NewsletterCTA";
+
 const c = {
   green1: "#1a3d34",
   green2: "#2d5a4a",
@@ -16,583 +15,709 @@ const c = {
   yellow: "#f4d03f",
 };
 
-const familyActivities = {
-  bestOverall: [
-    {
-      name: "Milwaukee County Zoo",
-      neighborhood: "West Milwaukee",
-      type: "Zoo & Wildlife",
-      priceRange: "$$",
-      address: "10001 W Bluemound Rd, Milwaukee, WI 53226",
-      description: "Spanning nearly 200 wooded acres, the Milwaukee County Zoo is home to over 2,000 mammals, birds, fish, amphibians, and reptiles in specialized habitats. With educational wildlife shows, interactive experiences, and attractions for all ages, it remains one of the most beloved family destinations in Wisconsin.",
-      highlights: ["Feed a Giraffe Experience", "Safari Train Ride", "Zoo Playground", "Seal & Sea Lion Shows", "VR Gorilla Trek Experience"],
-      insiderTip: "Visit on Family Free Days (January 3, February 7, March 7, October 3, November 7, December 5) for free admission. Arrive early on weekends to beat the crowds.",
-      bestFor: "Animal lovers, full-day family outings, educational experiences",
-      ageRange: "All ages (playground divided: 2-5 years & 6-12 years)",
-    },
-    {
-      name: "Discovery World",
-      neighborhood: "Third Ward / Lakefront",
-      type: "Science Museum & Aquarium",
-      priceRange: "$$",
-      address: "500 N Harbor Dr, Milwaukee, WI 53202",
-      description: "Perched on the shores of Lake Michigan, Discovery World combines a science museum with an aquarium featuring over 150 hands-on exhibits. Kids can explore robotics, engineering, and marine life while learning about Great Lakes conservation and innovation through interactive experiences.",
-      highlights: ["Touch Tanks with Stingrays & Sturgeon", "Lake Michigan Aquarium", "Innovation Labs", "Live Theater Shows", "Reiman Aquarium"],
-      insiderTip: "The touch tanks are a must-do for younger kids. Plan 3-4 hours to fully explore both the science exhibits and aquarium areas.",
-      bestFor: "Curious minds, science enthusiasts, hands-on learners",
-      ageRange: "Ages 3-12 (best engagement)",
-    },
-    {
-      name: "Betty Brinn Children's Museum",
-      neighborhood: "Downtown",
-      type: "Children's Museum",
-      priceRange: "$$",
-      address: "929 E Wisconsin Ave, Milwaukee, WI 53202",
-      description: "Milwaukee's only museum designed specifically for young children, Betty Brinn inspires wonder through hands-on exhibits and imaginative play experiences. With educational programs, workshops, and interactive learning environments, it helps children develop fundamental skills in a fun, engaging setting.",
-      highlights: ["Hands-On Exhibits", "Imaginative Play Areas", "Educational Workshops", "Early Learning Programs", "Interactive Play Stations"],
-      insiderTip: "Best for ages 10 and under. Visit on weekday mornings for smaller crowds. Dynamic pricing applies during spring and winter breaks.",
-      bestFor: "Toddlers, preschoolers, early learners",
-      ageRange: "Ages 0-10 (children under 1 free)",
-    },
-    {
-      name: "Milwaukee Public Museum",
-      neighborhood: "Downtown",
-      type: "Natural History Museum",
-      priceRange: "$$",
-      address: "800 W Wells St, Milwaukee, WI 53233",
-      description: "A beloved institution featuring the dramatic T-Rex encounter, the immersive Streets of Old Milwaukee, an indoor butterfly vivarium, and world-class planetarium. With dinosaur exhibits, cultural displays from 33 European cultures, and hands-on discovery areas, it offers endless exploration for curious families.",
-      highlights: ["Third Planet Dinosaur Exhibits", "Butterfly Vivarium", "Streets of Old Milwaukee", "Daniel M. Soref Planetarium", "Dino Days of Summer (July-August)"],
-      insiderTip: "The museum will be open through all of 2026 before moving to a new location. Don't miss Dino Days of Summer (July 11-August 6) for special dinosaur programming.",
-      bestFor: "Dinosaur enthusiasts, history lovers, science explorers",
-      ageRange: "All ages (planetarium best for ages 5+)",
-    },
-    {
-      name: "Milwaukee Art Museum",
-      neighborhood: "Lakefront",
-      type: "Art Museum",
-      priceRange: "$",
-      address: "700 N Art Museum Dr, Milwaukee, WI 53202",
-      description: "The iconic Quadracci Pavilion with its moveable Burke Brise Soleil wings is a Milwaukee landmark. Thanks to a generous endowment, kids 12 and under always receive free admission. Family-focused programs include Kohl's Family Sundays, Play Date with Art, and Story Time in the Galleries.",
-      highlights: ["Windhover Hall Architecture", "Kohl's Family Sundays", "Free Family Guides & SketchPacks", "Story Time in Galleries", "ArtPacks for Kids"],
-      insiderTip: "Watch the wings open at 10am and close at 8pm (or noon if museum closes at 5pm). Pick up free exploration tools at the front desk for kids.",
-      bestFor: "Art appreciation, architectural wonder, creative families",
-      ageRange: "All ages (kids 12 and under FREE)",
-    },
-  ],
-  museums: [
-    {
-      name: "Discovery World",
-      neighborhood: "Third Ward / Lakefront",
-      type: "Science Museum & Aquarium",
-      priceRange: "$$",
-      address: "500 N Harbor Dr, Milwaukee, WI 53202",
-      description: "Milwaukee's premier science and technology center combines hands-on exhibits with Great Lakes aquarium experiences. Kids can touch stingrays, explore innovation labs, and learn about Lake Michigan ecology through immersive, interactive displays spanning multiple floors.",
-      highlights: ["150+ Hands-On Exhibits", "Caribbean Reef Touch Tank", "Sturgeon Touch Tank", "Great Lakes Exhibits", "STEM Learning Labs"],
-      insiderTip: "Check the daily schedule for live science demonstrations. The sailing simulators and robotics labs are favorites with older kids.",
-      bestFor: "STEM learners, marine life enthusiasts, interactive exploration",
-      ageRange: "Ages 3-14 (something for everyone)",
-    },
-    {
-      name: "Betty Brinn Children's Museum",
-      neighborhood: "Downtown",
-      type: "Children's Museum",
-      priceRange: "$$",
-      address: "929 E Wisconsin Ave, Milwaukee, WI 53202",
-      description: "Located in Museum Center Park on the second level of the Miller Pavilion, Betty Brinn is dedicated to early childhood development through play. The exhibits are designed to spark curiosity and build foundational skills in a safe, imaginative environment.",
-      highlights: ["Word Headquarters", "Home Town", "Be A Maker Studio", "Sensory Play Areas", "Educational Workshops"],
-      insiderTip: "Open Wednesday through Monday, 9am-4:30pm. Closed Tuesdays. Admission is $15 for adults and children, with children under 1 free.",
-      bestFor: "Toddlers, preschoolers, imaginative play",
-      ageRange: "Ages 0-10",
-    },
-    {
-      name: "Milwaukee Public Museum",
-      neighborhood: "Downtown",
-      type: "Natural History Museum",
-      priceRange: "$$",
-      address: "800 W Wells St, Milwaukee, WI 53233",
-      description: "One of the nation's largest natural history museums, featuring life-sized dinosaur replicas, the beloved Streets of Old Milwaukee, and a state-of-the-art planetarium. Walk through recreated European villages, explore ancient cultures, and stand beneath towering T-Rex bones.",
-      highlights: ["T-Rex Encounter", "European Village (33 Cultures)", "Planetarium Shows", "Live Butterfly Vivarium", "Ancient Americas Exhibits"],
-      insiderTip: "The Digistar 6 planetarium projection system offers incredible 3D journeys through space. Book planetarium shows early on weekends.",
-      bestFor: "History buffs, dinosaur fans, world cultures exploration",
-      ageRange: "All ages",
-    },
-    {
-      name: "Milwaukee Art Museum",
-      neighborhood: "Lakefront",
-      type: "Art Museum",
-      priceRange: "$",
-      address: "700 N Art Museum Dr, Milwaukee, WI 53202",
-      description: "Beyond its stunning architecture, the Milwaukee Art Museum offers exceptional family programming. Monthly Play Date with Art sessions, weekly Story Time in the Galleries, and semi-annual Kohl's Family Sundays provide creative experiences for children of all ages.",
-      highlights: ["Burke Brise Soleil Wings", "Costumes for Dress-Up", "Picture Books in Galleries", "SketchPacks for Drawing", "Winter Break Fun (Dec 26-29)"],
-      insiderTip: "Kohl's Family Sundays feature hands-on stations, performances, and themed activities. Check the calendar for upcoming dates.",
-      bestFor: "Creative kids, art appreciation, rainy day activities",
-      ageRange: "All ages (kids 12 and under FREE)",
-    },
-  ],
-  outdoorActivities: [
-    {
-      name: "Milwaukee County Zoo",
-      neighborhood: "West Milwaukee",
-      type: "Zoo & Wildlife Park",
-      priceRange: "$$",
-      address: "10001 W Bluemound Rd, Milwaukee, WI 53226",
-      description: "Nearly 200 wooded acres of animal habitats, educational shows, and family attractions. From the popular giraffe feeding experience to the Safari Train and carousel, there's something to delight every age. The zoo playground features separate areas for different age groups.",
-      highlights: ["Giraffe Feeding Experience", "Kohl's Wild Theater Shows", "Safari Train", "Carousel", "Two-Section Playground"],
-      insiderTip: "Summer hours (May 23-Sept 7) are 9:30am-5pm daily. Other seasons have shorter weekday hours. Parking is $15 per car.",
-      bestFor: "Full-day family adventures, animal encounters, outdoor exploration",
-      ageRange: "All ages",
-    },
-    {
-      name: "Bradford Beach",
-      neighborhood: "East Side / Lakefront",
-      type: "Beach & Recreation",
-      priceRange: "Free",
-      address: "2400 N Lincoln Memorial Dr, Milwaukee, WI 53211",
-      description: "Named one of Travel Channel's top 11 city beaches, Bradford Beach underwent major improvements making it one of the most accessible beaches in America. Soft sand perfect for building, 35 sand volleyball courts, tiki huts for shade, and cabana rentals create a full beach experience.",
-      highlights: ["Accessible Beach Access", "35 Sand Volleyball Courts", "Tiki Hut Rentals", "Cabana Rentals", "Lifeguards on Duty (Summer)"],
-      insiderTip: "Arrive early on hot summer weekends to secure a good spot. Bring sand toys for younger kids who love to dig and build.",
-      bestFor: "Summer fun, beach lovers, active families",
-      ageRange: "All ages",
-    },
-    {
-      name: "Boerner Botanical Gardens & Margie's Garden",
-      neighborhood: "Hales Corners",
-      type: "Botanical Garden & Children's Garden",
-      priceRange: "$",
-      address: "9400 Boerner Dr, Hales Corners, WI 53130",
-      description: "Margie's Garden is a whimsical 3-acre children's garden within Boerner Botanical Gardens. Kids can explore an enchanted floral village with a playhouse, fiddlehead path, twig hut, mushroom-chair rings, sound garden, bug sculptures, and hidden cardinal quest.",
-      highlights: ["Enchanted Village Playhouse", "Cardinal Quest (Find 4 Hidden Cardinals)", "Sound Garden", "Bug Garden with Sculptures", "Amphitheater Performances"],
-      insiderTip: "Margie's Garden opens May 1st for the season. Pack a picnic and plan 2-3 hours for unstructured play and exploration.",
-      bestFor: "Nature lovers, imaginative play, garden exploration",
-      ageRange: "Ages 2-12",
-    },
-    {
-      name: "Lakeshore State Park",
-      neighborhood: "Downtown / Lakefront",
-      type: "Urban State Park",
-      priceRange: "Free",
-      address: "500 N Harbor Dr, Milwaukee, WI 53202",
-      description: "Wisconsin's only urban state park offers 22 acres of restored prairies, a 1.7-mile waterfront trail, and some of the best Lake Michigan and skyline views in the city. The paved, stroller-friendly paths connect to the Hank Aaron and Oak Leaf trails for extended adventures.",
-      highlights: ["1.7-Mile Waterfront Trail", "Restored Prairie Landscapes", "Skyline Views", "Wildlife Viewing", "Connects to Oak Leaf Trail"],
-      insiderTip: "Perfect for a morning walk or bike ride. The park conducts over 100 educational programs annually in partnership with local schools.",
-      bestFor: "Urban nature walks, stroller outings, skyline photography",
-      ageRange: "All ages",
-    },
-    {
-      name: "Northwestern Mutual Community Park",
-      neighborhood: "Third Ward / Summerfest Grounds",
-      type: "Inclusive Playground",
-      priceRange: "Free",
-      address: "200 N Harbor Dr, Milwaukee, WI 53202",
-      description: "One of Wisconsin's most accessible playgrounds, this 54,000-square-foot community park features inclusive play equipment for children ages 2-12. The Giggle Grounds toddler area, sensory rooms, nursing stations, and wheelchair-accessible ramps ensure every child can play.",
-      highlights: ["Inclusive Play Equipment", "Giggle Grounds (Ages 6 months-2 years)", "Sensory Rooms", "Nursing Stations", "Musical Play Pieces"],
-      insiderTip: "FREE Sunday Family Fun Days on June 7, July 19, August 9, and September 13, 2026 from 10am-2pm. Opens March 7 for the season.",
-      bestFor: "Toddlers, inclusive play, accessible recreation",
-      ageRange: "Ages 6 months-12 years",
-    },
-  ],
-  indoorFun: [
-    {
-      name: "Sky Zone Trampoline Park",
-      neighborhood: "Waukesha / Brown Deer",
-      type: "Trampoline Park",
-      priceRange: "$$",
-      address: "W229N1420 Westwood Dr, Waukesha, WI 53186",
-      description: "Bounce, flip, and play at Sky Zone's indoor trampoline parks featuring wall-to-wall trampolines, foam pits, SkySlam basketball, and Ultimate Dodgeball. The Little Leapers program (Saturdays 9-10am) provides a dedicated time for ages 7 and under.",
-      highlights: ["Wall-to-Wall Trampolines", "SkySlam Basketball", "Foam Zone", "Ultimate Dodgeball", "Little Leapers (Ages 7 & Under)"],
-      insiderTip: "Tuesday special: 90 minutes of jump time for $12. Family jump packages include 4 passes, pizza, and unlimited drinks.",
-      bestFor: "Active kids, energy burning, birthday parties",
-      ageRange: "All ages (Little Leapers: 7 and under)",
-    },
-    {
-      name: "JB's on 41",
-      neighborhood: "Milwaukee",
-      type: "Bowling & Arcade",
-      priceRange: "$$",
-      address: "3049 S 92nd St, Milwaukee, WI 53227",
-      description: "Milwaukee's premier family entertainment destination features 35 top-quality bowling lanes, an arcade packed with modern and classic video games, and HyperBowling (high-tech interactive bowling). Great for family outings, birthday parties, and rainy day adventures.",
-      highlights: ["35 Bowling Lanes", "HyperBowling", "Modern & Classic Arcade Games", "Full-Service Restaurant", "Party Packages"],
-      insiderTip: "Check for family bowling specials and cosmic bowling nights with blacklights and music. Reserve lanes in advance on weekends.",
-      bestFor: "Family bowling nights, arcade lovers, all-weather fun",
-      ageRange: "All ages",
-    },
-    {
-      name: "Pettit National Ice Center",
-      neighborhood: "State Fair Park Area",
-      type: "Ice Skating Facility",
-      priceRange: "$",
-      address: "500 S 84th St, Milwaukee, WI 53214",
-      description: "Home to Olympic-level ice facilities, the Pettit Center offers year-round public skating on international-size rinks and a 400-meter speed skating oval. Skate where Olympic athletes train in this world-class facility that welcomes families of all skill levels.",
-      highlights: ["400-Meter Olympic Oval", "Two International Rinks", "Year-Round Skating", "Skate Rentals Available", "Learn to Skate Programs"],
-      insiderTip: "Youth admission (ages 4-12) is $7.50, with skate rentals for $5. Children 3 and under are free. Great for birthday parties!",
-      bestFor: "Ice skating enthusiasts, Olympic experience, year-round activity",
-      ageRange: "Ages 4+ (ages 3 and under free)",
-    },
-    {
-      name: "WhirlyBall Brookfield",
-      neighborhood: "Brookfield",
-      type: "Multi-Activity Center",
-      priceRange: "$$",
-      address: "3419 N 124th St, Brookfield, WI 53005",
-      description: "A 45,000-square-foot entertainment center combining WhirlyBall (bumper cars meets lacrosse), laser tag, bowling, and pop-up games like ping pong and Giant Jenga. The multi-level laser tag arena and multiple event spaces make it perfect for groups.",
-      highlights: ["WhirlyBall Courts", "Multi-Level Laser Tag", "12 Bowling Lanes", "Pop-Up Games", "Three Outdoor Patios"],
-      insiderTip: "WhirlyBall is best for kids 10+ due to the bumper car driving. Younger kids will love the laser tag and bowling options.",
-      bestFor: "Older kids, group outings, unique activities",
-      ageRange: "Ages 5+ (WhirlyBall: 10+)",
-    },
-    {
-      name: "Air City 360",
-      neighborhood: "New Berlin",
-      type: "Indoor Adventure Park",
-      priceRange: "$$",
-      address: "3015 S 163rd St, New Berlin, WI 53151",
-      description: "An action-packed indoor adventure park featuring ninja courses, laser tag, mini bowling, a multi-level playground, arcade games, and a cafe. With activities spanning all energy levels and ages, it's perfect for burning off steam on rainy days.",
-      highlights: ["Ninja Obstacle Courses", "Laser Tag Arena", "Mini Bowling", "Multi-Level Playground", "Arcade & Cafe"],
-      insiderTip: "Book party packages in advance for the best value. The ninja courses are challenging and fun for competitive kids.",
-      bestFor: "Active kids, rainy day adventures, birthday parties",
-      ageRange: "Ages 3-14",
-    },
-  ],
-  seasonalEvents: [
-    {
-      name: "Milwaukee Holiday Lights Festival",
-      neighborhood: "Downtown",
-      type: "Holiday Event",
-      priceRange: "Free",
-      address: "Downtown Milwaukee (Cathedral Square to Pere Marquette Park)",
-      description: "From November 19 through January 1, downtown Milwaukee sparkles with over 500,000 brilliant lights, dazzling decorations, glittering chandeliers, and larger-than-life ornaments. Free shows, Santa photo opportunities, and festive displays create holiday magic for families.",
-      highlights: ["500,000+ Holiday Lights", "Santa Photos", "Horse-Drawn Carriage Rides", "Holiday Shows", "Jingle Bus Tours"],
-      insiderTip: "The lights are on nightly from dusk. Visit on a weeknight for smaller crowds and easier parking. Cathedral Square has the best displays.",
-      bestFor: "Holiday traditions, evening outings, festive atmosphere",
-      ageRange: "All ages",
-    },
-    {
-      name: "Summerfest Children's Fest",
-      neighborhood: "Summerfest Grounds",
-      type: "Music Festival",
-      priceRange: "Free",
-      address: "200 N Harbor Dr, Milwaukee, WI 53202",
-      description: "On June 20, 2026, Children's Fest offers free admission from noon to 3pm at the world's largest music festival. Splash pads, playgrounds, and special kids' activities create a family-friendly experience at the legendary lakefront festival grounds.",
-      highlights: ["Free Admission (Noon-3pm)", "Splash Pads", "Playground Activities", "Live Kids Entertainment", "Special Activities"],
-      insiderTip: "Arrive right at noon to maximize your free time. Bring swimsuits for the splash pads and sunscreen for outdoor activities.",
-      bestFor: "Festival introduction, summer fun, free family activities",
-      ageRange: "All ages",
-    },
-    {
-      name: "Milwaukee County Zoo Winter Events",
-      neighborhood: "West Milwaukee",
-      type: "Seasonal Zoo Events",
-      priceRange: "$$",
-      address: "10001 W Bluemound Rd, Milwaukee, WI 53226",
-      description: "The zoo transforms for special seasonal events including winter wonderland experiences and holiday celebrations. Reduced crowds and unique seasonal programming make winter visits magical for families seeking something different.",
-      highlights: ["Holiday Decorations", "Seasonal Animal Programs", "Reduced Crowds", "Indoor Exhibits", "Special Programming"],
-      insiderTip: "Free Family Days in winter (January 3, February 7) offer admission-free visits. Many animals are active in cooler weather.",
-      bestFor: "Off-season visits, holiday activities, budget-friendly outings",
-      ageRange: "All ages",
-    },
-    {
-      name: "American Family Field Tours & Brewers Games",
-      neighborhood: "Miller Park Way",
-      type: "Stadium Experience",
-      priceRange: "$$",
-      address: "1 Brewers Way, Milwaukee, WI 53214",
-      description: "Take a behind-the-scenes tour of the Brewers' home stadium or catch a family-friendly baseball game. Tours include the dugout, luxury suites, press box, and Bob Uecker's broadcast booth. The retractable roof means games happen rain or shine.",
-      highlights: ["75-90 Minute Stadium Tours", "Dugout Access", "Press Box Visit", "Bernie Brewer's Slide", "Family-Friendly Atmosphere"],
-      insiderTip: "Walk-up tours at 10:15am, 11:15am, 12:15pm, and 1:15pm during the season. Free parking for tours. ADA and stroller accessible.",
-      bestFor: "Sports fans, baseball families, unique Milwaukee experience",
-      ageRange: "All ages",
-    },
-  ],
+const SITE = "https://www.discover-milwaukee.com";
+const PATH = "/things-to-do-with-kids-milwaukee";
+
+// ---------------------------------------------------------------------------
+// DATA. Every hour, price, date and address below was read on the venue's own
+// website in November 2026 and confirmed by a second, independent check.
+// A field is left out when the venue does not publish it. Do not fill gaps
+// from memory: re-check the official site (the `website` on each listing).
+// ---------------------------------------------------------------------------
+const META = {
+  title: "Things to Do with Kids in Milwaukee: Winter 2026-27 Family Guide",
+  headline: "Things to Do with Kids in Milwaukee: Winter 2026-27 Family Guide",
+  ogTitle: "Things to Do with Kids in Milwaukee: Winter 2026-27",
+  description: "23 things to do with kids in Milwaukee this winter: museums, indoor play, sledding, snow tubing and holiday lights, with verified hours, prices and free days.",
+  h1: "Things to Do with Kids in Milwaukee This Winter",
+  kicker: "Winter 2026-27 · Verified November 2026",
+  deck: "Museums, indoor play, sledding, snow tubing and holiday lights, with hours, prices and free days checked against each venue.",
+  crumb: "Things to Do with Kids",
+  datePublished: "2026-05-01",
+  dateModified: "2026-11-05",
+  verifiedLabel: "November 5, 2026",
+  keyFacts: [["Top picks", "The Milwaukee County Zoo, Discovery World (science museum and aquarium on the lakefront), the Milwaukee Public Museum (dinosaurs and Streets of Old Milwaukee, open at 800 W. Wells St. through January 3, 2027), and the Betty Brinn Children's Museum for younger kids"], ["Covers", "23 winter picks, plus 4 summer spots to save for later"], ["Always free for kids", "The Milwaukee Art Museum is free for kids 12 and under"], ["Free outdoors", "Lakeshore State Park, where hiking and snowshoeing are allowed and the east trail is plowed. When there is snow, Milwaukee County Parks also lists 12 sled hills, with no fee listed"], ["Free days", "Zoo: November 7 and December 5, plus December 26–30. Betty Brinn: third Thursday of every month. Public Museum: December 3"], ["Rainy or snowy day", "Sky Zone, JB's on 41, and the Pettit National Ice Center"]],
+  intro: ["Winter in Milwaukee is long, and kids still need somewhere to go. This guide covers 23 places that work from November through February: warm museums, places to burn off energy, parks and hills for snowy days, and the holiday lights that make the early dark worth it.", "Every hour, price and date here was checked against official sources in November 2026. One to plan around: the Milwaukee Public Museum closes its Wells Street building for good after January 3, 2027."],
+  dealsTitle: "Free Days and Family Deals",
+  dealsBlurb: "Ways to do this list for less.",
+  moreBlurb: "Keep planning your family's winter in Milwaukee.",
+  more: [["/rainy-day-milwaukee", "Indoor & Rainy Day Guide"], ["/winter-guide-milwaukee", "Winter Guide"], ["/christmas-milwaukee", "Christmas in Milwaukee"], ["/milwaukee-county-zoo", "Milwaukee County Zoo"], ["/milwaukee-public-museum", "Public Museum's Final Season"], ["/ice-skating-milwaukee", "Ice Skating"], ["/this-weekend-milwaukee", "This Weekend"]],
 };
+
+const SECTIONS = [
+  {
+    id: "indoor",
+    title: "Indoor Favorites",
+    blurb: "Museums, a conservatory and a free library room that work on the coldest day of the year.",
+    items: [
+        {
+        name: "Milwaukee Public Museum",
+        area: "Downtown",
+        kind: "Natural History Museum",
+        ages: "All ages",
+        price: "$19–$25",
+        status: "Last day at 800 W. Wells St.: Sunday, January 3, 2027.",
+        description: "A beloved institution featuring the dramatic T-Rex encounter, the immersive Streets of Old Milwaukee, an indoor butterfly vivarium and a planetarium. This is its last winter on Wells Street: the museum's final day at 800 W. Wells St. is Sunday, January 3, 2027, before it moves to its new home, the Nature & Culture Museum of Wisconsin. An opening date for the new museum has not been set.",
+        hours: "Wednesday–Monday 10 a.m.–5 p.m.; closed Tuesdays, Thanksgiving Day and Christmas Day; Christmas Eve until 3 p.m.",
+        admission: "Adults $25; teens 14–17 $24; seniors 65+ $21; youth 4–13 $19; military and college $21; ages 3 and under free. Includes one Planetarium program. Milwaukee County residents get $2 off.",
+        deals: "The final Kohl's Thank You Thursday free day is Dec. 3, 2026, 10 a.m.–5 p.m., with free access to the permanent exhibits. Reservations open seven days ahead and walk-up tickets are not guaranteed.",
+        highlights: "Third Planet Dinosaur Exhibits, Butterfly Vivarium, Streets of Old Milwaukee, Daniel M. Soref Planetarium, Planetarium Palooza (through January 3, 2027)",
+        tip: "Through January 3, 2027, Planetarium Palooza rotates the 20 greatest shows from the past 20 years, and one Planetarium program is included with admission.",
+        bestFor: "Dinosaur enthusiasts, history lovers, science explorers",
+        address: "800 W. Wells St., Milwaukee, WI 53233",
+        website: "https://www.mpm.edu/",
+      },
+    {
+        name: "Discovery World",
+        area: "Lakefront",
+        kind: "Science Museum & Aquarium",
+        ages: "All ages",
+        price: "$21–$25",
+        description: "Perched on the shores of Lake Michigan, Discovery World combines a science and technology museum with the Reiman Aquarium. Kids can explore the aquarium, build in the Kohl's Design It! Lab, and learn about the Great Lakes through hands-on exhibits. The stingray and sturgeon Touch Tank was under maintenance in early November 2026.",
+        hours: "Wednesday–Sunday 9 a.m.–4 p.m.; closed most Mondays and Tuesdays, plus Nov. 26 and Dec. 24–25. Also open Dec. 21–22, Dec. 28–29 and Jan. 18, 2027.",
+        admission: "Adults $25; children 3–17 $21; seniors 60+ $21; military and college students with ID $19; ages 2 and under free. Winter break (Dec. 19–Jan. 3): adults $27; children and seniors $23; military and college $21. Prices can be higher on busy days, and there is a discount for buying online.",
+        deals: "$7 Access Admission per person, up to five people, for Wisconsin residents in qualifying programs, in person only.",
+        highlights: "Reiman Aquarium, Lake Michigan Tank, Caribbean Tank, Kohl's Design It! Lab, Great Lakes Exhibits",
+        tip: "The Touch Tank, where kids can pet stingrays and sturgeon, was under maintenance in early November 2026, so check that it has reopened before you go. All children must be with a chaperone age 16 or older. Underground garage parking runs $10 for one hour up to $22 for five or more.",
+        bestFor: "Curious minds, science enthusiasts, hands-on learners",
+        address: "500 N. Harbor Dr., Milwaukee, WI 53202",
+        website: "https://www.discoveryworld.org/",
+      },
+    {
+        name: "Betty Brinn Children's Museum",
+        area: "Lakefront",
+        kind: "Children's Museum",
+        ages: "Young children (under 1 free)",
+        price: "$14–$15",
+        description: "Hands-on play for babies, toddlers and young children. Kids can run a kid-sized post office and grocery store in Home Town, build in the Be A Maker Space, and solve puzzles in the Northwoods exhibit. The museum is in Museum Center Park, on the second level of the Miller Pavilion.",
+        hours: "Wednesday–Monday 9 a.m.–4:30 p.m.; closed Tuesdays, Thanksgiving, Christmas Eve, Christmas Day and New Year's Day.",
+        admission: "Adults and children $14 online, $15 at the museum; seniors 60+ $13 online, $14 at the museum; under 1 free. Prices can be higher during busy periods such as winter break.",
+        deals: "Free for everyone on the third Thursday of every month, 9 a.m.–7 p.m. (Nov. 19 and Dec. 17, 2026; last entry 6:30 p.m.; no groups of 10 or more). Museums for All: $5 per person, up to four. Free for active military.",
+        highlights: "Home Town, Be A Maker Space, Northwoods, Pocket Park for ages 4 and under",
+        tip: "Parking is validated only in the Museum Center Park garage below the building.",
+        bestFor: "Toddlers, preschoolers, early learners",
+        address: "929 E. Wisconsin Ave., Milwaukee, WI 53202",
+        website: "https://bbcmkids.org/",
+      },
+    {
+        name: "Milwaukee Art Museum",
+        area: "Lakefront",
+        kind: "Art Museum",
+        ages: "All ages (kids 12 and under free)",
+        price: "Kids free",
+        description: "The iconic Quadracci Pavilion with its moveable Burke Brise Soleil wings is a Milwaukee landmark. Thanks to an anonymous donor, kids 12 and under always receive free admission. Play Date with Art for ages 5 and under and Story Time in the Galleries every Saturday at 10:30 a.m. are included with admission.",
+        hours: "Wednesday 10 a.m.–5 p.m.; Thursday 10 a.m.–8 p.m.; Friday–Sunday 10 a.m.–5 p.m.; closed Monday and Tuesday. Closed Thanksgiving Day, Christmas Day and New Year's Day; Christmas Eve until 3 p.m.",
+        admission: "Adults $27; students, seniors 65+ and military $20; kids 12 and under free.",
+        deals: "Pay-what-you-wish Thursdays 4–8 p.m. (not Thanksgiving, when the museum is closed, or Christmas Eve, when it closes at 3 p.m.). Bank of America cardholders free on the first full weekend of each month.",
+        highlights: "Story Time in the Galleries (Saturdays 10:30 a.m.), Art Studio (Saturday–Sunday 10 a.m.–4 p.m.), Play Date with Art (Nov. 20 and Dec. 19, 2026; Jan. 2 and Jan. 22, 2027), Drop-in art making (weekends, plus daily Dec. 26–31, 2026), ArtPacks for Kids",
+        tip: "Weather permitting, the wings open with the museum at 10am, close and reopen at noon, and close for the night at 10pm. Use the Kids Map to find the ArtPack station, where kids can borrow free activities.",
+        bestFor: "Art appreciation, architectural wonder, creative families",
+        address: "700 N. Art Museum Dr., Milwaukee, WI 53202",
+        website: "https://mam.org/",
+      },
+    {
+        name: "Mitchell Park Domes",
+        kind: "Conservatory",
+        price: "$6.50–$10",
+        description: "Three glass domes: the Desert Dome, the Tropical Dome and a Show Dome that changes floral shows five times a year. The Show Dome is closed Nov. 9–20, 2026 for installation of the Holiday Show, which runs Nov. 21, 2026–Jan. 3, 2027. The Desert and Tropical domes stay open at full admission during the changeover.",
+        hours: "Monday–Friday 9 a.m.–5 p.m. (last admission 4 p.m.); Saturday, Sunday and holidays 9 a.m.–4 p.m. (last admission 3 p.m.); Christmas Eve 9 a.m.–2 p.m.; closed Thanksgiving Day and Christmas Day.",
+        admission: "Adults $10 ($9 for Milwaukee County residents); seniors 60+ $10 ($6.50 residents); juniors 3–12 $6.50; students and military $6.50; ages 2 and under free.",
+        tip: "Tickets are sold at the door only, and parking is free. The 27th Street Viaduct is closed long-term; the Domes' site gives a detour via 35th Street.",
+        bestFor: "A warm walk through desert and tropical plants on a cold day",
+        address: "524 S. Layton Blvd., Milwaukee, WI 53215",
+        website: "https://milwaukeedomes.org/",
+      },
+    {
+        name: "Central Library: Betty Brinn Children's Room",
+        area: "Downtown",
+        kind: "Public Library",
+        price: "Free",
+        description: "A separate children's space entered from the center of Milwaukee Public Library's Central Library, with picture-book and special collections, a listening and learning area with a puppet stage, an activity center and computers. The library says its programs are free and open to everyone.",
+        hours: "Central Library: Monday–Tuesday 10 a.m.–7 p.m.; Wednesday–Friday 10 a.m.–6 p.m.; Saturday 9 a.m.–5 p.m.; Sunday 10 a.m.–5 p.m. All library locations are closed Nov. 26–27, 2026.",
+        admission: "Free.",
+        tip: "Story time days and times are posted in the library's events calendar.",
+        bestFor: "A free, warm stop downtown",
+        address: "814 W. Wisconsin Ave., Milwaukee, WI 53233",
+        website: "https://www.mpl.org/hours_locations/betty_brinn.php",
+      },
+    ],
+  },
+  {
+    id: "active",
+    title: "Burn Off Energy Indoors",
+    blurb: "Trampolines, ice, bowling, laser tag and a water park for kids who need to move.",
+    items: [
+        {
+        name: "Sky Zone Trampoline Park",
+        area: "Waukesha",
+        kind: "Trampoline Park",
+        ages: "All ages (Little Leapers: 7 and under)",
+        price: "From $31.99",
+        description: "Bounce, flip, and play at Sky Zone's indoor trampoline park featuring wall-to-wall trampolines, foam pits, SkySlam basketball, and Ultimate Dodgeball. The Little Leapers program, Sundays 9–10am at the Waukesha park, provides a dedicated time for ages 7 and under.",
+        hours: "Regular hours: Monday–Friday 4–8 p.m.; Saturday 10 a.m.–10 p.m.; Sunday 9 a.m.–8 p.m. Special hours posted so far: 10 a.m.–8 p.m. on Nov. 23, 24, 25, 27 and 30, 2026; closed Thanksgiving Day.",
+        admission: "90-minute pass $31.99; 120-minute pass $33.99. Sky Zone socks are required and cost $6.99.",
+        deals: "$12 Tuesday: a 90-minute walk-in jump for $12; socks not included.",
+        highlights: "Wall-to-Wall Trampolines, SkySlam Basketball, Foam Zone, Ultimate Dodgeball, Little Leapers (Ages 7 & Under)",
+        tip: "The Ninja Warrior Course was listed as closed when we checked.",
+        bestFor: "Active kids, energy burning, birthday parties",
+        address: "W229 N1420 Westwood Dr., Waukesha, WI 53186",
+        website: "https://www.skyzone.com/milwaukee/",
+      },
+    {
+        name: "Pettit National Ice Center",
+        area: "Milwaukee",
+        kind: "Indoor Ice Skating",
+        ages: "All ages (3 and under free)",
+        price: "$8–$10",
+        description: "Skate where Olympic athletes train in this world-class facility that welcomes families of all skill levels. Public skating sessions run on the 400-meter Olympic Oval, and skate rentals are available.",
+        hours: "Public skating sessions vary by day; check the Pettit's calendar. The last admission is sold 45 minutes before a session ends.",
+        admission: "Adults 18–61 $10; seniors 62+ $9; teens 13–17 $9; youth 4–12 $8; ages 3 and under free. Skate rental $5.",
+        highlights: "400-Meter Olympic Oval, Two International Rinks, Skate Rentals Available, Learn to Skate Programs",
+        tip: "Skate helpers are $5, subject to availability, for novice and beginner skaters only. Dress warmly.",
+        bestFor: "Ice skating enthusiasts, Olympic experience, birthday parties",
+        address: "500 S. 84th St., Milwaukee, WI 53214",
+        website: "https://thepettit.com/",
+      },
+    {
+        name: "JB's on 41",
+        area: "Milwaukee",
+        kind: "Bowling & Arcade",
+        price: "From $12.99",
+        description: "JB's on 41 has 35 bowling lanes, an arcade, billiards and a sports bar with a food and drink menu.",
+        hours: "Monday–Thursday 4–11 p.m.; Friday 4 p.m.–1 a.m.; Saturday 11 a.m.–1 a.m.; Sunday 11 a.m.–11 p.m. Special hours: Wednesday, Nov. 25, 11 a.m.–midnight; Friday, Nov. 27, 11 a.m.–1 a.m.",
+        admission: "Family Unlimited (Saturday–Sunday 11 a.m.–3 p.m.) $12.99 per person, unlimited bowling with shoes. Night Strike (Sunday from 6 p.m., Monday–Thursday from 7 p.m.) $17.99, unlimited bowling with shoes. After Party (Friday–Saturday from 8 p.m.) $23.99, unlimited bowling, shoe rental not included. All walk-in only.",
+        deals: "Half-price arcade play every Wednesday. Daily: buy two games, get the third 50% off, walk-in only.",
+        highlights: "35 Bowling Lanes, Modern & Classic Arcade Games, Billiards, Party Packages",
+        tip: "It opens at 4 p.m. on weekdays, so save it for after school or the weekend.",
+        bestFor: "Family bowling, arcade lovers, all-weather fun",
+        address: "4040 S. 27th St., Milwaukee, WI 53221",
+        website: "https://www.bowlero.com/location/jbs-41",
+      },
+    {
+        name: "WhirlyBall Brookfield",
+        area: "Brookfield",
+        kind: "Multi-Activity Center",
+        ages: "WhirlyBall: 54 inches and taller; LaserTag: ages 7+",
+        description: "An entertainment center combining WhirlyBall, LaserTag, bowling, HyperBowling and pop-up games, with The Pivot Room restaurant on site. Private event spaces make it a fit for groups.",
+        hours: "Monday–Thursday 2–10 p.m.; Friday noon–11 p.m.; Saturday 10 a.m.–11 p.m.; Sunday 10 a.m.–9 p.m.",
+        highlights: "WhirlyBall Courts, LaserTag, Bowling & HyperBowling, Pop-Up Games",
+        tip: "There is no age limit for WhirlyBall, but players must be at least 54 inches tall. LaserTag players must be at least 7 years old. Walk-ins are accepted, and reservations are strongly encouraged.",
+        bestFor: "Older kids, group outings, unique activities",
+        address: "185 S. Moorland Rd., Brookfield, WI 53005",
+        website: "https://www.whirlyball.com/brookfield",
+      },
+    {
+        name: "Air City 360",
+        area: "New Berlin",
+        kind: "Indoor Adventure Park",
+        description: "An indoor adventure park with an aerial ninja course, trampolines, rock walls, laser tag, extreme dodgeball, a toddler park and an arcade.",
+        hours: "Monday, Wednesday and Thursday 3–8 p.m.; Friday 11 a.m.–10 p.m.; Saturday 10 a.m.–10 p.m.; Sunday 11 a.m.–8 p.m.; closed Tuesdays.",
+        highlights: "Ninja Obstacle Courses, Trampolines & Extreme Dodgeball, Laser Tag Arena, Rock Walls, Toddler 180 Park, Arcade",
+        tip: "Only Air City 360 grip socks are allowed on the attractions, every participant needs a waiver, and outside food and drinks are not allowed.",
+        bestFor: "Active kids, rainy day adventures, birthday parties",
+        address: "5320 S. Moorland Rd., New Berlin, WI 53151",
+        website: "https://www.aircity360wi.com/",
+      },
+    {
+        name: "Springs Water Park at The Ingleside Hotel",
+        area: "Pewaukee",
+        kind: "Indoor Water Park",
+        ages: "Under 16 with an adult",
+        description: "An indoor water park about 18 miles from Milwaukee with tube and body slides, a lazy river, an activity pool, a zero-depth area for small children, a hot tub and an arcade with more than 50 games. A limited number of day passes for non-hotel guests are sold based on capacity and must be bought online before you arrive.",
+        hours: "Water park hours change by date; check the Rates & Hours calendar on the hotel's site.",
+        admission: "Day pass prices change by date. Cash is not accepted. Towel rental for day guests is $1.",
+        tip: "All children under 16 must be with an adult, one adult for every five children. Children under 6 are not allowed in the hot tub.",
+        bestFor: "Swimming and slides in the middle of winter",
+        address: "2810 Golf Rd., Pewaukee, WI 53072",
+        website: "https://www.theinglesidehotel.com/waterpark",
+      },
+    ],
+  },
+  {
+    id: "outdoors",
+    title: "Winter Outdoors",
+    blurb: "Parks, trails and a zoo that stay open through winter, plus tubing and sledding when there is snow.",
+    items: [
+        {
+        name: "Milwaukee County Zoo",
+        area: "Milwaukee",
+        kind: "Zoo & Wildlife",
+        ages: "All ages (playground areas for ages 2–5 and 6–12)",
+        description: "Spanning 190 acres, the Milwaukee County Zoo is home to more than 2,400 animals representing over 340 species. In winter the seasonal shows, the Giraffe Experience and the Goat Yard are closed, but the animal buildings stay open on shorter hours and the free Zoo Playground is open year-round.",
+        hours: "Through Feb. 28, 2027: weekdays 9:30 a.m.–2:30 p.m.; weekends 9:30 a.m.–4:30 p.m. March 1–May 28, 2027: daily 9:30 a.m.–4:30 p.m. Admissions close 45 minutes before closing. Closed Thanksgiving Day, Christmas Day and New Year's Day.",
+        admission: "Tickets are sold by date through the zoo's ticket store, with separate Milwaukee County resident and non-resident prices and a lower rate online. Parking is $15 per vehicle plus service fee and tax.",
+        deals: "Family Free Days on Nov. 7 and Dec. 5, 2026, and free daytime admission for everyone during Frosty Free Week, Dec. 26–30. Parking and attraction fees still apply, and 2027 free days are not yet posted.",
+        highlights: "Zoo Playground (free, open year-round), Animal buildings, Carousel (weather permitting in winter), VR Gorilla Trek Experience, Giraffe Experience (seasonal, closed in winter), Safari Train (closed in November 2026 for track maintenance)",
+        tip: "Animal buildings close 15 minutes before the zoo does. The front entry is under construction, with a temporary entrance just east of the main one.",
+        bestFor: "Animal lovers, family outings, educational experiences",
+        address: "10001 W. Bluemound Rd., Milwaukee, WI 53226",
+        website: "https://milwaukeezoo.org/",
+      },
+    {
+        name: "Lakeshore State Park",
+        area: "Downtown / Lakefront",
+        kind: "Urban State Park",
+        price: "Free",
+        description: "Wisconsin's only urban state park offers 22 acres of restored prairies, a 1.7-mile waterfront trail, and some of the best Lake Michigan and skyline views in the city. The paved, stroller-friendly paths connect to the Hank Aaron and Oak Leaf trails for extended adventures.",
+        hours: "Open 6 a.m.–10 p.m. year-round.",
+        admission: "Free; no vehicle admission sticker required.",
+        highlights: "1.7-Mile Waterfront Trail, Restored Prairie Landscapes, Wildlife Viewing, Connects to Oak Leaf Trail",
+        tip: "In winter, hiking and snowshoeing are allowed and only the east trail is plowed.",
+        bestFor: "Urban nature walks, stroller outings, skyline photography",
+        address: "500 N. Harbor Dr., Milwaukee, WI 53202",
+        website: "https://dnr.wisconsin.gov/topic/parks/lakeshore",
+      },
+    {
+        name: "Crystal Ridge Snow Tubing",
+        area: "Franklin",
+        kind: "Snow Tubing",
+        ages: "36 inches and taller",
+        price: "From $20",
+        description: "Snow tubing on 19 lanes served by a Magic Carpet conveyor, alongside skiing, snowboarding and lessons. No opening date for the 2026–27 season had been posted when we checked; winter tickets were on sale and an open house was listed for Nov. 14, 2026.",
+        hours: "Tubing: Monday–Thursday 4–8 p.m.; Friday 1–9 p.m.; Saturday and holidays 10 a.m.–9 p.m.; Sunday 10 a.m.–8 p.m. Holiday hours: Dec. 21–23 and Dec. 26–Jan. 2, 10 a.m.–9 p.m.; Dec. 24, 10 a.m.–2 p.m.; closed Dec. 25; Jan. 18 and Feb. 15, 2027, 10 a.m.–9 p.m.",
+        admission: "Weeknight tubing (Monday–Thursday 4–8 p.m.) $30 at the window, from $20 online. Two-hour weekend ticket (Friday–Sunday and holidays) $49 at the window, from $29 online. Glow Tubing (Saturday nights in January, 9:15–11 p.m., online only) from $45.",
+        tip: "Riders must be 36 inches or taller, everyone rides in their own tube, and a signed waiver is required. If a session sells out online, no walk-in tickets are sold.",
+        bestFor: "A winter-only outing close to the city",
+        address: "7011 S. Ballpark Dr., Franklin, WI 53132",
+        website: "https://crystalridge.com/",
+      },
+    {
+        name: "Milwaukee County Parks Sled Hills",
+        area: "Countywide",
+        kind: "Sledding",
+        description: "Milwaukee County Parks lists 12 sled hills, three of them lighted for night sledding: Currie Park, Humboldt Park and Whitnall Park. The list also includes Brown Deer, Greene, Hales Corners, Indigenous Peoples' Park, Kletzsch, LaFollette, McCarty, McGovern and Wilson Recreation.",
+        hours: "Daytime sledding when weather conditions permit. Currie, Humboldt and Whitnall are listed as lighted daily 4:30–8:30 p.m., in a county article last updated in June 2025.",
+        admission: "The county lists no fee.",
+        bestFor: "Outdoor fun whenever there is snow",
+        address: "Lighted hills: Currie Park, 3535 N. Mayfair Rd.; Humboldt Park, 3000 S. Howell Ave.; Whitnall Park, 5879 S. 92nd St.",
+        website: "https://mkecoparks.helpscoutdocs.com/article/259-are-there-any-sled-hills-in-the-parks",
+      },
+    {
+        name: "Schlitz Audubon Nature Center",
+        area: "Bayside",
+        kind: "Nature Center",
+        price: "$8–$12",
+        description: "A nature center with six miles of hiking trails, including accessible boardwalks, through prairie, ponds, forest, ravines and Lake Michigan shoreline.",
+        hours: "Daily 8:30 a.m.–5 p.m.; closed Thanksgiving, Christmas Eve, Christmas and New Year's Day.",
+        admission: "Adults and teens $12; seniors 65+ and military $10; children 3–12 $8; ages 2 and under free.",
+        bestFor: "Winter trail walks, with a building to warm up in",
+        address: "1111 E. Brown Deer Rd., Milwaukee, WI 53217",
+        website: "https://www.schlitzaudubon.org/",
+      },
+    {
+        name: "Urban Ecology Center",
+        area: "3 locations",
+        kind: "Nature Centers",
+        price: "Free",
+        description: "Three free nature centers in city parks. Kids can ride a nature-themed slide and borrow an activity backpack for guided nature fun. The center's family page mentions snowshoeing, sledding and building snow forts in winter.",
+        hours: "Tuesday–Thursday noon–6 p.m.; Friday noon–5 p.m.; Saturday 9 a.m.–3 p.m.; closed Sunday and Monday. The hours are the same at all three branches.",
+        admission: "Free.",
+        bestFor: "Free play, indoors and out",
+        address: "Riverside Park: 1500 E. Park Pl., Milwaukee, WI 53211. Washington Park: 1859 N. 40th St., Milwaukee, WI 53208. Menomonee Valley: 3700 W. Pierce St., Milwaukee, WI 53215",
+        website: "https://urbanecologycenter.org/",
+      },
+    {
+        name: "Wehr Nature Center",
+        area: "Franklin",
+        kind: "Nature Center",
+        price: "$5 parking",
+        description: "A nature center with trails open dawn to dusk year-round and a visitor center with natural history displays, wildlife viewing and a nature store. Snowshoes are rented during business hours when conditions allow, first come, first served.",
+        hours: "Trails: dawn to dusk, year-round. Visitor Center: daily 8:30 a.m.–4:30 p.m.; closed Thanksgiving, the Friday after, Christmas Eve, Christmas Day, the day after Christmas and New Year's Day.",
+        admission: "No general admission is listed. Parking is $5 per vehicle per day; $4 for veterans or people with disabilities.",
+        tip: "The parking lot is locked from 5 p.m. to 8 a.m., October through January.",
+        bestFor: "Snowshoeing and winter trails",
+        address: "9701 W. College Ave., Franklin, WI 53132",
+        website: "https://www.wehrnaturecenter.com/",
+      },
+    ],
+  },
+  {
+    id: "holidays",
+    title: "Holiday Lights & Shows",
+    blurb: "Free downtown lights, the zoo after dark, a West Allis tradition and theater made for kids.",
+    items: [
+        {
+        name: "Milwaukee Holiday Lights Festival",
+        area: "Downtown",
+        kind: "Holiday Lights",
+        price: "Free",
+        status: "November 19, 2026 through January 1, 2027.",
+        description: "Downtown Milwaukee lights up from November 19, 2026 through January 1, 2027, with displays in Cathedral Square Park, Zeidler Union Square, Pere Marquette Park and Red Arrow Park and along Wisconsin Avenue. The free Kickoff Extravaganza on Thursday, November 19 at Pere Marquette Park brings a dance party at 5:30pm, a show at 6:30pm and fireworks shortly before 7pm.",
+        admission: "Free. Jingle Bus: $8 per person, before tax and fees.",
+        deals: "Free Jingle Bus rides after the kickoff fireworks with a voucher reserved in advance at milwaukeeholidaylights.com.",
+        highlights: "Holiday Shows, Jingle Bus Tours, More than half a million lights",
+        tip: "The Jingle Bus is a 40-minute narrated tour that runs Fridays through Sundays, December 12–27, except Christmas Day, from 5 to 8:20pm, weather permitting. It leaves from the Warming House at the Milwaukee County Historical Society, 910 N. Dr. Martin Luther King Jr. Dr.",
+        bestFor: "Holiday traditions, evening outings, festive atmosphere",
+        address: "Kickoff: Pere Marquette Park, 900 N. Plankinton Ave., Milwaukee",
+        website: "https://www.milwaukeedowntown.com/signature-events/milwaukee-holiday-lights-festival/",
+      },
+    {
+        name: "Wild Lights at the Milwaukee County Zoo",
+        area: "Milwaukee",
+        kind: "Holiday Lights",
+        status: "Select nights, November 20 through December 31, 2026.",
+        description: "Wild Lights lights up the zoo on select nights from November 20 through December 31, 2026, from 5:30pm to 9pm; gates close at 8:15pm. November 22, December 6 and December 13 are drive-thru nights. Wild Lights is ticketed separately, including during Frosty Free Week.",
+        hours: "Select nights 5:30–9 p.m.; gates close at 8:15 p.m.",
+        bestFor: "Holiday activities, evening outings",
+        address: "10001 W. Bluemound Rd., Milwaukee, WI 53226",
+        website: "https://milwaukeezoo.org/visit/upcoming-events/",
+      },
+    {
+        name: "Candy Cane Lane",
+        area: "West Allis",
+        kind: "Neighborhood Light Display",
+        status: "November 27 through December 25, 2026.",
+        description: "A neighborhood holiday light display that raises money for the MACC Fund. No admission charge is listed; donations are collected on 95th Street between Oklahoma and Manitoba, and credit cards are accepted on site.",
+        hours: "Monday–Thursday 6–9 p.m.; Fridays 6–10 p.m.; Saturdays 5–10 p.m.; Sundays 5–9 p.m. Hours may change due to weather, traffic and other conditions.",
+        bestFor: "A drive-or-walk holiday lights outing",
+        address: "96th Street to 92nd Street, Montana Avenue to Oklahoma Avenue, West Allis",
+        website: "http://candycanelanewi.com/",
+      },
+    {
+        name: "First Stage",
+        area: "Downtown",
+        kind: "Children's Theater",
+        ages: "The Grinch: ages 5+; Winnie-the-Pooh: ages 3+",
+        description: "Professional theater for young audiences. Dr. Seuss's How the Grinch Stole Christmas! runs November 21–December 27, 2026, about 95 minutes with intermission. Winnie-the-Pooh: Forever Friends runs January 29–February 28, 2027, about 80 minutes.",
+        hours: "Performance times vary by date. Sensory Friendly Performances: The Grinch on Saturday, Dec. 5 at 11 a.m.; Winnie-the-Pooh on Saturday, Feb. 13, 2027 at 1 p.m.",
+        bestFor: "Indoor shows made for kids",
+        address: "Todd Wehr Theater at the Marcus Performing Arts Center, 929 N. Water St., Milwaukee, WI 53202",
+        website: "https://www.firststage.org/",
+      },
+    ],
+  },
+  {
+    id: "summer",
+    title: "When It Warms Up",
+    blurb: "Summer spots to save for later, with what we could confirm about each today.",
+    items: [
+        {
+        name: "Boerner Botanical Gardens & Margie's Garden",
+        area: "Hales Corners",
+        kind: "Botanical Garden & Children's Garden",
+        price: "$6.50–$10",
+        description: "Margie's Garden is the children's garden at Boerner Botanical Gardens. Boerner is on winter hours now, and its official pages do not say whether the outdoor gardens and Margie's Garden are open during them. The 2027 garden season opening date has not been posted.",
+        hours: "Winter hours: Monday–Friday 10 a.m.–4 p.m.; closed Saturday and Sunday. Holiday Gift Fair: Sunday, Dec. 6, 10 a.m.–2 p.m.",
+        admission: "Adults 18–59 $9 for Milwaukee County residents, $10 for non-residents; seniors 60+ $6.50 residents, $10 non-residents; juniors 3–12 $6.50; ages 2 and under free; students, military and persons with a disability $6.50.",
+        bestFor: "Nature lovers, garden exploration",
+        address: "9400 Boerner Dr., Hales Corners, WI 53130",
+        website: "https://boernerbotanicalgardens.org/",
+      },
+    {
+        name: "Northwestern Mutual Community Park",
+        area: "Summerfest Grounds",
+        kind: "Inclusive Playground",
+        price: "Free",
+        description: "A playground on the Summerfest grounds with inclusive play equipment, sensory rooms and nursing stations. It is free on non-event days.",
+        tip: "We could not confirm winter hours, so check summerfest.com before going.",
+        bestFor: "Toddlers, inclusive play, accessible recreation",
+        website: "https://www.summerfest.com/community-park/",
+      },
+    {
+        name: "American Family Field Tours",
+        kind: "Stadium Tours",
+        price: "$11–$16",
+        description: "Walk-up tours of the Brewers' ballpark have ended for the 2026 season, and 2027 tour information is not yet posted. Private group tours can be reserved year-round.",
+        admission: "Classic Ballpark Tour: adults $16; seniors 60+ $11; military $11; youth 3–12 $11; ages 2 and under free.",
+        highlights: "75-90 Minute Stadium Tours, Dugout Access, Press Box Visit",
+        tip: "Parking is free for tours, and tours are ADA and stroller accessible.",
+        bestFor: "Sports fans, baseball families",
+        website: "https://www.mlb.com/brewers/ballpark/tours",
+      },
+    {
+        name: "Summerfest Children's Fest",
+        area: "Summerfest Grounds",
+        kind: "Music Festival",
+        description: "Summerfest 2027 runs June 24–26, July 1–3 and July 8–10. In 2026, Shorewest Children's Fest Day offered free admission for everyone arriving between noon and 3pm. A 2027 Children's Fest date had not been announced when we checked.",
+        bestFor: "Festival introduction, summer fun",
+        website: "https://www.summerfest.com/",
+      },
+    ],
+  },
+];
+
+const DEALS = [
+  {
+    name: "Milwaukee Art Museum",
+    deal: "kids 12 and under are always free. Pay-what-you-wish Thursdays 4–8 p.m.",
+  },
+  {
+    name: "Betty Brinn Children's Museum",
+    deal: "free for everyone on the third Thursday of every month, 9 a.m.–7 p.m. (Nov. 19 and Dec. 17, 2026).",
+  },
+  {
+    name: "Milwaukee Public Museum",
+    deal: "final Kohl's Thank You Thursday free day on Dec. 3, 2026, 10 a.m.–5 p.m. Reserve tickets starting seven days ahead.",
+  },
+  {
+    name: "Milwaukee County Zoo",
+    deal: "Family Free Days Nov. 7 and Dec. 5, 2026, and free daytime admission during Frosty Free Week, Dec. 26–30. Parking and attraction fees still apply.",
+  },
+  {
+    name: "Milwaukee Holiday Lights Festival",
+    deal: "free, Nov. 19, 2026 through Jan. 1, 2027.",
+  },
+  {
+    name: "Urban Ecology Center",
+    deal: "free admission at all three branches.",
+  },
+  {
+    name: "Central Library children's room",
+    deal: "free.",
+  },
+  {
+    name: "Lakeshore State Park",
+    deal: "free, with no vehicle admission sticker required.",
+  },
+  {
+    name: "Discovery World",
+    deal: "$7 Access Admission per person, up to five people, for Wisconsin residents in qualifying programs, in person only.",
+  },
+  {
+    name: "Sky Zone",
+    deal: "$12 Tuesday: a 90-minute walk-in jump for $12; socks not included.",
+  },
+  {
+    name: "JB's on 41",
+    deal: "Family Unlimited bowling with shoes for $12.99 per person, Saturdays and Sundays 11 a.m.–3 p.m., walk-in only.",
+  },
+];
 
 const faqs = [
   {
     question: "What are the best free things to do with kids in Milwaukee?",
-    answer: "Milwaukee offers many free family activities including the Milwaukee Art Museum (free for kids 12 and under), Lakeshore State Park trails, Bradford Beach, Northwestern Mutual Community Park playground, and free zoo days at Milwaukee County Zoo (January 3, February 7, March 7, October 3, November 7, December 5). The Holiday Lights Festival downtown is also free from November through January.",
+    answer: "Milwaukee offers many free family activities including the Milwaukee Art Museum (free for kids 12 and under), Lakeshore State Park trails, Betty Brinn Children's Museum on the third Thursday of each month, the Milwaukee Public Museum's Kohl's Thank You Thursday on December 3, 2026, and free days at the Milwaukee County Zoo (Family Free Days on November 7 and December 5, 2026, plus Frosty Free Week, December 26-30). The Holiday Lights Festival downtown is also free, from November 19, 2026 through January 1, 2027.",
   },
   {
     question: "What are the best rainy day activities for kids in Milwaukee?",
-    answer: "For rainy days, head to Discovery World for hands-on science and aquarium exhibits, Betty Brinn Children's Museum for younger kids, Milwaukee Public Museum for dinosaurs and history, or indoor play centers like Sky Zone, JB's on 41, and Air City 360. The Pettit National Ice Center offers year-round ice skating regardless of weather.",
+    answer: "For rainy or snowy days, head to Discovery World for hands-on science and aquarium exhibits, Betty Brinn Children's Museum for younger kids, the Milwaukee Public Museum for dinosaurs and history (through January 3, 2027, its last day on Wells Street), or indoor play centers like Sky Zone, JB's on 41, and Air City 360. The Pettit National Ice Center offers indoor public skating on its Olympic oval.",
+  },
+  {
+    question: "What can kids do outside in Milwaukee in winter?",
+    answer: "Lakeshore State Park is free and open 6am to 10pm year-round, with hiking and snowshoeing allowed and the east trail plowed. When there is snow, Milwaukee County Parks lists 12 sled hills, and Crystal Ridge in Franklin has 19 lanes of snow tubing. Wehr Nature Center rents snowshoes when conditions allow, Schlitz Audubon Nature Center has six miles of trails open daily, and the Milwaukee County Zoo keeps its animal buildings and free playground open on shorter winter hours.",
   },
   {
     question: "What are the best activities for toddlers in Milwaukee?",
-    answer: "Betty Brinn Children's Museum is specifically designed for ages 0-10. The Northwestern Mutual Community Park has Giggle Grounds for ages 6 months-2 years. The Milwaukee County Zoo playground has a dedicated section for ages 2-5. Margie's Garden at Boerner Botanical Gardens offers whimsical outdoor exploration perfect for toddlers.",
+    answer: "Betty Brinn Children's Museum has Pocket Park, a sensory play space for children ages 4 and under. The Milwaukee County Zoo playground has a dedicated section for ages 2-5. Sky Zone's Little Leapers session, Sundays from 9 to 10am, is for ages 7 and under, and the Milwaukee Art Museum's Play Date with Art is for ages 5 and under.",
   },
   {
-    question: "When is the best time to visit Milwaukee with kids?",
-    answer: "Summer (June-August) offers beaches, outdoor festivals, and extended zoo hours. However, Milwaukee's indoor attractions make it great year-round. Spring and fall have smaller crowds at major attractions. Winter brings the Holiday Lights Festival, free zoo days, and cozy museum visits.",
+    question: "Where can kids see holiday lights in Milwaukee?",
+    answer: "The Milwaukee Holiday Lights Festival is free downtown from November 19, 2026 through January 1, 2027. Wild Lights runs at the Milwaukee County Zoo on select nights from November 20 through December 31, 2026 and is ticketed separately. Candy Cane Lane in West Allis runs November 27 through December 25, 2026. The Mitchell Park Domes Holiday Show runs November 21, 2026 through January 3, 2027.",
   },
   {
     question: "What are the must-see Milwaukee attractions for first-time family visitors?",
-    answer: "First-time visitors should prioritize Milwaukee County Zoo, Discovery World, the Milwaukee Art Museum (iconic architecture, free for kids), and Bradford Beach in summer. For a unique Milwaukee experience, catch a Brewers game at American Family Field or take a stadium tour. The Milwaukee Public Museum's dinosaurs and Streets of Old Milwaukee are also must-sees.",
+    answer: "The best things to do with kids in Milwaukee are the Milwaukee County Zoo, Discovery World, and the Betty Brinn Children's Museum for younger kids. The Milwaukee Public Museum's dinosaurs and Streets of Old Milwaukee are also must-sees through January 3, 2027, the museum's last day at 800 W. Wells St. The Milwaukee Art Museum is free for kids 12 and under.",
   },
 ];
 
-const structuredData = {
-  article: {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "25 Best Things to Do with Kids in Milwaukee: A Complete Family Guide [2026]",
-    "description": "Discover Milwaukee's best family activities including the Milwaukee County Zoo, Discovery World, museums, beaches, and seasonal events. Your complete guide to kid-friendly attractions.",
-    "image": "https://www.discover-milwaukee.com/images/things-to-do-with-kids-milwaukee.jpg",
-    "author": { "@type": "Organization", "name": "Discover Milwaukee" },
-    "publisher": { "@type": "Organization", "name": "Discover Milwaukee", "logo": { "@type": "ImageObject", "url": "https://www.discover-milwaukee.com/logo.png" } },
-    "datePublished": "2026-05-01",
-    "dateModified": "2026-07-03",
-    "mainEntityOfPage": "https://www.discover-milwaukee.com/things-to-do-with-kids-milwaukee",
-  },
-  faqPage: {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
-    })),
-  },
-  breadcrumb: {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.discover-milwaukee.com" },
-      { "@type": "ListItem", "position": 2, "name": "Things to Do with Kids Milwaukee", "item": "https://www.discover-milwaukee.com/things-to-do-with-kids-milwaukee" },
-    ],
-  },
-};
+const slug = (s) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const ALL = SECTIONS.flatMap((s) => s.items);
 
 export default function ThingsToDoWithKidsMilwaukee() {
-  const ActivityCard = ({ activity }) => (
-    <div style={{
-      backgroundColor: c.cream,
-      borderRadius: "16px",
-      padding: "24px",
-      marginBottom: "20px",
-      border: `1px solid ${c.beige}`,
-    }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "12px" }}>
-        <h3 style={{ color: c.green1, fontSize: "22px", fontWeight: "800", margin: 0 }}>{activity.name}</h3>
+  const url = `${SITE}${PATH}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: META.headline,
+    description: META.description,
+    author: { "@type": "Organization", name: "Discover Milwaukee" },
+    publisher: { "@type": "Organization", name: "Discover Milwaukee", logo: { "@type": "ImageObject", url: `${SITE}/favicon.png` } },
+    datePublished: META.datePublished,
+    dateModified: META.dateModified,
+    mainEntityOfPage: url,
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+      { "@type": "ListItem", position: 2, name: "Explore", item: `${SITE}/explore` },
+      { "@type": "ListItem", position: 3, name: META.crumb, item: url },
+    ],
+  };
+  const listSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: META.headline,
+    numberOfItems: ALL.length,
+    itemListElement: ALL.map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "TouristAttraction",
+        name: a.name,
+        description: a.description,
+        ...(a.address ? { address: a.address } : {}),
+        ...(a.website ? { url: a.website } : {}),
+      },
+    })),
+  };
+
+  const label = { color: c.green1, fontWeight: 700 };
+  const body = { color: "#444" };
+
+  const Card = ({ a }) => (
+    <article id={slug(a.name)} style={{ backgroundColor: "#fff", borderRadius: "12px", padding: "24px", marginBottom: "20px", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", scrollMarginTop: "90px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "12px", marginBottom: "10px" }}>
+        <h3 style={{ fontSize: "1.4rem", color: c.green1, margin: 0, lineHeight: 1.25 }}>{a.name}</h3>
         <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-          {activity.priceRange && <span style={{ backgroundColor: c.orange, color: "#1a3d34", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{activity.priceRange}</span>}
-          <span style={{ backgroundColor: c.green2, color: "white", padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "600" }}>{activity.neighborhood}</span>
-          {activity.type && <span style={{ backgroundColor: c.yellow, color: c.green1, padding: "4px 12px", borderRadius: "20px", fontSize: "12px", fontWeight: "700" }}>{activity.type}</span>}
+          {a.area && <span style={{ backgroundColor: c.beige, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1 }}>{a.area}</span>}
+          {a.price && <span style={{ backgroundColor: c.orange, padding: "4px 12px", borderRadius: "20px", fontSize: "0.85rem", color: c.green1, fontWeight: 600 }}>{a.price}</span>}
         </div>
       </div>
-      <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, marginBottom: "16px" }}>{activity.description}</p>
-      {(activity.bestFor || activity.ageRange) && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
-          {activity.bestFor && (
-            <div style={{ backgroundColor: "rgba(244,162,97,0.1)", padding: "12px", borderRadius: "8px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.orangeDark, marginBottom: "4px" }}>BEST FOR</p>
-              <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{activity.bestFor}</p>
-            </div>
-          )}
-          {activity.ageRange && (
-            <div style={{ backgroundColor: "rgba(45,90,74,0.1)", padding: "12px", borderRadius: "8px" }}>
-              <p style={{ fontSize: "12px", fontWeight: "700", color: c.green2, marginBottom: "4px" }}>AGES</p>
-              <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{activity.ageRange}</p>
-            </div>
-          )}
+      <p style={{ fontSize: "0.95rem", color: c.green2, margin: "0 0 10px", fontStyle: "italic" }}>
+        {[a.kind, a.ages, a.duration].filter(Boolean).join(" | ")}
+      </p>
+      {a.status && (
+        <p style={{ backgroundColor: c.yellow, color: c.green1, fontWeight: 600, fontSize: "0.95rem", lineHeight: 1.5, padding: "10px 14px", borderRadius: "8px", margin: "0 0 14px" }}>{a.status}</p>
+      )}
+      <p style={{ ...body, lineHeight: 1.7, margin: "0 0 16px" }}>{a.description}</p>
+      {(a.hours || a.admission || a.deals) && (
+        <dl style={{ display: "grid", gridTemplateColumns: "minmax(88px, auto) 1fr", gap: "8px 14px", fontSize: "0.92rem", lineHeight: 1.55, margin: "0 0 16px" }}>
+          {a.hours && <><dt style={label}>Hours</dt><dd style={{ ...body, margin: 0 }}>{a.hours}</dd></>}
+          {a.admission && <><dt style={label}>Cost</dt><dd style={{ ...body, margin: 0 }}>{a.admission}</dd></>}
+          {a.deals && <><dt style={label}>Deals</dt><dd style={{ ...body, margin: 0 }}>{a.deals}</dd></>}
+        </dl>
+      )}
+      {(a.highlights || a.bestFor) && (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px", fontSize: "0.9rem", lineHeight: 1.55 }}>
+          {a.highlights && <div><strong style={label}>Highlights:</strong> <span style={body}>{a.highlights}</span></div>}
+          {a.bestFor && <div><strong style={label}>Best for:</strong> <span style={body}>{a.bestFor}</span></div>}
         </div>
       )}
-      {activity.highlights && (
-        <div style={{ backgroundColor: "rgba(244,208,63,0.15)", padding: "12px", borderRadius: "8px", marginTop: "12px" }}>
-          <p style={{ fontSize: "12px", fontWeight: "700", color: c.green1, marginBottom: "4px" }}>HIGHLIGHTS</p>
-          <p style={{ fontSize: "14px", color: c.green1, margin: 0 }}>{activity.highlights.join(", ")}</p>
+      {a.tip && (
+        <div style={{ marginTop: "12px", padding: "12px", backgroundColor: c.cream, borderRadius: "8px", borderLeft: `3px solid ${c.orangeDark}`, fontSize: "0.92rem", lineHeight: 1.55 }}>
+          <strong style={label}>Good to know:</strong> <span style={body}>{a.tip}</span>
         </div>
       )}
-      {activity.insiderTip && (
-        <div style={{ backgroundColor: c.yellow, padding: "12px", borderRadius: "8px", marginTop: "12px" }}>
-          <p style={{ fontSize: "13px", color: c.green1, margin: 0 }}><strong>Pro tip:</strong> {activity.insiderTip}</p>
-        </div>
-      )}
-      {activity.address && <p style={{ fontSize: "13px", color: "#6d6d6d", marginTop: "12px", marginBottom: 0 }}>{activity.address}</p>}
-    </div>
+      <p style={{ fontSize: "0.85rem", color: "#666", margin: "12px 0 0", lineHeight: 1.6 }}>
+        {a.address}
+        {a.address && a.website && <span aria-hidden="true"> · </span>}
+        {a.website && (
+          <a href={a.website} target="_blank" rel="noopener noreferrer" aria-label={`${a.name} website (opens in a new tab)`} style={{ color: c.green2, fontWeight: 600, textDecoration: "underline" }}>
+            Website <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </p>
+    </article>
   );
 
   return (
     <>
       <Head>
-        <title>25 Best Things to Do with Kids in Milwaukee: Family Activities Guide [2026]</title>
-        <meta name="description" content="Discover Milwaukee's best family activities including the Milwaukee County Zoo, Discovery World, museums, beaches, and more. Complete guide to things to do with kids in Milwaukee." />
-        <meta name="keywords" content="things to do with kids milwaukee, family activities milwaukee, milwaukee kids attractions, family fun milwaukee, milwaukee family activities, milwaukee children's activities, kid-friendly milwaukee, milwaukee with kids" />
-        <link rel="canonical" href="https://www.discover-milwaukee.com/things-to-do-with-kids-milwaukee" />
-
-        <meta property="og:title" content="25 Best Things to Do with Kids in Milwaukee [2026]" />
-        <meta property="og:description" content="From the Milwaukee County Zoo to Discovery World and seasonal festivals, find the best family activities in Milwaukee." />
-        <meta property="og:url" content="https://www.discover-milwaukee.com/things-to-do-with-kids-milwaukee" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://www.discover-milwaukee.com/images/things-to-do-with-kids-milwaukee.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://www.discover-milwaukee.com/images/things-to-do-with-kids-milwaukee.jpg" />
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.article) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.faqPage) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumb) }} />
+        <title>{META.title}</title>
+        <meta name="description" content={META.description} />
+        <link rel="canonical" href={url} />
+        <meta property="og:title" content={META.ogTitle} />
+        <meta property="og:description" content={META.description} />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }} />
       </Head>
 
       <Nav />
       <Breadcrumbs />
+
       <div style={{ backgroundColor: c.cream, minHeight: "100vh" }}>
         <main id="main-content" tabIndex={-1}>
-        <header style={{ background: `linear-gradient(135deg, ${c.green2} 0%, ${c.green1} 100%)`, padding: "60px 24px", textAlign: "center" }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: "700", letterSpacing: "3px", marginBottom: "12px" }}>FAMILY ACTIVITIES</p>
-            <h1 style={{ color: c.cream, fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "900", marginBottom: "16px", lineHeight: 1.2 }}>
-              25 Best Things to Do with Kids in Milwaukee
-            </h1>
-            <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "600px", margin: "0 auto" }}>
-              From the world-class zoo to hands-on museums and outdoor adventures, Milwaukee is a surprisingly fantastic city for families.
-            </p>
-          </div>
-        </header>
-
-        <div style={{ backgroundColor: "white", borderBottom: `1px solid ${c.beige}`, padding: "20px 24px" }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ fontSize: "14px", fontWeight: "700", color: c.green1, marginBottom: "12px" }}>EXPLORE BY TYPE</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <a href="#at-a-glance" style={{ color: c.green2, fontSize: "14px" }}>At a Glance</a>
-              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
-              <a href="#best-overall" style={{ color: c.green2, fontSize: "14px" }}>Best Overall</a>
-              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
-              <a href="#museums" style={{ color: c.green2, fontSize: "14px" }}>Museums</a>
-              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
-              <a href="#outdoor" style={{ color: c.green2, fontSize: "14px" }}>Outdoor Activities</a>
-              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
-              <a href="#indoor" style={{ color: c.green2, fontSize: "14px" }}>Indoor Fun</a>
-              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
-              <a href="#seasonal" style={{ color: c.green2, fontSize: "14px" }}>Seasonal Events</a>
-              <span aria-hidden="true" style={{ color: c.beige }}>|</span>
-              <a href="#faq" style={{ color: c.green2, fontSize: "14px" }}>FAQ</a>
+          <header style={{ background: `linear-gradient(135deg, ${c.green1} 0%, ${c.green2} 100%)`, padding: "56px 20px", textAlign: "center" }}>
+            <div style={{ maxWidth: "820px", margin: "0 auto" }}>
+              <p style={{ color: c.orangeLight, fontSize: "14px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", margin: "0 0 12px" }}>{META.kicker}</p>
+              <h1 style={{ color: c.cream, fontSize: "clamp(30px, 5vw, 46px)", fontWeight: 900, lineHeight: 1.2, margin: "0 0 16px" }}>{META.h1}</h1>
+              <p style={{ color: c.beige, fontSize: "18px", lineHeight: 1.6, maxWidth: "640px", margin: "0 auto" }}>{META.deck}</p>
             </div>
-          </div>
-        </div>
+          </header>
 
-        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "48px 24px" }}>
-          <NewsletterCTA />
+          <div style={{ maxWidth: "900px", margin: "0 auto", padding: "32px 20px 40px" }}>
+            <nav aria-label="On this page" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "16px 20px", marginBottom: "28px" }}>
+              <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", color: c.green1, margin: "0 0 10px" }}>On this page</p>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexWrap: "wrap", gap: "8px 18px", fontSize: "15px" }}>
+                {SECTIONS.map((s) => (
+                  <li key={s.id}><a href={`#${s.id}`} style={{ color: c.green2, fontWeight: 600, textDecoration: "underline" }}>{s.title}</a></li>
+                ))}
+                {DEALS.length > 0 && <li><a href="#deals" style={{ color: c.green2, fontWeight: 600, textDecoration: "underline" }}>{META.dealsTitle}</a></li>}
+                <li><a href="#faq" style={{ color: c.green2, fontWeight: 600, textDecoration: "underline" }}>FAQ</a></li>
+              </ul>
+            </nav>
 
-          {/* Key Facts — lead answer block */}
-          <section id="key-facts" style={{ marginBottom: "40px", scrollMarginTop: "80px" }}>
-            <p style={{ color: c.green1, fontSize: "18px", lineHeight: 1.7, fontWeight: "600", marginBottom: 0 }}>
-              The best things to do with kids in Milwaukee are the Milwaukee County Zoo, Discovery World (science museum and aquarium on the lakefront), the Milwaukee Public Museum (dinosaurs and Streets of Old Milwaukee), and the Betty Brinn Children's Museum for younger kids. The Milwaukee Art Museum is free for kids 12 and under. For free outdoor fun, head to Bradford Beach, Lakeshore State Park, or the Northwestern Mutual Community Park playground. Rainy-day picks include Sky Zone, JB's on 41, and the Pettit National Ice Center.
-            </p>
-          </section>
+            <section aria-labelledby="key-facts-heading" style={{ backgroundColor: "#fff", border: `1px solid ${c.beige}`, borderRadius: "12px", padding: "22px 24px", marginBottom: "28px" }}>
+              <h2 id="key-facts-heading" style={{ color: c.orangeDark, fontSize: "12px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", margin: "0 0 14px" }}>Key Facts</h2>
+              <dl style={{ display: "grid", gridTemplateColumns: "minmax(120px, auto) 1fr", gap: "10px 18px", fontSize: "15px", lineHeight: 1.55, margin: 0 }}>
+                {META.keyFacts.map(([k, v]) => (
+                  <div key={k} style={{ display: "contents" }}>
+                    <dt style={label}>{k}</dt>
+                    <dd style={{ ...body, margin: 0 }}>{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p style={{ fontSize: "12px", color: "#666", margin: "14px 0 0", lineHeight: 1.5 }}>
+                Verified <time dateTime={META.dateModified}>{META.verifiedLabel}</time> against official sources, in most cases the venue&apos;s own website. Hours and prices change, so check the venue&apos;s site before you go.
+              </p>
+            </section>
 
-          {/* At-a-Glance table — quick reference */}
-          <section id="at-a-glance" aria-labelledby="at-a-glance-heading" style={{ marginBottom: "48px", scrollMarginTop: "80px" }}>
-            <h2 id="at-a-glance-heading" style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>Milwaukee Family Attractions at a Glance</h2>
-            <div tabIndex={0} role="region" aria-label="Comparison table, scrolls sideways" style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
-                <thead>
-                  <tr style={{ backgroundColor: c.green1, color: c.cream, textAlign: "left" }}>
-                    <th style={{ padding: "10px 12px" }}>Attraction</th>
-                    <th style={{ padding: "10px 12px" }}>Neighborhood</th>
-                    <th style={{ padding: "10px 12px" }}>Type</th>
-                    <th style={{ padding: "10px 12px" }}>Price</th>
-                    <th style={{ padding: "10px 12px" }}>Ages</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.values(familyActivities).flat()
-                    .filter((a, i, arr) => arr.findIndex((x) => x.name === a.name) === i)
-                    .map((a, i) => (
-                      <tr key={a.name} style={{ borderBottom: `1px solid ${c.beige}`, backgroundColor: i % 2 ? "#fff" : c.cream }}>
-                        <td style={{ padding: "10px 12px", fontWeight: "700", color: c.green1 }}>{a.name}</td>
-                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.neighborhood}</td>
-                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.type}</td>
-                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.priceRange}</td>
-                        <td style={{ padding: "10px 12px", color: "#555" }}>{a.ageRange}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          <section id="best-overall" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Best Overall Family Attractions</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              The must-visit destinations every Milwaukee family should experience.
-            </p>
-            {familyActivities.bestOverall.map((activity, i) => <ActivityCard key={i} activity={activity} />)}
-          </section>
-
-          <section id="museums" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Museums & Learning Adventures</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Interactive exhibits and educational experiences for curious minds.
-            </p>
-            {familyActivities.museums.map((activity, i) => <ActivityCard key={i} activity={activity} />)}
-          </section>
-
-          <section id="outdoor" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Outdoor Activities & Parks</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Beaches, gardens, and nature adventures for active families.
-            </p>
-            {familyActivities.outdoorActivities.map((activity, i) => <ActivityCard key={i} activity={activity} />)}
-          </section>
-
-          <section id="indoor" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Indoor Fun & Entertainment</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Perfect for rainy days or year-round family fun.
-            </p>
-            {familyActivities.indoorFun.map((activity, i) => <ActivityCard key={i} activity={activity} />)}
-          </section>
-
-          <section id="seasonal" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "8px" }}>Seasonal Events & Festivals</h2>
-            <p style={{ color: "#666", fontSize: "16px", lineHeight: 1.7, marginBottom: "24px" }}>
-              Special experiences throughout the year.
-            </p>
-            {familyActivities.seasonalEvents.map((activity, i) => <ActivityCard key={i} activity={activity} />)}
-          </section>
-
-          <section style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "24px", fontWeight: "900", marginBottom: "16px" }}>More Milwaukee Guides</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
-              <Link href="/free-things-milwaukee" style={{ display: "block", backgroundColor: c.green1, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Free Activities →
-              </Link>
-              <Link href="/rainy-day-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Rainy Day Fun →
-              </Link>
-              <Link href="/ice-skating-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Ice Skating →
-              </Link>
-              <Link href="/christmas-milwaukee" style={{ display: "block", backgroundColor: c.green2, color: c.cream, padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Christmas Events →
-              </Link>
-              <Link href="/milwaukee-festivals" style={{ display: "block", backgroundColor: c.orange, color: "#1a3d34", padding: "16px", borderRadius: "10px", textDecoration: "none", fontWeight: "600", textAlign: "center" }}>
-                Festivals →
-              </Link>
-            </div>
-          </section>
-
-          <section id="faq" style={{ marginBottom: "48px" }}>
-            <h2 style={{ color: c.green1, fontSize: "28px", fontWeight: "900", marginBottom: "24px" }}>Frequently Asked Questions</h2>
-            {faqs.map((faq, i) => (
-              <div key={i} style={{ marginBottom: "20px", backgroundColor: "white", padding: "20px", borderRadius: "12px", border: `1px solid ${c.beige}` }}>
-                <h3 style={{ color: c.green1, fontSize: "17px", fontWeight: "700", marginBottom: "8px" }}>{faq.question}</h3>
-                <p style={{ color: "#555", fontSize: "15px", lineHeight: 1.7, margin: 0 }}>{faq.answer}</p>
-              </div>
+            {META.intro.map((p, i) => (
+              <p key={i} style={{ fontSize: "1.05rem", color: "#444", lineHeight: 1.8, margin: "0 0 16px" }}>{p}</p>
             ))}
-          </section>
 
-          <section style={{ backgroundColor: c.green1, padding: "32px", borderRadius: "16px", textAlign: "center" }}>
-            <h2 style={{ color: c.yellow, fontSize: "24px", fontWeight: "900", marginBottom: "12px" }}>Get Family Event Alerts</h2>
-            <p style={{ color: c.cream, fontSize: "16px", marginBottom: "20px" }}>Kid-friendly events, seasonal activities, and Milwaukee family fun.</p>
-            <Link href="/newsletter" style={{ display: "inline-block", backgroundColor: c.yellow, color: c.green1, padding: "14px 32px", borderRadius: "30px", fontWeight: "700", textDecoration: "none" }}>
-              Subscribe Free →
-            </Link>
-          </section>
-        </div>
+            <NewsletterCTA />
+
+            {SECTIONS.map((s) => (
+              <section key={s.id} id={s.id} aria-labelledby={`${s.id}-heading`} style={{ marginBottom: "44px", scrollMarginTop: "90px" }}>
+                <h2 id={`${s.id}-heading`} style={{ fontSize: "1.8rem", color: c.green1, margin: "0 0 8px", paddingBottom: "12px", borderBottom: `2px solid ${c.orange}` }}>{s.title}</h2>
+                <p style={{ color: "#555", lineHeight: 1.6, margin: "0 0 22px" }}>{s.blurb}</p>
+                {s.items.map((a) => <Card key={a.name} a={a} />)}
+              </section>
+            ))}
+
+            {DEALS.length > 0 && (
+              <section id="deals" aria-labelledby="deals-heading" style={{ marginBottom: "44px", scrollMarginTop: "90px" }}>
+                <h2 id="deals-heading" style={{ fontSize: "1.8rem", color: c.green1, margin: "0 0 8px", paddingBottom: "12px", borderBottom: `2px solid ${c.orange}` }}>{META.dealsTitle}</h2>
+                <p style={{ color: "#555", lineHeight: 1.6, margin: "0 0 18px" }}>{META.dealsBlurb}</p>
+                <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "10px" }}>
+                  {DEALS.map((d) => (
+                    <li key={d.name} style={{ backgroundColor: "#fff", borderRadius: "10px", padding: "14px 18px", borderLeft: `4px solid ${c.green1}`, lineHeight: 1.55 }}>
+                      <a href={`#${slug(d.name)}`} style={{ color: c.green1, fontWeight: 700, textDecoration: "underline" }}>{d.name}</a>
+                      <span style={body}>: {d.deal}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            <section id="faq" aria-labelledby="faq-heading" style={{ marginBottom: "44px", scrollMarginTop: "90px" }}>
+              <h2 id="faq-heading" style={{ fontSize: "1.6rem", color: c.green1, margin: "0 0 22px" }}>Frequently Asked Questions</h2>
+              {faqs.map((f) => (
+                <div key={f.question} style={{ marginBottom: "16px", padding: "20px", backgroundColor: "#fff", borderRadius: "8px" }}>
+                  <h3 style={{ color: c.green1, margin: "0 0 8px", fontSize: "1.1rem", lineHeight: 1.35 }}>{f.question}</h3>
+                  <p style={{ color: "#444", lineHeight: 1.7, margin: 0 }}>{f.answer}</p>
+                </div>
+              ))}
+            </section>
+
+            <section aria-labelledby="more-guides-heading" style={{ backgroundColor: c.green1, borderRadius: "12px", padding: "32px", textAlign: "center", marginBottom: "16px" }}>
+              <h2 id="more-guides-heading" style={{ color: "#fff", margin: "0 0 12px" }}>More Milwaukee Guides</h2>
+              <p style={{ color: c.beige, margin: "0 0 20px" }}>{META.moreBlurb}</p>
+              <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+                {META.more.map(([href, text]) => (
+                  <Link key={href} href={href} style={{ backgroundColor: c.orange, color: c.green1, padding: "12px 24px", borderRadius: "25px", textDecoration: "none", fontWeight: 600 }}>{text}</Link>
+                ))}
+              </div>
+            </section>
+          </div>
         </main>
 
         <RelatedGuides />
-      <Footer />
+        <Footer />
       </div>
     </>
   );
