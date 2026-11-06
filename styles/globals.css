@@ -72,6 +72,10 @@ html, body {
 
 /* A card's title rendered as a real button, so the card can be opened from the keyboard
    without losing its heading. Looks exactly like the plain heading text. */
+/* Same idea for cards whose title is a real link (events with their own page). */
+.card-title-link { color: inherit; text-decoration: none; }
+.card-title-link:hover { text-decoration: underline; }
+
 .card-title-btn {
   background: none;
   border: 0;
@@ -434,6 +438,65 @@ video, iframe {
   .r-padding { padding: var(--r-padding-m) !important; }
   .r-textAlign { text-align: var(--r-textAlign-m) !important; }
   .r-width { width: var(--r-width-m) !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Event pages and the weekend page (pages/events/[slug].js, this-weekend-milwaukee.js).
+   Brand palette; text colors chosen to meet 4.5:1. No JavaScript sizing.
+--------------------------------------------------------------------------- */
+.evp { min-height: 100vh; background: #F7F1E7; color: #20291F; font-family: 'Jost', 'Jost Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.evp a { color: #2C5235; }
+/* Links inside sentences are underlined so they do not rely on color alone. */
+.evp-note a, .evp-about a, .evp-more a, .evp-facts a, .evp-empty a { text-decoration: underline; }
+.evp-crumbs { background: #F7F1E7; border-bottom: 1px solid #EBDFC1; }
+.evp-crumbs > div { max-width: 1100px; margin: 0 auto; padding: 12px 16px; font-size: 13px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.evp-crumbs a { font-weight: 600; text-decoration: none; }
+.evp-crumbs span { color: #83693E; }
+.evp-hero { background: linear-gradient(135deg, #074D7B 0%, #2C5235 100%); padding: 56px 16px 48px; text-align: center; }
+.evp-kicker { color: #F1AF38; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 14px; }
+.evp-title { font-family: 'Anton', 'Anton Fallback', system-ui, -apple-system, sans-serif; font-weight: 400; color: #F7F1E7; font-size: clamp(32px, 6vw, 56px); line-height: 1.05; letter-spacing: 0.5px; text-transform: uppercase; max-width: 900px; margin: 0 auto 14px; }
+.evp-sub { color: #F7F1E7; font-size: clamp(16px, 2.2vw, 19px); line-height: 1.5; margin: 0 auto; max-width: 720px; }
+.evp-wrap { max-width: 860px; margin: 0 auto; padding: 32px 16px 56px; }
+.evp-card { background: #fff; border: 1px solid #EBDFC1; border-radius: 16px; padding: 24px; }
+.evp-card-h { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #AB5521; margin: 0 0 16px; }
+.evp-facts { display: grid; grid-template-columns: 84px 1fr; gap: 12px 16px; margin: 0 0 18px; font-size: 16px; line-height: 1.5; }
+.evp-facts dt { font-weight: 700; color: #2C5235; }
+.evp-facts dd { margin: 0; }
+.evp-facts a { font-weight: 600; }
+.evp-desc { font-size: 17px; line-height: 1.65; margin: 0 0 20px; }
+.evp-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.evp a.evp-btn { display: inline-block; background: #2C5235; color: #F7F1E7; padding: 13px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; border: 2px solid #2C5235; }
+.evp a.evp-btn.alt { background: transparent; color: #2C5235; }
+.evp-fine { font-size: 13px; line-height: 1.5; color: #6d6d6d; margin: 0; }
+.evp-note { background: #F0A623; color: #20291F; padding: 14px 18px; border-radius: 12px; font-weight: 600; line-height: 1.5; margin: 0 0 20px; }
+.evp-note a { color: #20291F; }
+.evp-h2 { font-family: 'Anton', 'Anton Fallback', system-ui, -apple-system, sans-serif; font-weight: 400; font-size: clamp(24px, 4vw, 34px); line-height: 1.1; letter-spacing: 0.4px; text-transform: uppercase; color: #2C5235; margin: 40px 0 16px; }
+.evp-day { scroll-margin-top: 90px; }
+.evp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.evp-item { background: #fff; border: 1px solid #EBDFC1; border-left: 4px solid #2C5235; border-radius: 12px; padding: 16px 18px; }
+.evp-item h3 { font-size: 18px; line-height: 1.3; font-weight: 700; margin: 0 0 6px; color: #2C5235; }
+.evp-item h3 a { text-decoration: none; }
+.evp-item h3 a:hover { text-decoration: underline; }
+.evp-meta { font-size: 14px; line-height: 1.6; color: #83693E; margin: 0; }
+.evp-item-desc { font-size: 15px; line-height: 1.55; margin: 8px 0 0; }
+.evp-chip { display: inline-block; font-size: 12px; font-weight: 700; line-height: 1.4; padding: 2px 9px; border-radius: 999px; background: #EBDFC1; color: #20291F; }
+.evp-chip-done { background: #20291F; color: #F7F1E7; margin-left: 4px; }
+.evp-empty { color: #6d6d6d; font-size: 15px; margin: 0; }
+.evp-more { margin: 16px 0 0; font-size: 15px; font-weight: 600; }
+.evp-jump { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 8px; }
+.evp-jump a { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #EBDFC1; border-radius: 999px; padding: 9px 16px; font-weight: 700; font-size: 14px; text-decoration: none; }
+.evp-count { background: #2C5235; color: #F7F1E7; border-radius: 999px; font-size: 12px; padding: 1px 8px; }
+.evp-guides { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.evp-guides a { display: block; background: #fff; border: 1px solid #EBDFC1; border-radius: 12px; padding: 14px 16px; text-decoration: none; }
+.evp-guide-t { display: block; font-weight: 700; font-size: 15px; color: #2C5235; }
+.evp-guide-d { display: block; font-size: 13px; color: #83693E; margin-top: 2px; }
+.evp-about { margin-top: 40px; }
+.evp-about p { font-size: 15px; line-height: 1.6; margin: 0 0 10px; }
+.evp-cta { margin-top: 40px; }
+@media (max-width: 480px) {
+  .evp-hero { padding: 40px 16px 36px; }
+  .evp-card { padding: 18px; }
+  .evp-facts { grid-template-columns: 64px 1fr; }
 }
 
 /* Selection styling */
